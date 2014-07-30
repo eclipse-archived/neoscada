@@ -32,26 +32,23 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.world.deployment.Author} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.deployment.Author} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class AuthorItemProvider extends ItemProviderAdapter implements
-IEditingDomainItemProvider, IStructuredItemContentProvider,
-ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-ITableItemLabelProvider
+        IEditingDomainItemProvider, IStructuredItemContentProvider,
+        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
+        ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public AuthorItemProvider ( final AdapterFactory adapterFactory )
+    public AuthorItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -60,34 +57,32 @@ ITableItemLabelProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addNamePropertyDescriptor ( object );
             addEmailPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( final Object object )
+    protected void addNamePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
-        ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Author_name_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Author_name_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -104,14 +99,13 @@ ITableItemLabelProvider
      * This adds a property descriptor for the Email feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addEmailPropertyDescriptor ( final Object object )
+    protected void addEmailPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
-        ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Author_email_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Author_email_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -140,7 +134,6 @@ ITableItemLabelProvider
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -162,21 +155,18 @@ ITableItemLabelProvider
         final String label = String.format ( "%s <%s>",
                 ( (Author)object ).getName (), ( (Author)object ).getEmail () );
         return label == null || label.length () == 0 ? getString ( "_UI_Author_type" ) : //$NON-NLS-1$
-            getString ( "_UI_Author_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        getString ( "_UI_Author_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -191,17 +181,15 @@ ITableItemLabelProvider
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors (
-            final Collection<Object> newChildDescriptors, final Object object )
+            Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -210,7 +198,6 @@ ITableItemLabelProvider
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

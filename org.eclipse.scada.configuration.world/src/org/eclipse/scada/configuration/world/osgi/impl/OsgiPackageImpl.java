@@ -730,6 +730,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EEnum replicationDataFormatEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum persistenceEEnum = null;
 
     /**
@@ -3902,6 +3909,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getAbstractEventStorageJdbc_ReplicationDataFormat ()
+    {
+        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getApplicationConfiguration ()
     {
@@ -4358,6 +4375,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EEnum getReplicationDataFormat ()
+    {
+        return replicationDataFormatEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getPersistence ()
     {
         return persistenceEEnum;
@@ -4807,6 +4834,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEAttribute ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__ARCHIVE_DAYS );
         createEAttribute ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS );
         createEReference ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__DATABASE );
+        createEAttribute ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT );
 
         applicationConfigurationEClass = createEClass ( APPLICATION_CONFIGURATION );
 
@@ -4865,6 +4893,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         roundingTypeEEnum = createEEnum ( ROUNDING_TYPE );
         dataTypeEEnum = createEEnum ( DATA_TYPE );
         passwordTypeEEnum = createEEnum ( PASSWORD_TYPE );
+        replicationDataFormatEEnum = createEEnum ( REPLICATION_DATA_FORMAT );
         persistenceEEnum = createEEnum ( PERSISTENCE );
         errorHandlingEEnum = createEEnum ( ERROR_HANDLING );
         changeTypeEEnum = createEEnum ( CHANGE_TYPE );
@@ -5373,6 +5402,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEAttribute ( getAbstractEventStorageJdbc_ArchiveDays (), ecorePackage.getEIntegerObject (), "archiveDays", null, 0, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getAbstractEventStorageJdbc_CleanupPeriodSeconds (), ecorePackage.getEIntegerObject (), "cleanupPeriodSeconds", null, 0, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getAbstractEventStorageJdbc_Database (), theWorldPackage.getDatabaseSettings (), null, "database", null, 1, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAbstractEventStorageJdbc_ReplicationDataFormat (), this.getReplicationDataFormat (), "replicationDataFormat", "JSON", 0, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( applicationConfigurationEClass, ApplicationConfiguration.class, "ApplicationConfiguration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -5463,6 +5493,12 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         addEEnumLiteral ( passwordTypeEEnum, PasswordType.PLAIN_IGNORE_CASE );
         addEEnumLiteral ( passwordTypeEEnum, PasswordType.MD5_HEX );
         addEEnumLiteral ( passwordTypeEEnum, PasswordType.SHA1_HEX );
+
+        initEEnum ( replicationDataFormatEEnum, ReplicationDataFormat.class, "ReplicationDataFormat" ); //$NON-NLS-1$
+        addEEnumLiteral ( replicationDataFormatEEnum, ReplicationDataFormat.BLOB );
+        addEEnumLiteral ( replicationDataFormatEEnum, ReplicationDataFormat.BYTES );
+        addEEnumLiteral ( replicationDataFormatEEnum, ReplicationDataFormat.JSON );
+        addEEnumLiteral ( replicationDataFormatEEnum, ReplicationDataFormat.ARRAY );
 
         initEEnum ( persistenceEEnum, Persistence.class, "Persistence" ); //$NON-NLS-1$
         addEEnumLiteral ( persistenceEEnum, Persistence.NONE );

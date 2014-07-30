@@ -19,6 +19,12 @@ import org.eclipse.scada.configuration.world.ServiceBinding;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Service Binding</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.world.ServiceBinding#getService() <em>Get Service</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class ServiceBindingTest extends TestCase
@@ -63,6 +69,20 @@ public abstract class ServiceBindingTest extends TestCase
     protected ServiceBinding getFixture ()
     {
         return fixture;
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.ServiceBinding#getService() <em>Get Service</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.ServiceBinding#getService()
+     * @generated
+     */
+    public void testGetService ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //ServiceBindingTest

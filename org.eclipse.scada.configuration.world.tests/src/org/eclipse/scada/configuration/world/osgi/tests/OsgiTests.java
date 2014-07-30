@@ -51,8 +51,6 @@ public class OsgiTests extends TestSuite
         suite.addTestSuite ( DefaultValueArchiveServerTest.class );
         suite.addTestSuite ( HistoricalDataExporterTest.class );
         suite.addTestSuite ( ConfigurationAdministratorExporterTest.class );
-        suite.addTestSuite ( EventStorageJdbcTest.class );
-        suite.addTestSuite ( EventStoragePostgresTest.class );
         suite.addTestSuite ( DefaultEquinoxApplicationTest.class );
         return suite;
     }

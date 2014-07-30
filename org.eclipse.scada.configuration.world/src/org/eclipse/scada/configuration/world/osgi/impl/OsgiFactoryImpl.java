@@ -254,6 +254,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createDataTypeFromString ( eDataType, initialValue );
             case OsgiPackage.PASSWORD_TYPE:
                 return createPasswordTypeFromString ( eDataType, initialValue );
+            case OsgiPackage.REPLICATION_DATA_FORMAT:
+                return createReplicationDataFormatFromString ( eDataType, initialValue );
             case OsgiPackage.PERSISTENCE:
                 return createPersistenceFromString ( eDataType, initialValue );
             case OsgiPackage.ERROR_HANDLING:
@@ -289,6 +291,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return convertDataTypeToString ( eDataType, instanceValue );
             case OsgiPackage.PASSWORD_TYPE:
                 return convertPasswordTypeToString ( eDataType, instanceValue );
+            case OsgiPackage.REPLICATION_DATA_FORMAT:
+                return convertReplicationDataFormatToString ( eDataType, instanceValue );
             case OsgiPackage.PERSISTENCE:
                 return convertPersistenceToString ( eDataType, instanceValue );
             case OsgiPackage.ERROR_HANDLING:
@@ -1283,6 +1287,29 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      */
     public String convertPasswordTypeToString ( EDataType eDataType,
             Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ReplicationDataFormat createReplicationDataFormatFromString ( EDataType eDataType, String initialValue )
+    {
+        ReplicationDataFormat result = ReplicationDataFormat.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertReplicationDataFormatToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }

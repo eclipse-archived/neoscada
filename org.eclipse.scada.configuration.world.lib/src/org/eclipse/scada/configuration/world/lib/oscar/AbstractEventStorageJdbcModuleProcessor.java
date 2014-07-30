@@ -44,7 +44,7 @@ public abstract class AbstractEventStorageJdbcModuleProcessor<T> extends BasicTy
         Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.schema", module.getSchema () );
         Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.instance", module.getInstanceName () );
         Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.enableReplication", module.isEnableReplication () );
-
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.replicationDataFormat", module.getReplicationDataFormat ().getLiteral () );
         Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.cleanupPeriodSeconds", module.getCleanupPeriodSeconds () );
         Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.archiveDays", module.getArchiveDays () );
     }

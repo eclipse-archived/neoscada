@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.scada.configuration.world.DatabaseSettings;
 import org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
+import org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +34,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl#getArchiveDays <em>Archive Days</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl#getCleanupPeriodSeconds <em>Cleanup Period Seconds</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl#getDatabase <em>Database</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl#getReplicationDataFormat <em>Replication Data Format</em>}</li>
  * </ul>
  * </p>
  *
@@ -150,6 +152,26 @@ public abstract class AbstractEventStorageJdbcImpl extends
      * @ordered
      */
     protected DatabaseSettings database;
+
+    /**
+     * The default value of the '{@link #getReplicationDataFormat() <em>Replication Data Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReplicationDataFormat()
+     * @generated
+     * @ordered
+     */
+    protected static final ReplicationDataFormat REPLICATION_DATA_FORMAT_EDEFAULT = ReplicationDataFormat.JSON;
+
+    /**
+     * The cached value of the '{@link #getReplicationDataFormat() <em>Replication Data Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReplicationDataFormat()
+     * @generated
+     * @ordered
+     */
+    protected ReplicationDataFormat replicationDataFormat = REPLICATION_DATA_FORMAT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -347,6 +369,29 @@ public abstract class AbstractEventStorageJdbcImpl extends
      * <!-- end-user-doc -->
      * @generated
      */
+    public ReplicationDataFormat getReplicationDataFormat ()
+    {
+        return replicationDataFormat;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setReplicationDataFormat ( ReplicationDataFormat newReplicationDataFormat )
+    {
+        ReplicationDataFormat oldReplicationDataFormat = replicationDataFormat;
+        replicationDataFormat = newReplicationDataFormat == null ? REPLICATION_DATA_FORMAT_EDEFAULT : newReplicationDataFormat;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT, oldReplicationDataFormat, replicationDataFormat ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -366,6 +411,8 @@ public abstract class AbstractEventStorageJdbcImpl extends
                 if ( resolve )
                     return getDatabase ();
                 return basicGetDatabase ();
+            case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT:
+                return getReplicationDataFormat ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -397,6 +444,9 @@ public abstract class AbstractEventStorageJdbcImpl extends
                 return;
             case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__DATABASE:
                 setDatabase ( (DatabaseSettings)newValue );
+                return;
+            case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT:
+                setReplicationDataFormat ( (ReplicationDataFormat)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -430,6 +480,9 @@ public abstract class AbstractEventStorageJdbcImpl extends
             case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__DATABASE:
                 setDatabase ( (DatabaseSettings)null );
                 return;
+            case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT:
+                setReplicationDataFormat ( REPLICATION_DATA_FORMAT_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -456,6 +509,8 @@ public abstract class AbstractEventStorageJdbcImpl extends
                 return CLEANUP_PERIOD_SECONDS_EDEFAULT == null ? cleanupPeriodSeconds != null : !CLEANUP_PERIOD_SECONDS_EDEFAULT.equals ( cleanupPeriodSeconds );
             case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__DATABASE:
                 return database != null;
+            case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT:
+                return replicationDataFormat != REPLICATION_DATA_FORMAT_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -482,6 +537,8 @@ public abstract class AbstractEventStorageJdbcImpl extends
         result.append ( archiveDays );
         result.append ( ", cleanupPeriodSeconds: " ); //$NON-NLS-1$
         result.append ( cleanupPeriodSeconds );
+        result.append ( ", replicationDataFormat: " ); //$NON-NLS-1$
+        result.append ( replicationDataFormat );
         result.append ( ')' );
         return result.toString ();
     }

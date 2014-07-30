@@ -785,6 +785,12 @@
     <eClassifiers xsi:type="ecore:EClass" name="EventStoragePostgres" eSuperTypes="#//osgi/AbstractEventStorageJdbc">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="batchSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ReplicationDataFormat">
+      <eLiterals name="BLOB" literal="BLOB"/>
+      <eLiterals name="BYTES" value="1" literal="BYTES"/>
+      <eLiterals name="JSON" value="2" literal="JSON"/>
+      <eLiterals name="ARRAY" value="3" literal="ARRAY"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractEventStorageJdbc" abstract="true"
         eSuperTypes="#//osgi/EventStorage">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -803,6 +809,8 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
           eType="#//DatabaseSettings"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicationDataFormat"
+          eType="#//osgi/ReplicationDataFormat" defaultValueLiteral="JSON"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ApplicationConfiguration" abstract="true"
         interface="true" eSuperTypes="#//osgi/ApplicationModule">

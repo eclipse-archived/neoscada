@@ -1,27 +1,28 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
-package org.eclipse.scada.configuration.world.osgi.tests;
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
+package org.eclipse.scada.configuration.world.tests;
 
 import junit.textui.TestRunner;
 
-import org.eclipse.scada.configuration.world.osgi.EventStoragePostgres;
-import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
+import org.eclipse.scada.configuration.world.PostgresDatabaseSettings;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Event Storage Postgres</b></em>'.
+ * A test case for the model object '<em><b>Postgres Database Settings</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventStoragePostgresTest extends AbstractEventStorageJdbcTest
+public class PostgresDatabaseSettingsTest extends AbstractGenericDatabaseSettingsTest
 {
 
     /**
@@ -31,30 +32,30 @@ public class EventStoragePostgresTest extends AbstractEventStorageJdbcTest
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( EventStoragePostgresTest.class );
+        TestRunner.run ( PostgresDatabaseSettingsTest.class );
     }
 
     /**
-     * Constructs a new Event Storage Postgres test case with the given name.
+     * Constructs a new Postgres Database Settings test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public EventStoragePostgresTest ( String name )
+    public PostgresDatabaseSettingsTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Returns the fixture for this Event Storage Postgres test case.
+     * Returns the fixture for this Postgres Database Settings test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    protected EventStoragePostgres getFixture ()
+    protected PostgresDatabaseSettings getFixture ()
     {
-        return (EventStoragePostgres)fixture;
+        return (PostgresDatabaseSettings)fixture;
     }
 
     /**
@@ -66,7 +67,7 @@ public class EventStoragePostgresTest extends AbstractEventStorageJdbcTest
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( OsgiFactory.eINSTANCE.createEventStoragePostgres () );
+        setFixture ( WorldFactory.eINSTANCE.createPostgresDatabaseSettings () );
     }
 
     /**
@@ -81,4 +82,4 @@ public class EventStoragePostgresTest extends AbstractEventStorageJdbcTest
         setFixture ( null );
     }
 
-} //EventStoragePostgresTest
+} //PostgresDatabaseSettingsTest

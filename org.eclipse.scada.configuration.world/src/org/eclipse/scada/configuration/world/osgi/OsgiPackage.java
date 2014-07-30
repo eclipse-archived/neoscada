@@ -5875,13 +5875,22 @@ public interface OsgiPackage extends EPackage
     int ABSTRACT_EVENT_STORAGE_JDBC__DATABASE = EVENT_STORAGE_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Replication Data Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT = EVENT_STORAGE_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>Abstract Event Storage Jdbc</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT = EVENT_STORAGE_FEATURE_COUNT + 6;
+    int ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT = EVENT_STORAGE_FEATURE_COUNT + 7;
 
     /**
      * The number of operations of the '<em>Abstract Event Storage Jdbc</em>' class.
@@ -5955,6 +5964,15 @@ public interface OsgiPackage extends EPackage
      * @ordered
      */
     int EVENT_STORAGE_JDBC__DATABASE = ABSTRACT_EVENT_STORAGE_JDBC__DATABASE;
+
+    /**
+     * The feature id for the '<em><b>Replication Data Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT = ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT;
 
     /**
      * The feature id for the '<em><b>Max Field Length</b></em>' attribute.
@@ -6055,6 +6073,15 @@ public interface OsgiPackage extends EPackage
      * @ordered
      */
     int EVENT_STORAGE_POSTGRES__DATABASE = ABSTRACT_EVENT_STORAGE_JDBC__DATABASE;
+
+    /**
+     * The feature id for the '<em><b>Replication Data Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_STORAGE_POSTGRES__REPLICATION_DATA_FORMAT = ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT;
 
     /**
      * The feature id for the '<em><b>Batch Size</b></em>' attribute.
@@ -6909,6 +6936,16 @@ public interface OsgiPackage extends EPackage
     int PASSWORD_TYPE = 97;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat <em>Replication Data Format</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getReplicationDataFormat()
+     * @generated
+     */
+    int REPLICATION_DATA_FORMAT = 98;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6916,7 +6953,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 98;
+    int PERSISTENCE = 99;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -6926,7 +6963,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 99;
+    int ERROR_HANDLING = 100;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -6936,7 +6973,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 100;
+    int CHANGE_TYPE = 101;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -6946,7 +6983,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 101;
+    int SEVERITY = 102;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -6956,7 +6993,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 102;
+    int VARIANT = 103;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -9922,6 +9959,17 @@ public interface OsgiPackage extends EPackage
     EReference getAbstractEventStorageJdbc_Database ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getReplicationDataFormat <em>Replication Data Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Replication Data Format</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getReplicationDataFormat()
+     * @see #getAbstractEventStorageJdbc()
+     * @generated
+     */
+    EAttribute getAbstractEventStorageJdbc_ReplicationDataFormat ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration <em>Application Configuration</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10387,6 +10435,16 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EEnum getPasswordType ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat <em>Replication Data Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Replication Data Format</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat
+     * @generated
+     */
+    EEnum getReplicationDataFormat ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}'.
@@ -12862,6 +12920,14 @@ public interface OsgiPackage extends EPackage
         EReference ABSTRACT_EVENT_STORAGE_JDBC__DATABASE = eINSTANCE.getAbstractEventStorageJdbc_Database ();
 
         /**
+         * The meta object literal for the '<em><b>Replication Data Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT = eINSTANCE.getAbstractEventStorageJdbc_ReplicationDataFormat ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration <em>Application Configuration</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -13246,6 +13312,16 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EEnum PASSWORD_TYPE = eINSTANCE.getPasswordType ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat <em>Replication Data Format</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getReplicationDataFormat()
+         * @generated
+         */
+        EEnum REPLICATION_DATA_FORMAT = eINSTANCE.getReplicationDataFormat ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.

@@ -43,6 +43,10 @@ public class WorldTests extends TestSuite
     {
         TestSuite suite = new WorldTests ( "world Tests" ); //$NON-NLS-1$
         suite.addTestSuite ( ExecDriverTest.class );
+        suite.addTestSuite ( ContainedServiceBindingTest.class );
+        suite.addTestSuite ( ReferencedServiceBindingTest.class );
+        suite.addTestSuite ( GenericDatabaseSettingsTest.class );
+        suite.addTestSuite ( PostgresDatabaseSettingsTest.class );
         return suite;
     }
 

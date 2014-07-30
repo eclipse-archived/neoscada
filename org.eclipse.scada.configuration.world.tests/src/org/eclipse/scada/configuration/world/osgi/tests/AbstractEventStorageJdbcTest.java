@@ -18,13 +18,6 @@ import org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Abstract Event Storage Jdbc</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName() <em>Get Jdbc Driver Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles() <em>Get Driver Bundles</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public abstract class AbstractEventStorageJdbcTest extends TestCase
@@ -69,34 +62,6 @@ public abstract class AbstractEventStorageJdbcTest extends TestCase
     protected AbstractEventStorageJdbc getFixture ()
     {
         return fixture;
-    }
-
-    /**
-     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName() <em>Get Jdbc Driver Name</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName()
-     * @generated
-     */
-    public void testGetJdbcDriverName ()
-    {
-        // TODO: implement this operation test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
-    }
-
-    /**
-     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles() <em>Get Driver Bundles</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles()
-     * @generated
-     */
-    public void testGetDriverBundles ()
-    {
-        // TODO: implement this operation test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
     }
 
 } //AbstractEventStorageJdbcTest

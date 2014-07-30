@@ -26,6 +26,7 @@ import org.eclipse.scada.configuration.world.DatabaseSettings;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getArchiveDays <em>Archive Days</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getCleanupPeriodSeconds <em>Cleanup Period Seconds</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDatabase <em>Database</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getReplicationDataFormat <em>Replication Data Format</em>}</li>
  * </ul>
  * </p>
  *
@@ -191,5 +192,35 @@ public interface AbstractEventStorageJdbc extends EventStorage
      * @generated
      */
     void setDatabase ( DatabaseSettings value );
+
+    /**
+     * Returns the value of the '<em><b>Replication Data Format</b></em>' attribute.
+     * The default value is <code>"JSON"</code>.
+     * The literals are from the enumeration {@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Replication Data Format</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Replication Data Format</em>' attribute.
+     * @see org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat
+     * @see #setReplicationDataFormat(ReplicationDataFormat)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAbstractEventStorageJdbc_ReplicationDataFormat()
+     * @model default="JSON"
+     * @generated
+     */
+    ReplicationDataFormat getReplicationDataFormat ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getReplicationDataFormat <em>Replication Data Format</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Replication Data Format</em>' attribute.
+     * @see org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat
+     * @see #getReplicationDataFormat()
+     * @generated
+     */
+    void setReplicationDataFormat ( ReplicationDataFormat value );
 
 } // AbstractEventStorageJdbc

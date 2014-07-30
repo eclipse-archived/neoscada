@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.world.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
 
@@ -50,6 +51,7 @@ public final class WorldEditorPlugin extends EMFPlugin
     {
         super ( new ResourceLocator[]
         {
+                EcoreEditPlugin.INSTANCE,
                 ExecEditPlugin.INSTANCE,
                 SecurityEditPlugin.INSTANCE,
         } );

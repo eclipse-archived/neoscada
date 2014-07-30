@@ -71,6 +71,7 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter
             addArchiveDaysPropertyDescriptor ( object );
             addCleanupPeriodSecondsPropertyDescriptor ( object );
             addDatabasePropertyDescriptor ( object );
+            addReplicationDataFormatPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -214,6 +215,29 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter
     }
 
     /**
+     * This adds a property descriptor for the Replication Data Format feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReplicationDataFormatPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_AbstractEventStorageJdbc_replicationDataFormat_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_replicationDataFormat_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -258,6 +282,7 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter
             case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__ENABLE_REPLICATION:
             case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__ARCHIVE_DAYS:
             case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS:
+            case OsgiPackage.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
