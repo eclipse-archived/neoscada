@@ -32,6 +32,8 @@ public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
 
     private final String targetPrefix;
 
+    private Set<String> ignorePrefix = new HashSet<> ();
+
     private Set<String> execPrefix = new HashSet<> ();
 
     private Set<String> confPrefix = new HashSet<> ();
@@ -50,6 +52,16 @@ public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
         this.execPrefix.add ( "/usr/local/sbin" );
 
         this.confPrefix.add ( "/etc" );
+    }
+
+    public void setIgnorePrefix ( final Set<String> ignorePrefix )
+    {
+        this.ignorePrefix = ignorePrefix;
+    }
+
+    public Set<String> getIgnorePrefix ()
+    {
+        return this.ignorePrefix;
     }
 
     public void setExecPrefix ( final Set<String> execPrefix )
@@ -93,6 +105,14 @@ public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
 
         boolean exec = Executables.getExecutable ( file );
         boolean conf = false;
+
+        for ( final String prefix : this.ignorePrefix )
+        {
+            if ( name.startsWith ( prefix ) )
+            {
+                return FileVisitResult.CONTINUE;
+            }
+        }
 
         for ( final String prefix : this.execPrefix )
         {

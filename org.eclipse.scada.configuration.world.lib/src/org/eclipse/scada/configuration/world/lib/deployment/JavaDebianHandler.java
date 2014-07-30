@@ -12,6 +12,9 @@ package org.eclipse.scada.configuration.world.lib.deployment;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -19,8 +22,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -37,8 +38,12 @@ import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
 import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
 import org.eclipse.scada.utils.str.StringHelper;
 
+import com.google.common.io.CharStreams;
+
 public class JavaDebianHandler extends CommonPackageHandler
 {
+    private static final String CONTROL_SCRIPTS_DIR = "/usr/lib/eclipsescada/packagescripts";
+
     private final DebianDeploymentMechanism deploy;
 
     public JavaDebianHandler ( final ApplicationNode applicationNode, final DebianDeploymentMechanism deploy )
@@ -104,7 +109,7 @@ public class JavaDebianHandler extends CommonPackageHandler
             if ( src.toFile ().isDirectory () )
             {
                 final ScoopFilesVisitor scoop = new ScoopFilesVisitor ( src, deb, null );
-                scoop.getExecPrefix ().add ( "/usr/lib/eclipsescada/packagescripts" ); //$NON-NLS-1$
+                scoop.getIgnorePrefix ().add ( CONTROL_SCRIPTS_DIR );
                 Files.walkFileTree ( src, scoop );
             }
 
@@ -128,16 +133,20 @@ public class JavaDebianHandler extends CommonPackageHandler
     /**
      * This method scoops up all package scripts and create the calls in the
      * corresponding package scripts
+     *
+     * @throws IOException
      */
-    private String createUserScriptCallbacks ( final File packageFolder, final String type )
+    private String createUserScriptCallbacks ( final File packageFolder, final String type ) throws IOException
     {
-        final File dir = new File ( packageFolder, "src/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type ); //$NON-NLS-1$ //$NON-NLS-2$
-        final List<String> scripts = new LinkedList<> ();
+        final File dir = new File ( packageFolder, "src" + CONTROL_SCRIPTS_DIR + "/" + getPackageName () + "/" + type ); //$NON-NLS-1$ //$NON-NLS-2$
 
         if ( !dir.isDirectory () )
         {
             return "";
         }
+
+        final StringWriter sw = new StringWriter ();
+        final Charset cs = Charset.forName ( "UTF-8" );
 
         final File[] files = dir.listFiles ();
         Arrays.sort ( files );
@@ -147,10 +156,17 @@ public class JavaDebianHandler extends CommonPackageHandler
             {
                 continue;
             }
+
+            sw.write ( String.format ( "# ================== START - %s ==================\n", file ) );
+
+            CharStreams.copy ( Files.newBufferedReader ( file.toPath (), cs ), sw );
+
+            sw.write ( String.format ( "# ==================  END - %s  ==================\n", file ) );
+
             file.setExecutable ( true );
-            scripts.add ( "/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type + "/" + file.getName () + " $@" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
         }
-        return StringHelper.join ( scripts, "\n" );
+
+        return sw.toString ();
     }
 
     @Override
