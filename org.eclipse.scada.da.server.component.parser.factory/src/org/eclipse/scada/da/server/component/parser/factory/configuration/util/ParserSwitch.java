@@ -286,12 +286,12 @@ public class ParserSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
-            case ParserPackage.DEFAUTL_VALUE_CONVERTER:
+            case ParserPackage.DEFAULT_VALUE_CONVERTER:
             {
-                DefautlValueConverter defautlValueConverter = (DefautlValueConverter)theEObject;
-                T result = caseDefautlValueConverter ( defautlValueConverter );
+                DefaultValueConverter defaultValueConverter = (DefaultValueConverter)theEObject;
+                T result = caseDefaultValueConverter ( defaultValueConverter );
                 if ( result == null )
-                    result = caseValueConverterDefinition ( defautlValueConverter );
+                    result = caseValueConverterDefinition ( defaultValueConverter );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -658,17 +658,17 @@ public class ParserSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Defautl Value Converter</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Default Value Converter</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Defautl Value Converter</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Default Value Converter</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDefautlValueConverter ( DefautlValueConverter object )
+    public T caseDefaultValueConverter ( DefaultValueConverter object )
     {
         return null;
     }

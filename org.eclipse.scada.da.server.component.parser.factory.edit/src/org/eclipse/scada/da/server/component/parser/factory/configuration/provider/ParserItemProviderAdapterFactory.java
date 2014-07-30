@@ -449,28 +449,28 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter} instances.
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DefautlValueConverterItemProvider defautlValueConverterItemProvider;
+    protected DefaultValueConverterItemProvider defaultValueConverterItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter}.
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createDefautlValueConverterAdapter ()
+    public Adapter createDefaultValueConverterAdapter ()
     {
-        if ( defautlValueConverterItemProvider == null )
+        if ( defaultValueConverterItemProvider == null )
         {
-            defautlValueConverterItemProvider = new DefautlValueConverterItemProvider ( this );
+            defaultValueConverterItemProvider = new DefaultValueConverterItemProvider ( this );
         }
 
-        return defautlValueConverterItemProvider;
+        return defaultValueConverterItemProvider;
     }
 
     /**
@@ -692,8 +692,8 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
             mqttInputItemProvider.dispose ();
         if ( booleanValueConverterItemProvider != null )
             booleanValueConverterItemProvider.dispose ();
-        if ( defautlValueConverterItemProvider != null )
-            defautlValueConverterItemProvider.dispose ();
+        if ( defaultValueConverterItemProvider != null )
+            defaultValueConverterItemProvider.dispose ();
         if ( doubleValueConverterItemProvider != null )
             doubleValueConverterItemProvider.dispose ();
         if ( booleanSetValueConverterItemProvider != null )

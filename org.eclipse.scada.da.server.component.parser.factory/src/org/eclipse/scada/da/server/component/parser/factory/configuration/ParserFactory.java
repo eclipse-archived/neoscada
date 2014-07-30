@@ -157,13 +157,13 @@ public interface ParserFactory extends EFactory
     BooleanValueConverter createBooleanValueConverter ();
 
     /**
-     * Returns a new object of class '<em>Defautl Value Converter</em>'.
+     * Returns a new object of class '<em>Default Value Converter</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>Defautl Value Converter</em>'.
+     * @return a new object of class '<em>Default Value Converter</em>'.
      * @generated
      */
-    DefautlValueConverter createDefautlValueConverter ();
+    DefaultValueConverter createDefaultValueConverter ();
 
     /**
      * Returns a new object of class '<em>Double Value Converter</em>'.

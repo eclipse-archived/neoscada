@@ -28,12 +28,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DefautlValueConverterItemProvider
+public class DefaultValueConverterItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -48,7 +48,7 @@ public class DefautlValueConverterItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public DefautlValueConverterItemProvider ( AdapterFactory adapterFactory )
+    public DefaultValueConverterItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -71,7 +71,7 @@ public class DefautlValueConverterItemProvider
     }
 
     /**
-     * This returns DefautlValueConverter.gif.
+     * This returns DefaultValueConverter.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -79,7 +79,7 @@ public class DefautlValueConverterItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/DefautlValueConverter" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/DefaultValueConverter" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -102,7 +102,7 @@ public class DefautlValueConverterItemProvider
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_DefautlValueConverter_type" ); //$NON-NLS-1$
+        return getString ( "_UI_DefaultValueConverter_type" ); //$NON-NLS-1$
     }
 
     /**

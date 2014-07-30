@@ -1188,23 +1188,23 @@ public interface ParserPackage extends EPackage
     int BOOLEAN_VALUE_CONVERTER_OPERATION_COUNT = VALUE_CONVERTER_DEFINITION_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DefautlValueConverterImpl <em>Defautl Value Converter</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DefaultValueConverterImpl <em>Default Value Converter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DefautlValueConverterImpl
-     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getDefautlValueConverter()
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DefaultValueConverterImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getDefaultValueConverter()
      * @generated
      */
-    int DEFAUTL_VALUE_CONVERTER = 21;
+    int DEFAULT_VALUE_CONVERTER = 21;
 
     /**
-     * The number of structural features of the '<em>Defautl Value Converter</em>' class.
+     * The number of structural features of the '<em>Default Value Converter</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEFAUTL_VALUE_CONVERTER_FEATURE_COUNT = VALUE_CONVERTER_DEFINITION_FEATURE_COUNT + 0;
+    int DEFAULT_VALUE_CONVERTER_FEATURE_COUNT = VALUE_CONVERTER_DEFINITION_FEATURE_COUNT + 0;
 
     /**
      * The operation id for the '<em>Create Converter</em>' operation.
@@ -1213,16 +1213,16 @@ public interface ParserPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DEFAUTL_VALUE_CONVERTER___CREATE_CONVERTER = VALUE_CONVERTER_DEFINITION___CREATE_CONVERTER;
+    int DEFAULT_VALUE_CONVERTER___CREATE_CONVERTER = VALUE_CONVERTER_DEFINITION___CREATE_CONVERTER;
 
     /**
-     * The number of operations of the '<em>Defautl Value Converter</em>' class.
+     * The number of operations of the '<em>Default Value Converter</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEFAUTL_VALUE_CONVERTER_OPERATION_COUNT = VALUE_CONVERTER_DEFINITION_OPERATION_COUNT + 0;
+    int DEFAULT_VALUE_CONVERTER_OPERATION_COUNT = VALUE_CONVERTER_DEFINITION_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DoubleValueConverterImpl <em>Double Value Converter</em>}' class.
@@ -2007,14 +2007,14 @@ public interface ParserPackage extends EPackage
     EClass getBooleanValueConverter ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter <em>Defautl Value Converter</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter <em>Default Value Converter</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Defautl Value Converter</em>'.
-     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter
+     * @return the meta object for class '<em>Default Value Converter</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter
      * @generated
      */
-    EClass getDefautlValueConverter ();
+    EClass getDefaultValueConverter ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.DoubleValueConverter <em>Double Value Converter</em>}'.
@@ -2679,14 +2679,14 @@ public interface ParserPackage extends EPackage
         EClass BOOLEAN_VALUE_CONVERTER = eINSTANCE.getBooleanValueConverter ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DefautlValueConverterImpl <em>Defautl Value Converter</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DefaultValueConverterImpl <em>Default Value Converter</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DefautlValueConverterImpl
-         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getDefautlValueConverter()
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DefaultValueConverterImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getDefaultValueConverter()
          * @generated
          */
-        EClass DEFAUTL_VALUE_CONVERTER = eINSTANCE.getDefautlValueConverter ();
+        EClass DEFAULT_VALUE_CONVERTER = eINSTANCE.getDefaultValueConverter ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.DoubleValueConverterImpl <em>Double Value Converter</em>}' class.

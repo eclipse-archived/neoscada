@@ -317,7 +317,7 @@ public class SplitTableItemProvider
         newChildDescriptors.add
                 ( createChildParameter
                 ( ParserPackage.Literals.SPLIT_TABLE__VALUE_CONVERTER,
-                        ParserFactory.eINSTANCE.createDefautlValueConverter () ) );
+                        ParserFactory.eINSTANCE.createDefaultValueConverter () ) );
 
         newChildDescriptors.add
                 ( createChildParameter

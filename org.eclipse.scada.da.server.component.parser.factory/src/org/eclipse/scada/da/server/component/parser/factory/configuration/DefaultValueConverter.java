@@ -12,14 +12,14 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Defautl Value Converter</b></em>'.
+ * A representation of the model object '<em><b>Default Value Converter</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage#getDefautlValueConverter()
+ * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage#getDefaultValueConverter()
  * @model
  * @generated
  */
-public interface DefautlValueConverter extends ValueConverterDefinition
+public interface DefaultValueConverter extends ValueConverterDefinition
 {
-} // DefautlValueConverter
+} // DefaultValueConverter

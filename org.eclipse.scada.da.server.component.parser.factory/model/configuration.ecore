@@ -132,7 +132,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BooleanValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ValueConverter" instanceClassName="org.eclipse.scada.base.extractor.convert.ValueConverter"
       serializable="false"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DefautlValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
   <eClassifiers xsi:type="ecore:EClass" name="DoubleValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanSetValueConverter" eSuperTypes="#//ValueConverterDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="trueValues" upperBound="-1"

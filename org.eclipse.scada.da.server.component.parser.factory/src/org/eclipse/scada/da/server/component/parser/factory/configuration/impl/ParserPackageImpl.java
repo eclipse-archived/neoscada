@@ -30,7 +30,7 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.Attrib
 import org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanSetValueConverter;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanValueConverter;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.DoubleValueConverter;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ExtractorDefinition;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.Field;
@@ -212,7 +212,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass defautlValueConverterEClass = null;
+    private EClass defaultValueConverterEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -915,9 +915,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getDefautlValueConverter ()
+    public EClass getDefaultValueConverter ()
     {
-        return defautlValueConverterEClass;
+        return defaultValueConverterEClass;
     }
 
     /**
@@ -1159,7 +1159,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
         booleanValueConverterEClass = createEClass ( BOOLEAN_VALUE_CONVERTER );
 
-        defautlValueConverterEClass = createEClass ( DEFAUTL_VALUE_CONVERTER );
+        defaultValueConverterEClass = createEClass ( DEFAULT_VALUE_CONVERTER );
 
         doubleValueConverterEClass = createEClass ( DOUBLE_VALUE_CONVERTER );
 
@@ -1224,7 +1224,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         mqttInputEClass.getESuperTypes ().add ( this.getAbstractInput () );
         abstractInputEClass.getESuperTypes ().add ( this.getInputDefinition () );
         booleanValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
-        defautlValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
+        defaultValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
         doubleValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
         booleanSetValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
 
@@ -1314,7 +1314,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
         initEClass ( booleanValueConverterEClass, BooleanValueConverter.class, "BooleanValueConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( defautlValueConverterEClass, DefautlValueConverter.class, "DefautlValueConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( defaultValueConverterEClass, DefaultValueConverter.class, "DefaultValueConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         initEClass ( doubleValueConverterEClass, DoubleValueConverter.class, "DoubleValueConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 

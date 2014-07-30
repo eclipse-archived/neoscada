@@ -534,7 +534,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_C0NugxgBEeSMyf7yDRt03g"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_C0MgYRgBEeSMyf7yDRt03g" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="configuration.ecore#//DefautlValueConverter"/>
+    <element xmi:type="ecore:EClass" href="configuration.ecore#//DefaultValueConverter"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C0MgYhgBEeSMyf7yDRt03g" x="-792" y="96"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_Em7pUBgBEeSMyf7yDRt03g" type="1001">

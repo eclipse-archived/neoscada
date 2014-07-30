@@ -115,8 +115,8 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
                 return createMqttInput ();
             case ParserPackage.BOOLEAN_VALUE_CONVERTER:
                 return createBooleanValueConverter ();
-            case ParserPackage.DEFAUTL_VALUE_CONVERTER:
-                return createDefautlValueConverter ();
+            case ParserPackage.DEFAULT_VALUE_CONVERTER:
+                return createDefaultValueConverter ();
             case ParserPackage.DOUBLE_VALUE_CONVERTER:
                 return createDoubleValueConverter ();
             case ParserPackage.BOOLEAN_SET_VALUE_CONVERTER:
@@ -335,10 +335,10 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public DefautlValueConverter createDefautlValueConverter ()
+    public DefaultValueConverter createDefaultValueConverter ()
     {
-        DefautlValueConverterImpl defautlValueConverter = new DefautlValueConverterImpl ();
-        return defautlValueConverter;
+        DefaultValueConverterImpl defaultValueConverter = new DefaultValueConverterImpl ();
+        return defaultValueConverter;
     }
 
     /**

@@ -238,7 +238,7 @@ public class PlainTextItemProvider
         newChildDescriptors.add
                 ( createChildParameter
                 ( ParserPackage.Literals.PLAIN_TEXT__VALUE_CONVERTER,
-                        ParserFactory.eINSTANCE.createDefautlValueConverter () ) );
+                        ParserFactory.eINSTANCE.createDefaultValueConverter () ) );
 
         newChildDescriptors.add
                 ( createChildParameter

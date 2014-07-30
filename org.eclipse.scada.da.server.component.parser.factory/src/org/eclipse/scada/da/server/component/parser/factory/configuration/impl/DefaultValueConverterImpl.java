@@ -15,29 +15,28 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.scada.base.extractor.convert.DefaultValueConverter;
 import org.eclipse.scada.base.extractor.convert.ValueConverter;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '
- * <em><b>Defautl Value Converter</b></em>'.
+ * <em><b>Default Value Converter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class DefautlValueConverterImpl extends MinimalEObjectImpl.Container implements DefautlValueConverter
+public class DefaultValueConverterImpl extends MinimalEObjectImpl.Container implements DefaultValueConverter
 {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DefautlValueConverterImpl ()
+    protected DefaultValueConverterImpl ()
     {
         super ();
     }
@@ -50,7 +49,7 @@ public class DefautlValueConverterImpl extends MinimalEObjectImpl.Container impl
     @Override
     protected EClass eStaticClass ()
     {
-        return ParserPackage.Literals.DEFAUTL_VALUE_CONVERTER;
+        return ParserPackage.Literals.DEFAULT_VALUE_CONVERTER;
     }
 
     /**
@@ -62,7 +61,7 @@ public class DefautlValueConverterImpl extends MinimalEObjectImpl.Container impl
     @Override
     public ValueConverter createConverter ()
     {
-        return DefaultValueConverter.INSTANCE;
+        return org.eclipse.scada.base.extractor.convert.DefaultValueConverter.INSTANCE;
     }
 
     /**
@@ -75,10 +74,10 @@ public class DefautlValueConverterImpl extends MinimalEObjectImpl.Container impl
     {
         switch ( operationID )
         {
-            case ParserPackage.DEFAUTL_VALUE_CONVERTER___CREATE_CONVERTER:
+            case ParserPackage.DEFAULT_VALUE_CONVERTER___CREATE_CONVERTER:
                 return createConverter ();
         }
         return super.eInvoke ( operationID, arguments );
     }
 
-} //DefautlValueConverterImpl
+} //DefaultValueConverterImpl

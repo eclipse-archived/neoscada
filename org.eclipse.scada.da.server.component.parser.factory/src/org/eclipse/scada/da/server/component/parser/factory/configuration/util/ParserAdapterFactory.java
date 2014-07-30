@@ -209,9 +209,9 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
-                public Adapter caseDefautlValueConverter ( DefautlValueConverter object )
+                public Adapter caseDefaultValueConverter ( DefaultValueConverter object )
                 {
-                    return createDefautlValueConverterAdapter ();
+                    return createDefaultValueConverterAdapter ();
                 }
 
                 @Override
@@ -563,16 +563,16 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter <em>Defautl Value Converter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter <em>Default Value Converter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.DefaultValueConverter
      * @generated
      */
-    public Adapter createDefautlValueConverterAdapter ()
+    public Adapter createDefaultValueConverterAdapter ()
     {
         return null;
     }
