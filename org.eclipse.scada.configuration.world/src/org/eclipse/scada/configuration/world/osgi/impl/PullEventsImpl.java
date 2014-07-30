@@ -176,6 +176,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getShortDescription ()
     {
         return shortDescription;
@@ -186,6 +187,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setShortDescription ( String newShortDescription )
     {
         String oldShortDescription = shortDescription;
@@ -199,6 +201,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName ()
     {
         return name;
@@ -209,6 +212,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName ( String newName )
     {
         String oldName = name;
@@ -222,6 +226,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Integer getJobInterval ()
     {
         return jobInterval;
@@ -232,6 +237,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setJobInterval ( Integer newJobInterval )
     {
         Integer oldJobInterval = jobInterval;
@@ -245,6 +251,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getCustomSelectSql ()
     {
         return customSelectSql;
@@ -255,6 +262,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCustomSelectSql ( String newCustomSelectSql )
     {
         String oldCustomSelectSql = customSelectSql;
@@ -268,6 +276,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getCustomDeleteSql ()
     {
         return customDeleteSql;
@@ -278,6 +287,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setCustomDeleteSql ( String newCustomDeleteSql )
     {
         String oldCustomDeleteSql = customDeleteSql;
@@ -291,6 +301,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DatabaseSettings getDatabase ()
     {
         if ( database != null && database.eIsProxy () )
@@ -321,6 +332,7 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setDatabase ( DatabaseSettings newDatabase )
     {
         DatabaseSettings oldDatabase = database;
@@ -362,7 +374,6 @@ public class PullEventsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {

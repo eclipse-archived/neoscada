@@ -530,7 +530,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
      */
     protected void createExtendedMetaDataAnnotations ()
     {
-        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$		
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
         addAnnotation ( profileEClass,
                 source,
                 new String[]

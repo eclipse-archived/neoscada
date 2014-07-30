@@ -5,7 +5,8 @@
     creationSubmenus="true" modelPluginID="org.eclipse.scada.configuration.world"
     modelName="World" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="7.0" copyrightFields="false" tableProviders="true" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security"
+    complianceLevel="7.0" copyrightFields="false" tableProviders="true" runtimeVersion="2.9"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security"
     operationReflection="true" importOrganizing="true" pluginKey="world">
   <foreignModel>configuration.ecore</foreignModel>
   <genPackages prefix="World" basePackage="org.eclipse.scada.configuration" resource="XMI"
@@ -154,6 +155,12 @@
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/PasswordType/PLAIN_IGNORE_CASE"/>
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/PasswordType/MD5_HEX"/>
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/PasswordType/SHA1_HEX"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/ReplicationDataFormat">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ReplicationDataFormat/BLOB"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ReplicationDataFormat/BYTES"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ReplicationDataFormat/JSON"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ReplicationDataFormat/ARRAY"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/Persistence">
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/Persistence/NONE"/>
@@ -563,6 +570,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/cleanupPeriodSeconds"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//osgi/AbstractEventStorageJdbc/database"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/replicationDataFormat"/>
       </genClasses>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ApplicationConfiguration"/>
       <genClasses ecoreClass="configuration.ecore#//osgi/RestExporter">
