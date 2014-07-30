@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
+import java.util.regex.Pattern;
 
 import org.eclipse.scada.base.extractor.extract.Extractor;
 import org.eclipse.scada.base.extractor.extract.Extractor.Result;
@@ -29,6 +30,8 @@ import org.eclipse.scada.da.server.browser.common.FolderCommon;
 import org.eclipse.scada.da.server.browser.common.query.GroupFolder;
 import org.eclipse.scada.da.server.browser.common.query.IDNameProvider;
 import org.eclipse.scada.da.server.browser.common.query.InvisibleStorage;
+import org.eclipse.scada.da.server.browser.common.query.NameProvider;
+import org.eclipse.scada.da.server.browser.common.query.PatternNameProvider;
 import org.eclipse.scada.da.server.browser.common.query.SplitGroupProvider;
 import org.eclipse.scada.da.server.browser.common.query.SplitNameProvider;
 import org.eclipse.scada.da.server.common.AttributeMode;
@@ -67,7 +70,10 @@ public abstract class ParserComponent extends Component
         this.prefix = activationPrefix;
         this.storage = new InvisibleStorage ();
 
-        this.groupFolder = new GroupFolder ( new SplitGroupProvider ( new IDNameProvider (), "\\.", 1, 1 ), new SplitNameProvider ( new IDNameProvider (), "\\.", 0, 1, "." ), folder );
+        final Pattern pattern = Pattern.compile ( Pattern.quote ( this.prefix + "." ) + "(.*)" );
+        final NameProvider nameProvider = new PatternNameProvider ( new IDNameProvider (), pattern, 1 );
+        final SplitGroupProvider groupProvider = new SplitGroupProvider ( nameProvider, "\\.", 0, 1 );
+        this.groupFolder = new GroupFolder ( groupProvider, new SplitNameProvider ( new IDNameProvider (), "\\.", 0, 1, "." ), folder );
         this.storage.addChild ( this.groupFolder );
     }
 
