@@ -14,6 +14,7 @@ import java.io.File;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.regex.Pattern;
 
+import org.eclipse.scada.base.extractor.convert.DefaultValueConverter;
 import org.eclipse.scada.base.extractor.extract.Extractor;
 import org.eclipse.scada.base.extractor.extract.pattern.VariableFieldPatternExtractor;
 import org.eclipse.scada.base.extractor.extract.split.SplitExtractor;
@@ -35,7 +36,7 @@ public class CpuInfoComponent extends ParserComponent
 
         this.input = new FileInput ( this.executor, new File ( "/proc/cpuinfo" ), 1000 ); //$NON-NLS-1$
 
-        final Extractor extractor = new SplitExtractor ( "\n\n", new VariableFieldPatternExtractor ( Pattern.compile ( "^(.*?)\\s+: (.*)$", Pattern.MULTILINE ), 1, 2 ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        final Extractor extractor = new SplitExtractor ( "\n\n", new VariableFieldPatternExtractor ( Pattern.compile ( "^(.*?)\\s+: (.*)$", Pattern.MULTILINE ), 1, 2, DefaultValueConverter.INSTANCE ) ); //$NON-NLS-1$ //$NON-NLS-2$
         bindInput ( this.input, extractor, "prefix" ); //$NON-NLS-1$
     }
 }

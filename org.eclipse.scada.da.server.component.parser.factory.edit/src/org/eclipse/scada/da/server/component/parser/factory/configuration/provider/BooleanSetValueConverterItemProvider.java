@@ -12,10 +12,12 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration.provi
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -27,17 +29,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserFactory;
+
+import org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanSetValueConverter;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanSetValueConverter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlainTextItemProvider
+public class BooleanSetValueConverterItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -52,7 +54,7 @@ public class PlainTextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public PlainTextItemProvider ( AdapterFactory adapterFactory )
+    public BooleanSetValueConverterItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -70,27 +72,29 @@ public class PlainTextItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addPrefixPropertyDescriptor ( object );
-            addTrimPropertyDescriptor ( object );
+            addTrueValuesPropertyDescriptor ( object );
+            addFalseValuesPropertyDescriptor ( object );
+            addOtherwisePropertyDescriptor ( object );
+            addIgnoreCasePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Prefix feature.
+     * This adds a property descriptor for the True Values feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addPrefixPropertyDescriptor ( Object object )
+    protected void addTrueValuesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_ExtractorDefinition_prefix_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExtractorDefinition_prefix_feature", "_UI_ExtractorDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.EXTRACTOR_DEFINITION__PREFIX,
+                        getString ( "_UI_BooleanSetValueConverter_trueValues_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BooleanSetValueConverter_trueValues_feature", "_UI_BooleanSetValueConverter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.BOOLEAN_SET_VALUE_CONVERTER__TRUE_VALUES,
                         true,
                         false,
                         false,
@@ -100,20 +104,66 @@ public class PlainTextItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Trim feature.
+     * This adds a property descriptor for the False Values feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTrimPropertyDescriptor ( Object object )
+    protected void addFalseValuesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_PlainText_trim_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PlainText_trim_feature", "_UI_PlainText_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.PLAIN_TEXT__TRIM,
+                        getString ( "_UI_BooleanSetValueConverter_falseValues_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BooleanSetValueConverter_falseValues_feature", "_UI_BooleanSetValueConverter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.BOOLEAN_SET_VALUE_CONVERTER__FALSE_VALUES,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Otherwise feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOtherwisePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_BooleanSetValueConverter_otherwise_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BooleanSetValueConverter_otherwise_feature", "_UI_BooleanSetValueConverter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.BOOLEAN_SET_VALUE_CONVERTER__OTHERWISE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Ignore Case feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addIgnoreCasePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_BooleanSetValueConverter_ignoreCase_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BooleanSetValueConverter_ignoreCase_feature", "_UI_BooleanSetValueConverter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.BOOLEAN_SET_VALUE_CONVERTER__IGNORE_CASE,
                         true,
                         false,
                         false,
@@ -123,40 +173,7 @@ public class PlainTextItemProvider
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
-    {
-        if ( childrenFeatures == null )
-        {
-            super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ParserPackage.Literals.PLAIN_TEXT__VALUE_CONVERTER );
-        }
-        return childrenFeatures;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
-    {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature ( object, child );
-    }
-
-    /**
-     * This returns PlainText.gif.
+     * This returns BooleanSetValueConverter.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -164,7 +181,7 @@ public class PlainTextItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/PlainText" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/BooleanSetValueConverter" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -187,10 +204,11 @@ public class PlainTextItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (PlainText)object ).getPrefix ();
+        Boolean labelValue = ( (BooleanSetValueConverter)object ).getOtherwise ();
+        String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_PlainText_type" ) : //$NON-NLS-1$
-                getString ( "_UI_PlainText_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_BooleanSetValueConverter_type" ) : //$NON-NLS-1$
+                getString ( "_UI_BooleanSetValueConverter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -205,14 +223,13 @@ public class PlainTextItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( PlainText.class ) )
+        switch ( notification.getFeatureID ( BooleanSetValueConverter.class ) )
         {
-            case ParserPackage.PLAIN_TEXT__PREFIX:
-            case ParserPackage.PLAIN_TEXT__TRIM:
+            case ParserPackage.BOOLEAN_SET_VALUE_CONVERTER__TRUE_VALUES:
+            case ParserPackage.BOOLEAN_SET_VALUE_CONVERTER__FALSE_VALUES:
+            case ParserPackage.BOOLEAN_SET_VALUE_CONVERTER__OTHERWISE:
+            case ParserPackage.BOOLEAN_SET_VALUE_CONVERTER__IGNORE_CASE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ParserPackage.PLAIN_TEXT__VALUE_CONVERTER:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -229,26 +246,6 @@ public class PlainTextItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.PLAIN_TEXT__VALUE_CONVERTER,
-                        ParserFactory.eINSTANCE.createBooleanValueConverter () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.PLAIN_TEXT__VALUE_CONVERTER,
-                        ParserFactory.eINSTANCE.createDefautlValueConverter () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.PLAIN_TEXT__VALUE_CONVERTER,
-                        ParserFactory.eINSTANCE.createDoubleValueConverter () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.PLAIN_TEXT__VALUE_CONVERTER,
-                        ParserFactory.eINSTANCE.createBooleanSetValueConverter () ) );
     }
 
     /**

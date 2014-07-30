@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.scada.base.extractor.convert.ValueConverter;
 import org.eclipse.scada.base.extractor.extract.Extractor;
 import org.eclipse.scada.base.extractor.input.Input;
 import org.eclipse.scada.base.extractor.transform.Transformer;
@@ -26,7 +27,11 @@ import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanSetValueConverter;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanValueConverter;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.DoubleValueConverter;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ExtractorDefinition;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.Field;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.FileInput;
@@ -43,6 +48,7 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.String
 import org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueConverterDefinition;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType;
 
@@ -192,6 +198,41 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass valueConverterDefinitionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass booleanValueConverterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass defautlValueConverterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass doubleValueConverterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass booleanSetValueConverterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum variantTypeEEnum = null;
 
     /**
@@ -228,6 +269,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * @generated
      */
     private EDataType transformerEDataType = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType valueConverterEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -430,6 +478,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     public EAttribute getPlainText_Trim ()
     {
         return (EAttribute)plainTextEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getPlainText_ValueConverter ()
+    {
+        return (EReference)plainTextEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -717,6 +775,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getSplitTable_ValueConverter ()
+    {
+        return (EReference)splitTableEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getTransformerDefinition ()
     {
         return transformerDefinitionEClass;
@@ -817,6 +885,106 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getValueConverterDefinition ()
+    {
+        return valueConverterDefinitionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getValueConverterDefinition__CreateConverter ()
+    {
+        return valueConverterDefinitionEClass.getEOperations ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getBooleanValueConverter ()
+    {
+        return booleanValueConverterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDefautlValueConverter ()
+    {
+        return defautlValueConverterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDoubleValueConverter ()
+    {
+        return doubleValueConverterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getBooleanSetValueConverter ()
+    {
+        return booleanSetValueConverterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getBooleanSetValueConverter_TrueValues ()
+    {
+        return (EAttribute)booleanSetValueConverterEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getBooleanSetValueConverter_FalseValues ()
+    {
+        return (EAttribute)booleanSetValueConverterEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getBooleanSetValueConverter_Otherwise ()
+    {
+        return (EAttribute)booleanSetValueConverterEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getBooleanSetValueConverter_IgnoreCase ()
+    {
+        return (EAttribute)booleanSetValueConverterEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getVariantType ()
     {
         return variantTypeEEnum;
@@ -877,6 +1045,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EDataType getValueConverter ()
+    {
+        return valueConverterEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ParserFactory getParserFactory ()
     {
         return (ParserFactory)getEFactoryInstance ();
@@ -921,6 +1099,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
         plainTextEClass = createEClass ( PLAIN_TEXT );
         createEAttribute ( plainTextEClass, PLAIN_TEXT__TRIM );
+        createEReference ( plainTextEClass, PLAIN_TEXT__VALUE_CONVERTER );
 
         abstractPeriodInputEClass = createEClass ( ABSTRACT_PERIOD_INPUT );
         createEAttribute ( abstractPeriodInputEClass, ABSTRACT_PERIOD_INPUT__PERIOD );
@@ -959,6 +1138,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         createEAttribute ( splitTableEClass, SPLIT_TABLE__FIELD_SEPARATOR_PATTERN );
         createEAttribute ( splitTableEClass, SPLIT_TABLE__ID_COLUMN );
         createEAttribute ( splitTableEClass, SPLIT_TABLE__FIELDS );
+        createEReference ( splitTableEClass, SPLIT_TABLE__VALUE_CONVERTER );
 
         transformerDefinitionEClass = createEClass ( TRANSFORMER_DEFINITION );
         createEOperation ( transformerDefinitionEClass, TRANSFORMER_DEFINITION___CREATE_TRANSFORMER__CREATIONCONTEXT );
@@ -974,6 +1154,21 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
         abstractInputEClass = createEClass ( ABSTRACT_INPUT );
 
+        valueConverterDefinitionEClass = createEClass ( VALUE_CONVERTER_DEFINITION );
+        createEOperation ( valueConverterDefinitionEClass, VALUE_CONVERTER_DEFINITION___CREATE_CONVERTER );
+
+        booleanValueConverterEClass = createEClass ( BOOLEAN_VALUE_CONVERTER );
+
+        defautlValueConverterEClass = createEClass ( DEFAUTL_VALUE_CONVERTER );
+
+        doubleValueConverterEClass = createEClass ( DOUBLE_VALUE_CONVERTER );
+
+        booleanSetValueConverterEClass = createEClass ( BOOLEAN_SET_VALUE_CONVERTER );
+        createEAttribute ( booleanSetValueConverterEClass, BOOLEAN_SET_VALUE_CONVERTER__TRUE_VALUES );
+        createEAttribute ( booleanSetValueConverterEClass, BOOLEAN_SET_VALUE_CONVERTER__FALSE_VALUES );
+        createEAttribute ( booleanSetValueConverterEClass, BOOLEAN_SET_VALUE_CONVERTER__OTHERWISE );
+        createEAttribute ( booleanSetValueConverterEClass, BOOLEAN_SET_VALUE_CONVERTER__IGNORE_CASE );
+
         // Create enums
         variantTypeEEnum = createEEnum ( VARIANT_TYPE );
 
@@ -983,6 +1178,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         extractorEDataType = createEDataType ( EXTRACTOR );
         patternEDataType = createEDataType ( PATTERN );
         transformerEDataType = createEDataType ( TRANSFORMER );
+        valueConverterEDataType = createEDataType ( VALUE_CONVERTER );
     }
 
     /**
@@ -1027,6 +1223,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         stringTransformerEClass.getESuperTypes ().add ( this.getTransformerDefinition () );
         mqttInputEClass.getESuperTypes ().add ( this.getAbstractInput () );
         abstractInputEClass.getESuperTypes ().add ( this.getInputDefinition () );
+        booleanValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
+        defautlValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
+        doubleValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
+        booleanSetValueConverterEClass.getESuperTypes ().add ( this.getValueConverterDefinition () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1051,6 +1251,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
         initEClass ( plainTextEClass, PlainText.class, "PlainText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getPlainText_Trim (), ecorePackage.getEBoolean (), "trim", "true", 1, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getPlainText_ValueConverter (), this.getValueConverterDefinition (), null, "valueConverter", null, 0, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( abstractPeriodInputEClass, AbstractPeriodInput.class, "AbstractPeriodInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getAbstractPeriodInput_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, AbstractPeriodInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1089,6 +1290,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEAttribute ( getSplitTable_FieldSeparatorPattern (), this.getPattern (), "fieldSeparatorPattern", null, 1, 1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSplitTable_IdColumn (), ecorePackage.getEInt (), "idColumn", null, 1, 1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSplitTable_Fields (), ecorePackage.getEString (), "fields", null, 0, -1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSplitTable_ValueConverter (), this.getValueConverterDefinition (), null, "valueConverter", null, 0, 1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( transformerDefinitionEClass, TransformerDefinition.class, "TransformerDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -1106,6 +1308,22 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
         initEClass ( abstractInputEClass, AbstractInput.class, "AbstractInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
+        initEClass ( valueConverterDefinitionEClass, ValueConverterDefinition.class, "ValueConverterDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEOperation ( getValueConverterDefinition__CreateConverter (), this.getValueConverter (), "createConverter", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( booleanValueConverterEClass, BooleanValueConverter.class, "BooleanValueConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( defautlValueConverterEClass, DefautlValueConverter.class, "DefautlValueConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( doubleValueConverterEClass, DoubleValueConverter.class, "DoubleValueConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( booleanSetValueConverterEClass, BooleanSetValueConverter.class, "BooleanSetValueConverter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getBooleanSetValueConverter_TrueValues (), ecorePackage.getEString (), "trueValues", null, 0, -1, BooleanSetValueConverter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getBooleanSetValueConverter_FalseValues (), ecorePackage.getEString (), "falseValues", null, 0, -1, BooleanSetValueConverter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getBooleanSetValueConverter_Otherwise (), ecorePackage.getEBooleanObject (), "otherwise", null, 0, 1, BooleanSetValueConverter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getBooleanSetValueConverter_IgnoreCase (), ecorePackage.getEBoolean (), "ignoreCase", "false", 1, 1, BooleanSetValueConverter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
         // Initialize enums and add enum literals
         initEEnum ( variantTypeEEnum, VariantType.class, "VariantType" ); //$NON-NLS-1$
         addEEnumLiteral ( variantTypeEEnum, VariantType.DEFAULT );
@@ -1121,6 +1339,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEDataType ( extractorEDataType, Extractor.class, "Extractor", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEDataType ( transformerEDataType, Transformer.class, "Transformer", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEDataType ( valueConverterEDataType, ValueConverter.class, "ValueConverter", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

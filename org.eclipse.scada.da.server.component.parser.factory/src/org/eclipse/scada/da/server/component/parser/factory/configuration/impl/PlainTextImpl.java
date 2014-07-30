@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  */
@@ -13,8 +13,10 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.scada.base.extractor.extract.Extractor;
@@ -22,6 +24,8 @@ import org.eclipse.scada.base.extractor.extract.PlainTextExtractor;
 import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueConverterDefinition;
+import org.eclipse.scada.da.server.component.parser.factory.internal.Descriptors;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +36,7 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainT
  * <ul>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#isTrim <em>Trim</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getValueConverter <em>Value Converter</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,6 +83,16 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * @ordered
      */
     protected boolean trim = TRIM_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getValueConverter() <em>Value Converter</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getValueConverter()
+     * @generated
+     * @ordered
+     */
+    protected ValueConverterDefinition valueConverter;
 
     /**
      * <!-- begin-user-doc -->
@@ -153,13 +168,111 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     * @generated
+     */
+    @Override
+    public ValueConverterDefinition getValueConverter ()
+    {
+        if ( valueConverter != null && valueConverter.eIsProxy () )
+        {
+            InternalEObject oldValueConverter = (InternalEObject)valueConverter;
+            valueConverter = (ValueConverterDefinition)eResolveProxy ( oldValueConverter );
+            if ( valueConverter != oldValueConverter )
+            {
+                InternalEObject newValueConverter = (InternalEObject)valueConverter;
+                NotificationChain msgs = oldValueConverter.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.PLAIN_TEXT__VALUE_CONVERTER, null, null );
+                if ( newValueConverter.eInternalContainer () == null )
+                {
+                    msgs = newValueConverter.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.PLAIN_TEXT__VALUE_CONVERTER, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ParserPackage.PLAIN_TEXT__VALUE_CONVERTER, oldValueConverter, valueConverter ) );
+            }
+        }
+        return valueConverter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ValueConverterDefinition basicGetValueConverter ()
+    {
+        return valueConverter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetValueConverter ( ValueConverterDefinition newValueConverter, NotificationChain msgs )
+    {
+        ValueConverterDefinition oldValueConverter = valueConverter;
+        valueConverter = newValueConverter;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__VALUE_CONVERTER, oldValueConverter, newValueConverter );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setValueConverter ( ValueConverterDefinition newValueConverter )
+    {
+        if ( newValueConverter != valueConverter )
+        {
+            NotificationChain msgs = null;
+            if ( valueConverter != null )
+                msgs = ( (InternalEObject)valueConverter ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.PLAIN_TEXT__VALUE_CONVERTER, null, msgs );
+            if ( newValueConverter != null )
+                msgs = ( (InternalEObject)newValueConverter ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.PLAIN_TEXT__VALUE_CONVERTER, null, msgs );
+            msgs = basicSetValueConverter ( newValueConverter, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__VALUE_CONVERTER, newValueConverter, newValueConverter ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
      * @generated NOT
      */
     @Override
     public Extractor createExtractor ( final CreationContext creationContext )
     {
-        return new PlainTextExtractor ( isTrim () );
+        return new PlainTextExtractor ( isTrim (), Descriptors.createConverter ( this.valueConverter ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case ParserPackage.PLAIN_TEXT__VALUE_CONVERTER:
+                return basicSetValueConverter ( null, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -176,6 +289,10 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
                 return getPrefix ();
             case ParserPackage.PLAIN_TEXT__TRIM:
                 return isTrim ();
+            case ParserPackage.PLAIN_TEXT__VALUE_CONVERTER:
+                if ( resolve )
+                    return getValueConverter ();
+                return basicGetValueConverter ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -195,6 +312,9 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
                 return;
             case ParserPackage.PLAIN_TEXT__TRIM:
                 setTrim ( (Boolean)newValue );
+                return;
+            case ParserPackage.PLAIN_TEXT__VALUE_CONVERTER:
+                setValueConverter ( (ValueConverterDefinition)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -216,6 +336,9 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
             case ParserPackage.PLAIN_TEXT__TRIM:
                 setTrim ( TRIM_EDEFAULT );
                 return;
+            case ParserPackage.PLAIN_TEXT__VALUE_CONVERTER:
+                setValueConverter ( (ValueConverterDefinition)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -234,6 +357,8 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
                 return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals ( prefix );
             case ParserPackage.PLAIN_TEXT__TRIM:
                 return trim != TRIM_EDEFAULT;
+            case ParserPackage.PLAIN_TEXT__VALUE_CONVERTER:
+                return valueConverter != null;
         }
         return super.eIsSet ( featureID );
     }

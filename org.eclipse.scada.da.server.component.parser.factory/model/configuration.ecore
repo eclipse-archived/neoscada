@@ -34,6 +34,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="PlainText" eSuperTypes="#//ExtractorDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="trim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueConverter" eType="#//ValueConverterDefinition"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Extractor" instanceClassName="org.eclipse.scada.base.extractor.extract.Extractor"
       serializable="false"/>
@@ -100,6 +102,8 @@
         <details key="documentation" value="Defines the names of the fields. Of none are set, then the first row will be used instead."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueConverter" eType="#//ValueConverterDefinition"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransformerDefinition" abstract="true"
       interface="true">
@@ -121,4 +125,22 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Transformer" instanceClassName="org.eclipse.scada.base.extractor.transform.Transformer"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractInput" abstract="true" eSuperTypes="#//InputDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueConverterDefinition" abstract="true"
+      interface="true">
+    <eOperations name="createConverter" lowerBound="1" eType="#//ValueConverter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ValueConverter" instanceClassName="org.eclipse.scada.base.extractor.convert.ValueConverter"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefautlValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanSetValueConverter" eSuperTypes="#//ValueConverterDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trueValues" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="falseValues" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherwise" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreCase" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
 </ecore:EPackage>

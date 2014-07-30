@@ -424,6 +424,106 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanValueConverter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BooleanValueConverterItemProvider booleanValueConverterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanValueConverter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBooleanValueConverterAdapter ()
+    {
+        if ( booleanValueConverterItemProvider == null )
+        {
+            booleanValueConverterItemProvider = new BooleanValueConverterItemProvider ( this );
+        }
+
+        return booleanValueConverterItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DefautlValueConverterItemProvider defautlValueConverterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDefautlValueConverterAdapter ()
+    {
+        if ( defautlValueConverterItemProvider == null )
+        {
+            defautlValueConverterItemProvider = new DefautlValueConverterItemProvider ( this );
+        }
+
+        return defautlValueConverterItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DoubleValueConverter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DoubleValueConverterItemProvider doubleValueConverterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.DoubleValueConverter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDoubleValueConverterAdapter ()
+    {
+        if ( doubleValueConverterItemProvider == null )
+        {
+            doubleValueConverterItemProvider = new DoubleValueConverterItemProvider ( this );
+        }
+
+        return doubleValueConverterItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanSetValueConverter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BooleanSetValueConverterItemProvider booleanSetValueConverterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanSetValueConverter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBooleanSetValueConverterAdapter ()
+    {
+        if ( booleanSetValueConverterItemProvider == null )
+        {
+            booleanSetValueConverterItemProvider = new BooleanSetValueConverterItemProvider ( this );
+        }
+
+        return booleanSetValueConverterItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -590,6 +690,14 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
             stringTransformerItemProvider.dispose ();
         if ( mqttInputItemProvider != null )
             mqttInputItemProvider.dispose ();
+        if ( booleanValueConverterItemProvider != null )
+            booleanValueConverterItemProvider.dispose ();
+        if ( defautlValueConverterItemProvider != null )
+            defautlValueConverterItemProvider.dispose ();
+        if ( doubleValueConverterItemProvider != null )
+            doubleValueConverterItemProvider.dispose ();
+        if ( booleanSetValueConverterItemProvider != null )
+            booleanSetValueConverterItemProvider.dispose ();
     }
 
 }

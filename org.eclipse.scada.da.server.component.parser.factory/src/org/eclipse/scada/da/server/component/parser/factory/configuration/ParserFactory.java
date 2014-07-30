@@ -148,6 +148,42 @@ public interface ParserFactory extends EFactory
     MqttInput createMqttInput ();
 
     /**
+     * Returns a new object of class '<em>Boolean Value Converter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Boolean Value Converter</em>'.
+     * @generated
+     */
+    BooleanValueConverter createBooleanValueConverter ();
+
+    /**
+     * Returns a new object of class '<em>Defautl Value Converter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Defautl Value Converter</em>'.
+     * @generated
+     */
+    DefautlValueConverter createDefautlValueConverter ();
+
+    /**
+     * Returns a new object of class '<em>Double Value Converter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Double Value Converter</em>'.
+     * @generated
+     */
+    DoubleValueConverter createDoubleValueConverter ();
+
+    /**
+     * Returns a new object of class '<em>Boolean Set Value Converter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Boolean Set Value Converter</em>'.
+     * @generated
+     */
+    BooleanSetValueConverter createBooleanSetValueConverter ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

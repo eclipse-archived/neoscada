@@ -268,6 +268,54 @@ public class ParserSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ParserPackage.VALUE_CONVERTER_DEFINITION:
+            {
+                ValueConverterDefinition valueConverterDefinition = (ValueConverterDefinition)theEObject;
+                T result = caseValueConverterDefinition ( valueConverterDefinition );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.BOOLEAN_VALUE_CONVERTER:
+            {
+                BooleanValueConverter booleanValueConverter = (BooleanValueConverter)theEObject;
+                T result = caseBooleanValueConverter ( booleanValueConverter );
+                if ( result == null )
+                    result = caseValueConverterDefinition ( booleanValueConverter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.DEFAUTL_VALUE_CONVERTER:
+            {
+                DefautlValueConverter defautlValueConverter = (DefautlValueConverter)theEObject;
+                T result = caseDefautlValueConverter ( defautlValueConverter );
+                if ( result == null )
+                    result = caseValueConverterDefinition ( defautlValueConverter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.DOUBLE_VALUE_CONVERTER:
+            {
+                DoubleValueConverter doubleValueConverter = (DoubleValueConverter)theEObject;
+                T result = caseDoubleValueConverter ( doubleValueConverter );
+                if ( result == null )
+                    result = caseValueConverterDefinition ( doubleValueConverter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.BOOLEAN_SET_VALUE_CONVERTER:
+            {
+                BooleanSetValueConverter booleanSetValueConverter = (BooleanSetValueConverter)theEObject;
+                T result = caseBooleanSetValueConverter ( booleanSetValueConverter );
+                if ( result == null )
+                    result = caseValueConverterDefinition ( booleanSetValueConverter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -573,6 +621,86 @@ public class ParserSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseAbstractInput ( AbstractInput object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Value Converter Definition</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Value Converter Definition</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseValueConverterDefinition ( ValueConverterDefinition object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Boolean Value Converter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Boolean Value Converter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBooleanValueConverter ( BooleanValueConverter object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Defautl Value Converter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Defautl Value Converter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDefautlValueConverter ( DefautlValueConverter object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Double Value Converter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Double Value Converter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDoubleValueConverter ( DoubleValueConverter object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Boolean Set Value Converter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Boolean Set Value Converter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBooleanSetValueConverter ( BooleanSetValueConverter object )
     {
         return null;
     }

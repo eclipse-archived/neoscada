@@ -4,7 +4,7 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  */
@@ -15,8 +15,10 @@ import java.util.Collection;
 import java.util.regex.Pattern;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
@@ -25,6 +27,8 @@ import org.eclipse.scada.base.extractor.extract.table.SplitTableExtractor;
 import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueConverterDefinition;
+import org.eclipse.scada.da.server.component.parser.factory.internal.Descriptors;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +42,7 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.SplitT
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SplitTableImpl#getFieldSeparatorPattern <em>Field Separator Pattern</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SplitTableImpl#getIdColumn <em>Id Column</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SplitTableImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SplitTableImpl#getValueConverter <em>Value Converter</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,6 +139,16 @@ public class SplitTableImpl extends MinimalEObjectImpl.Container implements Spli
      * @ordered
      */
     protected EList<String> fields;
+
+    /**
+     * The cached value of the '{@link #getValueConverter() <em>Value Converter</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getValueConverter()
+     * @generated
+     * @ordered
+     */
+    protected ValueConverterDefinition valueConverter;
 
     /**
      * <!-- begin-user-doc -->
@@ -274,7 +289,89 @@ public class SplitTableImpl extends MinimalEObjectImpl.Container implements Spli
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     * @generated
+     */
+    @Override
+    public ValueConverterDefinition getValueConverter ()
+    {
+        if ( valueConverter != null && valueConverter.eIsProxy () )
+        {
+            InternalEObject oldValueConverter = (InternalEObject)valueConverter;
+            valueConverter = (ValueConverterDefinition)eResolveProxy ( oldValueConverter );
+            if ( valueConverter != oldValueConverter )
+            {
+                InternalEObject newValueConverter = (InternalEObject)valueConverter;
+                NotificationChain msgs = oldValueConverter.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SPLIT_TABLE__VALUE_CONVERTER, null, null );
+                if ( newValueConverter.eInternalContainer () == null )
+                {
+                    msgs = newValueConverter.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SPLIT_TABLE__VALUE_CONVERTER, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ParserPackage.SPLIT_TABLE__VALUE_CONVERTER, oldValueConverter, valueConverter ) );
+            }
+        }
+        return valueConverter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ValueConverterDefinition basicGetValueConverter ()
+    {
+        return valueConverter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetValueConverter ( ValueConverterDefinition newValueConverter, NotificationChain msgs )
+    {
+        ValueConverterDefinition oldValueConverter = valueConverter;
+        valueConverter = newValueConverter;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ParserPackage.SPLIT_TABLE__VALUE_CONVERTER, oldValueConverter, newValueConverter );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setValueConverter ( ValueConverterDefinition newValueConverter )
+    {
+        if ( newValueConverter != valueConverter )
+        {
+            NotificationChain msgs = null;
+            if ( valueConverter != null )
+                msgs = ( (InternalEObject)valueConverter ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SPLIT_TABLE__VALUE_CONVERTER, null, msgs );
+            if ( newValueConverter != null )
+                msgs = ( (InternalEObject)newValueConverter ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SPLIT_TABLE__VALUE_CONVERTER, null, msgs );
+            msgs = basicSetValueConverter ( newValueConverter, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.SPLIT_TABLE__VALUE_CONVERTER, newValueConverter, newValueConverter ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
      * @generated NOT
      */
     @Override
@@ -289,10 +386,24 @@ public class SplitTableImpl extends MinimalEObjectImpl.Container implements Spli
         else
         {
             final String[] headers = getFields ().toArray ( new String[fields.size ()] );
-            return new SplitTableExtractor ( getLineSeparatorPattern ().pattern (), getFieldSeparatorPattern ().pattern (), getIdColumn (), headers );
-
+            return new SplitTableExtractor ( getLineSeparatorPattern ().pattern (), getFieldSeparatorPattern ().pattern (), getIdColumn (), headers, Descriptors.createConverter ( this.valueConverter ) );
         }
+    }
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case ParserPackage.SPLIT_TABLE__VALUE_CONVERTER:
+                return basicSetValueConverter ( null, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
@@ -315,6 +426,10 @@ public class SplitTableImpl extends MinimalEObjectImpl.Container implements Spli
                 return getIdColumn ();
             case ParserPackage.SPLIT_TABLE__FIELDS:
                 return getFields ();
+            case ParserPackage.SPLIT_TABLE__VALUE_CONVERTER:
+                if ( resolve )
+                    return getValueConverter ();
+                return basicGetValueConverter ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -346,6 +461,9 @@ public class SplitTableImpl extends MinimalEObjectImpl.Container implements Spli
                 getFields ().clear ();
                 getFields ().addAll ( (Collection<? extends String>)newValue );
                 return;
+            case ParserPackage.SPLIT_TABLE__VALUE_CONVERTER:
+                setValueConverter ( (ValueConverterDefinition)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -375,6 +493,9 @@ public class SplitTableImpl extends MinimalEObjectImpl.Container implements Spli
             case ParserPackage.SPLIT_TABLE__FIELDS:
                 getFields ().clear ();
                 return;
+            case ParserPackage.SPLIT_TABLE__VALUE_CONVERTER:
+                setValueConverter ( (ValueConverterDefinition)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -399,6 +520,8 @@ public class SplitTableImpl extends MinimalEObjectImpl.Container implements Spli
                 return idColumn != ID_COLUMN_EDEFAULT;
             case ParserPackage.SPLIT_TABLE__FIELDS:
                 return fields != null && !fields.isEmpty ();
+            case ParserPackage.SPLIT_TABLE__VALUE_CONVERTER:
+                return valueConverter != null;
         }
         return super.eIsSet ( featureID );
     }

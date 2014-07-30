@@ -197,6 +197,36 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter caseValueConverterDefinition ( ValueConverterDefinition object )
+                {
+                    return createValueConverterDefinitionAdapter ();
+                }
+
+                @Override
+                public Adapter caseBooleanValueConverter ( BooleanValueConverter object )
+                {
+                    return createBooleanValueConverterAdapter ();
+                }
+
+                @Override
+                public Adapter caseDefautlValueConverter ( DefautlValueConverter object )
+                {
+                    return createDefautlValueConverterAdapter ();
+                }
+
+                @Override
+                public Adapter caseDoubleValueConverter ( DoubleValueConverter object )
+                {
+                    return createDoubleValueConverterAdapter ();
+                }
+
+                @Override
+                public Adapter caseBooleanSetValueConverter ( BooleanSetValueConverter object )
+                {
+                    return createBooleanSetValueConverterAdapter ();
+                }
+
+                @Override
                 public Adapter defaultCase ( EObject object )
                 {
                     return createEObjectAdapter ();
@@ -498,6 +528,81 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createAbstractInputAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.ValueConverterDefinition <em>Value Converter Definition</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ValueConverterDefinition
+     * @generated
+     */
+    public Adapter createValueConverterDefinitionAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanValueConverter <em>Boolean Value Converter</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanValueConverter
+     * @generated
+     */
+    public Adapter createBooleanValueConverterAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter <em>Defautl Value Converter</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.DefautlValueConverter
+     * @generated
+     */
+    public Adapter createDefautlValueConverterAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.DoubleValueConverter <em>Double Value Converter</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.DoubleValueConverter
+     * @generated
+     */
+    public Adapter createDoubleValueConverterAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanSetValueConverter <em>Boolean Set Value Converter</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.BooleanSetValueConverter
+     * @generated
+     */
+    public Adapter createBooleanSetValueConverterAdapter ()
     {
         return null;
     }

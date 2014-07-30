@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getFieldSeparatorPattern <em>Field Separator Pattern</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getIdColumn <em>Id Column</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getFields <em>Fields</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getValueConverter <em>Value Converter</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,5 +128,31 @@ public interface SplitTable extends ExtractorDefinition
      * @generated
      */
     EList<String> getFields ();
+
+    /**
+     * Returns the value of the '<em><b>Value Converter</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Value Converter</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Value Converter</em>' containment reference.
+     * @see #setValueConverter(ValueConverterDefinition)
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage#getSplitTable_ValueConverter()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    ValueConverterDefinition getValueConverter ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getValueConverter <em>Value Converter</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Value Converter</em>' containment reference.
+     * @see #getValueConverter()
+     * @generated
+     */
+    void setValueConverter ( ValueConverterDefinition value );
 
 } // SplitTable

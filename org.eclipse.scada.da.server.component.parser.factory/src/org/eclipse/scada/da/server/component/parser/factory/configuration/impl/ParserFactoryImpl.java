@@ -113,6 +113,14 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
                 return createStringTransformer ();
             case ParserPackage.MQTT_INPUT:
                 return createMqttInput ();
+            case ParserPackage.BOOLEAN_VALUE_CONVERTER:
+                return createBooleanValueConverter ();
+            case ParserPackage.DEFAUTL_VALUE_CONVERTER:
+                return createDefautlValueConverter ();
+            case ParserPackage.DOUBLE_VALUE_CONVERTER:
+                return createDoubleValueConverter ();
+            case ParserPackage.BOOLEAN_SET_VALUE_CONVERTER:
+                return createBooleanSetValueConverter ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -309,6 +317,50 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
     {
         MqttInputImpl mqttInput = new MqttInputImpl ();
         return mqttInput;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BooleanValueConverter createBooleanValueConverter ()
+    {
+        BooleanValueConverterImpl booleanValueConverter = new BooleanValueConverterImpl ();
+        return booleanValueConverter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DefautlValueConverter createDefautlValueConverter ()
+    {
+        DefautlValueConverterImpl defautlValueConverter = new DefautlValueConverterImpl ();
+        return defautlValueConverter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DoubleValueConverter createDoubleValueConverter ()
+    {
+        DoubleValueConverterImpl doubleValueConverter = new DoubleValueConverterImpl ();
+        return doubleValueConverter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BooleanSetValueConverter createBooleanSetValueConverter ()
+    {
+        BooleanSetValueConverterImpl booleanSetValueConverter = new BooleanSetValueConverterImpl ();
+        return booleanSetValueConverter;
     }
 
     /**

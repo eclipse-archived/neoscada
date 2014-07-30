@@ -13,6 +13,7 @@ package org.eclipse.scada.da.server.component.parser.factory.internal;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.scada.base.extractor.convert.ValueConverter;
 import org.eclipse.scada.base.extractor.extract.pattern.FieldSpec;
 import org.eclipse.scada.base.extractor.extract.pattern.MainFieldSpec;
 import org.eclipse.scada.base.extractor.extract.pattern.NumberFieldSpec;
@@ -24,12 +25,22 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.Field;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueConverterDefinition;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor;
 
 public final class Descriptors
 {
     private Descriptors ()
     {
+    }
+
+    public static ValueConverter createConverter ( final ValueConverterDefinition def )
+    {
+        if ( def == null )
+        {
+            return null;
+        }
+        return def.createConverter ();
     }
 
     public static ValueFieldDescriptor convert ( final ValueDescriptor descriptor )
