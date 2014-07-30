@@ -39,6 +39,8 @@ public class ComponentNode
 
     public void registerComponent ( final LinkedList<String> prefix, final ComponentFolder componentFolder, final Component component )
     {
+        logger.debug ( "Register - prefix: {}, componentFolder: {}, component: {}", prefix, componentFolder, component );
+
         // first get the name
         final String next = prefix.pop ();
 
@@ -77,15 +79,19 @@ public class ComponentNode
         // first get the name
         final String next = prefix.pop ();
 
+        logger.debug ( "Checking: {}", next );
+
         if ( prefix.isEmpty () )
         {
             remove ( next, component );
         }
         else
         {
+            logger.debug ( "Passing to sub node" );
             final ComponentNode node = this.nodes.get ( next );
             if ( node == null )
             {
+                logger.debug ( "Sub node not found" );
                 return;
             }
             node.unregisterComponent ( prefix, component );
