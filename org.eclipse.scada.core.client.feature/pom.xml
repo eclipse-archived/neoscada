@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.eclipse.scada.core.features</groupId>
   <artifactId>org.eclipse.scada.core.client</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.2.0-SNAPSHOT</version>
   <packaging>eclipse-feature</packaging>
   
      <!-- source features -->

@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.scada.core.client"
       label="%featureName"
-      version="0.1.0.qualifier"
+      version="0.2.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.scada.core"
       license-feature="org.eclipse.scada.license"
@@ -19,14 +19,12 @@
    <license url="%licenseURL">
       %license
    </license>
-   
+
    <requires>
       <import feature="org.eclipse.scada.core.protocols" version="0.1.0.qualifier"/>
       <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
       <import feature="org.eclipse.scada.core.common" version="0.1.0.qualifier"/>
    </requires>
-   
-   
 
    <plugin
          id="org.eclipse.scada.core.client"
@@ -69,7 +67,6 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
 
    <plugin
          id="org.eclipse.scada.ca.client"
@@ -91,7 +88,6 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
 
    <plugin
          id="org.eclipse.scada.da.client"
@@ -127,7 +123,7 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
+
    <plugin
          id="org.eclipse.scada.ae.client.connection.service"
          download-size="0"
@@ -155,7 +151,6 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-         
 
    <plugin
          id="org.eclipse.scada.hd.client.common"
@@ -191,13 +186,12 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-                  
+
    <plugin
          id="org.eclipse.scada.da.client.sfp"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
 
 </feature>
