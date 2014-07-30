@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -82,6 +83,7 @@ public class JavaDebianHandler extends CommonPackageHandler
         replacements.put ( "prerm.stop", createPreRm () ); //$NON-NLS-1$
 
         replacements.put ( "postinst.scripts", createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
         replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
         replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
@@ -92,6 +94,7 @@ public class JavaDebianHandler extends CommonPackageHandler
             deb.setPostinstScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
             deb.setPostrmScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
             deb.setPrermScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
+            deb.setPreinstScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
 
             createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
             createEquinox ( deb, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
@@ -136,7 +139,9 @@ public class JavaDebianHandler extends CommonPackageHandler
             return "";
         }
 
-        for ( final File file : dir.listFiles () )
+        final File[] files = dir.listFiles ();
+        Arrays.sort ( files );
+        for ( final File file : files )
         {
             if ( !file.isFile () )
             {

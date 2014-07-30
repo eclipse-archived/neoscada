@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+case "$1" in
+  install|upgrade)
+  ;;
+
+  *)
+    echo "preinst called with unknown argument \`$1'" >&2
+    exit 1
+  ;;
+esac
+
+$$preinst.scripts$$
+
+exit 0
