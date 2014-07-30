@@ -175,6 +175,7 @@ public abstract class Component
                 performStop ();
             }
         } );
+        logger.debug ( "Component stopped" );
     }
 
     protected abstract void performStart ();
