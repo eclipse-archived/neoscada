@@ -15,9 +15,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.eclipse.scada.base.extractor.convert.ValueConverter;
 import org.eclipse.scada.base.extractor.extract.ItemDescriptor;
 import org.eclipse.scada.base.extractor.extract.ItemValue;
-import org.eclipse.scada.base.extractor.extract.ValueConverter;
 import org.eclipse.scada.core.Variant;
 
 public class VariableFieldPatternExtractor extends AbstractPatternExtractor
@@ -29,11 +29,14 @@ public class VariableFieldPatternExtractor extends AbstractPatternExtractor
 
     private final int valueGroup;
 
-    public VariableFieldPatternExtractor ( final Pattern fieldPattern, final int fieldNameGroup, final int valueGroup )
+    private final ValueConverter converter;
+
+    public VariableFieldPatternExtractor ( final Pattern fieldPattern, final int fieldNameGroup, final int valueGroup, final ValueConverter converter )
     {
         this.fieldPattern = fieldPattern;
         this.fieldNameGroup = fieldNameGroup;
         this.valueGroup = valueGroup;
+        this.converter = converter != null ? converter : ValueConverter.NULL;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class VariableFieldPatternExtractor extends AbstractPatternExtractor
         while ( m.find () )
         {
             final String fieldName = m.group ( this.fieldNameGroup );
-            final Variant value = new ValueConverter ().convert ( m.group ( this.valueGroup ) );
+            final Variant value = this.converter.convert ( m.group ( this.valueGroup ) );
 
             result.put ( new ItemDescriptor ( fieldName, null ), new ItemValue ( value, null ) );
         }

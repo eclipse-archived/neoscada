@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.scada.base.extractor.convert.ValueConverter;
 import org.eclipse.scada.core.Variant;
 
 /**
@@ -32,15 +33,18 @@ public class PlainTextExtractor extends AbstractStringExtractor
 
     private final boolean trim;
 
-    public PlainTextExtractor ( final boolean trim )
+    private final ValueConverter converter;
+
+    public PlainTextExtractor ( final boolean trim, final ValueConverter converter )
     {
         this.trim = trim;
+        this.converter = converter != null ? converter : ValueConverter.NULL;
     }
 
     @Override
     protected Map<ItemDescriptor, ItemValue> processData ( final String data ) throws Exception
     {
-        return Collections.singletonMap ( DESC_VALUE, new ItemValue ( Variant.valueOf ( this.trim ? data.trim () : data ), null ) );
+        return Collections.singletonMap ( DESC_VALUE, new ItemValue ( Variant.valueOf ( this.converter.convert ( this.trim ? data.trim () : data ) ), null ) );
     }
 
 }

@@ -55,7 +55,7 @@ public class ProcTest extends AbstractExtractTest
         final Map<String, Extractor> subExtractors = new HashMap<String, Extractor> ();
 
         {
-            subExtractors.put ( "fields", new VariableFieldPatternExtractor ( Pattern.compile ( "^(.*?)\\s+: (.*)$", Pattern.MULTILINE ), 1, 2 ) );
+            subExtractors.put ( "fields", new VariableFieldPatternExtractor ( Pattern.compile ( "^(.*?)\\s+: (.*)$", Pattern.MULTILINE ), 1, 2, null ) );
         }
 
         final Extractor extractor = new SplitExtractor ( "\n\n", subExtractors );
@@ -76,7 +76,7 @@ public class ProcTest extends AbstractExtractTest
     public void mounts () throws InterruptedException
     {
         final FileInput input = new FileInput ( this.executor, new File ( "/proc/mounts" ), 100 );
-        final SplitTableExtractor extractor = new SplitTableExtractor ( "\n", "\\s+", 1, new String[] { "target", "mountPoint", "fsType", "options", "flags1", "flags2" } );
+        final SplitTableExtractor extractor = new SplitTableExtractor ( "\n", "\\s+", 1, new String[] { "target", "mountPoint", "fsType", "options", "flags1", "flags2" }, null );
 
         process ( input, extractor );
     }

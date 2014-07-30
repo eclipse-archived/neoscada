@@ -8,16 +8,15 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.base.extractor.extract;
+package org.eclipse.scada.base.extractor.convert;
 
 import org.eclipse.scada.core.Variant;
 
-public class ValueConverter
+public class DefaultValueConverter implements ValueConverter
 {
-    public ValueConverter ()
-    {
-    }
+    public static final ValueConverter INSTANCE = new DefaultValueConverter ();
 
+    @Override
     public Variant convert ( final String string )
     {
         if ( "true".equalsIgnoreCase ( string ) )

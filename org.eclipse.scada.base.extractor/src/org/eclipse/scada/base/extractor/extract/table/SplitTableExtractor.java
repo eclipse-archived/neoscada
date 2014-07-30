@@ -13,10 +13,10 @@ package org.eclipse.scada.base.extractor.extract.table;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.scada.base.extractor.convert.ValueConverter;
 import org.eclipse.scada.base.extractor.extract.AbstractStringExtractor;
 import org.eclipse.scada.base.extractor.extract.ItemDescriptor;
 import org.eclipse.scada.base.extractor.extract.ItemValue;
-import org.eclipse.scada.base.extractor.extract.ValueConverter;
 
 public class SplitTableExtractor extends AbstractStringExtractor
 {
@@ -28,20 +28,24 @@ public class SplitTableExtractor extends AbstractStringExtractor
 
     private final String[] header;
 
+    private final ValueConverter converter;
+
     public SplitTableExtractor ( final String lineSeparatorPattern, final String fieldSeparatorPattern, final int idColumn )
     {
         this.lineSeparatorPattern = lineSeparatorPattern;
         this.fieldSeparatorPattern = fieldSeparatorPattern;
         this.idColumn = idColumn;
         this.header = null;
+        this.converter = ValueConverter.NULL;
     }
 
-    public SplitTableExtractor ( final String lineSeparatorPattern, final String fieldSeparatorPattern, final int idColumn, final String[] header )
+    public SplitTableExtractor ( final String lineSeparatorPattern, final String fieldSeparatorPattern, final int idColumn, final String[] header, final ValueConverter converter )
     {
         this.lineSeparatorPattern = lineSeparatorPattern;
         this.fieldSeparatorPattern = fieldSeparatorPattern;
         this.idColumn = idColumn;
         this.header = header;
+        this.converter = converter != null ? converter : ValueConverter.NULL;
     }
 
     @Override
@@ -73,7 +77,7 @@ public class SplitTableExtractor extends AbstractStringExtractor
             for ( int j = 0; j < fields.length; j++ )
             {
                 final ItemDescriptor desc = new ItemDescriptor ( id + "." + header[j], null );
-                result.put ( desc, new ItemValue ( new ValueConverter ().convert ( fields[j] ), null ) );
+                result.put ( desc, new ItemValue ( this.converter.convert ( fields[j] ), null ) );
             }
         }
 

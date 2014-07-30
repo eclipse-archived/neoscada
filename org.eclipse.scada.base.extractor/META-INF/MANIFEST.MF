@@ -5,11 +5,12 @@ Bundle-SymbolicName: org.eclipse.scada.base.extractor
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.eclipse.scada.base.extractor.extract;version="0.2.0";uses:="org.eclipse.scada.core,org.eclipse.scada.base.extractor.input",
- org.eclipse.scada.base.extractor.extract.pattern;version="0.2.0";uses:="org.eclipse.scada.core,org.eclipse.scada.base.extractor.extract",
+Export-Package: org.eclipse.scada.base.extractor.convert;version="0.2.0";uses:="org.eclipse.scada.core",
+ org.eclipse.scada.base.extractor.extract;version="0.2.0";uses:="org.eclipse.scada.base.extractor.convert,org.eclipse.scada.core,org.eclipse.scada.base.extractor.input",
+ org.eclipse.scada.base.extractor.extract.pattern;version="0.2.0";uses:="org.eclipse.scada.base.extractor.convert,org.eclipse.scada.core,org.eclipse.scada.base.extractor.extract",
  org.eclipse.scada.base.extractor.extract.split;version="0.2.0";uses:="org.eclipse.scada.base.extractor.extract",
- org.eclipse.scada.base.extractor.extract.table;version="0.2.0";uses:="org.eclipse.scada.base.extractor.extract",
- org.eclipse.scada.base.extractor.input;version="0.2.0",
+ org.eclipse.scada.base.extractor.extract.table;version="0.2.0";uses:="org.eclipse.scada.base.extractor.convert,org.eclipse.scada.base.extractor.extract",
+ org.eclipse.scada.base.extractor.input;version="0.2.0";uses:="org.eclipse.scada.base.extractor.transform",
  org.eclipse.scada.base.extractor.input.file;version="0.2.0";uses:="org.eclipse.scada.base.extractor.input",
  org.eclipse.scada.base.extractor.input.process;version="0.2.0";uses:="org.eclipse.scada.base.extractor.input",
  org.eclipse.scada.base.extractor.input.url;version="0.2.0";uses:="org.eclipse.scada.base.extractor.input",
