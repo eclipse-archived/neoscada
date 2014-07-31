@@ -219,4 +219,10 @@ public class MqttInput extends AbstractInput
             handleDisconnected ( e );
         }
     }
+
+    @Override
+    public String toString ()
+    {
+        return String.format ( "[MqttInput - serverUri: %s, topic: %s, qos: %s]", this.serverUri, this.topic, this.qos );
+    }
 }
