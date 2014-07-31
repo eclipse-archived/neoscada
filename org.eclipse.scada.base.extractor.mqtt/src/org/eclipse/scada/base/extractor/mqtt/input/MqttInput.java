@@ -45,6 +45,8 @@ public class MqttInput extends AbstractInput
 
     private final int qos;
 
+    private final long reconnectDelay = 10_000;
+
     private final MqttCallback callback = new MqttCallback () {
 
         @Override
@@ -122,6 +124,7 @@ public class MqttInput extends AbstractInput
         {
             try
             {
+                logger.debug ( "Disconnecting client" );
                 this.client.disconnect ().waitForCompletion ();
             }
             catch ( final MqttException e )
@@ -178,7 +181,10 @@ public class MqttInput extends AbstractInput
 
         try
         {
-            this.client.close ();
+            if ( this.client != null )
+            {
+                this.client.close ();
+            }
         }
         catch ( final Exception e2 )
         {
@@ -196,7 +202,7 @@ public class MqttInput extends AbstractInput
                 {
                     triggerConnect ();
                 }
-            }, 10, TimeUnit.SECONDS );
+            }, this.reconnectDelay, TimeUnit.MILLISECONDS );
         }
     }
 
