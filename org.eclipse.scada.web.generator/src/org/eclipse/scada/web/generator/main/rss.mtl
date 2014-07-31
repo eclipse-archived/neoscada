@@ -22,15 +22,21 @@
 	<guid isPermaLink="true">[news.absolutePermaLink()/]</guid>
 	<link>[news.absolutePermaLink()/]</link>
 	<pubDate>[formatDate('EEE, dd MMM yyyy HH:mm:ss Z', news.date)/]</pubDate>
-[if news.description<>null]
-	<description>
-[news.description.encodeHtml()/]
-[(' → <a href="' + news.absolutePermaLink() + '">Continue reading</a>').encodeHtml()/]
-	</description>
-[/if]
+[description(news)/]
 </item>
 [/for]
-
 	</channel>
 </rss>
+[/template]
+
+[template public description(news : NewsEntry)]
+[if news.description<>null]
+	<description>
+[descriptionContent(news)/]
+	</description>[/if]
+[/template]
+
+[template private descriptionContent(news : NewsEntry) post (encodeHtml())]
+[news.description/]
+[(' → <a href="' + news.absolutePermaLink() + '">Continue reading</a>')/]
 [/template]
