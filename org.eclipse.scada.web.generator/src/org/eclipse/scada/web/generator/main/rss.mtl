@@ -3,6 +3,7 @@
 
 [import org::eclipse::scada::web::generator::main::news /]
 [import org::eclipse::scada::web::generator::main::common /]
+[import org::eclipse::scada::web::generator::main::content /]
 
 [template public generateFeed(site : Site)]
 <?xml version="1.0" encoding="UTF-8"?>
@@ -14,7 +15,7 @@
 		<lastBuildDate>[formatDate('EEE, dd MMM yyyy HH:mm:ss Z', null)/]</lastBuildDate>
 		<atom:link href="[getProperty('site.base')/]/feed.xml" rel="self" type="application/rss+xml" />
 		<language>en-US</language>
-		<generator>http://eclipse.org/eclipsescada?v=1</generator>
+		<generator>http://eclipse.org/eclipsescada?v=3</generator>
 
 [for (news : NewsEntry | site.news)]
 <item>
@@ -30,13 +31,15 @@
 [/template]
 
 [template public description(news : NewsEntry)]
-[if news.description<>null]
+[if news.content->size()>1]
 	<description>
 [descriptionContent(news)/]
-	</description>[/if]
+</description>[/if]
 [/template]
 
 [template private descriptionContent(news : NewsEntry) post (encodeHtml())]
-[news.description/]
-[(' → <a href="' + news.absolutePermaLink() + '">Continue reading</a>')/]
+[processContent(news.content->first(), '')/]
+[if news.content->size()>1]
+[(' → <a href="' + news.absolutePermaLink() + '">Read full article</a>')/]
+[/if]
 [/template]
