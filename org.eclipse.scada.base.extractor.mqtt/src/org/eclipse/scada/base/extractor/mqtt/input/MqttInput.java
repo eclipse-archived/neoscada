@@ -212,7 +212,22 @@ public class MqttInput extends AbstractInput
         try
         {
             logger.debug ( "Subscribe to: {} (qos: {})", this.topic, this.qos );
-            this.client.subscribe ( this.topic, this.qos );
+            final IMqttToken token = this.client.subscribe ( this.topic, this.qos );
+            token.setActionCallback ( new IMqttActionListener () {
+
+                @Override
+                public void onSuccess ( final IMqttToken token )
+                {
+                    logger.debug ( "Subscription OK: {}/{}", MqttInput.this.serverUri, MqttInput.this.topic );
+                }
+
+                @Override
+                public void onFailure ( final IMqttToken token, final Throwable e )
+                {
+                    logger.info ( "Subscription failed: {}/{}", MqttInput.this.serverUri, MqttInput.this.topic );
+                    logger.info ( "Subscription error", e );
+                }
+            } );
         }
         catch ( final MqttException e )
         {
