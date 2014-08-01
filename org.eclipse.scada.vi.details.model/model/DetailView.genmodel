@@ -9,7 +9,7 @@
     nonNLSMarkers="true" codeFormatting="true" testSuiteClass="org.eclipse.scada.vi.details.model.model.tests.DetailViewAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     editPluginID="org.eclipse.scada.vi.details.model.edit" editorPluginID="org.eclipse.scada.vi.details.model.editor"
-    importOrganizing="true">
+    runtimeVersion="2.9" importOrganizing="true">
   <foreignModel>DetailView.ecore</foreignModel>
   <genPackages prefix="DetailView" basePackage="org.eclipse.scada.vi.details" disposableProviderFactory="true"
       generateModelWizard="false" extensibleProviderFactory="true" childCreationExtenders="true"
@@ -122,6 +122,7 @@
       <genFeatures createChild="false" propertyCategory="hd" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdItemId"/>
       <genFeatures createChild="false" propertyCategory="hd" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/hdQueryString"/>
       <genFeatures createChild="false" propertyCategory="format" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/isText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//ReadableComponent/nullReplacementValue"/>
     </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//TextComponent">
       <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute DetailView.ecore#//TextComponent/descriptor"/>
@@ -177,6 +178,18 @@
       <genFeatures createChild="false" propertyCategory="script" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute DetailView.ecore#//ScriptModule/code"/>
       <genFeatures createChild="false" propertyCategory="script" ecoreFeature="ecore:EAttribute DetailView.ecore#//ScriptModule/codeUri"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//BrowserComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BrowserComponent/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BrowserComponent/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BrowserComponent/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BrowserComponent/reloadTimer"/>
+    </genClasses>
+    <genClasses ecoreClass="DetailView.ecore#//BrowserComponent.1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BrowserComponent.1/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BrowserComponent.1/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BrowserComponent.1/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//BrowserComponent.1/reloadTimer"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

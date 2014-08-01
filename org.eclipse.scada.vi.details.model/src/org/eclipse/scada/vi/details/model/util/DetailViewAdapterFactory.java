@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add browser component
  *******************************************************************************/
 package org.eclipse.scada.vi.details.model.util;
 
@@ -14,7 +15,45 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.vi.details.model.*;
+import org.eclipse.scada.vi.details.model.AndTransformer;
+import org.eclipse.scada.vi.details.model.BoolLEDComponent;
+import org.eclipse.scada.vi.details.model.BrowserComponent;
+import org.eclipse.scada.vi.details.model.ButtonComponent;
+import org.eclipse.scada.vi.details.model.CheckComponent;
+import org.eclipse.scada.vi.details.model.Component;
+import org.eclipse.scada.vi.details.model.CompositeComponent;
+import org.eclipse.scada.vi.details.model.CompositeTransformer;
+import org.eclipse.scada.vi.details.model.DetailViewPackage;
+import org.eclipse.scada.vi.details.model.FillLayoutComponent;
+import org.eclipse.scada.vi.details.model.GenericComponent;
+import org.eclipse.scada.vi.details.model.GroupEntry;
+import org.eclipse.scada.vi.details.model.GroupGridComponent;
+import org.eclipse.scada.vi.details.model.GroupGridEntry;
+import org.eclipse.scada.vi.details.model.HiddenComponent;
+import org.eclipse.scada.vi.details.model.Invisible;
+import org.eclipse.scada.vi.details.model.ItemValueSource;
+import org.eclipse.scada.vi.details.model.LabelComponent;
+import org.eclipse.scada.vi.details.model.LinkComponent;
+import org.eclipse.scada.vi.details.model.NotTransformer;
+import org.eclipse.scada.vi.details.model.OrTransformer;
+import org.eclipse.scada.vi.details.model.PermissionVisibility;
+import org.eclipse.scada.vi.details.model.ProgressComponent;
+import org.eclipse.scada.vi.details.model.ReadableComponent;
+import org.eclipse.scada.vi.details.model.Registration;
+import org.eclipse.scada.vi.details.model.ScriptModule;
+import org.eclipse.scada.vi.details.model.ScriptVisibility;
+import org.eclipse.scada.vi.details.model.SimpleGridComponent;
+import org.eclipse.scada.vi.details.model.TestVisibility;
+import org.eclipse.scada.vi.details.model.TextComponent;
+import org.eclipse.scada.vi.details.model.TextInputComponent;
+import org.eclipse.scada.vi.details.model.TextInputMultiComponent;
+import org.eclipse.scada.vi.details.model.URLImageComponent;
+import org.eclipse.scada.vi.details.model.ValueComponent;
+import org.eclipse.scada.vi.details.model.ValueSetComponent;
+import org.eclipse.scada.vi.details.model.ValueSource;
+import org.eclipse.scada.vi.details.model.View;
+import org.eclipse.scada.vi.details.model.Visibility;
+import org.eclipse.scada.vi.details.model.WriteableComponent;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +61,7 @@ import org.eclipse.scada.vi.details.model.*;
  * It provides an adapter <code>createXXX</code> method for each class of the
  * model.
  * <!-- end-user-doc -->
+ *
  * @see org.eclipse.scada.vi.details.model.DetailViewPackage
  * @generated
  */
@@ -31,6 +71,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * The cached model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     protected static DetailViewPackage modelPackage;
@@ -39,6 +80,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * Creates an instance of the adapter factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     public DetailViewAdapterFactory ()
@@ -55,11 +97,12 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * This implementation returns <code>true</code> if the object is either the
      * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
+     *
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType ( Object object )
+    public boolean isFactoryForType ( final Object object )
     {
         if ( object == modelPackage )
         {
@@ -76,234 +119,241 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     protected DetailViewSwitch<Adapter> modelSwitch = new DetailViewSwitch<Adapter> ()
     {
         @Override
-        public Adapter caseView ( View object )
+        public Adapter caseView ( final View object )
         {
             return createViewAdapter ();
         }
 
         @Override
-        public Adapter caseComponent ( Component object )
+        public Adapter caseComponent ( final Component object )
         {
             return createComponentAdapter ();
         }
 
         @Override
-        public Adapter caseGroupEntry ( GroupEntry object )
+        public Adapter caseGroupEntry ( final GroupEntry object )
         {
             return createGroupEntryAdapter ();
         }
 
         @Override
-        public Adapter caseLabelComponent ( LabelComponent object )
+        public Adapter caseLabelComponent ( final LabelComponent object )
         {
             return createLabelComponentAdapter ();
         }
 
         @Override
-        public Adapter caseCompositeComponent ( CompositeComponent object )
+        public Adapter caseCompositeComponent ( final CompositeComponent object )
         {
             return createCompositeComponentAdapter ();
         }
 
         @Override
-        public Adapter caseFillLayoutComponent ( FillLayoutComponent object )
+        public Adapter caseFillLayoutComponent ( final FillLayoutComponent object )
         {
             return createFillLayoutComponentAdapter ();
         }
 
         @Override
-        public Adapter caseButtonComponent ( ButtonComponent object )
+        public Adapter caseButtonComponent ( final ButtonComponent object )
         {
             return createButtonComponentAdapter ();
         }
 
         @Override
-        public Adapter caseBoolLEDComponent ( BoolLEDComponent object )
+        public Adapter caseBoolLEDComponent ( final BoolLEDComponent object )
         {
             return createBoolLEDComponentAdapter ();
         }
 
         @Override
-        public Adapter caseValueSource ( ValueSource object )
+        public Adapter caseValueSource ( final ValueSource object )
         {
             return createValueSourceAdapter ();
         }
 
         @Override
-        public Adapter caseItemValueSource ( ItemValueSource object )
+        public Adapter caseItemValueSource ( final ItemValueSource object )
         {
             return createItemValueSourceAdapter ();
         }
 
         @Override
-        public Adapter caseNotTransformer ( NotTransformer object )
+        public Adapter caseNotTransformer ( final NotTransformer object )
         {
             return createNotTransformerAdapter ();
         }
 
         @Override
-        public Adapter caseGenericComponent ( GenericComponent object )
+        public Adapter caseGenericComponent ( final GenericComponent object )
         {
             return createGenericComponentAdapter ();
         }
 
         @Override
-        public Adapter caseRegistration ( Registration object )
+        public Adapter caseRegistration ( final Registration object )
         {
             return createRegistrationAdapter ();
         }
 
         @Override
-        public Adapter caseSimpleGridComponent ( SimpleGridComponent object )
+        public Adapter caseSimpleGridComponent ( final SimpleGridComponent object )
         {
             return createSimpleGridComponentAdapter ();
         }
 
         @Override
-        public Adapter caseGroupGridComponent ( GroupGridComponent object )
+        public Adapter caseGroupGridComponent ( final GroupGridComponent object )
         {
             return createGroupGridComponentAdapter ();
         }
 
         @Override
-        public Adapter caseGroupGridEntry ( GroupGridEntry object )
+        public Adapter caseGroupGridEntry ( final GroupGridEntry object )
         {
             return createGroupGridEntryAdapter ();
         }
 
         @Override
-        public Adapter caseValueSetComponent ( ValueSetComponent object )
+        public Adapter caseValueSetComponent ( final ValueSetComponent object )
         {
             return createValueSetComponentAdapter ();
         }
 
         @Override
-        public Adapter caseValueComponent ( ValueComponent object )
+        public Adapter caseValueComponent ( final ValueComponent object )
         {
             return createValueComponentAdapter ();
         }
 
         @Override
-        public Adapter caseCompositeTransformer ( CompositeTransformer object )
+        public Adapter caseCompositeTransformer ( final CompositeTransformer object )
         {
             return createCompositeTransformerAdapter ();
         }
 
         @Override
-        public Adapter caseAndTransformer ( AndTransformer object )
+        public Adapter caseAndTransformer ( final AndTransformer object )
         {
             return createAndTransformerAdapter ();
         }
 
         @Override
-        public Adapter caseOrTransformer ( OrTransformer object )
+        public Adapter caseOrTransformer ( final OrTransformer object )
         {
             return createOrTransformerAdapter ();
         }
 
         @Override
-        public Adapter caseTextInputComponent ( TextInputComponent object )
+        public Adapter caseTextInputComponent ( final TextInputComponent object )
         {
             return createTextInputComponentAdapter ();
         }
 
         @Override
-        public Adapter caseWriteableComponent ( WriteableComponent object )
+        public Adapter caseWriteableComponent ( final WriteableComponent object )
         {
             return createWriteableComponentAdapter ();
         }
 
         @Override
-        public Adapter caseReadableComponent ( ReadableComponent object )
+        public Adapter caseReadableComponent ( final ReadableComponent object )
         {
             return createReadableComponentAdapter ();
         }
 
         @Override
-        public Adapter caseTextComponent ( TextComponent object )
+        public Adapter caseTextComponent ( final TextComponent object )
         {
             return createTextComponentAdapter ();
         }
 
         @Override
-        public Adapter caseTextInputMultiComponent ( TextInputMultiComponent object )
+        public Adapter caseTextInputMultiComponent ( final TextInputMultiComponent object )
         {
             return createTextInputMultiComponentAdapter ();
         }
 
         @Override
-        public Adapter caseCheckComponent ( CheckComponent object )
+        public Adapter caseCheckComponent ( final CheckComponent object )
         {
             return createCheckComponentAdapter ();
         }
 
         @Override
-        public Adapter caseLinkComponent ( LinkComponent object )
+        public Adapter caseLinkComponent ( final LinkComponent object )
         {
             return createLinkComponentAdapter ();
         }
 
         @Override
-        public Adapter caseURLImageComponent ( URLImageComponent object )
+        public Adapter caseURLImageComponent ( final URLImageComponent object )
         {
             return createURLImageComponentAdapter ();
         }
 
         @Override
-        public Adapter caseProgressComponent ( ProgressComponent object )
+        public Adapter caseProgressComponent ( final ProgressComponent object )
         {
             return createProgressComponentAdapter ();
         }
 
         @Override
-        public Adapter caseHiddenComponent ( HiddenComponent object )
+        public Adapter caseHiddenComponent ( final HiddenComponent object )
         {
             return createHiddenComponentAdapter ();
         }
 
         @Override
-        public Adapter caseVisibility ( Visibility object )
+        public Adapter caseVisibility ( final Visibility object )
         {
             return createVisibilityAdapter ();
         }
 
         @Override
-        public Adapter caseScriptVisibility ( ScriptVisibility object )
+        public Adapter caseScriptVisibility ( final ScriptVisibility object )
         {
             return createScriptVisibilityAdapter ();
         }
 
         @Override
-        public Adapter casePermissionVisibility ( PermissionVisibility object )
+        public Adapter casePermissionVisibility ( final PermissionVisibility object )
         {
             return createPermissionVisibilityAdapter ();
         }
 
         @Override
-        public Adapter caseInvisible ( Invisible object )
+        public Adapter caseInvisible ( final Invisible object )
         {
             return createInvisibleAdapter ();
         }
 
         @Override
-        public Adapter caseTestVisibility ( TestVisibility object )
+        public Adapter caseTestVisibility ( final TestVisibility object )
         {
             return createTestVisibilityAdapter ();
         }
 
         @Override
-        public Adapter caseScriptModule ( ScriptModule object )
+        public Adapter caseScriptModule ( final ScriptModule object )
         {
             return createScriptModuleAdapter ();
         }
 
         @Override
-        public Adapter defaultCase ( EObject object )
+        public Adapter caseBrowserComponent ( final BrowserComponent object )
+        {
+            return createBrowserComponentAdapter ();
+        }
+
+        @Override
+        public Adapter defaultCase ( final EObject object )
         {
             return createEObjectAdapter ();
         }
@@ -313,25 +363,29 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * Creates an adapter for the <code>target</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param target the object to adapt.
-     * @return the adapter for the <code>target</code>.
+     *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter ( Notifier target )
+    public Adapter createAdapter ( final Notifier target )
     {
-        return modelSwitch.doSwitch ( (EObject)target );
+        return this.modelSwitch.doSwitch ( (EObject)target );
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.View <em>View</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.View <em>View</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.View
      * @generated
      */
@@ -341,14 +395,16 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.Component <em>Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.Component <em>Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.Component
      * @generated
      */
@@ -358,14 +414,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.GroupEntry <em>Group Entry</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.GroupEntry
+             * <em>Group Entry</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.GroupEntry
      * @generated
      */
@@ -375,14 +434,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.LabelComponent <em>Label Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.LabelComponent
+             * <em>Label Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.LabelComponent
      * @generated
      */
@@ -392,14 +454,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.CompositeComponent <em>Composite Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.CompositeComponent
+             * <em>Composite Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.CompositeComponent
      * @generated
      */
@@ -409,14 +474,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.FillLayoutComponent <em>Fill Layout Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.FillLayoutComponent
+             * <em>Fill Layout Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.FillLayoutComponent
      * @generated
      */
@@ -426,14 +494,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ButtonComponent <em>Button Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ButtonComponent
+             * <em>Button Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ButtonComponent
      * @generated
      */
@@ -443,14 +514,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.BoolLEDComponent <em>Bool LED Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.BoolLEDComponent
+             * <em>Bool LED Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.BoolLEDComponent
      * @generated
      */
@@ -460,14 +534,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ValueSource <em>Value Source</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ValueSource
+             * <em>Value Source</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ValueSource
      * @generated
      */
@@ -477,14 +554,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ItemValueSource <em>Item Value Source</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ItemValueSource
+             * <em>Item Value Source</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ItemValueSource
      * @generated
      */
@@ -494,14 +574,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.NotTransformer <em>Not Transformer</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.NotTransformer
+             * <em>Not Transformer</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.NotTransformer
      * @generated
      */
@@ -511,14 +594,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.GenericComponent <em>Generic Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.GenericComponent
+             * <em>Generic Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.GenericComponent
      * @generated
      */
@@ -528,14 +614,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.Registration <em>Registration</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.Registration
+             * <em>Registration</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.Registration
      * @generated
      */
@@ -545,14 +634,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.SimpleGridComponent <em>Simple Grid Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.SimpleGridComponent
+             * <em>Simple Grid Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.SimpleGridComponent
      * @generated
      */
@@ -562,14 +654,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.GroupGridComponent <em>Group Grid Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.GroupGridComponent
+             * <em>Group Grid Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.GroupGridComponent
      * @generated
      */
@@ -579,14 +674,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.GroupGridEntry <em>Group Grid Entry</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.GroupGridEntry
+             * <em>Group Grid Entry</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.GroupGridEntry
      * @generated
      */
@@ -596,14 +694,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ValueSetComponent <em>Value Set Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ValueSetComponent
+             * <em>Value Set Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ValueSetComponent
      * @generated
      */
@@ -613,14 +714,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ValueComponent <em>Value Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ValueComponent
+             * <em>Value Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ValueComponent
      * @generated
      */
@@ -630,14 +734,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.CompositeTransformer <em>Composite Transformer</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.CompositeTransformer
+             * <em>Composite Transformer</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.CompositeTransformer
      * @generated
      */
@@ -647,14 +754,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.AndTransformer <em>And Transformer</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.AndTransformer
+             * <em>And Transformer</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.AndTransformer
      * @generated
      */
@@ -664,14 +774,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.OrTransformer <em>Or Transformer</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.OrTransformer
+             * <em>Or Transformer</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.OrTransformer
      * @generated
      */
@@ -681,14 +794,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.TextInputComponent <em>Text Input Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.TextInputComponent
+             * <em>Text Input Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.TextInputComponent
      * @generated
      */
@@ -698,14 +814,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.WriteableComponent <em>Writeable Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.WriteableComponent
+             * <em>Writeable Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.WriteableComponent
      * @generated
      */
@@ -715,14 +834,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ReadableComponent <em>Readable Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ReadableComponent
+             * <em>Readable Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ReadableComponent
      * @generated
      */
@@ -732,14 +854,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.TextComponent <em>Text Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.TextComponent
+             * <em>Text Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.TextComponent
      * @generated
      */
@@ -749,14 +874,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.TextInputMultiComponent <em>Text Input Multi Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.TextInputMultiComponent
+             * <em>Text Input Multi Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.TextInputMultiComponent
      * @generated
      */
@@ -766,14 +894,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.CheckComponent <em>Check Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.CheckComponent
+             * <em>Check Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.CheckComponent
      * @generated
      */
@@ -783,14 +914,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.LinkComponent <em>Link Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.LinkComponent
+             * <em>Link Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.LinkComponent
      * @generated
      */
@@ -800,14 +934,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.URLImageComponent <em>URL Image Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.URLImageComponent
+             * <em>URL Image Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.URLImageComponent
      * @generated
      */
@@ -817,14 +954,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ProgressComponent <em>Progress Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ProgressComponent
+             * <em>Progress Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ProgressComponent
      * @generated
      */
@@ -834,14 +974,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.HiddenComponent <em>Hidden Component</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.HiddenComponent
+             * <em>Hidden Component</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.HiddenComponent
      * @generated
      */
@@ -851,14 +994,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.Visibility <em>Visibility</em>}'.
-     * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.Visibility <em>Visibility</em>}
+             * '.
+             * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.Visibility
      * @generated
      */
@@ -868,14 +1014,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ScriptVisibility <em>Script Visibility</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ScriptVisibility
+             * <em>Script Visibility</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ScriptVisibility
      * @generated
      */
@@ -885,14 +1034,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.PermissionVisibility <em>Permission Visibility</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.PermissionVisibility
+             * <em>Permission Visibility</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.PermissionVisibility
      * @generated
      */
@@ -902,14 +1054,16 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.Invisible <em>Invisible</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.Invisible <em>Invisible</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.Invisible
      * @generated
      */
@@ -919,14 +1073,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.TestVisibility <em>Test Visibility</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.TestVisibility
+             * <em>Test Visibility</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.TestVisibility
      * @generated
      */
@@ -936,14 +1093,17 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.details.model.ScriptModule <em>Script Module</em>}'.
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.ScriptModule
+             * <em>Script Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @see org.eclipse.scada.vi.details.model.ScriptModule
      * @generated
      */
@@ -953,11 +1113,32 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '
+             * {@link org.eclipse.scada.vi.details.model.BrowserComponent
+             * <em>Browser Component</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore
+             * cases;
+             * it's useful to ignore a case when inheritance will catch all the cases
+             * anyway.
+             * <!-- end-user-doc -->
+     *
+             * @return the new adapter.
+     * @see org.eclipse.scada.vi.details.model.BrowserComponent
+     * @generated
+     */
+    public Adapter createBrowserComponentAdapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for the default case.
      * <!-- begin-user-doc -->
      * This default implementation returns null.
      * <!-- end-user-doc -->
-     * @return the new adapter.
+     *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter ()

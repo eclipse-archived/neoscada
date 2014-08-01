@@ -2353,6 +2353,70 @@ public interface DetailViewPackage extends EPackage
     int SCRIPT_MODULE_FEATURE_COUNT = 3;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl <em>Browser Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl
+     * @see org.eclipse.scada.vi.details.model.impl.DetailViewPackageImpl#getBrowserComponent()
+     * @generated
+     */
+    int BROWSER_COMPONENT = 37;
+
+    /**
+     * The feature id for the '<em><b>Visibility</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BROWSER_COMPONENT__VISIBILITY = COMPONENT__VISIBILITY;
+
+    /**
+     * The feature id for the '<em><b>Url</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BROWSER_COMPONENT__URL = COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BROWSER_COMPONENT__WIDTH = COMPONENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Height</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BROWSER_COMPONENT__HEIGHT = COMPONENT_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Reload Timer</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BROWSER_COMPONENT__RELOAD_TIMER = COMPONENT_FEATURE_COUNT + 3;
+
+    /**
+     * The number of structural features of the '<em>Browser Component</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BROWSER_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 4;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.vi.details.model.TabStyle <em>Tab Style</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2360,7 +2424,7 @@ public interface DetailViewPackage extends EPackage
      * @see org.eclipse.scada.vi.details.model.impl.DetailViewPackageImpl#getTabStyle()
      * @generated
      */
-    int TAB_STYLE = 37;
+    int TAB_STYLE = 38;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.details.model.View <em>View</em>}'.
@@ -3723,6 +3787,60 @@ public interface DetailViewPackage extends EPackage
     EAttribute getScriptModule_CodeUri ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.vi.details.model.BrowserComponent <em>Browser Component</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Browser Component</em>'.
+     * @see org.eclipse.scada.vi.details.model.BrowserComponent
+     * @generated
+     */
+    EClass getBrowserComponent ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.details.model.BrowserComponent#getUrl <em>Url</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Url</em>'.
+     * @see org.eclipse.scada.vi.details.model.BrowserComponent#getUrl()
+     * @see #getBrowserComponent()
+     * @generated
+     */
+    EAttribute getBrowserComponent_Url ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.details.model.BrowserComponent#getWidth <em>Width</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Width</em>'.
+     * @see org.eclipse.scada.vi.details.model.BrowserComponent#getWidth()
+     * @see #getBrowserComponent()
+     * @generated
+     */
+    EAttribute getBrowserComponent_Width ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.details.model.BrowserComponent#getHeight <em>Height</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Height</em>'.
+     * @see org.eclipse.scada.vi.details.model.BrowserComponent#getHeight()
+     * @see #getBrowserComponent()
+     * @generated
+     */
+    EAttribute getBrowserComponent_Height ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.details.model.BrowserComponent#getReloadTimer <em>Reload Timer</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Reload Timer</em>'.
+     * @see org.eclipse.scada.vi.details.model.BrowserComponent#getReloadTimer()
+     * @see #getBrowserComponent()
+     * @generated
+     */
+    EAttribute getBrowserComponent_ReloadTimer ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.vi.details.model.TabStyle <em>Tab Style</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4844,6 +4962,48 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute SCRIPT_MODULE__CODE_URI = eINSTANCE.getScriptModule_CodeUri ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl <em>Browser Component</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl
+         * @see org.eclipse.scada.vi.details.model.impl.DetailViewPackageImpl#getBrowserComponent()
+         * @generated
+         */
+        EClass BROWSER_COMPONENT = eINSTANCE.getBrowserComponent ();
+
+        /**
+         * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BROWSER_COMPONENT__URL = eINSTANCE.getBrowserComponent_Url ();
+
+        /**
+         * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BROWSER_COMPONENT__WIDTH = eINSTANCE.getBrowserComponent_Width ();
+
+        /**
+         * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BROWSER_COMPONENT__HEIGHT = eINSTANCE.getBrowserComponent_Height ();
+
+        /**
+         * The meta object literal for the '<em><b>Reload Timer</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BROWSER_COMPONENT__RELOAD_TIMER = eINSTANCE.getBrowserComponent_ReloadTimer ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.details.model.TabStyle <em>Tab Style</em>}' enum.

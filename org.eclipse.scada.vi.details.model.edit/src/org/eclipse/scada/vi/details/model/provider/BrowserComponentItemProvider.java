@@ -1,33 +1,36 @@
-/*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ */
 package org.eclipse.scada.vi.details.model.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.vi.details.model.CheckComponent;
+
+import org.eclipse.scada.vi.details.model.BrowserComponent;
 import org.eclipse.scada.vi.details.model.DetailViewPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.vi.details.model.CheckComponent} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.vi.details.model.BrowserComponent} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CheckComponentItemProvider extends ComponentItemProvider
+public class BrowserComponentItemProvider extends ComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -35,7 +38,7 @@ public class CheckComponentItemProvider extends ComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public CheckComponentItemProvider ( AdapterFactory adapterFactory )
+    public BrowserComponentItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -53,108 +56,108 @@ public class CheckComponentItemProvider extends ComponentItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addFormatPropertyDescriptor ( object );
-            addDescriptorPropertyDescriptor ( object );
-            addAttributePropertyDescriptor ( object );
-            addReadDescriptorPropertyDescriptor ( object );
+            addUrlPropertyDescriptor ( object );
+            addWidthPropertyDescriptor ( object );
+            addHeightPropertyDescriptor ( object );
+            addReloadTimerPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Format feature.
+     * This adds a property descriptor for the Url feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFormatPropertyDescriptor ( Object object )
+    protected void addUrlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_CheckComponent_format_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CheckComponent_format_feature", "_UI_CheckComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.CHECK_COMPONENT__FORMAT,
+                        getString ( "_UI_BrowserComponent_url_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BrowserComponent_url_feature", "_UI_BrowserComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DetailViewPackage.Literals.BROWSER_COMPONENT__URL,
                         true,
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
+                        null,
                         null ) );
     }
 
     /**
-     * This adds a property descriptor for the Descriptor feature.
+     * This adds a property descriptor for the Width feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addDescriptorPropertyDescriptor ( Object object )
+    protected void addWidthPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_CheckComponent_descriptor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CheckComponent_descriptor_feature", "_UI_CheckComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.CHECK_COMPONENT__DESCRIPTOR,
+                        getString ( "_UI_BrowserComponent_width_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BrowserComponent_width_feature", "_UI_BrowserComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DetailViewPackage.Literals.BROWSER_COMPONENT__WIDTH,
                         true,
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                        null,
                         null ) );
     }
 
     /**
-     * This adds a property descriptor for the Attribute feature.
+     * This adds a property descriptor for the Height feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addAttributePropertyDescriptor ( Object object )
+    protected void addHeightPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_CheckComponent_attribute_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CheckComponent_attribute_feature", "_UI_CheckComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.CHECK_COMPONENT__ATTRIBUTE,
+                        getString ( "_UI_BrowserComponent_height_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BrowserComponent_height_feature", "_UI_BrowserComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DetailViewPackage.Literals.BROWSER_COMPONENT__HEIGHT,
                         true,
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                        null,
                         null ) );
     }
 
     /**
-     * This adds a property descriptor for the Read Descriptor feature.
+     * This adds a property descriptor for the Reload Timer feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addReadDescriptorPropertyDescriptor ( Object object )
+    protected void addReloadTimerPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_CheckComponent_readDescriptor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CheckComponent_readDescriptor_feature", "_UI_CheckComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.CHECK_COMPONENT__READ_DESCRIPTOR,
+                        getString ( "_UI_BrowserComponent_reloadTimer_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BrowserComponent_reloadTimer_feature", "_UI_BrowserComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DetailViewPackage.Literals.BROWSER_COMPONENT__RELOAD_TIMER,
                         true,
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                        null,
                         null ) );
     }
 
     /**
-     * This returns CheckComponent.gif.
+     * This returns BrowserComponent.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -162,7 +165,7 @@ public class CheckComponentItemProvider extends ComponentItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/CheckComponent" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/BrowserComponent" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -174,10 +177,10 @@ public class CheckComponentItemProvider extends ComponentItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (CheckComponent)object ).getFormat ();
+        String label = ( (BrowserComponent)object ).getUrl ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_CheckComponent_type" ) : //$NON-NLS-1$
-                getString ( "_UI_CheckComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_BrowserComponent_type" ) : //$NON-NLS-1$
+                getString ( "_UI_BrowserComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -192,12 +195,12 @@ public class CheckComponentItemProvider extends ComponentItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( CheckComponent.class ) )
+        switch ( notification.getFeatureID ( BrowserComponent.class ) )
         {
-            case DetailViewPackage.CHECK_COMPONENT__FORMAT:
-            case DetailViewPackage.CHECK_COMPONENT__DESCRIPTOR:
-            case DetailViewPackage.CHECK_COMPONENT__ATTRIBUTE:
-            case DetailViewPackage.CHECK_COMPONENT__READ_DESCRIPTOR:
+            case DetailViewPackage.BROWSER_COMPONENT__URL:
+            case DetailViewPackage.BROWSER_COMPONENT__WIDTH:
+            case DetailViewPackage.BROWSER_COMPONENT__HEIGHT:
+            case DetailViewPackage.BROWSER_COMPONENT__RELOAD_TIMER:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

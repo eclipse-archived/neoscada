@@ -818,6 +818,31 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.vi.details.model.BrowserComponent} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BrowserComponentItemProvider browserComponentItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.vi.details.model.BrowserComponent}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBrowserComponentAdapter ()
+    {
+        if ( browserComponentItemProvider == null )
+        {
+            browserComponentItemProvider = new BrowserComponentItemProvider ( this );
+        }
+
+        return browserComponentItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1016,6 +1041,8 @@ public class DetailViewItemProviderAdapterFactory extends DetailViewAdapterFacto
             testVisibilityItemProvider.dispose ();
         if ( scriptModuleItemProvider != null )
             scriptModuleItemProvider.dispose ();
+        if ( browserComponentItemProvider != null )
+            browserComponentItemProvider.dispose ();
     }
 
 }

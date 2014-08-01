@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - adding browser component
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt.impl;
 
@@ -23,6 +24,7 @@ import org.eclipse.scada.utils.str.StringReplacer;
 import org.eclipse.scada.vi.data.SummaryProvider;
 import org.eclipse.scada.vi.details.model.AndTransformer;
 import org.eclipse.scada.vi.details.model.BoolLEDComponent;
+import org.eclipse.scada.vi.details.model.BrowserComponent;
 import org.eclipse.scada.vi.details.model.ButtonComponent;
 import org.eclipse.scada.vi.details.model.CheckComponent;
 import org.eclipse.scada.vi.details.model.Component;
@@ -123,7 +125,7 @@ public class DetailComponentImpl implements DetailComponent
 
     /**
      * Returns a list of descriptors used by this and all sub components
-     * 
+     *
      * @return the list of descriptors. It never returns <code>null</code>.
      */
     @Override
@@ -215,6 +217,10 @@ public class DetailComponentImpl implements DetailComponent
         {
             createURLImage ( parent, (URLImageComponent)this.component, properties );
         }
+        else if ( this.component instanceof BrowserComponent )
+        {
+            createBrowser ( parent, (BrowserComponent)this.component, properties );
+        }
         else if ( this.component instanceof HiddenComponent )
         {
             createHidden ( (HiddenComponent)this.component, properties );
@@ -245,6 +251,27 @@ public class DetailComponentImpl implements DetailComponent
 
                 trackControl ( image );
                 trackItem ( descriptor );
+            }
+
+        } );
+
+        addComponent ( visibility );
+    }
+
+    private void createBrowser ( final Composite parent, final BrowserComponent component, final Map<String, String> properties )
+    {
+        final VisibilityProvider provider = this.visibleFactory.createProvider ( component.getVisibility () );
+
+        final ComponentVisibility visibility = new ComponentVisibility ( provider, new TrackingVisibleComponent () {
+
+            @Override
+            public void create ()
+            {
+                final org.eclipse.scada.vi.details.swt.widgets.BrowserComponent image = new org.eclipse.scada.vi.details.swt.widgets.BrowserComponent ( parent, SWT.NONE, null, component );
+
+                setSummaryProvider ( image.getSummaryProvider () );
+
+                trackControl ( image );
             }
 
         } );

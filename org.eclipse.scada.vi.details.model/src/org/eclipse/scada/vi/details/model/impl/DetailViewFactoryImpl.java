@@ -128,6 +128,8 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
                 return createTestVisibility ();
             case DetailViewPackage.SCRIPT_MODULE:
                 return createScriptModule ();
+            case DetailViewPackage.BROWSER_COMPONENT:
+                return createBrowserComponent ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -484,6 +486,17 @@ public class DetailViewFactoryImpl extends EFactoryImpl implements DetailViewFac
     {
         ScriptModuleImpl scriptModule = new ScriptModuleImpl ();
         return scriptModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BrowserComponent createBrowserComponent ()
+    {
+        BrowserComponentImpl browserComponent = new BrowserComponentImpl ();
+        return browserComponent;
     }
 
     /**

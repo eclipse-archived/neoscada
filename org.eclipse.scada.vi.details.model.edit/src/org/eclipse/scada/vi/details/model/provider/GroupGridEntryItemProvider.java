@@ -292,6 +292,11 @@ public class GroupGridEntryItemProvider extends ItemProviderAdapter implements I
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
+                        DetailViewFactory.eINSTANCE.createBrowserComponent () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY,
                         DetailViewFactory.eINSTANCE.createScriptVisibility () ) );
 

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,13 +7,52 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add browser component
  *******************************************************************************/
 package org.eclipse.scada.vi.details.model.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.scada.vi.details.model.*;
+import org.eclipse.scada.vi.details.model.AndTransformer;
+import org.eclipse.scada.vi.details.model.BoolLEDComponent;
+import org.eclipse.scada.vi.details.model.BrowserComponent;
+import org.eclipse.scada.vi.details.model.ButtonComponent;
+import org.eclipse.scada.vi.details.model.CheckComponent;
+import org.eclipse.scada.vi.details.model.Component;
+import org.eclipse.scada.vi.details.model.CompositeComponent;
+import org.eclipse.scada.vi.details.model.CompositeTransformer;
+import org.eclipse.scada.vi.details.model.DetailViewPackage;
+import org.eclipse.scada.vi.details.model.FillLayoutComponent;
+import org.eclipse.scada.vi.details.model.GenericComponent;
+import org.eclipse.scada.vi.details.model.GroupEntry;
+import org.eclipse.scada.vi.details.model.GroupGridComponent;
+import org.eclipse.scada.vi.details.model.GroupGridEntry;
+import org.eclipse.scada.vi.details.model.HiddenComponent;
+import org.eclipse.scada.vi.details.model.Invisible;
+import org.eclipse.scada.vi.details.model.ItemValueSource;
+import org.eclipse.scada.vi.details.model.LabelComponent;
+import org.eclipse.scada.vi.details.model.LinkComponent;
+import org.eclipse.scada.vi.details.model.NotTransformer;
+import org.eclipse.scada.vi.details.model.OrTransformer;
+import org.eclipse.scada.vi.details.model.PermissionVisibility;
+import org.eclipse.scada.vi.details.model.ProgressComponent;
+import org.eclipse.scada.vi.details.model.ReadableComponent;
+import org.eclipse.scada.vi.details.model.Registration;
+import org.eclipse.scada.vi.details.model.ScriptModule;
+import org.eclipse.scada.vi.details.model.ScriptVisibility;
+import org.eclipse.scada.vi.details.model.SimpleGridComponent;
+import org.eclipse.scada.vi.details.model.TestVisibility;
+import org.eclipse.scada.vi.details.model.TextComponent;
+import org.eclipse.scada.vi.details.model.TextInputComponent;
+import org.eclipse.scada.vi.details.model.TextInputMultiComponent;
+import org.eclipse.scada.vi.details.model.URLImageComponent;
+import org.eclipse.scada.vi.details.model.ValueComponent;
+import org.eclipse.scada.vi.details.model.ValueSetComponent;
+import org.eclipse.scada.vi.details.model.ValueSource;
+import org.eclipse.scada.vi.details.model.View;
+import org.eclipse.scada.vi.details.model.Visibility;
+import org.eclipse.scada.vi.details.model.WriteableComponent;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +64,7 @@ import org.eclipse.scada.vi.details.model.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
+ *
  * @see org.eclipse.scada.vi.details.model.DetailViewPackage
  * @generated
  */
@@ -34,6 +74,7 @@ public class DetailViewSwitch<T> extends Switch<T>
      * The cached model package
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     protected static DetailViewPackage modelPackage;
@@ -42,6 +83,7 @@ public class DetailViewSwitch<T> extends Switch<T>
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     public DetailViewSwitch ()
@@ -56,408 +98,586 @@ public class DetailViewSwitch<T> extends Switch<T>
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @parameter ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
     @Override
-    protected boolean isSwitchFor ( EPackage ePackage )
+    protected boolean isSwitchFor ( final EPackage ePackage )
     {
         return ePackage == modelPackage;
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * Calls <code>caseXXX</code> for each class of the model until one returns
+     * a non null result; it yields that result.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     *
+     * @return the first non-null result returned by a <code>caseXXX</code>
+     *         call.
      * @generated
      */
     @Override
-    protected T doSwitch ( int classifierID, EObject theEObject )
+    protected T doSwitch ( final int classifierID, final EObject theEObject )
     {
         switch ( classifierID )
         {
             case DetailViewPackage.VIEW:
             {
-                View view = (View)theEObject;
+                final View view = (View)theEObject;
                 T result = caseView ( view );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.COMPONENT:
             {
-                Component component = (Component)theEObject;
+                final Component component = (Component)theEObject;
                 T result = caseComponent ( component );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.GROUP_ENTRY:
             {
-                GroupEntry groupEntry = (GroupEntry)theEObject;
+                final GroupEntry groupEntry = (GroupEntry)theEObject;
                 T result = caseGroupEntry ( groupEntry );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.LABEL_COMPONENT:
             {
-                LabelComponent labelComponent = (LabelComponent)theEObject;
+                final LabelComponent labelComponent = (LabelComponent)theEObject;
                 T result = caseLabelComponent ( labelComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( labelComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.COMPOSITE_COMPONENT:
             {
-                CompositeComponent compositeComponent = (CompositeComponent)theEObject;
+                final CompositeComponent compositeComponent = (CompositeComponent)theEObject;
                 T result = caseCompositeComponent ( compositeComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( compositeComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.FILL_LAYOUT_COMPONENT:
             {
-                FillLayoutComponent fillLayoutComponent = (FillLayoutComponent)theEObject;
+                final FillLayoutComponent fillLayoutComponent = (FillLayoutComponent)theEObject;
                 T result = caseFillLayoutComponent ( fillLayoutComponent );
                 if ( result == null )
+                {
                     result = caseCompositeComponent ( fillLayoutComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( fillLayoutComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.BUTTON_COMPONENT:
             {
-                ButtonComponent buttonComponent = (ButtonComponent)theEObject;
+                final ButtonComponent buttonComponent = (ButtonComponent)theEObject;
                 T result = caseButtonComponent ( buttonComponent );
                 if ( result == null )
+                {
                     result = caseGenericComponent ( buttonComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( buttonComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.BOOL_LED_COMPONENT:
             {
-                BoolLEDComponent boolLEDComponent = (BoolLEDComponent)theEObject;
+                final BoolLEDComponent boolLEDComponent = (BoolLEDComponent)theEObject;
                 T result = caseBoolLEDComponent ( boolLEDComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( boolLEDComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.VALUE_SOURCE:
             {
-                ValueSource valueSource = (ValueSource)theEObject;
+                final ValueSource valueSource = (ValueSource)theEObject;
                 T result = caseValueSource ( valueSource );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.ITEM_VALUE_SOURCE:
             {
-                ItemValueSource itemValueSource = (ItemValueSource)theEObject;
+                final ItemValueSource itemValueSource = (ItemValueSource)theEObject;
                 T result = caseItemValueSource ( itemValueSource );
                 if ( result == null )
+                {
                     result = caseValueSource ( itemValueSource );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.NOT_TRANSFORMER:
             {
-                NotTransformer notTransformer = (NotTransformer)theEObject;
+                final NotTransformer notTransformer = (NotTransformer)theEObject;
                 T result = caseNotTransformer ( notTransformer );
                 if ( result == null )
+                {
                     result = caseValueSource ( notTransformer );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.GENERIC_COMPONENT:
             {
-                GenericComponent genericComponent = (GenericComponent)theEObject;
+                final GenericComponent genericComponent = (GenericComponent)theEObject;
                 T result = caseGenericComponent ( genericComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( genericComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.REGISTRATION:
             {
-                Registration registration = (Registration)theEObject;
+                final Registration registration = (Registration)theEObject;
                 T result = caseRegistration ( registration );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.SIMPLE_GRID_COMPONENT:
             {
-                SimpleGridComponent simpleGridComponent = (SimpleGridComponent)theEObject;
+                final SimpleGridComponent simpleGridComponent = (SimpleGridComponent)theEObject;
                 T result = caseSimpleGridComponent ( simpleGridComponent );
                 if ( result == null )
+                {
                     result = caseCompositeComponent ( simpleGridComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( simpleGridComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.GROUP_GRID_COMPONENT:
             {
-                GroupGridComponent groupGridComponent = (GroupGridComponent)theEObject;
+                final GroupGridComponent groupGridComponent = (GroupGridComponent)theEObject;
                 T result = caseGroupGridComponent ( groupGridComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( groupGridComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.GROUP_GRID_ENTRY:
             {
-                GroupGridEntry groupGridEntry = (GroupGridEntry)theEObject;
+                final GroupGridEntry groupGridEntry = (GroupGridEntry)theEObject;
                 T result = caseGroupGridEntry ( groupGridEntry );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.VALUE_SET_COMPONENT:
             {
-                ValueSetComponent valueSetComponent = (ValueSetComponent)theEObject;
+                final ValueSetComponent valueSetComponent = (ValueSetComponent)theEObject;
                 T result = caseValueSetComponent ( valueSetComponent );
                 if ( result == null )
+                {
                     result = caseWriteableComponent ( valueSetComponent );
+                }
                 if ( result == null )
+                {
                     result = caseReadableComponent ( valueSetComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( valueSetComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.VALUE_COMPONENT:
             {
-                ValueComponent valueComponent = (ValueComponent)theEObject;
+                final ValueComponent valueComponent = (ValueComponent)theEObject;
                 T result = caseValueComponent ( valueComponent );
                 if ( result == null )
+                {
                     result = caseReadableComponent ( valueComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( valueComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.COMPOSITE_TRANSFORMER:
             {
-                CompositeTransformer compositeTransformer = (CompositeTransformer)theEObject;
+                final CompositeTransformer compositeTransformer = (CompositeTransformer)theEObject;
                 T result = caseCompositeTransformer ( compositeTransformer );
                 if ( result == null )
+                {
                     result = caseValueSource ( compositeTransformer );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.AND_TRANSFORMER:
             {
-                AndTransformer andTransformer = (AndTransformer)theEObject;
+                final AndTransformer andTransformer = (AndTransformer)theEObject;
                 T result = caseAndTransformer ( andTransformer );
                 if ( result == null )
+                {
                     result = caseCompositeTransformer ( andTransformer );
+                }
                 if ( result == null )
+                {
                     result = caseValueSource ( andTransformer );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.OR_TRANSFORMER:
             {
-                OrTransformer orTransformer = (OrTransformer)theEObject;
+                final OrTransformer orTransformer = (OrTransformer)theEObject;
                 T result = caseOrTransformer ( orTransformer );
                 if ( result == null )
+                {
                     result = caseCompositeTransformer ( orTransformer );
+                }
                 if ( result == null )
+                {
                     result = caseValueSource ( orTransformer );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.TEXT_INPUT_COMPONENT:
             {
-                TextInputComponent textInputComponent = (TextInputComponent)theEObject;
+                final TextInputComponent textInputComponent = (TextInputComponent)theEObject;
                 T result = caseTextInputComponent ( textInputComponent );
                 if ( result == null )
+                {
                     result = caseWriteableComponent ( textInputComponent );
+                }
                 if ( result == null )
+                {
                     result = caseReadableComponent ( textInputComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( textInputComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.WRITEABLE_COMPONENT:
             {
-                WriteableComponent writeableComponent = (WriteableComponent)theEObject;
+                final WriteableComponent writeableComponent = (WriteableComponent)theEObject;
                 T result = caseWriteableComponent ( writeableComponent );
                 if ( result == null )
+                {
                     result = caseReadableComponent ( writeableComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( writeableComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.READABLE_COMPONENT:
             {
-                ReadableComponent readableComponent = (ReadableComponent)theEObject;
+                final ReadableComponent readableComponent = (ReadableComponent)theEObject;
                 T result = caseReadableComponent ( readableComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( readableComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.TEXT_COMPONENT:
             {
-                TextComponent textComponent = (TextComponent)theEObject;
+                final TextComponent textComponent = (TextComponent)theEObject;
                 T result = caseTextComponent ( textComponent );
                 if ( result == null )
+                {
                     result = caseReadableComponent ( textComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( textComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.TEXT_INPUT_MULTI_COMPONENT:
             {
-                TextInputMultiComponent textInputMultiComponent = (TextInputMultiComponent)theEObject;
+                final TextInputMultiComponent textInputMultiComponent = (TextInputMultiComponent)theEObject;
                 T result = caseTextInputMultiComponent ( textInputMultiComponent );
                 if ( result == null )
+                {
                     result = caseWriteableComponent ( textInputMultiComponent );
+                }
                 if ( result == null )
+                {
                     result = caseReadableComponent ( textInputMultiComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( textInputMultiComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.CHECK_COMPONENT:
             {
-                CheckComponent checkComponent = (CheckComponent)theEObject;
+                final CheckComponent checkComponent = (CheckComponent)theEObject;
                 T result = caseCheckComponent ( checkComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( checkComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.LINK_COMPONENT:
             {
-                LinkComponent linkComponent = (LinkComponent)theEObject;
+                final LinkComponent linkComponent = (LinkComponent)theEObject;
                 T result = caseLinkComponent ( linkComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( linkComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.URL_IMAGE_COMPONENT:
             {
-                URLImageComponent urlImageComponent = (URLImageComponent)theEObject;
+                final URLImageComponent urlImageComponent = (URLImageComponent)theEObject;
                 T result = caseURLImageComponent ( urlImageComponent );
                 if ( result == null )
+                {
                     result = caseComponent ( urlImageComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.PROGRESS_COMPONENT:
             {
-                ProgressComponent progressComponent = (ProgressComponent)theEObject;
+                final ProgressComponent progressComponent = (ProgressComponent)theEObject;
                 T result = caseProgressComponent ( progressComponent );
                 if ( result == null )
+                {
                     result = caseReadableComponent ( progressComponent );
+                }
                 if ( result == null )
+                {
                     result = caseComponent ( progressComponent );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.HIDDEN_COMPONENT:
             {
-                HiddenComponent hiddenComponent = (HiddenComponent)theEObject;
+                final HiddenComponent hiddenComponent = (HiddenComponent)theEObject;
                 T result = caseHiddenComponent ( hiddenComponent );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.VISIBILITY:
             {
-                Visibility visibility = (Visibility)theEObject;
+                final Visibility visibility = (Visibility)theEObject;
                 T result = caseVisibility ( visibility );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.SCRIPT_VISIBILITY:
             {
-                ScriptVisibility scriptVisibility = (ScriptVisibility)theEObject;
+                final ScriptVisibility scriptVisibility = (ScriptVisibility)theEObject;
                 T result = caseScriptVisibility ( scriptVisibility );
                 if ( result == null )
+                {
                     result = caseVisibility ( scriptVisibility );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.PERMISSION_VISIBILITY:
             {
-                PermissionVisibility permissionVisibility = (PermissionVisibility)theEObject;
+                final PermissionVisibility permissionVisibility = (PermissionVisibility)theEObject;
                 T result = casePermissionVisibility ( permissionVisibility );
                 if ( result == null )
+                {
                     result = caseVisibility ( permissionVisibility );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.INVISIBLE:
             {
-                Invisible invisible = (Invisible)theEObject;
+                final Invisible invisible = (Invisible)theEObject;
                 T result = caseInvisible ( invisible );
                 if ( result == null )
+                {
                     result = caseVisibility ( invisible );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.TEST_VISIBILITY:
             {
-                TestVisibility testVisibility = (TestVisibility)theEObject;
+                final TestVisibility testVisibility = (TestVisibility)theEObject;
                 T result = caseTestVisibility ( testVisibility );
                 if ( result == null )
+                {
                     result = caseVisibility ( testVisibility );
+                }
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
                 return result;
             }
             case DetailViewPackage.SCRIPT_MODULE:
             {
-                ScriptModule scriptModule = (ScriptModule)theEObject;
+                final ScriptModule scriptModule = (ScriptModule)theEObject;
                 T result = caseScriptModule ( scriptModule );
                 if ( result == null )
+                {
                     result = defaultCase ( theEObject );
+                }
+                return result;
+            }
+            case DetailViewPackage.BROWSER_COMPONENT:
+            {
+                final BrowserComponent browserComponent = (BrowserComponent)theEObject;
+                T result = caseBrowserComponent ( browserComponent );
+                if ( result == null )
+                {
+                    result = caseComponent ( browserComponent );
+                }
+                if ( result == null )
+                {
+                    result = defaultCase ( theEObject );
+                }
                 return result;
             }
             default:
@@ -466,611 +686,783 @@ public class DetailViewSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>View</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>View</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>View</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>View</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseView ( View object )
+    public T caseView ( final View object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseComponent ( Component object )
+    public T caseComponent ( final Component object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Group Entry</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Group Entry</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Group Entry</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Group Entry</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGroupEntry ( GroupEntry object )
+    public T caseGroupEntry ( final GroupEntry object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Label Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Label Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Label Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Label Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLabelComponent ( LabelComponent object )
+    public T caseLabelComponent ( final LabelComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Composite Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Composite Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Composite Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Composite Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCompositeComponent ( CompositeComponent object )
+    public T caseCompositeComponent ( final CompositeComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Fill Layout Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Fill Layout Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Fill Layout Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Fill Layout Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseFillLayoutComponent ( FillLayoutComponent object )
+    public T caseFillLayoutComponent ( final FillLayoutComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Button Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Button Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Button Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Button Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseButtonComponent ( ButtonComponent object )
+    public T caseButtonComponent ( final ButtonComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Bool LED Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Bool LED Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Bool LED Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Bool LED Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBoolLEDComponent ( BoolLEDComponent object )
+    public T caseBoolLEDComponent ( final BoolLEDComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Value Source</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Value Source</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Value Source</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Value Source</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseValueSource ( ValueSource object )
+    public T caseValueSource ( final ValueSource object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Item Value Source</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Item Value Source</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Item Value Source</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Item Value Source</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseItemValueSource ( ItemValueSource object )
+    public T caseItemValueSource ( final ItemValueSource object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Not Transformer</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Not Transformer</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Not Transformer</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Not Transformer</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNotTransformer ( NotTransformer object )
+    public T caseNotTransformer ( final NotTransformer object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Generic Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Generic Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Generic Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Generic Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGenericComponent ( GenericComponent object )
+    public T caseGenericComponent ( final GenericComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Registration</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Registration</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Registration</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Registration</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRegistration ( Registration object )
+    public T caseRegistration ( final Registration object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Simple Grid Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Simple Grid Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Simple Grid Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Simple Grid Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSimpleGridComponent ( SimpleGridComponent object )
+    public T caseSimpleGridComponent ( final SimpleGridComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Group Grid Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Group Grid Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Group Grid Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Group Grid Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGroupGridComponent ( GroupGridComponent object )
+    public T caseGroupGridComponent ( final GroupGridComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Group Grid Entry</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Group Grid Entry</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Group Grid Entry</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Group Grid Entry</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGroupGridEntry ( GroupGridEntry object )
+    public T caseGroupGridEntry ( final GroupGridEntry object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Value Set Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Value Set Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Value Set Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Value Set Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseValueSetComponent ( ValueSetComponent object )
+    public T caseValueSetComponent ( final ValueSetComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Value Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Value Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Value Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Value Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseValueComponent ( ValueComponent object )
+    public T caseValueComponent ( final ValueComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Composite Transformer</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Composite Transformer</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Composite Transformer</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Composite Transformer</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCompositeTransformer ( CompositeTransformer object )
+    public T caseCompositeTransformer ( final CompositeTransformer object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>And Transformer</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>And Transformer</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>And Transformer</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>And Transformer</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAndTransformer ( AndTransformer object )
+    public T caseAndTransformer ( final AndTransformer object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Or Transformer</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Or Transformer</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Or Transformer</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Or Transformer</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseOrTransformer ( OrTransformer object )
+    public T caseOrTransformer ( final OrTransformer object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Text Input Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Text Input Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Text Input Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Text Input Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTextInputComponent ( TextInputComponent object )
+    public T caseTextInputComponent ( final TextInputComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Writeable Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Writeable Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Writeable Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Writeable Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseWriteableComponent ( WriteableComponent object )
+    public T caseWriteableComponent ( final WriteableComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Readable Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Readable Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Readable Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Readable Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseReadableComponent ( ReadableComponent object )
+    public T caseReadableComponent ( final ReadableComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Text Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Text Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Text Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Text Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTextComponent ( TextComponent object )
+    public T caseTextComponent ( final TextComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Text Input Multi Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Text Input Multi Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Text Input Multi Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Text Input Multi Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTextInputMultiComponent ( TextInputMultiComponent object )
+    public T caseTextInputMultiComponent ( final TextInputMultiComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Check Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Check Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Check Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Check Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCheckComponent ( CheckComponent object )
+    public T caseCheckComponent ( final CheckComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Link Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Link Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Link Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Link Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLinkComponent ( LinkComponent object )
+    public T caseLinkComponent ( final LinkComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>URL Image Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>URL Image Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>URL Image Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>URL Image Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseURLImageComponent ( URLImageComponent object )
+    public T caseURLImageComponent ( final URLImageComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Progress Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Progress Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Progress Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Progress Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseProgressComponent ( ProgressComponent object )
+    public T caseProgressComponent ( final ProgressComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Hidden Component</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Hidden Component</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Hidden Component</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Hidden Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseHiddenComponent ( HiddenComponent object )
+    public T caseHiddenComponent ( final HiddenComponent object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Visibility</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Visibility</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Visibility</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Visibility</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseVisibility ( Visibility object )
+    public T caseVisibility ( final Visibility object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Script Visibility</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Script Visibility</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Script Visibility</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Script Visibility</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseScriptVisibility ( ScriptVisibility object )
+    public T caseScriptVisibility ( final ScriptVisibility object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Permission Visibility</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Permission Visibility</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Permission Visibility</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Permission Visibility</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T casePermissionVisibility ( PermissionVisibility object )
+    public T casePermissionVisibility ( final PermissionVisibility object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Invisible</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Invisible</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Invisible</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Invisible</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInvisible ( Invisible object )
+    public T caseInvisible ( final Invisible object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Test Visibility</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Test Visibility</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Test Visibility</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Test Visibility</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTestVisibility ( TestVisibility object )
+    public T caseTestVisibility ( final TestVisibility object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Script Module</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Script Module</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Script Module</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Script Module</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseScriptModule ( ScriptModule object )
+    public T caseScriptModule ( final ScriptModule object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Browser Component</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Browser Component</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBrowserComponent ( final BrowserComponent object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>EObject</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch, but this is the
      * last case anyway.
      * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
     @Override
-    public T defaultCase ( EObject object )
+    public T defaultCase ( final EObject object )
     {
         return null;
     }
