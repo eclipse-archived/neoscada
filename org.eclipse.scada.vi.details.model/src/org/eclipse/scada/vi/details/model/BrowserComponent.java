@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - initial API and implementation
  */
 package org.eclipse.scada.vi.details.model;
 
@@ -14,14 +14,18 @@ package org.eclipse.scada.vi.details.model;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Browser Component</b></em>'.
  * <!-- end-user-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.vi.details.model.BrowserComponent#getUrl <em>Url</em>}</li>
- *   <li>{@link org.eclipse.scada.vi.details.model.BrowserComponent#getWidth <em>Width</em>}</li>
- *   <li>{@link org.eclipse.scada.vi.details.model.BrowserComponent#getHeight <em>Height</em>}</li>
- *   <li>{@link org.eclipse.scada.vi.details.model.BrowserComponent#getReloadTimer <em>Reload Timer</em>}</li>
+ * <li>{@link org.eclipse.scada.vi.details.model.BrowserComponent#getUrl <em>Url
+ * </em>}</li>
+ * <li>{@link org.eclipse.scada.vi.details.model.BrowserComponent#getWidth <em>
+ * Width</em>}</li>
+ * <li>{@link org.eclipse.scada.vi.details.model.BrowserComponent#getHeight <em>
+ * Height</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.vi.details.model.BrowserComponent#getReloadTimer
+ * <em>Reload Timer</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,10 +39,11 @@ public interface BrowserComponent extends Component
      * Returns the value of the '<em><b>Url</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Url</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Url</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Url</em>' attribute.
      * @see #setUrl(String)
      * @see org.eclipse.scada.vi.details.model.DetailViewPackage#getBrowserComponent_Url()
@@ -48,10 +53,14 @@ public interface BrowserComponent extends Component
     String getUrl ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.vi.details.model.BrowserComponent#getUrl <em>Url</em>}' attribute.
+     * Sets the value of the '
+     * {@link org.eclipse.scada.vi.details.model.BrowserComponent#getUrl
+     * <em>Url</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Url</em>' attribute.
+     * 
+     * @param value
+     *            the new value of the '<em>Url</em>' attribute.
      * @see #getUrl()
      * @generated
      */
@@ -61,10 +70,11 @@ public interface BrowserComponent extends Component
      * Returns the value of the '<em><b>Width</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Width</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Width</em>' attribute isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Width</em>' attribute.
      * @see #setWidth(Integer)
      * @see org.eclipse.scada.vi.details.model.DetailViewPackage#getBrowserComponent_Width()
@@ -74,10 +84,14 @@ public interface BrowserComponent extends Component
     Integer getWidth ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.vi.details.model.BrowserComponent#getWidth <em>Width</em>}' attribute.
+     * Sets the value of the '
+     * {@link org.eclipse.scada.vi.details.model.BrowserComponent#getWidth
+     * <em>Width</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Width</em>' attribute.
+     * 
+     * @param value
+     *            the new value of the '<em>Width</em>' attribute.
      * @see #getWidth()
      * @generated
      */
@@ -87,10 +101,11 @@ public interface BrowserComponent extends Component
      * Returns the value of the '<em><b>Height</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Height</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Height</em>' attribute isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Height</em>' attribute.
      * @see #setHeight(Integer)
      * @see org.eclipse.scada.vi.details.model.DetailViewPackage#getBrowserComponent_Height()
@@ -100,10 +115,14 @@ public interface BrowserComponent extends Component
     Integer getHeight ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.vi.details.model.BrowserComponent#getHeight <em>Height</em>}' attribute.
+     * Sets the value of the '
+     * {@link org.eclipse.scada.vi.details.model.BrowserComponent#getHeight
+     * <em>Height</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Height</em>' attribute.
+     * 
+     * @param value
+     *            the new value of the '<em>Height</em>' attribute.
      * @see #getHeight()
      * @generated
      */
@@ -117,6 +136,7 @@ public interface BrowserComponent extends Component
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Reload Timer</em>' attribute.
      * @see #setReloadTimer(Long)
      * @see org.eclipse.scada.vi.details.model.DetailViewPackage#getBrowserComponent_ReloadTimer()
@@ -126,10 +146,14 @@ public interface BrowserComponent extends Component
     Long getReloadTimer ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.vi.details.model.BrowserComponent#getReloadTimer <em>Reload Timer</em>}' attribute.
+     * Sets the value of the '
+     * {@link org.eclipse.scada.vi.details.model.BrowserComponent#getReloadTimer
+     * <em>Reload Timer</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Reload Timer</em>' attribute.
+     * 
+     * @param value
+     *            the new value of the '<em>Reload Timer</em>' attribute.
      * @see #getReloadTimer()
      * @generated
      */
