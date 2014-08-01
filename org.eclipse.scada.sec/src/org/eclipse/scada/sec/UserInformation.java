@@ -24,9 +24,8 @@ import org.eclipse.scada.utils.str.StringHelper;
 
 /**
  * A user information object
- * 
+ *
  * @author Jens Reimann
- * @since 0.3.0
  */
 @Immutable
 public class UserInformation implements Serializable
@@ -69,7 +68,7 @@ public class UserInformation implements Serializable
 
     /**
      * Create a user information object
-     * 
+     *
      * @param principal
      * @return Returns the converted user information object or
      *         {@link #ANONYMOUS} if principal was <code>null</code>. Never
@@ -91,7 +90,7 @@ public class UserInformation implements Serializable
 
     /**
      * Get the name of the user
-     * 
+     *
      * @return the name of the user or <code>null</code> if it an anonymous user
      *         information
      */
