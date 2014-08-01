@@ -256,7 +256,17 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
                     throw result.getResult ().asException ();
                 }
 
-                return ServiceCommon.this.authenticationImplementation.getUser ( targetUser );
+                final UserInformation resultUser = ServiceCommon.this.authenticationImplementation.getUser ( targetUser );
+
+                logger.debug ( "Allowed to proxy user - {} -> {}", targetUser, resultUser );
+
+                if ( resultUser == null )
+                {
+                    logger.debug ( "User is not known, so fall back to anonymous" );
+                    return UserInformation.ANONYMOUS;
+                }
+
+                return resultUser;
             }
         };
     }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - enhance logging
  *******************************************************************************/
 package org.eclipse.scada.core.server.common;
 
@@ -24,12 +25,13 @@ import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.utils.concurrent.AbstractFuture;
 import org.eclipse.scada.utils.concurrent.FutureListener;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * @since 1.1
- */
 public abstract class AuthorizedOperation<T, SI extends AbstractSessionImpl> extends AbstractFuture<T>
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( AuthorizedOperation.class );
 
     private final String objectType;
 
@@ -88,6 +90,7 @@ public abstract class AuthorizedOperation<T, SI extends AbstractSessionImpl> ext
         }
         catch ( final Exception e )
         {
+            logger.warn ( "Failed to impersonate", e );
             setError ( e );
         }
     }
