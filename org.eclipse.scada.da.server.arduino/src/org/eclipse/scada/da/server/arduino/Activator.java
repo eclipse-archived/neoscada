@@ -18,10 +18,10 @@ import java.util.concurrent.Executors;
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
 import org.eclipse.scada.da.server.arduino.factory.ConfigurationFactoryImpl;
+import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
-import org.eclipse.scada.da.server.common.DataItem;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -67,7 +67,7 @@ public class Activator implements BundleActivator
         {
             final Dictionary<String, Object> properties = new Hashtable<String, Object> ();
             properties.put ( ConfigurationAdministrator.FACTORY_ID, "org.eclipse.scada.da.server.arduino.device" );
-            properties.put ( Constants.SERVICE_DESCRIPTION, "Arduino OpenSCADA Device" );
+            properties.put ( Constants.SERVICE_DESCRIPTION, "Arduino Eclipse SCADA Device" );
             this.factoryHandle = context.registerService ( ConfigurationFactory.class, this.service, properties );
         }
 
