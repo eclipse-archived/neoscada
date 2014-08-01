@@ -58,7 +58,7 @@ public class BrowserComponent extends GenericComposite
 
         this.controlImage = new ControlImage ( this, this.registrationManager );
 
-        this.browser = new Browser ( parent, SWT.NONE );
+        this.browser = new Browser ( this, SWT.NONE );
 
         final GridData gd = new GridData ( SWT.CENTER, SWT.CENTER, true, true );
         if ( component.getHeight () != null && component.getWidth () != null )
