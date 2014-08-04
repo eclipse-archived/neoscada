@@ -11,11 +11,8 @@
 package org.eclipse.scada.ca.ui.exporter.wizard;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.concurrent.ExecutionException;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -99,7 +96,7 @@ public class ExportWizard extends Wizard implements IExportWizard
         }
     }
 
-    protected void handleFinish ( final IProgressMonitor monitor, final File file ) throws InterruptedException, ExecutionException, FileNotFoundException, IOException
+    protected void handleFinish ( final IProgressMonitor monitor, final File file ) throws Exception
     {
         // load data
         final Collection<FactoryInformation> data = ConfigurationHelper.loadData ( monitor, this.connection.getConnection () );

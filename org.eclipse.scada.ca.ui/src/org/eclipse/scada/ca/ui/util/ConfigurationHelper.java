@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - improve error reporting
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.util;
 
@@ -14,7 +15,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.ca.client.Connection;
@@ -24,11 +24,16 @@ import org.eclipse.scada.utils.concurrent.NotifyFuture;
 
 public class ConfigurationHelper
 {
-    public static Collection<FactoryInformation> loadData ( final IProgressMonitor monitor, final Connection connection ) throws InterruptedException, ExecutionException
+    public static Collection<FactoryInformation> loadData ( final IProgressMonitor monitor, final Connection connection ) throws Exception
     {
         final Collection<FactoryInformation> result = new LinkedList<FactoryInformation> ();
         try
         {
+            if ( connection == null )
+            {
+                throw new IllegalStateException ( Messages.ConfigurationHelper_NoConnection );
+            }
+
             final NotifyFuture<FactoryInformation[]> future = connection.getFactories ();
             final FactoryInformation[] factories = future.get ();
             monitor.beginTask ( Messages.ConfigurationHelper_TaskName, factories.length );
@@ -52,7 +57,7 @@ public class ConfigurationHelper
 
     /**
      * Convert from the remote data format to local data format
-     * 
+     *
      * @param remoteData
      *            remote data
      * @param data
@@ -83,7 +88,7 @@ public class ConfigurationHelper
 
     /**
      * Convert from the remote data format to local data format
-     * 
+     *
      * @param remoteData
      *            the remote data format
      * @return the local data format

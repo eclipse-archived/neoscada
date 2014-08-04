@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - improve error reporting
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.importer.wizard;
 
@@ -15,7 +16,6 @@ import java.io.FileInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -23,11 +23,13 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.scada.ca.connection.provider.ConnectionService;
 import org.eclipse.scada.ca.data.FactoryInformation;
 import org.eclipse.scada.ca.oscar.OscarLoader;
 import org.eclipse.scada.ca.ui.importer.Activator;
 import org.eclipse.scada.ca.ui.util.ConfigurationHelper;
 import org.eclipse.scada.ca.ui.util.DiffController;
+import org.eclipse.scada.utils.ExceptionHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -38,7 +40,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.statushandlers.StatusManager;
-import org.eclipse.scada.ca.connection.provider.ConnectionService;
 
 public class RemoteDataPage extends WizardPage
 {
@@ -189,7 +190,11 @@ public class RemoteDataPage extends WizardPage
                     {
                         result.set ( loadData ( monitor ) );
                     }
-                    catch ( final ExecutionException e )
+                    catch ( final InterruptedException e )
+                    {
+                        throw e;
+                    }
+                    catch ( final Exception e )
                     {
                         throw new InvocationTargetException ( e );
                     }
@@ -198,13 +203,9 @@ public class RemoteDataPage extends WizardPage
             } );
             setResult ( result.get () );
         }
-        catch ( final InvocationTargetException e )
+        catch ( final InterruptedException | InvocationTargetException e )
         {
-            setError ( Messages.RemoteDataPage_FailedToLoadMessage + e.getMessage () );
-        }
-        catch ( final InterruptedException e )
-        {
-            setError ( Messages.RemoteDataPage_FailedToLoadMessage + e.getMessage () );
+            setError ( Messages.RemoteDataPage_FailedToLoadMessage + ExceptionHelper.getMessage ( e ) );
         }
     }
 
@@ -214,7 +215,7 @@ public class RemoteDataPage extends WizardPage
         update ();
     }
 
-    private Collection<FactoryInformation> loadData ( final IProgressMonitor monitor ) throws InterruptedException, ExecutionException
+    private Collection<FactoryInformation> loadData ( final IProgressMonitor monitor ) throws Exception
     {
         return ConfigurationHelper.loadData ( monitor, this.service.getConnection () );
     }

@@ -18,6 +18,8 @@ public class Messages extends NLS
 
     public static String DiffController_TaskName;
 
+    public static String ConfigurationHelper_NoConnection;
+
     public static String ConfigurationHelper_SubTaskNameFormat;
 
     public static String ConfigurationHelper_TaskName;
