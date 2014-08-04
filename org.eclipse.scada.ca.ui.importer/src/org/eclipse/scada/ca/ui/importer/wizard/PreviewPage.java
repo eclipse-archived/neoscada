@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add equals check
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.importer.wizard;
 
@@ -20,6 +21,8 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -44,6 +47,8 @@ public class PreviewPage extends WizardPage
 
     private Label statsLabel;
 
+    private LocalResourceManager resourceManager;
+
     public PreviewPage ( final DiffController mergeController )
     {
         super ( "previewPage" ); //$NON-NLS-1$
@@ -63,31 +68,33 @@ public class PreviewPage extends WizardPage
         final TableLayout layout = new TableLayout ();
         this.viewer.getTree ().setLayout ( layout );
 
+        this.resourceManager = new LocalResourceManager ( JFaceResources.getResources ( parent.getDisplay () ), this.viewer.getControl () );
+
         TreeViewerColumn col;
         col = new TreeViewerColumn ( this.viewer, SWT.NONE );
         col.getColumn ().setText ( Messages.PreviewPage_ColFactoryText );
         layout.addColumnData ( new ColumnWeightData ( 10 ) );
-        col.setLabelProvider ( new DiffEntryLabelProvider () );
+        col.setLabelProvider ( new DiffEntryLabelProvider ( this.resourceManager ) );
 
         col = new TreeViewerColumn ( this.viewer, SWT.NONE );
         col.getColumn ().setText ( Messages.PreviewPage_ColConfigurationText );
         layout.addColumnData ( new ColumnWeightData ( 20 ) );
-        col.setLabelProvider ( new DiffEntryLabelProvider () );
+        col.setLabelProvider ( new DiffEntryLabelProvider ( this.resourceManager ) );
 
         col = new TreeViewerColumn ( this.viewer, SWT.NONE );
         col.getColumn ().setText ( Messages.PreviewPage_ColOperationText );
         layout.addColumnData ( new ColumnWeightData ( 10 ) );
-        col.setLabelProvider ( new DiffEntryLabelProvider () );
+        col.setLabelProvider ( new DiffEntryLabelProvider ( this.resourceManager ) );
 
         col = new TreeViewerColumn ( this.viewer, SWT.NONE );
         col.getColumn ().setText ( Messages.PreviewPage_ColDataText );
         layout.addColumnData ( new ColumnWeightData ( 20 ) );
-        col.setLabelProvider ( new DiffEntryLabelProvider () );
+        col.setLabelProvider ( new DiffEntryLabelProvider ( this.resourceManager ) );
 
         col = new TreeViewerColumn ( this.viewer, SWT.NONE );
         col.getColumn ().setText ( Messages.PreviewPage_ColCurrentDataText );
         layout.addColumnData ( new ColumnWeightData ( 20 ) );
-        col.setLabelProvider ( new DiffEntryLabelProvider () );
+        col.setLabelProvider ( new DiffEntryLabelProvider ( this.resourceManager ) );
 
         this.viewer.getTree ().setHeaderVisible ( true );
 
