@@ -24,7 +24,7 @@ import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationStructure;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Value;
 
-@ASDU ( id = 36, name = "M_ME_TE_1", informationStructure = InformationStructure.SINGLE )
+@ASDU ( id = 35, name = "M_ME_TE_1", informationStructure = InformationStructure.SINGLE )
 public class MeasuredValueScaledTimeSingle extends AbstractMeasuredValueScaled
 {
     private MeasuredValueScaledTimeSingle ( final ASDUHeader header, final List<InformationEntry<Short>> entries )

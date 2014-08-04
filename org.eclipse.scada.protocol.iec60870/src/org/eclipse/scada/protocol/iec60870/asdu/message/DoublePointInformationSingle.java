@@ -25,7 +25,7 @@ import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationStructure;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Value;
 
-@ASDU ( id = 1, name = "M_DP_NA_1", informationStructure = InformationStructure.SINGLE )
+@ASDU ( id = 3, name = "M_DP_NA_1", informationStructure = InformationStructure.SINGLE )
 public class DoublePointInformationSingle extends AbstractDoublePointBaseSingle
 {
     private DoublePointInformationSingle ( final ASDUHeader header, final List<InformationEntry<DoublePoint>> entries )
