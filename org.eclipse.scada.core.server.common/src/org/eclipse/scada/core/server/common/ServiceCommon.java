@@ -226,7 +226,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
 
         if ( targetUser == null )
         {
-            logger.info ( "target user is null" );
+            logger.debug ( "target user is null" );
             return new InstantFuture<UserInformation> ( sessionUser );
         }
 
