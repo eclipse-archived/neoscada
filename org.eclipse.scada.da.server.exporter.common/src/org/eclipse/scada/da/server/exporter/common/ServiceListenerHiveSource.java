@@ -45,23 +45,20 @@ public class ServiceListenerHiveSource implements HiveSource
         this.tracker = new SingleServiceTracker<Hive> ( context, Hive.class, this.listener );
     }
 
-    protected void handleServiceChange ( final Hive service )
+    protected synchronized void handleServiceChange ( final Hive service )
     {
-        synchronized ( this )
+        this.service = service;
+
+        for ( final HiveSourceListener listener : this.listeners )
         {
-            this.service = service;
+            this.executor.execute ( new Runnable () {
 
-            for ( final HiveSourceListener listener : this.listeners )
-            {
-                this.executor.execute ( new Runnable () {
-
-                    @Override
-                    public void run ()
-                    {
-                        listener.setHive ( service );
-                    }
-                } );
-            }
+                @Override
+                public void run ()
+                {
+                    listener.setHive ( service );
+                }
+            } );
         }
     }
 
@@ -93,33 +90,27 @@ public class ServiceListenerHiveSource implements HiveSource
     }
 
     @Override
-    public void addListener ( final HiveSourceListener listener )
+    public synchronized void addListener ( final HiveSourceListener listener )
     {
-        synchronized ( this )
-        {
-            final boolean added = this.listeners.add ( listener );
-            final Hive hive = this.service;
+        final boolean added = this.listeners.add ( listener );
+        final Hive hive = this.service;
 
-            if ( added && hive != null )
-            {
-                this.executor.execute ( new Runnable () {
-                    @Override
-                    public void run ()
-                    {
-                        listener.setHive ( hive );
-                    };
-                } );
-            }
+        if ( added && hive != null )
+        {
+            this.executor.execute ( new Runnable () {
+                @Override
+                public void run ()
+                {
+                    listener.setHive ( hive );
+                };
+            } );
         }
     }
 
     @Override
-    public void removeListener ( final HiveSourceListener listener )
+    public synchronized void removeListener ( final HiveSourceListener listener )
     {
-        synchronized ( this )
-        {
-            this.listeners.remove ( listener );
-        }
+        this.listeners.remove ( listener );
     }
 
 }
