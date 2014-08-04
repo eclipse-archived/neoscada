@@ -625,6 +625,12 @@ public class DataModelImpl extends AbstractBaseDataModel
         {
             return this.value;
         }
+
+        @Override
+        public String toString ()
+        {
+            return String.format ( "[WriteRequest - asduAddress: %s, objectAddress: %s, value: %s", this.asduAddress, this.address, this.value );
+        }
     }
 
     private WriteRequest convert ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final Variant value )
@@ -669,11 +675,16 @@ public class DataModelImpl extends AbstractBaseDataModel
 
     protected synchronized boolean performWrite ( final WriteRequest request, final MirrorCommand mirrorCommand, final boolean execute )
     {
+        logger.debug ( "Request to write - request: {}, execute: {}", request, execute );
+
         final String itemId = this.addressMap.get ( new AddressKey ( request.getAsduAddress ().getAddress (), request.getAddress ().getAddress () ) );
         if ( itemId == null )
         {
+            logger.info ( "Item for request not found - request: {}", request );
             return false;
         }
+
+        logger.debug ( "Request to write to item: {}", itemId );
 
         mirrorCommand.sendActivationConfirm ( true );
 
@@ -685,6 +696,7 @@ public class DataModelImpl extends AbstractBaseDataModel
                 @Override
                 public void run ()
                 {
+                    logger.debug ( "Write command completed - request: {}, item: {}", request, itemId );
                     mirrorCommand.sendActivationTermination ();
                 }
             } );
