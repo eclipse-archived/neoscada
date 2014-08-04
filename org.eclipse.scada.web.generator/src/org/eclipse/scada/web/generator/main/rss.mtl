@@ -31,7 +31,7 @@
 [/template]
 
 [template public description(news : NewsEntry)]
-[if news.content->size()>1]
+[if news.content->size()>0]
 	<description>
 [descriptionContent(news)/]
 </description>[/if]
