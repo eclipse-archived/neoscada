@@ -262,7 +262,6 @@
 		<!-- testing -->
 		
 		<module>../org.eclipse.scada.ae.tests</module>
-		<module>../org.eclipse.scada.net.tests</module>
 		<module>../org.eclipse.scada.ngp.tests</module>
 		<module>../org.eclipse.scada.hd.tests</module>
 		<module>../org.eclipse.scada.hd.server.storage.common.tests</module>
