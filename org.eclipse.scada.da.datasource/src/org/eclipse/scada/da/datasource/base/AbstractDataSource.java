@@ -27,9 +27,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Basic implementation of a data source.
- * 
+ *
  * @author Jens Reimann
- * @since 0.15.0
  */
 public abstract class AbstractDataSource implements DataSource
 {
@@ -52,7 +51,7 @@ public abstract class AbstractDataSource implements DataSource
 
     /**
      * Return the executor to use for sending out events
-     * 
+     *
      * @return the executor to use, must never be <code>null</code>
      */
     protected abstract Executor getExecutor ();
