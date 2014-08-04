@@ -34,7 +34,7 @@ public class TimerActionGenerator extends AbstractDanglingGenerator
     }
 
     @Override
-    public void createItems ( ItemCreator itemCreator )
+    public void createItems ( final ItemCreator itemCreator )
     {
         final ScriptItem item = OsgiFactory.eINSTANCE.createScriptItem ();
 
@@ -57,9 +57,8 @@ public class TimerActionGenerator extends AbstractDanglingGenerator
         item.setInitScript ( initCode );
         item.setTimer ( timer );
 
-        final CreationRequest<ScriptItem> req = itemCreator.addItem (
-                item );
-        req.localTags ( timerAction.getName () );
+        final CreationRequest<ScriptItem> req = itemCreator.addItem ( item );
+        req.localTags ( this.timerAction.getName () );
 
         if ( this.timerAction.getValue ().getType ().name ().equals ( "DOUBLE" ) )
         {
