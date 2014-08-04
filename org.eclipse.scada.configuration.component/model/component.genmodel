@@ -5,7 +5,7 @@
     modelPluginID="org.eclipse.scada.configuration.component" modelName="Component"
     nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.9" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
     operationReflection="true" importOrganizing="true" decoration="Live">
   <foreignModel>component.ecore</foreignModel>
   <genPackages prefix="Component" basePackage="org.eclipse.scada.configuration" resource="XMI"
@@ -130,19 +130,16 @@
     <genClasses ecoreClass="component.ecore#//ScriptModule">
       <genFeatures property="None" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/inputs"/>
       <genFeatures property="None" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/outputs"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ScriptModule/scriptEngine"/>
-      <genFeatures property="None" children="true" createChild="true" propertyCategory=""
+      <genFeatures createChild="false" propertyCategory="script" ecoreFeature="ecore:EAttribute component.ecore#//ScriptModule/scriptEngine"/>
+      <genFeatures property="Readonly" children="true" createChild="true" propertyCategory="script"
           propertyDescription="initScript" propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/initScript"/>
-      <genFeatures property="None" children="true" createChild="true" propertyDescription="updateScript"
-          propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/updateScript"/>
-      <genFeatures property="None" children="true" createChild="true" propertyDescription="writeCommandScript"
-          propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/writeCommandScript"/>
-      <genFeatures property="None" children="true" createChild="true" propertyDescription="timerScript"
-          propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/timerScript"/>
+      <genFeatures property="Readonly" children="true" createChild="true" propertyCategory="script"
+          propertyDescription="updateScript" propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/updateScript"/>
+      <genFeatures property="Readonly" children="true" createChild="true" propertyCategory="script"
+          propertyDescription="writeCommandScript" propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/writeCommandScript"/>
+      <genFeatures property="Readonly" children="true" createChild="true" propertyCategory="script"
+          propertyDescription="timerScript" propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/timerScript"/>
       <genOperations ecoreOperation="component.ecore#//ScriptModule/getKnownInputs"/>
-      <genOperations ecoreOperation="component.ecore#//ScriptModule/customENotify">
-        <genParameters ecoreParameter="component.ecore#//ScriptModule/customENotify/notification"/>
-      </genOperations>
       <genOperations ecoreOperation="component.ecore#//ScriptModule/getKnownOutputs"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//Script">

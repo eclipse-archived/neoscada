@@ -2430,22 +2430,13 @@ public interface ComponentPackage extends EPackage
     int SCRIPT_MODULE___GET_KNOWN_INPUTS = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 0;
 
     /**
-     * The operation id for the '<em>Custom ENotify</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SCRIPT_MODULE___CUSTOM_ENOTIFY__NOTIFICATION = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 1;
-
-    /**
      * The operation id for the '<em>Get Known Outputs</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_MODULE___GET_KNOWN_OUTPUTS = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 2;
+    int SCRIPT_MODULE___GET_KNOWN_OUTPUTS = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Script Module</em>' class.
@@ -2454,7 +2445,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SCRIPT_MODULE_OPERATION_COUNT = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 3;
+    int SCRIPT_MODULE_OPERATION_COUNT = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ScriptImpl <em>Script</em>}' class.
@@ -4493,16 +4484,6 @@ public interface ComponentPackage extends EPackage
     EOperation getScriptModule__GetKnownInputs ();
 
     /**
-     * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.ScriptModule#customENotify(org.eclipse.emf.common.notify.Notification) <em>Custom ENotify</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Custom ENotify</em>' operation.
-     * @see org.eclipse.scada.configuration.component.ScriptModule#customENotify(org.eclipse.emf.common.notify.Notification)
-     * @generated
-     */
-    EOperation getScriptModule__CustomENotify__Notification ();
-
-    /**
      * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.ScriptModule#getKnownOutputs() <em>Get Known Outputs</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5802,14 +5783,6 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EOperation SCRIPT_MODULE___GET_KNOWN_INPUTS = eINSTANCE.getScriptModule__GetKnownInputs ();
-
-        /**
-         * The meta object literal for the '<em><b>Custom ENotify</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation SCRIPT_MODULE___CUSTOM_ENOTIFY__NOTIFICATION = eINSTANCE.getScriptModule__CustomENotify__Notification ();
 
         /**
          * The meta object literal for the '<em><b>Get Known Outputs</b></em>' operation.

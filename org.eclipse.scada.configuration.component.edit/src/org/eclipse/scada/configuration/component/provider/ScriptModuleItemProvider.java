@@ -68,6 +68,10 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
             addShortDescriptionPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
             addScriptEnginePropertyDescriptor ( object );
+            addInitScriptPropertyDescriptor ( object );
+            addUpdateScriptPropertyDescriptor ( object );
+            addWriteCommandScriptPropertyDescriptor ( object );
+            addTimerScriptPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -137,7 +141,99 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Init Script feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addInitScriptPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ScriptModule_initScript_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_ScriptModule_initScript_description" ), //$NON-NLS-1$
+                        ComponentPackage.Literals.SCRIPT_MODULE__INIT_SCRIPT,
+                        false,
+                        true,
+                        false,
                         null,
+                        getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Update Script feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addUpdateScriptPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ScriptModule_updateScript_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_ScriptModule_updateScript_description" ), //$NON-NLS-1$
+                        ComponentPackage.Literals.SCRIPT_MODULE__UPDATE_SCRIPT,
+                        false,
+                        true,
+                        false,
+                        null,
+                        getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Write Command Script feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addWriteCommandScriptPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ScriptModule_writeCommandScript_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_ScriptModule_writeCommandScript_description" ), //$NON-NLS-1$
+                        ComponentPackage.Literals.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT,
+                        false,
+                        true,
+                        false,
+                        null,
+                        getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Timer Script feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTimerScriptPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ScriptModule_timerScript_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_ScriptModule_timerScript_description" ), //$NON-NLS-1$
+                        ComponentPackage.Literals.SCRIPT_MODULE__TIMER_SCRIPT,
+                        false,
+                        true,
+                        false,
+                        null,
+                        getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

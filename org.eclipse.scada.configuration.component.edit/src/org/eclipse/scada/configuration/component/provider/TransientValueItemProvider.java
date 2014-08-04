@@ -13,17 +13,9 @@ package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.eclipse.scada.configuration.component.TransientValue;
 
 /**
@@ -34,12 +26,6 @@ import org.eclipse.scada.configuration.component.TransientValue;
  */
 public class TransientValueItemProvider
         extends SingleValueItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.

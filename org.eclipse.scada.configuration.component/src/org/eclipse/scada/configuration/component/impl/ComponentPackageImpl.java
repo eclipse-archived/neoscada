@@ -1387,19 +1387,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getScriptModule__CustomENotify__Notification ()
-    {
-        return scriptModuleEClass.getEOperations ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EOperation getScriptModule__GetKnownOutputs ()
     {
-        return scriptModuleEClass.getEOperations ().get ( 2 );
+        return scriptModuleEClass.getEOperations ().get ( 1 );
     }
 
     /**
@@ -1984,7 +1974,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( scriptModuleEClass, SCRIPT_MODULE__WRITE_COMMAND_SCRIPT );
         createEReference ( scriptModuleEClass, SCRIPT_MODULE__TIMER_SCRIPT );
         createEOperation ( scriptModuleEClass, SCRIPT_MODULE___GET_KNOWN_INPUTS );
-        createEOperation ( scriptModuleEClass, SCRIPT_MODULE___CUSTOM_ENOTIFY__NOTIFICATION );
         createEOperation ( scriptModuleEClass, SCRIPT_MODULE___GET_KNOWN_OUTPUTS );
 
         scriptEClass = createEClass ( SCRIPT );
@@ -2253,9 +2242,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         initEOperation ( getScriptModule__GetKnownInputs (), this.getInputSpecification (), "getKnownInputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        op = initEOperation ( getScriptModule__CustomENotify__Notification (), null, "customENotify", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
-        addEParameter ( op, this.getNotification (), "notification", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
-
         initEOperation ( getScriptModule__GetKnownOutputs (), this.getOutputSpecification (), "getKnownOutputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -2333,7 +2319,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      */
     protected void createExtendedMetaDataAnnotations ()
     {
-        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$										
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
         addAnnotation ( getGlobalizeComponent_Components (),
                 source,
                 new String[]

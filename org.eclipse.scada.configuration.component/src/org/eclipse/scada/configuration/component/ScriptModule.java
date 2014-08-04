@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
 
@@ -210,15 +209,6 @@ public interface ScriptModule extends NamedDocumentable, CalculationModule
      */
     @Override
     EList<InputSpecification> getKnownInputs ();
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @model notificationDataType="org.eclipse.scada.configuration.component.Notification"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='\tif ( notification.getFeature ().equals ( ComponentPackage.Literals.SCRIPT_MODULE__INPUTS ) )\n        {\n            super.eNotify ( new org.eclipse.emf.ecore.impl.ENotificationImpl ( this, notification.getEventType (), ComponentPackage.CALCULATION_MODULE__KNOWN_INPUTS, notification.getOldValue (), notification.getNewValue () ) );\n        }\n\tif ( notification.getFeature ().equals ( ComponentPackage.Literals.SCRIPT_MODULE__OUTPUTS ) )\n        {\n            super.eNotify ( new org.eclipse.emf.ecore.impl.ENotificationImpl ( this, notification.getEventType (), ComponentPackage.CALCULATION_MODULE__KNOWN_OUTPUTS, notification.getOldValue (), notification.getNewValue () ) );\n        }\n        super.eNotify ( notification );'"
-     * @generated
-     */
-    void customENotify ( Notification notification );
 
     /**
      * <!-- begin-user-doc -->
