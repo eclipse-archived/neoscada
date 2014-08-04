@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -91,11 +92,29 @@ public class RemoteDataPage extends WizardPage
             }
         } );
 
+        // Empty set
+
+        final Button emptyButton = new Button ( wrapper, SWT.PUSH );
+        emptyButton.setText ( Messages.RemoteDataPage_ButtonEmptySet );
+        emptyButton.addSelectionListener ( new SelectionAdapter () {
+            @Override
+            public void widgetSelected ( final SelectionEvent e )
+            {
+                handleEmpty ();
+            }
+        } );
+
         this.resultText = new Label ( wrapper, SWT.NONE );
         this.resultText.setLayoutData ( new GridData ( SWT.FILL, SWT.CENTER, true, false ) );
 
         setControl ( wrapper );
 
+        update ();
+    }
+
+    protected void handleEmpty ()
+    {
+        this.mergeController.setRemoteData ( Collections.<FactoryInformation> emptyList () );
         update ();
     }
 

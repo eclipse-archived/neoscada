@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,11 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - improve handling
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.util;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -36,7 +36,7 @@ public class DiffController
 
     private Map<String, Set<String>> ignoreFields = new HashMap<String, Set<String>> ();
 
-    private Map<String, Map<String, Map<String, String>>> remoteData = Collections.emptyMap ();
+    private Map<String, Map<String, Map<String, String>>> remoteData;
 
     public void setLocalData ( final Map<String, Map<String, Map<String, String>>> localData )
     {
@@ -56,7 +56,6 @@ public class DiffController
     public long setRemoteData ( final Collection<FactoryInformation> remoteData )
     {
         final Map<String, Map<String, Map<String, String>>> data = new HashMap<String, Map<String, Map<String, String>>> ();
-
         final long count = ConfigurationHelper.convert ( remoteData, data );
 
         setRemoteData ( data );
@@ -72,8 +71,12 @@ public class DiffController
     {
         try
         {
-            monitor.beginTask ( Messages.DiffController_TaskName, this.localData.size () + this.remoteData.size () );
+            if ( this.remoteData == null || this.localData == null )
+            {
+                return null;
+            }
 
+            monitor.beginTask ( Messages.DiffController_TaskName, this.localData.size () + this.remoteData.size () );
             return processMerge ( monitor );
         }
         finally
@@ -220,7 +223,7 @@ public class DiffController
 
     /**
      * Check of two data sets are equal
-     * 
+     *
      * @param localData
      *            the local file data
      * @param remoteData
