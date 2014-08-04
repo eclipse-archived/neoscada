@@ -19,10 +19,10 @@ import org.eclipse.scada.core.OperationException;
 import org.eclipse.scada.core.data.Request;
 import org.eclipse.scada.core.data.RequestMessage;
 import org.eclipse.scada.core.data.ResponseMessage;
-import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.eclipse.scada.utils.concurrent.ExecutorFuture;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
 
 public class ResponseManager
 {
@@ -87,7 +87,7 @@ public class ResponseManager
 
         if ( !this.connected )
         {
-            return new InstantErrorFuture<ResponseMessage> ( new IllegalStateException ( "Connection is not conected" ) );
+            return new InstantErrorFuture<ResponseMessage> ( new IllegalStateException ( "Connection is not connected" ) );
         }
 
         this.messageSender.sendMessage ( requestMessage );
