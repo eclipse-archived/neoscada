@@ -208,7 +208,7 @@ public class ExportEventsImpl implements FileTarget
                     }
                 }
 
-                workbook.setRepeatingRowsAndColumns ( 0, -1, -1, 0, 1 );
+                sheet.setRepeatingRows ( new CellRangeAddress ( 0, 1, -1, -1 ) );
 
                 monitor.setTaskName ( "Auto sizing" );
                 for ( int i = 0; i < columns.size (); i++ )
