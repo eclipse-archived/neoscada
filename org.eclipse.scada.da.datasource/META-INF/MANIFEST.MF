@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Datasource (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.da.datasource;version="0.1.0",
  org.eclipse.scada.da.datasource.base;version="0.1.0",

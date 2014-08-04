@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - add timestamp handling
+ *     IBH SYSTEMS GmbH - add timestamp handling, fix logger
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.ds;
 
@@ -35,9 +35,13 @@ import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.osgi.framework.BundleContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DataStoreDataSource extends AbstractDataSource implements DataListener
 {
+    private final static Logger logger = LoggerFactory.getLogger ( DataStoreDataSource.class );
+
     private static final String ATTR_TIMESTAMP = "timestamp"; //$NON-NLS-1$
 
     private final Executor executor;
@@ -242,7 +246,10 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
 
     private void setError ( final Throwable e )
     {
-        logger.warn ( "Failed to read data", e ); //$NON-NLS-1$
+        if ( e != null )
+        {
+            logger.warn ( "Failed to read data", e ); //$NON-NLS-1$
+        }
 
         final Builder builder = new Builder ();
         builder.setSubscriptionState ( SubscriptionState.CONNECTED );
