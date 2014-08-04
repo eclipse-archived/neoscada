@@ -25,7 +25,6 @@ import org.slf4j.LoggerFactory;
  * An OSGi based HiveSource
  *
  * @author Jens Reimann
- * @since 0.1.0
  */
 public class SingleSubscriptionManager extends AbstractSubscriptionManager
 {
