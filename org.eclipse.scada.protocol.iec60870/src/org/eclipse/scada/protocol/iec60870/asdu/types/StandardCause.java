@@ -22,7 +22,7 @@ public enum StandardCause implements Cause
     ACTIVATION_CONFIRM ( (short)7, "actcon" ),
     DEACTIVATED ( (short)8, "deact" ),
     DEACTIVATION_CONFIRM ( (short)9, "deactcon" ),
-    ACTIVATION_TERMINATION ( (short)10, "act" ),
+    ACTIVATION_TERMINATION ( (short)10, "actterm" ),
     RETURN_REMOTE ( (short)11, "retrem" ),
     RETURN_LOCAL ( (short)12, "retloc" ),
     FILE_TRANSMISSION ( (short)13, "file" ),
