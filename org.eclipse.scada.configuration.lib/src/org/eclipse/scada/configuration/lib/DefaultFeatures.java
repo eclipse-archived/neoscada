@@ -55,9 +55,13 @@ public class DefaultFeatures
         };
     }
 
-    public static final ItemCustomizer WRITE_LOGGER = WRITE_LOGGER ( true, true, false, false );
+    public static final ItemCustomizer WRITE_LOGGER = EVENT_LOGGER ( true, true, false, false );
 
-    public static final ItemCustomizer WRITE_LOGGER ( final boolean logWrites, final boolean logSubscriptionChange, final boolean logValueChange, final boolean logAttributesChange )
+    public static final ItemCustomizer VALUE_LOGGER = EVENT_LOGGER ( false, false, true, false );
+
+    public static final ItemCustomizer EVENT_LOGGER = EVENT_LOGGER ( true, true, true, true );
+
+    public static final ItemCustomizer EVENT_LOGGER ( final boolean logWrites, final boolean logSubscriptionChange, final boolean logValueChange, final boolean logAttributesChange )
     {
         return new ItemCustomizer () {
 
@@ -262,7 +266,7 @@ public class DefaultFeatures
             @Override
             public void customize ( final Item item )
             {
-                Block feature = OsgiFactory.eINSTANCE.createBlock ();
+                final Block feature = OsgiFactory.eINSTANCE.createBlock ();
                 feature.setName ( "local.block" );
                 registerFeature ( item, feature );
             }
