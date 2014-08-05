@@ -39,7 +39,5 @@
 
 [template private descriptionContent(news : NewsEntry) post (encodeHtml())]
 [processContent(news.content->first(), '')/]
-[if news.content->size()>1]
 [(' → <a href="' + news.absolutePermaLink() + '">Read full article</a>')/]
-[/if]
 [/template]
