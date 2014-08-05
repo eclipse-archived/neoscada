@@ -39,6 +39,7 @@ import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getMaintainer <em>Maintainer</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getAdditionalDependencies <em>Additional Dependencies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getStartupMechanism <em>Startup Mechanism</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#isMultiUserScreen <em>Multi User Screen</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,6 +97,26 @@ public abstract class CommonDeploymentMechanismImpl extends
      * @ordered
      */
     protected StartupMechanism startupMechanism = STARTUP_MECHANISM_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isMultiUserScreen() <em>Multi User Screen</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isMultiUserScreen()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean MULTI_USER_SCREEN_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isMultiUserScreen() <em>Multi User Screen</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isMultiUserScreen()
+     * @generated
+     * @ordered
+     */
+    protected boolean multiUserScreen = MULTI_USER_SCREEN_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -217,6 +238,29 @@ public abstract class CommonDeploymentMechanismImpl extends
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isMultiUserScreen ()
+    {
+        return multiUserScreen;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setMultiUserScreen ( boolean newMultiUserScreen )
+    {
+        boolean oldMultiUserScreen = multiUserScreen;
+        multiUserScreen = newMultiUserScreen;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN, oldMultiUserScreen, multiUserScreen ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd,
             int featureID, NotificationChain msgs )
@@ -249,6 +293,8 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return getAdditionalDependencies ();
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
                 return getStartupMechanism ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
+                return isMultiUserScreen ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -278,6 +324,9 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
                 setStartupMechanism ( (StartupMechanism)newValue );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
+                setMultiUserScreen ( (Boolean)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -304,6 +353,9 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
                 setStartupMechanism ( STARTUP_MECHANISM_EDEFAULT );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
+                setMultiUserScreen ( MULTI_USER_SCREEN_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -326,6 +378,8 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return additionalDependencies != null && !additionalDependencies.isEmpty ();
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
                 return startupMechanism != STARTUP_MECHANISM_EDEFAULT;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
+                return multiUserScreen != MULTI_USER_SCREEN_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -346,6 +400,8 @@ public abstract class CommonDeploymentMechanismImpl extends
         result.append ( additionalDependencies );
         result.append ( ", startupMechanism: " ); //$NON-NLS-1$
         result.append ( startupMechanism );
+        result.append ( ", multiUserScreen: " ); //$NON-NLS-1$
+        result.append ( multiUserScreen );
         result.append ( ')' );
         return result.toString ();
     }

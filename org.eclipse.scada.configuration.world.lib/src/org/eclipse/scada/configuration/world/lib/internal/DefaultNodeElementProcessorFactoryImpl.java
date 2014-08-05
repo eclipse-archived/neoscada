@@ -18,7 +18,7 @@ import org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.lib.NodeElementProcessor;
 import org.eclipse.scada.configuration.world.lib.NodeElementProcessorFactory;
-import org.eclipse.scada.configuration.world.lib.deployment.JavaDebianHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.DebianHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.MsiHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.RedhatHandler;
 import org.eclipse.scada.configuration.world.lib.oscar.DefaultEquinoxApplicationProcessor;
@@ -48,7 +48,7 @@ public class DefaultNodeElementProcessorFactoryImpl implements NodeElementProces
         }
         else if ( element instanceof DebianDeploymentMechanism )
         {
-            return new JavaDebianHandler ( applicationNode, (DebianDeploymentMechanism)element );
+            return new DebianHandler ( applicationNode, (DebianDeploymentMechanism)element );
         }
         else if ( element instanceof RedhatDeploymentMechanism )
         {

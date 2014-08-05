@@ -150,13 +150,22 @@ public interface DeploymentPackage extends EPackage
     int COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Multi User Screen</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Common Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 4;
+    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 5;
 
     /**
      * The number of operations of the '<em>Common Deployment Mechanism</em>' class.
@@ -212,6 +221,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int DEBIAN_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM = COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM;
+
+    /**
+     * The feature id for the '<em><b>Multi User Screen</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEBIAN_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN = COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN;
 
     /**
      * The number of structural features of the '<em>Debian Deployment Mechanism</em>' class.
@@ -322,6 +340,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int REDHAT_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM = COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM;
+
+    /**
+     * The feature id for the '<em><b>Multi User Screen</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REDHAT_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN = COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN;
 
     /**
      * The feature id for the '<em><b>License</b></em>' attribute.
@@ -1033,6 +1060,17 @@ public interface DeploymentPackage extends EPackage
     EAttribute getCommonDeploymentMechanism_StartupMechanism ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#isMultiUserScreen <em>Multi User Screen</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Multi User Screen</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#isMultiUserScreen()
+     * @see #getCommonDeploymentMechanism()
+     * @generated
+     */
+    EAttribute getCommonDeploymentMechanism_MultiUserScreen ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1541,6 +1579,14 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM = eINSTANCE.getCommonDeploymentMechanism_StartupMechanism ();
+
+        /**
+         * The meta object literal for the '<em><b>Multi User Screen</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN = eINSTANCE.getCommonDeploymentMechanism_MultiUserScreen ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl <em>Change Entry</em>}' class.

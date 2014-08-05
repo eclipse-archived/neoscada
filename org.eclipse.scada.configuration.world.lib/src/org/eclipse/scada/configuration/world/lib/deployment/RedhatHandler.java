@@ -94,6 +94,8 @@ public class RedhatHandler extends CommonPackageHandler
         replacements.put ( "post", makePost () ); //$NON-NLS-1$
         replacements.put ( "license", this.deploy.getLicense () ); //$NON-NLS-1$
 
+        replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
+
         final File specFile = new File ( specsDir, packageName + ".spec" ); //$NON-NLS-1$
         Helper.createFile ( specFile, RedhatHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "Makefile" ), RedhatHandler.class.getResourceAsStream ( "templates/rpm/Makefile" ), replacements, monitor );

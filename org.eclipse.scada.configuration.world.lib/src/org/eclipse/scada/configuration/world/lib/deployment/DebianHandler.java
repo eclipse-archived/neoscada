@@ -40,13 +40,13 @@ import org.eclipse.scada.utils.str.StringHelper;
 
 import com.google.common.io.CharStreams;
 
-public class JavaDebianHandler extends CommonPackageHandler
+public class DebianHandler extends CommonPackageHandler
 {
     private static final String CONTROL_SCRIPTS_DIR = "/usr/lib/eclipsescada/packagescripts";
 
     private final DebianDeploymentMechanism deploy;
 
-    public JavaDebianHandler ( final ApplicationNode applicationNode, final DebianDeploymentMechanism deploy )
+    public DebianHandler ( final ApplicationNode applicationNode, final DebianDeploymentMechanism deploy )
     {
         super ( applicationNode, deploy );
         this.deploy = deploy;
@@ -86,6 +86,7 @@ public class JavaDebianHandler extends CommonPackageHandler
         replacements.put ( "nodeName", this.applicationNode.getName () == null ? this.applicationNode.getHostName () : this.applicationNode.getName () ); //$NON-NLS-1$
         replacements.put ( "postinst.restart", createPostInst () ); //$NON-NLS-1$
         replacements.put ( "prerm.stop", createPreRm () ); //$NON-NLS-1$
+        replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
 
         replacements.put ( "postinst.scripts", createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
         replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -96,10 +97,10 @@ public class JavaDebianHandler extends CommonPackageHandler
         outputFile.getParentFile ().mkdirs ();
         try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
         {
-            deb.setPostinstScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
-            deb.setPostrmScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
-            deb.setPrermScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
-            deb.setPreinstScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
+            deb.setPostinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
+            deb.setPostrmScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
+            deb.setPrermScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
+            deb.setPreinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
 
             createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
             createEquinox ( deb, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
@@ -112,7 +113,6 @@ public class JavaDebianHandler extends CommonPackageHandler
                 scoop.getIgnorePrefix ().add ( CONTROL_SCRIPTS_DIR );
                 Files.walkFileTree ( src, scoop );
             }
-
         }
 
         nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );

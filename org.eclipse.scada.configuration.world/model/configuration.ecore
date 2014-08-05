@@ -1075,6 +1075,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalDependencies"
           ordered="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="startupMechanism" eType="#//deployment/StartupMechanism"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiUserScreen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Wether to enable the multiuser functionality of the &quot;screen&quot; command for the Eclipse SCADA user."/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"

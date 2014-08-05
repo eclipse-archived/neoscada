@@ -72,6 +72,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
             addMaintainerPropertyDescriptor ( object );
             addAdditionalDependenciesPropertyDescriptor ( object );
             addStartupMechanismPropertyDescriptor ( object );
+            addMultiUserScreenPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -141,6 +142,29 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Multi User Screen feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addMultiUserScreenPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_CommonDeploymentMechanism_multiUserScreen_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_multiUserScreen_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -234,6 +258,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
         {
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__CHANGES:

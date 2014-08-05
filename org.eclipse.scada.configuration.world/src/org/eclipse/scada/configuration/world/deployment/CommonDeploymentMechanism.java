@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getMaintainer <em>Maintainer</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalDependencies <em>Additional Dependencies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getStartupMechanism <em>Startup Mechanism</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#isMultiUserScreen <em>Multi User Screen</em>}</li>
  * </ul>
  * </p>
  *
@@ -120,5 +121,30 @@ public interface CommonDeploymentMechanism extends DeploymentMechanism
      * @generated
      */
     void setStartupMechanism ( StartupMechanism value );
+
+    /**
+     * Returns the value of the '<em><b>Multi User Screen</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Wether to enable the multiuser functionality of the "screen" command for the Eclipse SCADA user.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Multi User Screen</em>' attribute.
+     * @see #setMultiUserScreen(boolean)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getCommonDeploymentMechanism_MultiUserScreen()
+     * @model
+     * @generated
+     */
+    boolean isMultiUserScreen ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#isMultiUserScreen <em>Multi User Screen</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Multi User Screen</em>' attribute.
+     * @see #isMultiUserScreen()
+     * @generated
+     */
+    void setMultiUserScreen ( boolean value );
 
 } // CommonDeploymentMechanism

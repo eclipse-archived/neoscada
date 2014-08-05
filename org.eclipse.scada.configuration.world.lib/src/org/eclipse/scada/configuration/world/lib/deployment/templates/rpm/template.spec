@@ -35,6 +35,10 @@ cd ..
 
 %post
 $$post$$
+multiuserScreen="$$multiuserScreen$$"
+if [ ! -f ~eclipsescada/.screenrc ]; then
+   test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~eclipsescada/.screenrc
+fi
 
 %postun
 
