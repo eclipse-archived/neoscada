@@ -243,8 +243,9 @@ def createInstance ( target, p ):
 	if len(p.features) < 1:
 		raise Exception("Configuration does not provide any installable unit")
 	
-	subprocess.call ( ["p2.create", target] )
-	subprocess.call ( ["p2.install", target ] + p.features )
+	subprocess.check_call ( ["p2.create", target] )
+	subprocess.check_call ( ["p2.install", target ] + p.features )
+	
 	writeArguments ( target + os.sep + "launcher.args", p.arguments )
 	writeProperties ( target + os.sep + "launcher.properties", p.properties, False )
 	writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
