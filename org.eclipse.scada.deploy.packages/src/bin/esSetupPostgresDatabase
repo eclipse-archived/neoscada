@@ -37,7 +37,7 @@ function createDatabase () {
 }
 
 function createTables () {
-	psql -d eclipsescada -q -f create.sql &>/dev/null
+	psql -d eclipsescada -q -f "$templateFile" &>/dev/null
 	psql -d eclipsescada -c "ALTER TABLE es_ae_events_hstore OWNER TO $username;" &>/dev/null
 	psql -d eclipsescada -c "ALTER TABLE es_ae_rep OWNER TO $username;" &>/dev/null
 }
