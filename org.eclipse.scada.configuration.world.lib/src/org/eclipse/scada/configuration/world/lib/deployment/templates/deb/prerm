@@ -6,10 +6,11 @@ set -e
 
 case "$1" in
   remove|deconfigure)
-$$prerm.stop$$
+$$stop.apps$$
   ;;
 
   upgrade|failed-upgrade)
+$$stop.apps$$
   ;;
 
   *)

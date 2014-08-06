@@ -91,8 +91,10 @@ public class DebianHandler extends CommonPackageHandler
         replacements.put ( "authorName", this.deploy.getMaintainer ().getName () ); //$NON-NLS-1$
         replacements.put ( "authorEmail", this.deploy.getMaintainer ().getEmail () ); //$NON-NLS-1$
         replacements.put ( "nodeName", this.applicationNode.getName () == null ? this.applicationNode.getHostName () : this.applicationNode.getName () ); //$NON-NLS-1$
-        replacements.put ( "postinst.restart", createPostInst () ); //$NON-NLS-1$
-        replacements.put ( "prerm.stop", createPreRm () ); //$NON-NLS-1$
+
+        replacements.put ( "stop.apps", createStopApps () ); //$NON-NLS-1$
+        replacements.put ( "start.apps", createStartApps () ); //$NON-NLS-1$
+        replacements.put ( "create.apps", makeCreate ( this.deploy ) ); //$NON-NLS-1$
         replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
 
         final Set<String> dependencies = new HashSet<> ();
@@ -273,51 +275,62 @@ public class DebianHandler extends CommonPackageHandler
         return StringHelper.join ( result, ", " ); //$NON-NLS-1$
     }
 
-    private String createPostInst ()
+    private String createStopApps ()
     {
-        final StartupHandler sh = getStartupHandler ();
-        if ( sh == null )
-        {
-            return "";
-        }
-
         final StringBuilder sb = new StringBuilder ();
-
-        for ( final String driver : makeDriverList () )
-        {
-            final String cmd = sh.restartDriverCommand ( driver );
-            if ( cmd == null )
-            {
-                continue;
-            }
-
-            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, driver ) ); //$NON-NLS-1$
-            sb.append ( '\n' );
-        }
-
-        for ( final String app : makeEquinoxList () )
-        {
-            final String cmd = sh.restartEquinoxCommand ( app );
-            if ( cmd == null )
-            {
-                continue;
-            }
-
-            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, app ) ); //$NON-NLS-1$
-            sb.append ( '\n' );
-        }
-
+        stopApplications ( sb );
         return sb.toString ();
     }
 
-    private String createPreRm ()
+    private String createStartApps ()
     {
         final StringBuilder sb = new StringBuilder ();
+        startApplications ( sb );
+        return sb.toString ();
+    }
 
+    protected void startApplications ( final StringBuilder sb )
+    {
         final StartupHandler sh = getStartupHandler ();
         if ( sh == null )
         {
-            return "";
+            return;
+        }
+
+        for ( final String driver : makeDriverList () )
+        {
+            final String cmd = sh.startDriverCommand ( driver );
+            if ( cmd == null )
+            {
+                continue;
+            }
+
+            sb.append ( String.format ( "    %s || echo failed to start %s", cmd, driver ) ); //$NON-NLS-1$
+            sb.append ( '\n' );
+        }
+
+        if ( this.deploy.isAutomaticCreate () )
+        {
+            for ( final String app : makeEquinoxList () )
+            {
+                final String cmd = sh.startEquinoxCommand ( app );
+                if ( cmd == null )
+                {
+                    continue;
+                }
+
+                sb.append ( String.format ( "    %s || echo failed to start %s", cmd, app ) ); //$NON-NLS-1$
+                sb.append ( '\n' );
+            }
+        }
+    }
+
+    protected void stopApplications ( final StringBuilder sb )
+    {
+        final StartupHandler sh = getStartupHandler ();
+        if ( sh == null )
+        {
+            return;
         }
 
         for ( final String driver : makeDriverList () )
@@ -331,18 +344,19 @@ public class DebianHandler extends CommonPackageHandler
             sb.append ( '\n' );
         }
 
-        for ( final String app : makeEquinoxList () )
+        if ( this.deploy.isAutomaticCreate () )
         {
-            final String cmd = sh.stopEquinoxCommand ( app );
-            if ( cmd == null )
+            for ( final String app : makeEquinoxList () )
             {
-                continue;
+                final String cmd = sh.stopEquinoxCommand ( app );
+                if ( cmd == null )
+                {
+                    continue;
+                }
+                sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, app ) ); //$NON-NLS-1$
+                sb.append ( '\n' );
             }
-            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, app ) ); //$NON-NLS-1$
-            sb.append ( '\n' );
         }
-
-        return sb.toString ();
     }
 
     /*

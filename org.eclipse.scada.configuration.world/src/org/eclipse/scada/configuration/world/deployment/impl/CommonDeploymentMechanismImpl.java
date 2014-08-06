@@ -42,6 +42,8 @@ import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getStartupMechanism <em>Startup Mechanism</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#isMultiUserScreen <em>Multi User Screen</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getOperatingSystem <em>Operating System</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#isAutomaticCreate <em>Automatic Create</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getRecreateBackups <em>Recreate Backups</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,6 +131,46 @@ public abstract class CommonDeploymentMechanismImpl extends
      * @ordered
      */
     protected OperatingSystemDescriptor operatingSystem;
+
+    /**
+     * The default value of the '{@link #isAutomaticCreate() <em>Automatic Create</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isAutomaticCreate()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean AUTOMATIC_CREATE_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isAutomaticCreate() <em>Automatic Create</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isAutomaticCreate()
+     * @generated
+     * @ordered
+     */
+    protected boolean automaticCreate = AUTOMATIC_CREATE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getRecreateBackups() <em>Recreate Backups</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRecreateBackups()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer RECREATE_BACKUPS_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getRecreateBackups() <em>Recreate Backups</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRecreateBackups()
+     * @generated
+     * @ordered
+     */
+    protected Integer recreateBackups = RECREATE_BACKUPS_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -316,6 +358,52 @@ public abstract class CommonDeploymentMechanismImpl extends
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isAutomaticCreate ()
+    {
+        return automaticCreate;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setAutomaticCreate ( boolean newAutomaticCreate )
+    {
+        boolean oldAutomaticCreate = automaticCreate;
+        automaticCreate = newAutomaticCreate;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE, oldAutomaticCreate, automaticCreate ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Integer getRecreateBackups ()
+    {
+        return recreateBackups;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRecreateBackups ( Integer newRecreateBackups )
+    {
+        Integer oldRecreateBackups = recreateBackups;
+        recreateBackups = newRecreateBackups;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS, oldRecreateBackups, recreateBackups ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd,
             int featureID, NotificationChain msgs )
@@ -354,6 +442,10 @@ public abstract class CommonDeploymentMechanismImpl extends
                 if ( resolve )
                     return getOperatingSystem ();
                 return basicGetOperatingSystem ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE:
+                return isAutomaticCreate ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
+                return getRecreateBackups ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -389,6 +481,12 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM:
                 setOperatingSystem ( (OperatingSystemDescriptor)newValue );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE:
+                setAutomaticCreate ( (Boolean)newValue );
+                return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
+                setRecreateBackups ( (Integer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -421,6 +519,12 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM:
                 setOperatingSystem ( (OperatingSystemDescriptor)null );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE:
+                setAutomaticCreate ( AUTOMATIC_CREATE_EDEFAULT );
+                return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
+                setRecreateBackups ( RECREATE_BACKUPS_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -447,6 +551,10 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return multiUserScreen != MULTI_USER_SCREEN_EDEFAULT;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM:
                 return operatingSystem != null;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE:
+                return automaticCreate != AUTOMATIC_CREATE_EDEFAULT;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
+                return RECREATE_BACKUPS_EDEFAULT == null ? recreateBackups != null : !RECREATE_BACKUPS_EDEFAULT.equals ( recreateBackups );
         }
         return super.eIsSet ( featureID );
     }
@@ -469,6 +577,10 @@ public abstract class CommonDeploymentMechanismImpl extends
         result.append ( startupMechanism );
         result.append ( ", multiUserScreen: " ); //$NON-NLS-1$
         result.append ( multiUserScreen );
+        result.append ( ", automaticCreate: " ); //$NON-NLS-1$
+        result.append ( automaticCreate );
+        result.append ( ", recreateBackups: " ); //$NON-NLS-1$
+        result.append ( recreateBackups );
         result.append ( ')' );
         return result.toString ();
     }

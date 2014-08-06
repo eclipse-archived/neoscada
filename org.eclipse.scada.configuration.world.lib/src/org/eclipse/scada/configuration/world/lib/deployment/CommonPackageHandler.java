@@ -212,4 +212,34 @@ public abstract class CommonPackageHandler extends CommonHandler
         }
     }
 
+    protected String makeCreate ( final CommonDeploymentMechanism deploy )
+    {
+        final StringBuilder sb = new StringBuilder ();
+        if ( deploy.isAutomaticCreate () )
+        {
+            String flags;
+
+            if ( deploy.getRecreateBackups () == null )
+            {
+                flags = "-i";
+            }
+            else if ( deploy.getRecreateBackups () > 0 )
+            {
+                flags = "-b " + deploy.getRecreateBackups ();
+            }
+            else
+            {
+                flags = "-d";
+            }
+
+            for ( final String app : makeEquinoxList () )
+            {
+                sb.append ( String.format ( "echo -n Creating application %s ... \n", app ) );
+                sb.append ( String.format ( "scada.create.%s %s > /dev/null\n", app, flags ) );
+                sb.append ( String.format ( "echo \"done!\"\n", app ) );
+            }
+        }
+        return sb.toString ();
+    }
+
 }

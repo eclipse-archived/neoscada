@@ -168,13 +168,31 @@ public interface DeploymentPackage extends EPackage
     int COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Automatic Create</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Recreate Backups</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Common Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 6;
+    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 8;
 
     /**
      * The number of operations of the '<em>Common Deployment Mechanism</em>' class.
@@ -248,6 +266,24 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int DEBIAN_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM = COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM;
+
+    /**
+     * The feature id for the '<em><b>Automatic Create</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEBIAN_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE = COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE;
+
+    /**
+     * The feature id for the '<em><b>Recreate Backups</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEBIAN_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS = COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS;
 
     /**
      * The feature id for the '<em><b>Setup</b></em>' reference.
@@ -385,6 +421,24 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int REDHAT_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM = COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM;
+
+    /**
+     * The feature id for the '<em><b>Automatic Create</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REDHAT_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE = COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE;
+
+    /**
+     * The feature id for the '<em><b>Recreate Backups</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REDHAT_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS = COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS;
 
     /**
      * The feature id for the '<em><b>License</b></em>' attribute.
@@ -1129,6 +1183,28 @@ public interface DeploymentPackage extends EPackage
     EReference getCommonDeploymentMechanism_OperatingSystem ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#isAutomaticCreate <em>Automatic Create</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Automatic Create</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#isAutomaticCreate()
+     * @see #getCommonDeploymentMechanism()
+     * @generated
+     */
+    EAttribute getCommonDeploymentMechanism_AutomaticCreate ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getRecreateBackups <em>Recreate Backups</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Recreate Backups</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getRecreateBackups()
+     * @see #getCommonDeploymentMechanism()
+     * @generated
+     */
+    EAttribute getCommonDeploymentMechanism_RecreateBackups ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1661,6 +1737,22 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EReference COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM = eINSTANCE.getCommonDeploymentMechanism_OperatingSystem ();
+
+        /**
+         * The meta object literal for the '<em><b>Automatic Create</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE = eINSTANCE.getCommonDeploymentMechanism_AutomaticCreate ();
+
+        /**
+         * The meta object literal for the '<em><b>Recreate Backups</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS = eINSTANCE.getCommonDeploymentMechanism_RecreateBackups ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl <em>Change Entry</em>}' class.

@@ -48,9 +48,9 @@ public class UpstartHandler implements StartupHandler
     }
 
     @Override
-    public String restartDriverCommand ( final String driverName )
+    public String startDriverCommand ( final String driverName )
     {
-        return "restart scada.driver." + driverName;
+        return "start scada.driver." + driverName;
     }
 
     @Override
@@ -60,15 +60,15 @@ public class UpstartHandler implements StartupHandler
     }
 
     @Override
-    public String restartEquinoxCommand ( final String appName )
+    public String startEquinoxCommand ( final String appName )
     {
-        return null;
+        return "start scada.app." + appName;
     }
 
     @Override
     public String stopEquinoxCommand ( final String appName )
     {
-        return null;
+        return "stop scada.app." + appName;
     }
 
     @Override

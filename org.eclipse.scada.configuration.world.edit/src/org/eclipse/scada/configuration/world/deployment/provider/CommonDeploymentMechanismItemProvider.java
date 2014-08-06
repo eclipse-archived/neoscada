@@ -74,6 +74,8 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
             addStartupMechanismPropertyDescriptor ( object );
             addMultiUserScreenPropertyDescriptor ( object );
             addOperatingSystemPropertyDescriptor ( object );
+            addAutomaticCreatePropertyDescriptor ( object );
+            addRecreateBackupsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -194,6 +196,52 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
     }
 
     /**
+     * This adds a property descriptor for the Automatic Create feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAutomaticCreatePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_CommonDeploymentMechanism_automaticCreate_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_automaticCreate_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Recreate Backups feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRecreateBackupsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_CommonDeploymentMechanism_recreateBackups_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_recreateBackups_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -283,6 +331,8 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE:
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__CHANGES:

@@ -34,7 +34,9 @@ cd ..
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
 
 %post
-$$post$$
+$$create.apps$$
+$$start.apps$$
+
 multiuserScreen="$$multiuserScreen$$"
 if [ ! -f ~eclipsescada/.screenrc ]; then
    test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~eclipsescada/.screenrc
@@ -42,8 +44,11 @@ fi
 
 %postun
 
+%pre
+$$stop.apps$$
+
 %preun
-$$preun$$
+$$stop.apps$$
 
 %files
 %defattr(-,root,root)

@@ -63,9 +63,9 @@ public class LSBSystemVHandler implements StartupHandler
     }
 
     @Override
-    public String restartDriverCommand ( final String driverName )
+    public String startDriverCommand ( final String driverName )
     {
-        return "/etc/init.d/scada.driver." + driverName + " condrestart";
+        return "/etc/init.d/scada.driver." + driverName + " start";
     }
 
     @Override
@@ -75,9 +75,9 @@ public class LSBSystemVHandler implements StartupHandler
     }
 
     @Override
-    public String restartEquinoxCommand ( final String appName )
+    public String startEquinoxCommand ( final String appName )
     {
-        return "/etc/init.d/scada.app." + appName + " condrestart";
+        return "/etc/init.d/scada.app." + appName + " start";
     }
 
     @Override

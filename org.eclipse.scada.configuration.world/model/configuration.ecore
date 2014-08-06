@@ -1084,6 +1084,9 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatingSystem" eType="#//setup/OperatingSystemDescriptor"
           eKeys="#//setup/OperatingSystemDescriptor/id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="automaticCreate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recreateBackups" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"

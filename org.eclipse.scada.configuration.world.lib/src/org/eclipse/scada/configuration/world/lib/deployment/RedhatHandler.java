@@ -90,8 +90,9 @@ public class RedhatHandler extends CommonPackageHandler
         replacements.put ( "changeLog", makeChangeLog ( this.deploy.getChanges () ) ); //$NON-NLS-1$
         replacements.put ( "files", makeFiles () ); //$NON-NLS-1$
         replacements.put ( "depends", makeDependencies () );
-        replacements.put ( "preun", makeStop () ); //$NON-NLS-1$
-        replacements.put ( "post", makePost () ); //$NON-NLS-1$
+        replacements.put ( "stop.apps", makeStop () ); //$NON-NLS-1$
+        replacements.put ( "start.apps", makeStart () ); //$NON-NLS-1$
+        replacements.put ( "create.apps", makeCreate ( this.deploy ) ); //$NON-NLS-1$
         replacements.put ( "license", this.deploy.getLicense () ); //$NON-NLS-1$
 
         replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
@@ -167,15 +168,18 @@ public class RedhatHandler extends CommonPackageHandler
             sb.append ( "test \"$1\" -eq \"0\" && " + sh.stopDriverCommand ( driver ) + " || true" );
             sb.append ( "\n" ); //$NON-NLS-1$
         }
-        for ( final String app : makeEquinoxList () )
+        if ( this.deploy.isAutomaticCreate () )
         {
-            sb.append ( "test \"$1\" -eq \"0\" && " + sh.stopEquinoxCommand ( app ) + " || true" );
-            sb.append ( "\n" ); //$NON-NLS-1$
+            for ( final String app : makeEquinoxList () )
+            {
+                sb.append ( "test \"$1\" -eq \"0\" && " + sh.stopEquinoxCommand ( app ) + " || true" );
+                sb.append ( "\n" ); //$NON-NLS-1$
+            }
         }
         return sb.toString ();
     }
 
-    private String makePost ()
+    private String makeStart ()
     {
         final StartupHandler sh = getStartupHandler ();
         if ( sh == null )
@@ -186,13 +190,16 @@ public class RedhatHandler extends CommonPackageHandler
         final StringBuilder sb = new StringBuilder ();
         for ( final String driver : makeDriverList () )
         {
-            sb.append ( sh.restartDriverCommand ( driver ) + " || true" );
+            sb.append ( sh.startDriverCommand ( driver ) + " || true" );
             sb.append ( "\n" ); //$NON-NLS-1$
         }
-        for ( final String driver : makeEquinoxList () )
+        if ( this.deploy.isAutomaticCreate () )
         {
-            sb.append ( sh.restartEquinoxCommand ( driver ) + " || true" );
-            sb.append ( "\n" ); //$NON-NLS-1$
+            for ( final String app : makeEquinoxList () )
+            {
+                sb.append ( sh.startEquinoxCommand ( app ) + " || true" );
+                sb.append ( "\n" ); //$NON-NLS-1$
+            }
         }
         return sb.toString ();
     }

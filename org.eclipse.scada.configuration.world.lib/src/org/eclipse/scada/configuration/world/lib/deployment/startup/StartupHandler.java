@@ -22,11 +22,11 @@ public interface StartupHandler
 
     public void createEquinox ( BinaryPackageBuilder builder, String appName, Map<String, String> replacements, IProgressMonitor monitor ) throws Exception;
 
-    public String restartDriverCommand ( String driverName );
+    public String startDriverCommand ( String driverName );
 
     public String stopDriverCommand ( String driverName );
 
-    public String restartEquinoxCommand ( String appName );
+    public String startEquinoxCommand ( String appName );
 
     public String stopEquinoxCommand ( String appName );
 

@@ -447,6 +447,26 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getCommonDeploymentMechanism_AutomaticCreate ()
+    {
+        return (EAttribute)commonDeploymentMechanismEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCommonDeploymentMechanism_RecreateBackups ()
+    {
+        return (EAttribute)commonDeploymentMechanismEClass.getEStructuralFeatures ().get ( 7 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getChangeEntry ()
     {
@@ -848,6 +868,8 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM );
         createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN );
         createEReference ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM );
+        createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE );
+        createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS );
 
         changeEntryEClass = createEClass ( CHANGE_ENTRY );
         createEReference ( changeEntryEClass, CHANGE_ENTRY__AUTHOR );
@@ -961,6 +983,8 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEAttribute ( getCommonDeploymentMechanism_MultiUserScreen (), ecorePackage.getEBoolean (), "multiUserScreen", null, 0, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getCommonDeploymentMechanism_OperatingSystem (), theSetupPackage.getOperatingSystemDescriptor (), null, "operatingSystem", null, 0, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         getCommonDeploymentMechanism_OperatingSystem ().getEKeys ().add ( theSetupPackage.getOperatingSystemDescriptor_Id () );
+        initEAttribute ( getCommonDeploymentMechanism_AutomaticCreate (), ecorePackage.getEBoolean (), "automaticCreate", "false", 0, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getCommonDeploymentMechanism_RecreateBackups (), ecorePackage.getEIntegerObject (), "recreateBackups", null, 0, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( changeEntryEClass, ChangeEntry.class, "ChangeEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getChangeEntry_Author (), this.getAuthor (), null, "author", null, 1, 1, ChangeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
