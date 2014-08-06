@@ -79,7 +79,7 @@ public class RedhatDeploymentMechanismItemProvider extends
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

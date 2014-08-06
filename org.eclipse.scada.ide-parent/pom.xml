@@ -182,6 +182,9 @@
 		<module>../org.eclipse.scada.configuration.iec60870.edit</module>
 		<module>../org.eclipse.scada.configuration.iec60870.lib</module>
 		
+		<module>../org.eclipse.scada.configuration.setup.common</module>
+		<module>../org.eclipse.scada.configuration.setup.common.edit</module>
+		
 	</modules>
 
 </project>

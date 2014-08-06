@@ -131,6 +131,8 @@ import org.eclipse.scada.configuration.world.osgi.ValueMapper;
 import org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
 import org.eclipse.scada.configuration.world.osgi.profile.impl.ProfilePackageImpl;
+import org.eclipse.scada.configuration.world.setup.SetupPackage;
+import org.eclipse.scada.configuration.world.setup.impl.SetupPackageImpl;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.exec.configuration.ConfigurationPackage;
 
@@ -931,18 +933,21 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         WorldPackageImpl theWorldPackage = (WorldPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI ) instanceof WorldPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI ) : WorldPackage.eINSTANCE );
         ProfilePackageImpl theProfilePackage = (ProfilePackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProfilePackage.eNS_URI ) instanceof ProfilePackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProfilePackage.eNS_URI ) : ProfilePackage.eINSTANCE );
         DeploymentPackageImpl theDeploymentPackage = (DeploymentPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI ) instanceof DeploymentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI ) : DeploymentPackage.eINSTANCE );
+        SetupPackageImpl theSetupPackage = (SetupPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI ) instanceof SetupPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI ) : SetupPackage.eINSTANCE );
 
         // Create package meta-data objects
         theOsgiPackage.createPackageContents ();
         theWorldPackage.createPackageContents ();
         theProfilePackage.createPackageContents ();
         theDeploymentPackage.createPackageContents ();
+        theSetupPackage.createPackageContents ();
 
         // Initialize created meta-data
         theOsgiPackage.initializePackageContents ();
         theWorldPackage.initializePackageContents ();
         theProfilePackage.initializePackageContents ();
         theDeploymentPackage.initializePackageContents ();
+        theSetupPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theOsgiPackage.freeze ();

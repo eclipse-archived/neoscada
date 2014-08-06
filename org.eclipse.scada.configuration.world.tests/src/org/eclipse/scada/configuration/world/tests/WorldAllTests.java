@@ -15,6 +15,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import org.eclipse.scada.configuration.world.deployment.tests.DeploymentTests;
 import org.eclipse.scada.configuration.world.osgi.tests.OsgiTests;
+import org.eclipse.scada.configuration.world.setup.tests.SetupTests;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +47,7 @@ public class WorldAllTests extends TestSuite
         suite.addTest ( WorldTests.suite () );
         suite.addTest ( OsgiTests.suite () );
         suite.addTest ( DeploymentTests.suite () );
+        suite.addTest ( SetupTests.suite () );
         return suite;
     }
 

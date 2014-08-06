@@ -119,4 +119,19 @@
       </content-type>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated world -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/World/Setup"
+            class="org.eclipse.scada.configuration.world.setup.SetupPackage"
+            genModel="model/configuration.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated world -->
+      <parser
+            type="setup"
+            class="org.eclipse.scada.configuration.world.setup.util.SetupResourceFactoryImpl"/>
+   </extension>
+
 </plugin>

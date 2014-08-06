@@ -159,13 +159,22 @@ public interface DeploymentPackage extends EPackage
     int COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Operating System</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>Common Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 5;
+    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 6;
 
     /**
      * The number of operations of the '<em>Common Deployment Mechanism</em>' class.
@@ -232,13 +241,31 @@ public interface DeploymentPackage extends EPackage
     int DEBIAN_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN = COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN;
 
     /**
+     * The feature id for the '<em><b>Operating System</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEBIAN_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM = COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM;
+
+    /**
+     * The feature id for the '<em><b>Setup</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEBIAN_DEPLOYMENT_MECHANISM__SETUP = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Debian Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEBIAN_DEPLOYMENT_MECHANISM_FEATURE_COUNT = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 0;
+    int DEBIAN_DEPLOYMENT_MECHANISM_FEATURE_COUNT = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Debian Deployment Mechanism</em>' class.
@@ -349,6 +376,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int REDHAT_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN = COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN;
+
+    /**
+     * The feature id for the '<em><b>Operating System</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REDHAT_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM = COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM;
 
     /**
      * The feature id for the '<em><b>License</b></em>' attribute.
@@ -932,6 +968,17 @@ public interface DeploymentPackage extends EPackage
     EClass getDebianDeploymentMechanism ();
 
     /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism#getSetup <em>Setup</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Setup</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism#getSetup()
+     * @see #getDebianDeploymentMechanism()
+     * @generated
+     */
+    EReference getDebianDeploymentMechanism_Setup ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.Author <em>Author</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1069,6 +1116,17 @@ public interface DeploymentPackage extends EPackage
      * @generated
      */
     EAttribute getCommonDeploymentMechanism_MultiUserScreen ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getOperatingSystem <em>Operating System</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Operating System</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getOperatingSystem()
+     * @see #getCommonDeploymentMechanism()
+     * @generated
+     */
+    EReference getCommonDeploymentMechanism_OperatingSystem ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
@@ -1477,6 +1535,14 @@ public interface DeploymentPackage extends EPackage
         EClass DEBIAN_DEPLOYMENT_MECHANISM = eINSTANCE.getDebianDeploymentMechanism ();
 
         /**
+         * The meta object literal for the '<em><b>Setup</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DEBIAN_DEPLOYMENT_MECHANISM__SETUP = eINSTANCE.getDebianDeploymentMechanism_Setup ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.AuthorImpl <em>Author</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1587,6 +1653,14 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN = eINSTANCE.getCommonDeploymentMechanism_MultiUserScreen ();
+
+        /**
+         * The meta object literal for the '<em><b>Operating System</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM = eINSTANCE.getCommonDeploymentMechanism_OperatingSystem ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl <em>Change Entry</em>}' class.

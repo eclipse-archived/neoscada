@@ -109,7 +109,7 @@ public class MsiDeploymentMechanismItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -132,7 +132,7 @@ public class MsiDeploymentMechanismItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -155,7 +155,7 @@ public class MsiDeploymentMechanismItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -178,7 +178,7 @@ public class MsiDeploymentMechanismItemProvider
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_p2PropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -201,7 +201,7 @@ public class MsiDeploymentMechanismItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -224,7 +224,7 @@ public class MsiDeploymentMechanismItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -247,7 +247,7 @@ public class MsiDeploymentMechanismItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -270,7 +270,7 @@ public class MsiDeploymentMechanismItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

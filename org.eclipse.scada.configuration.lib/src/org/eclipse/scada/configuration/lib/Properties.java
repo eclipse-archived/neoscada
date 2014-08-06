@@ -31,6 +31,24 @@ public final class Properties
         return prop;
     }
 
+    public static String get ( final Collection<PropertyEntry> properties, final String key, final String defaultValue )
+    {
+        if ( properties == null )
+        {
+            return defaultValue;
+        }
+
+        for ( final PropertyEntry pe : properties )
+        {
+            if ( pe.getKey ().equals ( key ) )
+            {
+                return pe.getValue ();
+            }
+        }
+
+        return defaultValue;
+    }
+
     public static Map<String, String> makeAttributes ( final Collection<PropertyEntry> properties )
     {
         return makeAttributes ( null, properties );
@@ -54,5 +72,4 @@ public final class Properties
 
         return result;
     }
-
 }

@@ -30,6 +30,8 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
 import org.eclipse.scada.configuration.world.osgi.profile.StartBundle;
 import org.eclipse.scada.configuration.world.osgi.profile.SubProfile;
 import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
+import org.eclipse.scada.configuration.world.setup.SetupPackage;
+import org.eclipse.scada.configuration.world.setup.impl.SetupPackageImpl;
 import org.eclipse.scada.da.exec.configuration.ConfigurationPackage;
 
 /**
@@ -133,18 +135,21 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
         WorldPackageImpl theWorldPackage = (WorldPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI ) instanceof WorldPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI ) : WorldPackage.eINSTANCE );
         OsgiPackageImpl theOsgiPackage = (OsgiPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI ) instanceof OsgiPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI ) : OsgiPackage.eINSTANCE );
         DeploymentPackageImpl theDeploymentPackage = (DeploymentPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI ) instanceof DeploymentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI ) : DeploymentPackage.eINSTANCE );
+        SetupPackageImpl theSetupPackage = (SetupPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI ) instanceof SetupPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI ) : SetupPackage.eINSTANCE );
 
         // Create package meta-data objects
         theProfilePackage.createPackageContents ();
         theWorldPackage.createPackageContents ();
         theOsgiPackage.createPackageContents ();
         theDeploymentPackage.createPackageContents ();
+        theSetupPackage.createPackageContents ();
 
         // Initialize created meta-data
         theProfilePackage.initializePackageContents ();
         theWorldPackage.initializePackageContents ();
         theOsgiPackage.initializePackageContents ();
         theDeploymentPackage.initializePackageContents ();
+        theSetupPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theProfilePackage.freeze ();

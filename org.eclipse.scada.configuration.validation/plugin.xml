@@ -128,6 +128,30 @@
          <ocl path="constraints/world_deployment.ocl"/>
       </constraintProvider>
       
+       <constraintProvider
+            cache="true"
+            mode="Batch">
+         <package
+               namespaceUri="http://eclipse.org/SCADA/Configuration/World/Deployment">
+         </package>
+         <constraints
+               categories="org.eclipse.scada.configuration">
+            <constraint
+                  class="org.eclipse.scada.configuration.validation.world.deployment.DeploymentSetupValidator"
+                  id="org.eclipse.scada.configuration.validation.DeploymentSetupValidator"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Deployment Setup"
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  message body text
+               </message>
+            </constraint>
+        </constraints>
+        </constraintProvider>
+      
       <constraintProvider
             cache="true"
             mode="Batch">

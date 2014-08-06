@@ -41,5 +41,15 @@
             class="org.eclipse.scada.configuration.world.lib.oscar.TelnetConsoleProcessor">
       </oscarProcessor>
    </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.scada.configuration.world.setup.SubContainerModule"
+            class="org.eclipse.scada.configuration.world.lib.setup.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler">
+         </adapter>
+      </factory>
+   </extension>
 
 </plugin>

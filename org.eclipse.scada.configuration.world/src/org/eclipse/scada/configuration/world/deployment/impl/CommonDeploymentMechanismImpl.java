@@ -27,6 +27,7 @@ import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
+import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +41,7 @@ import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getAdditionalDependencies <em>Additional Dependencies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getStartupMechanism <em>Startup Mechanism</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#isMultiUserScreen <em>Multi User Screen</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getOperatingSystem <em>Operating System</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,6 +119,16 @@ public abstract class CommonDeploymentMechanismImpl extends
      * @ordered
      */
     protected boolean multiUserScreen = MULTI_USER_SCREEN_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getOperatingSystem() <em>Operating System</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOperatingSystem()
+     * @generated
+     * @ordered
+     */
+    protected OperatingSystemDescriptor operatingSystem;
 
     /**
      * <!-- begin-user-doc -->
@@ -261,6 +273,49 @@ public abstract class CommonDeploymentMechanismImpl extends
      * <!-- end-user-doc -->
      * @generated
      */
+    public OperatingSystemDescriptor getOperatingSystem ()
+    {
+        if ( operatingSystem != null && operatingSystem.eIsProxy () )
+        {
+            InternalEObject oldOperatingSystem = (InternalEObject)operatingSystem;
+            operatingSystem = (OperatingSystemDescriptor)eResolveProxy ( oldOperatingSystem );
+            if ( operatingSystem != oldOperatingSystem )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM, oldOperatingSystem, operatingSystem ) );
+            }
+        }
+        return operatingSystem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public OperatingSystemDescriptor basicGetOperatingSystem ()
+    {
+        return operatingSystem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOperatingSystem ( OperatingSystemDescriptor newOperatingSystem )
+    {
+        OperatingSystemDescriptor oldOperatingSystem = operatingSystem;
+        operatingSystem = newOperatingSystem;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM, oldOperatingSystem, operatingSystem ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd,
             int featureID, NotificationChain msgs )
@@ -295,6 +350,10 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return getStartupMechanism ();
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
                 return isMultiUserScreen ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM:
+                if ( resolve )
+                    return getOperatingSystem ();
+                return basicGetOperatingSystem ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -327,6 +386,9 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
                 setMultiUserScreen ( (Boolean)newValue );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM:
+                setOperatingSystem ( (OperatingSystemDescriptor)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -356,6 +418,9 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
                 setMultiUserScreen ( MULTI_USER_SCREEN_EDEFAULT );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM:
+                setOperatingSystem ( (OperatingSystemDescriptor)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -380,6 +445,8 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return startupMechanism != STARTUP_MECHANISM_EDEFAULT;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN:
                 return multiUserScreen != MULTI_USER_SCREEN_EDEFAULT;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM:
+                return operatingSystem != null;
         }
         return super.eIsSet ( featureID );
     }

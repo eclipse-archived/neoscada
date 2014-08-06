@@ -73,6 +73,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
             addAdditionalDependenciesPropertyDescriptor ( object );
             addStartupMechanismPropertyDescriptor ( object );
             addMultiUserScreenPropertyDescriptor ( object );
+            addOperatingSystemPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -96,7 +97,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -119,7 +120,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -142,7 +143,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -165,7 +166,30 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         false,
                         false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Operating System feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOperatingSystemPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_CommonDeploymentMechanism_operatingSystem_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_operatingSystem_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM,
+                        true,
+                        false,
+                        true,
                         null,
+                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

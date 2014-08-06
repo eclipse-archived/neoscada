@@ -132,6 +132,7 @@ import org.eclipse.scada.da.exec.configuration.provider.ConfigurationItemProvide
 import org.eclipse.scada.configuration.world.osgi.provider.OsgiItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.world.presentation.WorldEditorPlugin;
 import org.eclipse.scada.configuration.world.provider.WorldItemProviderAdapterFactory;
+import org.eclipse.scada.configuration.world.setup.provider.SetupItemProviderAdapterFactory;
 
 /**
  * This is an example of a Profile model editor.
@@ -760,6 +761,7 @@ public class ProfileEditor extends MultiPageEditorPart implements
         adapterFactory.addAdapterFactory ( new OsgiItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ProfileItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new DeploymentItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new SetupItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new EcoreItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ConfigurationItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new SecurityItemProviderAdapterFactory () );

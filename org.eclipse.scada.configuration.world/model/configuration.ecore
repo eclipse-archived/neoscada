@@ -1045,7 +1045,9 @@
       nsPrefix="deployment">
     <eClassifiers xsi:type="ecore:EClass" name="DeploymentMechanism" abstract="true"
         interface="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="DebianDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DebianDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="setup" eType="#//setup/SetupModuleContainer"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Author">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1080,6 +1082,8 @@
           <details key="documentation" value="Wether to enable the multiuser functionality of the &quot;screen&quot; command for the Eclipse SCADA user."/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operatingSystem" eType="#//setup/OperatingSystemDescriptor"
+          eKeys="#//setup/OperatingSystemDescriptor/id"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"
@@ -1164,5 +1168,45 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="fallbackMode" lowerBound="1"
           eType="#//deployment/FallbackMappingMode" defaultValueLiteral="FAIL"/>
     </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="setup" nsURI="http://eclipse.org/SCADA/Configuration/World/Setup"
+      nsPrefix="setup">
+    <eClassifiers xsi:type="ecore:EClass" name="OperatingSystemDescriptor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//setup/OperatingSystemDescriptor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetupModuleContainer">
+      <eOperations name="validateOperatingSystem" eType="#//setup/Status">
+        <eParameters name="descriptor" eType="#//setup/OperatingSystemDescriptor"/>
+        <eParameters name="context" eType="#//setup/ValidationContext"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+          eType="#//setup/SetupModule" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetupModule" abstract="true" interface="true">
+      <eOperations name="validateOperatingSystem" eType="#//setup/Status">
+        <eParameters name="descriptor" eType="#//setup/OperatingSystemDescriptor"/>
+        <eParameters name="context" eType="#//setup/ValidationContext"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubContainerModule" eSuperTypes="#//setup/SetupModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//setup/SetupModuleContainer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetupDefinitions">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
+          eType="#//setup/SetupModuleContainer" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operationSystemDefinitions"
+          upperBound="-1" eType="#//setup/OperatingSystemDescriptor" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="ValidationContext" instanceClassName="org.eclipse.emf.validation.IValidationContext"
+        serializable="false"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Status" instanceClassName="org.eclipse.core.runtime.IStatus"
+        serializable="false"/>
   </eSubpackages>
 </ecore:EPackage>

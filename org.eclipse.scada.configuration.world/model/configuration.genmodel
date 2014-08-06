@@ -681,23 +681,31 @@
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/StartupMechanism/LSB_SYSV"/>
       </genEnums>
       <genClasses image="false" ecoreClass="configuration.ecore#//deployment/DeploymentMechanism"/>
-      <genClasses ecoreClass="configuration.ecore#//deployment/DebianDeploymentMechanism"/>
+      <genClasses ecoreClass="configuration.ecore#//deployment/DebianDeploymentMechanism">
+        <genFeatures notify="false" createChild="false" propertyCategory="setup" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//deployment/DebianDeploymentMechanism/setup"/>
+      </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/Author">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/Author/name"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/Author/email"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/RedhatDeploymentMechanism">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/RedhatDeploymentMechanism/license"/>
+        <genFeatures createChild="false" propertyCategory="legal" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/RedhatDeploymentMechanism/license"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/DeploymentInformation">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/DeploymentInformation/authors"/>
+        <genFeatures property="None" children="true" createChild="true" propertyCategory="legal"
+            ecoreFeature="ecore:EReference configuration.ecore#//deployment/DeploymentInformation/authors"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/CommonDeploymentMechanism">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/changes"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+        <genFeatures property="None" children="true" createChild="true" propertyCategory="information"
+            ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/changes"/>
+        <genFeatures notify="false" createChild="false" propertyCategory="legal" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/maintainer"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/additionalDependencies"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/startupMechanism"/>
+        <genFeatures createChild="false" propertyCategory="information" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/additionalDependencies"/>
+        <genFeatures createChild="false" propertyCategory="information" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/startupMechanism"/>
+        <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/multiUserScreen"/>
+        <genFeatures notify="false" createChild="false" propertyCategory="setup" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/operatingSystem"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/ChangeEntry">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -722,16 +730,17 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/SimpleNodeMappingEntry/ignoreCase"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/MsiDeploymentMechanism">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/version"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/upgradeCode"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/manufacturer"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+        <genFeatures createChild="false" propertyCategory="information" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/version"/>
+        <genFeatures createChild="false" propertyCategory="information" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/upgradeCode"/>
+        <genFeatures createChild="false" propertyCategory="legal" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/manufacturer"/>
+        <genFeatures notify="false" createChild="false" propertyCategory="p2" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/MsiDeploymentMechanism/sharedPlatform"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/MsiDeploymentMechanism/localPlatform"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/architecture"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/enableFirewall"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/enableUserInterface"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/licenseFile"/>
+        <genFeatures property="None" children="true" createChild="true" propertyCategory="p2"
+            ecoreFeature="ecore:EReference configuration.ecore#//deployment/MsiDeploymentMechanism/localPlatform"/>
+        <genFeatures createChild="false" propertyCategory="information" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/architecture"/>
+        <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/enableFirewall"/>
+        <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/enableUserInterface"/>
+        <genFeatures createChild="false" propertyCategory="legal" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/licenseFile"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/P2Platform">
         <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/P2Platform/repositories"/>
@@ -740,6 +749,42 @@
       <genClasses ecoreClass="configuration.ecore#//deployment/Mappings">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/Mappings/entries"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/Mappings/fallbackMode"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Setup" resource="XMI" disposableProviderFactory="true"
+        generateModelWizard="false" extensibleProviderFactory="true" childCreationExtenders="true"
+        ecorePackage="configuration.ecore#//setup">
+      <genDataTypes ecoreDataType="configuration.ecore#//setup/ValidationContext"/>
+      <genDataTypes ecoreDataType="configuration.ecore#//setup/Status"/>
+      <genClasses ecoreClass="configuration.ecore#//setup/OperatingSystemDescriptor"
+          labelFeature="#//world/setup/OperatingSystemDescriptor/label">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//setup/OperatingSystemDescriptor/parent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//setup/OperatingSystemDescriptor/properties"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//setup/OperatingSystemDescriptor/id"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//setup/OperatingSystemDescriptor/label"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//setup/SetupModuleContainer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//setup/SetupModuleContainer/modules"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//setup/SetupModuleContainer/id"/>
+        <genOperations ecoreOperation="configuration.ecore#//setup/SetupModuleContainer/validateOperatingSystem">
+          <genParameters ecoreParameter="configuration.ecore#//setup/SetupModuleContainer/validateOperatingSystem/descriptor"/>
+          <genParameters ecoreParameter="configuration.ecore#//setup/SetupModuleContainer/validateOperatingSystem/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//setup/SetupModule">
+        <genOperations ecoreOperation="configuration.ecore#//setup/SetupModule/validateOperatingSystem">
+          <genParameters ecoreParameter="configuration.ecore#//setup/SetupModule/validateOperatingSystem/descriptor"/>
+          <genParameters ecoreParameter="configuration.ecore#//setup/SetupModule/validateOperatingSystem/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//setup/SubContainerModule">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//setup/SubContainerModule/container"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//setup/SetupDefinitions">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//setup/SetupDefinitions/containers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//setup/SetupDefinitions/operationSystemDefinitions"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

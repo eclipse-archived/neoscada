@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2014 IBH SYSTEMS GmbH.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated common -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/Setup/Common"
+            class="org.eclipse.scada.configuration.setup.common.CommonPackage"
+            genModel="model/common.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.scada.configuration.setup.common.PostgresSetupModule"
+            class="org.eclipse.scada.configuration.setup.common.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler">
+         </adapter>
+      </factory>
+   </extension>
+
+</plugin>

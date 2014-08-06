@@ -56,6 +56,8 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
 import org.eclipse.scada.configuration.world.osgi.profile.impl.ProfilePackageImpl;
+import org.eclipse.scada.configuration.world.setup.SetupPackage;
+import org.eclipse.scada.configuration.world.setup.impl.SetupPackageImpl;
 import org.eclipse.scada.da.exec.configuration.ConfigurationPackage;
 
 /**
@@ -330,18 +332,21 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         OsgiPackageImpl theOsgiPackage = (OsgiPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI ) instanceof OsgiPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI ) : OsgiPackage.eINSTANCE );
         ProfilePackageImpl theProfilePackage = (ProfilePackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( ProfilePackage.eNS_URI ) instanceof ProfilePackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( ProfilePackage.eNS_URI ) : ProfilePackage.eINSTANCE );
         DeploymentPackageImpl theDeploymentPackage = (DeploymentPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI ) instanceof DeploymentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI ) : DeploymentPackage.eINSTANCE );
+        SetupPackageImpl theSetupPackage = (SetupPackageImpl) ( EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI ) instanceof SetupPackageImpl ? EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI ) : SetupPackage.eINSTANCE );
 
         // Create package meta-data objects
         theWorldPackage.createPackageContents ();
         theOsgiPackage.createPackageContents ();
         theProfilePackage.createPackageContents ();
         theDeploymentPackage.createPackageContents ();
+        theSetupPackage.createPackageContents ();
 
         // Initialize created meta-data
         theWorldPackage.initializePackageContents ();
         theOsgiPackage.initializePackageContents ();
         theProfilePackage.initializePackageContents ();
         theDeploymentPackage.initializePackageContents ();
+        theSetupPackage.initializePackageContents ();
 
         // Mark meta-data to indicate it can't be changed
         theWorldPackage.freeze ();
@@ -1333,12 +1338,14 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         // Obtain other dependent packages
         OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
         DeploymentPackage theDeploymentPackage = (DeploymentPackage)EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI );
+        SetupPackage theSetupPackage = (SetupPackage)EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI );
         EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage ( EcorePackage.eNS_URI );
         ConfigurationPackage theConfigurationPackage = (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfigurationPackage.eNS_URI );
 
         // Add subpackages
         getESubpackages ().add ( theOsgiPackage );
         getESubpackages ().add ( theDeploymentPackage );
+        getESubpackages ().add ( theSetupPackage );
 
         // Create type parameters
 

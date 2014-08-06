@@ -97,4 +97,28 @@
          <contentTypeBinding contentTypeId="org.eclipse.scada.configuration.deployment"/>
       </editor>
    </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.eclipse.scada.configuration.world.setup.presentation.SetupModelWizardID"
+            name="%_UI_SetupModelWizard_label"
+            class="org.eclipse.scada.configuration.world.setup.presentation.SetupModelWizard"
+            category="org.eclipse.scada.configuration/org.eclipse.scada.configuration.models"
+            icon="icons/full/obj16/SetupModelFile.gif">
+         <description>%_UI_SetupModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated world -->
+      <editor
+            id="org.eclipse.scada.configuration.world.setup.presentation.SetupEditorID"
+            name="%_UI_SetupEditor_label"
+            icon="icons/full/obj16/SetupModelFile.gif"
+            extensions="setup"
+            class="org.eclipse.scada.configuration.world.setup.presentation.SetupEditor"
+            contributorClass="org.eclipse.scada.configuration.world.setup.presentation.SetupActionBarContributor">
+      </editor>
+   </extension>
 </plugin>
