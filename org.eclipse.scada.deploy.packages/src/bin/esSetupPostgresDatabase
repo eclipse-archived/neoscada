@@ -1,0 +1,66 @@
+#!/bin/bash
+
+dbName="$1"
+username="$2"
+password="$3"
+
+templateFile="/usr/share/org.eclipse.scada/sql/create.postgres.sql"
+
+test -z "$dbName" && { echo "$0: <dbName> <username> <password>"; exit 1; } 
+test -z "$username" && { echo "$0: <dbName> <username> <password>"; exit 1; }
+test -z "$password" && { echo "$0: <dbName> <username> <password>"; exit 1; }
+
+set -e
+
+function hasUser () {
+	test "exists" = "$(psql -A -q -t -c "SELECT 'exists' FROM pg_roles WHERE rolname='$username';")"
+	return $?
+}
+
+function hasDatabase () {
+	test "exists" = "$(psql -A -q -t -c "SELECT 'exists' from pg_database WHERE datname='$dbName';")"
+	return $?
+}
+
+function hasTables () {
+	# for now this has to do
+	false
+	return $?
+}
+
+function createUser () {
+	psql -c "CREATE USER $username WITH PASSWORD '$password';" &>/dev/null
+}
+
+function createDatabase () {
+	psql -c "CREATE DATABASE $dbName WITH OWNER $username TEMPLATE template0 ENCODING 'UTF-8';" &>/dev/null
+}
+
+function createTables () {
+	psql -d eclipsescada -q -f create.sql &>/dev/null
+	psql -d eclipsescada -c "ALTER TABLE es_ae_events_hstore OWNER TO $username;" &>/dev/null
+	psql -d eclipsescada -c "ALTER TABLE es_ae_rep OWNER TO $username;" &>/dev/null
+}
+
+echo "Database: $dbName"
+echo "User: $username"
+
+echo -n "Check user: "
+hasUser && echo "OK" || {
+	echo -n "creating... "
+	createUser
+	echo "done!"
+}
+
+echo -n "Check database: "
+hasDatabase && echo "OK" || {
+	echo -n "creating... "
+	createDatabase
+	echo "done!"
+}
+
+echo -n "Check tables: "
+hasTables && echo "OK" || {
+	createTables
+	echo "done!"
+}
