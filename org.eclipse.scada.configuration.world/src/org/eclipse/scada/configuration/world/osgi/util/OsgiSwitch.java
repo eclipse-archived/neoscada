@@ -1149,6 +1149,20 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case OsgiPackage.PROFILE_CONFIGURATION:
+            {
+                ProfileConfiguration profileConfiguration = (ProfileConfiguration)theEObject;
+                T result = caseProfileConfiguration ( profileConfiguration );
+                if ( result == null )
+                    result = caseIndependentConfiguration ( profileConfiguration );
+                if ( result == null )
+                    result = caseApplicationConfiguration ( profileConfiguration );
+                if ( result == null )
+                    result = caseApplicationModule ( profileConfiguration );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -2639,6 +2653,22 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseEventInjectorJdbc ( EventInjectorJdbc object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Profile Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Profile Configuration</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseProfileConfiguration ( ProfileConfiguration object )
     {
         return null;
     }

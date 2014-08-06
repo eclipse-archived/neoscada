@@ -642,6 +642,12 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseProfileConfiguration ( ProfileConfiguration object )
+        {
+            return createProfileConfigurationAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -2249,6 +2255,21 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createEventInjectorJdbcAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration <em>Profile Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.ProfileConfiguration
+     * @generated
+     */
+    public Adapter createProfileConfigurationAdapter ()
     {
         return null;
     }

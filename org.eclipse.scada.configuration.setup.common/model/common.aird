@@ -191,7 +191,7 @@
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_FPnOIh2MEeSUVPL0uoD5Pg" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_ekpqIh2UEeSUVPL0uoD5Pg" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
             <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -206,10 +206,10 @@
                 </value>
               </value>
             </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_FPnOIB2MEeSUVPL0uoD5Pg">
+            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_ekpqIB2UEeSUVPL0uoD5Pg">
               <key xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//DatabaseSettings/id"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_FPnOIR2MEeSUVPL0uoD5Pg" key="_QgvskBy6EeSwI_i1Gq6-AQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_FPnOIx2MEeSUVPL0uoD5Pg" value="_FPnOIh2MEeSUVPL0uoD5Pg">
+              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_ekpqIR2UEeSUVPL0uoD5Pg" key="_QgvskBy6EeSwI_i1Gq6-AQ">
+                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_ekpqIx2UEeSUVPL0uoD5Pg" value="_ekpqIh2UEeSUVPL0uoD5Pg">
                   <key xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//DatabaseSettings"/>
                 </value>
               </value>
@@ -295,10 +295,10 @@
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_QgvskBy6EeSwI_i1Gq6-AQ" name="id : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//DatabaseSettings/id"/>
           <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//DatabaseSettings/id"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_FPnOJB2MEeSUVPL0uoD5Pg" labelFormat="bold" labelAlignment="LEFT" description="_FPnOIh2MEeSUVPL0uoD5Pg">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_FPnOJR2MEeSUVPL0uoD5Pg"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_FPnOJh2MEeSUVPL0uoD5Pg"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_FPnOJx2MEeSUVPL0uoD5Pg"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_ekqRMB2UEeSUVPL0uoD5Pg" labelFormat="bold" labelAlignment="LEFT" description="_ekpqIh2UEeSUVPL0uoD5Pg">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_ekqRMR2UEeSUVPL0uoD5Pg"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_ekqRMh2UEeSUVPL0uoD5Pg"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_ekqRMx2UEeSUVPL0uoD5Pg"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>

@@ -40,6 +40,9 @@
       <oscarProcessor
             class="org.eclipse.scada.configuration.world.lib.oscar.TelnetConsoleProcessor">
       </oscarProcessor>
+      <oscarProcessor
+            class="org.eclipse.scada.configuration.world.lib.oscar.ProfileConfigurationProcessor">
+      </oscarProcessor>
    </extension>
    <extension
          point="org.eclipse.core.runtime.adapters">

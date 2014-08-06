@@ -6886,6 +6886,61 @@ public interface OsgiPackage extends EPackage
     int EVENT_INJECTOR_JDBC_OPERATION_COUNT = EVENT_INJECTOR_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ProfileConfigurationImpl <em>Profile Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.ProfileConfigurationImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getProfileConfiguration()
+     * @generated
+     */
+    int PROFILE_CONFIGURATION = 93;
+
+    /**
+     * The feature id for the '<em><b>Start Bundles</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE_CONFIGURATION__START_BUNDLES = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Install Bundles</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE_CONFIGURATION__INSTALL_BUNDLES = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE_CONFIGURATION__PROPERTIES = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Profile Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE_CONFIGURATION_FEATURE_COUNT = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Profile Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE_CONFIGURATION_OPERATION_COUNT = INDEPENDENT_CONFIGURATION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6893,7 +6948,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 93;
+    int AVERAGE_REFERENCE_TYPE = 94;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -6903,7 +6958,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 94;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 95;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -6913,7 +6968,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 95;
+    int ROUNDING_TYPE = 96;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -6923,7 +6978,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 96;
+    int DATA_TYPE = 97;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -6933,7 +6988,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 97;
+    int PASSWORD_TYPE = 98;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat <em>Replication Data Format</em>}' enum.
@@ -6943,7 +6998,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getReplicationDataFormat()
      * @generated
      */
-    int REPLICATION_DATA_FORMAT = 98;
+    int REPLICATION_DATA_FORMAT = 99;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
@@ -6953,7 +7008,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 99;
+    int PERSISTENCE = 100;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -6963,7 +7018,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 100;
+    int ERROR_HANDLING = 101;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -6973,7 +7028,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 101;
+    int CHANGE_TYPE = 102;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -6983,7 +7038,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 102;
+    int SEVERITY = 103;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -6993,7 +7048,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 103;
+    int VARIANT = 104;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -10387,6 +10442,49 @@ public interface OsgiPackage extends EPackage
     EAttribute getEventInjectorJdbc_ExistsSql ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration <em>Profile Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Profile Configuration</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ProfileConfiguration
+     * @generated
+     */
+    EClass getProfileConfiguration ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getStartBundles <em>Start Bundles</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Start Bundles</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getStartBundles()
+     * @see #getProfileConfiguration()
+     * @generated
+     */
+    EAttribute getProfileConfiguration_StartBundles ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getInstallBundles <em>Install Bundles</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Install Bundles</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getInstallBundles()
+     * @see #getProfileConfiguration()
+     * @generated
+     */
+    EAttribute getProfileConfiguration_InstallBundles ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getProperties()
+     * @see #getProfileConfiguration()
+     * @generated
+     */
+    EReference getProfileConfiguration_Properties ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -13262,6 +13360,40 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EAttribute EVENT_INJECTOR_JDBC__EXISTS_SQL = eINSTANCE.getEventInjectorJdbc_ExistsSql ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ProfileConfigurationImpl <em>Profile Configuration</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.ProfileConfigurationImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getProfileConfiguration()
+         * @generated
+         */
+        EClass PROFILE_CONFIGURATION = eINSTANCE.getProfileConfiguration ();
+
+        /**
+         * The meta object literal for the '<em><b>Start Bundles</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROFILE_CONFIGURATION__START_BUNDLES = eINSTANCE.getProfileConfiguration_StartBundles ();
+
+        /**
+         * The meta object literal for the '<em><b>Install Bundles</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROFILE_CONFIGURATION__INSTALL_BUNDLES = eINSTANCE.getProfileConfiguration_InstallBundles ();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROFILE_CONFIGURATION__PROPERTIES = eINSTANCE.getProfileConfiguration_Properties ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.

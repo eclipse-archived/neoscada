@@ -2049,6 +2049,31 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ProfileConfigurationItemProvider profileConfigurationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createProfileConfigurationAdapter ()
+    {
+        if ( profileConfigurationItemProvider == null )
+        {
+            profileConfigurationItemProvider = new ProfileConfigurationItemProvider ( this );
+        }
+
+        return profileConfigurationItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2347,6 +2372,8 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
             eventInjectorPostgresItemProvider.dispose ();
         if ( eventInjectorJdbcItemProvider != null )
             eventInjectorJdbcItemProvider.dispose ();
+        if ( profileConfigurationItemProvider != null )
+            profileConfigurationItemProvider.dispose ();
     }
 
 }

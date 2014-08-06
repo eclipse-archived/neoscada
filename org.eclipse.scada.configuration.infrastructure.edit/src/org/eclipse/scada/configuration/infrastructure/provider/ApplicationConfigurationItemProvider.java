@@ -285,6 +285,11 @@ public class ApplicationConfigurationItemProvider
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
                         OsgiFactory.eINSTANCE.createEventInjectorJdbc () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
+                        OsgiFactory.eINSTANCE.createProfileConfiguration () ) );
     }
 
     /**

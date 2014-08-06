@@ -229,6 +229,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createEventInjectorPostgres ();
             case OsgiPackage.EVENT_INJECTOR_JDBC:
                 return createEventInjectorJdbc ();
+            case OsgiPackage.PROFILE_CONFIGURATION:
+                return createProfileConfiguration ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1164,6 +1166,17 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         EventInjectorJdbcImpl eventInjectorJdbc = new EventInjectorJdbcImpl ();
         return eventInjectorJdbc;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ProfileConfiguration createProfileConfiguration ()
+    {
+        ProfileConfigurationImpl profileConfiguration = new ProfileConfigurationImpl ();
+        return profileConfiguration;
     }
 
     /**

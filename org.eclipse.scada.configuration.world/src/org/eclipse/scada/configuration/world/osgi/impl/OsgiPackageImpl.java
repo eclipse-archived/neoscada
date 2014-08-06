@@ -106,6 +106,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.PasswordType;
 import org.eclipse.scada.configuration.world.osgi.Persistence;
 import org.eclipse.scada.configuration.world.osgi.PersistentItem;
+import org.eclipse.scada.configuration.world.osgi.ProfileConfiguration;
 import org.eclipse.scada.configuration.world.osgi.ProxyItem;
 import org.eclipse.scada.configuration.world.osgi.PullEvents;
 import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
@@ -794,6 +795,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     private EClass eventInjectorJdbcEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass profileConfigurationEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -4428,6 +4436,46 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getProfileConfiguration ()
+    {
+        return profileConfigurationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProfileConfiguration_StartBundles ()
+    {
+        return (EAttribute)profileConfigurationEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProfileConfiguration_InstallBundles ()
+    {
+        return (EAttribute)profileConfigurationEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getProfileConfiguration_Properties ()
+    {
+        return (EReference)profileConfigurationEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getAverageReferenceType ()
     {
@@ -4995,6 +5043,11 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEAttribute ( eventInjectorJdbcEClass, EVENT_INJECTOR_JDBC__DELETE_SQL );
         createEAttribute ( eventInjectorJdbcEClass, EVENT_INJECTOR_JDBC__EXISTS_SQL );
 
+        profileConfigurationEClass = createEClass ( PROFILE_CONFIGURATION );
+        createEAttribute ( profileConfigurationEClass, PROFILE_CONFIGURATION__START_BUNDLES );
+        createEAttribute ( profileConfigurationEClass, PROFILE_CONFIGURATION__INSTALL_BUNDLES );
+        createEReference ( profileConfigurationEClass, PROFILE_CONFIGURATION__PROPERTIES );
+
         // Create enums
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
         movingAverageReferenceTypeEEnum = createEEnum ( MOVING_AVERAGE_REFERENCE_TYPE );
@@ -5127,6 +5180,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         eventInjectorEClass.getESuperTypes ().add ( this.getIndependentConfiguration () );
         eventInjectorPostgresEClass.getESuperTypes ().add ( this.getEventInjector () );
         eventInjectorJdbcEClass.getESuperTypes ().add ( this.getEventInjector () );
+        profileConfigurationEClass.getESuperTypes ().add ( this.getIndependentConfiguration () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -5562,6 +5616,11 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEAttribute ( getEventInjectorJdbc_SelectSql (), ecorePackage.getEString (), "selectSql", null, 0, 1, EventInjectorJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getEventInjectorJdbc_DeleteSql (), ecorePackage.getEString (), "deleteSql", null, 0, 1, EventInjectorJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getEventInjectorJdbc_ExistsSql (), ecorePackage.getEString (), "existsSql", null, 0, 1, EventInjectorJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( profileConfigurationEClass, ProfileConfiguration.class, "ProfileConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getProfileConfiguration_StartBundles (), ecorePackage.getEString (), "startBundles", null, 0, -1, ProfileConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProfileConfiguration_InstallBundles (), ecorePackage.getEString (), "installBundles", null, 0, -1, ProfileConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getProfileConfiguration_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, ProfileConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( averageReferenceTypeEEnum, AverageReferenceType.class, "AverageReferenceType" ); //$NON-NLS-1$

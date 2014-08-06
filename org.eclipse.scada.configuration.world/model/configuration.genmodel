@@ -626,6 +626,11 @@
         <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjectorJdbc/deleteSql"/>
         <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjectorJdbc/existsSql"/>
       </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ProfileConfiguration">
+        <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ProfileConfiguration/startBundles"/>
+        <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ProfileConfiguration/installBundles"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ProfileConfiguration/properties"/>
+      </genClasses>
       <nestedGenPackages prefix="Profile" basePackage="org.eclipse.scada.configuration.world.osgi"
           resource="XML" disposableProviderFactory="true" generateModelWizard="false"
           extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.world.osgi.profile"
@@ -706,6 +711,8 @@
         <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/multiUserScreen"/>
         <genFeatures notify="false" createChild="false" propertyCategory="setup" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/operatingSystem"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/automaticCreate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/recreateBackups"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/ChangeEntry">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

@@ -733,6 +733,15 @@ public interface OsgiFactory extends EFactory
     EventInjectorJdbc createEventInjectorJdbc ();
 
     /**
+     * Returns a new object of class '<em>Profile Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Profile Configuration</em>'.
+     * @generated
+     */
+    ProfileConfiguration createProfileConfiguration ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
