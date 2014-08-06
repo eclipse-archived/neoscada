@@ -11,7 +11,6 @@
 package org.eclipse.scada.utils.str;
 
 import java.util.Map;
-import java.util.Properties;
 
 import org.eclipse.scada.utils.str.StringReplacer.ReplaceSource;
 
@@ -37,14 +36,17 @@ public class ExtendedPropertiesReplacer implements ReplaceSource
 {
     private final Map<?, ?> properties;
 
-    public ExtendedPropertiesReplacer ( final Map<?, ?> properties )
+    private final boolean failOnMissingKey;
+
+    public ExtendedPropertiesReplacer ( final Map<?, ?> properties, final boolean failOnMissingKey )
     {
         this.properties = properties;
+        this.failOnMissingKey = failOnMissingKey;
     }
 
-    public ExtendedPropertiesReplacer ( final Properties properties )
+    public ExtendedPropertiesReplacer ( final Map<?, ?> properties )
     {
-        this.properties = properties;
+        this ( properties, false );
     }
 
     @Override
@@ -77,15 +79,25 @@ public class ExtendedPropertiesReplacer implements ReplaceSource
 
         if ( op == null || op.equals ( "" ) )
         {
-            return value == null ? "" : value;
+            if ( value == null && this.failOnMissingKey )
+            {
+                throw new IllegalStateException ( String.format ( "Key '%s' not found", context ) );
+            }
+            return value == null ? context : value;
         }
         else if ( op.equals ( ":" ) )
         {
             return value == null ? arg : value;
         }
 
-        // actually we should never reach this point
-        return context;
+        if ( this.failOnMissingKey )
+        {
+            throw new IllegalStateException ( String.format ( "Unable to replace '%s'", context ) );
+        }
+        else
+        {
+            return context;
+        }
     }
 
     private String getValue ( final String name )
