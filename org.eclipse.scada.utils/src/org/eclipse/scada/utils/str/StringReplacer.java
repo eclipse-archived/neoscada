@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - further development
- *     IBH SYSTEMS GmbH - more documentation
+ *     IBH SYSTEMS GmbH - more documentation, added nested processing
  *******************************************************************************/
 package org.eclipse.scada.utils.str;
 
@@ -32,7 +32,7 @@ import org.apache.commons.beanutils.BeanUtils;
  * <code>
  * String str = StringReplacer.replace ( "Hello ${user.name}!", System.getProperties () );
  * </code>
- * 
+ *
  * @author Jens Reimann
  */
 public class StringReplacer
@@ -46,11 +46,11 @@ public class StringReplacer
     /**
      * The default pattern: <code>${var}</code>
      */
-    public static final Pattern DEFAULT_PATTERN = Pattern.compile ( "\\$\\{(.*?)\\}" );
+    public static final Pattern DEFAULT_PATTERN = Pattern.compile ( "\\$\\{([^{}]*?)\\}" );
 
     /**
      * Replace with the default pattern of <code>${var}</code>
-     * 
+     *
      * @param string
      *            the string which should be processed, may be <code>null</code>
      * @param properties
@@ -67,7 +67,7 @@ public class StringReplacer
      * <p>
      * The source will not replace elements that are not found in the map.
      * </p>
-     * 
+     *
      * @param properties
      *            the Map acting as a source
      * @return the new replace source based on the Map
@@ -90,8 +90,22 @@ public class StringReplacer
     }
 
     /**
+     * Create a new ReplaceSource for Map sources which allows additional
+     * operators.
+     *
+     * @see ExtendedPropertiesReplacer
+     * @param properties
+     *            the Map acting as a source
+     * @return the new replace source based on the Map
+     */
+    public static ReplaceSource newExtendedSource ( final Map<?, ?> properties )
+    {
+        return new ExtendedPropertiesReplacer ( properties );
+    }
+
+    /**
      * Create a new ReplaceSource that handles bean references
-     * 
+     *
      * @param properties
      *            the properties to use for replacing
      * @return the new ReplaceSource instance
@@ -123,7 +137,7 @@ public class StringReplacer
         };
     }
 
-    public static String replace ( final String string, final ReplaceSource replaceSource, final Pattern pattern )
+    public static String replace ( final String string, final ReplaceSource replaceSource, final Pattern pattern, final boolean nested )
     {
         if ( string == null )
         {
@@ -163,11 +177,28 @@ public class StringReplacer
                 result = m.find ();
             } while ( result );
             m.appendTail ( sb );
-            return sb.toString ();
+
+            final String resultString = sb.toString ();
+            if ( nested && !string.equals ( resultString ) )
+            {
+                /*
+                 * only try again if we should handle nested replacements and if something changed
+                 */
+                return replace ( resultString, replaceSource, pattern, true );
+            }
+            else
+            {
+                return resultString;
+            }
         }
         else
         {
             return string;
         }
+    }
+
+    public static String replace ( final String string, final ReplaceSource replaceSource, final Pattern pattern )
+    {
+        return replace ( string, replaceSource, pattern, true );
     }
 }
