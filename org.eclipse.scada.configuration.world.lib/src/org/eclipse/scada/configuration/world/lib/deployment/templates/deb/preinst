@@ -5,8 +5,11 @@ set -e
 . /usr/share/debconf/confmodule
 
 case "$1" in
-  install|upgrade)
-$$stop.apps$$
+  install)
+  ;;
+  
+  upgrade)
+  $$stop.apps$$
   ;;
 
   *)
