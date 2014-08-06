@@ -67,5 +67,7 @@ eclipse.p2.profile=SDKProfile
 org.eclipse.scada.utils.osgi.autostart.file=$FULL_TARGET/startLevels.properties
 org.eclipse.equinox.simpleconfigurator.configUrl=file\:org.eclipse.equinox.simpleconfigurator/bundles.info
 __EOF__
-
+	
+else
+	exit 3 # installation failed
 fi
