@@ -160,6 +160,11 @@ public class DebianHandler extends CommonPackageHandler
             deb.setPrermScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
             deb.setPreinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
 
+            if ( !makeEquinoxList ().isEmpty () )
+            {
+                deb.addFile ( StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", "/etc/eclipsescada/applications", null );
+            }
+
             for ( final Map.Entry<String, File> entry : tempFiles.entrySet () )
             {
                 deb.addFile ( entry.getValue (), entry.getKey (), null );

@@ -100,6 +100,11 @@ public class RedhatHandler extends CommonPackageHandler
         Helper.createFile ( specFile, RedhatHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "Makefile" ), RedhatHandler.class.getResourceAsStream ( "templates/rpm/Makefile" ), replacements, monitor );
 
+        if ( !makeEquinoxList ().isEmpty () )
+        {
+            Helper.createFile ( new File ( packageFolder, "src/etc/eclipsescada/applications" ), StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", monitor );
+        }
+
         final BinaryPackageBuilderWrapper builder = new BinaryPackageBuilderWrapper ( new File ( packageFolder, "src" ) );
 
         createDrivers ( builder, nodeDir, monitor, packageFolder, replacements );
