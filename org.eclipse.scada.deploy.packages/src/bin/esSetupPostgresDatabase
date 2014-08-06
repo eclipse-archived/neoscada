@@ -4,7 +4,7 @@ dbName="$1"
 username="$2"
 password="$3"
 
-templateFile="/usr/share/org.eclipse.scada/sql/create.postgres.sql"
+templateFile="/usr/share/eclipsescada/sql/create.postgres.sql"
 
 test -z "$dbName" && { echo "$0: <dbName> <username> <password>"; exit 1; } 
 test -z "$username" && { echo "$0: <dbName> <username> <password>"; exit 1; }

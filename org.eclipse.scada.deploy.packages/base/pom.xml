@@ -45,9 +45,8 @@
 										<path>/etc/eclipsescada/jarcfg</path>
 										<path>/usr/jar</path>
 										<path>/usr/share/eclipsescada</path>
+										<path>/usr/share/eclipsescada/sql</path>
 										<path>/var/log/eclipsescada</path>
-										<path>/usr/share/org.eclipse.scada</path>
-										<path>/usr/share/org.eclipse.scada/sql</path>
 										<path>/usr/share/perl5/EclipseSCADA</path>
 										<path>/var/run/eclipsescada</path>
 									</paths>
@@ -79,7 +78,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/org.eclipse.scada</prefix>
+										<prefix>/usr/share/eclipsescada</prefix>
 										<filemode>0644</filemode>
 									</mapper>
 								</data>

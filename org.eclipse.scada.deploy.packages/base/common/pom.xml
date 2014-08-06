@@ -92,6 +92,10 @@
 											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
+											<directory>/usr/share/eclipsescada/sql</directory>
+											<filemode>0755</filemode>
+										</mapping>
+										<mapping>
 											<directory>/var/log/eclipsescada</directory>
 											<username>root</username>
 											<groupname>eclipsescada</groupname>
@@ -118,6 +122,18 @@
 												</source>
 												<source>
 													<location>${srcBase}/bin/hds-replicate-once</location>
+												</source>
+											</sources>
+										</mapping>
+										<mapping>
+											<directory>/usr/share/eclipsescada</directory>
+											<directoryIncluded>false</directoryIncluded>
+											<username>root</username>
+											<groupname>root</groupname>
+											<filemode>0755</filemode>
+											<sources>
+												<source>
+													<location>${srcBase}/share</location>
 												</source>
 											</sources>
 										</mapping>
