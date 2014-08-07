@@ -1949,7 +1949,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      */
     protected void createExtendedMetaDataAnnotations ()
     {
-        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$														
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
         addAnnotation ( getSystemNode_Masters (),
                 source,
                 new String[]
@@ -1975,7 +1975,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      */
     protected void createExclusiveGroupAnnotations ()
     {
-        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$																					
+        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$	
         addAnnotation ( oracleVMSettingsEClass,
                 source,
                 new String[]
