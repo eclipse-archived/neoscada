@@ -234,7 +234,7 @@ public abstract class CommonPackageHandler extends CommonHandler
 
             for ( final String app : makeEquinoxList () )
             {
-                sb.append ( String.format ( "echo -n Creating application %s ... \n", app ) );
+                sb.append ( String.format ( "echo -n Creating \\'application\\' %s ... \n", app ) );
                 sb.append ( String.format ( "scada.create.%s %s > /dev/null\n", app, flags ) );
                 sb.append ( String.format ( "echo \"done!\"\n", app ) );
             }
