@@ -23,8 +23,18 @@ export ECLIPSE_SCADA_HOME
 [ -z "$ECLIPSE_SCADA_CONFIGURATION_ROOT" ] && ECLIPSE_SCADA_CONFIGURATION_ROOT="/etc/eclipsescada"
 export ECLIPSE_SCADA_CONFIGURATION_ROOT
 
-[ ! -z "$JAVA_HOME" ] && export JAVA_HOME
-[ ! -z "$JRE_HOME" ] && export JRE_HOME
+# try to locate JAVA_HOME by a "java" command on the path
+
+if [ -z "$JAVA_HOME" ]; then
+	javacmd="$(readlink -sf "$(which java)")"
+	if [ -x "$javacmd" ]; then
+		dir=$(dirname "$javacmd")
+		test "$(basename "$dir")" = "bin" && dir=$(dirname "$dir") # cut off "bin"
+		test -d "$dir" && JAVA_HOME=$dir
+	fi
+fi
+
+[ -n "$JAVA_HOME" ] && export JAVA_HOME
 
 export PATH="$PATH:$ECLIPSE_SCADA_HOME/bin"
 
