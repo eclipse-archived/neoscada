@@ -9,7 +9,7 @@
 # 
 # Contributors:
 #      TH4 SYSTEMS GmbH - initial API and implementation
-#      IBH SYSTEMS GmbH - also respect JRE_HOME
+#      IBH SYSTEMS GmbH - try to detect java
 ##################################################################################
 
 # Reading system configuration
