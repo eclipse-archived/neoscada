@@ -1994,13 +1994,22 @@ public interface DetailViewPackage extends EPackage
     int URL_IMAGE_COMPONENT__HEIGHT = COMPONENT_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Reload Timer</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_IMAGE_COMPONENT__RELOAD_TIMER = COMPONENT_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>URL Image Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int URL_IMAGE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 5;
+    int URL_IMAGE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 6;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.details.model.impl.ProgressComponentImpl <em>Progress Component</em>}' class.
@@ -3564,6 +3573,17 @@ public interface DetailViewPackage extends EPackage
     EAttribute getURLImageComponent_Height ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.details.model.URLImageComponent#getReloadTimer <em>Reload Timer</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Reload Timer</em>'.
+     * @see org.eclipse.scada.vi.details.model.URLImageComponent#getReloadTimer()
+     * @see #getURLImageComponent()
+     * @generated
+     */
+    EAttribute getURLImageComponent_ReloadTimer ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.details.model.ProgressComponent <em>Progress Component</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4778,6 +4798,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute URL_IMAGE_COMPONENT__HEIGHT = eINSTANCE.getURLImageComponent_Height ();
+
+        /**
+         * The meta object literal for the '<em><b>Reload Timer</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute URL_IMAGE_COMPONENT__RELOAD_TIMER = eINSTANCE.getURLImageComponent_ReloadTimer ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.details.model.impl.ProgressComponentImpl <em>Progress Component</em>}' class.

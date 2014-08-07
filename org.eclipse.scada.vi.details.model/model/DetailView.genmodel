@@ -150,6 +150,7 @@
       <genFeatures createChild="false" propertyCategory="format" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/fallbackImageUrl"/>
       <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/width"/>
       <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/height"/>
+      <genFeatures createChild="false" propertyCategory="format" ecoreFeature="ecore:EAttribute DetailView.ecore#//URLImageComponent/reloadTimer"/>
     </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//ProgressComponent">
       <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute DetailView.ecore#//ProgressComponent/descriptor"/>

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,15 +7,18 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add reload timer
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt.widgets;
 
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
@@ -42,7 +45,6 @@ import org.slf4j.LoggerFactory;
 
 public class URLImageLabel extends GenericComposite
 {
-
     private static final Logger logger = LoggerFactory.getLogger ( URLImageLabel.class );
 
     private final URLImageComponent component;
@@ -91,6 +93,23 @@ public class URLImageLabel extends GenericComposite
         }
 
         showUrl ( component.getFallbackImageUrl () );
+
+        if ( component.getReloadTimer () != null )
+        {
+            triggerReload ( component.getReloadTimer () );
+        }
+    }
+
+    private void triggerReload ( final long delay )
+    {
+        Activator.getExecutor ().scheduleWithFixedDelay ( new Runnable () {
+
+            @Override
+            public void run ()
+            {
+                performReload ( URLImageLabel.this.currentUrl );
+            }
+        }, 0, delay, TimeUnit.MILLISECONDS );
     }
 
     @Override
@@ -178,25 +197,30 @@ public class URLImageLabel extends GenericComposite
                 @Override
                 public void run ()
                 {
-                    try
-                    {
-                        processLoad ( url );
-                    }
-                    catch ( final Exception e )
-                    {
-                        logger.warn ( "Failed to load image", e );
-                        try
-                        {
-                            URLImageLabel.this.currentUrl = URLImageLabel.this.component.getFallbackImageUrl ();
-                            processLoad ( URLImageLabel.this.component.getFallbackImageUrl () );
-                        }
-                        catch ( final Exception e1 )
-                        {
-                            logger.warn ( "Failed to load fallback image", e1 );
-                        }
-                    }
+                    performReload ( url );
                 }
             } );
+        }
+    }
+
+    private void performReload ( final String url )
+    {
+        try
+        {
+            processLoad ( url );
+        }
+        catch ( final Exception e )
+        {
+            logger.warn ( "Failed to load image", e );
+            try
+            {
+                URLImageLabel.this.currentUrl = URLImageLabel.this.component.getFallbackImageUrl ();
+                processLoad ( URLImageLabel.this.component.getFallbackImageUrl () );
+            }
+            catch ( final Exception e1 )
+            {
+                logger.warn ( "Failed to load fallback image", e1 );
+            }
         }
     }
 
@@ -206,7 +230,11 @@ public class URLImageLabel extends GenericComposite
 
         final URL url = new URL ( stringUrl );
 
-        final ImageData[] data = loader.load ( url.openStream () );
+        final ImageData[] data;
+        try ( InputStream is = url.openStream () )
+        {
+            data = loader.load ( is );
+        }
 
         logger.debug ( "Image loaded" );
 

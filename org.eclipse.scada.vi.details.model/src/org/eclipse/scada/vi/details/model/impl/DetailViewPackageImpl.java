@@ -1470,6 +1470,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getURLImageComponent_ReloadTimer ()
+    {
+        return (EAttribute)urlImageComponentEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getProgressComponent ()
     {
         return progressComponentEClass;
@@ -1900,6 +1910,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEAttribute ( urlImageComponentEClass, URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL );
         createEAttribute ( urlImageComponentEClass, URL_IMAGE_COMPONENT__WIDTH );
         createEAttribute ( urlImageComponentEClass, URL_IMAGE_COMPONENT__HEIGHT );
+        createEAttribute ( urlImageComponentEClass, URL_IMAGE_COMPONENT__RELOAD_TIMER );
 
         progressComponentEClass = createEClass ( PROGRESS_COMPONENT );
         createEAttribute ( progressComponentEClass, PROGRESS_COMPONENT__DESCRIPTOR );
@@ -2135,6 +2146,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEAttribute ( getURLImageComponent_FallbackImageUrl (), ecorePackage.getEString (), "fallbackImageUrl", null, 0, 1, URLImageComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getURLImageComponent_Width (), ecorePackage.getEIntegerObject (), "width", null, 0, 1, URLImageComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getURLImageComponent_Height (), ecorePackage.getEIntegerObject (), "height", null, 0, 1, URLImageComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getURLImageComponent_ReloadTimer (), ecorePackage.getELongObject (), "reloadTimer", null, 0, 1, URLImageComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( progressComponentEClass, ProgressComponent.class, "ProgressComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getProgressComponent_Descriptor (), ecorePackage.getEString (), "descriptor", null, 1, 1, ProgressComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

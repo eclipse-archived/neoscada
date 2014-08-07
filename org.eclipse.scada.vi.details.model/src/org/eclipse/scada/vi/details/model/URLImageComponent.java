@@ -23,6 +23,7 @@ package org.eclipse.scada.vi.details.model;
  *   <li>{@link org.eclipse.scada.vi.details.model.URLImageComponent#getFallbackImageUrl <em>Fallback Image Url</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.URLImageComponent#getWidth <em>Width</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.URLImageComponent#getHeight <em>Height</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.URLImageComponent#getReloadTimer <em>Reload Timer</em>}</li>
  * </ul>
  * </p>
  *
@@ -161,5 +162,31 @@ public interface URLImageComponent extends Component
      * @generated
      */
     void setHeight ( Integer value );
+
+    /**
+     * Returns the value of the '<em><b>Reload Timer</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Reload Timer</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Reload Timer</em>' attribute.
+     * @see #setReloadTimer(Long)
+     * @see org.eclipse.scada.vi.details.model.DetailViewPackage#getURLImageComponent_ReloadTimer()
+     * @model
+     * @generated
+     */
+    Long getReloadTimer ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.vi.details.model.URLImageComponent#getReloadTimer <em>Reload Timer</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Reload Timer</em>' attribute.
+     * @see #getReloadTimer()
+     * @generated
+     */
+    void setReloadTimer ( Long value );
 
 } // URLImageComponent

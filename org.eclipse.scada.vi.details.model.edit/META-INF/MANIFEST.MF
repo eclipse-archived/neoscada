@@ -9,7 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.eclipse.scada.vi.details.model.provider;version="0.2.0"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.scada.vi.details.model;bundle-version="0.2.0";visibility:=reexport,
+ org.eclipse.scada.vi.details.model;visibility:=reexport;bundle-version="0.2.0",
  org.eclipse.emf.edit;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

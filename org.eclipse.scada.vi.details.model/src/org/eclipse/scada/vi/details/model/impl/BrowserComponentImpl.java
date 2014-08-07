@@ -23,18 +23,10 @@ import org.eclipse.scada.vi.details.model.DetailViewPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl#getUrl
- * <em>Url</em>}</li>
- * <li>
- * {@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl#getWidth
- * <em>Width</em>}</li>
- * <li>
- * {@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl#getHeight
- * <em>Height</em>}</li>
- * <li>
- * {@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl#getReloadTimer
- * <em>Reload Timer</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl#getWidth <em>Width</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl#getHeight <em>Height</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.impl.BrowserComponentImpl#getReloadTimer <em>Reload Timer</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,7 +38,6 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
      * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getUrl()
      * @generated
      * @ordered
@@ -57,7 +48,6 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
      * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getUrl()
      * @generated
      * @ordered
@@ -68,7 +58,6 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
      * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getWidth()
      * @generated
      * @ordered
@@ -79,7 +68,6 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
      * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getWidth()
      * @generated
      * @ordered
@@ -87,11 +75,9 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     protected Integer width = WIDTH_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getHeight() <em>Height</em>}'
-     * attribute.
+     * The default value of the '{@link #getHeight() <em>Height</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getHeight()
      * @generated
      * @ordered
@@ -102,7 +88,6 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
      * The cached value of the '{@link #getHeight() <em>Height</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getHeight()
      * @generated
      * @ordered
@@ -110,11 +95,9 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     protected Integer height = HEIGHT_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getReloadTimer() <em>Reload Timer</em>}
-     * ' attribute.
+     * The default value of the '{@link #getReloadTimer() <em>Reload Timer</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getReloadTimer()
      * @generated
      * @ordered
@@ -122,11 +105,9 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     protected static final Long RELOAD_TIMER_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getReloadTimer() <em>Reload Timer</em>}'
-     * attribute.
+     * The cached value of the '{@link #getReloadTimer() <em>Reload Timer</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getReloadTimer()
      * @generated
      * @ordered
@@ -136,7 +117,6 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected BrowserComponentImpl ()
@@ -147,7 +127,6 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -159,127 +138,110 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getUrl ()
     {
-        return this.url;
+        return url;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setUrl ( final String newUrl )
+    public void setUrl ( String newUrl )
     {
-        final String oldUrl = this.url;
-        this.url = newUrl;
+        String oldUrl = url;
+        url = newUrl;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BROWSER_COMPONENT__URL, oldUrl, this.url ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BROWSER_COMPONENT__URL, oldUrl, url ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Integer getWidth ()
     {
-        return this.width;
+        return width;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setWidth ( final Integer newWidth )
+    public void setWidth ( Integer newWidth )
     {
-        final Integer oldWidth = this.width;
-        this.width = newWidth;
+        Integer oldWidth = width;
+        width = newWidth;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BROWSER_COMPONENT__WIDTH, oldWidth, this.width ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BROWSER_COMPONENT__WIDTH, oldWidth, width ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Integer getHeight ()
     {
-        return this.height;
+        return height;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setHeight ( final Integer newHeight )
+    public void setHeight ( Integer newHeight )
     {
-        final Integer oldHeight = this.height;
-        this.height = newHeight;
+        Integer oldHeight = height;
+        height = newHeight;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BROWSER_COMPONENT__HEIGHT, oldHeight, this.height ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BROWSER_COMPONENT__HEIGHT, oldHeight, height ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Long getReloadTimer ()
     {
-        return this.reloadTimer;
+        return reloadTimer;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setReloadTimer ( final Long newReloadTimer )
+    public void setReloadTimer ( Long newReloadTimer )
     {
-        final Long oldReloadTimer = this.reloadTimer;
-        this.reloadTimer = newReloadTimer;
+        Long oldReloadTimer = reloadTimer;
+        reloadTimer = newReloadTimer;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BROWSER_COMPONENT__RELOAD_TIMER, oldReloadTimer, this.reloadTimer ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.BROWSER_COMPONENT__RELOAD_TIMER, oldReloadTimer, reloadTimer ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -298,11 +260,10 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -325,11 +286,10 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -352,22 +312,21 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case DetailViewPackage.BROWSER_COMPONENT__URL:
-                return URL_EDEFAULT == null ? this.url != null : !URL_EDEFAULT.equals ( this.url );
+                return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals ( url );
             case DetailViewPackage.BROWSER_COMPONENT__WIDTH:
-                return WIDTH_EDEFAULT == null ? this.width != null : !WIDTH_EDEFAULT.equals ( this.width );
+                return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals ( width );
             case DetailViewPackage.BROWSER_COMPONENT__HEIGHT:
-                return HEIGHT_EDEFAULT == null ? this.height != null : !HEIGHT_EDEFAULT.equals ( this.height );
+                return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT.equals ( height );
             case DetailViewPackage.BROWSER_COMPONENT__RELOAD_TIMER:
-                return RELOAD_TIMER_EDEFAULT == null ? this.reloadTimer != null : !RELOAD_TIMER_EDEFAULT.equals ( this.reloadTimer );
+                return RELOAD_TIMER_EDEFAULT == null ? reloadTimer != null : !RELOAD_TIMER_EDEFAULT.equals ( reloadTimer );
         }
         return super.eIsSet ( featureID );
     }
@@ -375,26 +334,23 @@ public class BrowserComponentImpl extends ComponentImpl implements BrowserCompon
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (url: " ); //$NON-NLS-1$
-        result.append ( this.url );
+        result.append ( url );
         result.append ( ", width: " ); //$NON-NLS-1$
-        result.append ( this.width );
+        result.append ( width );
         result.append ( ", height: " ); //$NON-NLS-1$
-        result.append ( this.height );
+        result.append ( height );
         result.append ( ", reloadTimer: " ); //$NON-NLS-1$
-        result.append ( this.reloadTimer );
+        result.append ( reloadTimer );
         result.append ( ')' );
         return result.toString ();
     }

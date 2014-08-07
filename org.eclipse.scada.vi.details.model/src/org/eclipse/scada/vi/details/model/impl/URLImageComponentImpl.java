@@ -28,6 +28,7 @@ import org.eclipse.scada.vi.details.model.URLImageComponent;
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.URLImageComponentImpl#getFallbackImageUrl <em>Fallback Image Url</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.URLImageComponentImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.URLImageComponentImpl#getHeight <em>Height</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.impl.URLImageComponentImpl#getReloadTimer <em>Reload Timer</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,6 +135,26 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * @ordered
      */
     protected Integer height = HEIGHT_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getReloadTimer() <em>Reload Timer</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReloadTimer()
+     * @generated
+     * @ordered
+     */
+    protected static final Long RELOAD_TIMER_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getReloadTimer() <em>Reload Timer</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReloadTimer()
+     * @generated
+     * @ordered
+     */
+    protected Long reloadTimer = RELOAD_TIMER_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -276,6 +297,29 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
      * <!-- end-user-doc -->
      * @generated
      */
+    public Long getReloadTimer ()
+    {
+        return reloadTimer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setReloadTimer ( Long newReloadTimer )
+    {
+        Long oldReloadTimer = reloadTimer;
+        reloadTimer = newReloadTimer;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.URL_IMAGE_COMPONENT__RELOAD_TIMER, oldReloadTimer, reloadTimer ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -291,6 +335,8 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
                 return getWidth ();
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
                 return getHeight ();
+            case DetailViewPackage.URL_IMAGE_COMPONENT__RELOAD_TIMER:
+                return getReloadTimer ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -319,6 +365,9 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
                 return;
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
                 setHeight ( (Integer)newValue );
+                return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__RELOAD_TIMER:
+                setReloadTimer ( (Long)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -349,6 +398,9 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
                 setHeight ( HEIGHT_EDEFAULT );
                 return;
+            case DetailViewPackage.URL_IMAGE_COMPONENT__RELOAD_TIMER:
+                setReloadTimer ( RELOAD_TIMER_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -373,6 +425,8 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
                 return WIDTH_EDEFAULT == null ? width != null : !WIDTH_EDEFAULT.equals ( width );
             case DetailViewPackage.URL_IMAGE_COMPONENT__HEIGHT:
                 return HEIGHT_EDEFAULT == null ? height != null : !HEIGHT_EDEFAULT.equals ( height );
+            case DetailViewPackage.URL_IMAGE_COMPONENT__RELOAD_TIMER:
+                return RELOAD_TIMER_EDEFAULT == null ? reloadTimer != null : !RELOAD_TIMER_EDEFAULT.equals ( reloadTimer );
         }
         return super.eIsSet ( featureID );
     }
@@ -399,6 +453,8 @@ public class URLImageComponentImpl extends ComponentImpl implements URLImageComp
         result.append ( width );
         result.append ( ", height: " ); //$NON-NLS-1$
         result.append ( height );
+        result.append ( ", reloadTimer: " ); //$NON-NLS-1$
+        result.append ( reloadTimer );
         result.append ( ')' );
         return result.toString ();
     }

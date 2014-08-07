@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,12 +7,12 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - provide scheduled executor for image loading
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
@@ -44,14 +44,7 @@ public class Activator extends AbstractUIPlugin
     // The shared instance
     private static Activator plugin;
 
-    private ExecutorService executor;
-
-    /**
-     * The constructor
-     */
-    public Activator ()
-    {
-    }
+    private ScheduledExecutorService executor;
 
     @Override
     public void start ( final BundleContext context ) throws Exception
@@ -61,13 +54,13 @@ public class Activator extends AbstractUIPlugin
         VisibilityTester.INSTANCE = new VisibilityTester ();
 
         plugin = this;
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( "Image Loader" ) );
+        this.executor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "org.eclipse.scada.vi.details.swt/Image loader" ) );
     }
 
     @Override
     public void stop ( final BundleContext context ) throws Exception
     {
-        this.executor.shutdownNow ();
+        this.executor.shutdown ();
 
         if ( VisibilityTester.INSTANCE != null )
         {
@@ -81,7 +74,7 @@ public class Activator extends AbstractUIPlugin
 
     /**
      * Returns the shared instance
-     * 
+     *
      * @return the shared instance
      */
     public static Activator getDefault ()
@@ -89,7 +82,7 @@ public class Activator extends AbstractUIPlugin
         return plugin;
     }
 
-    public static Executor getExecutor ()
+    public static ScheduledExecutorService getExecutor ()
     {
         return plugin.executor;
     }
