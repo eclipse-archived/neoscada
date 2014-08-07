@@ -214,7 +214,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         false,
                         false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -237,7 +237,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

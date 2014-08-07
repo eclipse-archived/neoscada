@@ -711,8 +711,8 @@
         <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/multiUserScreen"/>
         <genFeatures notify="false" createChild="false" propertyCategory="setup" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/operatingSystem"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/automaticCreate"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/recreateBackups"/>
+        <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/automaticCreate"/>
+        <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/recreateBackups"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/ChangeEntry">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
