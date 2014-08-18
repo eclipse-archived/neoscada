@@ -70,6 +70,11 @@ public class NameLabelProvider extends ObservableMapStyledCellLabelProvider
             final IItemLabelProvider itemLabelProvider = (IItemLabelProvider)this.adapterFactory.adapt ( item, IItemLabelProvider.class );
             cell.setImage ( makeImage ( itemLabelProvider.getImage ( item ) ) );
         }
+        else if ( ele instanceof ClassInformationProvider )
+        {
+            final ClassInformationProvider cip = (ClassInformationProvider)ele;
+            cell.setText ( String.format ( "%s (%s)", cip.getSimpleName (), cip.getPackageName () ) );
+        }
         else
         {
             cell.setText ( "" + ele );

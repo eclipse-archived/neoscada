@@ -14,6 +14,8 @@ import org.eclipse.core.databinding.observable.IObservable;
 import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
+import org.eclipse.core.databinding.observable.set.WritableSet;
+import org.eclipse.scada.configuration.ui.component.Helper.ItemEntry;
 import org.eclipse.scada.configuration.ui.component.Helper.Master;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,20 @@ public class ComponentOutputObservableFactory implements IObservableFactory
         else if ( target instanceof Master )
         {
             return Observables.proxyObservableSet ( ( (Master)target ).getEntries () );
+        }
+        else if ( target instanceof ItemEntry )
+        {
+            final ItemEntry itemEntry = (ItemEntry)target;
+            if ( itemEntry.getCustomizationRequest () != null && itemEntry.getCustomizationRequest ().getComponent () != null )
+            {
+                final WritableSet result = new WritableSet ();
+                result.add ( new ClassInformationProvider ( itemEntry.getCustomizationRequest ().getComponent ().getClass () ) );
+                return result;
+            }
+        }
+        else if ( target instanceof ClassInformationProvider )
+        {
+            return ( (ClassInformationProvider)target ).createSuper ( null );
         }
         return null;
     }

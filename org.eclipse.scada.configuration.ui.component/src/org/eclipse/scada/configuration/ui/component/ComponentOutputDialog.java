@@ -111,32 +111,42 @@ public class ComponentOutputDialog extends Dialog
             final TreeViewerColumn col1 = new TreeViewerColumn ( this.viewer, SWT.NONE );
             col1.getColumn ().setText ( "Name" );
             col1.setLabelProvider ( new NameLabelProvider ( getShell ().getDisplay (), this.contentProvider.getKnownElements () ) );
-            layout.addColumnData ( new ColumnWeightData ( 100 ) );
+            layout.addColumnData ( new ColumnWeightData ( 150 ) );
         }
 
         {
-            final IObservableMap map = PojoProperties.value ( "item" ).observeDetail ( this.contentProvider.getKnownElements () );
+            final IObservableMap map = PojoProperties.value ( ItemEntry.PROP_ITEM ).observeDetail ( this.contentProvider.getKnownElements () );
             final IObservableMap map2 = EMFProperties.value ( OsgiPackage.Literals.ITEM__NAME ).observeDetail ( map );
 
             final TreeViewerColumn col2 = new TreeViewerColumn ( this.viewer, SWT.NONE );
             col2.getColumn ().setText ( "Item ID" );
             col2.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( map2 ) );
-            layout.addColumnData ( new ColumnWeightData ( 100 ) );
+            layout.addColumnData ( new ColumnWeightData ( 150 ) );
         }
 
         {
-            final IObservableMap map = PojoProperties.value ( "item" ).observeDetail ( this.contentProvider.getKnownElements () ); //$NON-NLS-1$
+            final IObservableMap map = PojoProperties.value ( ItemEntry.PROP_ITEM ).observeDetail ( this.contentProvider.getKnownElements () );
             final IObservableMap map2 = EMFProperties.value ( OsgiPackage.Literals.ITEM__INFORMATION ).observeDetail ( map );
             final IObservableMap map3 = EMFProperties.value ( OsgiPackage.Literals.ITEM_INFORMATION__DESCRIPTION ).observeDetail ( map2 );
 
             final TreeViewerColumn col2 = new TreeViewerColumn ( this.viewer, SWT.NONE );
             col2.getColumn ().setText ( "Description" );
             col2.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( map3 ) );
-            layout.addColumnData ( new ColumnWeightData ( 200 ) );
+            layout.addColumnData ( new ColumnWeightData ( 100 ) );
         }
 
         {
-            final IObservableMap map = PojoProperties.value ( "item" ).observeDetail ( this.contentProvider.getKnownElements () ); //$NON-NLS-1$
+            final IObservableMap map = PojoProperties.value ( ItemEntry.PROP_CUSTOMIZATION_REQUEST ).observeDetail ( this.contentProvider.getKnownElements () );
+            final IObservableMap map2 = PojoProperties.value ( "globalizationLevel" ).observeDetail ( map );
+
+            final TreeViewerColumn col2 = new TreeViewerColumn ( this.viewer, SWT.NONE );
+            col2.getColumn ().setText ( "GL" );
+            col2.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( map2 ) );
+            layout.addColumnData ( new ColumnWeightData ( 25 ) );
+        }
+
+        {
+            final IObservableMap map = PojoProperties.value ( ItemEntry.PROP_ITEM ).observeDetail ( this.contentProvider.getKnownElements () );
 
             final TreeViewerColumn col2 = new TreeViewerColumn ( this.viewer, SWT.NONE );
             col2.getColumn ().setText ( "Type" );

@@ -40,9 +40,9 @@ public class Helper
 
     private static final class SpyComponentItemCreatorImpl extends AbstractComponentItemCreator
     {
-        private final Map<List<String>, Item> entries;
+        private final Map<List<String>, ItemEntry> entries;
 
-        private SpyComponentItemCreatorImpl ( final Component component, final Map<List<String>, Item> entries )
+        private SpyComponentItemCreatorImpl ( final Component component, final Map<List<String>, ItemEntry> entries )
         {
             super ( component );
             this.entries = entries;
@@ -58,7 +58,7 @@ public class Helper
         protected <T extends Item> void itemAdded ( final T item, final CustomizationRequest customizationRequest, final List<String> originalLocalTags, final Set<MasterListener<T>> masterListeners )
         {
             logger.debug ( "Adding item: {}", item );
-            this.entries.put ( originalLocalTags, item );
+            this.entries.put ( originalLocalTags, new ItemEntry ( originalLocalTags, item, customizationRequest ) );
         }
 
         @Override
@@ -70,14 +70,23 @@ public class Helper
 
     public static class ItemEntry
     {
+        public static final String PROP_LOCAL = "local";
+
+        public static final String PROP_ITEM = "item";
+
+        public static final String PROP_CUSTOMIZATION_REQUEST = "customizationRequest";
+
         private final Item item;
 
         private final List<String> local;
 
-        public ItemEntry ( final List<String> local, final Item item )
+        private final CustomizationRequest customizationRequest;
+
+        public ItemEntry ( final List<String> local, final Item item, final CustomizationRequest customizationRequest )
         {
             this.local = Collections.unmodifiableList ( local );
             this.item = item;
+            this.customizationRequest = customizationRequest;
         }
 
         public Item getItem ()
@@ -89,11 +98,16 @@ public class Helper
         {
             return this.local;
         }
+
+        public CustomizationRequest getCustomizationRequest ()
+        {
+            return this.customizationRequest;
+        }
     }
 
     public static class Master
     {
-        private final WritableSet entries;
+        private final WritableSet /*ItemEntry*/entries;
 
         private final MasterServer master;
 
@@ -205,14 +219,14 @@ public class Helper
     private static void fillWithEntries ( final Component component, final WritableSet result )
     {
         logger.debug ( "Filling result with entries" );
-        for ( final Map.Entry<List<String>, Item> entry : createOutputFor ( component ).entrySet () )
+        for ( final Map.Entry<List<String>, ItemEntry> entry : createOutputFor ( component ).entrySet () )
         {
             logger.debug ( "Adding entry for result - key: {}, value: {}", entry.getKey (), entry.getValue () );
-            result.add ( new ItemEntry ( entry.getKey (), entry.getValue () ) );
+            result.add ( entry.getValue () );
         }
     }
 
-    private static Map<List<String>, Item> createOutputFor ( final Component dc )
+    private static Map<List<String>, ItemEntry> createOutputFor ( final Component dc )
     {
         final ItemSource source = ItemSources.createItemSource ( dc );
         if ( source == null )
@@ -220,7 +234,7 @@ public class Helper
             return Collections.emptyMap ();
         }
 
-        final Map<List<String>, Item> entries = new HashMap<> ();
+        final Map<List<String>, ItemEntry> entries = new HashMap<> ();
 
         final AbstractComponentItemCreator creator = new SpyComponentItemCreatorImpl ( dc, entries );
 
