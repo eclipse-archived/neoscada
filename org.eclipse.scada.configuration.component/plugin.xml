@@ -44,5 +44,13 @@
          </describer>
       </content-type>
    </extension>
+   
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="org.eclipse.scada.configuration.component.util.ComponentResourceFactoryImpl"
+            type="escm">
+      </parser>
+   </extension>
 
 </plugin>
