@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,12 +40,14 @@ public class ProfileResourceFactoryImpl extends ResourceFactoryImpl
      * Creates an instance of the resource.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
-    public Resource createResource ( URI uri )
+    public Resource createResource ( final URI uri )
     {
-        XMLResource result = new ProfileResourceImpl ( uri );
+        final XMLResource result = new ProfileResourceImpl ( uri );
+
         result.getDefaultSaveOptions ().put ( XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE );
         result.getDefaultLoadOptions ().put ( XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE );
 
@@ -54,6 +57,9 @@ public class ProfileResourceFactoryImpl extends ResourceFactoryImpl
         result.getDefaultSaveOptions ().put ( XMLResource.OPTION_USE_ENCODED_ATTRIBUTE_STYLE, Boolean.TRUE );
 
         result.getDefaultLoadOptions ().put ( XMLResource.OPTION_USE_LEXICAL_HANDLER, Boolean.TRUE );
+
+        result.getDefaultSaveOptions ().put ( XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware () );
+
         return result;
     }
 

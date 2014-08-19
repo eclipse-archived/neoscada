@@ -41,7 +41,7 @@ public class WorldResourceFactoryImpl extends ResourceFactoryImpl
      * Creates an instance of the resource.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -49,8 +49,7 @@ public class WorldResourceFactoryImpl extends ResourceFactoryImpl
     {
         final XMIResource result = new WorldResourceImpl ( uri );
 
-        result.getDefaultSaveOptions ().put ( XMLResource.OPTION_URI_HANDLER,
-                new URIHandlerImpl.PlatformSchemeAware () );
+        result.getDefaultSaveOptions ().put ( XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware () );
 
         return result;
     }
