@@ -16,7 +16,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
-
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -26,7 +25,6 @@ import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
-import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -183,7 +181,6 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
         super ( ADDITIONS_LAST_STYLE );
         loadResourceAction = new LoadResourceAction ();
         validateAction = new ValidateAction ();
-        liveValidationAction = new DiagnosticDecorator.LiveValidator.LiveValidationAction ( ComponentEditorPlugin.getPlugin ().getDialogSettings () );
         controlAction = new ControlAction ();
     }
 

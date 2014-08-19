@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
 import org.eclipse.scada.configuration.item.provider.ItemEditPlugin;
@@ -60,6 +61,7 @@ public final class ComponentEditorPlugin extends EMFPlugin
                 SecurityEditPlugin.INSTANCE,
                 WorldEditPlugin.INSTANCE,
                 GlobalizeEditPlugin.INSTANCE,
+                EcoreEditPlugin.INSTANCE,
         } );
     }
 

@@ -42,11 +42,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.MarkerHelper;
 import org.eclipse.emf.common.ui.ViewerPane;
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
-import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSupport;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
+import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -64,8 +66,6 @@ import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
-import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
@@ -93,6 +93,7 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.scada.configuration.component.provider.ComponentItemProviderAdapterFactory;
+import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSupport;
 import org.eclipse.scada.configuration.ecore.ui.ExtendedAdapterFactoryContentProvider;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureItemProviderAdapterFactory;
@@ -102,6 +103,7 @@ import org.eclipse.scada.configuration.world.deployment.provider.DeploymentItemP
 import org.eclipse.scada.configuration.world.osgi.profile.provider.ProfileItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.world.osgi.provider.OsgiItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.world.provider.WorldItemProviderAdapterFactory;
+import org.eclipse.scada.configuration.world.setup.provider.SetupItemProviderAdapterFactory;
 import org.eclipse.scada.da.exec.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.scada.da.ui.connection.dnd.ItemTransfer;
 import org.eclipse.swt.SWT;
@@ -783,7 +785,9 @@ public class ComponentEditor
         adapterFactory.addAdapterFactory ( new OsgiItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ProfileItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new DeploymentItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new SetupItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new GlobalizeItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new EcoreItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ReflectiveItemProviderAdapterFactory () );
 
         // Create the command stack that will notify this editor as commands are executed.
@@ -1173,7 +1177,7 @@ public class ComponentEditor
                 selectionViewer = (TreeViewer)viewerPane.getViewer ();
                 selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
 
-                selectionViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, selectionViewer, ComponentEditorPlugin.getPlugin ().getDialogSettings () ) ) );
+                selectionViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), selectionViewer ) ) );
                 selectionViewer.setInput ( editingDomain.getResourceSet () );
                 selectionViewer.setSelection ( new StructuredSelection ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
                 viewerPane.setTitle ( editingDomain.getResourceSet () );
@@ -1270,7 +1274,7 @@ public class ComponentEditor
                 viewerPane.createControl ( getContainer () );
                 treeViewer = (TreeViewer)viewerPane.getViewer ();
                 treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                treeViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, treeViewer ) ) );
+                treeViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), treeViewer ) ) );
 
                 new AdapterFactoryTreeEditor ( treeViewer.getTree (), adapterFactory );
                 new ColumnViewerInformationControlToolTipSupport ( treeViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, treeViewer ) );
@@ -1320,7 +1324,7 @@ public class ComponentEditor
 
                 tableViewer.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
                 tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                tableViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, tableViewer, ComponentEditorPlugin.getPlugin ().getDialogSettings () ) ) );
+                tableViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), tableViewer ) ) );
 
                 new ColumnViewerInformationControlToolTipSupport ( tableViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, tableViewer ) );
 
@@ -1369,7 +1373,7 @@ public class ComponentEditor
 
                 treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
                 treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                treeViewerWithColumns.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, treeViewerWithColumns, ComponentEditorPlugin.getPlugin ().getDialogSettings () ) ) );
+                treeViewerWithColumns.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), treeViewerWithColumns ) ) );
 
                 new ColumnViewerInformationControlToolTipSupport ( treeViewerWithColumns, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, treeViewerWithColumns ) );
 
@@ -1529,7 +1533,7 @@ public class ComponentEditor
                     // Set up the tree viewer.
                     //
                     contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                    contentOutlineViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, contentOutlineViewer, ComponentEditorPlugin.getPlugin ().getDialogSettings () ) ) );
+                    contentOutlineViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), contentOutlineViewer ) ) );
                     contentOutlineViewer.setInput ( editingDomain.getResourceSet () );
 
                     new ColumnViewerInformationControlToolTipSupport ( contentOutlineViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, contentOutlineViewer ) );
@@ -1590,7 +1594,7 @@ public class ComponentEditor
     public IPropertySheetPage getPropertySheetPage ()
     {
         final PropertySheetPage propertySheetPage =
-                new ExtendedPropertySheetPage ( this.editingDomain, ExtendedPropertySheetPage.Decoration.LIVE, ComponentEditorPlugin.getPlugin ().getDialogSettings () )
+                new ExtendedPropertySheetPage ( this.editingDomain, ExtendedPropertySheetPage.Decoration.MANUAL, ComponentEditorPlugin.getPlugin ().getDialogSettings () )
                 {
                     @Override
                     public void setSelectionToViewer ( final List<?> selection )
