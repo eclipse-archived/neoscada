@@ -46,6 +46,7 @@ public class RecipeBuilder
     {
         final Definition recipe = RecipeFactory.eINSTANCE.createDefinition ();
         recipe.setName ( name );
+        recipe.setId ( name.toLowerCase () );
 
         final Profile profile = RecipeFactory.eINSTANCE.createProfile ();
         profile.setName ( "No deployment actions" );
