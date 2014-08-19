@@ -120,7 +120,7 @@ public class ProjectBuilder extends IncrementalProjectBuilder
 
     private Set<String> getDefaultExtensions ()
     {
-        return new HashSet<> ( Arrays.asList ( "escm", "esim", "security", "esdi" ) );
+        return new HashSet<> ( Arrays.asList ( "escm", "esim", "security", "esdi", "recipe", "setup" ) );
     }
 
     @Override
