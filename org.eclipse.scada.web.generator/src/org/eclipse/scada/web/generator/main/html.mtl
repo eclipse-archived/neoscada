@@ -118,6 +118,7 @@ var track = function(url, category, action) {
 <div id="sidebar-right-lower">
 	<div id="sidebar-social">
 [startSocialBar()/]
+[socialRssFeed(fileName)/]
 [socialPlus('https://plus.google.com/115299777840108730794')/]
 [socialFacebook('https://www.facebook.com/eclipse.scada')/]
 [endSocialBar()/]
@@ -172,6 +173,8 @@ var track = function(url, category, action) {
 
 <!-- twitter -->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[ '[' /]0[ ']' /],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<script type="text/javascript" src="[relative(fileName, 'js/default.js' )/]"></script>
 
 </body>
 </html>

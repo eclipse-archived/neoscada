@@ -48,6 +48,10 @@
 </div>
 [/template]
 
+[template public socialRssFeed(base:String)]
+<a href="[relative(base, 'feed.rss')/]" target="_blank"><img src="[relative(base,'images/icons/feed.png')/]"/></a>
+[/template]
+
 [template public socialBar(url:String, title:String)]
 [startSocialBar()/]
 [socialPlus(url)/]

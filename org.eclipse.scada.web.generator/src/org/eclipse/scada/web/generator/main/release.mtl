@@ -31,6 +31,17 @@
 
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/box.png')/]"/>
+	<a href="javascript:void(0)" onclick="toggle('maven.[release.buildId/]');">Maven 2 repository</a>
+	<div class="mavenrepo" id="maven.[release.buildId/]"><pre>&lt;repository&gt;
+	&lt;id&gt;eclipse.scada&lt;/id&gt;
+	&lt;url&gt;[dropsLink(release, 'org.eclipse.scada', 'maven', false)/]&lt;/url&gt;
+&lt;/repository&gt;</pre>
+Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven">EclipseSCADA/GettingStarted/WithMaven</a>.
+	</div>
+</li>
+
+<li>
+	<img class="download-type" src="[relative(base, 'images/icons/box.png')/]"/>
 	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/yum?d', false)/]">YUM repository</a>
 	–
 	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/deb?d', false)/]">Debian packages</a>
