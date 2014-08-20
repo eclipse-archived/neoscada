@@ -136,7 +136,7 @@ public class NodeItemProvider extends ItemProviderAdapter implements IEditingDom
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_infoPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

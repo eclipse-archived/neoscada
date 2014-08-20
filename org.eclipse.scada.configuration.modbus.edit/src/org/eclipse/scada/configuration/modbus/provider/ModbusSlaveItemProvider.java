@@ -90,7 +90,7 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -113,7 +113,7 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_infoPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -136,7 +136,7 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

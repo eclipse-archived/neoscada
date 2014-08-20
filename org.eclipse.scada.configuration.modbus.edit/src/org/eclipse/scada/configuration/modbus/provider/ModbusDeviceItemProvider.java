@@ -140,7 +140,7 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -163,7 +163,7 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -186,7 +186,7 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -209,7 +209,7 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

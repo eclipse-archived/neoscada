@@ -30,7 +30,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/configurations"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//Node">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Node/hostName"/>
+      <genFeatures createChild="false" propertyCategory="info" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Node/hostName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Node/devices"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//MasterServer">
