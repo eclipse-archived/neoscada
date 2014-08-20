@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
 
-  <extension point="org.eclipse.ui.startup">
+   <extension point="org.eclipse.ui.startup">
       <startup class="org.eclipse.scada.configuration.validation.internal.Startup"/>
    </extension>
    
@@ -12,7 +12,7 @@
          type="org.eclipse.emf.ecore.EObject"
          namespace="org.eclipse.scada.configuration.validation.adapter"
          properties="ePackage"
-         class="org.eclipse.scada.configuration.validation.EObjectPropertyTester">
+         class="org.eclipse.scada.configuration.validation.internal.EObjectPropertyTester">
       </propertyTester>
    </extension>
 
@@ -61,6 +61,17 @@
          </enablement>
       </clientContext>
       
+      <clientContext id="org.eclipse.scada.configuration.validation.adapter.world.setup">
+         <enablement>
+            <and>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <test
+                  property="org.eclipse.scada.configuration.validation.adapter.ePackage"
+                  value="http://eclipse.org/SCADA/Configuration/World/Setup"/>
+            </and>
+         </enablement>
+      </clientContext>
+      
       <binding
          context="org.eclipse.scada.configuration.validation.adapter.infra"
          category="org.eclipse.scada.configuration"/>
@@ -72,6 +83,9 @@
          category="org.eclipse.scada.configuration"/>
      <binding
          context="org.eclipse.scada.configuration.validation.adapter.world.deployment"
+         category="org.eclipse.scada.configuration"/>
+     <binding
+         context="org.eclipse.scada.configuration.validation.adapter.world.setup"
          category="org.eclipse.scada.configuration"/>
    </extension>
 

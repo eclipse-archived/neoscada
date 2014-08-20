@@ -8,9 +8,10 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.setup.common;
+package org.eclipse.scada.configuration.setup.common.lib;
 
 import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler;
 
 public class AdapterFactoryImpl implements IAdapterFactory

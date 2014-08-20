@@ -68,29 +68,9 @@ public class PostgresValidator extends Postgres
             result.add ( createFailure ( "Requires '{0}' = {1} but found ({2})", POSTGRES_VERSION_KEY, POSTGRES_VERSION_VALUE, version ) );
         }
 
-        checkResource ( this.postgres.getHostBasedAccessFile (), result );
-        checkResource ( this.postgres.getConfigurationFile (), result );
-
         final Map<String, String> props = Properties.makeAttributes ( this.os.getProperties () );
         getConfigurationFile ( props );
         getHostBasedAccessFile ( props );
-    }
-
-    private void checkResource ( final String uriString, final Collection<IStatus> result )
-    {
-        if ( uriString == null || uriString.isEmpty () )
-        {
-            return;
-        }
-
-        try
-        {
-            openResource ( uriString ).close (); // don't read, just test
-        }
-        catch ( final Exception e )
-        {
-            result.add ( createFailure ( "Unable to load resource: {0}", uriString ) );
-        }
     }
 
 }

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.setup.common.CommonFactory;
 import org.eclipse.scada.configuration.setup.common.CommonPackage;
 import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
+import org.eclipse.scada.configuration.setup.common.util.CommonValidator;
 import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.setup.SetupPackage;
 
@@ -97,6 +99,17 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Initialize created meta-data
         theCommonPackage.initializePackageContents ();
+
+        // Register package validator
+        EValidator.Registry.INSTANCE.put
+                ( theCommonPackage,
+                        new EValidator.Descriptor ()
+                        {
+                            public EValidator getEValidator ()
+                            {
+                                return CommonValidator.INSTANCE;
+                            }
+                        } );
 
         // Mark meta-data to indicate it can't be changed
         theCommonPackage.freeze ();
@@ -244,6 +257,26 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Create resource
         createResource ( eNS_URI );
+
+        // Create annotations
+        // http://www.eclipse.org/emf/2002/Ecore
+        createEcoreAnnotations ();
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createEcoreAnnotations ()
+    {
+        String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$	
+        addAnnotation ( postgresSetupModuleEClass,
+                source,
+                new String[]
+                {       "constraints", "resources" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
     }
 
 } //CommonPackageImpl

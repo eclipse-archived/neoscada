@@ -8,11 +8,13 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.setup.common;
+package org.eclipse.scada.configuration.setup.common.lib;
 
 import java.util.Map;
 
 import org.eclipse.scada.configuration.lib.Properties;
+import org.eclipse.scada.configuration.setup.common.Postgres;
+import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.configuration.world.lib.deployment.DeploymentContext;
 import org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;

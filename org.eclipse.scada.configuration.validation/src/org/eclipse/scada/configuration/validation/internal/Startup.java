@@ -14,7 +14,9 @@ package org.eclipse.scada.configuration.validation.internal;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
-import org.eclipse.scada.configuration.validation.EValidatorAdapter;
+import org.eclipse.scada.configuration.world.WorldPackage;
+import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
+import org.eclipse.scada.configuration.world.setup.SetupPackage;
 import org.eclipse.ui.IStartup;
 
 /**
@@ -29,5 +31,8 @@ public class Startup implements IStartup
     {
         EValidator.Registry.INSTANCE.put ( ComponentPackage.eINSTANCE, new EValidatorAdapter () );
         EValidator.Registry.INSTANCE.put ( InfrastructurePackage.eINSTANCE, new EValidatorAdapter () );
+        EValidator.Registry.INSTANCE.put ( WorldPackage.eINSTANCE, new EValidatorAdapter () );
+        EValidator.Registry.INSTANCE.put ( DeploymentPackage.eINSTANCE, new EValidatorAdapter () );
+        EValidator.Registry.INSTANCE.put ( SetupPackage.eINSTANCE, new EValidatorAdapter () );
     }
 }

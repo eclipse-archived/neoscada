@@ -37,11 +37,16 @@ public class Postgres
         this.postgres = postgres;
     }
 
-    protected InputStream openResource ( final String uriString ) throws MalformedURLException, IOException
+    public InputStream openResource ( final String uriString ) throws MalformedURLException, IOException
+    {
+        return makeURL ( uriString ).openStream ();
+    }
+
+    public URL makeURL ( final String uriString ) throws MalformedURLException
     {
         URI uri = URI.createURI ( uriString );
         uri = uri.resolve ( this.postgres.eResource ().getURI () );
-        return new URL ( uri.toString () ).openStream ();
+        return new URL ( uri.toString () );
     }
 
     protected String getHostBasedAccessFile ( final Map<String, String> properties )

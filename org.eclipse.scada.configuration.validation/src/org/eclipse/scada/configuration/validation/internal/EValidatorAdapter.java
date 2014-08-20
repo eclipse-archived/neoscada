@@ -9,7 +9,7 @@
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 
-package org.eclipse.scada.configuration.validation;
+package org.eclipse.scada.configuration.validation.internal;
 
 import java.util.Map;
 
@@ -105,14 +105,14 @@ public class EValidatorAdapter extends EObjectValidator
     @Override
     public boolean validate ( final EDataType eDataType, final Object value, final DiagnosticChain diagnostics, final Map<Object, Object> context )
     {
-        logger.debug ( "validate - object: {}", value );
+        logger.debug ( "validate - type: {}", value );
         return super.validate ( eDataType, value, diagnostics, context );
     }
 
     /**
      * If we have a context map, record this object's <code>status</code> in it
      * so that we will know later that we have processed it and its sub-tree.
-     * 
+     *
      * @param eObject
      *            an element that we have validated
      * @param context
@@ -132,7 +132,7 @@ public class EValidatorAdapter extends EObjectValidator
      * Determines whether we have processed this <code>eObject</code> before,
      * by automatic recursion of the EMF Model Validation Service. This is
      * only possible if we do, indeed, have a context.
-     * 
+     *
      * @param eObject
      *            an element to be validated (we hope not)
      * @param context
@@ -168,7 +168,7 @@ public class EValidatorAdapter extends EObjectValidator
 
     /**
      * Converts a status result from the EMF validation service to diagnostics.
-     * 
+     *
      * @param status
      *            the EMF validation service's status result
      * @param diagnostics
