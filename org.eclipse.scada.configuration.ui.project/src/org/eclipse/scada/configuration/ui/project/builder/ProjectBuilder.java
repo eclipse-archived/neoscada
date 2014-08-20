@@ -161,6 +161,8 @@ public class ProjectBuilder extends IncrementalProjectBuilder
 
     protected void validateAll ( final IProject project, final ComposedAdapterFactory adapterFactory, final Set<String> extensions, final IProgressMonitor monitor )
     {
+        logger.debug ( "Validating all resources of {}", project );
+
         try
         {
             project.accept ( new IResourceVisitor () {
@@ -205,6 +207,7 @@ public class ProjectBuilder extends IncrementalProjectBuilder
 
         try
         {
+            // delete all validation markers before starting
             candidate.deleteMarkers ( EValidator.MARKER, false, IResource.DEPTH_ZERO );
 
             final ResourceSet rs = new ResourceSetImpl ();
@@ -243,7 +246,7 @@ public class ProjectBuilder extends IncrementalProjectBuilder
 
         if ( extensions.contains ( ext ) )
         {
-            logger.debug ( "IsModelFile" );
+            logger.debug ( "This file is a model file" );
             return true;
         }
         return false;
@@ -266,15 +269,16 @@ public class ProjectBuilder extends IncrementalProjectBuilder
         if ( resource instanceof IFile )
         {
             final IFile file = (IFile)resource;
-            if ( isModelFile ( file, extensions ) )
+            if ( !isModelFile ( file, extensions ) )
             {
-                if ( delta == null || delta.getKind () != IResourceDelta.REMOVED )
-                {
-                    validateFile ( file, adapterFactory, monitor );
-                }
+                return false;
+            }
+
+            if ( delta == null || delta.getKind () != IResourceDelta.REMOVED )
+            {
+                validateFile ( file, adapterFactory, monitor );
             }
         }
         return false;
     }
-
 }
