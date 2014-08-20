@@ -184,6 +184,7 @@
 		
 		<module>../org.eclipse.scada.configuration.setup.common</module>
 		<module>../org.eclipse.scada.configuration.setup.common.edit</module>
+		<module>../org.eclipse.scada.configuration.setup.common.lib</module>
 		
 	</modules>
 
