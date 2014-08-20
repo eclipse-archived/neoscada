@@ -7,7 +7,7 @@
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
     complianceLevel="7.0" copyrightFields="false" tableProviders="true" runtimeVersion="2.9"
     usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security"
-    operationReflection="true" importOrganizing="true" pluginKey="world">
+    operationReflection="true" importOrganizing="true" pluginKey="world" decoration="Manual">
   <foreignModel>configuration.ecore</foreignModel>
   <genPackages prefix="World" basePackage="org.eclipse.scada.configuration" resource="XMI"
       disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
