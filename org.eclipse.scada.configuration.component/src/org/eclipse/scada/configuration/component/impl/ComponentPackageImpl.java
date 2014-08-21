@@ -1657,6 +1657,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getGlobalizeComponent_MasterOn ()
+    {
+        return (EReference)globalizeComponentEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getTransientValue ()
     {
         return transientValueEClass;
@@ -2011,6 +2021,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         globalizeComponentEClass = createEClass ( GLOBALIZE_COMPONENT );
         createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__COMPONENTS );
         createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__SOURCE_MASTER );
+        createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__MASTER_ON );
 
         transientValueEClass = createEClass ( TRANSIENT_VALUE );
 
@@ -2279,6 +2290,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( globalizeComponentEClass, GlobalizeComponent.class, "GlobalizeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getGlobalizeComponent_Components (), this.getDataComponent (), null, "components", null, 0, -1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getGlobalizeComponent_SourceMaster (), theInfrastructurePackage.getMasterImport (), null, "sourceMaster", null, 1, 1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getGlobalizeComponent_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, GlobalizeComponent.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( transientValueEClass, TransientValue.class, "TransientValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 

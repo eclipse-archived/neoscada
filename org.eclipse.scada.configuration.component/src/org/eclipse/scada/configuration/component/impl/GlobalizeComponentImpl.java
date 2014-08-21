@@ -4,14 +4,15 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.component.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
@@ -37,6 +38,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getSourceMaster <em>Source Master</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getMasterOn <em>Master On</em>}</li>
  * </ul>
  * </p>
  *
@@ -110,6 +112,7 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName ()
     {
         return name;
@@ -120,6 +123,7 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName ( String newName )
     {
         String oldName = name;
@@ -177,21 +181,30 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
-    public void setSourceMaster ( MasterImport newSourceMaster )
+    public void setSourceMaster ( final MasterImport newSourceMaster )
     {
-        MasterImport oldSourceMaster = sourceMaster;
-        sourceMaster = newSourceMaster;
+        final EList<MasterServer> oldMasterOn = getMasterOn ();
+
+        final MasterImport oldSourceMaster = this.sourceMaster;
+        this.sourceMaster = newSourceMaster;
+
+        final EList<MasterServer> newMasterOn = getMasterOn ();
+
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER, oldSourceMaster, sourceMaster ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER, oldSourceMaster, this.sourceMaster ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__MASTER_ON, oldMasterOn, newMasterOn ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -225,6 +238,8 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
                 if ( resolve )
                     return getSourceMaster ();
                 return basicGetSourceMaster ();
+            case ComponentPackage.GLOBALIZE_COMPONENT__MASTER_ON:
+                return getMasterOn ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -293,6 +308,8 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
                 return components != null && !components.isEmpty ();
             case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
                 return sourceMaster != null;
+            case ComponentPackage.GLOBALIZE_COMPONENT__MASTER_ON:
+                return !getMasterOn ().isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

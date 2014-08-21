@@ -175,8 +175,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//RestInterceptor/definition"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//GlobalizeComponent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/components"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/sourceMaster"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="data" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/components"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="runtime" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/sourceMaster"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="runtime"
+          ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/masterOn"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//TransientValue"/>
     <genClasses ecoreClass="component.ecore#//MasterComponent">

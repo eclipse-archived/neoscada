@@ -3024,13 +3024,22 @@ public interface ComponentPackage extends EPackage
     int GLOBALIZE_COMPONENT__SOURCE_MASTER = DATA_COMPONENT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__MASTER_ON = DATA_COMPONENT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Globalize Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT_FEATURE_COUNT = DATA_COMPONENT_FEATURE_COUNT + 3;
+    int GLOBALIZE_COMPONENT_FEATURE_COUNT = DATA_COMPONENT_FEATURE_COUNT + 4;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -4770,6 +4779,17 @@ public interface ComponentPackage extends EPackage
     EReference getGlobalizeComponent_SourceMaster ();
 
     /**
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getMasterOn <em>Master On</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Master On</em>'.
+     * @see org.eclipse.scada.configuration.component.GlobalizeComponent#getMasterOn()
+     * @see #getGlobalizeComponent()
+     * @generated
+     */
+    EReference getGlobalizeComponent_MasterOn ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.TransientValue <em>Transient Value</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6019,6 +6039,14 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference GLOBALIZE_COMPONENT__SOURCE_MASTER = eINSTANCE.getGlobalizeComponent_SourceMaster ();
+
+        /**
+         * The meta object literal for the '<em><b>Master On</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GLOBALIZE_COMPONENT__MASTER_ON = eINSTANCE.getGlobalizeComponent_MasterOn ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.TransientValueImpl <em>Transient Value</em>}' class.

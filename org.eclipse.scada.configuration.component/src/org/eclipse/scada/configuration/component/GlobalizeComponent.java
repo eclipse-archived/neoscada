@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
+import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
 
 /**
@@ -25,6 +26,7 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getComponents <em>Components</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getSourceMaster <em>Source Master</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getMasterOn <em>Master On</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,4 +77,20 @@ public interface GlobalizeComponent extends DataComponent, NamedDocumentable
      * @generated
      */
     void setSourceMaster ( MasterImport value );
+
+    /**
+     * Returns the value of the '<em><b>Master On</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.MasterServer}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Master On</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Master On</em>' reference list.
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getGlobalizeComponent_MasterOn()
+     * @model transient="true" changeable="false" volatile="true" derived="true"
+     * @generated
+     */
+    EList<MasterServer> getMasterOn ();
 } // GlobalizeComponent
