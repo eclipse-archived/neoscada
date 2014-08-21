@@ -117,7 +117,14 @@ public class DebianHandler extends CommonPackageHandler
                 @Override
                 public void addPostInstallationScript ( final Reader reader ) throws IOException
                 {
-                    CharStreams.copy ( reader, postInstallation );
+                    try
+                    {
+                        CharStreams.copy ( reader, postInstallation );
+                    }
+                    finally
+                    {
+                        reader.close ();
+                    }
                 }
 
                 @Override
@@ -131,15 +138,22 @@ public class DebianHandler extends CommonPackageHandler
                 @Override
                 public void addFile ( final InputStream resource, final String targetFile ) throws IOException
                 {
-                    final File tmp = Files.createTempFile ( "data", "" ).toFile ();
-                    final File old = tempFiles.put ( targetFile, tmp );
-                    if ( old != null )
+                    try
                     {
-                        old.delete ();
+                        final File tmp = Files.createTempFile ( "data", "" ).toFile ();
+                        final File old = tempFiles.put ( targetFile, tmp );
+                        if ( old != null )
+                        {
+                            old.delete ();
+                        }
+                        try ( BufferedOutputStream os = new BufferedOutputStream ( new FileOutputStream ( tmp ) ) )
+                        {
+                            ByteStreams.copy ( resource, os );
+                        }
                     }
-                    try ( BufferedOutputStream os = new BufferedOutputStream ( new FileOutputStream ( tmp ) ) )
+                    finally
                     {
-                        ByteStreams.copy ( resource, os );
+                        resource.close ();
                     }
                 }
             };
@@ -235,7 +249,10 @@ public class DebianHandler extends CommonPackageHandler
 
             sw.write ( String.format ( "# ================== START - %s ==================\n", file ) );
 
-            CharStreams.copy ( Files.newBufferedReader ( file.toPath (), cs ), sw );
+            try ( Reader reader = Files.newBufferedReader ( file.toPath (), cs ) )
+            {
+                CharStreams.copy ( reader, sw );
+            }
 
             sw.write ( String.format ( "# ==================  END - %s  ==================\n", file ) );
 

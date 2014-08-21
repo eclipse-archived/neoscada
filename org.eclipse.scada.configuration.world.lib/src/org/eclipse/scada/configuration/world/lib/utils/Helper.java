@@ -41,17 +41,24 @@ public class Helper
 
     protected static void createFile ( final File file, final InputStream resource, final Map<String, String> replacements, final IProgressMonitor monitor, final Pattern pattern ) throws Exception
     {
-        String str = CharStreams.toString ( CharStreams.newReaderSupplier ( new InputSupplier<InputStream> () {
-            @Override
-            public InputStream getInput () throws IOException
-            {
-                return resource;
-            }
-        }, Charset.forName ( "UTF-8" ) ) );
+        try
+        {
+            String str = CharStreams.toString ( CharStreams.newReaderSupplier ( new InputSupplier<InputStream> () {
+                @Override
+                public InputStream getInput () throws IOException
+                {
+                    return resource;
+                }
+            }, Charset.forName ( "UTF-8" ) ) );
 
-        str = StringReplacer.replace ( str, StringReplacer.newSource ( replacements ), pattern );
+            str = StringReplacer.replace ( str, StringReplacer.newSource ( replacements ), pattern );
 
-        createFile ( file, str, monitor );
+            createFile ( file, str, monitor );
+        }
+        finally
+        {
+            resource.close ();
+        }
     }
 
     public static void createFile ( final File file, final InputStream resource, final IProgressMonitor monitor, final boolean exec ) throws Exception

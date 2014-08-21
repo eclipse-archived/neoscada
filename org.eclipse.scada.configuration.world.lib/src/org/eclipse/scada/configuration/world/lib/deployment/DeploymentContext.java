@@ -26,6 +26,18 @@ public interface DeploymentContext
 {
     public void addInstallDependency ( String packageName );
 
+    /**
+     * Add a script as post installation script
+     * <p>
+     * The method has to close the reader before it returns. Even in the case of
+     * an exception.
+     * </p>
+     *
+     * @param reader
+     *            the content to add
+     * @throws IOException
+     *             if anything goes wrong
+     */
     public void addPostInstallationScript ( Reader reader ) throws IOException;
 
     /**
@@ -37,5 +49,20 @@ public interface DeploymentContext
      */
     public void runAfterInstallation ( String script );
 
+    /**
+     * Add a file to the deployment package <br/>
+     * Add the content of the input stream as a file in the target system
+     * <p>
+     * The method has to close the input stream before it returns. Even in the
+     * case of an exception.
+     * </p>
+     *
+     * @param resource
+     *            the content to add
+     * @param targetFile
+     *            the name of the file in the target system
+     * @throws IOException
+     *             if anything goes wrong
+     */
     public void addFile ( InputStream resource, String targetFile ) throws IOException;
 }

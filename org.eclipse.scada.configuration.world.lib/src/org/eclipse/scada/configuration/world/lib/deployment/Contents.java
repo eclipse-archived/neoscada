@@ -29,17 +29,24 @@ public class Contents
 
     public static ContentProvider createContent ( final InputStream resource, final Map<String, String> replacements, final Pattern pattern ) throws IOException
     {
-        String str = CharStreams.toString ( CharStreams.newReaderSupplier ( new InputSupplier<InputStream> () {
-            @Override
-            public InputStream getInput () throws IOException
-            {
-                return resource;
-            }
-        }, Charset.forName ( "UTF-8" ) ) ); //$NON-NLS-1$
+        try
+        {
+            String str = CharStreams.toString ( CharStreams.newReaderSupplier ( new InputSupplier<InputStream> () {
+                @Override
+                public InputStream getInput () throws IOException
+                {
+                    return resource;
+                }
+            }, Charset.forName ( "UTF-8" ) ) ); //$NON-NLS-1$
 
-        str = StringReplacer.replace ( str, StringReplacer.newSource ( replacements ), pattern );
+            str = StringReplacer.replace ( str, StringReplacer.newSource ( replacements ), pattern );
 
-        return new StaticContentProvider ( str );
+            return new StaticContentProvider ( str );
+        }
+        finally
+        {
+            resource.close ();
+        }
     }
 
     public static ContentProvider createContent ( final InputStream resource, final Map<String, String> replacements ) throws IOException
