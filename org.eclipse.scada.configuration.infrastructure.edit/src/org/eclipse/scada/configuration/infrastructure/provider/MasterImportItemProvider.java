@@ -34,9 +34,11 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.MasterImport} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.infrastructure.MasterImport} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ *
  * @generated
  */
 public class MasterImportItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -45,9 +47,10 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    public MasterImportItemProvider ( AdapterFactory adapterFactory )
+    public MasterImportItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -56,32 +59,34 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addImportedMasterPropertyDescriptor ( object );
             addIdPropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Imported Master feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addImportedMasterPropertyDescriptor ( Object object )
+    protected void addImportedMasterPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+        this.itemPropertyDescriptors.add
+        ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_MasterImport_importedMaster_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_importedMaster_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -98,13 +103,14 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This adds a property descriptor for the Id feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addIdPropertyDescriptor ( Object object )
+    protected void addIdPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+        this.itemPropertyDescriptors.add
+        ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_MasterImport_id_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_id_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -118,31 +124,36 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to
+     * deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand},
+     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in
+     * {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( final Object object )
     {
-        if ( childrenFeatures == null )
+        if ( this.childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS );
+            this.childrenFeatures.add ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS );
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -154,10 +165,11 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This returns MasterImport.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/MasterImport" ) ); //$NON-NLS-1$
     }
@@ -165,6 +177,7 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -177,16 +190,16 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
     public String getText ( final Object object )
     {
-        String label = ( (MasterImport)object ).getId ();
-        if ( label == null || label.isEmpty () )
+        String id = ( (MasterImport)object ).getId ();
+        if ( id == null || id.isEmpty () )
         {
-            label = "<unnamed>";
+            id = "<unnamed>";
         }
 
         final MasterImport mi = (MasterImport)object;
@@ -195,23 +208,26 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
             final MasterServer im = mi.getImportedMaster ();
             final IItemLabelProvider labelProvider = (IItemLabelProvider)this.adapterFactory.adapt ( im, IItemLabelProvider.class );
             final String imLabel = labelProvider != null ? labelProvider.getText ( im ) : "" + im;
-            return String.format ( "%s %s to %s", getString ( "_UI_MasterImport_type" ), label, imLabel );
+            return String.format ( "%s from %s as %s", getString ( "_UI_MasterImport_type" ), imLabel, id ); //$NON-NLS-2$
         }
         else
         {
-            return getString ( "_UI_MasterImport_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$            
+            return getString ( "_UI_MasterImport_type" ) + " " + id; //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -228,24 +244,26 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
         newChildDescriptors.add
-                ( createChildParameter
+        ( createChildParameter
                 ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS,
                         WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 
         newChildDescriptors.add
-                ( createChildParameter
+        ( createChildParameter
                 ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS,
                         WorldFactory.eINSTANCE.createPasswordCredentials () ) );
     }
@@ -254,12 +272,13 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
     }
 
 }
