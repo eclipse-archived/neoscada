@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.configuration.world.lib.deployment.ResourceInformation;
 import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
 
 public interface StartupHandler

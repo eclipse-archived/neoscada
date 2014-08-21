@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.world.lib.deployment.startup;
+package org.eclipse.scada.configuration.world.lib.deployment;
 
 public class ResourceInformation
 {
@@ -19,6 +19,7 @@ public class ResourceInformation
     public static enum Type
     {
         FILE,
+        CONF_FILE,
         EXECUTABLE,
         DIRECTORY;
     }

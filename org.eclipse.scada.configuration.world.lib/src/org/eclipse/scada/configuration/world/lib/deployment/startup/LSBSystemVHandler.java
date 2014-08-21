@@ -18,7 +18,8 @@ import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.world.lib.deployment.Contents;
-import org.eclipse.scada.configuration.world.lib.deployment.startup.ResourceInformation.Type;
+import org.eclipse.scada.configuration.world.lib.deployment.ResourceInformation;
+import org.eclipse.scada.configuration.world.lib.deployment.ResourceInformation.Type;
 import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
 import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 

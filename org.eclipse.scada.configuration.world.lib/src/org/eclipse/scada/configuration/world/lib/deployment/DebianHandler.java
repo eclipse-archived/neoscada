@@ -42,6 +42,7 @@ import org.eclipse.scada.configuration.world.lib.setup.SubModuleHandler;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
+import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
 import org.eclipse.scada.utils.str.StringHelper;
 
@@ -178,7 +179,7 @@ public class DebianHandler extends CommonPackageHandler
 
             if ( !makeEquinoxList ().isEmpty () )
             {
-                deb.addFile ( StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", "/etc/eclipsescada/applications", null );
+                deb.addFile ( StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", "/etc/eclipsescada/applications", EntryInformation.DEFAULT_FILE_CONF );
             }
 
             for ( final Map.Entry<String, File> entry : tempFiles.entrySet () )
