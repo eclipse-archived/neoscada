@@ -76,6 +76,10 @@
 
 		<module>../org.eclipse.scada.protocol.ngp.generator</module>
 		<module>../org.eclipse.scada.protocol.ngp.generator.ui</module>
+		
+		<module>../org.eclipse.scada.protocol.syslog</module>
+		<module>../org.eclipse.scada.protocol.relp</module>
+		<module>../org.eclipse.scada.protocol.relp.service</module>
 
 		<!-- IEC 60870 -->
 
