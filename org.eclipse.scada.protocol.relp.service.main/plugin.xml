@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         id="id1"
+         id="app"
          point="org.eclipse.core.runtime.applications">
       <application
             cardinality="singleton-global"
