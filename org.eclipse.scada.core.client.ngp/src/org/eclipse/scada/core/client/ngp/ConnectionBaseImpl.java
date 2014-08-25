@@ -132,6 +132,8 @@ public class ConnectionBaseImpl extends ClientBaseConnection
     @Override
     protected synchronized void handleMessage ( final Object message )
     {
+        logger.trace ( "handleMessage: {}", message );
+
         if ( message instanceof SessionAccepted )
         {
             handleSessionAccepted ( (SessionAccepted)message );
@@ -225,7 +227,7 @@ public class ConnectionBaseImpl extends ClientBaseConnection
 
     /**
      * Return a result with all callbacks canceled
-     * 
+     *
      * @param count
      *            the number of callbacks in the request
      * @return the message result for canceled callbacks
