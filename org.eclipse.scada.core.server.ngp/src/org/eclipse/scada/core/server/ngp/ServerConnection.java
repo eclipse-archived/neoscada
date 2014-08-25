@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,21 +8,23 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - record closing state to allow lingering close
  *******************************************************************************/
 package org.eclipse.scada.core.server.ngp;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.net.ssl.SSLSession;
 
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.ssl.SslFilter;
-import org.eclipse.scada.utils.stats.StatisticEntry;
-import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.eclipse.scada.core.server.common.stats.ManagedConnection;
 import org.eclipse.scada.protocol.common.StatisticsFilter;
 import org.eclipse.scada.protocol.ngp.common.mc.MessageChannelFilter;
+import org.eclipse.scada.utils.stats.StatisticEntry;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,6 +44,8 @@ public abstract class ServerConnection
     private ManagedConnection mxBean;
 
     private final Object writeLock = new Object ();
+
+    private final AtomicBoolean closing = new AtomicBoolean ( false );
 
     public ServerConnection ( final IoSession session )
     {
@@ -114,7 +118,12 @@ public abstract class ServerConnection
 
     public void requestClose ( final boolean immediately )
     {
-        this.session.close ( immediately );
+        if ( this.closing.compareAndSet ( false, true ) )
+        {
+            // closing a session with closeOnFlush does not record the state closing
+            // so we need to do this on our own
+            this.session.close ( immediately );
+        }
     }
 
     public abstract void messageReceived ( Object message ) throws Exception;
