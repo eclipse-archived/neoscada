@@ -61,8 +61,10 @@ public interface DeploymentContext
      *            the content to add
      * @param targetFile
      *            the name of the file in the target system
+     * @param options
+     *            a list of options
      * @throws IOException
      *             if anything goes wrong
      */
-    public void addFile ( InputStream resource, String targetFile ) throws IOException;
+    public void addFile ( InputStream resource, String targetFile, FileOptions... options ) throws IOException;
 }

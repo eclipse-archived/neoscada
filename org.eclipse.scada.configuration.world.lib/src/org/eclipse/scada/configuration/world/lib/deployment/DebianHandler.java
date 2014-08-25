@@ -104,103 +104,114 @@ public class DebianHandler extends CommonPackageHandler
 
         final Map<String, File> tempFiles = new HashMap<> ();
 
-        final SetupModuleContainer setup = this.deploy.getSetup ();
-        if ( setup != null )
+        try
         {
-            final DeploymentContext context = new DeploymentContext () {
 
-                @Override
-                public void addInstallDependency ( final String packageName )
-                {
-                    dependencies.add ( packageName );
-                }
-
-                @Override
-                public void addPostInstallationScript ( final Reader reader ) throws IOException
-                {
-                    try
-                    {
-                        CharStreams.copy ( reader, postInstallation );
-                    }
-                    finally
-                    {
-                        reader.close ();
-                    }
-                }
-
-                @Override
-                public void runAfterInstallation ( final String script )
-                {
-                    postInstallation.append ( "if test \"$1\" = configure ; then\n" );
-                    postInstallation.append ( script );
-                    postInstallation.append ( "\nfi\n" );
-                }
-
-                @Override
-                public void addFile ( final InputStream resource, final String targetFile ) throws IOException
-                {
-                    try
-                    {
-                        final File tmp = Files.createTempFile ( "data", "" ).toFile ();
-                        final File old = tempFiles.put ( targetFile, tmp );
-                        if ( old != null )
-                        {
-                            old.delete ();
-                        }
-                        try ( BufferedOutputStream os = new BufferedOutputStream ( new FileOutputStream ( tmp ) ) )
-                        {
-                            ByteStreams.copy ( resource, os );
-                        }
-                    }
-                    finally
-                    {
-                        resource.close ();
-                    }
-                }
-            };
-            runSetup ( setup, this.deploy.getOperatingSystem (), context, new SubProgressMonitor ( monitor, 1 ) );
-        }
-
-        replacements.put ( "postinst.scripts", postInstallation.toString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-
-        packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies ( dependencies ) );
-
-        final File outputFile = new File ( nodeDir.getLocation ().toFile (), packageControlFile.makeFileName () );
-        outputFile.getParentFile ().mkdirs ();
-        try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
-        {
-            deb.setPostinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
-            deb.setPostrmScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
-            deb.setPrermScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
-            deb.setPreinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
-
-            if ( !makeEquinoxList ().isEmpty () )
+            final SetupModuleContainer setup = this.deploy.getSetup ();
+            if ( setup != null )
             {
-                deb.addFile ( StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", "/etc/eclipsescada/applications", EntryInformation.DEFAULT_FILE_CONF );
+                final DeploymentContext context = new DeploymentContext () {
+
+                    @Override
+                    public void addInstallDependency ( final String packageName )
+                    {
+                        dependencies.add ( packageName );
+                    }
+
+                    @Override
+                    public void addPostInstallationScript ( final Reader reader ) throws IOException
+                    {
+                        try
+                        {
+                            CharStreams.copy ( reader, postInstallation );
+                        }
+                        finally
+                        {
+                            reader.close ();
+                        }
+                    }
+
+                    @Override
+                    public void runAfterInstallation ( final String script )
+                    {
+                        postInstallation.append ( "if test \"$1\" = configure ; then\n" );
+                        postInstallation.append ( script );
+                        postInstallation.append ( "\nfi\n" );
+                    }
+
+                    @Override
+                    public void addFile ( final InputStream resource, final String targetFile, final FileOptions... options ) throws IOException
+                    {
+                        try
+                        {
+                            final File tmp = Files.createTempFile ( "data", "" ).toFile ();
+                            final File old = tempFiles.put ( targetFile, tmp );
+                            if ( old != null )
+                            {
+                                old.delete ();
+                            }
+                            try ( BufferedOutputStream os = new BufferedOutputStream ( new FileOutputStream ( tmp ) ) )
+                            {
+                                ByteStreams.copy ( resource, os );
+                            }
+                        }
+                        finally
+                        {
+                            resource.close ();
+                        }
+                    }
+                };
+                runSetup ( setup, this.deploy.getOperatingSystem (), context, new SubProgressMonitor ( monitor, 1 ) );
             }
 
+            replacements.put ( "postinst.scripts", postInstallation.toString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+            replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+            replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+            replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+
+            packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies ( dependencies ) );
+
+            final File outputFile = new File ( nodeDir.getLocation ().toFile (), packageControlFile.makeFileName () );
+            outputFile.getParentFile ().mkdirs ();
+            try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
+            {
+                deb.setPostinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
+                deb.setPostrmScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
+                deb.setPrermScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
+                deb.setPreinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
+
+                if ( !makeEquinoxList ().isEmpty () )
+                {
+                    deb.addFile ( StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", "/etc/eclipsescada/applications", EntryInformation.DEFAULT_FILE_CONF );
+                }
+
+                for ( final Map.Entry<String, File> entry : tempFiles.entrySet () )
+                {
+                    deb.addFile ( entry.getValue (), entry.getKey (), null );
+                }
+
+                createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
+                createEquinox ( deb, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
+
+                // scoop up "src" files
+                final Path src = new File ( packageFolder, "src" ).toPath (); //$NON-NLS-1$
+                if ( src.toFile ().isDirectory () )
+                {
+                    final ScoopFilesVisitor scoop = new ScoopFilesVisitor ( src, deb, null );
+                    scoop.getIgnorePrefix ().add ( CONTROL_SCRIPTS_DIR );
+                    Files.walkFileTree ( src, scoop );
+                }
+            }
+        }
+        finally
+        {
+            nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
             for ( final Map.Entry<String, File> entry : tempFiles.entrySet () )
             {
-                deb.addFile ( entry.getValue (), entry.getKey (), null );
-            }
-
-            createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
-            createEquinox ( deb, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
-
-            // scoop up "src" files
-            final Path src = new File ( packageFolder, "src" ).toPath (); //$NON-NLS-1$
-            if ( src.toFile ().isDirectory () )
-            {
-                final ScoopFilesVisitor scoop = new ScoopFilesVisitor ( src, deb, null );
-                scoop.getIgnorePrefix ().add ( CONTROL_SCRIPTS_DIR );
-                Files.walkFileTree ( src, scoop );
+                entry.getValue ().delete ();
             }
         }
 
-        nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
     }
 
     private void runSetup ( final SetupModuleContainer setup, final OperatingSystemDescriptor operatingSystem, final DeploymentContext context, final IProgressMonitor monitor ) throws Exception

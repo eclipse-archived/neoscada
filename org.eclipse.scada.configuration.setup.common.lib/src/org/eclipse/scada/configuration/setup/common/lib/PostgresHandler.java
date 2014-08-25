@@ -16,6 +16,7 @@ import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.setup.common.Postgres;
 import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.configuration.world.lib.deployment.DeploymentContext;
+import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
 import org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 
@@ -43,11 +44,11 @@ public class PostgresHandler extends Postgres implements SetupModuleHandler
 
         if ( this.postgres.getConfigurationFile () != null && !this.postgres.getConfigurationFile ().isEmpty () )
         {
-            context.addFile ( openResource ( this.postgres.getConfigurationFile () ), confFile );
+            context.addFile ( openResource ( this.postgres.getConfigurationFile () ), confFile, FileOptions.CONFIGURATION );
         }
         if ( this.postgres.getHostBasedAccessFile () != null && !this.postgres.getHostBasedAccessFile ().isEmpty () )
         {
-            context.addFile ( openResource ( this.postgres.getHostBasedAccessFile () ), hbaFile );
+            context.addFile ( openResource ( this.postgres.getHostBasedAccessFile () ), hbaFile, FileOptions.CONFIGURATION );
         }
 
         final String command = String.format ( "esSetupPostgresDatabase -q %s %s %s", shellEscape ( dbName ), shellEscape ( username ), shellEscape ( password ) );
