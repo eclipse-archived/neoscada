@@ -174,7 +174,7 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
 
     /**
      * Decode a variant from the stream
-     * 
+     *
      * @return a decoded variant or <code>null</code> if the data type was
      *         {@link DataType#DEAD}
      * @throws ProtocolCodecException
@@ -293,7 +293,6 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
 
     private BrowseUpdate.Entry decodeBrowserUpdateEntry ( final IoBuffer data, final IoSession session ) throws ProtocolCodecException
     {
-
         final short register = (short)data.getUnsignedShort ();
         // FIXME: validate if short works
 
