@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - cleanup and extend
  *******************************************************************************/
 package org.eclipse.scada.da.client.sfp.strategy;
 
@@ -135,7 +136,7 @@ public class ReadAllStrategy
             final LinkedList<String> hier = new LinkedList<> ( Arrays.asList ( toks ) );
             if ( hier.size () == 1 )
             {
-                this.folderManager.addEntry ( new Location (), entry.getName (), entry.getName (), entry.getDescription () );
+                this.folderManager.addEntry ( Location.ROOT, entry.getName (), entry.getName (), entry.getDescription () );
             }
             else
             {
