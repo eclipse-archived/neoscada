@@ -8,10 +8,12 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.protocol.relp.service;
+package org.eclipse.scada.protocol.relp.service.main;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
+import org.eclipse.scada.protocol.relp.service.Receiver;
+import org.eclipse.scada.protocol.relp.service.StreamHandlerFactory;
 
 public class Application implements IApplication
 {

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Application starter for org.eclipse.scada.protocol.relp.service (Incubuation)
+Bundle-SymbolicName: org.eclipse.scada.protocol.relp.service.main;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.equinox.app;version="1.1.0",
+ org.eclipse.scada.protocol.relp.service;version="0.2.0"

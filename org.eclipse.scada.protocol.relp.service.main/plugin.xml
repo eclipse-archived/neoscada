@@ -9,7 +9,7 @@
             thread="main"
             visible="true">
          <run
-               class="org.eclipse.scada.protocol.relp.service.Application">
+               class="org.eclipse.scada.protocol.relp.service.main.Application">
          </run>
       </application>
    </extension>
