@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Summary Explorer (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.ui.summary.explorer;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.ui.summary.explorer.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.eclipse.ui,
@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.databinding.property;bundle-version="1.4.0",
  org.eclipse.jface.databinding;bundle-version="1.5.0",
  org.eclipse.scada.ui.databinding;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.connection.provider;version="0.1.0",
  org.eclipse.scada.core.ui.connection.data;version="0.1.0",
@@ -21,10 +21,11 @@ Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.da.client;version="0.1.0",
  org.eclipse.scada.da.connection.provider;version="0.1.0",
  org.eclipse.scada.da.core;version="0.1.0",
- org.eclipse.scada.da.core.browser;version="0.1.0",
+ org.eclipse.scada.da.core.browser;version="0.2.0",
  org.eclipse.scada.da.ui.styles;version="0.1.0",
  org.eclipse.scada.ui.blink;version="0.1.0",
  org.eclipse.scada.ui.databinding;version="0.1.0",
+ org.eclipse.scada.ui.utils;version="0.1.0",
  org.eclipse.scada.utils.beans;version="0.1.0",
  org.slf4j;version="1.5.0"
 Bundle-ActivationPolicy: lazy
