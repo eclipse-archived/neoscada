@@ -23,6 +23,7 @@ import java.util.Set;
 import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
 import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 import org.eclipse.scada.utils.pkg.deb.FileContentProvider;
+import org.eclipse.scada.utils.pkg.deb.TextFileContentProvider;
 
 public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
 {
@@ -131,7 +132,14 @@ public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
 
         final EntryInformation entry = new EntryInformation ( "root", "root", 0644 | ( exec ? 0111 : 0 ), conf );
 
-        this.builder.addFile ( new FileContentProvider ( file.toFile () ), name, entry );
+        if ( conf )
+        {
+            this.builder.addFile ( new TextFileContentProvider ( file.toFile () ), name, entry );
+        }
+        else
+        {
+            this.builder.addFile ( new FileContentProvider ( file.toFile () ), name, entry );
+        }
 
         return FileVisitResult.CONTINUE;
     }
