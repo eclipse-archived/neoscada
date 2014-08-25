@@ -103,6 +103,7 @@ public class DebianHandler extends CommonPackageHandler
         final StringBuilder postInstallation = new StringBuilder ();
 
         final Map<String, File> tempFiles = new HashMap<> ();
+        final Map<String, EntryInformation> tempFilesOptions = new HashMap<> ();
 
         try
         {
@@ -154,6 +155,22 @@ public class DebianHandler extends CommonPackageHandler
                             {
                                 ByteStreams.copy ( resource, os );
                             }
+
+                            EntryInformation ei = null;
+
+                            for ( final FileOptions option : options )
+                            {
+                                switch ( option )
+                                {
+                                    case CONFIGURATION:
+                                        ei = EntryInformation.DEFAULT_FILE_CONF;
+                                        break;
+                                }
+                            }
+                            if ( ei != null )
+                            {
+                                tempFilesOptions.put ( targetFile, ei );
+                            }
                         }
                         finally
                         {
@@ -187,7 +204,7 @@ public class DebianHandler extends CommonPackageHandler
 
                 for ( final Map.Entry<String, File> entry : tempFiles.entrySet () )
                 {
-                    deb.addFile ( entry.getValue (), entry.getKey (), null );
+                    deb.addFile ( entry.getValue (), entry.getKey (), tempFilesOptions.get ( entry.getKey () ) );
                 }
 
                 createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
