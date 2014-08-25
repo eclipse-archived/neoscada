@@ -163,9 +163,6 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
         return createCallbackHandler ( message.getCallbackHandlerId () );
     }
 
-    /**
-     * @since 1.1
-     */
     protected synchronized void failSession ( final Exception e )
     {
         this.logonInProgress = false;
@@ -173,9 +170,6 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
         requestClose ( false );
     }
 
-    /**
-     * @since 1.1
-     */
     protected synchronized void setSession ( final Future<T> sessionFuture ) throws Exception
     {
         this.logonInProgress = false;
@@ -195,9 +189,6 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
         } );
     }
 
-    /**
-     * @since 1.1
-     */
     protected void initializeSession ( final T session )
     {
     }
@@ -276,9 +267,6 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
         }
     }
 
-    /**
-     * @since 1.1
-     */
     protected CallbackHandler createCallbackHandler ( final Long callbackHandlerId )
     {
         if ( callbackHandlerId == null )
