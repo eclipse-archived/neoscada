@@ -22,11 +22,11 @@ import org.eclipse.scada.core.client.Connection;
 import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.client.ConnectionStateListener;
 import org.eclipse.scada.core.connection.provider.ConnectionService;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.scada.core.ui.connection.Activator;
 import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
 import org.eclipse.scada.core.ui.connection.creator.ConnectionCreatorHelper;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
@@ -97,7 +97,6 @@ public class ConnectionManager
         @Override
         public void stateChange ( final Connection connection, final ConnectionState state, final Throwable error )
         {
-
             final IStatus status = makeStatus ( connection, state, error );
             Activator.getDefault ().getLog ().log ( status );
 
