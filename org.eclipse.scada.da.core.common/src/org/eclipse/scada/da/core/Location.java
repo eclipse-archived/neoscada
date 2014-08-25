@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add default ROOT instance
  *******************************************************************************/
 package org.eclipse.scada.da.core;
 
@@ -23,6 +24,8 @@ import org.eclipse.scada.utils.str.StringHelper;
 public class Location
 {
     private final String[] location;
+
+    public static final Location ROOT = new Location ();
 
     public Location ( final String... location )
     {
@@ -44,6 +47,10 @@ public class Location
         this.location = result.toArray ( new String[result.size ()] );
     }
 
+    /**
+     * @deprecated Use {@value Location#ROOT} instead
+     */
+    @Deprecated
     public Location ()
     {
         this.location = new String[0];
@@ -61,6 +68,7 @@ public class Location
 
     /**
      * Returns the path elements in an unmodifiable list
+     *
      * @return the path elements as list
      */
     public List<String> asList ()
