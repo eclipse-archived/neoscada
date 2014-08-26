@@ -1341,7 +1341,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_4EDy0B2LEeSUVPL0uoD5Pg" name="automaticCreate : EBoolean = false" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@5650e419{platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//deployment/CommonDeploymentMechanism/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_4EDy0B2LEeSUVPL0uoD5Pg" name="automaticCreate : EBoolean = false" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/CommonDeploymentMechanism/automaticCreate"/>
           <semanticElements xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/CommonDeploymentMechanism/automaticCreate"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_9KdE4B2LEeSUVPL0uoD5Pg" labelAlignment="LEFT">
@@ -1352,7 +1352,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_-Cx0AB2LEeSUVPL0uoD5Pg" name="recreateBackups : EIntegerObject" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@205e1adf{platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//deployment/CommonDeploymentMechanism/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_-Cx0AB2LEeSUVPL0uoD5Pg" name="recreateBackups : EIntegerObject" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/CommonDeploymentMechanism/recreateBackups"/>
           <semanticElements xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/CommonDeploymentMechanism/recreateBackups"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BUPkwB2MEeSUVPL0uoD5Pg" labelAlignment="LEFT">

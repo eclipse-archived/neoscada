@@ -8,13 +8,11 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.world.lib.deployment;
+package org.eclipse.scada.configuration.world.lib.deployment.debian;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
@@ -37,6 +35,11 @@ import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
+import org.eclipse.scada.configuration.world.lib.deployment.ChangeEntryComparator;
+import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.Contents;
+import org.eclipse.scada.configuration.world.lib.deployment.DeploymentContext;
+import org.eclipse.scada.configuration.world.lib.deployment.ScoopFilesVisitor;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.configuration.world.lib.setup.SubModuleHandler;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
@@ -46,7 +49,6 @@ import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
 import org.eclipse.scada.utils.str.StringHelper;
 
-import com.google.common.io.ByteStreams;
 import com.google.common.io.CharStreams;
 
 public class DebianHandler extends CommonPackageHandler
@@ -98,95 +100,23 @@ public class DebianHandler extends CommonPackageHandler
         replacements.put ( "create.apps", makeCreate ( this.deploy ) ); //$NON-NLS-1$
         replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
 
-        final Set<String> dependencies = new HashSet<> ();
-
-        final StringBuilder postInstallation = new StringBuilder ();
-
-        final Map<String, File> tempFiles = new HashMap<> ();
-        final Map<String, EntryInformation> tempFilesOptions = new HashMap<> ();
-
         try
         {
+            final DebianDeploymentContext context = new DebianDeploymentContext ();
 
             final SetupModuleContainer setup = this.deploy.getSetup ();
             if ( setup != null )
             {
-                final DeploymentContext context = new DeploymentContext () {
 
-                    @Override
-                    public void addInstallDependency ( final String packageName )
-                    {
-                        dependencies.add ( packageName );
-                    }
-
-                    @Override
-                    public void addPostInstallationScript ( final Reader reader ) throws IOException
-                    {
-                        try
-                        {
-                            CharStreams.copy ( reader, postInstallation );
-                        }
-                        finally
-                        {
-                            reader.close ();
-                        }
-                    }
-
-                    @Override
-                    public void runAfterInstallation ( final String script )
-                    {
-                        postInstallation.append ( "if test \"$1\" = configure ; then\n" );
-                        postInstallation.append ( script );
-                        postInstallation.append ( "\nfi\n" );
-                    }
-
-                    @Override
-                    public void addFile ( final InputStream resource, final String targetFile, final FileOptions... options ) throws IOException
-                    {
-                        try
-                        {
-                            final File tmp = Files.createTempFile ( "data", "" ).toFile ();
-                            final File old = tempFiles.put ( targetFile, tmp );
-                            if ( old != null )
-                            {
-                                old.delete ();
-                            }
-                            try ( BufferedOutputStream os = new BufferedOutputStream ( new FileOutputStream ( tmp ) ) )
-                            {
-                                ByteStreams.copy ( resource, os );
-                            }
-
-                            EntryInformation ei = null;
-
-                            for ( final FileOptions option : options )
-                            {
-                                switch ( option )
-                                {
-                                    case CONFIGURATION:
-                                        ei = EntryInformation.DEFAULT_FILE_CONF;
-                                        break;
-                                }
-                            }
-                            if ( ei != null )
-                            {
-                                tempFilesOptions.put ( targetFile, ei );
-                            }
-                        }
-                        finally
-                        {
-                            resource.close ();
-                        }
-                    }
-                };
                 runSetup ( setup, this.deploy.getOperatingSystem (), context, new SubProgressMonitor ( monitor, 1 ) );
             }
 
-            replacements.put ( "postinst.scripts", postInstallation.toString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+            replacements.put ( "postinst.scripts", context.getPostInstallationString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
             replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
             replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
             replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-            packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies ( dependencies ) );
+            packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies ( context.getDependencies () ) );
 
             final File outputFile = new File ( nodeDir.getLocation ().toFile (), packageControlFile.makeFileName () );
             outputFile.getParentFile ().mkdirs ();
@@ -202,10 +132,7 @@ public class DebianHandler extends CommonPackageHandler
                     deb.addFile ( StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", "/etc/eclipsescada/applications", EntryInformation.DEFAULT_FILE_CONF );
                 }
 
-                for ( final Map.Entry<String, File> entry : tempFiles.entrySet () )
-                {
-                    deb.addFile ( entry.getValue (), entry.getKey (), tempFilesOptions.get ( entry.getKey () ) );
-                }
+                context.scoopFiles ( deb );
 
                 createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
                 createEquinox ( deb, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
@@ -223,12 +150,7 @@ public class DebianHandler extends CommonPackageHandler
         finally
         {
             nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
-            for ( final Map.Entry<String, File> entry : tempFiles.entrySet () )
-            {
-                entry.getValue ().delete ();
-            }
         }
-
     }
 
     private void runSetup ( final SetupModuleContainer setup, final OperatingSystemDescriptor operatingSystem, final DeploymentContext context, final IProgressMonitor monitor ) throws Exception
