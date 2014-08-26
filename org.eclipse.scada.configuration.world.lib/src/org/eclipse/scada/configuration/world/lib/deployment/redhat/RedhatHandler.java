@@ -288,8 +288,8 @@ public class RedhatHandler extends CommonPackageHandler
             if ( di.getMode () != null || di.getOwner () != null || di.getGroup () != null )
             {
                 final String mode = di.getMode () == null ? "-" : String.format ( "%04o", di.getMode () );
-                final String user = di.getOwner () == null ? di.getOwner () : "-";
-                final String group = di.getGroup () == null ? di.getGroup () : "-";
+                final String user = di.getOwner () == null ? "-" : di.getOwner ();
+                final String group = di.getGroup () == null ? "-" : di.getGroup ();
 
                 line.append ( String.format ( "%%attr(%s,%s,%s) ", mode, user, group ) );
             }
