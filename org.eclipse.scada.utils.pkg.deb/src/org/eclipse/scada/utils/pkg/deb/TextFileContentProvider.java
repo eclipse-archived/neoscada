@@ -26,19 +26,23 @@ public class TextFileContentProvider implements ContentProvider
 
     public TextFileContentProvider ( final File file ) throws FileNotFoundException, IOException
     {
-        if ( file != null )
+        try ( FileReader reader = new FileReader ( file ) )
         {
-            String data = CharStreams.toString ( new FileReader ( file ) );
-            if ( needFix () )
+            if ( file != null )
             {
-                data = fix ( data );
+                String data = CharStreams.toString ( reader );
+                if ( needFix () )
+                {
+                    data = fix ( data );
+                }
+                this.data = data.getBytes ( StandardCharsets.UTF_8 );
             }
-            this.data = data.getBytes ( StandardCharsets.UTF_8 );
+            else
+            {
+                this.data = null;
+            }
         }
-        else
-        {
-            this.data = null;
-        }
+
     }
 
     private static boolean needFix ()
