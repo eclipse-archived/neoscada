@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.lib.deployment.ChangeEntryComparator;
+import org.eclipse.scada.configuration.world.lib.deployment.CommonHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.Contents;
 import org.eclipse.scada.configuration.world.lib.deployment.DeploymentContext;
@@ -122,10 +123,10 @@ public class DebianHandler extends CommonPackageHandler
             outputFile.getParentFile ().mkdirs ();
             try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
             {
-                deb.setPostinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
-                deb.setPostrmScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
-                deb.setPrermScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
-                deb.setPreinstScript ( Contents.createContent ( DebianHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
+                deb.setPostinstScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
+                deb.setPostrmScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
+                deb.setPrermScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
+                deb.setPreinstScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
 
                 if ( !makeEquinoxList ().isEmpty () )
                 {

@@ -184,7 +184,7 @@ public abstract class CommonPackageHandler extends CommonHandler
             case REDHAT_SYSV:
                 return new RedhatSystemVHandler ();
             case UPSTART:
-                return new UpstartHandler ();
+                return new UpstartHandler ( this.deploy.getOperatingSystem () );
             case LSB_SYSV:
                 return new LSBSystemVHandler ();
             case DEFAULT:

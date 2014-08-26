@@ -72,4 +72,16 @@ public final class Properties
 
         return result;
     }
+
+    public static Boolean isProperty ( final Collection<PropertyEntry> properties, final String name, final Boolean defaultValue )
+    {
+        for ( final PropertyEntry pe : properties )
+        {
+            if ( pe.getKey ().equals ( name ) )
+            {
+                return Boolean.parseBoolean ( pe.getValue () );
+            }
+        }
+        return defaultValue;
+    }
 }

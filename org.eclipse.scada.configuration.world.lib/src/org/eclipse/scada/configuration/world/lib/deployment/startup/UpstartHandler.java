@@ -16,24 +16,45 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.world.lib.deployment.Contents;
+import org.eclipse.scada.configuration.world.lib.deployment.OperatingSystemDescriptors;
 import org.eclipse.scada.configuration.world.lib.deployment.ResourceInformation;
 import org.eclipse.scada.configuration.world.lib.deployment.ResourceInformation.Type;
+import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
 import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 
 public class UpstartHandler implements StartupHandler
 {
 
+    private final OperatingSystemDescriptor operatingSystem;
+
+    public UpstartHandler ( final OperatingSystemDescriptor operatingSystem )
+    {
+        this.operatingSystem = operatingSystem;
+    }
+
+    protected boolean needScreenFix ()
+    {
+        return OperatingSystemDescriptors.isProperty ( this.operatingSystem, "screen.pre.start", false ); //$NON-NLS-1$
+    }
+
     @Override
     public void createDriver ( final BinaryPackageBuilder builder, final String driverName, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
     {
-        builder.addFile ( Contents.createContent ( RedhatSystemVHandler.class.getResourceAsStream ( "templates/upstart/driver.upstart.conf" ), replacements ), "/etc/init/scada.driver." + driverName + ".conf", EntryInformation.DEFAULT_FILE_CONF );
+        builder.addFile ( Contents.createContent ( UpstartHandler.class.getResourceAsStream ( "templates/upstart/driver.upstart.conf" ), replacements ), "/etc/init/scada.driver." + driverName + ".conf", EntryInformation.DEFAULT_FILE_CONF );
     }
 
     @Override
     public void createEquinox ( final BinaryPackageBuilder builder, final String appName, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
     {
-        builder.addFile ( Contents.createContent ( RedhatSystemVHandler.class.getResourceAsStream ( "templates/upstart/app.upstart.conf" ), replacements ), "/etc/init/scada.app." + appName + ".conf", EntryInformation.DEFAULT_FILE_CONF );
+        if ( needScreenFix () )
+        {
+            builder.addFile ( Contents.createContent ( UpstartHandler.class.getResourceAsStream ( "templates/upstart/app.upstart.sf.conf" ), replacements ), "/etc/init/scada.app." + appName + ".conf", EntryInformation.DEFAULT_FILE_CONF );
+        }
+        else
+        {
+            builder.addFile ( Contents.createContent ( UpstartHandler.class.getResourceAsStream ( "templates/upstart/app.upstart.conf" ), replacements ), "/etc/init/scada.app." + appName + ".conf", EntryInformation.DEFAULT_FILE_CONF );
+        }
     }
 
     @Override
