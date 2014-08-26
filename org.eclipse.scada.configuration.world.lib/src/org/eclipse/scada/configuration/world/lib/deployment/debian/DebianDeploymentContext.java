@@ -15,49 +15,24 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Reader;
 import java.nio.file.Files;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-import org.eclipse.scada.configuration.world.lib.deployment.DeploymentContext;
+import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageDeploymentContext;
+import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
 import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
+import org.eclipse.scada.utils.pkg.deb.ContentProvider;
 import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
 import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 
 import com.google.common.io.ByteStreams;
-import com.google.common.io.CharStreams;
 
-public class DebianDeploymentContext implements DeploymentContext
+public class DebianDeploymentContext extends CommonPackageDeploymentContext
 {
-    private final Set<String> dependencies = new HashSet<> ();
-
-    private final StringBuilder postInstallation = new StringBuilder ();
-
-    private final Map<String, File> tempFiles = new HashMap<> ();
-
     private final Map<String, EntryInformation> tempFilesOptions = new HashMap<> ();
 
-    @Override
-    public void addInstallDependency ( final String packageName )
-    {
-        this.dependencies.add ( packageName );
-    }
-
-    @Override
-    public void addPostInstallationScript ( final Reader reader ) throws IOException
-    {
-        try
-        {
-            CharStreams.copy ( reader, this.postInstallation );
-        }
-        finally
-        {
-            reader.close ();
-        }
-    }
+    private final Map<String, File> tempFiles = new HashMap<> ();
 
     @Override
     public void runAfterInstallation ( final String script )
@@ -67,10 +42,32 @@ public class DebianDeploymentContext implements DeploymentContext
         this.postInstallation.append ( "\nfi\n" );
     }
 
-    @Override
-    public void addFile ( final InputStream resource, final String targetFile, final FileOptions... options ) throws IOException
+    public void scoopFiles ( final DebianPackageWriter deb ) throws IOException
     {
-        try
+        for ( final Map.Entry<String, File> entry : this.tempFiles.entrySet () )
+        {
+            deb.addFile ( entry.getValue (), entry.getKey (), this.tempFilesOptions.get ( entry.getKey () ) );
+        }
+        deleteTempFiles ();
+    }
+
+    protected void deleteTempFiles ()
+    {
+        for ( final Map.Entry<String, File> entry : this.tempFiles.entrySet () )
+        {
+            entry.getValue ().delete ();
+        }
+    }
+
+    @Override
+    public void addDirectory ( final String targetDirectory, final FileInformation fileInformation )
+    {
+    }
+
+    @Override
+    public void addFile ( final ContentProvider content, final String targetFile, final FileInformation fileInformation ) throws IOException
+    {
+        try ( InputStream resource = content.createInputStream () )
         {
             final File tmp = Files.createTempFile ( "data", "" ).toFile ();
             final File old = this.tempFiles.put ( targetFile, tmp );
@@ -82,45 +79,25 @@ public class DebianDeploymentContext implements DeploymentContext
             {
                 ByteStreams.copy ( resource, os );
             }
+        }
 
-            EntryInformation ei = null;
+        if ( fileInformation != null )
+        {
+            boolean conf = false;
 
-            for ( final FileOptions option : options )
+            for ( final FileOptions option : fileInformation.getOptions () )
             {
                 switch ( option )
                 {
                     case CONFIGURATION:
-                        ei = EntryInformation.DEFAULT_FILE_CONF;
+                        conf = true;
                         break;
                 }
             }
-            if ( ei != null )
-            {
-                this.tempFilesOptions.put ( targetFile, ei );
-            }
-        }
-        finally
-        {
-            resource.close ();
-        }
-    }
 
-    public Set<String> getDependencies ()
-    {
-        return this.dependencies;
-    }
+            final EntryInformation ei = new EntryInformation ( fileInformation.getOwner (), fileInformation.getGroup (), fileInformation.getMode (), conf );
 
-    public String getPostInstallationString ()
-    {
-        return this.postInstallation.toString ();
-    }
-
-    public void scoopFiles ( final DebianPackageWriter deb ) throws IOException
-    {
-        for ( final Map.Entry<String, File> entry : this.tempFiles.entrySet () )
-        {
-            deb.addFile ( entry.getValue (), entry.getKey (), this.tempFilesOptions.get ( entry.getKey () ) );
-            entry.getValue ().delete ();
+            this.tempFilesOptions.put ( targetFile, ei );
         }
     }
 }

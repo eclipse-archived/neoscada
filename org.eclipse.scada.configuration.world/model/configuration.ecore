@@ -1053,9 +1053,7 @@
       nsPrefix="deployment">
     <eClassifiers xsi:type="ecore:EClass" name="DeploymentMechanism" abstract="true"
         interface="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="DebianDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="setup" eType="#//setup/SetupModuleContainer"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DebianDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism"/>
     <eClassifiers xsi:type="ecore:EClass" name="Author">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1095,6 +1093,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="automaticCreate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="recreateBackups" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="setup" eType="#//setup/SetupModuleContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"

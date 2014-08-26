@@ -29,7 +29,6 @@ import java.util.Set;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.scada.configuration.lib.Nodes;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
@@ -42,7 +41,6 @@ import org.eclipse.scada.configuration.world.lib.deployment.Contents;
 import org.eclipse.scada.configuration.world.lib.deployment.ScoopFilesVisitor;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
-import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
 import org.eclipse.scada.utils.str.StringHelper;
 
@@ -71,6 +69,15 @@ public class DebianHandler extends CommonPackageHandler
     {
         final File packageFolder = getPackageFolder ( nodeDir );
 
+        final DebianDeploymentContext context = new DebianDeploymentContext ();
+        setDeploymentContext ( context );
+
+        // call super
+
+        super.handleProcess ( nodeDir, monitor, properties );
+
+        // process self
+
         final String packageName = getPackageName ();
 
         final String version = findVersion ();
@@ -97,46 +104,38 @@ public class DebianHandler extends CommonPackageHandler
         replacements.put ( "create.apps", makeCreate ( this.deploy ) ); //$NON-NLS-1$
         replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
 
+        createDrivers ( nodeDir, monitor, packageFolder, replacements );
+        createEquinox ( nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
+
         try
         {
-            final DebianDeploymentContext context = new DebianDeploymentContext ();
-
-            runSetup ( this.deploy.getSetup (), context, new SubProgressMonitor ( monitor, 1 ) );
-
-            replacements.put ( "postinst.scripts", context.getPostInstallationString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-            replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-            replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-            replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+            // scoop up "src" files
+            final Path src = new File ( packageFolder, "src" ).toPath (); //$NON-NLS-1$
+            if ( src.toFile ().isDirectory () )
+            {
+                final ScoopFilesVisitor scoop = new ScoopFilesVisitor ( src, context, null );
+                scoop.getIgnorePrefix ().add ( CONTROL_SCRIPTS_DIR );
+                Files.walkFileTree ( src, scoop );
+            }
 
             packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies ( context.getDependencies () ) );
 
             final File outputFile = new File ( nodeDir.getLocation ().toFile (), packageControlFile.makeFileName () );
             outputFile.getParentFile ().mkdirs ();
+
             try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
             {
+                replacements.put ( "postinst.scripts", context.getPostInstallationString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+
                 deb.setPostinstScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
                 deb.setPostrmScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
                 deb.setPrermScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
                 deb.setPreinstScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/preinst" ), replacements ) ); //$NON-NLS-1$
 
-                if ( !makeEquinoxList ().isEmpty () )
-                {
-                    deb.addFile ( StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", "/etc/eclipsescada/applications", EntryInformation.DEFAULT_FILE_CONF );
-                }
-
                 context.scoopFiles ( deb );
-
-                createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
-                createEquinox ( deb, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
-
-                // scoop up "src" files
-                final Path src = new File ( packageFolder, "src" ).toPath (); //$NON-NLS-1$
-                if ( src.toFile ().isDirectory () )
-                {
-                    final ScoopFilesVisitor scoop = new ScoopFilesVisitor ( src, deb, null );
-                    scoop.getIgnorePrefix ().add ( CONTROL_SCRIPTS_DIR );
-                    Files.walkFileTree ( src, scoop );
-                }
             }
         }
         finally

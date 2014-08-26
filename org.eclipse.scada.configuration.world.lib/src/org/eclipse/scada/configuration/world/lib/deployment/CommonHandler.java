@@ -53,6 +53,7 @@ public abstract class CommonHandler implements NodeElementProcessor
         }
 
         handleProcess ( nodeDir, monitor, properties );
+        monitor.done ();
     }
 
     protected abstract String getBaseFolderName ();

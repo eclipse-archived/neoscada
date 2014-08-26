@@ -11,8 +11,9 @@
 package org.eclipse.scada.configuration.world.lib.deployment;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.Reader;
+
+import org.eclipse.scada.utils.pkg.deb.ContentProvider;
 
 /**
  * Allow access to the context of the deployment <br/>
@@ -57,7 +58,7 @@ public interface DeploymentContext
      * case of an exception.
      * </p>
      *
-     * @param resource
+     * @param content
      *            the content to add
      * @param targetFile
      *            the name of the file in the target system
@@ -66,5 +67,7 @@ public interface DeploymentContext
      * @throws IOException
      *             if anything goes wrong
      */
-    public void addFile ( InputStream resource, String targetFile, FileOptions... options ) throws IOException;
+    public void addFile ( ContentProvider content, String targetFile, FileInformation fileInformation ) throws IOException;
+
+    public void addDirectory ( String targetDirectory, FileInformation fileInformation );
 }

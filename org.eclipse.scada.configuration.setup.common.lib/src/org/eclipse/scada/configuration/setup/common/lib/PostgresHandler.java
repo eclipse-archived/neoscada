@@ -16,7 +16,9 @@ import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.setup.common.Postgres;
 import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.configuration.world.lib.deployment.DeploymentContext;
+import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
 import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
+import org.eclipse.scada.configuration.world.lib.deployment.OperatingSystemDescriptors;
 import org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 
@@ -34,6 +36,13 @@ public class PostgresHandler extends Postgres implements SetupModuleHandler
         final String username = this.postgres.getDatabase ().getUsername ();
         final String password = this.postgres.getDatabase ().getPassword ();
 
+        String postgresUser = this.postgres.getPostgresUser ();
+        if ( postgresUser == null || postgresUser.isEmpty () )
+        {
+            postgresUser = OperatingSystemDescriptors.getProperty ( operatingSystem, POSTGRES_USER_KEY, "root" );
+        }
+        final String postgresGroup = OperatingSystemDescriptors.getProperty ( operatingSystem, POSTGRES_GROUP_KEY, "root" );
+
         final Map<String, String> properties = Properties.makeAttributes ( operatingSystem.getProperties () );
 
         final String confFile = getConfigurationFile ( properties );
@@ -44,20 +53,14 @@ public class PostgresHandler extends Postgres implements SetupModuleHandler
 
         if ( this.postgres.getConfigurationFile () != null && !this.postgres.getConfigurationFile ().isEmpty () )
         {
-            context.addFile ( openResource ( this.postgres.getConfigurationFile () ), confFile, FileOptions.CONFIGURATION );
+            context.addFile ( new InputStreamContentProvider ( openResource ( this.postgres.getConfigurationFile () ) ), confFile, new FileInformation ( 0640, postgresUser, postgresGroup, FileOptions.CONFIGURATION ) );
         }
         if ( this.postgres.getHostBasedAccessFile () != null && !this.postgres.getHostBasedAccessFile ().isEmpty () )
         {
-            context.addFile ( openResource ( this.postgres.getHostBasedAccessFile () ), hbaFile, FileOptions.CONFIGURATION );
+            context.addFile ( new InputStreamContentProvider ( openResource ( this.postgres.getHostBasedAccessFile () ) ), hbaFile, new FileInformation ( 0644, postgresUser, postgresGroup, FileOptions.CONFIGURATION ) );
         }
 
         final String command = String.format ( "esSetupPostgresDatabase -q %s %s %s", shellEscape ( dbName ), shellEscape ( username ), shellEscape ( password ) );
-
-        String postgresUser = this.postgres.getPostgresUser ();
-        if ( postgresUser == null || postgresUser.isEmpty () )
-        {
-            postgresUser = Properties.get ( operatingSystem.getProperties (), POSTGRES_USER_KEY, null );
-        }
 
         if ( postgresUser != null && !postgresUser.isEmpty () )
         {

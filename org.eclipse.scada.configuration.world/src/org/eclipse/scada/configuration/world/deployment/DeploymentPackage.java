@@ -186,13 +186,22 @@ public interface DeploymentPackage extends EPackage
     int COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 7;
 
     /**
+     * The feature id for the '<em><b>Setup</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DEPLOYMENT_MECHANISM__SETUP = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Common Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 8;
+    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 9;
 
     /**
      * The number of operations of the '<em>Common Deployment Mechanism</em>' class.
@@ -292,7 +301,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DEBIAN_DEPLOYMENT_MECHANISM__SETUP = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 0;
+    int DEBIAN_DEPLOYMENT_MECHANISM__SETUP = COMMON_DEPLOYMENT_MECHANISM__SETUP;
 
     /**
      * The number of structural features of the '<em>Debian Deployment Mechanism</em>' class.
@@ -301,7 +310,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DEBIAN_DEPLOYMENT_MECHANISM_FEATURE_COUNT = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 1;
+    int DEBIAN_DEPLOYMENT_MECHANISM_FEATURE_COUNT = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Debian Deployment Mechanism</em>' class.
@@ -439,6 +448,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int REDHAT_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS = COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS;
+
+    /**
+     * The feature id for the '<em><b>Setup</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REDHAT_DEPLOYMENT_MECHANISM__SETUP = COMMON_DEPLOYMENT_MECHANISM__SETUP;
 
     /**
      * The feature id for the '<em><b>License</b></em>' attribute.
@@ -1022,17 +1040,6 @@ public interface DeploymentPackage extends EPackage
     EClass getDebianDeploymentMechanism ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism#getSetup <em>Setup</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Setup</em>'.
-     * @see org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism#getSetup()
-     * @see #getDebianDeploymentMechanism()
-     * @generated
-     */
-    EReference getDebianDeploymentMechanism_Setup ();
-
-    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.Author <em>Author</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1203,6 +1210,17 @@ public interface DeploymentPackage extends EPackage
      * @generated
      */
     EAttribute getCommonDeploymentMechanism_RecreateBackups ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getSetup <em>Setup</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Setup</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getSetup()
+     * @see #getCommonDeploymentMechanism()
+     * @generated
+     */
+    EReference getCommonDeploymentMechanism_Setup ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
@@ -1611,14 +1629,6 @@ public interface DeploymentPackage extends EPackage
         EClass DEBIAN_DEPLOYMENT_MECHANISM = eINSTANCE.getDebianDeploymentMechanism ();
 
         /**
-         * The meta object literal for the '<em><b>Setup</b></em>' reference feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference DEBIAN_DEPLOYMENT_MECHANISM__SETUP = eINSTANCE.getDebianDeploymentMechanism_Setup ();
-
-        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.AuthorImpl <em>Author</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1753,6 +1763,14 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS = eINSTANCE.getCommonDeploymentMechanism_RecreateBackups ();
+
+        /**
+         * The meta object literal for the '<em><b>Setup</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference COMMON_DEPLOYMENT_MECHANISM__SETUP = eINSTANCE.getCommonDeploymentMechanism_Setup ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl <em>Change Entry</em>}' class.

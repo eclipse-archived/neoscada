@@ -11,7 +11,6 @@
  */
 package org.eclipse.scada.configuration.world.setup;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Sub Container Module</b></em>'.

@@ -38,9 +38,7 @@ import org.eclipse.scada.configuration.world.setup.SubContainerModule;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.world.setup.impl.SubContainerModuleImpl#getContainer
- * <em>Container</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.SubContainerModuleImpl#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,11 +47,9 @@ import org.eclipse.scada.configuration.world.setup.SubContainerModule;
 public class SubContainerModuleImpl extends MinimalEObjectImpl.Container implements SubContainerModule
 {
     /**
-     * The cached value of the '{@link #getContainer() <em>Container</em>}'
-     * reference.
+     * The cached value of the '{@link #getContainer() <em>Container</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getContainer()
      * @generated
      * @ordered
@@ -63,7 +59,6 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected SubContainerModuleImpl ()
@@ -74,7 +69,6 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
@@ -86,53 +80,46 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public SetupModuleContainer getContainer ()
     {
-        if ( this.container != null && this.container.eIsProxy () )
+        if ( container != null && container.eIsProxy () )
         {
-            final InternalEObject oldContainer = (InternalEObject)this.container;
-            this.container = (SetupModuleContainer)eResolveProxy ( oldContainer );
-            if ( this.container != oldContainer )
+            InternalEObject oldContainer = (InternalEObject)container;
+            container = (SetupModuleContainer)eResolveProxy ( oldContainer );
+            if ( container != oldContainer )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SetupPackage.SUB_CONTAINER_MODULE__CONTAINER, oldContainer, this.container ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, SetupPackage.SUB_CONTAINER_MODULE__CONTAINER, oldContainer, container ) );
             }
         }
-        return this.container;
+        return container;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     public SetupModuleContainer basicGetContainer ()
     {
-        return this.container;
+        return container;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void setContainer ( final SetupModuleContainer newContainer )
+    public void setContainer ( SetupModuleContainer newContainer )
     {
-        final SetupModuleContainer oldContainer = this.container;
-        this.container = newContainer;
+        SetupModuleContainer oldContainer = container;
+        container = newContainer;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, SetupPackage.SUB_CONTAINER_MODULE__CONTAINER, oldContainer, this.container ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, SetupPackage.SUB_CONTAINER_MODULE__CONTAINER, oldContainer, container ) );
     }
 
     /**
@@ -172,19 +159,16 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
             case SetupPackage.SUB_CONTAINER_MODULE__CONTAINER:
                 if ( resolve )
-                {
                     return getContainer ();
-                }
                 return basicGetContainer ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -193,11 +177,10 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -211,11 +194,10 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -229,16 +211,15 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case SetupPackage.SUB_CONTAINER_MODULE__CONTAINER:
-                return this.container != null;
+                return container != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -246,11 +227,10 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

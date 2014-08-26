@@ -26,6 +26,8 @@ public class Postgres
 
     public static final String POSTGRES_USER_KEY = "postgresql.user"; //$NON-NLS-1$
 
+    public static final String POSTGRES_GROUP_KEY = "postgresql.group"; //$NON-NLS-1$
+
     public static final String POSTGRES_VERSION_VALUE = "9.3"; //$NON-NLS-1$
 
     public static final String PLUGIN_ID = "org.eclipse.scada.configuration.setup.common"; //$NON-NLS-1$

@@ -20,8 +20,6 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
-import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 import org.eclipse.scada.utils.pkg.deb.FileContentProvider;
 import org.eclipse.scada.utils.pkg.deb.TextFileContentProvider;
 
@@ -29,7 +27,7 @@ public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
 {
     private final Path baseDir;
 
-    private final BinaryPackageBuilder builder;
+    private final DeploymentContext context;
 
     private final String targetPrefix;
 
@@ -39,10 +37,10 @@ public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
 
     private Set<String> confPrefix = new HashSet<> ();
 
-    public ScoopFilesVisitor ( final Path baseDir, final BinaryPackageBuilder builder, final String targetPrefix )
+    public ScoopFilesVisitor ( final Path baseDir, final DeploymentContext context, final String targetPrefix )
     {
         this.baseDir = baseDir;
-        this.builder = builder;
+        this.context = context;
         this.targetPrefix = targetPrefix;
 
         this.execPrefix.add ( "/bin" );
@@ -130,15 +128,17 @@ public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
             }
         }
 
-        final EntryInformation entry = new EntryInformation ( "root", "root", 0644 | ( exec ? 0111 : 0 ), conf );
-
-        if ( conf )
+        if ( exec )
         {
-            this.builder.addFile ( new TextFileContentProvider ( file.toFile () ), name, entry );
+            this.context.addFile ( new FileContentProvider ( file.toFile () ), name, new FileInformation ( 0755, "root", "root" ) );
+        }
+        else if ( conf )
+        {
+            this.context.addFile ( new TextFileContentProvider ( file.toFile () ), name, new FileInformation ( 0644, "root", "eclipsescada", FileOptions.CONFIGURATION ) );
         }
         else
         {
-            this.builder.addFile ( new FileContentProvider ( file.toFile () ), name, entry );
+            this.context.addFile ( new FileContentProvider ( file.toFile () ), name, null );
         }
 
         return FileVisitResult.CONTINUE;

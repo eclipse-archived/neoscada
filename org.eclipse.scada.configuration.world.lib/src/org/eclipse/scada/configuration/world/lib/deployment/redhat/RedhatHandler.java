@@ -29,11 +29,11 @@ import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
-import org.eclipse.scada.configuration.world.lib.deployment.BinaryPackageBuilderWrapper;
 import org.eclipse.scada.configuration.world.lib.deployment.ChangeEntryComparator;
 import org.eclipse.scada.configuration.world.lib.deployment.CommonHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageHandler;
-import org.eclipse.scada.configuration.world.lib.deployment.ResourceInformation;
+import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
+import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
@@ -71,6 +71,15 @@ public class RedhatHandler extends CommonPackageHandler
     {
         final File packageFolder = getPackageFolder ( nodeDir );
 
+        final RedhatDeploymentContext context = new RedhatDeploymentContext ( new File ( packageFolder, "src" ) );
+        setDeploymentContext ( context );
+
+        // process super
+
+        super.handleProcess ( nodeDir, monitor, properties );
+
+        // handle self
+
         final String packageName = getPackageName ();
 
         final File buildRoot = packageFolder.getParentFile ();
@@ -92,8 +101,6 @@ public class RedhatHandler extends CommonPackageHandler
         replacements.put ( "version", version ); //$NON-NLS-1$
         replacements.put ( "qualifier", qualifier ); //$NON-NLS-1$
         replacements.put ( "changeLog", makeChangeLog ( this.deploy.getChanges () ) ); //$NON-NLS-1$
-        replacements.put ( "files", makeFiles () ); //$NON-NLS-1$
-        replacements.put ( "depends", makeDependencies () );
         replacements.put ( "stop.apps", makeStop () ); //$NON-NLS-1$
         replacements.put ( "start.apps", makeStart () ); //$NON-NLS-1$
         replacements.put ( "create.apps", makeCreate ( this.deploy ) ); //$NON-NLS-1$
@@ -101,61 +108,57 @@ public class RedhatHandler extends CommonPackageHandler
 
         replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
 
+        createDrivers ( nodeDir, monitor, packageFolder, replacements );
+        createEquinox ( nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
+
+        // create spec file - all content must be known
+
+        replacements.put ( "postinst.scripts", context.getPostInstallationString () );
+
+        replacements.put ( "files", makeFiles ( context.getFiles (), context.getDirectories () ) ); //$NON-NLS-1$
+        replacements.put ( "depends", makeDependencies ( context.getDependencies () ) );
+
         final File specFile = new File ( specsDir, packageName + ".spec" ); //$NON-NLS-1$
         Helper.createFile ( specFile, CommonHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "Makefile" ), CommonHandler.class.getResourceAsStream ( "templates/rpm/Makefile" ), replacements, monitor );
 
-        if ( !makeEquinoxList ().isEmpty () )
-        {
-            Helper.createFile ( new File ( packageFolder, "src/etc/eclipsescada/applications" ), StringHelper.join ( makeEquinoxList (), "\n" ) + "\n", monitor );
-        }
-
-        final BinaryPackageBuilderWrapper builder = new BinaryPackageBuilderWrapper ( new File ( packageFolder, "src" ) );
-
-        createDrivers ( builder, nodeDir, monitor, packageFolder, replacements );
-        createEquinox ( builder, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
-
         // make source file
-
-        monitor.setTaskName ( "Running tar" ); //$NON-NLS-1$
-
-        {
-            final File sourceFile = new File ( sourcesDir, packageName + "_" + version + "." + qualifier + ".tar.gz" );
-            final ProcessBuilder processBuilder = new ProcessBuilder ( "tar", "czf", sourceFile.toString (), packageName );
-            processBuilder.directory ( packageFolder.getParentFile () );
-            try
-            {
-                final int rc = new ProcessRunner ( processBuilder ).run ();
-                logger.info ( "rc = {}", rc ); //$NON-NLS-1$
-            }
-            catch ( final Exception e )
-            {
-                logger.warn ( "Failed to generate tar package", e ); //$NON-NLS-1$
-            }
-        }
-
-        // run rpmbuild
-
         if ( !Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) ) //$NON-NLS-1$
         {
-            monitor.setTaskName ( "Running rpmbuild" ); //$NON-NLS-1$
+            monitor.subTask ( "Running 'tar'" ); //$NON-NLS-1$
+
+            {
+                final File sourceFile = new File ( sourcesDir, packageName + "_" + version + "." + qualifier + ".tar.gz" );
+                final ProcessBuilder processBuilder = new ProcessBuilder ( "tar", "czf", sourceFile.toString (), packageName );
+                processBuilder.directory ( packageFolder.getParentFile () );
+                final int rc = new ProcessRunner ( processBuilder ).run ();
+                logger.info ( "rc = {}", rc ); //$NON-NLS-1$
+
+                if ( rc != 0 )
+                {
+                    throw new IllegalStateException ( String.format ( "command '%s' failed: %s", processBuilder.command (), rc ) );
+                }
+            }
+
+            // run rpmbuild
+
+            monitor.subTask ( "Running 'rpmbuild'" ); //$NON-NLS-1$
 
             {
                 final ProcessBuilder processBuilder = new ProcessBuilder ( "rpmbuild", "--define", "_topdir " + buildRoot.toString (), "-bb", specFile.toString () );
                 processBuilder.directory ( packageFolder );
-                try
+
+                final int rc = new ProcessRunner ( processBuilder ).run ();
+                logger.info ( "rc = {}", rc ); //$NON-NLS-1$
+
+                if ( rc != 0 )
                 {
-                    final int rc = new ProcessRunner ( processBuilder ).run ();
-                    logger.info ( "rc = {}", rc ); //$NON-NLS-1$
-                }
-                catch ( final Exception e )
-                {
-                    logger.warn ( "Failed to generate rpm package", e ); //$NON-NLS-1$
+                    throw new IllegalStateException ( String.format ( "command '%s' failed: %s", processBuilder.command (), rc ) );
                 }
             }
-
-            nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
         }
+
+        nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
     }
 
     private String makeStop ()
@@ -208,7 +211,7 @@ public class RedhatHandler extends CommonPackageHandler
         return sb.toString ();
     }
 
-    private String makeDependencies ()
+    private String makeDependencies ( final Set<String> additional )
     {
         final Set<String> dependencies = new HashSet<> ();
 
@@ -219,6 +222,7 @@ public class RedhatHandler extends CommonPackageHandler
         }
         dependencies.add ( "org.eclipse.scada.deploy.p2-incubation" );
         dependencies.addAll ( this.deploy.getAdditionalDependencies () );
+        dependencies.addAll ( additional );
 
         final StartupHandler sh = getStartupHandler ();
         if ( sh != null )
@@ -236,65 +240,61 @@ public class RedhatHandler extends CommonPackageHandler
         return StringHelper.join ( result, "\n" );
     }
 
-    private String makeFiles ()
+    private String makeFiles ( final Map<String, FileInformation> files, final Map<String, FileInformation> dirs )
     {
-        final StartupHandler sh = getStartupHandler ();
-
         final StringBuilder sb = new StringBuilder ();
 
-        for ( final String driver : makeDriverList () )
+        for ( final Map.Entry<String, FileInformation> de : dirs.entrySet () )
         {
-            sb.append ( "%dir %_sysconfdir/eclipsescada/drivers/" + driver ); //$NON-NLS-1$
-            sb.append ( '\n' );
-            sb.append ( "%attr(640,root,eclipsescada) %_sysconfdir/eclipsescada/drivers/" + driver + "/*" ); //$NON-NLS-1$
-            sb.append ( '\n' );
+            final FileInformation di = de.getValue ();
 
-            if ( sh != null )
-            {
-                addFiles ( sb, sh.getDriverFiles ( driver ) );
-            }
+            final StringBuilder line = new StringBuilder ( "%dir " );
+            writeMode ( line, de.getKey (), di );
+
+            sb.append ( line ).append ( '\n' );
         }
 
-        for ( final String app : makeEquinoxList () )
+        for ( final Map.Entry<String, FileInformation> fe : files.entrySet () )
         {
-            sb.append ( "%attr(755,root,root) %_bindir/scada.create." + app ); //$NON-NLS-1$
-            sb.append ( '\n' );
-            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/ca.bootstrap/bootstrap." + app + ".json" ); //$NON-NLS-1$
-            sb.append ( '\n' );
-            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/profiles/" + app + ".profile.xml" ); //$NON-NLS-1$
-            sb.append ( '\n' );
-            sb.append ( "%dir /usr/share/eclipsescada/profiles/" + app ); //$NON-NLS-1$
-            sb.append ( '\n' );
-            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/profiles/" + app + "/*" ); //$NON-NLS-1$
-            sb.append ( '\n' );
+            final FileInformation fi = fe.getValue ();
 
-            if ( sh != null )
+            final StringBuilder line = new StringBuilder ();
+
+            if ( fi != null )
             {
-                addFiles ( sb, sh.getEquinoxFiles ( app ) );
+                for ( final FileOptions fo : fi.getOptions () )
+                {
+                    switch ( fo )
+                    {
+                        case CONFIGURATION:
+                            line.append ( "%config " );
+                            break;
+                    }
+                }
             }
+
+            writeMode ( line, fe.getKey (), fi );
+
+            sb.append ( line ).append ( '\n' );
         }
 
         return sb.toString ();
     }
 
-    private void addFiles ( final StringBuilder sb, final Set<ResourceInformation> files )
+    protected void writeMode ( final StringBuilder line, final String targetName, final FileInformation di )
     {
-        for ( final ResourceInformation ri : files )
+        if ( di != null )
         {
-            switch ( ri.getType () )
+            if ( di.getMode () != null || di.getOwner () != null || di.getGroup () != null )
             {
-                case EXECUTABLE:
-                    sb.append ( "%attr(755,root,root) " );
-                    break;
-                case FILE:
-                    sb.append ( "%attr(640,root,eclipsescada) " );
-                    break;
-                default:
-                    continue; // ignore resource
+                final String mode = di.getMode () == null ? "-" : String.format ( "%04o", di.getMode () );
+                final String user = di.getOwner () == null ? di.getOwner () : "-";
+                final String group = di.getGroup () == null ? di.getGroup () : "-";
+
+                line.append ( String.format ( "%%attr(%s,%s,%s) ", mode, user, group ) );
             }
-            sb.append ( ri.getTargetFilename () );
-            sb.append ( '\n' );
         }
+        line.append ( targetName );
     }
 
     private String makeRelease ()

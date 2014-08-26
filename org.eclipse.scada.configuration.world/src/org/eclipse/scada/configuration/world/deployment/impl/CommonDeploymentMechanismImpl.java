@@ -28,6 +28,7 @@ import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanis
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
+import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,6 +45,7 @@ import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getOperatingSystem <em>Operating System</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#isAutomaticCreate <em>Automatic Create</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getRecreateBackups <em>Recreate Backups</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getSetup <em>Setup</em>}</li>
  * </ul>
  * </p>
  *
@@ -171,6 +173,16 @@ public abstract class CommonDeploymentMechanismImpl extends
      * @ordered
      */
     protected Integer recreateBackups = RECREATE_BACKUPS_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getSetup() <em>Setup</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSetup()
+     * @generated
+     * @ordered
+     */
+    protected SetupModuleContainer setup;
 
     /**
      * <!-- begin-user-doc -->
@@ -404,6 +416,49 @@ public abstract class CommonDeploymentMechanismImpl extends
      * <!-- end-user-doc -->
      * @generated
      */
+    public SetupModuleContainer getSetup ()
+    {
+        if ( setup != null && setup.eIsProxy () )
+        {
+            InternalEObject oldSetup = (InternalEObject)setup;
+            setup = (SetupModuleContainer)eResolveProxy ( oldSetup );
+            if ( setup != oldSetup )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP, oldSetup, setup ) );
+            }
+        }
+        return setup;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SetupModuleContainer basicGetSetup ()
+    {
+        return setup;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSetup ( SetupModuleContainer newSetup )
+    {
+        SetupModuleContainer oldSetup = setup;
+        setup = newSetup;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP, oldSetup, setup ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd,
             int featureID, NotificationChain msgs )
@@ -446,6 +501,10 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return isAutomaticCreate ();
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
                 return getRecreateBackups ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP:
+                if ( resolve )
+                    return getSetup ();
+                return basicGetSetup ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -487,6 +546,9 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
                 setRecreateBackups ( (Integer)newValue );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP:
+                setSetup ( (SetupModuleContainer)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -525,6 +587,9 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
                 setRecreateBackups ( RECREATE_BACKUPS_EDEFAULT );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP:
+                setSetup ( (SetupModuleContainer)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -555,6 +620,8 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return automaticCreate != AUTOMATIC_CREATE_EDEFAULT;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS:
                 return RECREATE_BACKUPS_EDEFAULT == null ? recreateBackups != null : !RECREATE_BACKUPS_EDEFAULT.equals ( recreateBackups );
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP:
+                return setup != null;
         }
         return super.eIsSet ( featureID );
     }

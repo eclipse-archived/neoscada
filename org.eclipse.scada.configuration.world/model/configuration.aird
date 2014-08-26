@@ -977,19 +977,21 @@
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_23UPUx09EeSwI_i1Gq6-AQ" points="[61, 12, -328, -51]$[355, 112, -34, 49]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_23U2Zh09EeSwI_i1Gq6-AQ" id="(0.7789855072463768,0.8)"/>
           </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_-Bq9MB09EeSwI_i1Gq6-AQ" type="4001" element="_4nFj0B09EeSwI_i1Gq6-AQ" source="_Les4YByhEeSuZtOZnhNYaw" target="_0ZxO0B09EeSwI_i1Gq6-AQ">
-            <children xmi:type="notation:Node" xmi:id="_-BrkQB09EeSwI_i1Gq6-AQ" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-BrkQR09EeSwI_i1Gq6-AQ" y="-10"/>
+          <edges xmi:type="notation:Edge" xmi:id="_Gq2E4C0VEeSYytJHqr3bJQ" type="4001" element="_4nFj0B09EeSwI_i1Gq6-AQ" source="_KekREByhEeSuZtOZnhNYaw" target="_0ZxO0B09EeSwI_i1Gq6-AQ">
+            <children xmi:type="notation:Node" xmi:id="_Gq5vQC0VEeSYytJHqr3bJQ" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gq5vQS0VEeSYytJHqr3bJQ" y="-10"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_-BrkQh09EeSwI_i1Gq6-AQ" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-BrkQx09EeSwI_i1Gq6-AQ" y="10"/>
+            <children xmi:type="notation:Node" xmi:id="_Gq6WUC0VEeSYytJHqr3bJQ" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gq6WUS0VEeSYytJHqr3bJQ" y="10"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_-BrkRB09EeSwI_i1Gq6-AQ" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-BrkRR09EeSwI_i1Gq6-AQ" y="10"/>
+            <children xmi:type="notation:Node" xmi:id="_Gq6WUi0VEeSYytJHqr3bJQ" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Gq6WUy0VEeSYytJHqr3bJQ" y="10"/>
             </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_-Bq9MR09EeSwI_i1Gq6-AQ" routing="Rectilinear" jumpLinkStatus="Above"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_-Bq9Mh09EeSwI_i1Gq6-AQ" fontColor="7490599" fontName="Sans" fontHeight="8"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-Bq9Mx09EeSwI_i1Gq6-AQ" points="[38, 49, -1, -179]$[38, 179, -1, -49]"/>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_Gq2E4S0VEeSYytJHqr3bJQ" routing="Rectilinear" jumpLinkStatus="Above"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_Gq2E4i0VEeSYytJHqr3bJQ" fontColor="7490599" fontName="Sans" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Gq2E4y0VEeSYytJHqr3bJQ" points="[312, 588, 312, 588]$[804, 624, 804, 624]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Gq9ZoC0VEeSYytJHqr3bJQ" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Gq9ZoS0VEeSYytJHqr3bJQ" id="(0.5,0.5)"/>
           </edges>
         </data>
       </ownedAnnotationEntries>
@@ -1294,7 +1296,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_KeSkQByhEeSuZtOZnhNYaw" name="CommonDeploymentMechanism" tooltipText="" outgoingEdges="_Kef_oByhEeSuZtOZnhNYaw _KehNwByhEeSuZtOZnhNYaw _UE214ByhEeSuZtOZnhNYaw _2228UB09EeSwI_i1Gq6-AQ" incomingEdges="_LeqcIByhEeSuZtOZnhNYaw _Q2VEYByhEeSuZtOZnhNYaw" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_KeSkQByhEeSuZtOZnhNYaw" name="CommonDeploymentMechanism" tooltipText="" outgoingEdges="_Kef_oByhEeSuZtOZnhNYaw _KehNwByhEeSuZtOZnhNYaw _UE214ByhEeSuZtOZnhNYaw _2228UB09EeSwI_i1Gq6-AQ _4nFj0B09EeSwI_i1Gq6-AQ" incomingEdges="_LeqcIByhEeSuZtOZnhNYaw _Q2VEYByhEeSuZtOZnhNYaw" width="12" height="10">
         <target xmi:type="ecore:EClass" href="configuration.ecore#//deployment/CommonDeploymentMechanism"/>
         <semanticElements xmi:type="ecore:EClass" href="configuration.ecore#//deployment/CommonDeploymentMechanism"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1396,7 +1398,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_LeakgByhEeSuZtOZnhNYaw" name="DebianDeploymentMechanism" tooltipText="" outgoingEdges="_LeqcIByhEeSuZtOZnhNYaw _4nFj0B09EeSwI_i1Gq6-AQ" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_LeakgByhEeSuZtOZnhNYaw" name="DebianDeploymentMechanism" tooltipText="" outgoingEdges="_LeqcIByhEeSuZtOZnhNYaw" width="12" height="10">
         <target xmi:type="ecore:EClass" href="configuration.ecore#//deployment/DebianDeploymentMechanism"/>
         <semanticElements xmi:type="ecore:EClass" href="configuration.ecore#//deployment/DebianDeploymentMechanism"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1718,9 +1720,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_4nFj0B09EeSwI_i1Gq6-AQ" name="[0..1] setup" sourceNode="_LeakgByhEeSuZtOZnhNYaw" targetNode="_0ZXmMB09EeSwI_i1Gq6-AQ">
-        <target xmi:type="ecore:EReference" href="configuration.ecore#//deployment/DebianDeploymentMechanism/setup"/>
-        <semanticElements xmi:type="ecore:EReference" href="configuration.ecore#//deployment/DebianDeploymentMechanism/setup"/>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_4nFj0B09EeSwI_i1Gq6-AQ" name="[0..1] setup" sourceNode="_KeSkQByhEeSuZtOZnhNYaw" targetNode="_0ZXmMB09EeSwI_i1Gq6-AQ">
+        <target xmi:type="ecore:EReference" href="configuration.ecore#//deployment/CommonDeploymentMechanism/setup"/>
+        <semanticElements xmi:type="ecore:EReference" href="configuration.ecore#//deployment/CommonDeploymentMechanism/setup"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_4nGK4B09EeSwI_i1Gq6-AQ" routingStyle="manhattan">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_4nGK4R09EeSwI_i1Gq6-AQ"/>

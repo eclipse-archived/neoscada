@@ -14,10 +14,8 @@ import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 
 /**
@@ -53,32 +51,8 @@ public class DebianDeploymentMechanismItemProvider extends
         {
             super.getPropertyDescriptors ( object );
 
-            addSetupPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Setup feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addSetupPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DebianDeploymentMechanism_setup_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DebianDeploymentMechanism_setup_feature", "_UI_DebianDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.DEBIAN_DEPLOYMENT_MECHANISM__SETUP,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
     }
 
     /**

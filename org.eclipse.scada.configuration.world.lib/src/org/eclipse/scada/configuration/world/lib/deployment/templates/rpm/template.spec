@@ -34,6 +34,7 @@ cd ..
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
 
 %post
+$$postinst.scripts$$
 $$create.apps$$
 $$start.apps$$
 

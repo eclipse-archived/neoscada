@@ -20,6 +20,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -38,15 +39,17 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
 import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
 import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
-import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
-import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 import org.eclipse.scada.utils.pkg.deb.FileContentProvider;
+import org.eclipse.scada.utils.pkg.deb.StaticContentProvider;
+import org.eclipse.scada.utils.str.StringHelper;
 
 public abstract class CommonPackageHandler extends CommonHandler
 {
     private final CommonDeploymentMechanism deploy;
 
     private StartupHandler startupHandler;
+
+    private DeploymentContext deploymentContext;
 
     public CommonPackageHandler ( final ApplicationNode applicationNode, final CommonDeploymentMechanism deploy )
     {
@@ -55,57 +58,75 @@ public abstract class CommonPackageHandler extends CommonHandler
     }
 
     @Override
-    protected abstract void handleProcess ( IFolder nodeDir, IProgressMonitor monitor, Map<String, String> properties ) throws Exception;
-
-    protected void createDrivers ( final BinaryPackageBuilder builder, final IFolder nodeDir, final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements ) throws IOException, Exception
+    protected void handleProcess ( final IFolder nodeDir, final IProgressMonitor monitor, final Map<String, String> properties ) throws Exception
     {
-        for ( final String driverName : makeDriverList () )
+        if ( this.deploymentContext != null )
         {
-            createDriver ( builder, nodeDir, monitor, packageFolder, replacements, driverName );
+            runSetup ( this.deploy.getSetup (), this.deploymentContext, new SubProgressMonitor ( monitor, 1 ) );
+
+            if ( !makeEquinoxList ().isEmpty () )
+            {
+                final String data = StringHelper.join ( makeEquinoxList (), "\n" ) + "\n";
+                this.deploymentContext.addFile ( new StaticContentProvider ( data ), "/etc/eclipsescada/applications", new FileInformation ( 0644, null, null, FileOptions.CONFIGURATION ) );
+            }
         }
     }
 
-    protected void createDriver ( final BinaryPackageBuilder builder, final IFolder nodeDir, final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements, final String driverName ) throws IOException, Exception
+    protected void setDeploymentContext ( final DeploymentContext deploymentContext )
+    {
+        this.deploymentContext = deploymentContext;
+    }
+
+    protected void createDrivers ( final IFolder nodeDir, final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements ) throws IOException, Exception
+    {
+        for ( final String driverName : makeDriverList () )
+        {
+            createDriver ( nodeDir, monitor, packageFolder, replacements, driverName );
+        }
+    }
+
+    protected void createDriver ( final IFolder nodeDir, final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements, final String driverName ) throws IOException, Exception
     {
         final File sourceDir = new File ( nodeDir.getLocation ().toFile (), driverName );
 
         replacements.put ( "driverName", driverName );
 
-        processDriver ( builder, monitor, packageFolder, replacements, driverName, sourceDir );
+        processDriver ( monitor, packageFolder, replacements, driverName, sourceDir );
 
         replacements.remove ( "driverName" );
     }
 
-    protected void processDriver ( final BinaryPackageBuilder builder, final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements, final String driverName, final File sourceDir ) throws IOException, Exception
+    protected void processDriver ( final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements, final String driverName, final File sourceDir ) throws IOException, Exception
     {
         final Path sourcePath = sourceDir.toPath ().toAbsolutePath ();
         final String driverDir = "/etc/eclipsescada/drivers/" + driverName;
 
-        java.nio.file.Files.walkFileTree ( sourceDir.toPath (), new ScoopFilesVisitor ( sourcePath, builder, driverDir ) );
+        java.nio.file.Files.walkFileTree ( sourceDir.toPath (), new ScoopFilesVisitor ( sourcePath, this.deploymentContext, driverDir ) );
 
-        builder.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/driver.logback.xml" ), replacements ), driverDir + "/logback.xml", EntryInformation.DEFAULT_FILE_CONF );
-        builder.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/jvm.args" ), replacements ), driverDir + "/jvm.args", EntryInformation.DEFAULT_FILE_CONF );
+        this.deploymentContext.addDirectory ( driverDir, new FileInformation ( 0755 ) );
+        this.deploymentContext.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/driver.logback.xml" ), replacements ), driverDir + "/logback.xml", new FileInformation ( 0644, null, null, FileOptions.CONFIGURATION ) );
+        this.deploymentContext.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/jvm.args" ), replacements ), driverDir + "/jvm.args", new FileInformation ( 0644, null, null, FileOptions.CONFIGURATION ) );
 
         final StartupHandler sm = createStartupHandler ( getDefaultStartupMechanism () );
         if ( sm != null )
         {
-            sm.createDriver ( builder, driverName, replacements, monitor );
+            sm.createDriver ( this.deploymentContext, driverName, replacements, monitor );
         }
     }
 
-    protected void createEquinox ( final BinaryPackageBuilder builder, final File sourceBase, final File packageFolder, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
+    protected void createEquinox ( final File sourceBase, final File packageFolder, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
     {
         for ( final String name : makeEquinoxList () )
         {
             replacements.put ( "appName", name );
 
-            processEquinox ( builder, sourceBase, packageFolder, replacements, monitor, name );
+            processEquinox ( sourceBase, packageFolder, replacements, monitor, name );
 
             replacements.remove ( "appName" );
         }
     }
 
-    protected void processEquinox ( final BinaryPackageBuilder builder, final File sourceBase, final File packageFolder, final Map<String, String> replacements, final IProgressMonitor monitor, final String name ) throws IOException, Exception, FileNotFoundException
+    protected void processEquinox ( final File sourceBase, final File packageFolder, final Map<String, String> replacements, final IProgressMonitor monitor, final String name ) throws IOException, Exception, FileNotFoundException
     {
         final File source = new File ( sourceBase, name + "/" + name + ".profile.xml" );
         {
@@ -116,7 +137,7 @@ public abstract class CommonPackageHandler extends CommonHandler
                 Files.copy ( source.toPath (), tempFile.toPath (), StandardCopyOption.REPLACE_EXISTING );
                 patchProfile ( name, tempFile );
 
-                builder.addFile ( new FileContentProvider ( tempFile ), "/usr/share/eclipsescada/profiles/" + name + ".profile.xml", null );
+                this.deploymentContext.addFile ( new FileContentProvider ( tempFile ), "/usr/share/eclipsescada/profiles/" + name + ".profile.xml", new FileInformation ( 0640, "root", "eclipsescada" ) );
             }
             finally
             {
@@ -124,14 +145,15 @@ public abstract class CommonPackageHandler extends CommonHandler
             }
         }
 
-        builder.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/app.logback.xml" ), replacements ), "/usr/share/eclipsescada/profiles/" + name + "/logback.xml", EntryInformation.DEFAULT_FILE );
-        builder.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/scada.createApplication" ), replacements ), "/usr/bin/scada.create." + name, EntryInformation.DEFAULT_FILE_EXEC );
-        builder.addFile ( new FileContentProvider ( new File ( sourceBase, name + "/data.json" ) ), "/usr/share/eclipsescada/ca.bootstrap/bootstrap." + name + ".json", EntryInformation.DEFAULT_FILE );
+        this.deploymentContext.addDirectory ( "/usr/share/eclipsescada/profiles/" + name, new FileInformation ( 0755 ) );
+        this.deploymentContext.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/app.logback.xml" ), replacements ), "/usr/share/eclipsescada/profiles/" + name + "/logback.xml", null );
+        this.deploymentContext.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/scada.createApplication" ), replacements ), "/usr/bin/scada.create." + name, new FileInformation ( 0755 ) );
+        this.deploymentContext.addFile ( new FileContentProvider ( new File ( sourceBase, name + "/data.json" ) ), "/usr/share/eclipsescada/ca.bootstrap/bootstrap." + name + ".json", new FileInformation ( 0640, "root", "eclipsescada" ) );
 
         final StartupHandler sm = createStartupHandler ( getDefaultStartupMechanism () );
         if ( sm != null )
         {
-            sm.createEquinox ( builder, name, replacements, monitor );
+            sm.createEquinox ( this.deploymentContext, name, replacements, monitor );
         }
     }
 
