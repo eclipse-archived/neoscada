@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix issue with empty filter string
  *******************************************************************************/
 package org.eclipse.scada.ae.server.common.event.pool.internal;
 
@@ -96,7 +97,10 @@ public class EventPoolImpl extends AbstractEventQueryImpl implements EventListen
                 calEnd.add ( Calendar.DAY_OF_YEAR, -daysBack + 1 );
                 final StringBuilder filter = new StringBuilder ();
                 filter.append ( "(&" );
-                filter.append ( this.filter );
+                if ( this.filter != null )
+                {
+                    filter.append ( this.filter );
+                }
                 filter.append ( "(sourceTimestamp>=" + isoDateFormat.format ( calStart.getTime () ) + ")" );
                 if ( daysBack > 1 )
                 {
