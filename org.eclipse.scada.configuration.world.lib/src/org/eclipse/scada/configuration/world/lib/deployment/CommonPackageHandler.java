@@ -32,10 +32,12 @@ import org.eclipse.scada.configuration.world.lib.deployment.startup.LSBSystemVHa
 import org.eclipse.scada.configuration.world.lib.deployment.startup.RedhatSystemVHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.UpstartHandler;
+import org.eclipse.scada.configuration.world.lib.setup.SubModuleHandler;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
 import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
+import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
 import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 import org.eclipse.scada.utils.pkg.deb.FileContentProvider;
@@ -204,7 +206,8 @@ public abstract class CommonPackageHandler extends CommonHandler
     {
         if ( this.deploy.getStartupMechanism () == null || this.deploy.getStartupMechanism () == StartupMechanism.DEFAULT )
         {
-            return defaultStartupMechanism;
+            final String type = OperatingSystemDescriptors.getProperty ( this.deploy.getOperatingSystem (), "startup", defaultStartupMechanism.name () );
+            return StartupMechanism.valueOf ( type );
         }
         else
         {
@@ -240,6 +243,15 @@ public abstract class CommonPackageHandler extends CommonHandler
             }
         }
         return sb.toString ();
+    }
+
+    protected void runSetup ( final SetupModuleContainer setup, final DeploymentContext context, final IProgressMonitor monitor ) throws Exception
+    {
+        if ( setup != null )
+        {
+            SubModuleHandler.runSetup ( context, setup.getModules (), this.deploy.getOperatingSystem () );
+        }
+        monitor.done ();
     }
 
 }

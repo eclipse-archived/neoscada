@@ -39,12 +39,8 @@ import org.eclipse.scada.configuration.world.lib.deployment.ChangeEntryComparato
 import org.eclipse.scada.configuration.world.lib.deployment.CommonHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.Contents;
-import org.eclipse.scada.configuration.world.lib.deployment.DeploymentContext;
 import org.eclipse.scada.configuration.world.lib.deployment.ScoopFilesVisitor;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
-import org.eclipse.scada.configuration.world.lib.setup.SubModuleHandler;
-import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
-import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
 import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
@@ -105,12 +101,7 @@ public class DebianHandler extends CommonPackageHandler
         {
             final DebianDeploymentContext context = new DebianDeploymentContext ();
 
-            final SetupModuleContainer setup = this.deploy.getSetup ();
-            if ( setup != null )
-            {
-
-                runSetup ( setup, this.deploy.getOperatingSystem (), context, new SubProgressMonitor ( monitor, 1 ) );
-            }
+            runSetup ( this.deploy.getSetup (), context, new SubProgressMonitor ( monitor, 1 ) );
 
             replacements.put ( "postinst.scripts", context.getPostInstallationString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
             replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -152,12 +143,6 @@ public class DebianHandler extends CommonPackageHandler
         {
             nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
         }
-    }
-
-    private void runSetup ( final SetupModuleContainer setup, final OperatingSystemDescriptor operatingSystem, final DeploymentContext context, final IProgressMonitor monitor ) throws Exception
-    {
-        SubModuleHandler.runSetup ( context, setup.getModules (), operatingSystem );
-        monitor.done ();
     }
 
     private String findVersion ()

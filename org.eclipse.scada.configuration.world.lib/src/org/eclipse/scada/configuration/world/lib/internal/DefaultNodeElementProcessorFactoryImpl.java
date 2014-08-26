@@ -19,8 +19,8 @@ import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanis
 import org.eclipse.scada.configuration.world.lib.NodeElementProcessor;
 import org.eclipse.scada.configuration.world.lib.NodeElementProcessorFactory;
 import org.eclipse.scada.configuration.world.lib.deployment.MsiHandler;
-import org.eclipse.scada.configuration.world.lib.deployment.RedhatHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.debian.DebianHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.redhat.RedhatHandler;
 import org.eclipse.scada.configuration.world.lib.oscar.DefaultEquinoxApplicationProcessor;
 import org.eclipse.scada.configuration.world.lib.oscar.MasterServerProcessor;
 import org.eclipse.scada.configuration.world.lib.oscar.ValueArchiveServerProcessor;

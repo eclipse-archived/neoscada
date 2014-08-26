@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.world.lib.deployment;
+package org.eclipse.scada.configuration.world.lib.deployment.redhat;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -29,6 +29,11 @@ import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
+import org.eclipse.scada.configuration.world.lib.deployment.BinaryPackageBuilderWrapper;
+import org.eclipse.scada.configuration.world.lib.deployment.ChangeEntryComparator;
+import org.eclipse.scada.configuration.world.lib.deployment.CommonHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.ResourceInformation;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
@@ -97,8 +102,8 @@ public class RedhatHandler extends CommonPackageHandler
         replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
 
         final File specFile = new File ( specsDir, packageName + ".spec" ); //$NON-NLS-1$
-        Helper.createFile ( specFile, RedhatHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );
-        Helper.createFile ( new File ( packageFolder, "Makefile" ), RedhatHandler.class.getResourceAsStream ( "templates/rpm/Makefile" ), replacements, monitor );
+        Helper.createFile ( specFile, CommonHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );
+        Helper.createFile ( new File ( packageFolder, "Makefile" ), CommonHandler.class.getResourceAsStream ( "templates/rpm/Makefile" ), replacements, monitor );
 
         if ( !makeEquinoxList ().isEmpty () )
         {

@@ -31,6 +31,11 @@ public final class Properties
         return prop;
     }
 
+    public static String getProperty ( final Collection<PropertyEntry> properties, final String name, final String defaultValue )
+    {
+        return get ( properties, name, defaultValue );
+    }
+
     public static String get ( final Collection<PropertyEntry> properties, final String key, final String defaultValue )
     {
         if ( properties == null )
@@ -84,4 +89,5 @@ public final class Properties
         }
         return defaultValue;
     }
+
 }

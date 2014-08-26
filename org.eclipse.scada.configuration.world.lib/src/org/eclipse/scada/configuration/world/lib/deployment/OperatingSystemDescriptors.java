@@ -37,4 +37,22 @@ public final class OperatingSystemDescriptors
         return defaultValue;
     }
 
+    public static String getProperty ( final OperatingSystemDescriptor operatingSystem, final String name, final String defaultValue )
+    {
+        OperatingSystemDescriptor os = operatingSystem;
+
+        while ( os != null )
+        {
+            final String value = Properties.getProperty ( operatingSystem.getProperties (), name, null );
+            if ( value != null )
+            {
+                return value;
+            }
+
+            os = os.getParent ();
+        }
+
+        return defaultValue;
+    }
+
 }
