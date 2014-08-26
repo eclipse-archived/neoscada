@@ -74,6 +74,7 @@
 		<module>../org.eclipse.scada.utils.stats</module>
 
 		<module>../org.eclipse.scada.utils.test</module>
+		<module>../org.eclipse.scada.utils.filter.test</module>
 
 		<module>../org.eclipse.scada.ui.blink</module>
 		<module>../org.eclipse.scada.ui.databinding</module>
