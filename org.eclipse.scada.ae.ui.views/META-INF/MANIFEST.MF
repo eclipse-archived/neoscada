@@ -18,7 +18,8 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.6.0",
  org.eclipse.core.expressions;bundle-version="3.4.0",
  org.eclipse.scada.core.ui;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: com.google.gson;version="1.4.0",
+Import-Package: com.google.common.base;version="15.0.0",
+ com.google.gson;version="1.4.0",
  com.google.gson.reflect;version="1.4.0",
  org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.client;version="0.1.0",

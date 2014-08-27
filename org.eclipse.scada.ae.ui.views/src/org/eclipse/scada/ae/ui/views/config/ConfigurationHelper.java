@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix fields for levels
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.config;
 
@@ -34,6 +35,8 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Enums;
 
 public class ConfigurationHelper
 {
@@ -256,6 +259,12 @@ public class ConfigurationHelper
 
         for ( final Fields field : Fields.values () )
         {
+            if ( Enums.getField ( field ).getAnnotation ( Deprecated.class ) != null )
+            {
+                // ignore deprecated fields
+                continue;
+            }
+
             final Map<String, String> properties = new HashMap<String, String> ();
             properties.put ( "key", field.getName () );
 

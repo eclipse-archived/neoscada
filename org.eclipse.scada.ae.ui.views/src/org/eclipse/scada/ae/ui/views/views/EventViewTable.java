@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - add details dialog
+ *     IBH SYSTEMS GmbH - add details dialog, levels for default fields
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.views;
 
@@ -54,6 +54,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.IWorkbenchActionConstants;
+
+import com.google.common.base.Enums;
 
 public class EventViewTable extends Composite
 {
@@ -218,14 +220,28 @@ public class EventViewTable extends Composite
 
         result.add ( new ColumnLabelProviderInformation ( "ID", ColumnLabelProviderInformation.TYPE_ID, false, 100, null ) );
         result.add ( new ColumnLabelProviderInformation ( "Source Timestamp", ColumnLabelProviderInformation.TYPE_SOURCE_TIMESTAMP, true, 100, null ) );
-        result.add ( new ColumnLabelProviderInformation ( "Entry Timestamp", ColumnLabelProviderInformation.TYPE_ENTRY_TIMESTAMP, true, 100, null ) );
 
         for ( final Fields field : Fields.values () )
         {
+            if ( Enums.getField ( field ).getAnnotation ( Deprecated.class ) != null )
+            {
+                continue;
+            }
+
             final Map<String, String> parameters = new HashMap<String, String> ( 1 );
-            parameters.put ( "key", field.getName () );
+            parameters.put ( "key", field.getName () ); //$NON-NLS-1$
             result.add ( new ColumnLabelProviderInformation ( field.getName (), ColumnLabelProviderInformation.TYPE_VARIANT, false, 100, parameters ) );
         }
+
+        for ( int i = 0; i < 6; i++ )
+        {
+            final Map<String, String> parameters = new HashMap<String, String> ( 1 );
+            parameters.put ( "key", String.format ( "level.%s", i ) ); //$NON-NLS-1$
+            final String label = String.format ( "Level %s", i );
+            result.add ( new ColumnLabelProviderInformation ( label, ColumnLabelProviderInformation.TYPE_VARIANT, false, 100, parameters ) );
+        }
+
+        result.add ( new ColumnLabelProviderInformation ( "Entry Timestamp", ColumnLabelProviderInformation.TYPE_ENTRY_TIMESTAMP, true, 100, null ) );
 
         return result;
     }
