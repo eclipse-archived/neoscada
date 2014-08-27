@@ -51,7 +51,6 @@ public class Activator implements BundleActivator
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
-
         this.eventProcessor = new EventProcessor ( context );
         this.eventProcessor.open ();
 
