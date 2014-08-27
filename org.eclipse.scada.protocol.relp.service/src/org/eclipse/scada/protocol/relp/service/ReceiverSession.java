@@ -15,6 +15,8 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.SocketChannel;
 
+import java.net.InetSocketAddress;
+
 import org.eclipse.scada.protocol.syslog.SyslogMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,5 +86,10 @@ public class ReceiverSession
     public void close ()
     {
         this.channel.close ();
+    }
+
+    public InetSocketAddress getRemoteAddress ()
+    {
+        return this.channel.remoteAddress ();
     }
 }
