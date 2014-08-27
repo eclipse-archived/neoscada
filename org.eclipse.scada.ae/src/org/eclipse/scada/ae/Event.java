@@ -181,7 +181,7 @@ public class Event implements Cloneable, Comparable<Event>, Serializable
          * <code>false</code> will not set attributes that already have been set
          * by previous calls.
          * </p>
-         * 
+         *
          * @param allowOverrideAttributes
          */
         public void setAllowOverrideAttributes ( final boolean allowOverrideAttributes )
@@ -209,8 +209,14 @@ public class Event implements Cloneable, Comparable<Event>, Serializable
         ACTOR_TYPE ( "actorType", String.class ),
         HIVE ( "hive", String.class ),
         ITEM ( "item", String.class ),
+        /**
+         * @deprecated use "level.X" instead
+         */
         COMPONENT ( "component", String.class ),
         SYSTEM ( "system", String.class ),
+        /**
+         * @deprecated use "level.X" instead
+         */
         LOCATION ( "location", String.class ),
         COMMENT ( "comment", String.class );
 
