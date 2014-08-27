@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,13 +7,19 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add images
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.connection.navigator;
+
+import java.util.Set;
 
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.scada.ae.data.BrowserType;
+import org.eclipse.scada.ae.ui.connection.Activator;
+import org.eclipse.scada.ae.ui.connection.ImageConstants;
 import org.eclipse.scada.ae.ui.connection.data.BrowserEntryBean;
 import org.eclipse.scada.ui.databinding.CommonListeningLabelProvider;
 import org.eclipse.scada.ui.databinding.StyledViewerLabel;
@@ -49,6 +55,16 @@ public class ConnectionLabelProvider extends CommonListeningLabelProvider
             final BrowserEntryBean entry = (BrowserEntryBean)element;
             final StyledString string = new StyledString ( entry.getEntry ().getId () );
             label.setStyledText ( string );
+
+            final Set<BrowserType> types = entry.getEntry ().getTypes ();
+            if ( types.contains ( BrowserType.EVENTS ) )
+            {
+                label.setImage ( Activator.getDefault ().getImageRegistry ().get ( ImageConstants.IMG_EVENTS ) );
+            }
+            else if ( types.contains ( BrowserType.MONITORS ) )
+            {
+                label.setImage ( Activator.getDefault ().getImageRegistry ().get ( ImageConstants.IMG_MONITORS ) );
+            }
         }
         else
         {
