@@ -18,6 +18,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+
 import org.eclipse.scada.protocol.relp.FrameCodec;
 import org.eclipse.scada.protocol.relp.FrameProcessor;
 import org.eclipse.scada.protocol.relp.Helper;
@@ -43,6 +46,11 @@ public class Receiver implements AutoCloseable
 
     public Receiver ( final ReceiverHandlerFactory factory, final int port )
     {
+        this ( factory, new InetSocketAddress ( port ) );
+    }
+
+    public Receiver ( final ReceiverHandlerFactory factory, final SocketAddress addr )
+    {
         this.factory = factory;
 
         this.bossGroup = new NioEventLoopGroup ();
@@ -61,7 +69,7 @@ public class Receiver implements AutoCloseable
             }
         } );
 
-        this.channel = this.bootstrap.bind ( port ).channel ();
+        this.channel = this.bootstrap.bind ( addr ).channel ();
 
         logger.info ( "Receiver running ..." );
     }
