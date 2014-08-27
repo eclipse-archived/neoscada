@@ -16,11 +16,13 @@ import org.eclipse.scada.ca.ConfigurationDataHelper;
 
 public class ReceiverConfiguration
 {
-
     private final int port;
 
-    public ReceiverConfiguration ( final int port )
+    private final String host;
+
+    public ReceiverConfiguration ( final String host, final int port )
     {
+        this.host = host;
         this.port = port;
     }
 
@@ -29,10 +31,16 @@ public class ReceiverConfiguration
         return this.port;
     }
 
+    public String getHost ()
+    {
+        return this.host;
+    }
+
     public static ReceiverConfiguration parse ( final String configurationId, final Map<String, String> parameters )
     {
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
 
+        final String host = cfg.getString ( "host", null );
         final int port = cfg.getIntegerChecked ( "port", "'port' is required" );
 
         if ( port <= 0 || port > 64 * 1024 )
@@ -40,7 +48,7 @@ public class ReceiverConfiguration
             throw new IllegalArgumentException ( String.format ( "Invalid port number: %s", port ) );
         }
 
-        return new ReceiverConfiguration ( port );
+        return new ReceiverConfiguration ( host, port );
     }
 
 }

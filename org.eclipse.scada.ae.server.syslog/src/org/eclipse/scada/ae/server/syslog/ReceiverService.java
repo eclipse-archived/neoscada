@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.ae.server.syslog;
 
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 import org.eclipse.scada.ae.Event;
@@ -61,7 +62,40 @@ public class ReceiverService
     {
         this.processor = processor;
 
-        this.receiver = new Receiver ( this.factory, cfg.getPort () );
+        if ( isLocal ( cfg.getHost () ) )
+        {
+            this.receiver = new Receiver ( this.factory, new InetSocketAddress ( InetAddress.getLoopbackAddress (), cfg.getPort () ) );
+        }
+        else if ( isWildcard ( cfg.getHost () ) )
+        {
+            this.receiver = new Receiver ( this.factory, new InetSocketAddress ( cfg.getPort () ) );
+        }
+        else
+        {
+            this.receiver = new Receiver ( this.factory, new InetSocketAddress ( cfg.getHost (), cfg.getPort () ) );
+        }
+    }
+
+    private static boolean isLocal ( final String host )
+    {
+        if ( host == null )
+        {
+            return true;
+        }
+        if ( host.isEmpty () )
+        {
+            return true;
+        }
+        return host.equals ( "*local*" );
+    }
+
+    private static boolean isWildcard ( final String host )
+    {
+        if ( host.equals ( "*" ) || host.equals ( "*all*" ) )
+        {
+            return true;
+        }
+        return false;
     }
 
     protected void fillCommon ( final EventBuilder builder, final ReceiverSession session )
