@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.deployment;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '

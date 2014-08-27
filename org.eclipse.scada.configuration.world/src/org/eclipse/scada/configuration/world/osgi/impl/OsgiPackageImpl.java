@@ -5599,7 +5599,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         initEClass ( telnetConsoleEClass, TelnetConsole.class, "TelnetConsole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getTelnetConsole_Host (), ecorePackage.getEString (), "host", "localhost", 0, 1, TelnetConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getTelnetConsole_Port (), ecorePackage.getEShort (), "port", null, 1, 1, TelnetConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getTelnetConsole_Port (), ecorePackage.getEInt (), "port", null, 1, 1, TelnetConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( eventInjectorEClass, EventInjector.class, "EventInjector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getEventInjector_Database (), theWorldPackage.getDatabaseSettings (), null, "database", null, 1, 1, EventInjector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

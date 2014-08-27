@@ -65,7 +65,7 @@ public class TelnetConsoleImpl extends MinimalEObjectImpl.Container implements T
      * @generated
      * @ordered
      */
-    protected static final short PORT_EDEFAULT = 0;
+    protected static final int PORT_EDEFAULT = 0;
 
     /**
      * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -75,7 +75,7 @@ public class TelnetConsoleImpl extends MinimalEObjectImpl.Container implements T
      * @generated
      * @ordered
      */
-    protected short port = PORT_EDEFAULT;
+    protected int port = PORT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -126,7 +126,7 @@ public class TelnetConsoleImpl extends MinimalEObjectImpl.Container implements T
      * <!-- end-user-doc -->
      * @generated
      */
-    public short getPort ()
+    public int getPort ()
     {
         return port;
     }
@@ -136,9 +136,9 @@ public class TelnetConsoleImpl extends MinimalEObjectImpl.Container implements T
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPort ( short newPort )
+    public void setPort ( int newPort )
     {
-        short oldPort = port;
+        int oldPort = port;
         port = newPort;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.TELNET_CONSOLE__PORT, oldPort, port ) );
@@ -176,7 +176,7 @@ public class TelnetConsoleImpl extends MinimalEObjectImpl.Container implements T
                 setHost ( (String)newValue );
                 return;
             case OsgiPackage.TELNET_CONSOLE__PORT:
-                setPort ( (Short)newValue );
+                setPort ( (Integer)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );

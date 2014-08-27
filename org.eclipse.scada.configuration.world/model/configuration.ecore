@@ -901,7 +901,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral="localhost"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventInjector" abstract="true" eSuperTypes="#//osgi/IndependentConfiguration">
       <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"

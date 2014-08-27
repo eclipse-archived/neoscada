@@ -444,7 +444,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_H84zEB2UEeSUVPL0uoD5Pg" name="port : EShort = 0" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_H84zEB2UEeSUVPL0uoD5Pg" name="port : EInt = 0" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/TelnetConsole/port"/>
           <semanticElements xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/TelnetConsole/port"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_H85aIB2UEeSUVPL0uoD5Pg" labelFormat="bold" labelAlignment="LEFT" description="_H84zFh2UEeSUVPL0uoD5Pg">
@@ -529,7 +529,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_WWWzBB2UEeSUVPL0uoD5Pg" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_RZXUkB2UEeSUVPL0uoD5Pg" name="startBundles : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@7732450c{platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ProfileConfiguration/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_RZXUkB2UEeSUVPL0uoD5Pg" name="startBundles : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/ProfileConfiguration/startBundles"/>
           <semanticElements xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/ProfileConfiguration/startBundles"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_V6A1QB2UEeSUVPL0uoD5Pg" labelAlignment="LEFT">
@@ -540,7 +540,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TAJsMB2UEeSUVPL0uoD5Pg" name="installBundles : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@1c4256a5{platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ProfileConfiguration/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TAJsMB2UEeSUVPL0uoD5Pg" name="installBundles : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/ProfileConfiguration/installBundles"/>
           <semanticElements xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/ProfileConfiguration/installBundles"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_WWZPQB2UEeSUVPL0uoD5Pg" labelAlignment="LEFT">

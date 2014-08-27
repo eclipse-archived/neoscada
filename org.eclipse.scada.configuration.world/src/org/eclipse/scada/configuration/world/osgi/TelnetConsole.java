@@ -66,12 +66,12 @@ public interface TelnetConsole extends IndependentConfiguration
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Port</em>' attribute.
-     * @see #setPort(short)
+     * @see #setPort(int)
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getTelnetConsole_Port()
      * @model required="true"
      * @generated
      */
-    short getPort ();
+    int getPort ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.TelnetConsole#getPort <em>Port</em>}' attribute.
@@ -81,6 +81,6 @@ public interface TelnetConsole extends IndependentConfiguration
      * @see #getPort()
      * @generated
      */
-    void setPort ( short value );
+    void setPort ( int value );
 
 } // TelnetConsole
