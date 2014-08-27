@@ -11,8 +11,8 @@
 package org.eclipse.scada.ae.ui.testing.views;
 
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.scada.ae.ui.connection.data.BrowserEntryBean;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 
@@ -35,6 +35,7 @@ public abstract class AbstractEntryViewPart extends JobViewPart
         {
             getViewSite ().getWorkbenchWindow ().getSelectionService ().addSelectionListener ( this.selectionListener = new ISelectionListener () {
 
+                @Override
                 public void selectionChanged ( final IWorkbenchPart part, final ISelection selection )
                 {
                     AbstractEntryViewPart.this.setSelection ( selection );
@@ -52,27 +53,9 @@ public abstract class AbstractEntryViewPart extends JobViewPart
         }
     }
 
-    protected BrowserEntryBean getEntryFromSelection ( final ISelection selection )
-    {
-        if ( selection.isEmpty () )
-        {
-            return null;
-        }
-        if ( ! ( selection instanceof IStructuredSelection ) )
-        {
-            return null;
-        }
-        final Object o = ( (IStructuredSelection)selection ).getFirstElement ();
-        if ( o instanceof BrowserEntryBean )
-        {
-            return (BrowserEntryBean)o;
-        }
-        return null;
-    }
-
     protected synchronized void setSelection ( final ISelection selection )
     {
-        final BrowserEntryBean browserEntry = getEntryFromSelection ( selection );
+        final BrowserEntryBean browserEntry = SelectionHelper.first ( selection, BrowserEntryBean.class );
         if ( browserEntry != this.entry && browserEntry != null && isSupported ( browserEntry ) )
         {
             clear ();
