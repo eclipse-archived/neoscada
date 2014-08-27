@@ -63,6 +63,7 @@ public class FrameCodec extends ChannelDuplexHandler
             {
                 performRead ( ctx, ( (ByteBuf)msg ).readByte (), (ByteBuf)msg );
             }
+            ( (ByteBuf)msg ).release ();
         }
         else
         {
