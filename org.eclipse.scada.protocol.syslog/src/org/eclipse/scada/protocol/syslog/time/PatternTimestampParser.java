@@ -86,6 +86,9 @@ public class PatternTimestampParser implements TimestampParser
         c.setTimeZone ( timezone );
         c.set ( Calendar.MILLISECOND, ms );
 
+        // skip marker byte
+        data.skipBytes ( 1 );
+
         return c;
     }
 
