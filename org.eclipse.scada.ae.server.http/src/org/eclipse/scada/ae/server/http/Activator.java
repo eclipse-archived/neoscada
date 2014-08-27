@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,30 +7,15 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generalize event injection
  *******************************************************************************/
 package org.eclipse.scada.ae.server.http;
 
-import java.util.Hashtable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import org.eclipse.scada.ae.event.EventProcessor;
-import org.eclipse.scada.ae.monitor.MonitorService;
-import org.eclipse.scada.ae.server.common.akn.AknHandler;
-import org.eclipse.scada.ae.server.http.filter.EventFilter;
-import org.eclipse.scada.ae.server.http.filter.EventFilterImpl;
 import org.eclipse.scada.ae.server.http.internal.JsonServlet;
-import org.eclipse.scada.ae.server.http.monitor.EventMonitorFactory;
-import org.eclipse.scada.ca.ConfigurationAdministrator;
-import org.eclipse.scada.ca.ConfigurationFactory;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
-import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
-import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
+import org.eclipse.scada.ae.server.injector.EventInjectorQueue;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
-import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.http.HttpService;
 import org.osgi.util.tracker.ServiceTracker;
 import org.osgi.util.tracker.ServiceTrackerCustomizer;
@@ -46,23 +31,11 @@ public class Activator implements BundleActivator
 
     private BundleContext context;
 
-    private ExecutorService executor;
-
-    private EventProcessor eventProcessor;
-
     private ServiceTracker<HttpService, HttpService> httpServiceTracker;
 
     private HttpService httpService;
 
-    private ServiceRegistration<?> factoryServiceHandle;
-
-    private EventMonitorFactory factory;
-
-    private ObjectPoolImpl<MonitorService> monitorServicePool;
-
-    private ServiceRegistration<?> monitorServicePoolHandler;
-
-    private EventFilter eventFilter;
+    private EventInjectorQueue injector;
 
     /*
      * (non-Javadoc)
@@ -72,25 +45,10 @@ public class Activator implements BundleActivator
     public void start ( final BundleContext context ) throws Exception
     {
         this.context = context;
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
 
-        this.eventProcessor = new EventProcessor ( context );
-        this.eventFilter = new EventFilterImpl ( context, context.getBundle ().getSymbolicName () + ".eventFilter" );
-
-        this.monitorServicePool = new ObjectPoolImpl<MonitorService> ();
-        this.monitorServicePoolHandler = ObjectPoolHelper.registerObjectPool ( context, this.monitorServicePool, MonitorService.class );
+        this.injector = new EventInjectorQueue ( context );
 
         this.httpServiceTracker = new ServiceTracker<HttpService, HttpService> ( context, HttpService.class, createHttpServiceTrackerCustomizer () );
-
-        this.eventProcessor.open ();
-
-        // register factory
-        this.factory = new EventMonitorFactory ( this.context, this.executor, this.monitorServicePool, this.eventProcessor );
-        final Hashtable<String, Object> properties = new Hashtable<String, Object> ();
-        properties.put ( ConfigurationAdministrator.FACTORY_ID, EventMonitorFactory.FACTORY_ID );
-        properties.put ( Constants.SERVICE_DESCRIPTION, "Filter based http event monitor" );
-        this.factoryServiceHandle = this.context.registerService ( new String[] { ConfigurationFactory.class.getName (), AknHandler.class.getName () }, this.factory, properties );
-
         this.httpServiceTracker.open ();
     }
 
@@ -104,27 +62,7 @@ public class Activator implements BundleActivator
         // do not process any events anymore
         this.httpServiceTracker.close ();
 
-        // remove factory
-        if ( this.factoryServiceHandle != null )
-        {
-            this.factoryServiceHandle.unregister ();
-        }
-        if ( this.factory != null )
-        {
-            this.factory.dispose ();
-        }
-
-        // shut down event processor
-        this.eventProcessor.close ();
-
-        // shut down object pool
-        this.monitorServicePoolHandler.unregister ();
-        this.monitorServicePool.dispose ();
-
-        // shut down executor
-        this.executor.shutdown ();
-
-        this.eventFilter.dispose ();
+        this.injector.dispose ();
 
         this.context = null;
     }
@@ -138,7 +76,7 @@ public class Activator implements BundleActivator
         try
         {
             // register servlet
-            this.httpService.registerServlet ( SERVLET_PATH, new JsonServlet ( this.eventProcessor, this.factory, this.eventFilter ), null, null );
+            this.httpService.registerServlet ( SERVLET_PATH, new JsonServlet ( this.injector ), null, null );
             this.httpService.registerResources ( SERVLET_PATH + "/ui", "/ui", null );
         }
         catch ( final Exception e )

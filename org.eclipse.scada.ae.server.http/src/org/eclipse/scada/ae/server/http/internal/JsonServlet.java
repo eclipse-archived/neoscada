@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generalize event injection
  *******************************************************************************/
 package org.eclipse.scada.ae.server.http.internal;
 
@@ -20,40 +21,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.scada.ae.Event;
-import org.eclipse.scada.ae.event.EventProcessor;
-import org.eclipse.scada.ae.server.http.filter.EventFilter;
-import org.eclipse.scada.ae.server.http.monitor.EventMonitorEvaluator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.eclipse.scada.ae.server.injector.EventInjectorQueue;
 
 public class JsonServlet extends HttpServlet
 {
-
-    private final static Logger logger = LoggerFactory.getLogger ( JsonServlet.class );
-
     private static final long serialVersionUID = -2152989291571139312L;
 
-    private final EventProcessor eventProcessor;
+    private final EventInjectorQueue injector;
 
-    private final EventMonitorEvaluator eventMonitorEvaluator;
-
-    private final EventFilter eventFilter;
-
-    public JsonServlet ( final EventProcessor eventProcessor, final EventMonitorEvaluator evaluator, final EventFilter eventFilter )
+    public JsonServlet ( final EventInjectorQueue injector )
     {
-        // may be null
-        this.eventFilter = eventFilter;
-
-        if ( eventProcessor == null )
-        {
-            throw new IllegalArgumentException ( "eventProcessor must not be null" );
-        }
-        if ( evaluator == null )
-        {
-            throw new IllegalArgumentException ( "evaluator must not be null" );
-        }
-        this.eventProcessor = eventProcessor;
-        this.eventMonitorEvaluator = evaluator;
+        this.injector = injector;
     }
 
     @Override
@@ -77,17 +55,7 @@ public class JsonServlet extends HttpServlet
             }
             final Event event = EventSerializer.deserializeEvent ( sb.toString () );
 
-            if ( this.eventFilter != null && this.eventFilter.matches ( event ) )
-            {
-                // filter event
-                logger.trace ( "Filter discarded event: {}", event );
-            }
-            else
-            {
-                // publish event
-                final Event evalEvent = this.eventMonitorEvaluator.evaluate ( event );
-                this.eventProcessor.publishEvent ( evalEvent );
-            }
+            this.injector.injectEvent ( event );
 
             // return output
             response.setContentType ( "text/plain" );

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,8 +8,9 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - generalize event injection
  *******************************************************************************/
-package org.eclipse.scada.ae.server.http.monitor;
+package org.eclipse.scada.ae.server.injector.monitor;
 
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -24,13 +25,13 @@ public class Messages
     {
     }
 
-    public static String getString ( String key )
+    public static String getString ( final String key )
     {
         try
         {
             return RESOURCE_BUNDLE.getString ( key );
         }
-        catch ( MissingResourceException e )
+        catch ( final MissingResourceException e )
         {
             return '!' + key + '!';
         }

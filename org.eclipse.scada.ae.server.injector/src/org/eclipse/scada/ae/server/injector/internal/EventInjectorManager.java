@@ -15,6 +15,8 @@ import java.util.Hashtable;
 
 import org.eclipse.scada.ae.event.EventProcessor;
 import org.eclipse.scada.ae.server.injector.EventInjector;
+import org.eclipse.scada.ae.server.injector.filter.EventFilter;
+import org.eclipse.scada.ae.server.injector.monitor.EventMonitorEvaluator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.FrameworkUtil;
@@ -25,6 +27,16 @@ public class EventInjectorManager
 
     private EventProcessor processor;
 
+    private final EventFilter eventFilter;
+
+    private final EventMonitorEvaluator evaluator;
+
+    public EventInjectorManager ( final EventFilter eventFilter, final EventMonitorEvaluator evaluator )
+    {
+        this.eventFilter = eventFilter;
+        this.evaluator = evaluator;
+    }
+
     public synchronized void start () throws Exception
     {
         final BundleContext context = FrameworkUtil.getBundle ( EventInjectorManager.class ).getBundleContext ();
@@ -32,7 +44,7 @@ public class EventInjectorManager
         this.processor = new EventProcessor ( context );
         this.processor.open ();
 
-        this.impl = new EventInjectorImpl ( this.processor );
+        this.impl = new EventInjectorImpl ( this.processor, this.eventFilter, this.evaluator );
 
         final Dictionary<String, Object> properties = new Hashtable<> ();
         properties.put ( Constants.SERVICE_DESCRIPTION, "Event injector service" );

@@ -13,20 +13,42 @@ package org.eclipse.scada.ae.server.injector.internal;
 import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.event.EventProcessor;
 import org.eclipse.scada.ae.server.injector.EventInjector;
+import org.eclipse.scada.ae.server.injector.filter.EventFilter;
+import org.eclipse.scada.ae.server.injector.monitor.EventMonitorEvaluator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EventInjectorImpl implements EventInjector
 {
+    private final static Logger logger = LoggerFactory.getLogger ( EventInjectorImpl.class );
+
     private final EventProcessor processor;
 
-    public EventInjectorImpl ( final EventProcessor processor )
+    private final EventFilter eventFilter;
+
+    private final EventMonitorEvaluator evaluator;
+
+    public EventInjectorImpl ( final EventProcessor processor, final EventFilter eventFilter, final EventMonitorEvaluator evaluator )
     {
         this.processor = processor;
+        this.eventFilter = eventFilter;
+        this.evaluator = evaluator;
     }
 
     @Override
     public void injectEvent ( final Event event )
     {
-        this.processor.publishEvent ( event );
+        if ( this.eventFilter != null && this.eventFilter.matches ( event ) )
+        {
+            // filter event
+            logger.trace ( "Filter discarded event: {}", event );
+        }
+        else
+        {
+            // publish event
+            final Event evalEvent = this.evaluator.evaluate ( event );
+            this.processor.publishEvent ( evalEvent );
+        }
     }
 
     public void dispose ()
