@@ -12,6 +12,7 @@ package org.eclipse.scada.protocol.relp;
 
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.timeout.ReadTimeoutHandler;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -27,13 +28,44 @@ import org.slf4j.LoggerFactory;
 
 public class RelpHandler extends ChannelDuplexHandler
 {
+    private static final String FILTER_NAME_TIMEOUT = "timeout";
 
     private final static Logger logger = LoggerFactory.getLogger ( RelpHandler.class );
+
+    private boolean opened;
+
+    private final int timeout;
+
+    public RelpHandler ()
+    {
+        this ( Integer.getInteger ( "org.eclipse.scada.protocol.relp.openTimeout", 20_000 ) );
+    }
+
+    public RelpHandler ( final int timeout )
+    {
+        this.timeout = timeout;
+    }
 
     @Override
     public void channelActive ( final ChannelHandlerContext ctx ) throws Exception
     {
-        // wait for "open"
+        // wait for "open" .. start timeout
+        final int timeout = getTimeoutSeconds ();
+        if ( timeout > 0 )
+        {
+            logger.debug ( "Adding timeout: {} seconds", timeout );
+            ctx.pipeline ().addLast ( FILTER_NAME_TIMEOUT, new ReadTimeoutHandler ( timeout ) );
+        }
+    }
+
+    private int getTimeoutSeconds ()
+    {
+        if ( this.timeout <= 0 )
+        {
+            return 0;
+        }
+
+        return (int)Math.ceil ( this.timeout / 1_000.0 );
     }
 
     @Override
@@ -58,6 +90,17 @@ public class RelpHandler extends ChannelDuplexHandler
 
     protected void handleOpen ( final ChannelHandlerContext ctx, final OpenRequest msg )
     {
+        if ( this.opened )
+        {
+            logger.warn ( "Duplicate open request. Closing channel." );
+            ctx.close ();
+            return;
+        }
+
+        logger.debug ( "Removing timeout" );
+        ctx.pipeline ().remove ( FILTER_NAME_TIMEOUT );
+        this.opened = true;
+
         logger.debug ( "Process open command: {}", msg );
 
         final String cs = msg.getOffers ().get ( Constants.OFFER_COMMANDS );
