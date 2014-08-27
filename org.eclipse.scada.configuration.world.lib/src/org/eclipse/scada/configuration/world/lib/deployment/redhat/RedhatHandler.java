@@ -172,14 +172,14 @@ public class RedhatHandler extends CommonPackageHandler
         final StringBuilder sb = new StringBuilder ();
         for ( final String driver : makeDriverList () )
         {
-            sb.append ( "test \"$1\" -eq \"0\" && " + sh.stopDriverCommand ( driver ) + " || true" );
+            sb.append ( sh.stopDriverCommand ( driver ) + " || true" );
             sb.append ( "\n" ); //$NON-NLS-1$
         }
         if ( this.deploy.isAutomaticCreate () )
         {
             for ( final String app : makeEquinoxList () )
             {
-                sb.append ( "test \"$1\" -eq \"0\" && " + sh.stopEquinoxCommand ( app ) + " || true" );
+                sb.append ( sh.stopEquinoxCommand ( app ) + " || true" );
                 sb.append ( "\n" ); //$NON-NLS-1$
             }
         }
