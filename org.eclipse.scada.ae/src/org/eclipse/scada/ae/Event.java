@@ -212,11 +212,13 @@ public class Event implements Cloneable, Comparable<Event>, Serializable
         /**
          * @deprecated use "level.X" instead
          */
+        @Deprecated
         COMPONENT ( "component", String.class ),
         SYSTEM ( "system", String.class ),
         /**
          * @deprecated use "level.X" instead
          */
+        @Deprecated
         LOCATION ( "location", String.class ),
         COMMENT ( "comment", String.class );
 
