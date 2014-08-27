@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.relp;
 
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
@@ -24,6 +25,7 @@ import org.eclipse.scada.protocol.relp.data.AbstractGenericResponse;
 import org.eclipse.scada.protocol.relp.data.Frame;
 import org.eclipse.scada.protocol.relp.data.OpenRequest;
 import org.eclipse.scada.protocol.relp.data.OpenResponse;
+import org.eclipse.scada.protocol.relp.data.ServerCloseMessage;
 import org.eclipse.scada.protocol.relp.data.SyslogRequest;
 import org.eclipse.scada.protocol.relp.data.SyslogResponse;
 import org.eclipse.scada.protocol.syslog.Constants;
@@ -56,6 +58,10 @@ public class FrameProcessor extends ChannelDuplexHandler
         else if ( msg instanceof SyslogResponse )
         {
             writeGenericResponse ( ctx, (AbstractGenericResponse)msg, promise );
+        }
+        else if ( msg instanceof ServerCloseMessage )
+        {
+            ctx.write ( new Frame ( 0, "serverclose", (ByteBuf)null ) );
         }
         else
         {

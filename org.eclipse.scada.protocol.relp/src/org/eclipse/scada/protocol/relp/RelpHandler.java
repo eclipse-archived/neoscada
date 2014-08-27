@@ -12,15 +12,17 @@ package org.eclipse.scada.protocol.relp;
 
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.timeout.ReadTimeoutHandler;
+import io.netty.util.concurrent.ScheduledFuture;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.scada.protocol.relp.data.OpenRequest;
+import org.eclipse.scada.protocol.relp.data.ServerCloseMessage;
 import org.eclipse.scada.protocol.relp.data.SyslogRequest;
 import org.eclipse.scada.protocol.syslog.Constants;
 import org.slf4j.Logger;
@@ -28,13 +30,13 @@ import org.slf4j.LoggerFactory;
 
 public class RelpHandler extends ChannelDuplexHandler
 {
-    private static final String FILTER_NAME_TIMEOUT = "timeout";
-
     private final static Logger logger = LoggerFactory.getLogger ( RelpHandler.class );
 
     private boolean opened;
 
     private final int timeout;
+
+    private ScheduledFuture<?> timeoutTask;
 
     public RelpHandler ()
     {
@@ -50,22 +52,24 @@ public class RelpHandler extends ChannelDuplexHandler
     public void channelActive ( final ChannelHandlerContext ctx ) throws Exception
     {
         // wait for "open" .. start timeout
-        final int timeout = getTimeoutSeconds ();
-        if ( timeout > 0 )
+        if ( this.timeout > 0 )
         {
-            logger.debug ( "Adding timeout: {} seconds", timeout );
-            ctx.pipeline ().addLast ( FILTER_NAME_TIMEOUT, new ReadTimeoutHandler ( timeout ) );
+            logger.debug ( "Adding timeout: {} seconds", this.timeout );
+            this.timeoutTask = ctx.executor ().schedule ( new Runnable () {
+
+                @Override
+                public void run ()
+                {
+                    processTimeout ( ctx );
+                }
+            }, this.timeout, TimeUnit.MILLISECONDS );
         }
     }
 
-    private int getTimeoutSeconds ()
+    protected void processTimeout ( final ChannelHandlerContext ctx )
     {
-        if ( this.timeout <= 0 )
-        {
-            return 0;
-        }
-
-        return (int)Math.ceil ( this.timeout / 1_000.0 );
+        ctx.writeAndFlush ( ServerCloseMessage.INSTANCE );
+        ctx.close ();
     }
 
     @Override
@@ -97,15 +101,20 @@ public class RelpHandler extends ChannelDuplexHandler
             return;
         }
 
-        logger.debug ( "Removing timeout" );
-        ctx.pipeline ().remove ( FILTER_NAME_TIMEOUT );
         this.opened = true;
+
+        logger.debug ( "Removing timeout" );
+        if ( this.timeoutTask != null )
+        {
+            this.timeoutTask.cancel ( false );
+        }
 
         logger.debug ( "Process open command: {}", msg );
 
         final String cs = msg.getOffers ().get ( Constants.OFFER_COMMANDS );
         if ( cs == null )
         {
+            ctx.write ( ServerCloseMessage.INSTANCE );
             throw new IllegalStateException ( "Offer 'commands' not found in open command" );
         }
 
@@ -115,6 +124,7 @@ public class RelpHandler extends ChannelDuplexHandler
 
         if ( !commands.contains ( "syslog" ) )
         {
+            ctx.write ( ServerCloseMessage.INSTANCE );
             throw new IllegalStateException ( "Command 'syslog' not supported" );
         }
 

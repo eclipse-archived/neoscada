@@ -21,6 +21,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.eclipse.scada.protocol.relp.FrameCodec;
 import org.eclipse.scada.protocol.relp.FrameProcessor;
 import org.eclipse.scada.protocol.relp.Helper;
+import org.eclipse.scada.protocol.relp.RelpExceptionHandler;
 import org.eclipse.scada.protocol.relp.RelpHandler;
 import org.eclipse.scada.protocol.syslog.SyslogCodec;
 import org.slf4j.Logger;
@@ -73,6 +74,7 @@ public class Receiver implements AutoCloseable
         ch.pipeline ().addLast ( "frame.processor", new FrameProcessor () );
         ch.pipeline ().addLast ( "relp.handler", new RelpHandler () );
         ch.pipeline ().addLast ( "syslog", new SyslogCodec ( Helper.RELP ) );
+        ch.pipeline ().addLast ( "exception", new RelpExceptionHandler () );
 
         final ReceiverHandler handler = this.factory.createHandler ();
 

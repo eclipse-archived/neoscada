@@ -186,6 +186,10 @@ public class FrameCodec extends ChannelDuplexHandler
         }
         else
         {
+            if ( b < 0x30 || b > 0x39 )
+            {
+                throw new CodecException ( String.format ( "Invalid character found: 0x%1$02x (%1$s)", b, (char)b ) );
+            }
             ctx.attr ( ATTR_TXNR_BUFFER ).get ().writeByte ( b );
         }
     }
