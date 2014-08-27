@@ -215,6 +215,11 @@ public class FrameCodec extends ChannelDuplexHandler
             data.writeBytes ( frame.getData () );
         }
 
+        if ( frame.getData () != null )
+        {
+            frame.getData ().release ();
+        }
+
         data.writeByte ( Constants.LF );
 
         ctx.write ( data );
