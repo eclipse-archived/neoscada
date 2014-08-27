@@ -19,7 +19,7 @@ import org.eclipse.scada.utils.filter.Operator;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class FilterTests
+public class FilterTest
 {
     @Test
     public void test1 ()
