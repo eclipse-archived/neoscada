@@ -200,6 +200,7 @@
 		<module>../org.eclipse.scada.ae.server.exporter.ngp</module>
 		<module>../org.eclipse.scada.ae.server.http</module>
 		<module>../org.eclipse.scada.ae.server.info</module>
+		<module>../org.eclipse.scada.ae.server.injector</module>
 		<module>../org.eclipse.scada.ae.server.monitor.proxy</module>
 		<module>../org.eclipse.scada.ae.server.net</module>
 		<module>../org.eclipse.scada.ae.server.ngp</module>
@@ -207,6 +208,7 @@
 		<module>../org.eclipse.scada.ae.server.storage.jdbc</module>
 		<module>../org.eclipse.scada.ae.server.storage.memory</module>
 		<module>../org.eclipse.scada.ae.server.storage.postgres</module>
+		<module>../org.eclipse.scada.ae.server.syslog</module>
 		<module>../org.eclipse.scada.ae.slave.inject</module>
 		<module>../org.eclipse.scada.ae.slave.inject.postgres</module>
 		<module>../org.eclipse.scada.ae.slave.pull</module>

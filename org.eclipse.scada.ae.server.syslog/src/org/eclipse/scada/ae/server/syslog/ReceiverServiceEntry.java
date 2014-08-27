@@ -10,23 +10,23 @@
  *******************************************************************************/
 package org.eclipse.scada.ae.server.syslog;
 
-import org.eclipse.scada.ae.event.EventProcessor;
+import org.eclipse.scada.ae.server.injector.EventInjectorQueue;
 
 public class ReceiverServiceEntry
 {
     private ReceiverService service;
 
-    private final EventProcessor processor;
+    private final EventInjectorQueue injector;
 
-    public ReceiverServiceEntry ( final EventProcessor processor, final ReceiverConfiguration cfg )
+    public ReceiverServiceEntry ( final EventInjectorQueue injector, final ReceiverConfiguration cfg )
     {
-        this.processor = processor;
+        this.injector = injector;
         createService ( cfg );
     }
 
     private synchronized void createService ( final ReceiverConfiguration cfg )
     {
-        this.service = new ReceiverService ( this.processor, cfg );
+        this.service = new ReceiverService ( this.injector, cfg );
     }
 
     public synchronized void update ( final ReceiverConfiguration cfg )

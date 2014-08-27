@@ -16,7 +16,7 @@ import java.net.InetSocketAddress;
 import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.Event.EventBuilder;
 import org.eclipse.scada.ae.data.Severity;
-import org.eclipse.scada.ae.event.EventProcessor;
+import org.eclipse.scada.ae.server.injector.EventInjectorQueue;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.protocol.relp.service.Receiver;
 import org.eclipse.scada.protocol.relp.service.ReceiverHandler;
@@ -26,7 +26,7 @@ import org.eclipse.scada.protocol.syslog.SyslogMessage;
 
 public class ReceiverService
 {
-    private final EventProcessor processor;
+    private final EventInjectorQueue injector;
 
     private final Receiver receiver;
 
@@ -58,9 +58,9 @@ public class ReceiverService
         }
     };
 
-    public ReceiverService ( final EventProcessor processor, final ReceiverConfiguration cfg )
+    public ReceiverService ( final EventInjectorQueue injector, final ReceiverConfiguration cfg )
     {
-        this.processor = processor;
+        this.injector = injector;
 
         if ( isLocal ( cfg.getHost () ) )
         {
@@ -116,7 +116,7 @@ public class ReceiverService
         builder.attribute ( Event.Fields.EVENT_TYPE, "CON" );
         builder.attribute ( Event.Fields.MESSAGE, "Syslog session opened" );
 
-        this.processor.publishEvent ( builder.build () );
+        this.injector.injectEvent ( builder.build () );
     }
 
     protected void handleClosed ( final ReceiverSession session )
@@ -128,7 +128,7 @@ public class ReceiverService
         builder.attribute ( Event.Fields.EVENT_TYPE, "DIS" );
         builder.attribute ( Event.Fields.MESSAGE, "Syslog session closed" );
 
-        this.processor.publishEvent ( builder.build () );
+        this.injector.injectEvent ( builder.build () );
     }
 
     protected void handleMessage ( final ReceiverSession session, final SyslogMessage message )
@@ -159,7 +159,7 @@ public class ReceiverService
 
         builder.sourceTimestamp ( message.getTimestamp ().getTime () );
 
-        this.processor.publishEvent ( builder.build () );
+        this.injector.injectEvent ( builder.build () );
     }
 
     private Variant makeSource ( final SyslogMessage message )

@@ -8,6 +8,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.data;version="0.1.0",
  org.eclipse.scada.ae.event;version="0.1.0",
+ org.eclipse.scada.ae.server.injector;version="0.2.0",
  org.eclipse.scada.ca;version="0.2.0",
  org.eclipse.scada.ca.common.factory;version="0.2.0",
  org.eclipse.scada.core;version="0.1.0",
