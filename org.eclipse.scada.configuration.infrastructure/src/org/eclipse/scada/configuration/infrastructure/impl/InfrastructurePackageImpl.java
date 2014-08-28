@@ -1585,7 +1585,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getEventInjectorSyslog_Host ()
+    public EAttribute getEventInjectorSyslog_BindAddress ()
     {
         return (EAttribute)eventInjectorSyslogEClass.getEStructuralFeatures ().get ( 0 );
     }
@@ -1787,7 +1787,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEReference ( eventInjectorHttpEClass, EVENT_INJECTOR_HTTP__HTTP_SERVICE );
 
         eventInjectorSyslogEClass = createEClass ( EVENT_INJECTOR_SYSLOG );
-        createEAttribute ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__HOST );
+        createEAttribute ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__BIND_ADDRESS );
         createEAttribute ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__PORT );
 
         // Create enums
@@ -2005,8 +2005,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEReference ( getEventInjectorHttp_HttpService (), this.getHttpServiceModule (), null, "httpService", null, 1, 1, EventInjectorHttp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( eventInjectorSyslogEClass, EventInjectorSyslog.class, "EventInjectorSyslog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getEventInjectorSyslog_Host (), ecorePackage.getEString (), "host", null, 0, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getEventInjectorSyslog_Port (), ecorePackage.getEInt (), "port", null, 1, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEventInjectorSyslog_BindAddress (), ecorePackage.getEString (), "bindAddress", null, 0, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEventInjectorSyslog_Port (), ecorePackage.getEInt (), "port", "20514", 1, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize enums and add enum literals
         initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$

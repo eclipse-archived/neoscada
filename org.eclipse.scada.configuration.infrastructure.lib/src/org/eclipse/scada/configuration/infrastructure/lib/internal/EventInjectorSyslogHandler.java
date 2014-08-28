@@ -51,7 +51,7 @@ public class EventInjectorSyslogHandler implements ModuleHandler
         final org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog m = (org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog)module;
 
         final Endpoint ep = Endpoints.registerEndpoint ( implApp, m.getPort (), Endpoints.reference ( s ), "Syslog Receiver Endpoint" );
-        s.setBindAddress ( m.getHost () );
+        s.setBindAddress ( m.getBindAddress () );
 
         s.setEndpoint ( ep );
         modules.add ( s );

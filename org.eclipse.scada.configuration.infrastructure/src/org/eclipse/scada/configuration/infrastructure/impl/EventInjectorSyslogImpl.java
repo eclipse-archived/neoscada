@@ -27,7 +27,7 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EventInjectorSyslogImpl#getHost <em>Host</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EventInjectorSyslogImpl#getBindAddress <em>Bind Address</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EventInjectorSyslogImpl#getPort <em>Port</em>}</li>
  * </ul>
  * </p>
@@ -37,24 +37,24 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implements EventInjectorSyslog
 {
     /**
-     * The default value of the '{@link #getHost() <em>Host</em>}' attribute.
+     * The default value of the '{@link #getBindAddress() <em>Bind Address</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getHost()
+     * @see #getBindAddress()
      * @generated
      * @ordered
      */
-    protected static final String HOST_EDEFAULT = null;
+    protected static final String BIND_ADDRESS_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getHost() <em>Host</em>}' attribute.
+     * The cached value of the '{@link #getBindAddress() <em>Bind Address</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getHost()
+     * @see #getBindAddress()
      * @generated
      * @ordered
      */
-    protected String host = HOST_EDEFAULT;
+    protected String bindAddress = BIND_ADDRESS_EDEFAULT;
 
     /**
      * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -64,7 +64,7 @@ public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implem
      * @generated
      * @ordered
      */
-    protected static final int PORT_EDEFAULT = 0;
+    protected static final int PORT_EDEFAULT = 20514;
 
     /**
      * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -102,9 +102,9 @@ public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getHost ()
+    public String getBindAddress ()
     {
-        return host;
+        return bindAddress;
     }
 
     /**
@@ -112,12 +112,12 @@ public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setHost ( String newHost )
+    public void setBindAddress ( String newBindAddress )
     {
-        String oldHost = host;
-        host = newHost;
+        String oldBindAddress = bindAddress;
+        bindAddress = newBindAddress;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EVENT_INJECTOR_SYSLOG__HOST, oldHost, host ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS, oldBindAddress, bindAddress ) );
     }
 
     /**
@@ -153,8 +153,8 @@ public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implem
     {
         switch ( featureID )
         {
-            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__HOST:
-                return getHost ();
+            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS:
+                return getBindAddress ();
             case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__PORT:
                 return getPort ();
         }
@@ -171,8 +171,8 @@ public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implem
     {
         switch ( featureID )
         {
-            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__HOST:
-                setHost ( (String)newValue );
+            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS:
+                setBindAddress ( (String)newValue );
                 return;
             case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__PORT:
                 setPort ( (Integer)newValue );
@@ -191,8 +191,8 @@ public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implem
     {
         switch ( featureID )
         {
-            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__HOST:
-                setHost ( HOST_EDEFAULT );
+            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS:
+                setBindAddress ( BIND_ADDRESS_EDEFAULT );
                 return;
             case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__PORT:
                 setPort ( PORT_EDEFAULT );
@@ -211,8 +211,8 @@ public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implem
     {
         switch ( featureID )
         {
-            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__HOST:
-                return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals ( host );
+            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS:
+                return BIND_ADDRESS_EDEFAULT == null ? bindAddress != null : !BIND_ADDRESS_EDEFAULT.equals ( bindAddress );
             case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__PORT:
                 return port != PORT_EDEFAULT;
         }
@@ -231,8 +231,8 @@ public class EventInjectorSyslogImpl extends MinimalEObjectImpl.Container implem
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (host: " ); //$NON-NLS-1$
-        result.append ( host );
+        result.append ( " (bindAddress: " ); //$NON-NLS-1$
+        result.append ( bindAddress );
         result.append ( ", port: " ); //$NON-NLS-1$
         result.append ( port );
         result.append ( ')' );

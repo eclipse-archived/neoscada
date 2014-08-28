@@ -2216,13 +2216,13 @@ public interface InfrastructurePackage extends EPackage
     int EVENT_INJECTOR_SYSLOG = 33;
 
     /**
-     * The feature id for the '<em><b>Host</b></em>' attribute.
+     * The feature id for the '<em><b>Bind Address</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EVENT_INJECTOR_SYSLOG__HOST = MODULE_FEATURE_COUNT + 0;
+    int EVENT_INJECTOR_SYSLOG__BIND_ADDRESS = MODULE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Port</b></em>' attribute.
@@ -3449,15 +3449,15 @@ public interface InfrastructurePackage extends EPackage
     EClass getEventInjectorSyslog ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getHost <em>Host</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getBindAddress <em>Bind Address</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Host</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getHost()
+     * @return the meta object for the attribute '<em>Bind Address</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getBindAddress()
      * @see #getEventInjectorSyslog()
      * @generated
      */
-    EAttribute getEventInjectorSyslog_Host ();
+    EAttribute getEventInjectorSyslog_BindAddress ();
 
     /**
      * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getPort <em>Port</em>}'.
@@ -4461,12 +4461,12 @@ public interface InfrastructurePackage extends EPackage
         EClass EVENT_INJECTOR_SYSLOG = eINSTANCE.getEventInjectorSyslog ();
 
         /**
-         * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Bind Address</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute EVENT_INJECTOR_SYSLOG__HOST = eINSTANCE.getEventInjectorSyslog_Host ();
+        EAttribute EVENT_INJECTOR_SYSLOG__BIND_ADDRESS = eINSTANCE.getEventInjectorSyslog_BindAddress ();
 
         /**
          * The meta object literal for the '<em><b>Port</b></em>' attribute feature.

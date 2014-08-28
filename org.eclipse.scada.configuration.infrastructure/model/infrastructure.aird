@@ -619,9 +619,9 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_YkdVdC3_EeSYytJHqr3bJQ" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_V01GcC3_EeSYytJHqr3bJQ" name="host : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@5432609a{platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//EventInjectorSyslog/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
-          <target xmi:type="ecore:EAttribute" href="infrastructure.ecore#//EventInjectorSyslog/host"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="infrastructure.ecore#//EventInjectorSyslog/host"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_V01GcC3_EeSYytJHqr3bJQ" name="bindAddress : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@5432609a{platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//EventInjectorSyslog/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+          <target xmi:type="ecore:EAttribute" href="infrastructure.ecore#//EventInjectorSyslog/bindAddress"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="infrastructure.ecore#//EventInjectorSyslog/bindAddress"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_XkpeQC3_EeSYytJHqr3bJQ" labelAlignment="LEFT">
             <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_XkpeQS3_EeSYytJHqr3bJQ"/>
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
@@ -630,7 +630,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_WS2fMC3_EeSYytJHqr3bJQ" name="port : EInt = 0" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@62fc252d{platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//EventInjectorSyslog/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_WS2fMC3_EeSYytJHqr3bJQ" name="port : EInt = 20514" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@62fc252d{platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//EventInjectorSyslog/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
           <target xmi:type="ecore:EAttribute" href="infrastructure.ecore#//EventInjectorSyslog/port"/>
           <semanticElements xmi:type="ecore:EAttribute" href="infrastructure.ecore#//EventInjectorSyslog/port"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Zyo_1C3_EeSYytJHqr3bJQ" labelFormat="bold" labelAlignment="LEFT" description="_Zyo_0i3_EeSYytJHqr3bJQ">

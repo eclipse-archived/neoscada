@@ -16,10 +16,14 @@ package org.eclipse.scada.configuration.infrastructure;
  * A representation of the model object '<em><b>Event Injector Syslog</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This is an event injector module for the RELP syslog protocol.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getHost <em>Host</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getBindAddress <em>Bind Address</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getPort <em>Port</em>}</li>
  * </ul>
  * </p>
@@ -32,33 +36,34 @@ public interface EventInjectorSyslog extends Module
 {
 
     /**
-     * Returns the value of the '<em><b>Host</b></em>' attribute.
+     * Returns the value of the '<em><b>Bind Address</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Host</em>' attribute isn't clear,
+     * If the meaning of the '<em>Bind Address</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Host</em>' attribute.
-     * @see #setHost(String)
-     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEventInjectorSyslog_Host()
+     * @return the value of the '<em>Bind Address</em>' attribute.
+     * @see #setBindAddress(String)
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEventInjectorSyslog_BindAddress()
      * @model
      * @generated
      */
-    String getHost ();
+    String getBindAddress ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getHost <em>Host</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog#getBindAddress <em>Bind Address</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Host</em>' attribute.
-     * @see #getHost()
+     * @param value the new value of the '<em>Bind Address</em>' attribute.
+     * @see #getBindAddress()
      * @generated
      */
-    void setHost ( String value );
+    void setBindAddress ( String value );
 
     /**
      * Returns the value of the '<em><b>Port</b></em>' attribute.
+     * The default value is <code>"20514"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Port</em>' attribute isn't clear,
@@ -68,7 +73,7 @@ public interface EventInjectorSyslog extends Module
      * @return the value of the '<em>Port</em>' attribute.
      * @see #setPort(int)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEventInjectorSyslog_Port()
-     * @model required="true"
+     * @model default="20514" required="true"
      * @generated
      */
     int getPort ();

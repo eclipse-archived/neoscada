@@ -72,27 +72,27 @@ public class EventInjectorSyslogItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addHostPropertyDescriptor ( object );
+            addBindAddressPropertyDescriptor ( object );
             addPortPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Host feature.
+     * This adds a property descriptor for the Bind Address feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHostPropertyDescriptor ( Object object )
+    protected void addBindAddressPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_EventInjectorSyslog_host_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_host_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.EVENT_INJECTOR_SYSLOG__HOST,
+                        getString ( "_UI_EventInjectorSyslog_bindAddress_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_bindAddress_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        InfrastructurePackage.Literals.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS,
                         true,
                         false,
                         false,
@@ -156,7 +156,7 @@ public class EventInjectorSyslogItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (EventInjectorSyslog)object ).getHost ();
+        String label = ( (EventInjectorSyslog)object ).getBindAddress ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_EventInjectorSyslog_type" ) : //$NON-NLS-1$
                 getString ( "_UI_EventInjectorSyslog_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
@@ -176,7 +176,7 @@ public class EventInjectorSyslogItemProvider
 
         switch ( notification.getFeatureID ( EventInjectorSyslog.class ) )
         {
-            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__HOST:
+            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS:
             case InfrastructurePackage.EVENT_INJECTOR_SYSLOG__PORT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
