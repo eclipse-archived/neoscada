@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -228,14 +228,12 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
 
         // Force an update because Eclipse hides empty menus now.
         //
-        submenuManager.addMenuListener
-                ( new IMenuListener ()
-                {
-                    public void menuAboutToShow ( IMenuManager menuManager )
-                    {
-                        menuManager.updateAll ( true );
-                    }
-                } );
+        submenuManager.addMenuListener ( new IMenuListener () {
+            public void menuAboutToShow ( IMenuManager menuManager )
+            {
+                menuManager.updateAll ( true );
+            }
+        } );
 
         addGlobalActions ( submenuManager );
     }

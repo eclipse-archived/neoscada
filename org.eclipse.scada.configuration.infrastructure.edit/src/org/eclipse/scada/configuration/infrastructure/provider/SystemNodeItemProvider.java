@@ -181,50 +181,23 @@ public class SystemNodeItemProvider extends NodeItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__DEPLOYMENT,
-                        DeploymentFactory.eINSTANCE.createDebianDeploymentMechanism () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__DEPLOYMENT, DeploymentFactory.eINSTANCE.createDebianDeploymentMechanism () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__DEPLOYMENT,
-                        DeploymentFactory.eINSTANCE.createRedhatDeploymentMechanism () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__DEPLOYMENT, DeploymentFactory.eINSTANCE.createRedhatDeploymentMechanism () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__DEPLOYMENT,
-                        DeploymentFactory.eINSTANCE.createMsiDeploymentMechanism () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__DEPLOYMENT, DeploymentFactory.eINSTANCE.createMsiDeploymentMechanism () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS,
-                        InfrastructureFactory.eINSTANCE.createCommonDriver () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS, InfrastructureFactory.eINSTANCE.createCommonDriver () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS,
-                        InfrastructureFactory.eINSTANCE.createEquinoxDriver () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS, InfrastructureFactory.eINSTANCE.createEquinoxDriver () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS,
-                        InfrastructureFactory.eINSTANCE.createExternalDriver () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS, InfrastructureFactory.eINSTANCE.createExternalDriver () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__MASTERS,
-                        InfrastructureFactory.eINSTANCE.createMasterServer () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__MASTERS, InfrastructureFactory.eINSTANCE.createMasterServer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_ARCHIVES,
-                        InfrastructureFactory.eINSTANCE.createValueArchiveServer () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_ARCHIVES, InfrastructureFactory.eINSTANCE.createValueArchiveServer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_SLAVES,
-                        InfrastructureFactory.eINSTANCE.createValueArchiveSlave () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_SLAVES, InfrastructureFactory.eINSTANCE.createValueArchiveSlave () ) );
     }
 
 }

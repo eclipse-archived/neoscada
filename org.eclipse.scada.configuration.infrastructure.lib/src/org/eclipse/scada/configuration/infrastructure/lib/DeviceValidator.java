@@ -10,12 +10,9 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
-import java.util.Collection;
-
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Device;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
 /**
  * A validator for a specific device type
@@ -23,7 +20,7 @@ import org.eclipse.scada.configuration.infrastructure.Device;
  * If you want to validate that a driver has only a specific device type
  * assigned use {@link DeviceTypeValidator}.
  * </p>
- * 
+ *
  * @author Jens Reimann
  * @param <T>
  *            the driver type
@@ -40,7 +37,7 @@ public abstract class DeviceValidator<T extends AbstractFactoryDriver, D extends
     }
 
     @Override
-    public void validate ( final IValidationContext ctx, final T driver, final Collection<IStatus> result )
+    public void validate ( final ValidationContext ctx, final T driver )
     {
         for ( final Device device : driver.getDevices () )
         {
@@ -48,9 +45,9 @@ public abstract class DeviceValidator<T extends AbstractFactoryDriver, D extends
             {
                 continue;
             }
-            validateDevice ( this.deviceClass.cast ( device ), ctx, result );
+            validateDevice ( this.deviceClass.cast ( device ), ctx );
         }
     }
 
-    protected abstract void validateDevice ( final D device, IValidationContext ctx, Collection<IStatus> result );
+    protected abstract void validateDevice ( final D device, ValidationContext ctx );
 }

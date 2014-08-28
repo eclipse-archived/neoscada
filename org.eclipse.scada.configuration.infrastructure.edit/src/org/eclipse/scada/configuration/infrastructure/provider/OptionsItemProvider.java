@@ -81,19 +81,9 @@ public class OptionsItemProvider extends ItemProviderAdapter implements IEditing
      */
     protected void addBaseDaNgpPortPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Options_baseDaNgpPort_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Options_baseDaNgpPort_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.OPTIONS__BASE_DA_NGP_PORT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Options_baseDaNgpPort_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Options_baseDaNgpPort_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.OPTIONS__BASE_DA_NGP_PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -104,19 +94,9 @@ public class OptionsItemProvider extends ItemProviderAdapter implements IEditing
      */
     protected void addBaseAeNgpPortPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Options_baseAeNgpPort_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Options_baseAeNgpPort_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.OPTIONS__BASE_AE_NGP_PORT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Options_baseAeNgpPort_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Options_baseAeNgpPort_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.OPTIONS__BASE_AE_NGP_PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -127,19 +107,9 @@ public class OptionsItemProvider extends ItemProviderAdapter implements IEditing
      */
     protected void addBaseCaNgpPortPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Options_baseCaNgpPort_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Options_baseCaNgpPort_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.OPTIONS__BASE_CA_NGP_PORT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Options_baseCaNgpPort_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Options_baseCaNgpPort_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.OPTIONS__BASE_CA_NGP_PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -150,19 +120,9 @@ public class OptionsItemProvider extends ItemProviderAdapter implements IEditing
      */
     protected void addBaseHdNgpPortPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Options_baseHdNgpPort_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Options_baseHdNgpPort_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.OPTIONS__BASE_HD_NGP_PORT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Options_baseHdNgpPort_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Options_baseHdNgpPort_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.OPTIONS__BASE_HD_NGP_PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -278,25 +238,13 @@ public class OptionsItemProvider extends ItemProviderAdapter implements IEditing
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.OPTIONS__MONITOR_POOLS,
-                        OsgiFactory.eINSTANCE.createMonitorPool () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.OPTIONS__MONITOR_POOLS, OsgiFactory.eINSTANCE.createMonitorPool () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.OPTIONS__EVENT_POOLS,
-                        OsgiFactory.eINSTANCE.createEventPool () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.OPTIONS__EVENT_POOLS, OsgiFactory.eINSTANCE.createEventPool () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.OPTIONS__DEFAULT_USER_SERVICE,
-                        InfrastructureFactory.eINSTANCE.createSystemPropertyUserService () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.OPTIONS__DEFAULT_USER_SERVICE, InfrastructureFactory.eINSTANCE.createSystemPropertyUserService () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.OPTIONS__DEFAULT_USER_SERVICE,
-                        InfrastructureFactory.eINSTANCE.createJdbcUserService () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.OPTIONS__DEFAULT_USER_SERVICE, InfrastructureFactory.eINSTANCE.createJdbcUserService () ) );
     }
 
     /**

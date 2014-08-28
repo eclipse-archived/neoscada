@@ -10,15 +10,10 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
@@ -28,6 +23,8 @@ import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter;
 import org.eclipse.scada.configuration.world.osgi.DataAccessExporter;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
+import org.eclipse.scada.ide.validation.Severity;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
 public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclipse.scada.configuration.world.osgi.EquinoxApplication> implements DriverFactory
 {
@@ -43,15 +40,15 @@ public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclips
         this.validators.add ( new DriverValidator<EquinoxDriver> () {
 
             @Override
-            public void validate ( final IValidationContext ctx, final EquinoxDriver driver, final Collection<IStatus> result )
+            public void validate ( final ValidationContext ctx, final EquinoxDriver driver )
             {
                 if ( Worlds.findUserService ( driver ) == null )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( driver ), IStatus.WARNING, 0, "Neither the driver has set a user service nor is there a default in the global options" ) );
+                    ctx.add ( Severity.WARNING, new Object[] { driver }, "Neither the driver has set a user service nor is there a default in the global options" );
                 }
                 if ( Worlds.findSecurityConfiguration ( driver ) == null )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( driver ), IStatus.WARNING, 1, "Neither the driver has set a security policy nor is there a default in the root" ) );
+                    ctx.add ( Severity.WARNING, new Object[] { driver }, "Neither the driver has set a security policy nor is there a default in the root" );
                 }
             }
         } );
@@ -89,36 +86,22 @@ public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclips
     }
 
     @Override
-    public IStatus validate ( final IValidationContext ctx, final AbstractFactoryDriver driver )
+    public void validate ( final ValidationContext ctx, final AbstractFactoryDriver driver )
     {
         if ( ! ( driver instanceof EquinoxDriver ) )
         {
-            return ConstraintStatus.createStatus ( ctx, driver, null, "Driver factory of type {0} can only process driver of type {1}", this.getClass ().getSimpleName (), EquinoxDriver.class.getSimpleName () );
+            ctx.add ( "Driver factory of type {0} can only process driver of type {1}", this.getClass ().getSimpleName (), EquinoxDriver.class.getSimpleName () );
+            return;
         }
 
-        final Collection<IStatus> problems = validateDriver ( ctx, (EquinoxDriver)driver );
-        if ( problems.isEmpty () )
-        {
-            return ctx.createSuccessStatus ();
-        }
-        else
-        {
-            return ConstraintStatus.createMultiStatus ( ctx, problems );
-        }
+        performValidation ( ctx, (EquinoxDriver)driver );
     }
 
-    protected Collection<IStatus> validateDriver ( final IValidationContext ctx, final EquinoxDriver driver )
-    {
-        final Collection<IStatus> result = new LinkedList<> ();
-        performValidation ( ctx, driver, result );
-        return result;
-    }
-
-    protected void performValidation ( final IValidationContext ctx, final EquinoxDriver driver, final Collection<IStatus> result )
+    protected void performValidation ( final ValidationContext ctx, final EquinoxDriver driver )
     {
         for ( final DriverValidator<EquinoxDriver> validator : this.validators )
         {
-            validator.validate ( ctx, driver, result );
+            validator.validate ( ctx, driver );
         }
     }
 

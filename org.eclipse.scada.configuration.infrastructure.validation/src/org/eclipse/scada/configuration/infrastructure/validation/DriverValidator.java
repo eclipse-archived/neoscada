@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,46 +8,43 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.validation.infrastructure;
+package org.eclipse.scada.configuration.infrastructure.validation;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.validation.AbstractModelConstraint;
-import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.lib.Activator;
 import org.eclipse.scada.configuration.infrastructure.lib.DriverFactory;
+import org.eclipse.scada.ide.validation.TypedValidator;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
-public class DriverValidation extends AbstractModelConstraint
+public class DriverValidator extends TypedValidator<AbstractFactoryDriver>
 {
 
-    public DriverValidation ()
+    public DriverValidator ()
     {
+        super ( AbstractFactoryDriver.class );
     }
 
     @Override
-    public IStatus validate ( final IValidationContext ctx )
+    protected void validate ( final AbstractFactoryDriver target, final ValidationContext context )
     {
-        if ( ! ( ctx.getTarget () instanceof AbstractFactoryDriver ) )
-        {
-            return ctx.createSuccessStatus ();
-        }
+        final AbstractFactoryDriver driver = target;
 
-        final AbstractFactoryDriver driver = (AbstractFactoryDriver)ctx.getTarget ();
         if ( driver.getDriverTypeId () == null || driver.getDriverTypeId ().isEmpty () )
         {
             // this is a success since further validation cannot be performed and the ECore model itself will
             // complain about an empty value
-            return ctx.createSuccessStatus ();
+            return;
         }
 
         final DriverFactory factory = Activator.findDriverFactory ( driver.getDriverTypeId () );
 
         if ( factory == null )
         {
-            return ConstraintStatus.createStatus ( ctx, driver, null, "There is no driver factory for type id \"{0}\"", driver.getDriverTypeId () );
+            context.add ( "There is no driver factory for type id \"{0}\"", driver.getDriverTypeId () );
+            return;
         }
 
-        return factory.validate ( ctx, driver );
+        factory.validate ( context, driver );
     }
+
 }

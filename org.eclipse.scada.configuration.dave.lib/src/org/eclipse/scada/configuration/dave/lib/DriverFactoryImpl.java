@@ -10,15 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.dave.lib;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.dave.DaveBlockDefinition;
 import org.eclipse.scada.configuration.dave.DaveCommunicationProcessor;
 import org.eclipse.scada.configuration.dave.DaveDevice;
@@ -38,6 +34,8 @@ import org.eclipse.scada.configuration.memory.TypeSystem;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerFactory;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerModule;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.ide.validation.Severity;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
 public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<DaveDriver>
 {
@@ -134,9 +132,9 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<DaveDriver>
     }
 
     @Override
-    protected void performValidation ( final IValidationContext ctx, final EquinoxDriver driver, final Collection<IStatus> result )
+    protected void performValidation ( final ValidationContext ctx, final EquinoxDriver driver )
     {
-        super.performValidation ( ctx, driver, result );
+        super.performValidation ( ctx, driver );
 
         final Set<TypeSystem> typeSystems = new HashSet<> ();
 
@@ -149,44 +147,45 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<DaveDriver>
 
             typeSystems.add ( ( (DaveDevice)device ).getTypeSystem () );
 
-            validateDevice ( ctx, driver, (DaveDevice)device, result );
+            validateDevice ( ctx, driver, (DaveDevice)device );
         }
 
         if ( typeSystems.size () > 1 )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, driver, null, "All S7 devices of one driver instance must share the same type system ({0})", typeSystems ) );
+            ctx.add ( "All S7 devices of one driver instance must share the same type system ({0})", typeSystems );
         }
     }
 
-    private void validateDevice ( final IValidationContext ctx, final EquinoxDriver driver, final DaveDevice device, final Collection<IStatus> result )
+    private void validateDevice ( final ValidationContext ctx, final EquinoxDriver driver, final DaveDevice device )
     {
         if ( device.getName () == null || device.getName ().isEmpty () )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, device, null, "'Name' must not be empty" ) );
+            ctx.add ( Severity.ERROR, new Object[] { device }, "'Name' must not be empty" );
         }
 
         for ( final DaveBlockDefinition block : device.getBlocks () )
         {
             if ( block.getArea () < 0 || block.getArea () > MAX_AREA )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Area must be between [0..{0}]", MAX_AREA ) );
+                ctx.add ( Severity.ERROR, new Object[] { block }, "Area must be between [0..{0}]", MAX_AREA );
             }
             if ( block.getBlock () < 0 || block.getBlock () > MAX_BLOCK )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block must be between [0..{0}]", MAX_BLOCK ) );
+                ctx.add ( Severity.ERROR, new Object[] { block }, "Block must be between [0..{0}]", MAX_BLOCK );
             }
             if ( block.getOffset () < 0 || block.getOffset () > MAX_OFFSET )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Offset must be between [0..{0}]", MAX_OFFSET ) );
+                ctx.add ( Severity.ERROR, new Object[] { block }, "Offset must be between [0..{0}]", MAX_OFFSET );
             }
             if ( block.getPeriod () < 0 )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Period must be positive" ) );
+                ctx.add ( Severity.ERROR, new Object[] { block }, "Period must be positive" );
             }
+
             final int len = TypeHelper.calculateByteSize ( block.getType () );
             if ( len > MAX_REQUEST_SIZE )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block size ({0}) is greater then the maxmimum request size ({1}). You will need to split up your type definition to reduce block size.", len, MAX_REQUEST_SIZE ) );
+                ctx.add ( Severity.ERROR, new Object[] { block }, "Block size ({0}) is greater then the maxmimum request size ({1}). You will need to split up your type definition to reduce block size.", len, MAX_REQUEST_SIZE );
             }
         }
     }

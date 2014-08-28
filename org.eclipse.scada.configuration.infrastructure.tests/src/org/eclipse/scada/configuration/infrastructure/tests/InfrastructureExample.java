@@ -49,20 +49,15 @@ public class InfrastructureExample
 
         // Register the appropriate resource factory to handle the content type.
         //
-        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put
-                ( InfrastructurePackage.eCONTENT_TYPE,
-                        new InfrastructureResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put ( InfrastructurePackage.eCONTENT_TYPE, new InfrastructureResourceFactoryImpl () );
 
         // Register the appropriate content handler for all file extensions and any element from the package's namespace.
         //
-        resourceSet.getURIConverter ().getContentHandlers ().add
-                ( new RootXMLContentHandlerImpl ( InfrastructurePackage.eCONTENT_TYPE, null, null, InfrastructurePackage.eNS_URI, null ) );
+        resourceSet.getURIConverter ().getContentHandlers ().add ( new RootXMLContentHandlerImpl ( InfrastructurePackage.eCONTENT_TYPE, null, null, InfrastructurePackage.eNS_URI, null ) );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( InfrastructurePackage.eNS_URI,
-                        InfrastructurePackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( InfrastructurePackage.eNS_URI, InfrastructurePackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

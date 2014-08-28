@@ -10,15 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.modbus.lib;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
@@ -35,9 +31,12 @@ import org.eclipse.scada.configuration.modbus.ModbusDevice;
 import org.eclipse.scada.configuration.modbus.ModbusDriver;
 import org.eclipse.scada.configuration.modbus.ModbusFactory;
 import org.eclipse.scada.configuration.modbus.ModbusMaster;
+import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
 import org.eclipse.scada.configuration.modbus.ProtocolType;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.ide.validation.Severity;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
 public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver>
 {
@@ -102,9 +101,9 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
     }
 
     @Override
-    protected void performValidation ( final IValidationContext ctx, final EquinoxDriver driver, final Collection<IStatus> result )
+    protected void performValidation ( final ValidationContext ctx, final EquinoxDriver driver )
     {
-        super.performValidation ( ctx, driver, result );
+        super.performValidation ( ctx, driver );
 
         final Set<TypeSystem> typeSystems = new HashSet<> ();
 
@@ -117,56 +116,55 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
 
             typeSystems.add ( ( (ModbusDevice)device ).getTypeSystem () );
 
-            validateDevice ( ctx, driver, (ModbusDevice)device, result );
+            validateDevice ( ctx, driver, (ModbusDevice)device );
         }
 
         if ( typeSystems.size () > 1 )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, driver, null, "All modbus devices of one driver instance must share the same type system ({0})", typeSystems ) );
+            ctx.add ( ModbusPackage.Literals.MODBUS_DEVICE__TYPE_SYSTEM, "All modbus devices of one driver instance must share the same type system ({0})", typeSystems );
         }
     }
 
-    private void validateDevice ( final IValidationContext ctx, final EquinoxDriver driver, final ModbusDevice device, final Collection<IStatus> result )
+    private void validateDevice ( final ValidationContext ctx, final EquinoxDriver driver, final ModbusDevice device )
     {
         if ( device.getProtocolType () == ProtocolType.TCP && device.getInterFrameDelay () != null )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, device, null, "InterFrameDelay must not be set for TCP devices." ) );
+            ctx.add ( Severity.ERROR, new Object[] { device, ModbusPackage.Literals.MODBUS_DEVICE__INTER_FRAME_DELAY }, "InterFrameDelay must not be set for TCP devices." );
         }
         for ( final ModbusSlave slave : device.getSlaves () )
         {
             if ( slave.getUnitAddress () == 0x00 || slave.getUnitAddress () == 0xFF )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, slave, null, "Unit address {0} is invalid. Must be greater than 0x00 and less than 0xFF.", slave.getUnitAddress () ) );
+                ctx.add ( Severity.ERROR, new Object[] { slave, ModbusPackage.Literals.MODBUS_SLAVE__UNIT_ADDRESS }, "Unit address {0} is invalid. Must be greater than 0x00 and less than 0xFF.", slave.getUnitAddress () );
             }
             for ( final ModbusBlock block : slave.getBlocks () )
             {
                 if ( block.getCount () <= 0 )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block size must be positive and greater than zero" ) );
+                    ctx.add ( Severity.ERROR, new Object[] { block, ModbusPackage.Literals.MODBUS_BLOCK__COUNT }, "Block size must be positive and greater than zero" );
                 }
                 if ( block.getPeriod () <= 0 )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block polling period must be positive and greater than zero" ) );
+                    ctx.add ( Severity.ERROR, new Object[] { block, ModbusPackage.Literals.MODBUS_BLOCK__PERIOD }, "Block polling period must be positive and greater than zero" );
                 }
                 if ( block.getTimeout () < 0 )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block timeout must not be negative" ) );
+                    ctx.add ( Severity.ERROR, new Object[] { block, ModbusPackage.Literals.MODBUS_BLOCK__TIMEOUT }, "Block timeout must not be negative" );
                 }
                 if ( block.getStartAddress () < MIN_ADDRESS || block.getStartAddress () >= MAX_ADDRESS )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block address must be between {0} and {1}", MIN_ADDRESS, MAX_ADDRESS ) );
+                    ctx.add ( Severity.ERROR, new Object[] { block, ModbusPackage.Literals.MODBUS_BLOCK__START_ADDRESS }, "Block address must be between {0} and {1}", MIN_ADDRESS, MAX_ADDRESS );
                 }
                 if ( block.getStartAddress () + block.getCount () >= MAX_ADDRESS )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "A start address of {0} and block size of {1} would read beyond the maximum.", block.getStartAddress (), block.getCount () ) );
+                    ctx.add ( Severity.ERROR, new Object[] { block }, "A start address of {0} and block size of {1} would read beyond the maximum.", block.getStartAddress (), block.getCount () );
                 }
                 final int typeLen = TypeHelper.calculateByteSize ( block.getType () );
                 if ( block.getCount () * 2 < typeLen )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "The defined block type ({0} bytes) is bigger than the block request ({1} bytes / {2} registers).", typeLen, block.getCount () * 2, block.getCount () ) );
+                    ctx.add ( Severity.ERROR, new Object[] { block }, "The defined block type ({0} bytes) is bigger than the block request ({1} bytes / {2} registers).", typeLen, block.getCount () * 2, block.getCount () );
                 }
             }
         }
     }
-
 }

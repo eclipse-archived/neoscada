@@ -69,25 +69,13 @@ public class AbstractFactoryDriverItemProvider extends DriverItemProvider
      */
     protected void addDriverTypeIdPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add
-                ( new ItemPropertyDescriptor (
-                        ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_AbstractFactoryDriver_driverTypeId_feature" ),
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractFactoryDriver_driverTypeId_feature", "_UI_AbstractFactoryDriver_type" ),
-                        InfrastructurePackage.Literals.ABSTRACT_FACTORY_DRIVER__DRIVER_TYPE_ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) {
-                    @Override
-                    public Collection<?> getChoiceOfValues ( final Object object )
-                    {
-                        return Activator.getAllDriverFactories ();
-                    }
-                } );
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractFactoryDriver_driverTypeId_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractFactoryDriver_driverTypeId_feature", "_UI_AbstractFactoryDriver_type" ), InfrastructurePackage.Literals.ABSTRACT_FACTORY_DRIVER__DRIVER_TYPE_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) {
+            @Override
+            public Collection<?> getChoiceOfValues ( final Object object )
+            {
+                return Activator.getAllDriverFactories ();
+            }
+        } );
     }
 
     /**
@@ -98,19 +86,9 @@ public class AbstractFactoryDriverItemProvider extends DriverItemProvider
      */
     protected void addDevicesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_AbstractFactoryDriver_devices_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractFactoryDriver_devices_feature", "_UI_AbstractFactoryDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.ABSTRACT_FACTORY_DRIVER__DEVICES,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractFactoryDriver_devices_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractFactoryDriver_devices_feature", "_UI_AbstractFactoryDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.ABSTRACT_FACTORY_DRIVER__DEVICES, true, false, true, null, null, null ) );
     }
 
     /**
@@ -134,9 +112,8 @@ public class AbstractFactoryDriverItemProvider extends DriverItemProvider
     public String getText ( Object object )
     {
         String label = ( (AbstractFactoryDriver)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_AbstractFactoryDriver_type" ) : //$NON-NLS-1$
-                getString ( "_UI_AbstractFactoryDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_AbstractFactoryDriver_type" ) : //$NON-NLS-1$
+        getString ( "_UI_AbstractFactoryDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

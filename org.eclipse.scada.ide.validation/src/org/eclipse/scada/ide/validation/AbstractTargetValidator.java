@@ -13,15 +13,17 @@ package org.eclipse.scada.ide.validation;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EObject;
 
 public abstract class AbstractTargetValidator<T>
 {
     private final Class<T> clazz;
 
-    public AbstractTargetValidator ( final Class<T> clazz )
+    private final String contextId;
+
+    public AbstractTargetValidator ( final Class<T> clazz, final String contextId )
     {
         this.clazz = clazz;
+        this.contextId = contextId;
     }
 
     protected abstract void performValidation ( final T target, final ValidationContext ctx );
@@ -29,7 +31,7 @@ public abstract class AbstractTargetValidator<T>
     /**
      * @return if the object is valid, <code>true</code> if the object is
      */
-    public boolean validate ( final EObject target, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validate ( final Object target, final DiagnosticChain diagnostics, final Map<Object, Object> context )
     {
         if ( target == null )
         {
@@ -43,7 +45,7 @@ public abstract class AbstractTargetValidator<T>
 
         final T t = this.clazz.cast ( target );
 
-        final ValidationContextImpl ctx = new ValidationContextImpl ( "org.eclipse.scada.configuration.setup.common", target );
+        final ValidationContextImpl ctx = new ValidationContextImpl ( this.contextId, target );
         performValidation ( t, ctx );
         return ctx.apply ( diagnostics );
     }

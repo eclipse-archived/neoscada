@@ -16,23 +16,28 @@ import java.util.List;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.ibm.icu.text.MessageFormat;
 
 public class ValidationContextImpl implements ValidationContext
 {
-    private final EObject target;
+    private final Object target;
 
     private final List<Diagnostic> result = new LinkedList<> ();
 
     private final String source;
 
-    public ValidationContextImpl ( final String source, final EObject target )
+    public ValidationContextImpl ( final String source, final Object target )
     {
         this.source = source;
         this.target = target;
+    }
+
+    @Override
+    public Object getTarget ()
+    {
+        return this.target;
     }
 
     public boolean apply ( final DiagnosticChain diagnostics )

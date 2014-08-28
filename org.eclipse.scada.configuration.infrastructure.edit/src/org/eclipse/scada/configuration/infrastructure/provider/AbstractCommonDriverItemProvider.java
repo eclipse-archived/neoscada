@@ -30,8 +30,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AbstractCommonDriverItemProvider
-        extends DriverItemProvider
+public class AbstractCommonDriverItemProvider extends DriverItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -70,19 +69,9 @@ public class AbstractCommonDriverItemProvider
      */
     protected void addPortNumberPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_AbstractCommonDriver_portNumber_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractCommonDriver_portNumber_feature", "_UI_AbstractCommonDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.ABSTRACT_COMMON_DRIVER__PORT_NUMBER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractCommonDriver_portNumber_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractCommonDriver_portNumber_feature", "_UI_AbstractCommonDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.ABSTRACT_COMMON_DRIVER__PORT_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -139,9 +128,8 @@ public class AbstractCommonDriverItemProvider
     public String getText ( Object object )
     {
         String label = ( (AbstractCommonDriver)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_AbstractCommonDriver_type" ) : //$NON-NLS-1$
-                getString ( "_UI_AbstractCommonDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_AbstractCommonDriver_type" ) : //$NON-NLS-1$
+        getString ( "_UI_AbstractCommonDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -180,10 +168,7 @@ public class AbstractCommonDriverItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.ABSTRACT_COMMON_DRIVER__PASSWORD,
-                        WorldFactory.eINSTANCE.createPasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.ABSTRACT_COMMON_DRIVER__PASSWORD, WorldFactory.eINSTANCE.createPasswordCredentials () ) );
     }
 
 }

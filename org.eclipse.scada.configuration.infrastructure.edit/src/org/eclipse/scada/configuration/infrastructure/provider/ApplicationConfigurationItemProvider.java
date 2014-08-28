@@ -41,14 +41,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ApplicationConfigurationItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ApplicationConfigurationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -88,19 +81,10 @@ public class ApplicationConfigurationItemProvider
      */
     protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -111,19 +95,10 @@ public class ApplicationConfigurationItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -193,9 +168,8 @@ public class ApplicationConfigurationItemProvider
     public String getText ( Object object )
     {
         String label = ( (ApplicationConfiguration)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ApplicationConfiguration_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ApplicationConfiguration_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ApplicationConfiguration_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ApplicationConfiguration_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -236,70 +210,31 @@ public class ApplicationConfigurationItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
-                        InfrastructureFactory.eINSTANCE.createHttpServiceModule () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createHttpServiceModule () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
-                        InfrastructureFactory.eINSTANCE.createRestExporterModule () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createRestExporterModule () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
-                        InfrastructureFactory.eINSTANCE.createWebAdminConsole () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createWebAdminConsole () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
-                        InfrastructureFactory.eINSTANCE.createOracleVMSettings () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createOracleVMSettings () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
-                        InfrastructureFactory.eINSTANCE.createGenericVMSettings () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createGenericVMSettings () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
-                        InfrastructureFactory.eINSTANCE.createEventInjectorHttp () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createEventInjectorHttp () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
-                        InfrastructureFactory.eINSTANCE.createEventInjectorSyslog () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createEventInjectorSyslog () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
-                        OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
-                        OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
-                        OsgiFactory.eINSTANCE.createTelnetConsole () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createTelnetConsole () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
-                        OsgiFactory.eINSTANCE.createEventInjectorPostgres () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventInjectorPostgres () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
-                        OsgiFactory.eINSTANCE.createEventInjectorJdbc () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventInjectorJdbc () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
-                        OsgiFactory.eINSTANCE.createProfileConfiguration () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createProfileConfiguration () ) );
     }
 
     /**

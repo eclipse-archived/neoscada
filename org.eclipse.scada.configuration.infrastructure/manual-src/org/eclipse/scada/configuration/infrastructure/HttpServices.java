@@ -16,6 +16,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
+import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
+import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
+import org.eclipse.scada.configuration.infrastructure.Module;
 
 public final class HttpServices
 {

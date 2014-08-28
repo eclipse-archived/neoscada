@@ -907,10 +907,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
             @Override
             public Object caseApplicationNode ( ApplicationNode object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                                InfrastructureFactory.eINSTANCE.createExternalDriverPlaceholder () ) );
+                newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, InfrastructureFactory.eINSTANCE.createExternalDriverPlaceholder () ) );
 
                 return null;
             }

@@ -12,16 +12,15 @@ package org.eclipse.scada.configuration.infrastructure.lib;
 
 import java.util.Map;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.world.Driver;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
 public interface DriverFactory
 {
     public Driver createDriver ( World world, AbstractFactoryDriver driver, Map<Node, org.eclipse.scada.configuration.world.Node> nodes );
 
-    public IStatus validate ( IValidationContext ctx, AbstractFactoryDriver driver );
+    public void validate ( ValidationContext context, AbstractFactoryDriver driver );
 }

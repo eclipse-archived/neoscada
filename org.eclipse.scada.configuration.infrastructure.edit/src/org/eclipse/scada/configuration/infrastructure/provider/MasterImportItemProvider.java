@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -79,19 +79,9 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addImportedMasterPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MasterImport_importedMaster_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_importedMaster_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.MASTER_IMPORT__IMPORTED_MASTER,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterImport_importedMaster_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_importedMaster_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.MASTER_IMPORT__IMPORTED_MASTER, true, false, true, null, null, null ) );
     }
 
     /**
@@ -102,19 +92,9 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MasterImport_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_id_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.MASTER_IMPORT__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterImport_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_id_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.MASTER_IMPORT__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -239,15 +219,9 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS,
-                        WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS, WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS,
-                        WorldFactory.eINSTANCE.createPasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS, WorldFactory.eINSTANCE.createPasswordCredentials () ) );
     }
 
     /**

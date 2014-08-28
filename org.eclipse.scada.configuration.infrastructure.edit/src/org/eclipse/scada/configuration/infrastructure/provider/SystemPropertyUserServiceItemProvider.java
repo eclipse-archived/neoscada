@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -168,10 +168,7 @@ public class SystemPropertyUserServiceItemProvider extends ItemProviderAdapter i
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.SYSTEM_PROPERTY_USER_SERVICE__USERS,
-                        InfrastructureFactory.eINSTANCE.createUserEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_PROPERTY_USER_SERVICE__USERS, InfrastructureFactory.eINSTANCE.createUserEntry () ) );
     }
 
     /**

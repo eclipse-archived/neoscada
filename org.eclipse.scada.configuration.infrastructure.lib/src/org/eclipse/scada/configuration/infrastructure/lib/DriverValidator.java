@@ -10,12 +10,9 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
-import java.util.Collection;
-
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
 public interface DriverValidator<T>
 {
-    public void validate ( final IValidationContext ctx, final T driver, final Collection<IStatus> result );
+    public void validate ( final ValidationContext ctx, final T driver );
 }

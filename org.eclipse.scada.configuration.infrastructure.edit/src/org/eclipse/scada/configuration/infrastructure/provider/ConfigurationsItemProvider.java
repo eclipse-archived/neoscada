@@ -38,14 +38,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigurationsItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ConfigurationsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -178,20 +171,11 @@ public class ConfigurationsItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.CONFIGURATIONS__CONFIGURATIONS,
-                        InfrastructureFactory.eINSTANCE.createApplicationConfiguration () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.CONFIGURATIONS__CONFIGURATIONS, InfrastructureFactory.eINSTANCE.createApplicationConfiguration () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS,
-                        WorldFactory.eINSTANCE.createGenericDatabaseSettings () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS, WorldFactory.eINSTANCE.createGenericDatabaseSettings () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS,
-                        WorldFactory.eINSTANCE.createPostgresDatabaseSettings () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS, WorldFactory.eINSTANCE.createPostgresDatabaseSettings () ) );
     }
 
     /**

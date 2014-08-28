@@ -17,17 +17,6 @@
    </extension>
 
  <extension point="org.eclipse.emf.validation.constraintBindings">
-      <clientContext id="org.eclipse.scada.configuration.validation.adapter.infra">
-         <enablement>
-            <and>
-               <instanceof value="org.eclipse.emf.ecore.EObject"/>
-               <test
-                  property="org.eclipse.scada.configuration.validation.adapter.ePackage"
-                  value="http://eclipse.org/SCADA/Configuration/Infrastructure"/>
-            </and>
-         </enablement>
-      </clientContext>
-      
       <clientContext id="org.eclipse.scada.configuration.validation.adapter.comp">
          <enablement>
             <and>
@@ -60,21 +49,7 @@
             </and>
          </enablement>
       </clientContext>
-      
-      <clientContext id="org.eclipse.scada.configuration.validation.adapter.world.setup">
-         <enablement>
-            <and>
-               <instanceof value="org.eclipse.emf.ecore.EObject"/>
-               <test
-                  property="org.eclipse.scada.configuration.validation.adapter.ePackage"
-                  value="http://eclipse.org/SCADA/Configuration/World/Setup"/>
-            </and>
-         </enablement>
-      </clientContext>
-      
-      <binding
-         context="org.eclipse.scada.configuration.validation.adapter.infra"
-         category="org.eclipse.scada.configuration"/>
+     
      <binding
          context="org.eclipse.scada.configuration.validation.adapter.comp"
          category="org.eclipse.scada.configuration"/>
@@ -83,9 +58,6 @@
          category="org.eclipse.scada.configuration"/>
      <binding
          context="org.eclipse.scada.configuration.validation.adapter.world.deployment"
-         category="org.eclipse.scada.configuration"/>
-     <binding
-         context="org.eclipse.scada.configuration.validation.adapter.world.setup"
          category="org.eclipse.scada.configuration"/>
    </extension>
 
@@ -105,15 +77,6 @@
    <extension
          point="org.eclipse.emf.validation.constraintProviders"
          id="oclProvider">
-      
-      <constraintProvider
-            class="org.eclipse.scada.configuration.validation.ocl.OCLConstraintProvider"
-            category="Constraints from an OCL Document">
-         
-         <package namespaceUri="http://eclipse.org/SCADA/Configuration/Infrastructure"/>
-         
-         <ocl path="constraints/infra.ocl"/>
-      </constraintProvider>
       
       <constraintProvider
             class="org.eclipse.scada.configuration.validation.ocl.OCLConstraintProvider"
@@ -165,43 +128,6 @@
             </constraint>
         </constraints>
         </constraintProvider>
-      
-      <constraintProvider
-            cache="true"
-            mode="Batch">
-         <package
-               namespaceUri="http://eclipse.org/SCADA/Configuration/Infrastructure">
-         </package>
-         <constraints
-               categories="org.eclipse.scada.configuration">
-            <constraint
-                  class="org.eclipse.scada.configuration.validation.infrastructure.DriverValidation"
-                  id="org.eclipse.scada.configuration.validation.InfrastructureDriver"
-                  isEnabledByDefault="true"
-                  lang="Java"
-                  mode="Batch"
-                  name="Infrastructure Driver"
-                  severity="ERROR"
-                  statusCode="0">
-               <message>
-                  message body text
-               </message>
-            </constraint>
-			<constraint
-                  class="org.eclipse.scada.configuration.validation.infrastructure.ConfigurationValidation"
-                  id="org.eclipse.scada.configuration.validation.InfrastructureConfiguration"
-                  isEnabledByDefault="true"
-                  lang="Java"
-                  mode="Batch"
-                  name="Application configuration"
-                  severity="ERROR"
-                  statusCode="0">
-               <message>
-                  message body text
-               </message>
-            </constraint>
-         </constraints>
-      </constraintProvider>
       
         <constraintProvider
             cache="true"

@@ -31,12 +31,9 @@ import org.eclipse.scada.configuration.infrastructure.HttpServices;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole}
- * object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class WebAdminConsoleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -45,10 +42,9 @@ public class WebAdminConsoleItemProvider extends ItemProviderAdapter implements 
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public WebAdminConsoleItemProvider ( final AdapterFactory adapterFactory )
+    public WebAdminConsoleItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -57,19 +53,18 @@ public class WebAdminConsoleItemProvider extends ItemProviderAdapter implements 
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addHttpServicePropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
@@ -94,11 +89,10 @@ public class WebAdminConsoleItemProvider extends ItemProviderAdapter implements 
      * This returns WebAdminConsole.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/WebAdminConsole" ) ); //$NON-NLS-1$
     }
@@ -106,7 +100,6 @@ public class WebAdminConsoleItemProvider extends ItemProviderAdapter implements 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -119,43 +112,37 @@ public class WebAdminConsoleItemProvider extends ItemProviderAdapter implements 
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
         return getString ( "_UI_WebAdminConsole_type" ); //$NON-NLS-1$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
         super.notifyChanged ( notification );
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -164,13 +151,12 @@ public class WebAdminConsoleItemProvider extends ItemProviderAdapter implements 
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

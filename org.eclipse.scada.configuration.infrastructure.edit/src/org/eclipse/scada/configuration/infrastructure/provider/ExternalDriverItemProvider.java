@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -69,19 +69,9 @@ public class ExternalDriverItemProvider extends DriverItemProvider
      */
     protected void addPortNumberPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ExternalDriver_portNumber_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_portNumber_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.EXTERNAL_DRIVER__PORT_NUMBER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalDriver_portNumber_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_portNumber_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EXTERNAL_DRIVER__PORT_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -92,19 +82,9 @@ public class ExternalDriverItemProvider extends DriverItemProvider
      */
     protected void addBindingPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ExternalDriver_binding_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_binding_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.EXTERNAL_DRIVER__BINDING,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalDriver_binding_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_binding_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EXTERNAL_DRIVER__BINDING, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -215,15 +195,9 @@ public class ExternalDriverItemProvider extends DriverItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.EXTERNAL_DRIVER__ACCESS_CREDENTIALS,
-                        WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EXTERNAL_DRIVER__ACCESS_CREDENTIALS, WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( InfrastructurePackage.Literals.EXTERNAL_DRIVER__ACCESS_CREDENTIALS,
-                        WorldFactory.eINSTANCE.createPasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EXTERNAL_DRIVER__ACCESS_CREDENTIALS, WorldFactory.eINSTANCE.createPasswordCredentials () ) );
     }
 
 }

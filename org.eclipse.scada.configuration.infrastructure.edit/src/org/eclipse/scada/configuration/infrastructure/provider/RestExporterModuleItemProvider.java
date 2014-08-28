@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -40,14 +40,7 @@ import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RestExporterModuleItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class RestExporterModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -86,19 +79,9 @@ public class RestExporterModuleItemProvider
      */
     protected void addContextIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_RestExporterModule_contextId_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_RestExporterModule_contextId_feature", "_UI_RestExporterModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.REST_EXPORTER_MODULE__CONTEXT_ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RestExporterModule_contextId_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_RestExporterModule_contextId_feature", "_UI_RestExporterModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.REST_EXPORTER_MODULE__CONTEXT_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -134,9 +117,8 @@ public class RestExporterModuleItemProvider
     public String getText ( Object object )
     {
         String label = ( (RestExporterModule)object ).getContextId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_RestExporterModule_type" ) : //$NON-NLS-1$
-                getString ( "_UI_RestExporterModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_RestExporterModule_type" ) : //$NON-NLS-1$
+        getString ( "_UI_RestExporterModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

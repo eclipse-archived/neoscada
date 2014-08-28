@@ -21,4 +21,6 @@ public interface ValidationContext
     public void add ( Severity severity, Object[] data, String message, Object... arguments );
 
     public void add ( String message, Object... arguments );
+
+    public Object getTarget ();
 }

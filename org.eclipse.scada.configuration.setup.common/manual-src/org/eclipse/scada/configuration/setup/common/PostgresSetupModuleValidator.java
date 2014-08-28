@@ -18,9 +18,11 @@ import org.eclipse.scada.ide.validation.ValidationContext;
 public class PostgresSetupModuleValidator extends AbstractTargetValidator<PostgresSetupModule>
 {
 
+    private static final String VALIDATION_CONTEXT_ID = "org.eclipse.scada.configuration.setup.common";
+
     public PostgresSetupModuleValidator ()
     {
-        super ( PostgresSetupModule.class );
+        super ( PostgresSetupModule.class, VALIDATION_CONTEXT_ID );
     }
 
     private void checkResource ( final ValidationContext ctx, final PostgresSetupModule postgres, final EStructuralFeature feature, final String uriString )

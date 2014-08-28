@@ -10,16 +10,14 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Device;
+import org.eclipse.scada.ide.validation.Severity;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
 public class DeviceTypeValidator<T extends AbstractFactoryDriver> implements DriverValidator<T>
 {
@@ -32,7 +30,7 @@ public class DeviceTypeValidator<T extends AbstractFactoryDriver> implements Dri
     }
 
     @Override
-    public void validate ( final IValidationContext ctx, final T driver, final Collection<IStatus> result )
+    public void validate ( final ValidationContext ctx, final T driver )
     {
         final Set<EObject> locations = new HashSet<> ();
         final Set<String> illegalDevices = new HashSet<> ();
@@ -47,7 +45,7 @@ public class DeviceTypeValidator<T extends AbstractFactoryDriver> implements Dri
 
         if ( !illegalDevices.isEmpty () )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, locations, IStatus.ERROR, 3, "The driver may only contain device of type {0}. The following device types are invalid: {1}", this.deviceClass.getName (), illegalDevices ) );
+            ctx.add ( Severity.ERROR, locations.toArray (), "The driver may only contain device of type {0}. The following device types are invalid: {1}", this.deviceClass.getName (), illegalDevices );
         }
     }
 }
