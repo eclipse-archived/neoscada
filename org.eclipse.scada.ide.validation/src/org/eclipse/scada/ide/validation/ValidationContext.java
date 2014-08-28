@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.validation;
+package org.eclipse.scada.ide.validation;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 

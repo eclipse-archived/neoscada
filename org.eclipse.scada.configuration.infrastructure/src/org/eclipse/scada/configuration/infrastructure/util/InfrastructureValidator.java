@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.scada.configuration.infrastructure.*;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
@@ -52,7 +53,6 @@ import org.eclipse.scada.configuration.infrastructure.World;
  * <!-- begin-user-doc -->
  * The <b>Validator</b> for the model.
  * <!-- end-user-doc -->
- *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage
  * @generated
  */
@@ -62,19 +62,14 @@ public class InfrastructureValidator extends EObjectValidator
      * The cached model package
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     public static final InfrastructureValidator INSTANCE = new InfrastructureValidator ();
 
     /**
-     * A constant for the
-     * {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
-     * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes}
-     * from this package.
+     * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -82,21 +77,17 @@ public class InfrastructureValidator extends EObjectValidator
     public static final String DIAGNOSTIC_SOURCE = "org.eclipse.scada.configuration.infrastructure"; //$NON-NLS-1$
 
     /**
-     * A constant with a fixed name that can be used as the base value for
-     * additional hand written constants.
+     * A constant with a fixed name that can be used as the base value for additional hand written constants.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 0;
 
     /**
-     * A constant with a fixed name that can be used as the base value for
-     * additional hand written constants in a derived class.
+     * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
@@ -105,7 +96,6 @@ public class InfrastructureValidator extends EObjectValidator
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     public InfrastructureValidator ()
@@ -117,7 +107,6 @@ public class InfrastructureValidator extends EObjectValidator
      * Returns the package of this validator switch.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
@@ -127,15 +116,13 @@ public class InfrastructureValidator extends EObjectValidator
     }
 
     /**
-     * Calls <code>validateXXX</code> for the corresponding classifier of the
-     * model.
+     * Calls <code>validateXXX</code> for the corresponding classifier of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    protected boolean validate ( final int classifierID, final Object value, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    protected boolean validate ( int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         switch ( classifierID )
         {
@@ -193,6 +180,20 @@ public class InfrastructureValidator extends EObjectValidator
                 return validateValueArchiveSlave ( (ValueArchiveSlave)value, diagnostics, context );
             case InfrastructurePackage.WEB_ADMIN_CONSOLE:
                 return validateWebAdminConsole ( (WebAdminConsole)value, diagnostics, context );
+            case InfrastructurePackage.ORACLE_VM_SETTINGS:
+                return validateOracleVMSettings ( (OracleVMSettings)value, diagnostics, context );
+            case InfrastructurePackage.GENERIC_VM_SETTINGS:
+                return validateGenericVMSettings ( (GenericVMSettings)value, diagnostics, context );
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER:
+                return validateAbstractEquinoxDriver ( (AbstractEquinoxDriver)value, diagnostics, context );
+            case InfrastructurePackage.EQUINOX_BASE:
+                return validateEquinoxBase ( (EquinoxBase)value, diagnostics, context );
+            case InfrastructurePackage.ABSTRACT_COMMON_DRIVER:
+                return validateAbstractCommonDriver ( (AbstractCommonDriver)value, diagnostics, context );
+            case InfrastructurePackage.EVENT_INJECTOR_HTTP:
+                return validateEventInjectorHttp ( (EventInjectorHttp)value, diagnostics, context );
+            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG:
+                return validateEventInjectorSyslog ( (EventInjectorSyslog)value, diagnostics, context );
             case InfrastructurePackage.SLAVE_STORAGE_LAYOUT:
                 return validateSlaveStorageLayout ( (SlaveStorageLayout)value, diagnostics, context );
             default:
@@ -203,10 +204,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateWorld ( final World world, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateWorld ( World world, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( world, diagnostics, context );
     }
@@ -214,10 +214,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateNode ( final Node node, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateNode ( Node node, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( node, diagnostics, context );
     }
@@ -225,10 +224,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateMasterServer ( final MasterServer masterServer, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateMasterServer ( MasterServer masterServer, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( masterServer, diagnostics, context );
     }
@@ -236,10 +234,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateMasterImport ( final MasterImport masterImport, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateMasterImport ( MasterImport masterImport, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( masterImport, diagnostics, context );
     }
@@ -247,10 +244,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateOptions ( final Options options, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateOptions ( Options options, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( options, diagnostics, context );
     }
@@ -258,10 +254,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateEquinoxApplication ( final EquinoxApplication equinoxApplication, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateEquinoxApplication ( EquinoxApplication equinoxApplication, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( equinoxApplication, diagnostics, context );
     }
@@ -269,10 +264,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateCommonDriver ( final CommonDriver commonDriver, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateCommonDriver ( CommonDriver commonDriver, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( commonDriver, diagnostics, context );
     }
@@ -280,10 +274,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateExternalNode ( final ExternalNode externalNode, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateExternalNode ( ExternalNode externalNode, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( externalNode, diagnostics, context );
     }
@@ -291,10 +284,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateSystemNode ( final SystemNode systemNode, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateSystemNode ( SystemNode systemNode, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( systemNode, diagnostics, context );
     }
@@ -302,10 +294,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateSystemPropertyUserService ( final SystemPropertyUserService systemPropertyUserService, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateSystemPropertyUserService ( SystemPropertyUserService systemPropertyUserService, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( systemPropertyUserService, diagnostics, context );
     }
@@ -313,10 +304,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateUserEntry ( final UserEntry userEntry, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateUserEntry ( UserEntry userEntry, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( userEntry, diagnostics, context );
     }
@@ -324,10 +314,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateUserService ( final UserService userService, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateUserService ( UserService userService, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( userService, diagnostics, context );
     }
@@ -335,10 +324,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateJdbcUserService ( final JdbcUserService jdbcUserService, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateJdbcUserService ( JdbcUserService jdbcUserService, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( jdbcUserService, diagnostics, context );
     }
@@ -346,10 +334,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateValueArchiveServer ( final ValueArchiveServer valueArchiveServer, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateValueArchiveServer ( ValueArchiveServer valueArchiveServer, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( valueArchiveServer, diagnostics, context );
     }
@@ -357,10 +344,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateAbstractFactoryDriver ( final AbstractFactoryDriver abstractFactoryDriver, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateAbstractFactoryDriver ( AbstractFactoryDriver abstractFactoryDriver, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( abstractFactoryDriver, diagnostics, context );
     }
@@ -368,10 +354,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateDevice ( final Device device, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateDevice ( Device device, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( device, diagnostics, context );
     }
@@ -379,10 +364,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateEquinoxDriver ( final EquinoxDriver equinoxDriver, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateEquinoxDriver ( EquinoxDriver equinoxDriver, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( equinoxDriver, diagnostics, context );
     }
@@ -390,10 +374,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateExternalDriver ( final ExternalDriver externalDriver, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateExternalDriver ( ExternalDriver externalDriver, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( externalDriver, diagnostics, context );
     }
@@ -401,10 +384,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateDriver ( final Driver driver, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateDriver ( Driver driver, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( driver, diagnostics, context );
     }
@@ -412,10 +394,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateExternalDriverPlaceholder ( final ExternalDriverPlaceholder externalDriverPlaceholder, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateExternalDriverPlaceholder ( ExternalDriverPlaceholder externalDriverPlaceholder, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( externalDriverPlaceholder, diagnostics, context );
     }
@@ -423,10 +404,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateApplicationConfiguration ( final ApplicationConfiguration applicationConfiguration, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateApplicationConfiguration ( ApplicationConfiguration applicationConfiguration, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( applicationConfiguration, diagnostics, context );
     }
@@ -434,10 +414,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateConfigurations ( final Configurations configurations, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateConfigurations ( Configurations configurations, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( configurations, diagnostics, context );
     }
@@ -445,10 +424,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateModule ( final Module module, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateModule ( Module module, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( module, diagnostics, context );
     }
@@ -456,10 +434,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateHttpServiceModule ( final HttpServiceModule httpServiceModule, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateHttpServiceModule ( HttpServiceModule httpServiceModule, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( httpServiceModule, diagnostics, context );
     }
@@ -467,10 +444,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateRestExporterModule ( final RestExporterModule restExporterModule, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateRestExporterModule ( RestExporterModule restExporterModule, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( restExporterModule, diagnostics, context );
     }
@@ -478,10 +454,9 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateValueArchiveSlave ( final ValueArchiveSlave valueArchiveSlave, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateValueArchiveSlave ( ValueArchiveSlave valueArchiveSlave, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( valueArchiveSlave, diagnostics, context );
     }
@@ -489,98 +464,185 @@ public class InfrastructureValidator extends EObjectValidator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateWebAdminConsole ( final WebAdminConsole webAdminConsole, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateWebAdminConsole ( WebAdminConsole webAdminConsole, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         if ( !validate_NoCircularContainment ( webAdminConsole, diagnostics, context ) )
-        {
             return false;
-        }
         boolean result = validate_EveryMultiplicityConforms ( webAdminConsole, diagnostics, context );
         if ( result || diagnostics != null )
-        {
             result &= validate_EveryDataValueConforms ( webAdminConsole, diagnostics, context );
-        }
         if ( result || diagnostics != null )
-        {
             result &= validate_EveryReferenceIsContained ( webAdminConsole, diagnostics, context );
-        }
         if ( result || diagnostics != null )
-        {
             result &= validate_EveryBidirectionalReferenceIsPaired ( webAdminConsole, diagnostics, context );
-        }
         if ( result || diagnostics != null )
-        {
             result &= validate_EveryProxyResolves ( webAdminConsole, diagnostics, context );
-        }
         if ( result || diagnostics != null )
-        {
             result &= validate_UniqueID ( webAdminConsole, diagnostics, context );
-        }
         if ( result || diagnostics != null )
-        {
             result &= validate_EveryKeyUnique ( webAdminConsole, diagnostics, context );
-        }
         if ( result || diagnostics != null )
-        {
             result &= validate_EveryMapEntryUnique ( webAdminConsole, diagnostics, context );
-        }
         if ( result || diagnostics != null )
-        {
-            result &= validateWebAdminConsole_SameParent ( webAdminConsole, diagnostics, context );
-        }
+            result &= validateWebAdminConsole_httpService ( webAdminConsole, diagnostics, context );
         return result;
     }
 
     /**
-     * The cached validation expression for the SameParent constraint of '
-     * <em>Web Admin Console</em>'.
+     * Validates the httpService constraint of '<em>Web Admin Console</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected static final String WEB_ADMIN_CONSOLE__SAME_PARENT__EEXPRESSION = "httpService.oclContainer() = oclContainer()"; //$NON-NLS-1$
-
-    /**
-     * Validates the SameParent constraint of '<em>Web Admin Console</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    public boolean validateWebAdminConsole_SameParent ( final WebAdminConsole webAdminConsole, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateWebAdminConsole_httpService ( WebAdminConsole webAdminConsole, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
-        return validate ( InfrastructurePackage.Literals.WEB_ADMIN_CONSOLE,
-                webAdminConsole,
-                diagnostics,
-                context, "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$
-                "SameParent", //$NON-NLS-1$
-                WEB_ADMIN_CONSOLE__SAME_PARENT__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+        // TODO implement the constraint
+        // -> specify the condition that violates the constraint
+        // -> verify the diagnostic details, including severity, code, and message
+        // Ensure that you remove @generated or mark it @generated NOT
+        if ( false )
+        {
+            if ( diagnostics != null )
+            {
+                diagnostics.add ( createDiagnostic ( Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic", //$NON-NLS-1$
+                        new Object[] { "httpService", getObjectLabel ( webAdminConsole, context ) }, //$NON-NLS-1$
+                        new Object[] { webAdminConsole }, context ) );
+            }
+            return false;
+        }
+        return true;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public boolean validateSlaveStorageLayout ( final SlaveStorageLayout slaveStorageLayout, final DiagnosticChain diagnostics, final Map<Object, Object> context )
+    public boolean validateOracleVMSettings ( OracleVMSettings oracleVMSettings, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( oracleVMSettings, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateGenericVMSettings ( GenericVMSettings genericVMSettings, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( genericVMSettings, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAbstractEquinoxDriver ( AbstractEquinoxDriver abstractEquinoxDriver, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( abstractEquinoxDriver, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateEquinoxBase ( EquinoxBase equinoxBase, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( equinoxBase, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateAbstractCommonDriver ( AbstractCommonDriver abstractCommonDriver, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( abstractCommonDriver, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateEventInjectorHttp ( EventInjectorHttp eventInjectorHttp, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        if ( !validate_NoCircularContainment ( eventInjectorHttp, diagnostics, context ) )
+            return false;
+        boolean result = validate_EveryMultiplicityConforms ( eventInjectorHttp, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms ( eventInjectorHttp, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained ( eventInjectorHttp, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired ( eventInjectorHttp, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryProxyResolves ( eventInjectorHttp, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_UniqueID ( eventInjectorHttp, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryKeyUnique ( eventInjectorHttp, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique ( eventInjectorHttp, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validateEventInjectorHttp_httpService ( eventInjectorHttp, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * Validates the httpService constraint of '<em>Event Injector Http</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateEventInjectorHttp_httpService ( EventInjectorHttp eventInjectorHttp, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        // TODO implement the constraint
+        // -> specify the condition that violates the constraint
+        // -> verify the diagnostic details, including severity, code, and message
+        // Ensure that you remove @generated or mark it @generated NOT
+        if ( false )
+        {
+            if ( diagnostics != null )
+            {
+                diagnostics.add ( createDiagnostic ( Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0, "_UI_GenericConstraint_diagnostic", //$NON-NLS-1$
+                        new Object[] { "httpService", getObjectLabel ( eventInjectorHttp, context ) }, //$NON-NLS-1$
+                        new Object[] { eventInjectorHttp }, context ) );
+            }
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateEventInjectorSyslog ( EventInjectorSyslog eventInjectorSyslog, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( eventInjectorSyslog, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateSlaveStorageLayout ( SlaveStorageLayout slaveStorageLayout, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return true;
     }
 
     /**
-     * Returns the resource locator that will be used to fetch messages for this
-     * validator's diagnostics.
+     * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override

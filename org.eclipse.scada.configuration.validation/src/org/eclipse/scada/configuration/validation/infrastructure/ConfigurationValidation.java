@@ -66,7 +66,7 @@ public class ConfigurationValidation extends AbstractModelConstraint
         }
     }
 
-    private static final Pattern MEM_PATTERN = Pattern.compile ( "([0-9]+)([mk])" );
+    private static final Pattern MEM_PATTERN = Pattern.compile ( "([0-9]+)([mk]?)" );
 
     private void validateOracleVmSettings ( final IValidationContext ctx, final OracleVMSettings target, final Collection<IStatus> problems )
     {

@@ -85,12 +85,7 @@ public enum SlaveStorageLayout implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final SlaveStorageLayout[] VALUES_ARRAY =
-            new SlaveStorageLayout[]
-            {
-                    SINGLE,
-                    MULTI,
-            };
+    private static final SlaveStorageLayout[] VALUES_ARRAY = new SlaveStorageLayout[] { SINGLE, MULTI, };
 
     /**
      * A public read-only list of all the '<em><b>Slave Storage Layout</b></em>' enumerators.

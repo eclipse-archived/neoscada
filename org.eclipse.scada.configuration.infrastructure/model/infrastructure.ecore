@@ -264,6 +264,9 @@
     <eLiterals name="MULTI" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WebAdminConsole" eSuperTypes="#//Module">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="httpService"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="httpService" lowerBound="1"
         eType="#//HttpServiceModule"/>
   </eClassifiers>
@@ -299,6 +302,9 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EventInjectorHttp" eSuperTypes="#//Module">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="httpService"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="httpService" lowerBound="1"
         eType="#//HttpServiceModule"/>
   </eClassifiers>

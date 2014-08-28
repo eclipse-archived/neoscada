@@ -11,9 +11,9 @@
 package org.eclipse.scada.configuration.setup.common;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.scada.configuration.validation.AbstractTargetValidator;
-import org.eclipse.scada.configuration.validation.Severity;
-import org.eclipse.scada.configuration.validation.ValidationContext;
+import org.eclipse.scada.ide.validation.AbstractTargetValidator;
+import org.eclipse.scada.ide.validation.Severity;
+import org.eclipse.scada.ide.validation.ValidationContext;
 
 public class PostgresSetupModuleValidator extends AbstractTargetValidator<PostgresSetupModule>
 {

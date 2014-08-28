@@ -23,18 +23,3 @@ Import-Package: com.ibm.icu.text;version="50.1.0",
  org.osgi.framework;version="1.7.0",
  org.slf4j;version="1.7.2"
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.scada.configuration.validation;version="0.2.0";
-  uses:="org.eclipse.emf.ecore.util,
-   org.eclipse.emf.ecore,
-   org.eclipse.core.expressions,
-   org.eclipse.emf.common.util",
- org.eclipse.scada.configuration.validation.ocl;version="0.2.0";
-  uses:="org.eclipse.ocl,
-   org.eclipse.emf.ecore,
-   org.eclipse.core.runtime,
-   org.eclipse.ocl.ecore,
-   org.eclipse.emf.validation.model,
-   org.eclipse.emf.validation,
-   org.eclipse.emf.validation.service,
-   org.eclipse.emf.common.notify,
-   org.eclipse.emf.validation.ocl"

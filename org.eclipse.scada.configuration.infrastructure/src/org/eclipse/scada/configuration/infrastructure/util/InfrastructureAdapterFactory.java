@@ -108,8 +108,7 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected InfrastructureSwitch<Adapter> modelSwitch = new InfrastructureSwitch<Adapter> ()
-    {
+    protected InfrastructureSwitch<Adapter> modelSwitch = new InfrastructureSwitch<Adapter> () {
         @Override
         public Adapter caseWorld ( World object )
         {

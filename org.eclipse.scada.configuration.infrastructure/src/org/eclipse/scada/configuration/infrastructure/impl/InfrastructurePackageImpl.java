@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.globalization.GlobalizePackage;
@@ -55,6 +56,7 @@ import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
 import org.eclipse.scada.configuration.infrastructure.WebAdminConsole;
 import org.eclipse.scada.configuration.infrastructure.World;
+import org.eclipse.scada.configuration.infrastructure.util.InfrastructureValidator;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
@@ -374,6 +376,14 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         // Initialize created meta-data
         theInfrastructurePackage.initializePackageContents ();
+
+        // Register package validator
+        EValidator.Registry.INSTANCE.put ( theInfrastructurePackage, new EValidator.Descriptor () {
+            public EValidator getEValidator ()
+            {
+                return InfrastructureValidator.INSTANCE;
+            }
+        } );
 
         // Mark meta-data to indicate it can't be changed
         theInfrastructurePackage.freeze ();
@@ -2031,6 +2041,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         // Create annotations
         // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
         createExtendedMetaDataAnnotations ();
+        // http://www.eclipse.org/emf/2002/Ecore
+        createEcoreAnnotations ();
         // http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup
         createExclusiveGroupAnnotations ();
     }
@@ -2044,21 +2056,27 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     protected void createExtendedMetaDataAnnotations ()
     {
         String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
-        addAnnotation ( getSystemNode_Masters (),
-                source,
-                new String[]
-                {       "group", "#applications" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getSystemNode_ValueArchives (),
-                source,
-                new String[]
-                {       "group", "#applications" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getSystemNode_Applications (),
-                source,
-                new String[]
-                {       "kind", "group" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
+        addAnnotation ( getSystemNode_Masters (), source, new String[] { "group", "#applications" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getSystemNode_ValueArchives (), source, new String[] { "group", "#applications" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getSystemNode_Applications (), source, new String[] { "kind", "group" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createEcoreAnnotations ()
+    {
+        String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$	
+        addAnnotation ( webAdminConsoleEClass, source, new String[] { "constraints", "httpService" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( eventInjectorHttpEClass, source, new String[] { "constraints", "httpService" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
     }
 
     /**
@@ -2070,11 +2088,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     protected void createExclusiveGroupAnnotations ()
     {
         String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$	
-        addAnnotation ( oracleVMSettingsEClass,
-                source,
-                new String[]
-                {       "groupId", "oracle.vm.settings" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
+        addAnnotation ( oracleVMSettingsEClass, source, new String[] { "groupId", "oracle.vm.settings" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
     }
 
 } //InfrastructurePackageImpl

@@ -24,7 +24,7 @@ package org.eclipse.scada.configuration.infrastructure;
  * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEventInjectorHttp()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='httpService'"
  * @generated
  */
 public interface EventInjectorHttp extends Module
