@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.server.injector.EventInjectorQueue;
+import org.eclipse.scada.ae.server.injector.InjectionContext;
 
 public class JsonServlet extends HttpServlet
 {
@@ -55,7 +56,7 @@ public class JsonServlet extends HttpServlet
             }
             final Event event = EventSerializer.deserializeEvent ( sb.toString () );
 
-            this.injector.injectEvent ( event );
+            this.injector.injectEvent ( event, new InjectionContext.Builder ().sourceModule ( "org.eclipse.scada.ae.server.http" ).build () );
 
             // return output
             response.setContentType ( "text/plain" );

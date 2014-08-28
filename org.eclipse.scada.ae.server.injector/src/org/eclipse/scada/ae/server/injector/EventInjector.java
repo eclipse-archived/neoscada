@@ -17,5 +17,14 @@ import org.eclipse.scada.ae.Event;
  */
 public interface EventInjector
 {
-    public void injectEvent ( Event event );
+    /**
+     * Inject an event entry from an external source into the AE system
+     * 
+     * @param event
+     *            the event to inject
+     * @param context
+     *            an optional (may be <code>null</code>) context were the event
+     *            came from
+     */
+    public void injectEvent ( Event event, InjectionContext context );
 }

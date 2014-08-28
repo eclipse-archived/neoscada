@@ -29,7 +29,20 @@ public class EventInjectorQueue
 
     private EventInjector service;
 
-    private final Queue<Event> queue = new LinkedList<> ();
+    private final Queue<Entry> queue = new LinkedList<> ();
+
+    private final static class Entry
+    {
+        Event event;
+
+        InjectionContext context;
+
+        public Entry ( final Event event, final InjectionContext context )
+        {
+            this.event = event;
+            this.context = context;
+        }
+    }
 
     public EventInjectorQueue ( final BundleContext context )
     {
@@ -58,32 +71,36 @@ public class EventInjectorQueue
     {
         logger.debug ( "Flushing stored events: {}", this.queue.size () );
 
-        Event e;
+        Entry e;
         while ( ( e = this.queue.poll () ) != null )
         {
-            this.service.injectEvent ( e );
+            this.service.injectEvent ( e.event, e.context );
         }
     }
 
-    public synchronized void injectEvent ( final Event event )
+    public synchronized void injectEvent ( final Event event, final InjectionContext context )
     {
         logger.trace ( "Inject event: {}", event );
 
         if ( this.service != null )
         {
             logger.trace ( "To service" );
-            this.service.injectEvent ( event );
+            this.service.injectEvent ( event, context );
         }
         else
         {
             logger.trace ( "To queue" );
-            this.queue.offer ( event );
+            this.queue.offer ( new Entry ( event, context ) );
         }
     }
 
-    public void dispose ()
+    public synchronized void dispose ()
     {
         logger.info ( "Closing tracker" );
+        if ( !this.queue.isEmpty () )
+        {
+            logger.warn ( "Discarding {} events", this.queue.size () );
+        }
         this.tracker.close ();
     }
 }

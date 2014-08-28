@@ -13,6 +13,7 @@ package org.eclipse.scada.ae.server.injector.internal;
 import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.event.EventProcessor;
 import org.eclipse.scada.ae.server.injector.EventInjector;
+import org.eclipse.scada.ae.server.injector.InjectionContext;
 import org.eclipse.scada.ae.server.injector.filter.EventFilter;
 import org.eclipse.scada.ae.server.injector.monitor.EventMonitorEvaluator;
 import org.slf4j.Logger;
@@ -36,7 +37,7 @@ public class EventInjectorImpl implements EventInjector
     }
 
     @Override
-    public void injectEvent ( final Event event )
+    public void injectEvent ( final Event event, final InjectionContext context )
     {
         if ( this.eventFilter != null && this.eventFilter.matches ( event ) )
         {

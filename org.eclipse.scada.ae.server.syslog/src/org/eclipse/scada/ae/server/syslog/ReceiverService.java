@@ -17,6 +17,7 @@ import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.Event.EventBuilder;
 import org.eclipse.scada.ae.data.Severity;
 import org.eclipse.scada.ae.server.injector.EventInjectorQueue;
+import org.eclipse.scada.ae.server.injector.InjectionContext;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.protocol.relp.service.Receiver;
 import org.eclipse.scada.protocol.relp.service.ReceiverHandler;
@@ -100,11 +101,16 @@ public class ReceiverService
 
     protected void fillCommon ( final EventBuilder builder, final ReceiverSession session )
     {
-        final InetSocketAddress ra = session.getRemoteAddress ();
 
         builder.attribute ( Event.Fields.ACTOR_TYPE, "SYSTEM" );
         builder.attribute ( Event.Fields.ACTOR_NAME, "SYSLOG" );
-        builder.attribute ( Event.Fields.SYSTEM, String.format ( "%s:%s", ra.getHostString (), ra.getPort () ) );
+        builder.attribute ( Event.Fields.SYSTEM, makeAddressString ( session ) );
+    }
+
+    protected static String makeAddressString ( final ReceiverSession session )
+    {
+        final InetSocketAddress ra = session.getRemoteAddress ();
+        return String.format ( "%s:%s", ra.getHostString (), ra.getPort () );
     }
 
     protected void handleOpened ( final ReceiverSession session )
@@ -116,7 +122,7 @@ public class ReceiverService
         builder.attribute ( Event.Fields.EVENT_TYPE, "CON" );
         builder.attribute ( Event.Fields.MESSAGE, "Syslog session opened" );
 
-        this.injector.injectEvent ( builder.build () );
+        this.injector.injectEvent ( builder.build (), makeContext () );
     }
 
     protected void handleClosed ( final ReceiverSession session )
@@ -128,7 +134,7 @@ public class ReceiverService
         builder.attribute ( Event.Fields.EVENT_TYPE, "DIS" );
         builder.attribute ( Event.Fields.MESSAGE, "Syslog session closed" );
 
-        this.injector.injectEvent ( builder.build () );
+        this.injector.injectEvent ( builder.build (), makeContext () );
     }
 
     protected void handleMessage ( final ReceiverSession session, final SyslogMessage message )
@@ -159,7 +165,12 @@ public class ReceiverService
 
         builder.sourceTimestamp ( message.getTimestamp ().getTime () );
 
-        this.injector.injectEvent ( builder.build () );
+        this.injector.injectEvent ( builder.build (), makeContext () );
+    }
+
+    private InjectionContext makeContext ()
+    {
+        return new InjectionContext.Builder ().sourceModule ( "org.eclipse.scada.ae.server.syslog" ).build ();
     }
 
     private Variant makeSource ( final SyslogMessage message )
