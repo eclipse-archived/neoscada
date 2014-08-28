@@ -191,8 +191,8 @@ public class ReceiverService
                 return Severity.WARNING;
             case NOTICE:
             case INFORMATIONAL:
-                return Severity.INFORMATION;
             case DEBUG:
+                return Severity.INFORMATION;
             default:
                 return Severity.ERROR;
         }
