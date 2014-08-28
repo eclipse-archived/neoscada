@@ -61,6 +61,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/configuration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/localCredentials"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/securityConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/modules"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//CommonDriver">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//CommonDriver/password"/>
@@ -152,6 +154,13 @@
     <genClasses image="false" ecoreClass="infrastructure.ecore#//AbstractCommonDriver">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//AbstractCommonDriver/portNumber"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//AbstractCommonDriver/password"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//EventInjectorHttp">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EventInjectorHttp/httpService"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//EventInjectorSyslog">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EventInjectorSyslog/bindAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EventInjectorSyslog/port"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
@@ -131,7 +130,7 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected Configuration securityConfiguration;
 
     /**
-     * The cached value of the '{@link #getModules() <em>Modules</em>}' reference list.
+     * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getModules()
@@ -359,7 +358,7 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     {
         if ( modules == null )
         {
-            modules = new EObjectResolvingEList<Module> ( Module.class, this, InfrastructurePackage.EQUINOX_APPLICATION__MODULES );
+            modules = new EObjectContainmentEList.Resolving<Module> ( Module.class, this, InfrastructurePackage.EQUINOX_APPLICATION__MODULES );
         }
         return modules;
     }
@@ -376,6 +375,8 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
         {
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS:
                 return ( (InternalEList<?>)getConfigurations () ).basicRemove ( otherEnd, msgs );
+            case InfrastructurePackage.EQUINOX_APPLICATION__MODULES:
+                return ( (InternalEList<?>)getModules () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }

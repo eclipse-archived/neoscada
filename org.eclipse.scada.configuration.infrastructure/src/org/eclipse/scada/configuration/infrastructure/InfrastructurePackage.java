@@ -331,7 +331,7 @@ public interface InfrastructurePackage extends EPackage
     int EQUINOX_APPLICATION__SECURITY_CONFIGURATION = 5;
 
     /**
-     * The feature id for the '<em><b>Modules</b></em>' reference list.
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -422,7 +422,7 @@ public interface InfrastructurePackage extends EPackage
     int MASTER_SERVER__SECURITY_CONFIGURATION = EQUINOX_APPLICATION__SECURITY_CONFIGURATION;
 
     /**
-     * The feature id for the '<em><b>Modules</b></em>' reference list.
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1244,7 +1244,7 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SERVER__SECURITY_CONFIGURATION = EQUINOX_APPLICATION__SECURITY_CONFIGURATION;
 
     /**
-     * The feature id for the '<em><b>Modules</b></em>' reference list.
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1839,7 +1839,7 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SLAVE__SECURITY_CONFIGURATION = EQUINOX_APPLICATION__SECURITY_CONFIGURATION;
 
     /**
-     * The feature id for the '<em><b>Modules</b></em>' reference list.
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2732,10 +2732,10 @@ public interface InfrastructurePackage extends EPackage
     EReference getEquinoxApplication_SecurityConfiguration ();
 
     /**
-     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getModules <em>Modules</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getModules <em>Modules</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Modules</em>'.
+     * @return the meta object for the containment reference list '<em>Modules</em>'.
      * @see org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getModules()
      * @see #getEquinoxApplication()
      * @generated
@@ -3884,7 +3884,7 @@ public interface InfrastructurePackage extends EPackage
         EReference EQUINOX_APPLICATION__SECURITY_CONFIGURATION = eINSTANCE.getEquinoxApplication_SecurityConfiguration ();
 
         /**
-         * The meta object literal for the '<em><b>Modules</b></em>' reference list feature.
+         * The meta object literal for the '<em><b>Modules</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated

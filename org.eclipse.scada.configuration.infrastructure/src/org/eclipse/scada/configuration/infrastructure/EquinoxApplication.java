@@ -188,7 +188,7 @@ public interface EquinoxApplication extends EObject
     void setSecurityConfiguration ( Configuration value );
 
     /**
-     * Returns the value of the '<em><b>Modules</b></em>' reference list.
+     * Returns the value of the '<em><b>Modules</b></em>' containment reference list.
      * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.Module}.
      * <!-- begin-user-doc -->
      * <p>
@@ -196,9 +196,9 @@ public interface EquinoxApplication extends EObject
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Modules</em>' reference list.
+     * @return the value of the '<em>Modules</em>' containment reference list.
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_Modules()
-     * @model
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<Module> getModules ();

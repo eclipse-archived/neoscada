@@ -647,6 +647,15 @@
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </computedStyleDescriptions>
+          <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_j10xMi6dEeSYytJHqr3bJQ" sourceArrow="FillDiamond" sizeComputationExpression="1" routingStyle="manhattan">
+            <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_j10xMy6dEeSYytJHqr3bJQ" showIcon="false" labelExpression="service:render">
+              <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_j10xNC6dEeSYytJHqr3bJQ" labelSize="6" showIcon="false" labelExpression="service:eKeysLabel">
+              <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            </endLabelStyleDescription>
+          </computedStyleDescriptions>
           <cache xmi:type="diagram:DiagramElementMapping2ModelElement" xmi:id="_LsR0AC39EeSYytJHqr3bJQ">
             <key xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
             <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_LsR0AS39EeSYytJHqr3bJQ">
@@ -736,6 +745,14 @@
               <key xmi:type="ecore:EReference" href="infrastructure.ecore#//ApplicationConfiguration/configurations"/>
               <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_EuneEi6cEeSYytJHqr3bJQ" key="_EuneEC6cEeSYytJHqr3bJQ">
                 <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_EuneFi6cEeSYytJHqr3bJQ" value="_EuneEy6cEeSYytJHqr3bJQ">
+                  <key xmi:type="ecore:EPackage" href="infrastructure.ecore#/"/>
+                </value>
+              </value>
+            </value>
+            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_j10xMC6dEeSYytJHqr3bJQ">
+              <key xmi:type="ecore:EReference" href="infrastructure.ecore#//EquinoxApplication/modules"/>
+              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_j10xMS6dEeSYytJHqr3bJQ" key="_igt04C6cEeSYytJHqr3bJQ">
+                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_j10xNS6dEeSYytJHqr3bJQ" value="_j10xMi6dEeSYytJHqr3bJQ">
                   <key xmi:type="ecore:EPackage" href="infrastructure.ecore#/"/>
                 </value>
               </value>
@@ -1595,16 +1612,13 @@
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_igt04C6cEeSYytJHqr3bJQ" name="[0..*] modules" sourceNode="__6CUwC6bEeSYytJHqr3bJQ" targetNode="_MZHE0C39EeSYytJHqr3bJQ">
         <target xmi:type="ecore:EReference" href="infrastructure.ecore#//EquinoxApplication/modules"/>
         <semanticElements xmi:type="ecore:EReference" href="infrastructure.ecore#//EquinoxApplication/modules"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_igub8C6cEeSYytJHqr3bJQ" routingStyle="manhattan">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_igub8S6cEeSYytJHqr3bJQ"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_igub8i6cEeSYytJHqr3bJQ" showIcon="false">
-            <customFeatures>labelSize</customFeatures>
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_igub8y6cEeSYytJHqr3bJQ"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_j10xNi6dEeSYytJHqr3bJQ" description="_j10xMi6dEeSYytJHqr3bJQ" sourceArrow="FillDiamond" routingStyle="manhattan">
+          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_j10xNy6dEeSYytJHqr3bJQ"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_j10xOC6dEeSYytJHqr3bJQ" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_j10xOS6dEeSYytJHqr3bJQ"/>
           </centerLabelStyle>
-          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_igub9C6cEeSYytJHqr3bJQ" showIcon="false">
-            <customFeatures>labelSize</customFeatures>
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_igub9S6cEeSYytJHqr3bJQ" red="39" green="76" blue="114"/>
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_j10xOi6dEeSYytJHqr3bJQ" labelSize="6" showIcon="false">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_j10xOy6dEeSYytJHqr3bJQ" red="39" green="76" blue="114"/>
           </endLabelStyle>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
