@@ -229,6 +229,24 @@ public interface InfrastructureFactory extends EFactory
     GenericVMSettings createGenericVMSettings ();
 
     /**
+     * Returns a new object of class '<em>Event Injector Http</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Event Injector Http</em>'.
+     * @generated
+     */
+    EventInjectorHttp createEventInjectorHttp ();
+
+    /**
+     * Returns a new object of class '<em>Event Injector Syslog</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Event Injector Syslog</em>'.
+     * @generated
+     */
+    EventInjectorSyslog createEventInjectorSyslog ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

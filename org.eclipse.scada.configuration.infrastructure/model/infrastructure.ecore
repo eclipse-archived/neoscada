@@ -296,4 +296,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="password" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PasswordCredentials"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventInjectorHttp" eSuperTypes="#//Module">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="httpService" lowerBound="1"
+        eType="#//HttpServiceModule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventInjectorSyslog" eSuperTypes="#//Module">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
 </ecore:EPackage>

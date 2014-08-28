@@ -646,6 +646,56 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.EventInjectorHttp} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventInjectorHttpItemProvider eventInjectorHttpItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.EventInjectorHttp}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEventInjectorHttpAdapter ()
+    {
+        if ( eventInjectorHttpItemProvider == null )
+        {
+            eventInjectorHttpItemProvider = new EventInjectorHttpItemProvider ( this );
+        }
+
+        return eventInjectorHttpItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventInjectorSyslogItemProvider eventInjectorSyslogItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEventInjectorSyslogAdapter ()
+    {
+        if ( eventInjectorSyslogItemProvider == null )
+        {
+            eventInjectorSyslogItemProvider = new EventInjectorSyslogItemProvider ( this );
+        }
+
+        return eventInjectorSyslogItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

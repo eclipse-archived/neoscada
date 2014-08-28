@@ -29,6 +29,8 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
 import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
+import org.eclipse.scada.configuration.infrastructure.EventInjectorHttp;
+import org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder;
 import org.eclipse.scada.configuration.infrastructure.ExternalNode;
@@ -290,6 +292,20 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass abstractCommonDriverEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass eventInjectorHttpEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass eventInjectorSyslogEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1539,6 +1555,56 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getEventInjectorHttp ()
+    {
+        return eventInjectorHttpEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getEventInjectorHttp_HttpService ()
+    {
+        return (EReference)eventInjectorHttpEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getEventInjectorSyslog ()
+    {
+        return eventInjectorSyslogEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getEventInjectorSyslog_Host ()
+    {
+        return (EAttribute)eventInjectorSyslogEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getEventInjectorSyslog_Port ()
+    {
+        return (EAttribute)eventInjectorSyslogEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getSlaveStorageLayout ()
     {
@@ -1717,6 +1783,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEAttribute ( abstractCommonDriverEClass, ABSTRACT_COMMON_DRIVER__PORT_NUMBER );
         createEReference ( abstractCommonDriverEClass, ABSTRACT_COMMON_DRIVER__PASSWORD );
 
+        eventInjectorHttpEClass = createEClass ( EVENT_INJECTOR_HTTP );
+        createEReference ( eventInjectorHttpEClass, EVENT_INJECTOR_HTTP__HTTP_SERVICE );
+
+        eventInjectorSyslogEClass = createEClass ( EVENT_INJECTOR_SYSLOG );
+        createEAttribute ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__HOST );
+        createEAttribute ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__PORT );
+
         // Create enums
         slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
     }
@@ -1784,6 +1857,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         abstractEquinoxDriverEClass.getESuperTypes ().add ( this.getDriver () );
         abstractEquinoxDriverEClass.getESuperTypes ().add ( this.getEquinoxBase () );
         abstractCommonDriverEClass.getESuperTypes ().add ( this.getDriver () );
+        eventInjectorHttpEClass.getESuperTypes ().add ( this.getModule () );
+        eventInjectorSyslogEClass.getESuperTypes ().add ( this.getModule () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1925,6 +2000,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEClass ( abstractCommonDriverEClass, AbstractCommonDriver.class, "AbstractCommonDriver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getAbstractCommonDriver_PortNumber (), ecorePackage.getEShort (), "portNumber", null, 1, 1, AbstractCommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getAbstractCommonDriver_Password (), theWorldPackage.getPasswordCredentials (), null, "password", null, 0, 1, AbstractCommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( eventInjectorHttpEClass, EventInjectorHttp.class, "EventInjectorHttp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getEventInjectorHttp_HttpService (), this.getHttpServiceModule (), null, "httpService", null, 1, 1, EventInjectorHttp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( eventInjectorSyslogEClass, EventInjectorSyslog.class, "EventInjectorSyslog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getEventInjectorSyslog_Host (), ecorePackage.getEString (), "host", null, 0, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEventInjectorSyslog_Port (), ecorePackage.getEInt (), "port", null, 1, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$

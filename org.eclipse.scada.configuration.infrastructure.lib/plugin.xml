@@ -26,6 +26,20 @@
          </adapter>
       </factory>
        <factory
+            adaptableType="org.eclipse.scada.configuration.infrastructure.EventInjectorHttp"
+            class="org.eclipse.scada.configuration.infrastructure.lib.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler">
+         </adapter>
+      </factory>
+       <factory
+            adaptableType="org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog"
+            class="org.eclipse.scada.configuration.infrastructure.lib.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler">
+         </adapter>
+      </factory>
+       <factory
             adaptableType="org.eclipse.scada.configuration.infrastructure.OracleVMSettings"
             class="org.eclipse.scada.configuration.infrastructure.lib.AdapterFactoryImpl">
          <adapter

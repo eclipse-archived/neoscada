@@ -11,11 +11,15 @@
 package org.eclipse.scada.configuration.infrastructure.lib;
 
 import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.scada.configuration.infrastructure.EventInjectorHttp;
+import org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog;
 import org.eclipse.scada.configuration.infrastructure.GenericVMSettings;
 import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
 import org.eclipse.scada.configuration.infrastructure.OracleVMSettings;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.WebAdminConsole;
+import org.eclipse.scada.configuration.infrastructure.lib.internal.EventInjectorHttpHandler;
+import org.eclipse.scada.configuration.infrastructure.lib.internal.EventInjectorSyslogHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.GenericVMSettingsModuleHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.HttpServiceModuleHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.OracleVMSettingsModuleHandler;
@@ -45,6 +49,14 @@ public class AdapterFactoryImpl implements IAdapterFactory
         else if ( adaptableObject instanceof WebAdminConsole )
         {
             return new WebAdminConsoleHandler ();
+        }
+        else if ( adaptableObject instanceof EventInjectorHttp )
+        {
+            return new EventInjectorHttpHandler ();
+        }
+        else if ( adaptableObject instanceof EventInjectorSyslog )
+        {
+            return new EventInjectorSyslogHandler ();
         }
         else if ( adaptableObject instanceof OracleVMSettings )
         {

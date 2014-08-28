@@ -135,6 +135,10 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
                 return createOracleVMSettings ();
             case InfrastructurePackage.GENERIC_VM_SETTINGS:
                 return createGenericVMSettings ();
+            case InfrastructurePackage.EVENT_INJECTOR_HTTP:
+                return createEventInjectorHttp ();
+            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG:
+                return createEventInjectorSyslog ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -444,6 +448,28 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     {
         GenericVMSettingsImpl genericVMSettings = new GenericVMSettingsImpl ();
         return genericVMSettings;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EventInjectorHttp createEventInjectorHttp ()
+    {
+        EventInjectorHttpImpl eventInjectorHttp = new EventInjectorHttpImpl ();
+        return eventInjectorHttp;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EventInjectorSyslog createEventInjectorSyslog ()
+    {
+        EventInjectorSyslogImpl eventInjectorSyslog = new EventInjectorSyslogImpl ();
+        return eventInjectorSyslog;
     }
 
     /**

@@ -403,6 +403,11 @@ public class DefaultEquinoxApplicationItemProvider
                 ( createChildParameter
                 ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
                         OsgiFactory.eINSTANCE.createProfileConfiguration () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                        OsgiFactory.eINSTANCE.createEventInjectorSyslog () ) );
     }
 
     /**

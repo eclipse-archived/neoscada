@@ -436,6 +436,26 @@ public class InfrastructureSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case InfrastructurePackage.EVENT_INJECTOR_HTTP:
+            {
+                EventInjectorHttp eventInjectorHttp = (EventInjectorHttp)theEObject;
+                T result = caseEventInjectorHttp ( eventInjectorHttp );
+                if ( result == null )
+                    result = caseModule ( eventInjectorHttp );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.EVENT_INJECTOR_SYSLOG:
+            {
+                EventInjectorSyslog eventInjectorSyslog = (EventInjectorSyslog)theEObject;
+                T result = caseEventInjectorSyslog ( eventInjectorSyslog );
+                if ( result == null )
+                    result = caseModule ( eventInjectorSyslog );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -949,6 +969,38 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseAbstractCommonDriver ( AbstractCommonDriver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Event Injector Http</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Event Injector Http</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEventInjectorHttp ( EventInjectorHttp object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Event Injector Syslog</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Event Injector Syslog</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEventInjectorSyslog ( EventInjectorSyslog object )
     {
         return null;
     }

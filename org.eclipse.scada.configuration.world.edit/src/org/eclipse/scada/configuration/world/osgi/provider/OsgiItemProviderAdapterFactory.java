@@ -2074,6 +2074,31 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventInjectorSyslogItemProvider eventInjectorSyslogItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEventInjectorSyslogAdapter ()
+    {
+        if ( eventInjectorSyslogItemProvider == null )
+        {
+            eventInjectorSyslogItemProvider = new EventInjectorSyslogItemProvider ( this );
+        }
+
+        return eventInjectorSyslogItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2374,6 +2399,8 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
             eventInjectorJdbcItemProvider.dispose ();
         if ( profileConfigurationItemProvider != null )
             profileConfigurationItemProvider.dispose ();
+        if ( eventInjectorSyslogItemProvider != null )
+            eventInjectorSyslogItemProvider.dispose ();
     }
 
 }

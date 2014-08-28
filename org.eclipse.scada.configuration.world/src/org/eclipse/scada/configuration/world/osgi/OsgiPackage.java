@@ -6941,6 +6941,52 @@ public interface OsgiPackage extends EPackage
     int PROFILE_CONFIGURATION_OPERATION_COUNT = INDEPENDENT_CONFIGURATION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorSyslogImpl <em>Event Injector Syslog</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.EventInjectorSyslogImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventInjectorSyslog()
+     * @generated
+     */
+    int EVENT_INJECTOR_SYSLOG = 94;
+
+    /**
+     * The feature id for the '<em><b>Endpoint</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_SYSLOG__ENDPOINT = APPLICATION_CONFIGURATION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Bind Address</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_SYSLOG__BIND_ADDRESS = APPLICATION_CONFIGURATION_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Event Injector Syslog</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_SYSLOG_FEATURE_COUNT = APPLICATION_CONFIGURATION_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Event Injector Syslog</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_SYSLOG_OPERATION_COUNT = APPLICATION_CONFIGURATION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6948,7 +6994,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 94;
+    int AVERAGE_REFERENCE_TYPE = 95;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -6958,7 +7004,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 95;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 96;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -6968,7 +7014,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 96;
+    int ROUNDING_TYPE = 97;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -6978,7 +7024,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 97;
+    int DATA_TYPE = 98;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -6988,7 +7034,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 98;
+    int PASSWORD_TYPE = 99;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat <em>Replication Data Format</em>}' enum.
@@ -6998,7 +7044,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getReplicationDataFormat()
      * @generated
      */
-    int REPLICATION_DATA_FORMAT = 99;
+    int REPLICATION_DATA_FORMAT = 100;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
@@ -7008,7 +7054,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 100;
+    int PERSISTENCE = 101;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -7018,7 +7064,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 101;
+    int ERROR_HANDLING = 102;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -7028,7 +7074,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 102;
+    int CHANGE_TYPE = 103;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -7038,7 +7084,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 103;
+    int SEVERITY = 104;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -7048,7 +7094,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 104;
+    int VARIANT = 105;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -10485,6 +10531,38 @@ public interface OsgiPackage extends EPackage
     EReference getProfileConfiguration_Properties ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog <em>Event Injector Syslog</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Event Injector Syslog</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog
+     * @generated
+     */
+    EClass getEventInjectorSyslog ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog#getEndpoint <em>Endpoint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Endpoint</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog#getEndpoint()
+     * @see #getEventInjectorSyslog()
+     * @generated
+     */
+    EReference getEventInjectorSyslog_Endpoint ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog#getBindAddress <em>Bind Address</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Bind Address</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog#getBindAddress()
+     * @see #getEventInjectorSyslog()
+     * @generated
+     */
+    EAttribute getEventInjectorSyslog_BindAddress ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -13394,6 +13472,32 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EReference PROFILE_CONFIGURATION__PROPERTIES = eINSTANCE.getProfileConfiguration_Properties ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorSyslogImpl <em>Event Injector Syslog</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.EventInjectorSyslogImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventInjectorSyslog()
+         * @generated
+         */
+        EClass EVENT_INJECTOR_SYSLOG = eINSTANCE.getEventInjectorSyslog ();
+
+        /**
+         * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference EVENT_INJECTOR_SYSLOG__ENDPOINT = eINSTANCE.getEventInjectorSyslog_Endpoint ();
+
+        /**
+         * The meta object literal for the '<em><b>Bind Address</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR_SYSLOG__BIND_ADDRESS = eINSTANCE.getEventInjectorSyslog_BindAddress ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.

@@ -43,6 +43,9 @@
       <oscarProcessor
             class="org.eclipse.scada.configuration.world.lib.oscar.ProfileConfigurationProcessor">
       </oscarProcessor>
+      <oscarProcessor
+            class="org.eclipse.scada.configuration.world.lib.oscar.EventInjectorSyslogProcessor">
+      </oscarProcessor>
    </extension>
    <extension
          point="org.eclipse.core.runtime.adapters">

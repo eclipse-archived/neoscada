@@ -263,6 +263,16 @@ public class ApplicationConfigurationItemProvider
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
+                        InfrastructureFactory.eINSTANCE.createEventInjectorHttp () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
+                        InfrastructureFactory.eINSTANCE.createEventInjectorSyslog () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
                         OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
 

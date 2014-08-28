@@ -231,6 +231,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createEventInjectorJdbc ();
             case OsgiPackage.PROFILE_CONFIGURATION:
                 return createProfileConfiguration ();
+            case OsgiPackage.EVENT_INJECTOR_SYSLOG:
+                return createEventInjectorSyslog ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1177,6 +1179,17 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         ProfileConfigurationImpl profileConfiguration = new ProfileConfigurationImpl ();
         return profileConfiguration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EventInjectorSyslog createEventInjectorSyslog ()
+    {
+        EventInjectorSyslogImpl eventInjectorSyslog = new EventInjectorSyslogImpl ();
+        return eventInjectorSyslog;
     }
 
     /**

@@ -62,6 +62,7 @@ import org.eclipse.scada.configuration.world.osgi.ErrorHandling;
 import org.eclipse.scada.configuration.world.osgi.EventInjector;
 import org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc;
 import org.eclipse.scada.configuration.world.osgi.EventInjectorPostgres;
+import org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog;
 import org.eclipse.scada.configuration.world.osgi.EventLogger;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
 import org.eclipse.scada.configuration.world.osgi.EventPoolProxy;
@@ -802,6 +803,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     private EClass profileConfigurationEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass eventInjectorSyslogEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -4476,6 +4484,36 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getEventInjectorSyslog ()
+    {
+        return eventInjectorSyslogEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getEventInjectorSyslog_Endpoint ()
+    {
+        return (EReference)eventInjectorSyslogEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getEventInjectorSyslog_BindAddress ()
+    {
+        return (EAttribute)eventInjectorSyslogEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getAverageReferenceType ()
     {
@@ -5048,6 +5086,10 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEAttribute ( profileConfigurationEClass, PROFILE_CONFIGURATION__INSTALL_BUNDLES );
         createEReference ( profileConfigurationEClass, PROFILE_CONFIGURATION__PROPERTIES );
 
+        eventInjectorSyslogEClass = createEClass ( EVENT_INJECTOR_SYSLOG );
+        createEReference ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__ENDPOINT );
+        createEAttribute ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__BIND_ADDRESS );
+
         // Create enums
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
         movingAverageReferenceTypeEEnum = createEEnum ( MOVING_AVERAGE_REFERENCE_TYPE );
@@ -5181,6 +5223,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         eventInjectorPostgresEClass.getESuperTypes ().add ( this.getEventInjector () );
         eventInjectorJdbcEClass.getESuperTypes ().add ( this.getEventInjector () );
         profileConfigurationEClass.getESuperTypes ().add ( this.getIndependentConfiguration () );
+        eventInjectorSyslogEClass.getESuperTypes ().add ( this.getApplicationConfiguration () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -5621,6 +5664,10 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEAttribute ( getProfileConfiguration_StartBundles (), ecorePackage.getEString (), "startBundles", null, 0, -1, ProfileConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getProfileConfiguration_InstallBundles (), ecorePackage.getEString (), "installBundles", null, 0, -1, ProfileConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getProfileConfiguration_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, ProfileConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( eventInjectorSyslogEClass, EventInjectorSyslog.class, "EventInjectorSyslog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getEventInjectorSyslog_Endpoint (), theWorldPackage.getEndpoint (), null, "endpoint", null, 1, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEventInjectorSyslog_BindAddress (), ecorePackage.getEString (), "bindAddress", null, 0, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( averageReferenceTypeEEnum, AverageReferenceType.class, "AverageReferenceType" ); //$NON-NLS-1$
