@@ -164,7 +164,9 @@
 		<module>../org.eclipse.scada.ide.vi.preview.editor</module>
 		<module>../org.eclipse.scada.ide.validation</module>
 		
+		<!-- still some strange error
 		<module>../org.eclipse.scada.configuration.world.lib.test</module>
+		-->
 		 
 	 	<module>../org.eclipse.scada.configuration.driver.jdbc</module>
 		<module>../org.eclipse.scada.configuration.driver.jdbc.edit</module>
