@@ -69,6 +69,7 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
             addConfigurationPropertyDescriptor ( object );
             addLocalCredentialsPropertyDescriptor ( object );
             addSecurityConfigurationPropertyDescriptor ( object );
+            addModulesPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -180,6 +181,29 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
                         getString ( "_UI_EquinoxApplication_securityConfiguration_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_securityConfiguration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         InfrastructurePackage.Literals.EQUINOX_APPLICATION__SECURITY_CONFIGURATION,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Modules feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addModulesPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_EquinoxApplication_modules_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_modules_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        InfrastructurePackage.Literals.EQUINOX_APPLICATION__MODULES,
                         true,
                         false,
                         true,

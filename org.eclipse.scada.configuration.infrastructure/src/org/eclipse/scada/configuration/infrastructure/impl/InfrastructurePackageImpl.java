@@ -826,6 +826,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getEquinoxApplication_Modules ()
+    {
+        return (EReference)equinoxApplicationEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getCommonDriver ()
     {
@@ -1688,6 +1698,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEReference ( equinoxApplicationEClass, EQUINOX_APPLICATION__CONFIGURATION );
         createEReference ( equinoxApplicationEClass, EQUINOX_APPLICATION__LOCAL_CREDENTIALS );
         createEReference ( equinoxApplicationEClass, EQUINOX_APPLICATION__SECURITY_CONFIGURATION );
+        createEReference ( equinoxApplicationEClass, EQUINOX_APPLICATION__MODULES );
 
         commonDriverEClass = createEClass ( COMMON_DRIVER );
         createEReference ( commonDriverEClass, COMMON_DRIVER__PASSWORD );
@@ -1906,6 +1917,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEReference ( getEquinoxApplication_Configuration (), this.getApplicationConfiguration (), null, "configuration", null, 0, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getEquinoxApplication_LocalCredentials (), theWorldPackage.getCredentials (), null, "localCredentials", null, 0, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getEquinoxApplication_SecurityConfiguration (), theSecurityPackage.getConfiguration (), null, "securityConfiguration", null, 0, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getEquinoxApplication_Modules (), this.getModule (), null, "modules", null, 0, -1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( commonDriverEClass, CommonDriver.class, "CommonDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getCommonDriver_Password (), theWorldPackage.getPasswordCredentials (), null, "password", null, 0, 1, CommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

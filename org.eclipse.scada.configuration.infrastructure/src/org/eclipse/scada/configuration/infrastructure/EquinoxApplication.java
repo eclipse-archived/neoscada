@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration <em>Configuration</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials <em>Local Credentials</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getSecurityConfiguration <em>Security Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getModules <em>Modules</em>}</li>
  * </ul>
  * </p>
  *
@@ -185,5 +186,21 @@ public interface EquinoxApplication extends EObject
      * @generated
      */
     void setSecurityConfiguration ( Configuration value );
+
+    /**
+     * Returns the value of the '<em><b>Modules</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.Module}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Modules</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Modules</em>' reference list.
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_Modules()
+     * @model
+     * @generated
+     */
+    EList<Module> getModules ();
 
 } // EquinoxApplication

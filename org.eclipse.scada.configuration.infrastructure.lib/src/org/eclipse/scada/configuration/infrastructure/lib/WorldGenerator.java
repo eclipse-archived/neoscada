@@ -10,9 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -388,30 +390,47 @@ public class WorldGenerator
         ExclusiveGroups.removeGroups ( result, app.getConfigurations () );
         result.addAll ( EcoreUtil.copyAll ( app.getConfigurations () ) );
 
+        final List<Module> modules = new ArrayList<> ();
+
         // process infrastructure configuration
 
         final org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration cfg = app.getConfiguration ();
         // TODO: add a default configuration
         if ( cfg != null )
         {
+            // add configurations
+
             ExclusiveGroups.removeGroups ( result, cfg.getConfigurations () );
             result.addAll ( EcoreUtil.copyAll ( cfg.getConfigurations () ) );
 
-            for ( final Module m : cfg.getModules () )
-            {
-                final ModuleHandler mh = AdapterHelper.adapt ( m, ModuleHandler.class );
-                if ( mh == null )
-                {
-                    throw new IllegalStateException ( String.format ( "Unknown how to process application module: %s", m.getClass ().getName () ) );
-                }
+            // process modules
 
-                mh.process ( m, result, app, implApp );
-            }
+            modules.addAll ( cfg.getModules () );
         }
+
+        // process direct modules
+
+        ExclusiveGroups.removeGroups ( result, app.getModules () );
+        modules.addAll ( app.getModules () );
+        processModules ( app, implApp, result, modules );
 
         // final check is done in the target model
 
         return result; // we don't copy here, since the module handlers might have created actual objects
+    }
+
+    protected void processModules ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app, final EquinoxApplication implApp, final Collection<ApplicationModule> result, final Collection<Module> modules )
+    {
+        for ( final Module m : modules )
+        {
+            final ModuleHandler mh = AdapterHelper.adapt ( m, ModuleHandler.class );
+            if ( mh == null )
+            {
+                throw new IllegalStateException ( String.format ( "Unknown how to process application module: %s", m.getClass ().getName () ) );
+            }
+
+            mh.process ( m, result, app, implApp );
+        }
     }
 
     public Credentials findLocalCredentials ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app )
