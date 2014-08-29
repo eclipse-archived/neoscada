@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
- *     IBH SYSTEMS GmbH - cleanup and extend
+ *     IBH SYSTEMS GmbH - cleanup and extend, add remove items operation
  *******************************************************************************/
 package org.eclipse.scada.da.client.sfp.strategy;
 
@@ -31,7 +31,7 @@ import org.eclipse.scada.da.client.ItemUpdateListener;
 import org.eclipse.scada.da.client.sfp.ConnectionHandler;
 import org.eclipse.scada.da.core.Location;
 import org.eclipse.scada.da.core.WriteResult;
-import org.eclipse.scada.protocol.sfp.messages.BrowseUpdate;
+import org.eclipse.scada.protocol.sfp.messages.BrowseAdded;
 import org.eclipse.scada.protocol.sfp.messages.DataUpdate;
 import org.eclipse.scada.protocol.sfp.messages.DataUpdate.Entry;
 import org.eclipse.scada.protocol.sfp.messages.ReadAll;
@@ -87,9 +87,9 @@ public class ReadAllStrategy
         {
             processDataUpdate ( (DataUpdate)message );
         }
-        else if ( message instanceof BrowseUpdate )
+        else if ( message instanceof BrowseAdded )
         {
-            processBrowseUpdate ( (BrowseUpdate)message );
+            processBrowseAdded ( (BrowseAdded)message );
         }
         else if ( message instanceof org.eclipse.scada.protocol.sfp.messages.WriteResult )
         {
@@ -118,22 +118,21 @@ public class ReadAllStrategy
         } );
     }
 
-    private void processBrowseUpdate ( final BrowseUpdate message )
+    private void processBrowseAdded ( final BrowseAdded message )
     {
         logger.debug ( "Browse data update:" );
-        for ( final BrowseUpdate.Entry entry : message.getEntries () )
+        for ( final BrowseAdded.Entry entry : message.getEntries () )
         {
             logger.trace ( "\t{} = '{}'", entry.getRegister (), entry.getName () );
         }
 
         // update browser
 
-        for ( final BrowseUpdate.Entry entry : message.getEntries () )
+        for ( final BrowseAdded.Entry entry : message.getEntries () )
         {
             this.dataManager.addMapping ( entry.getRegister (), entry.getName (), entry.getUnit () );
 
-            final String[] toks = makeItemHiearchy ( entry.getName () );
-            final LinkedList<String> hier = new LinkedList<> ( Arrays.asList ( toks ) );
+            final LinkedList<String> hier = new LinkedList<> ( Arrays.asList ( makeItemHiearchy ( entry.getName () ) ) );
             if ( hier.size () == 1 )
             {
                 this.folderManager.addEntry ( Location.ROOT, entry.getName (), entry.getName (), entry.getDescription () );
@@ -173,8 +172,6 @@ public class ReadAllStrategy
         for ( final DataUpdate.Entry entry : message.getEntries () )
         {
             final DataItemValue value = convert ( entry );
-            // final String itemId = "" + entry.getRegister ();
-            // internalUpdate ( itemId, value );
             this.dataManager.updateData ( entry.getRegister (), value );
             registers.add ( entry.getRegister () );
         }
@@ -184,8 +181,19 @@ public class ReadAllStrategy
         // now process the removed keys
         for ( final Integer removed : this.previousRegisters )
         {
-            this.dataManager.removeRegister ( removed );
-            //   internalRemove ( removed );
+            final String itemId = this.dataManager.removeRegister ( removed );
+
+            final LinkedList<String> hier = new LinkedList<> ( Arrays.asList ( makeItemHiearchy ( itemId ) ) );
+            if ( hier.size () == 1 )
+            {
+                this.folderManager.removeEntry ( Location.ROOT, itemId );
+            }
+            else
+            {
+                // last segment is the name
+                final String name = hier.removeLast ();
+                this.folderManager.removeEntry ( new Location ( hier ), name );
+            }
         }
 
         this.previousRegisters = registers;

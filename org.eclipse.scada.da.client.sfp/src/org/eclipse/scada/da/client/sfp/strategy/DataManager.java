@@ -49,7 +49,7 @@ public class DataManager
 
     /**
      * Find the register number from an item id
-     * 
+     *
      * @param itemId
      *            the item id to look up
      * @return the register number or <code>null</code> if none was found
@@ -117,7 +117,7 @@ public class DataManager
         }
     }
 
-    public void removeRegister ( final int registerNumber )
+    public String removeRegister ( final int registerNumber )
     {
         final String oldItemId = this.registerMap.remove ( registerNumber );
         if ( oldItemId != null )
@@ -129,14 +129,14 @@ public class DataManager
 
         if ( oldValue == null )
         {
-            return;
+            return oldItemId;
         }
 
         final ItemUpdateListener listener = this.itemListeners.get ( oldItemId );
         if ( listener == null )
         {
             // no body is interested in this value
-            return;
+            return oldItemId;
         }
 
         execute ( new Runnable () {
@@ -146,6 +146,8 @@ public class DataManager
                 listener.notifySubscriptionChange ( SubscriptionState.GRANTED, null );
             };
         } );
+
+        return oldItemId;
     }
 
     public void dispose ()
