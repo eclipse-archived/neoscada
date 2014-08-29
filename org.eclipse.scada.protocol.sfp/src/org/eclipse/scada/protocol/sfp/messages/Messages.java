@@ -24,7 +24,7 @@ public interface Messages
 
     byte MC_STOP_BROWSE = 0x06;
 
-    byte MC_NS_UPDATE = 0x07;
+    byte MC_NS_ADDED = 0x07;
 
     byte MC_WRITE_COMMAND = 0x08;
 

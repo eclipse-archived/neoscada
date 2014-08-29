@@ -22,7 +22,7 @@ import org.apache.mina.filter.codec.ProtocolCodecException;
 import org.apache.mina.filter.codec.ProtocolEncoder;
 import org.apache.mina.filter.codec.ProtocolEncoderOutput;
 import org.eclipse.scada.core.Variant;
-import org.eclipse.scada.protocol.sfp.messages.BrowseUpdate;
+import org.eclipse.scada.protocol.sfp.messages.BrowseAdded;
 import org.eclipse.scada.protocol.sfp.messages.DataType;
 import org.eclipse.scada.protocol.sfp.messages.DataUpdate;
 import org.eclipse.scada.protocol.sfp.messages.DataUpdate.Entry;
@@ -121,9 +121,9 @@ public class ProtocolEncoderImpl implements ProtocolEncoder
         {
             data = createMessage ( session, Messages.MC_STOP_BROWSE, false );
         }
-        else if ( message instanceof BrowseUpdate )
+        else if ( message instanceof BrowseAdded )
         {
-            data = createMessage ( session, Messages.MC_NS_UPDATE, true );
+            data = createMessage ( session, Messages.MC_NS_ADDED, true );
 
             // put browse update
             encodeBrowseUpdate ( session, message, data );
@@ -166,12 +166,12 @@ public class ProtocolEncoderImpl implements ProtocolEncoder
     private void encodeBrowseUpdate ( final IoSession session, final Object message, final IoBuffer data ) throws ProtocolCodecException
     {
         // length
-        data.putUnsignedShort ( ( (BrowseUpdate)message ).getEntries ().size () );
+        data.putUnsignedShort ( ( (BrowseAdded)message ).getEntries ().size () );
 
         final CharsetEncoder encoder = Sessions.getCharsetEncoder ( session );
 
         // data
-        for ( final BrowseUpdate.Entry entry : ( (BrowseUpdate)message ).getEntries () )
+        for ( final BrowseAdded.Entry entry : ( (BrowseAdded)message ).getEntries () )
         {
             data.putUnsignedShort ( entry.getRegister () );
             data.put ( entry.getDataType ().getDataType () );

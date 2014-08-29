@@ -27,7 +27,7 @@ import org.apache.mina.filter.codec.CumulativeProtocolDecoder;
 import org.apache.mina.filter.codec.ProtocolCodecException;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 import org.eclipse.scada.core.Variant;
-import org.eclipse.scada.protocol.sfp.messages.BrowseUpdate;
+import org.eclipse.scada.protocol.sfp.messages.BrowseAdded;
 import org.eclipse.scada.protocol.sfp.messages.DataType;
 import org.eclipse.scada.protocol.sfp.messages.DataUpdate;
 import org.eclipse.scada.protocol.sfp.messages.Hello;
@@ -66,8 +66,10 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
             }
 
             // peek marker
-            marker1 = data.get ( 0 );
-            marker2 = data.get ( 1 );
+            marker1 = data.get ( data.position () + 0 );
+            marker2 = data.get ( data.position () + 1 );
+
+            // TODO: re-think the idea of just skipping
 
             if ( marker1 != 0x12 || marker2 != 0x02 )
             {
@@ -82,7 +84,7 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
 
         data.order ( Sessions.isLittleEndian ( session ) ? ByteOrder.LITTLE_ENDIAN : ByteOrder.BIG_ENDIAN );
 
-        final byte command = data.get ( 2 );
+        final byte command = data.get ( data.position () + 2 );
         switch ( command )
         {
             case Messages.MC_HELLO:
@@ -100,15 +102,15 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
             case Messages.MC_STOP_BROWSE:
                 out.write ( new UnsubscribeBrowse () );
                 return true;
-            case Messages.MC_NS_UPDATE:
-                return processBrowseUpdate ( session, data, out );
+            case Messages.MC_NS_ADDED:
+                return processBrowseAdded ( session, data, out );
             case Messages.MC_WRITE_COMMAND:
                 return processWriteCommand ( session, data, out );
             case Messages.MC_WRITE_RESULT:
                 return processWriteResult ( session, data, out );
         }
 
-        throw new ProtocolCodecException ( String.format ( "Message code %02x is unkown", data.get ( 0 ) ) );
+        throw new ProtocolCodecException ( String.format ( "Message code %02x is unkown", command ) );
     }
 
     private boolean processWriteCommand ( final IoSession session, final IoBuffer data, final ProtocolDecoderOutput out ) throws ProtocolCodecException
@@ -140,7 +142,7 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
         {
             final int operationId = data.getInt ();
             final int errorCode = data.getUnsignedShort ();
-            final String errorMessage = data.getPrefixedString ( Sessions.getCharsetDecoder ( session ) );
+            final String errorMessage = decodeString ( session, data );
 
             out.write ( new WriteResult ( operationId, errorCode, errorMessage ) );
         }
@@ -150,6 +152,19 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
         }
 
         return true;
+    }
+
+    private String decodeString ( final IoSession session, final IoBuffer data ) throws CharacterCodingException
+    {
+        final String result = data.getPrefixedString ( Sessions.getCharsetDecoder ( session ) );
+        if ( result.isEmpty () )
+        {
+            return null;
+        }
+        else
+        {
+            return result;
+        }
     }
 
     private boolean processDataUpdate ( final IoSession session, final IoBuffer data, final ProtocolDecoderOutput out ) throws ProtocolCodecException
@@ -205,7 +220,7 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
             case STRING:
                 try
                 {
-                    return Variant.valueOf ( data.getPrefixedString ( Sessions.getCharsetDecoder ( session ) ) );
+                    return Variant.valueOf ( decodeString ( session, data ) );
                 }
                 catch ( final CharacterCodingException e )
                 {
@@ -269,9 +284,8 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
         return true;
     }
 
-    private boolean processBrowseUpdate ( final IoSession session, final IoBuffer data, final ProtocolDecoderOutput out ) throws ProtocolCodecException
+    private boolean processBrowseAdded ( final IoSession session, final IoBuffer data, final ProtocolDecoderOutput out ) throws ProtocolCodecException
     {
-
         final int len = messageLength ( data );
         if ( len < 0 )
         {
@@ -279,19 +293,20 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
         }
 
         final int count = data.getUnsignedShort ();
-        final List<BrowseUpdate.Entry> entries = new ArrayList<BrowseUpdate.Entry> ( count );
+
+        final List<BrowseAdded.Entry> entries = new ArrayList<BrowseAdded.Entry> ( count );
 
         for ( int i = 0; i < count; i++ )
         {
-            entries.add ( decodeBrowserUpdateEntry ( data, session ) );
+            entries.add ( decodeBrowserAddEntry ( data, session ) );
         }
 
-        out.write ( new BrowseUpdate ( entries ) );
+        out.write ( new BrowseAdded ( entries ) );
 
         return true;
     }
 
-    private BrowseUpdate.Entry decodeBrowserUpdateEntry ( final IoBuffer data, final IoSession session ) throws ProtocolCodecException
+    private BrowseAdded.Entry decodeBrowserAddEntry ( final IoBuffer data, final IoSession session ) throws ProtocolCodecException
     {
         final short register = (short)data.getUnsignedShort ();
         // FIXME: validate if short works
@@ -304,7 +319,7 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
             throw new ProtocolCodecException ( String.format ( "Data type %s is unkown", b ) );
         }
 
-        final Set<BrowseUpdate.Entry.Flags> flags = data.getEnumSet ( BrowseUpdate.Entry.Flags.class );
+        final Set<BrowseAdded.Entry.Flags> flags = data.getEnumSet ( BrowseAdded.Entry.Flags.class );
 
         final CharsetDecoder decoder = Sessions.getCharsetDecoder ( session );
 
@@ -313,7 +328,7 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
             final String name = data.getPrefixedString ( decoder );
             final String description = data.getPrefixedString ( decoder );
             final String unit = data.getPrefixedString ( decoder );
-            return new BrowseUpdate.Entry ( register, name, description, unit, dataType, flags );
+            return new BrowseAdded.Entry ( register, name, description, unit, dataType, flags );
         }
         catch ( final CharacterCodingException e )
         {
@@ -346,7 +361,7 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
 
     private int messageLength ( final IoBuffer data )
     {
-        final int len = data.getUnsignedShort ( 3 );
+        final int len = data.getUnsignedShort ( data.position () + 3 );
         if ( data.remaining () < 5 + len )
         {
             return -1;

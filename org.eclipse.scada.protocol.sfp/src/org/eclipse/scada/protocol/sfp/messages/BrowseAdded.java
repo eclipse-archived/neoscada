@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class BrowseUpdate
+public class BrowseAdded
 {
     public static class Entry
     {
@@ -81,7 +81,7 @@ public class BrowseUpdate
 
     private final List<Entry> entries;
 
-    public BrowseUpdate ( final List<Entry> entries )
+    public BrowseAdded ( final List<Entry> entries )
     {
         this.entries = Collections.unmodifiableList ( new ArrayList<Entry> ( entries ) );
     }
