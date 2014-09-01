@@ -48,7 +48,7 @@ public class HttpServiceValidator implements Validator
             throw new IllegalStateException ( String.format ( "Validator can only handle %s", HttpServiceModule.class.getName () ) );
         }
 
-        if ( HttpServices.isValid ( target, (HttpServiceModule)service ) )
+        if ( !HttpServices.isValid ( target, (HttpServiceModule)service ) )
         {
             ctx.add ( feature, "Selected HTTP Service is not present in the target application setup. The selected service must be either a module in the same application or in the selected configuration of the application." );
         }
