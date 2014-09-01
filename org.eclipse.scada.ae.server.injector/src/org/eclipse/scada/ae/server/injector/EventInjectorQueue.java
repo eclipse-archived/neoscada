@@ -14,6 +14,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import org.eclipse.scada.ae.Event;
+import org.eclipse.scada.ae.server.handler.InjectionContext;
 import org.eclipse.scada.utils.osgi.SingleServiceListener;
 import org.eclipse.scada.utils.osgi.SingleServiceTracker;
 import org.osgi.framework.BundleContext;

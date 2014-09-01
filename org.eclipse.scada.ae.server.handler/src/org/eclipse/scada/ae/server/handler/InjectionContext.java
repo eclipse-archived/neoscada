@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.ae.server.injector;
+package org.eclipse.scada.ae.server.handler;
 
 import java.util.Collections;
 import java.util.HashMap;

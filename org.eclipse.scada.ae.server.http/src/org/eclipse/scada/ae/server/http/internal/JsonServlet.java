@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.scada.ae.Event;
+import org.eclipse.scada.ae.server.handler.InjectionContext;
 import org.eclipse.scada.ae.server.injector.EventInjectorQueue;
-import org.eclipse.scada.ae.server.injector.InjectionContext;
 
 public class JsonServlet extends HttpServlet
 {

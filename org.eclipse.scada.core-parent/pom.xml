@@ -204,6 +204,8 @@
 		<module>../org.eclipse.scada.ae.server.monitor.proxy</module>
 		<module>../org.eclipse.scada.ae.server.net</module>
 		<module>../org.eclipse.scada.ae.server.ngp</module>
+		<module>../org.eclipse.scada.ae.server.handler</module>
+		<module>../org.eclipse.scada.ae.server.handler.storage</module>
 		<module>../org.eclipse.scada.ae.server.storage</module>
 		<module>../org.eclipse.scada.ae.server.storage.jdbc</module>
 		<module>../org.eclipse.scada.ae.server.storage.memory</module>
