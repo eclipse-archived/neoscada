@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Core UI Connection Login (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.ui.connection.login;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.core.ui.connection.login.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.core.ui.connection.login;version="0.1.0",
- org.eclipse.scada.core.ui.connection.login.factory;version="0.1.0"
+Export-Package: org.eclipse.scada.core.ui.connection.login;version="0.2.0",
+ org.eclipse.scada.core.ui.connection.login.factory;version="0.2.0"
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.databinding;bundle-version="1.2.0",

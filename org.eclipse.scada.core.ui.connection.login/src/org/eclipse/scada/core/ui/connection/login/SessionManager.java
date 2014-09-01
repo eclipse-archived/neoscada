@@ -15,9 +15,13 @@ import java.util.Set;
 
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.runtime.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class SessionManager
 {
+    private final static Logger logger = LoggerFactory.getLogger ( SessionManager.class );
+
     protected final Set<SessionListener> listeners = new HashSet<SessionListener> ();
 
     protected LoginSession session;
@@ -32,15 +36,18 @@ public abstract class SessionManager
     /**
      * Add a new listener
      * <p>
-     * Must be called from the realm of the manager. This is normally the display thread.
+     * Must be called from the realm of the manager. This is normally the
+     * display thread.
      * </p>
-     * 
+     *
      * @param listener
      *            to add
      */
     public void addListener ( final SessionListener listener )
     {
         checkRealm ();
+
+        logger.debug ( "Adding listener - listener: {}", listener );
 
         if ( this.listeners.add ( listener ) )
         {
@@ -56,9 +63,10 @@ public abstract class SessionManager
     /**
      * Remove a new listener
      * <p>
-     * Must be called from the realm of the manager. This is normally the display thread.
+     * Must be called from the realm of the manager. This is normally the
+     * display thread.
      * </p>
-     * 
+     *
      * @param listener
      *            to remove
      */
@@ -66,12 +74,16 @@ public abstract class SessionManager
     {
         checkRealm ();
 
+        logger.debug ( "Removing listener - listener: {}", listener );
+
         this.listeners.remove ( listener );
     }
 
     protected void setSession ( final LoginSession session )
     {
         checkRealm ();
+
+        logger.debug ( "Setting session - session: {}", session );
 
         this.session = session;
         for ( final SessionListener listener : this.listeners )

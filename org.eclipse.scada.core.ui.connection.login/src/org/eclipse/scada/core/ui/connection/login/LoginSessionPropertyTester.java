@@ -11,21 +11,32 @@
 package org.eclipse.scada.core.ui.connection.login;
 
 import org.eclipse.core.expressions.PropertyTester;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginSessionPropertyTester extends PropertyTester
 {
+    private final static Logger logger = LoggerFactory.getLogger ( LoginSessionPropertyTester.class );
 
+    @Override
     public boolean test ( final Object receiver, final String property, final Object[] args, final Object expectedValue )
     {
+        logger.debug ( "Testing - receiver: {}, property: {}, args: {}, expectedValue: {}", receiver, property, args, expectedValue );
+
         if ( ! ( receiver instanceof LoginSession ) )
         {
+            logger.debug ( "Receiver is not of type {}", LoginSession.class );
             return false;
         }
+
+        boolean result = false;
         if ( "properties".equals ( property ) )
         {
-            return checkProperties ( (LoginSession)receiver, args, expectedValue );
+            result = checkProperties ( (LoginSession)receiver, args, expectedValue );
         }
-        return false;
+
+        logger.debug ( "result = {}", result );
+        return result;
     }
 
     private boolean checkProperties ( final LoginSession receiver, final Object[] args, final Object expectedValue )

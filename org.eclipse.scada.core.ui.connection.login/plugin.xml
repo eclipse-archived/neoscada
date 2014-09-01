@@ -13,9 +13,6 @@
                   icon="icons/e/connect.gif"
                   label="Login"
                   style="push">
-               <visibleWhen
-                     checkEnabled="true">
-               </visibleWhen>
             </command>
             <control
                   class="org.eclipse.scada.core.ui.connection.login.toolbar.LoginStatusControl">
@@ -26,9 +23,6 @@
                   icon="icons/e/disconnect_co.gif"
                   label="Logout"
                   style="push">
-               <visibleWhen
-                     checkEnabled="true">
-               </visibleWhen>
             </command>
          </toolbar>
       </menuContribution>

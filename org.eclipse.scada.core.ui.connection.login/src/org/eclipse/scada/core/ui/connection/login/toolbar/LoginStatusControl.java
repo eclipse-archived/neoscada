@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.login.toolbar;
 
+import org.eclipse.scada.core.ui.connection.login.LoginSession;
+import org.eclipse.scada.core.ui.connection.login.SessionListener;
+import org.eclipse.scada.core.ui.connection.login.SessionManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -17,12 +20,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.menus.WorkbenchWindowControlContribution;
-import org.eclipse.scada.core.ui.connection.login.LoginSession;
-import org.eclipse.scada.core.ui.connection.login.SessionListener;
-import org.eclipse.scada.core.ui.connection.login.SessionManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginStatusControl extends WorkbenchWindowControlContribution implements SessionListener
 {
+    private final static Logger logger = LoggerFactory.getLogger ( LoginStatusControl.class );
 
     private Label statusLabel;
 
@@ -45,6 +48,8 @@ public class LoginStatusControl extends WorkbenchWindowControlContribution imple
     @Override
     protected Control createControl ( final Composite parent )
     {
+        logger.debug ( "Creating control" );
+
         final Composite wrapper = new Composite ( parent, SWT.NONE );
 
         final GridLayout layout = new GridLayout ( 1, true );
@@ -64,8 +69,11 @@ public class LoginStatusControl extends WorkbenchWindowControlContribution imple
         return wrapper;
     }
 
+    @Override
     public void sessionChanged ( final LoginSession session )
     {
+        logger.info ( "Session changed - session: {}", session );
+
         if ( session == null )
         {
             this.statusLabel.setText ( Messages.LoginStatusControl_StatusLabel_NoSession );
