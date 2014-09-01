@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - some minor enhancements
+ *     IBH SYSTEMS GmbH - some minor enhancements, default error messages
  *******************************************************************************/
 package org.eclipse.scada.ca;
 
@@ -111,7 +111,7 @@ public class ConfigurationDataHelper
         final String str = this.data.get ( name );
         if ( str == null )
         {
-            throw new IllegalArgumentException ( errorMessage );
+            throw new IllegalArgumentException ( errorMessage == null ? String.format ( "'%s' must be set to an integer value", name ) : errorMessage );
         }
         return Integer.parseInt ( str );
     }
@@ -182,7 +182,7 @@ public class ConfigurationDataHelper
         final String str = this.data.get ( name );
         if ( str == null )
         {
-            throw new IllegalArgumentException ( errorMessage );
+            throw new IllegalArgumentException ( errorMessage == null ? String.format ( "'%s' must be set to a long integer value", name ) : errorMessage );
         }
         return Long.parseLong ( str );
     }
@@ -250,7 +250,7 @@ public class ConfigurationDataHelper
         final String str = this.data.get ( name );
         if ( str == null )
         {
-            throw new IllegalArgumentException ( errorMessage );
+            throw new IllegalArgumentException ( errorMessage == null ? String.format ( "'%s' must be set to a string", name ) : errorMessage );
         }
         else
         {
@@ -277,7 +277,7 @@ public class ConfigurationDataHelper
             return str;
         }
 
-        throw new IllegalArgumentException ( errorMessage );
+        throw new IllegalArgumentException ( errorMessage == null ? String.format ( "'%s' must be set to a non-empty string", name ) : errorMessage );
     }
 
     /**
@@ -427,7 +427,7 @@ public class ConfigurationDataHelper
         final String str = this.data.get ( name );
         if ( str == null )
         {
-            throw new IllegalArgumentException ( errorMessage );
+            throw new IllegalArgumentException ( errorMessage == null ? String.format ( "'%s' must be set to double value", name ) : errorMessage );
         }
         return Double.parseDouble ( str );
     }
@@ -437,7 +437,7 @@ public class ConfigurationDataHelper
         final String str = this.data.get ( name );
         if ( str == null )
         {
-            throw new IllegalArgumentException ( errorMessage );
+            throw new IllegalArgumentException ( errorMessage == null ? String.format ( "'%s' must be set to a boolean value", name ) : errorMessage );
         }
         return Boolean.parseBoolean ( str );
     }
@@ -537,7 +537,7 @@ public class ConfigurationDataHelper
         final String str = this.data.get ( name );
         if ( str == null )
         {
-            throw new IllegalArgumentException ( errorMessage );
+            throw new IllegalArgumentException ( errorMessage == null ? String.format ( "'%s' must be set to a variant value", name ) : errorMessage );
         }
         return VariantEditor.toVariant ( str );
     }
