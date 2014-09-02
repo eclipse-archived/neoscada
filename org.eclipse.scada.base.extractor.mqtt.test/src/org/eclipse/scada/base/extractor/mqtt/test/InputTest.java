@@ -27,7 +27,7 @@ public class InputTest
     public void test1 () throws Exception
     {
         final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor ();
-        final MqttInput input = new MqttInput ( executor, "tcp://iot.eclipse.org:1883", null, "javaonedemo/benjamin/sensors/temperature", 2 );
+        final MqttInput input = new MqttInput ( executor, "tcp://iot.eclipse.org:1883", null, "javaonedemo/eclipse-greenhouse-ben/sensors/temperature", 2 );
         input.addInputListener ( new Listener () {
 
             @Override
