@@ -16,7 +16,6 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -44,8 +43,6 @@ public class MovingAverageDataSource implements DataSourceListener
     private final static Logger logger = LoggerFactory.getLogger ( MovingAverageDataSource.class );
 
     private DataItemValueRange valueRange;
-
-    private final ExecutorService executor;
 
     private final ScheduledExecutorService scheduler;
 
@@ -85,9 +82,8 @@ public class MovingAverageDataSource implements DataSourceListener
 
     private final DataInputSource deviationWeightedDataSource;
 
-    public MovingAverageDataSource ( final String configurationId, final ExecutorService executor, final ScheduledExecutorService scheduler, final ObjectPoolTracker<DataSource> poolTracker, final ObjectPoolImpl<DataSource> dsObjectPool ) throws InvalidSyntaxException
+    public MovingAverageDataSource ( final String configurationId, final ScheduledExecutorService scheduler, final ObjectPoolTracker<DataSource> poolTracker, final ObjectPoolImpl<DataSource> dsObjectPool ) throws InvalidSyntaxException
     {
-        this.executor = executor;
         this.scheduler = scheduler;
         this.valueRange = new DataItemValueRange ( 0 );
         this.configurationId = configurationId;
@@ -251,7 +247,7 @@ public class MovingAverageDataSource implements DataSourceListener
             // ok, so we have at least one value in our list (could still be null)
             DataItemValueLight lastValue = new DataItemValueLight ( state.getFirstValue ().getValue (), state.getFirstValue ().getSubscriptionState (), state.getOldestPossibleTimestamp (), state.getFirstValue ().isManual (), state.getFirstValue ().isError () );
             final Iterator<DataItemValueLight> it = state.getValues ().iterator (); // it is a set, so we have to use an iterator
-            for ( int i = 0; i < ( state.getSize () + 1 ); i++ )
+            for ( int i = 0; i < state.getSize () + 1; i++ )
             {
                 if ( i < state.getSize () )
                 {
@@ -262,7 +258,7 @@ public class MovingAverageDataSource implements DataSourceListener
                 }
                 else
                 {
-                    final long currentRange = ( state.getOldestPossibleTimestamp () + this.valueRange.getRange () ) - lastValue.getTimestamp ();
+                    final long currentRange = state.getOldestPossibleTimestamp () + this.valueRange.getRange () - lastValue.getTimestamp ();
                     calculateForRange ( average, currentRange, lastValue.getValue (), lastValue.isManual (), lastValue.isError (), lastValue.getSubscriptionState () != SubscriptionState.DISCONNECTED );
                 }
             }
@@ -299,7 +295,7 @@ public class MovingAverageDataSource implements DataSourceListener
             }
 
             // handle null range
-            if ( average.nullRange >= ( this.nullrange * 1000 ) )
+            if ( average.nullRange >= this.nullrange * 1000 )
             {
                 average.arithmetic = null;
                 average.median = null;

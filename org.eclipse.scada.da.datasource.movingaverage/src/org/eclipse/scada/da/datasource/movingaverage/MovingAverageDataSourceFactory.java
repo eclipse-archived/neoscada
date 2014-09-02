@@ -13,7 +13,6 @@ package org.eclipse.scada.da.datasource.movingaverage;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.ca.common.factory.AbstractServiceConfigurationFactory;
@@ -32,8 +31,6 @@ public class MovingAverageDataSourceFactory extends AbstractServiceConfiguration
 {
     private final static Logger logger = LoggerFactory.getLogger ( MovingAverageDataSourceFactory.class );
 
-    private final ExecutorService executor;
-
     private final ScheduledExecutorService scheduler;
 
     private final ObjectPoolTracker<DataSource> poolTracker;
@@ -46,10 +43,9 @@ public class MovingAverageDataSourceFactory extends AbstractServiceConfiguration
 
     private final ServiceRegistration<?> dsPoolRegistration;
 
-    public MovingAverageDataSourceFactory ( final BundleContext context, final ExecutorService executor, final ScheduledExecutorService scheduler ) throws InvalidSyntaxException
+    public MovingAverageDataSourceFactory ( final BundleContext context, final ScheduledExecutorService scheduler ) throws InvalidSyntaxException
     {
         super ( context );
-        this.executor = executor;
         this.scheduler = scheduler;
 
         this.avgObjectPool = new ObjectPoolImpl<MovingAverageDataSource> ();
@@ -78,7 +74,7 @@ public class MovingAverageDataSourceFactory extends AbstractServiceConfiguration
     {
         logger.debug ( "Creating new average source: {}", configurationId );
 
-        final MovingAverageDataSource avg = new MovingAverageDataSource ( configurationId, this.executor, this.scheduler, this.poolTracker, this.dsObjectPool );
+        final MovingAverageDataSource avg = new MovingAverageDataSource ( configurationId, this.scheduler, this.poolTracker, this.dsObjectPool );
         avg.update ( parameters );
 
         final Dictionary<String, String> properties = new Hashtable<String, String> ( 1 );
