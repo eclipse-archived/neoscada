@@ -17,8 +17,6 @@ import java.util.concurrent.Executors;
 import org.eclipse.scada.ae.event.EventProcessor;
 import org.eclipse.scada.ae.monitor.MonitorService;
 import org.eclipse.scada.ae.server.common.akn.AknHandler;
-import org.eclipse.scada.ae.server.injector.filter.EventFilter;
-import org.eclipse.scada.ae.server.injector.filter.EventFilterImpl;
 import org.eclipse.scada.ae.server.injector.monitor.EventMonitorFactory;
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
@@ -37,8 +35,6 @@ public class Activator implements BundleActivator
     private ExecutorService executor;
 
     private EventMonitorFactory factory;
-
-    private EventFilter eventFilter;
 
     private ServiceRegistration<?> factoryServiceHandle;
 
@@ -59,8 +55,6 @@ public class Activator implements BundleActivator
 
         this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
 
-        this.eventFilter = new EventFilterImpl ( context, context.getBundle ().getSymbolicName () + ".eventFilter" );
-
         // register factory
         this.factory = new EventMonitorFactory ( context, this.executor, this.monitorServicePool, this.eventProcessor );
         final Hashtable<String, Object> properties = new Hashtable<String, Object> ();
@@ -70,7 +64,7 @@ public class Activator implements BundleActivator
 
         if ( this.manager == null )
         {
-            this.manager = new EventInjectorManager ( this.eventFilter, this.factory );
+            this.manager = new EventInjectorManager ( this.factory );
             this.manager.start ();
         }
     }
@@ -99,8 +93,6 @@ public class Activator implements BundleActivator
         // shut down object pool
         this.monitorServicePoolHandler.unregister ();
         this.monitorServicePool.dispose ();
-
-        this.eventFilter.dispose ();
 
         // shut down event processor
         this.eventProcessor.close ();

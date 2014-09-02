@@ -14,7 +14,18 @@ import org.eclipse.scada.ae.Event;
 
 public interface EventHandler
 {
-    public void handleEvent ( Event event, InjectionContext context );
+    /**
+     * Handle an event
+     *
+     * @param event
+     *            the event to handle
+     * @param context
+     *            the context
+     * @return return the event that goes to the next handler. Or
+     *         <code>null</code> if the event
+     *         should not be passed to the next handler.
+     */
+    public Event handleEvent ( Event event, InjectionContext context );
 
     public void dispose ();
 }

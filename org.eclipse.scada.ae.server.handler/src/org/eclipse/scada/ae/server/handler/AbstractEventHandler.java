@@ -1,21 +1,19 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - generalize event injection
+ *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.ae.server.injector.filter;
+package org.eclipse.scada.ae.server.handler;
 
-import org.eclipse.scada.ae.Event;
-
-public interface EventFilter
+public abstract class AbstractEventHandler implements EventHandler
 {
-    public boolean matches ( Event event );
-
-    public void dispose ();
+    @Override
+    public void dispose ()
+    {
+    }
 }

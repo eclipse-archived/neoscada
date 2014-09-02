@@ -16,6 +16,7 @@ import java.util.Map;
 
 import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.event.EventService;
+import org.eclipse.scada.ae.server.handler.AbstractEventHandler;
 import org.eclipse.scada.ae.server.handler.EventHandler;
 import org.eclipse.scada.ae.server.handler.EventHandlerFactory;
 import org.eclipse.scada.ae.server.handler.InjectionContext;
@@ -89,17 +90,13 @@ public class DefaultStorageHandlerFactory implements EventHandlerFactory
     @Override
     public EventHandler createHandler ( final Map<String, String> properties )
     {
-        return new EventHandler () {
+        return new AbstractEventHandler () {
 
             @Override
-            public void handleEvent ( final Event event, final InjectionContext context )
+            public Event handleEvent ( final Event event, final InjectionContext context )
             {
                 processEvent ( event );
-            }
-
-            @Override
-            public void dispose ()
-            {
+                return event;
             }
         };
     }

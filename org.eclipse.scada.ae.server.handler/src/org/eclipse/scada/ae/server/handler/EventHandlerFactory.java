@@ -16,5 +16,5 @@ public interface EventHandlerFactory
 {
     public static final String FACTORY_ID = "event.handler.factory.id";
 
-    public EventHandler createHandler ( Map<String, String> properties );
+    public EventHandler createHandler ( Map<String, String> properties ) throws Exception;
 }

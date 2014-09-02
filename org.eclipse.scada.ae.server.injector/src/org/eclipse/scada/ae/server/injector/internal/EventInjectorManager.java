@@ -13,7 +13,6 @@ package org.eclipse.scada.ae.server.injector.internal;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import org.eclipse.scada.ae.server.injector.filter.EventFilter;
 import org.eclipse.scada.ae.server.injector.monitor.EventMonitorEvaluator;
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
@@ -25,13 +24,10 @@ public class EventInjectorManager
 {
     private EventInjectorImpl impl;
 
-    private final EventFilter eventFilter;
-
     private final EventMonitorEvaluator evaluator;
 
-    public EventInjectorManager ( final EventFilter eventFilter, final EventMonitorEvaluator evaluator )
+    public EventInjectorManager ( final EventMonitorEvaluator evaluator )
     {
-        this.eventFilter = eventFilter;
         this.evaluator = evaluator;
     }
 
@@ -39,7 +35,7 @@ public class EventInjectorManager
     {
         final BundleContext context = FrameworkUtil.getBundle ( EventInjectorManager.class ).getBundleContext ();
 
-        this.impl = new EventInjectorImpl ( context, this.eventFilter, this.evaluator );
+        this.impl = new EventInjectorImpl ( context, this.evaluator );
 
         final Dictionary<String, Object> properties = new Hashtable<> ();
         properties.put ( Constants.SERVICE_DESCRIPTION, "Event injector manager" );

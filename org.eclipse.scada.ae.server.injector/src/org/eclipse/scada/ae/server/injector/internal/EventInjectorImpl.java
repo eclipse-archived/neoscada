@@ -29,12 +29,12 @@ import org.eclipse.scada.ae.server.handler.EventHandler;
 import org.eclipse.scada.ae.server.handler.EventHandlerFactory;
 import org.eclipse.scada.ae.server.handler.InjectionContext;
 import org.eclipse.scada.ae.server.injector.EventInjector;
-import org.eclipse.scada.ae.server.injector.filter.EventFilter;
 import org.eclipse.scada.ae.server.injector.internal.EventHandlerFactoryTracker.Listener;
 import org.eclipse.scada.ae.server.injector.monitor.EventMonitorEvaluator;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.ca.ConfigurationFactory;
 import org.eclipse.scada.sec.UserInformation;
+import org.eclipse.scada.utils.ExceptionHelper;
 import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.str.Tables;
 import org.osgi.framework.BundleContext;
@@ -50,8 +50,6 @@ public class EventInjectorImpl implements EventInjector, ConfigurationFactory
     private static final String DEFAULT_ID = "default";
 
     private final static Logger logger = LoggerFactory.getLogger ( EventInjectorImpl.class );
-
-    private final EventFilter eventFilter;
 
     private final EventMonitorEvaluator evaluator;
 
@@ -104,6 +102,8 @@ public class EventInjectorImpl implements EventInjector, ConfigurationFactory
 
         private EventHandler handler;
 
+        private Exception error;
+
         public Entry ( final String id, final int priority, final String factoryId, final Map<String, String> properties )
         {
             this.id = id;
@@ -127,7 +127,14 @@ public class EventInjectorImpl implements EventInjector, ConfigurationFactory
 
             if ( factory != null )
             {
-                this.handler = factory.createHandler ( this.properties );
+                try
+                {
+                    this.handler = factory.createHandler ( this.properties );
+                }
+                catch ( final Exception e )
+                {
+                    this.error = e;
+                }
             }
         }
 
@@ -209,7 +216,7 @@ public class EventInjectorImpl implements EventInjector, ConfigurationFactory
         }
     }
 
-    public EventInjectorImpl ( final BundleContext context, final EventFilter eventFilter, final EventMonitorEvaluator evaluator )
+    public EventInjectorImpl ( final BundleContext context, final EventMonitorEvaluator evaluator )
     {
         this.context = context;
 
@@ -217,7 +224,6 @@ public class EventInjectorImpl implements EventInjector, ConfigurationFactory
         this.readLock = rw.readLock ();
         this.writeLock = rw.writeLock ();
 
-        this.eventFilter = eventFilter;
         this.evaluator = evaluator;
 
         this.executor = new ExportedExecutorService ( "org.eclipse.scada.ae.server.injector", 1, 1, 1, TimeUnit.MINUTES );
@@ -292,19 +298,12 @@ public class EventInjectorImpl implements EventInjector, ConfigurationFactory
         this.readLock.lock ();
         try
         {
-            if ( this.eventFilter != null && this.eventFilter.matches ( event ) )
+            // publish event
+            Event evalEvent = this.evaluator.evaluate ( event );
+
+            for ( final Entry entry : this.entries )
             {
-                // filter event
-                logger.trace ( "Filter discarded event: {}", event );
-            }
-            else
-            {
-                // publish event
-                final Event evalEvent = this.evaluator.evaluate ( event );
-                for ( final Entry entry : this.entries )
-                {
-                    entry.handler.handleEvent ( evalEvent, context );
-                }
+                evalEvent = entry.handler.handleEvent ( evalEvent, context );
             }
         }
         finally
@@ -430,7 +429,14 @@ public class EventInjectorImpl implements EventInjector, ConfigurationFactory
                 row.add ( "" + entry.priority );
                 row.add ( entry.id );
                 row.add ( entry.isRealized () ? "X" : "" );
-                row.add ( "" );
+                if ( entry.error != null )
+                {
+                    row.add ( ExceptionHelper.getMessage ( entry.error ) );
+                }
+                else
+                {
+                    row.add ( "" );
+                }
                 data.add ( row );
             }
 
