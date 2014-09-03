@@ -276,15 +276,20 @@ public class PipeServiceImpl implements PipeService
                             {
                                 logger.trace ( "Processing: {}", file );
                                 final byte[] data = Files.readAllBytes ( file.toPath () );
+                                boolean worked = false;
                                 try
                                 {
                                     this.worker.work ( data );
+                                    worked = true;
                                 }
                                 catch ( final Exception e )
                                 {
                                     logger.info ( "Worker failed", e );
                                 }
-                                Files.delete ( file.toPath () );
+                                if ( worked )
+                                {
+                                    Files.delete ( file.toPath () );
+                                }
                             }
                             catch ( final IOException e )
                             {
