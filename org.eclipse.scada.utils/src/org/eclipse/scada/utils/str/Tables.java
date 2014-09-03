@@ -10,7 +10,9 @@
  *******************************************************************************/
 package org.eclipse.scada.utils.str;
 
+import java.io.IOException;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -22,9 +24,18 @@ public final class Tables
     {
     }
 
+    private static interface Output
+    {
+        public void println ();
+
+        public void println ( String string );
+
+        public void println ( char c );
+    }
+
     /**
      * Print out a table
-     * 
+     *
      * @param out
      *            the stream to print to
      * @param header
@@ -34,7 +45,68 @@ public final class Tables
      * @param gap
      *            gap between columns
      */
-    public static void showTable ( final PrintStream out, final List<String> header, final List<List<String>> data, int gap )
+    public static void showTable ( final PrintStream out, final List<String> header, final List<List<String>> data, final int gap ) throws IOException
+    {
+        showTable ( new Output () {
+
+            @Override
+            public void println ()
+            {
+                out.println ();
+            }
+
+            @Override
+            public void println ( final String string )
+            {
+                out.println ( string );
+            }
+
+            @Override
+            public void println ( final char c )
+            {
+                out.println ( c );
+            }
+        }, header, data, gap );
+    }
+
+    /**
+     * Print out a table
+     *
+     * @since 0.2.0
+     * @param out
+     *            the stream to print to
+     * @param header
+     *            the column headers
+     * @param data
+     *            the data, in rows and cells
+     * @param gap
+     *            gap between columns
+     */
+    public static void showTable ( final PrintWriter out, final List<String> header, final List<List<String>> data, final int gap ) throws IOException
+    {
+        showTable ( new Output () {
+
+            @Override
+            public void println ()
+            {
+                out.println ();
+            }
+
+            @Override
+            public void println ( final String string )
+            {
+                out.println ( string );
+            }
+
+            @Override
+            public void println ( final char c )
+            {
+                out.println ( c );
+            }
+        }, header, data, gap );
+    }
+
+    protected static void showTable ( final Output out, final List<String> header, final List<List<String>> data, int gap ) throws IOException
     {
         if ( gap < 0 )
         {
@@ -87,7 +159,7 @@ public final class Tables
             int i = 0;
             for ( final String cell : header )
             {
-                out.print ( String.format ( formats[i], cell ) );
+                out.println ( String.format ( formats[i], cell ) );
                 i++;
             }
             out.println ();
@@ -96,7 +168,7 @@ public final class Tables
         // header line
         for ( int i = 0; i < totalLen; i++ )
         {
-            out.print ( '=' );
+            out.println ( '=' );
         }
         out.println ();
 
@@ -106,11 +178,10 @@ public final class Tables
             int i = 0;
             for ( final String cell : row )
             {
-                out.print ( String.format ( formats[i], cell == null ? "" : cell ) );
+                out.println ( String.format ( formats[i], cell == null ? "" : cell ) );
                 i++;
             }
             out.println ();
         }
     }
-
 }
