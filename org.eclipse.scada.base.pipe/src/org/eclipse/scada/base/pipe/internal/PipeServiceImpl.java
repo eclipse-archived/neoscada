@@ -337,6 +337,8 @@ public class PipeServiceImpl implements PipeService
         };
 
         final WorkerThread thread = new WorkerThread ( worker, pipeName );
+        thread.setName ( "PipeWorkerThread/" + pipeName );
+
         this.workers.put ( pipeName, thread );
         thread.start ();
 
