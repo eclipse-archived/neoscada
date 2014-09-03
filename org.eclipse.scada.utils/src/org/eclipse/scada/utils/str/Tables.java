@@ -11,7 +11,6 @@
  *******************************************************************************/
 package org.eclipse.scada.utils.str;
 
-import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.List;
@@ -46,7 +45,7 @@ public final class Tables
      * @param gap
      *            gap between columns
      */
-    public static void showTable ( final PrintStream out, final List<String> header, final List<List<String>> data, final int gap ) throws IOException
+    public static void showTable ( final PrintStream out, final List<String> header, final List<List<String>> data, final int gap )
     {
         showTable ( new Output () {
 
@@ -83,7 +82,7 @@ public final class Tables
      * @param gap
      *            gap between columns
      */
-    public static void showTable ( final PrintWriter out, final List<String> header, final List<List<String>> data, final int gap ) throws IOException
+    public static void showTable ( final PrintWriter out, final List<String> header, final List<List<String>> data, final int gap )
     {
         showTable ( new Output () {
 
@@ -107,7 +106,7 @@ public final class Tables
         }, header, data, gap );
     }
 
-    protected static void showTable ( final Output out, final List<String> header, final List<List<String>> data, int gap ) throws IOException
+    protected static void showTable ( final Output out, final List<String> header, final List<List<String>> data, int gap )
     {
         if ( gap < 0 )
         {
