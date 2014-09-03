@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Event Mail Handler (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.ae.server.handler.mail
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: javax.mail;version="1.4.1",
+ javax.mail.internet;version="1.4.1",
+ org.eclipse.scada.ae;version="0.2.0",
+ org.eclipse.scada.ae.server.handler;version="0.2.0",
+ org.eclipse.scada.base.pipe;version="0.2.0",
+ org.eclipse.scada.ca;version="0.2.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.utils.osgi;version="0.1.0",
+ org.eclipse.scada.utils.str;version="0.2.0",
+ org.osgi.framework;version="1.7.0",
+ org.slf4j;version="1.7.2"
+Service-Component: OSGI-INF/handler.xml
+Bundle-ActivationPolicy: lazy
