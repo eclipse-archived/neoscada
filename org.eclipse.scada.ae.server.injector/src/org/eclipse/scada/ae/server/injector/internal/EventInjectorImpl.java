@@ -456,7 +456,7 @@ public class EventInjectorImpl implements EventInjector, ConfigurationFactory
         try
         {
             final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( properties );
-            final Entry entry = new Entry ( configurationId, cfg.getInteger ( "priority", 0 ), cfg.getStringNonEmptyChecked ( "factoryId", null ), cfg.getPrefixed ( "properties." ) );
+            final Entry entry = new Entry ( configurationId, cfg.getInteger ( "priority", 0 ), cfg.getStringNonEmptyChecked ( "factory.id", null ), cfg.getPrefixed ( "properties." ) );
 
             removeDefault ();
 
