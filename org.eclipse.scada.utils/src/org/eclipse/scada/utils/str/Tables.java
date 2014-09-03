@@ -28,9 +28,9 @@ public final class Tables
     {
         public void println ();
 
-        public void println ( String string );
+        public void print ( String string );
 
-        public void println ( char c );
+        public void print ( char c );
     }
 
     /**
@@ -56,15 +56,15 @@ public final class Tables
             }
 
             @Override
-            public void println ( final String string )
+            public void print ( final String string )
             {
-                out.println ( string );
+                out.print ( string );
             }
 
             @Override
-            public void println ( final char c )
+            public void print ( final char c )
             {
-                out.println ( c );
+                out.print ( c );
             }
         }, header, data, gap );
     }
@@ -93,15 +93,15 @@ public final class Tables
             }
 
             @Override
-            public void println ( final String string )
+            public void print ( final String string )
             {
-                out.println ( string );
+                out.print ( string );
             }
 
             @Override
-            public void println ( final char c )
+            public void print ( final char c )
             {
-                out.println ( c );
+                out.print ( c );
             }
         }, header, data, gap );
     }
@@ -159,7 +159,7 @@ public final class Tables
             int i = 0;
             for ( final String cell : header )
             {
-                out.println ( String.format ( formats[i], cell ) );
+                out.print ( String.format ( formats[i], cell ) );
                 i++;
             }
             out.println ();
@@ -168,7 +168,7 @@ public final class Tables
         // header line
         for ( int i = 0; i < totalLen; i++ )
         {
-            out.println ( '=' );
+            out.print ( '=' );
         }
         out.println ();
 
@@ -178,7 +178,7 @@ public final class Tables
             int i = 0;
             for ( final String cell : row )
             {
-                out.println ( String.format ( formats[i], cell == null ? "" : cell ) );
+                out.print ( String.format ( formats[i], cell == null ? "" : cell ) );
                 i++;
             }
             out.println ();
