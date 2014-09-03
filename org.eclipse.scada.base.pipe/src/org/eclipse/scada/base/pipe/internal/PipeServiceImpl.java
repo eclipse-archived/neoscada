@@ -141,7 +141,7 @@ public class PipeServiceImpl implements PipeService
     {
         final String name = encode ( pipeName );
 
-        final File file = makeFile ( name );
+        final File file = makeFile ( name, 0 );
 
         logger.trace ( "Block file: {}", file );
 
@@ -180,9 +180,13 @@ public class PipeServiceImpl implements PipeService
         }
     }
 
-    private File makeFile ( final String pipeName )
+    File makeFile ( final String pipeName, long time )
     {
-        final long time = System.currentTimeMillis ();
+        if ( time <= 0 )
+        {
+            time = System.currentTimeMillis ();
+        }
+
         final long value = this.counter.incrementAndGet ();
 
         final File queueDir = getQueueDir ( pipeName );
@@ -216,114 +220,6 @@ public class PipeServiceImpl implements PipeService
         }
     }
 
-    private class WorkerThread extends Thread
-    {
-        private final Worker worker;
-
-        private final String pipeName;
-
-        private boolean closing;
-
-        @SuppressWarnings ( "unused" )
-        private boolean closed;
-
-        public WorkerThread ( final Worker worker, final String pipeName )
-        {
-            this.worker = worker;
-            this.pipeName = pipeName;
-        }
-
-        @Override
-        public void run ()
-        {
-            logger.info ( "Starting worker thread: {} -> {}", this.pipeName, this.worker );
-
-            try
-            {
-                while ( !this.closing )
-                {
-                    List<File> files;
-
-                    synchronized ( WorkerThread.this )
-                    {
-                        files = fetchNextEvents ( this.pipeName );
-
-                        logger.trace ( "Files found: {}", files.size () );
-                        if ( files.isEmpty () )
-                        {
-                            try
-                            {
-                                logger.trace ( "Waiting for new content" );
-                                wait ();
-                            }
-                            catch ( final InterruptedException e )
-                            {
-                            }
-                        }
-                    }
-
-                    if ( !files.isEmpty () )
-                    {
-                        logger.trace ( "Processing files" );
-                        for ( final File file : files )
-                        {
-                            if ( this.closing )
-                            {
-                                logger.debug ( "Early abort while processing..." );
-                                return;
-                            }
-                            try
-                            {
-                                logger.trace ( "Processing: {}", file );
-                                final byte[] data = Files.readAllBytes ( file.toPath () );
-                                boolean worked = false;
-                                try
-                                {
-                                    this.worker.work ( data );
-                                    worked = true;
-                                }
-                                catch ( final Exception e )
-                                {
-                                    logger.info ( "Worker failed", e );
-                                }
-                                if ( worked )
-                                {
-                                    Files.delete ( file.toPath () );
-                                }
-                            }
-                            catch ( final IOException e )
-                            {
-                                logger.info ( "Failed to process file: " + file, e );
-                            }
-                        }
-                        files.clear ();
-                    }
-                }
-            }
-            finally
-            {
-                logger.info ( "Closing worker thread" );
-                synchronized ( WorkerThread.this )
-                {
-                    this.closed = true;
-                    notifyAll ();
-                }
-            }
-        }
-
-        public synchronized void notifyNewEvent ()
-        {
-            logger.trace ( "Notify worker thread" );
-            notifyAll ();
-        }
-
-        public synchronized void close ()
-        {
-            this.closing = true;
-            notifyAll ();
-        }
-    }
-
     @Override
     public synchronized WorkerHandle createWorker ( final String pipeName, final Worker worker ) throws WorkerAlreadyCreated
     {
@@ -341,7 +237,7 @@ public class PipeServiceImpl implements PipeService
             }
         };
 
-        final WorkerThread thread = new WorkerThread ( worker, pipeName );
+        final WorkerThread thread = new WorkerThread ( this, worker, pipeName );
         thread.setName ( "PipeWorkerThread/" + pipeName );
 
         this.workers.put ( pipeName, thread );
@@ -350,14 +246,16 @@ public class PipeServiceImpl implements PipeService
         return handle;
     }
 
-    public List<File> fetchNextEvents ( final String pipeName )
+    public Long fetchNextEvents ( final String pipeName, final int max, final List<File> result )
     {
         final File dir = getQueueDir ( pipeName );
 
         final File[] files = dir.listFiles ();
         Arrays.sort ( files );
 
-        final List<File> result = new LinkedList<> ();
+        final long now = System.currentTimeMillis ();
+
+        Long endTime = null;
 
         for ( final File file : files )
         {
@@ -368,11 +266,51 @@ public class PipeServiceImpl implements PipeService
             if ( file.getName ().endsWith ( ".evt" ) && file.length () > 0 )
             {
                 logger.trace ( "Preparing: {}", file );
+                final String n = file.getName ();
+                final int idx = n.indexOf ( '-' );
+                if ( idx <= 0 )
+                {
+                    logger.info ( "Broken file name: {}", n );
+                    continue;
+                }
+                final String tix = n.substring ( 0, idx );
+                logger.trace ( "Tix: {}", tix );
+
+                final long timestamp;
+                try
+                {
+                    timestamp = Long.parseLong ( tix, 16 );
+                }
+                catch ( final NumberFormatException e )
+                {
+                    logger.warn ( "Failed to decode timestamp of: {}", n );
+                    continue;
+                }
+
+                if ( timestamp > now )
+                {
+                    if ( endTime == null || endTime > timestamp )
+                    {
+                        if ( logger.isTraceEnabled () )
+                        {
+                            logger.trace ( "Setting end time to {} (in {} ms)", timestamp, timestamp - now );
+                        }
+                        endTime = timestamp;
+                    }
+                    logger.debug ( "Postponed item: {}", n );
+                    continue;
+                }
+
                 result.add ( file );
+            }
+            if ( max > 0 && result.size () > max )
+            {
+                // abort since we are full
+                return endTime;
             }
         }
 
-        return result;
+        return endTime;
     }
 
     public void processNextEvent ( final Worker worker, final String pipeName ) throws IOException
@@ -504,6 +442,10 @@ public class PipeServiceImpl implements PipeService
                     {
                         e.printStackTrace ( os );
                     }
+                }
+                else if ( toks.length > 0 && toks[0].equals ( "error" ) )
+                {
+                    throw new RuntimeException ( "Test Exception" );
                 }
             }
         } );
