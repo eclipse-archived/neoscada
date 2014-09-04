@@ -17,7 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
-public final class RecursiveDeleteVisitior extends SimpleFileVisitor<Path>
+public class RecursiveDeleteVisitior extends SimpleFileVisitor<Path>
 {
     @Override
     public FileVisitResult visitFile ( final Path file, final BasicFileAttributes attrs ) throws IOException
