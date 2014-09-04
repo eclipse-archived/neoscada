@@ -35,10 +35,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HttpServiceItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class HttpServiceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -77,19 +74,9 @@ public class HttpServiceItemProvider extends ItemProviderAdapter implements
      */
     protected void addEndpointPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_HttpService_endpoint_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_HttpService_endpoint_feature", "_UI_HttpService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.HTTP_SERVICE__ENDPOINT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HttpService_endpoint_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_HttpService_endpoint_feature", "_UI_HttpService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.HTTP_SERVICE__ENDPOINT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -149,8 +136,7 @@ public class HttpServiceItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

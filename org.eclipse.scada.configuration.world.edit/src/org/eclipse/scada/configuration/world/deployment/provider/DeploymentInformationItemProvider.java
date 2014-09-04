@@ -37,10 +37,7 @@ import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeploymentInformationItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class DeploymentInformationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,8 +76,7 @@ public class DeploymentInformationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -168,15 +164,11 @@ public class DeploymentInformationItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DeploymentPackage.Literals.DEPLOYMENT_INFORMATION__AUTHORS,
-                        DeploymentFactory.eINSTANCE.createAuthor () ) );
+        newChildDescriptors.add ( createChildParameter ( DeploymentPackage.Literals.DEPLOYMENT_INFORMATION__AUTHORS, DeploymentFactory.eINSTANCE.createAuthor () ) );
     }
 
     /**

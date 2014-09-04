@@ -30,8 +30,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class PasswordCredentialsImpl extends MinimalEObjectImpl.Container
-        implements PasswordCredentials
+public class PasswordCredentialsImpl extends MinimalEObjectImpl.Container implements PasswordCredentials
 {
     /**
      * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.

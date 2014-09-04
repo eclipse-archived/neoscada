@@ -37,10 +37,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ItemInformationItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class ItemInformationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,19 +80,9 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements
      */
     protected void addDescriptionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemInformation_description_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_description_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.ITEM_INFORMATION__DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInformation_description_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_description_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.ITEM_INFORMATION__DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -106,19 +93,9 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements
      */
     protected void addUnitPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemInformation_unit_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_unit_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.ITEM_INFORMATION__UNIT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInformation_unit_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_unit_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.ITEM_INFORMATION__UNIT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -129,19 +106,9 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements
      */
     protected void addHierarchyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemInformation_hierarchy_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_hierarchy_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.ITEM_INFORMATION__HIERARCHY,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInformation_hierarchy_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_hierarchy_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.ITEM_INFORMATION__HIERARCHY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -152,19 +119,9 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements
      */
     protected void addSystemPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemInformation_system_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_system_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.ITEM_INFORMATION__SYSTEM,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInformation_system_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_system_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.ITEM_INFORMATION__SYSTEM, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -175,19 +132,9 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements
      */
     protected void addDataTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemInformation_dataType_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_dataType_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.ITEM_INFORMATION__DATA_TYPE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInformation_dataType_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_dataType_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.ITEM_INFORMATION__DATA_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -223,9 +170,8 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements
     public String getText ( Object object )
     {
         String label = ( (ItemInformation)object ).getDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ItemInformation_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ItemInformation_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ItemInformation_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ItemInformation_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -261,8 +207,7 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

@@ -41,15 +41,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventInjectorSyslogItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class EventInjectorSyslogItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -89,19 +81,9 @@ public class EventInjectorSyslogItemProvider
      */
     protected void addEndpointPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_EventInjectorSyslog_endpoint_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_endpoint_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.EVENT_INJECTOR_SYSLOG__ENDPOINT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorSyslog_endpoint_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_endpoint_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EVENT_INJECTOR_SYSLOG__ENDPOINT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -112,19 +94,9 @@ public class EventInjectorSyslogItemProvider
      */
     protected void addBindAddressPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_EventInjectorSyslog_bindAddress_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_bindAddress_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorSyslog_bindAddress_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_bindAddress_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -160,9 +132,8 @@ public class EventInjectorSyslogItemProvider
     public String getText ( Object object )
     {
         String label = ( (EventInjectorSyslog)object ).getBindAddress ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_EventInjectorSyslog_type" ) : //$NON-NLS-1$
-                getString ( "_UI_EventInjectorSyslog_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_EventInjectorSyslog_type" ) : //$NON-NLS-1$
+        getString ( "_UI_EventInjectorSyslog_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

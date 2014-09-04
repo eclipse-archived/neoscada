@@ -38,8 +38,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class MonitorPoolProxyImpl extends MinimalEObjectImpl.Container
-        implements MonitorPoolProxy
+public class MonitorPoolProxyImpl extends MinimalEObjectImpl.Container implements MonitorPoolProxy
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.

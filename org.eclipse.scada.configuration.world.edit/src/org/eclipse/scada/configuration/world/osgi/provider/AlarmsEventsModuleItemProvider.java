@@ -37,10 +37,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AlarmsEventsModuleItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class AlarmsEventsModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,8 +76,7 @@ public class AlarmsEventsModuleItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -174,30 +170,17 @@ public class AlarmsEventsModuleItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.ALARMS_EVENTS_MODULE__MONITOR_POOL_PROXIES,
-                        OsgiFactory.eINSTANCE.createMonitorPoolProxy () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.ALARMS_EVENTS_MODULE__MONITOR_POOL_PROXIES, OsgiFactory.eINSTANCE.createMonitorPoolProxy () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.ALARMS_EVENTS_MODULE__EVENT_POOL_PROXIES,
-                        OsgiFactory.eINSTANCE.createEventPoolProxy () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.ALARMS_EVENTS_MODULE__EVENT_POOL_PROXIES, OsgiFactory.eINSTANCE.createEventPoolProxy () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.ALARMS_EVENTS_MODULE__AKN_PROXIES,
-                        OsgiFactory.eINSTANCE.createAknProxy () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.ALARMS_EVENTS_MODULE__AKN_PROXIES, OsgiFactory.eINSTANCE.createAknProxy () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.ALARMS_EVENTS_MODULE__PULL_EVENTS,
-                        OsgiFactory.eINSTANCE.createPullEvents () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.ALARMS_EVENTS_MODULE__PULL_EVENTS, OsgiFactory.eINSTANCE.createPullEvents () ) );
     }
 
     /**

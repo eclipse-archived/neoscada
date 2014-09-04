@@ -29,8 +29,7 @@ import org.eclipse.scada.configuration.world.osgi.StaticExternalEventFilter;
  *
  * @generated
  */
-public class StaticExternalEventFilterImpl extends ExternalEventFilterImpl
-        implements StaticExternalEventFilter
+public class StaticExternalEventFilterImpl extends ExternalEventFilterImpl implements StaticExternalEventFilter
 {
     /**
      * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

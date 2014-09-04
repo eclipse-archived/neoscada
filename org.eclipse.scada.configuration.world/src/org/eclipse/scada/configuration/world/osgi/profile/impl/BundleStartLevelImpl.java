@@ -31,8 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  *
  * @generated
  */
-public class BundleStartLevelImpl extends MinimalEObjectImpl.Container
-        implements BundleStartLevel
+public class BundleStartLevelImpl extends MinimalEObjectImpl.Container implements BundleStartLevel
 {
     /**
      * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.

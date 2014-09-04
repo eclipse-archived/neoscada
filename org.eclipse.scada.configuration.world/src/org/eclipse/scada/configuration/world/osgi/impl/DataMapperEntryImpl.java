@@ -31,8 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class DataMapperEntryImpl extends MinimalEObjectImpl.Container implements
-        DataMapperEntry
+public class DataMapperEntryImpl extends MinimalEObjectImpl.Container implements DataMapperEntry
 {
     /**
      * The default value of the '{@link #getKey() <em>Key</em>}' attribute.

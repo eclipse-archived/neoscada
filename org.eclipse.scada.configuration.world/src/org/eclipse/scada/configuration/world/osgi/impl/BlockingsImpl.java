@@ -40,8 +40,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class BlockingsImpl extends MinimalEObjectImpl.Container implements
-        Blockings
+public class BlockingsImpl extends MinimalEObjectImpl.Container implements Blockings
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -180,8 +179,7 @@ public class BlockingsImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

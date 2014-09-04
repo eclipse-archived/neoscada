@@ -50,8 +50,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
-        implements Connection
+public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implements Connection
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -152,12 +151,8 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     protected ConnectionImpl ()
     {
         super ();
-        final DerivedAttributeAdapter adapter = new DerivedAttributeAdapter (
-                this, OsgiPackage.Literals.CONNECTION__ENDPOINT_LABEL );
-        adapter.addNavigatedDependency (
-                OsgiPackage.Literals.CONNECTION__ENDPOINT,
-                WorldPackage.Literals.ENDPOINT__PORT_NUMBER,
-                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME );
+        final DerivedAttributeAdapter adapter = new DerivedAttributeAdapter ( this, OsgiPackage.Literals.CONNECTION__ENDPOINT_LABEL );
+        adapter.addNavigatedDependency ( OsgiPackage.Literals.CONNECTION__ENDPOINT, WorldPackage.Literals.ENDPOINT__PORT_NUMBER, WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME );
     }
 
     /**
@@ -282,8 +277,7 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
         }
         else
         {
-            return String.format ( "%s - Port: %s", ep.getName (),
-                    ep.getPortNumber () );
+            return String.format ( "%s - Port: %s", ep.getName (), ep.getPortNumber () );
         }
     }
 
@@ -569,8 +563,7 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -622,8 +615,7 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
         return result.toString ();
     }
 
-    protected String makeBasicUri ( final boolean localhost, final String type,
-            final String proto )
+    protected String makeBasicUri ( final boolean localhost, final String type, final String proto )
     {
         final StringBuilder sb = new StringBuilder ();
 
@@ -641,10 +633,8 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
         }
         else if ( this.credentials instanceof UsernamePasswordCredentials )
         {
-            username = ( (UsernamePasswordCredentials)this.credentials )
-                    .getUsername ();
-            password = ( (UsernamePasswordCredentials)this.credentials )
-                    .getPassword ();
+            username = ( (UsernamePasswordCredentials)this.credentials ).getUsername ();
+            password = ( (UsernamePasswordCredentials)this.credentials ).getPassword ();
         }
 
         boolean hasCreds = false;
@@ -689,8 +679,7 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
             if ( !properties.isEmpty () )
             {
                 sb.append ( "?" );
-                for ( final Map.Entry<String, String> entry : properties
-                        .entrySet () )
+                for ( final Map.Entry<String, String> entry : properties.entrySet () )
                 {
                     sb.append ( URLEncoder.encode ( entry.getKey (), "UTF-8" ) );
                     if ( entry.getValue () != null )

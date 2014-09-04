@@ -38,8 +38,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class JdbcDataMapperImpl extends DataMapperImpl implements
-        JdbcDataMapper
+public class JdbcDataMapperImpl extends DataMapperImpl implements JdbcDataMapper
 {
     /**
      * The default value of the '{@link #getJdbcDriver() <em>Jdbc Driver</em>}' attribute.
@@ -178,8 +177,7 @@ public class JdbcDataMapperImpl extends DataMapperImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

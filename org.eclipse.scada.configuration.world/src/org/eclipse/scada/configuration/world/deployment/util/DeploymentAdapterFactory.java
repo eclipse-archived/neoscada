@@ -78,8 +78,7 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DeploymentSwitch<Adapter> modelSwitch = new DeploymentSwitch<Adapter> ()
-    {
+    protected DeploymentSwitch<Adapter> modelSwitch = new DeploymentSwitch<Adapter> () {
         @Override
         public Adapter caseDeploymentMechanism ( DeploymentMechanism object )
         {

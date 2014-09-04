@@ -208,16 +208,7 @@ public enum DataType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final DataType[] VALUES_ARRAY = new DataType[]
-    {
-            VARIANT,
-            NULL,
-            INT32,
-            INT64,
-            FLOAT,
-            STRING,
-            BOOLEAN,
-    };
+    private static final DataType[] VALUES_ARRAY = new DataType[] { VARIANT, NULL, INT32, INT64, FLOAT, STRING, BOOLEAN, };
 
     /**
      * A public read-only list of all the '<em><b>Data Type</b></em>' enumerators.

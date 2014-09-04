@@ -23,8 +23,7 @@ import org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DefaultValueArchiveServerItemProvider extends
-        ValueArchiveServerItemProvider
+public class DefaultValueArchiveServerItemProvider extends ValueArchiveServerItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -87,9 +86,8 @@ public class DefaultValueArchiveServerItemProvider extends
     public String getText ( Object object )
     {
         String label = ( (DefaultValueArchiveServer)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DefaultValueArchiveServer_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DefaultValueArchiveServer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DefaultValueArchiveServer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DefaultValueArchiveServer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -114,8 +112,7 @@ public class DefaultValueArchiveServerItemProvider extends
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

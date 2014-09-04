@@ -66,19 +66,9 @@ public class WeakReferenceDataSourceItemItemProvider extends ItemItemProvider
      */
     protected void addDataSourceIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_WeakReferenceDataSourceItem_dataSourceId_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_WeakReferenceDataSourceItem_dataSourceId_feature", "_UI_WeakReferenceDataSourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_WeakReferenceDataSourceItem_dataSourceId_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_WeakReferenceDataSourceItem_dataSourceId_feature", "_UI_WeakReferenceDataSourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -114,9 +104,8 @@ public class WeakReferenceDataSourceItemItemProvider extends ItemItemProvider
     public String getText ( Object object )
     {
         String label = ( (WeakReferenceDataSourceItem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_WeakReferenceDataSourceItem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_WeakReferenceDataSourceItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_WeakReferenceDataSourceItem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_WeakReferenceDataSourceItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -148,8 +137,7 @@ public class WeakReferenceDataSourceItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

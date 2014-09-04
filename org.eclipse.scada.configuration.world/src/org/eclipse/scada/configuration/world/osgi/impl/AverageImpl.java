@@ -38,8 +38,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class AverageImpl extends MinimalEObjectImpl.Container implements
-        Average
+public class AverageImpl extends MinimalEObjectImpl.Container implements Average
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.

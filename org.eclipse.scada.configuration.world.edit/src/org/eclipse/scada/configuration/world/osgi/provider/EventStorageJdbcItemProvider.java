@@ -27,8 +27,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventStorageJdbcItemProvider extends
-        AbstractEventStorageJdbcItemProvider
+public class EventStorageJdbcItemProvider extends AbstractEventStorageJdbcItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -68,19 +67,9 @@ public class EventStorageJdbcItemProvider extends
      */
     protected void addMaxFieldLengthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_EventStorageJdbc_maxFieldLength_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventStorageJdbc_maxFieldLength_feature", "_UI_EventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.EVENT_STORAGE_JDBC__MAX_FIELD_LENGTH,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventStorageJdbc_maxFieldLength_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventStorageJdbc_maxFieldLength_feature", "_UI_EventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EVENT_STORAGE_JDBC__MAX_FIELD_LENGTH, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -91,19 +80,9 @@ public class EventStorageJdbcItemProvider extends
      */
     protected void addQueryFetchSizePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_EventStorageJdbc_queryFetchSize_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventStorageJdbc_queryFetchSize_feature", "_UI_EventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.EVENT_STORAGE_JDBC__QUERY_FETCH_SIZE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventStorageJdbc_queryFetchSize_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventStorageJdbc_queryFetchSize_feature", "_UI_EventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EVENT_STORAGE_JDBC__QUERY_FETCH_SIZE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -139,9 +118,8 @@ public class EventStorageJdbcItemProvider extends
     public String getText ( Object object )
     {
         String label = ( (EventStorageJdbc)object ).getInstanceName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_EventStorageJdbc_type" ) : //$NON-NLS-1$
-                getString ( "_UI_EventStorageJdbc_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_EventStorageJdbc_type" ) : //$NON-NLS-1$
+        getString ( "_UI_EventStorageJdbc_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -174,8 +152,7 @@ public class EventStorageJdbcItemProvider extends
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

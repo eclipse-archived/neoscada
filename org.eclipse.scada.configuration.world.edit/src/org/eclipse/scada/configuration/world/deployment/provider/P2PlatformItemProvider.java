@@ -43,15 +43,7 @@ import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class P2PlatformItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class P2PlatformItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -91,19 +83,9 @@ public class P2PlatformItemProvider
      */
     protected void addRepositoriesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_P2Platform_repositories_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_P2Platform_repositories_feature", "_UI_P2Platform_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.P2_PLATFORM__REPOSITORIES,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_P2Platform_repositories_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_P2Platform_repositories_feature", "_UI_P2Platform_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.P2_PLATFORM__REPOSITORIES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -114,19 +96,9 @@ public class P2PlatformItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_P2Platform_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_P2Platform_name_feature", "_UI_P2Platform_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.P2_PLATFORM__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_P2Platform_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_P2Platform_name_feature", "_UI_P2Platform_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.P2_PLATFORM__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -195,9 +167,8 @@ public class P2PlatformItemProvider
     public String getText ( Object object )
     {
         String label = ( (P2Platform)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_P2Platform_type" ) : //$NON-NLS-1$
-                getString ( "_UI_P2Platform_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_P2Platform_type" ) : //$NON-NLS-1$
+        getString ( "_UI_P2Platform_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -236,9 +207,7 @@ public class P2PlatformItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DeploymentPackage.Literals.P2_PLATFORM__REPOSITORIES, "" ) ); //$NON-NLS-1$
+        newChildDescriptors.add ( createChildParameter ( DeploymentPackage.Literals.P2_PLATFORM__REPOSITORIES, "" ) ); //$NON-NLS-1$
     }
 
     /**

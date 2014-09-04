@@ -36,8 +36,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class HandlerPriorityRuleImpl extends MinimalEObjectImpl.Container
-        implements HandlerPriorityRule
+public class HandlerPriorityRuleImpl extends MinimalEObjectImpl.Container implements HandlerPriorityRule
 {
     /**
      * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.

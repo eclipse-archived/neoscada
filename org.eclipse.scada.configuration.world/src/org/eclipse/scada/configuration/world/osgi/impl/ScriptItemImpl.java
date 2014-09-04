@@ -205,8 +205,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetInitScript ( CodeFragment newInitScript,
-            NotificationChain msgs )
+    public NotificationChain basicSetInitScript ( CodeFragment newInitScript, NotificationChain msgs )
     {
         CodeFragment oldInitScript = initScript;
         initScript = newInitScript;
@@ -286,8 +285,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetUpdateScript ( CodeFragment newUpdateScript,
-            NotificationChain msgs )
+    public NotificationChain basicSetUpdateScript ( CodeFragment newUpdateScript, NotificationChain msgs )
     {
         CodeFragment oldUpdateScript = updateScript;
         updateScript = newUpdateScript;
@@ -367,8 +365,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTimer ( ScriptTimer newTimer,
-            NotificationChain msgs )
+    public NotificationChain basicSetTimer ( ScriptTimer newTimer, NotificationChain msgs )
     {
         ScriptTimer oldTimer = timer;
         timer = newTimer;
@@ -485,8 +482,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetWriteCommandScript (
-            CodeFragment newWriteCommandScript, NotificationChain msgs )
+    public NotificationChain basicSetWriteCommandScript ( CodeFragment newWriteCommandScript, NotificationChain msgs )
     {
         CodeFragment oldWriteCommandScript = writeCommandScript;
         writeCommandScript = newWriteCommandScript;
@@ -529,8 +525,7 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

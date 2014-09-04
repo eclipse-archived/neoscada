@@ -233,6 +233,18 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createProfileConfiguration ();
             case OsgiPackage.EVENT_INJECTOR_SYSLOG:
                 return createEventInjectorSyslog ();
+            case OsgiPackage.EVENT_INJECTOR_MANAGER:
+                return createEventInjectorManager ();
+            case OsgiPackage.DEFAULT_STORAGE_HANDLER:
+                return createDefaultStorageHandler ();
+            case OsgiPackage.INCLUDE_EVENT_FILTER:
+                return createIncludeEventFilter ();
+            case OsgiPackage.EXCLUDE_EVENT_FILTER:
+                return createExcludeEventFilter ();
+            case OsgiPackage.SCRIPT_EVENT_HANDLER:
+                return createScriptEventHandler ();
+            case OsgiPackage.MAIL_EVENT_HANDLER:
+                return createMailEventHandler ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1197,8 +1209,73 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public AverageReferenceType createAverageReferenceTypeFromString (
-            EDataType eDataType, String initialValue )
+    public EventInjectorManager createEventInjectorManager ()
+    {
+        EventInjectorManagerImpl eventInjectorManager = new EventInjectorManagerImpl ();
+        return eventInjectorManager;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DefaultStorageHandler createDefaultStorageHandler ()
+    {
+        DefaultStorageHandlerImpl defaultStorageHandler = new DefaultStorageHandlerImpl ();
+        return defaultStorageHandler;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public IncludeEventFilter createIncludeEventFilter ()
+    {
+        IncludeEventFilterImpl includeEventFilter = new IncludeEventFilterImpl ();
+        return includeEventFilter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ExcludeEventFilter createExcludeEventFilter ()
+    {
+        ExcludeEventFilterImpl excludeEventFilter = new ExcludeEventFilterImpl ();
+        return excludeEventFilter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ScriptEventHandler createScriptEventHandler ()
+    {
+        ScriptEventHandlerImpl scriptEventHandler = new ScriptEventHandlerImpl ();
+        return scriptEventHandler;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MailEventHandler createMailEventHandler ()
+    {
+        MailEventHandlerImpl mailEventHandler = new MailEventHandlerImpl ();
+        return mailEventHandler;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AverageReferenceType createAverageReferenceTypeFromString ( EDataType eDataType, String initialValue )
     {
         AverageReferenceType result = AverageReferenceType.get ( initialValue );
         if ( result == null )
@@ -1211,8 +1288,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertAverageReferenceTypeToString ( EDataType eDataType,
-            Object instanceValue )
+    public String convertAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -1222,8 +1298,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public MovingAverageReferenceType createMovingAverageReferenceTypeFromString (
-            EDataType eDataType, String initialValue )
+    public MovingAverageReferenceType createMovingAverageReferenceTypeFromString ( EDataType eDataType, String initialValue )
     {
         MovingAverageReferenceType result = MovingAverageReferenceType.get ( initialValue );
         if ( result == null )
@@ -1236,8 +1311,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertMovingAverageReferenceTypeToString (
-            EDataType eDataType, Object instanceValue )
+    public String convertMovingAverageReferenceTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -1247,8 +1321,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public RoundingType createRoundingTypeFromString ( EDataType eDataType,
-            String initialValue )
+    public RoundingType createRoundingTypeFromString ( EDataType eDataType, String initialValue )
     {
         RoundingType result = RoundingType.get ( initialValue );
         if ( result == null )
@@ -1261,8 +1334,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertRoundingTypeToString ( EDataType eDataType,
-            Object instanceValue )
+    public String convertRoundingTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -1272,8 +1344,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataType createDataTypeFromString ( EDataType eDataType,
-            String initialValue )
+    public DataType createDataTypeFromString ( EDataType eDataType, String initialValue )
     {
         DataType result = DataType.get ( initialValue );
         if ( result == null )
@@ -1286,8 +1357,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertDataTypeToString ( EDataType eDataType,
-            Object instanceValue )
+    public String convertDataTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -1297,8 +1367,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public PasswordType createPasswordTypeFromString ( EDataType eDataType,
-            String initialValue )
+    public PasswordType createPasswordTypeFromString ( EDataType eDataType, String initialValue )
     {
         PasswordType result = PasswordType.get ( initialValue );
         if ( result == null )
@@ -1311,8 +1380,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertPasswordTypeToString ( EDataType eDataType,
-            Object instanceValue )
+    public String convertPasswordTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -1414,8 +1482,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public Severity createSeverityFromString ( EDataType eDataType,
-            String initialValue )
+    public Severity createSeverityFromString ( EDataType eDataType, String initialValue )
     {
         return (Severity)super.createFromString ( eDataType, initialValue );
     }
@@ -1425,8 +1492,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public String convertSeverityToString ( EDataType eDataType,
-            Object instanceValue )
+    public String convertSeverityToString ( EDataType eDataType, Object instanceValue )
     {
         return super.convertToString ( eDataType, instanceValue );
     }
@@ -1436,8 +1502,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated NOT
      */
-    public Variant createVariantFromString ( EDataType eDataType,
-            String initialValue )
+    public Variant createVariantFromString ( EDataType eDataType, String initialValue )
     {
         return VariantEditor.toVariant ( initialValue );
     }
@@ -1447,8 +1512,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated NOT
      */
-    public String convertVariantToString ( EDataType eDataType,
-            Object instanceValue )
+    public String convertVariantToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : ( (Variant)instanceValue ).toString ();
     }

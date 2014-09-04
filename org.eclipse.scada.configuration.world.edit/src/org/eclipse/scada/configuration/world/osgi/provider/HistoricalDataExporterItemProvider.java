@@ -86,9 +86,8 @@ public class HistoricalDataExporterItemProvider extends ExporterItemProvider
     public String getText ( Object object )
     {
         String label = ( (HistoricalDataExporter)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_HistoricalDataExporter_type" ) : //$NON-NLS-1$
-                getString ( "_UI_HistoricalDataExporter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_HistoricalDataExporter_type" ) : //$NON-NLS-1$
+        getString ( "_UI_HistoricalDataExporter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -113,8 +112,7 @@ public class HistoricalDataExporterItemProvider extends ExporterItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

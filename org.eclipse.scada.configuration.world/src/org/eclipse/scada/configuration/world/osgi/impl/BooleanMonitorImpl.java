@@ -36,8 +36,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class BooleanMonitorImpl extends ItemFeatureEntryImpl implements
-        BooleanMonitor
+public class BooleanMonitorImpl extends ItemFeatureEntryImpl implements BooleanMonitor
 {
     /**
      * The default value of the '{@link #isReferenceValue() <em>Reference Value</em>}' attribute.

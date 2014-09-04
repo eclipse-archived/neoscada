@@ -195,8 +195,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetOutbound ( FormulaItemOutbound newOutbound,
-            NotificationChain msgs )
+    public NotificationChain basicSetOutbound ( FormulaItemOutbound newOutbound, NotificationChain msgs )
     {
         FormulaItemOutbound oldOutbound = outbound;
         outbound = newOutbound;
@@ -276,8 +275,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetInbound ( FormulaItemInbound newInbound,
-            NotificationChain msgs )
+    public NotificationChain basicSetInbound ( FormulaItemInbound newInbound, NotificationChain msgs )
     {
         FormulaItemInbound oldInbound = inbound;
         inbound = newInbound;
@@ -320,8 +318,7 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

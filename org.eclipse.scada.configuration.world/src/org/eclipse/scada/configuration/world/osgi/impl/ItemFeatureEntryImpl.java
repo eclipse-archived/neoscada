@@ -35,8 +35,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public abstract class ItemFeatureEntryImpl extends MinimalEObjectImpl.Container
-        implements ItemFeatureEntry
+public abstract class ItemFeatureEntryImpl extends MinimalEObjectImpl.Container implements ItemFeatureEntry
 {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -167,8 +166,7 @@ public abstract class ItemFeatureEntryImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -186,8 +184,7 @@ public abstract class ItemFeatureEntryImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -203,8 +200,7 @@ public abstract class ItemFeatureEntryImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature (
-            NotificationChain msgs )
+    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
     {
         switch ( eContainerFeatureID () )
         {

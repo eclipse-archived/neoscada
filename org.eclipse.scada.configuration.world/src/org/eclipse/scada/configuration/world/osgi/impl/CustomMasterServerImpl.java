@@ -31,8 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *
  * @generated
  */
-public class CustomMasterServerImpl extends MasterServerImpl implements
-        CustomMasterServer
+public class CustomMasterServerImpl extends MasterServerImpl implements CustomMasterServer
 {
     /**
      * The cached value of the '{@link #getProfile() <em>Profile</em>}' reference.

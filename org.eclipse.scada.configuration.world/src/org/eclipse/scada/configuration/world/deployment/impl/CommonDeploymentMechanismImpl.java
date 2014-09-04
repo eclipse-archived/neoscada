@@ -51,8 +51,7 @@ import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
  *
  * @generated
  */
-public abstract class CommonDeploymentMechanismImpl extends
-        MinimalEObjectImpl.Container implements CommonDeploymentMechanism
+public abstract class CommonDeploymentMechanismImpl extends MinimalEObjectImpl.Container implements CommonDeploymentMechanism
 {
     /**
      * The cached value of the '{@link #getChanges() <em>Changes</em>}' containment reference list.
@@ -460,8 +459,7 @@ public abstract class CommonDeploymentMechanismImpl extends
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

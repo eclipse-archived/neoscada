@@ -29,8 +29,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class ManualOverrideImpl extends ItemFeatureEntryImpl implements
-        ManualOverride
+public class ManualOverrideImpl extends ItemFeatureEntryImpl implements ManualOverride
 {
     /**
      * The default value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.

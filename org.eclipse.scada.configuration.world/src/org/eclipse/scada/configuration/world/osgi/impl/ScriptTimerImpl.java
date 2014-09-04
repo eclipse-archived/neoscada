@@ -34,8 +34,7 @@ import org.eclipse.scada.configuration.world.osgi.ScriptTimer;
  *
  * @generated
  */
-public class ScriptTimerImpl extends MinimalEObjectImpl.Container implements
-        ScriptTimer
+public class ScriptTimerImpl extends MinimalEObjectImpl.Container implements ScriptTimer
 {
     /**
      * The cached value of the '{@link #getScript() <em>Script</em>}' containment reference.
@@ -131,8 +130,7 @@ public class ScriptTimerImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetScript ( CodeFragment newScript,
-            NotificationChain msgs )
+    public NotificationChain basicSetScript ( CodeFragment newScript, NotificationChain msgs )
     {
         CodeFragment oldScript = script;
         script = newScript;
@@ -198,8 +196,7 @@ public class ScriptTimerImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

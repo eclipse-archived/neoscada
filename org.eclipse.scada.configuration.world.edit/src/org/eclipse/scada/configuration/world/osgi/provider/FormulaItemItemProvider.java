@@ -69,19 +69,9 @@ public class FormulaItemItemProvider extends ItemItemProvider
      */
     protected void addScriptEnginePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_FormulaItem_scriptEngine_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItem_scriptEngine_feature", "_UI_FormulaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.FORMULA_ITEM__SCRIPT_ENGINE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaItem_scriptEngine_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItem_scriptEngine_feature", "_UI_FormulaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.FORMULA_ITEM__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -92,19 +82,9 @@ public class FormulaItemItemProvider extends ItemItemProvider
      */
     protected void addInboundPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_FormulaItem_inbound_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItem_inbound_feature", "_UI_FormulaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.FORMULA_ITEM__INBOUND,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaItem_inbound_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItem_inbound_feature", "_UI_FormulaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.FORMULA_ITEM__INBOUND, true, false, true, null, null, null ) );
     }
 
     /**
@@ -116,8 +96,7 @@ public class FormulaItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -175,9 +154,8 @@ public class FormulaItemItemProvider extends ItemItemProvider
     public String getText ( Object object )
     {
         String label = ( (FormulaItem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_FormulaItem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_FormulaItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_FormulaItem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_FormulaItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -213,20 +191,13 @@ public class FormulaItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.FORMULA_ITEM__INIT_SCRIPTS,
-                        OsgiFactory.eINSTANCE.createCodeFragment () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.FORMULA_ITEM__INIT_SCRIPTS, OsgiFactory.eINSTANCE.createCodeFragment () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.FORMULA_ITEM__OUTBOUND,
-                        OsgiFactory.eINSTANCE.createFormulaItemOutbound () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.FORMULA_ITEM__OUTBOUND, OsgiFactory.eINSTANCE.createFormulaItemOutbound () ) );
     }
 
 }

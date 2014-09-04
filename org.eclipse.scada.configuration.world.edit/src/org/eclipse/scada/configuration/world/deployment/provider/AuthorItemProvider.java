@@ -37,10 +37,7 @@ import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AuthorItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class AuthorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,19 +77,9 @@ public class AuthorItemProvider extends ItemProviderAdapter implements
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Author_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Author_name_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.AUTHOR__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Author_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Author_name_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.AUTHOR__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -103,19 +90,9 @@ public class AuthorItemProvider extends ItemProviderAdapter implements
      */
     protected void addEmailPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Author_email_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Author_email_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.AUTHOR__EMAIL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Author_email_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Author_email_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.AUTHOR__EMAIL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -152,8 +129,7 @@ public class AuthorItemProvider extends ItemProviderAdapter implements
     @Override
     public String getText ( final Object object )
     {
-        final String label = String.format ( "%s <%s>",
-                ( (Author)object ).getName (), ( (Author)object ).getEmail () );
+        final String label = String.format ( "%s <%s>", ( (Author)object ).getName (), ( (Author)object ).getEmail () );
         return label == null || label.length () == 0 ? getString ( "_UI_Author_type" ) : //$NON-NLS-1$
         getString ( "_UI_Author_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -188,8 +164,7 @@ public class AuthorItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

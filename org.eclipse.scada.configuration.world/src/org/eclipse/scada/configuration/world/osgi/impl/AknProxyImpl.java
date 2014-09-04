@@ -37,8 +37,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class AknProxyImpl extends MinimalEObjectImpl.Container implements
-        AknProxy
+public class AknProxyImpl extends MinimalEObjectImpl.Container implements AknProxy
 {
     /**
      * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.

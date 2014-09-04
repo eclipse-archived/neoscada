@@ -45,15 +45,7 @@ import org.eclipse.scada.configuration.world.setup.SetupPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperatingSystemDescriptorItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class OperatingSystemDescriptorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -94,19 +86,9 @@ public class OperatingSystemDescriptorItemProvider
      */
     protected void addParentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_OperatingSystemDescriptor_parent_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_OperatingSystemDescriptor_parent_feature", "_UI_OperatingSystemDescriptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        SetupPackage.Literals.OPERATING_SYSTEM_DESCRIPTOR__PARENT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OperatingSystemDescriptor_parent_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_OperatingSystemDescriptor_parent_feature", "_UI_OperatingSystemDescriptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                SetupPackage.Literals.OPERATING_SYSTEM_DESCRIPTOR__PARENT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -117,19 +99,9 @@ public class OperatingSystemDescriptorItemProvider
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_OperatingSystemDescriptor_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_OperatingSystemDescriptor_id_feature", "_UI_OperatingSystemDescriptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        SetupPackage.Literals.OPERATING_SYSTEM_DESCRIPTOR__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OperatingSystemDescriptor_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_OperatingSystemDescriptor_id_feature", "_UI_OperatingSystemDescriptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                SetupPackage.Literals.OPERATING_SYSTEM_DESCRIPTOR__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -140,19 +112,9 @@ public class OperatingSystemDescriptorItemProvider
      */
     protected void addLabelPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_OperatingSystemDescriptor_label_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_OperatingSystemDescriptor_label_feature", "_UI_OperatingSystemDescriptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        SetupPackage.Literals.OPERATING_SYSTEM_DESCRIPTOR__LABEL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OperatingSystemDescriptor_label_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_OperatingSystemDescriptor_label_feature", "_UI_OperatingSystemDescriptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                SetupPackage.Literals.OPERATING_SYSTEM_DESCRIPTOR__LABEL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -221,9 +183,8 @@ public class OperatingSystemDescriptorItemProvider
     public String getText ( Object object )
     {
         String label = ( (OperatingSystemDescriptor)object ).getLabel ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_OperatingSystemDescriptor_type" ) : //$NON-NLS-1$
-                getString ( "_UI_OperatingSystemDescriptor_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_OperatingSystemDescriptor_type" ) : //$NON-NLS-1$
+        getString ( "_UI_OperatingSystemDescriptor_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -263,10 +224,7 @@ public class OperatingSystemDescriptorItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( SetupPackage.Literals.OPERATING_SYSTEM_DESCRIPTOR__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( SetupPackage.Literals.OPERATING_SYSTEM_DESCRIPTOR__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

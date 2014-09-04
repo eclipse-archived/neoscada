@@ -78,6 +78,7 @@ public class Activator extends Plugin
             {
                 logger.warn ( "Failed to create oscar processor", e );
                 getDefault ().getLog ().log ( e.getStatus () );
+                throw new IllegalStateException ( "Failed to create OSCAR processor", e );
             }
         }
         return result;
@@ -85,7 +86,7 @@ public class Activator extends Plugin
 
     /**
      * Returns the shared instance
-     * 
+     *
      * @return the shared instance
      */
     public static Activator getDefault ()

@@ -46,9 +46,7 @@ import org.eclipse.scada.configuration.world.util.WorldAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WorldItemProviderAdapterFactory extends WorldAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable,
-        IChildCreationExtender
+public class WorldItemProviderAdapterFactory extends WorldAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender
 {
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -497,8 +495,7 @@ public class WorldItemProviderAdapterFactory extends WorldAdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentAdapterFactory (
-            ComposedAdapterFactory parentAdapterFactory )
+    public void setParentAdapterFactory ( ComposedAdapterFactory parentAdapterFactory )
     {
         this.parentAdapterFactory = parentAdapterFactory;
     }
@@ -577,8 +574,7 @@ public class WorldItemProviderAdapterFactory extends WorldAdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public Collection<?> getNewChildDescriptors ( Object object,
-            EditingDomain editingDomain )
+    public Collection<?> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
     {
         return childCreationExtenderManager.getNewChildDescriptors ( object, editingDomain );
     }

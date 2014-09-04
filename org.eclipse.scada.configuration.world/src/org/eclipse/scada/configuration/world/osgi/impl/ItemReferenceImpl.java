@@ -33,8 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class ItemReferenceImpl extends MinimalEObjectImpl.Container implements
-        ItemReference
+public class ItemReferenceImpl extends MinimalEObjectImpl.Container implements ItemReference
 {
     /**
      * The cached value of the '{@link #getItem() <em>Item</em>}' reference.

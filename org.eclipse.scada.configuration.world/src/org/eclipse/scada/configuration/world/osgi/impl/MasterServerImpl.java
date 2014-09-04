@@ -72,8 +72,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *
  * @generated
  */
-public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
-        implements MasterServer
+public abstract class MasterServerImpl extends MinimalEObjectImpl.Container implements MasterServer
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -433,8 +432,7 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCustomizationProfile (
-            Profile newCustomizationProfile, NotificationChain msgs )
+    public NotificationChain basicSetCustomizationProfile ( Profile newCustomizationProfile, NotificationChain msgs )
     {
         Profile oldCustomizationProfile = customizationProfile;
         customizationProfile = newCustomizationProfile;
@@ -599,8 +597,7 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetMarkers ( Markers newMarkers,
-            NotificationChain msgs )
+    public NotificationChain basicSetMarkers ( Markers newMarkers, NotificationChain msgs )
     {
         Markers oldMarkers = markers;
         markers = newMarkers;
@@ -790,8 +787,7 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -1101,8 +1097,7 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

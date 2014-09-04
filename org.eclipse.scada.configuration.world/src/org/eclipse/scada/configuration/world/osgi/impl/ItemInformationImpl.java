@@ -39,8 +39,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class ItemInformationImpl extends MinimalEObjectImpl.Container implements
-        ItemInformation
+public class ItemInformationImpl extends MinimalEObjectImpl.Container implements ItemInformation
 {
     /**
      * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.

@@ -38,8 +38,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class MovingAverageImpl extends MinimalEObjectImpl.Container implements
-        MovingAverage
+public class MovingAverageImpl extends MinimalEObjectImpl.Container implements MovingAverage
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.

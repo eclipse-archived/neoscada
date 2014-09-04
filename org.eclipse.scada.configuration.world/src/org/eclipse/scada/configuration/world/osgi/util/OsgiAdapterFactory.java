@@ -81,8 +81,7 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected OsgiSwitch<Adapter> modelSwitch = new OsgiSwitch<Adapter> ()
-    {
+    protected OsgiSwitch<Adapter> modelSwitch = new OsgiSwitch<Adapter> () {
         @Override
         public Adapter caseEquinoxApplication ( EquinoxApplication object )
         {
@@ -651,6 +650,54 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
         public Adapter caseEventInjectorSyslog ( EventInjectorSyslog object )
         {
             return createEventInjectorSyslogAdapter ();
+        }
+
+        @Override
+        public Adapter caseEventInjectorManager ( EventInjectorManager object )
+        {
+            return createEventInjectorManagerAdapter ();
+        }
+
+        @Override
+        public Adapter caseEventHandler ( EventHandler object )
+        {
+            return createEventHandlerAdapter ();
+        }
+
+        @Override
+        public Adapter caseDefaultStorageHandler ( DefaultStorageHandler object )
+        {
+            return createDefaultStorageHandlerAdapter ();
+        }
+
+        @Override
+        public Adapter caseFilterEventHandler ( FilterEventHandler object )
+        {
+            return createFilterEventHandlerAdapter ();
+        }
+
+        @Override
+        public Adapter caseIncludeEventFilter ( IncludeEventFilter object )
+        {
+            return createIncludeEventFilterAdapter ();
+        }
+
+        @Override
+        public Adapter caseExcludeEventFilter ( ExcludeEventFilter object )
+        {
+            return createExcludeEventFilterAdapter ();
+        }
+
+        @Override
+        public Adapter caseScriptEventHandler ( ScriptEventHandler object )
+        {
+            return createScriptEventHandlerAdapter ();
+        }
+
+        @Override
+        public Adapter caseMailEventHandler ( MailEventHandler object )
+        {
+            return createMailEventHandlerAdapter ();
         }
 
         @Override
@@ -2291,6 +2338,126 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createEventInjectorSyslogAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorManager <em>Event Injector Manager</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorManager
+     * @generated
+     */
+    public Adapter createEventInjectorManagerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EventHandler <em>Event Handler</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.EventHandler
+     * @generated
+     */
+    public Adapter createEventHandlerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.DefaultStorageHandler <em>Default Storage Handler</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.DefaultStorageHandler
+     * @generated
+     */
+    public Adapter createDefaultStorageHandlerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.FilterEventHandler <em>Filter Event Handler</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.FilterEventHandler
+     * @generated
+     */
+    public Adapter createFilterEventHandlerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.IncludeEventFilter <em>Include Event Filter</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.IncludeEventFilter
+     * @generated
+     */
+    public Adapter createIncludeEventFilterAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ExcludeEventFilter <em>Exclude Event Filter</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.ExcludeEventFilter
+     * @generated
+     */
+    public Adapter createExcludeEventFilterAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ScriptEventHandler <em>Script Event Handler</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.ScriptEventHandler
+     * @generated
+     */
+    public Adapter createScriptEventHandlerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.MailEventHandler <em>Mail Event Handler</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.MailEventHandler
+     * @generated
+     */
+    public Adapter createMailEventHandlerAdapter ()
     {
         return null;
     }

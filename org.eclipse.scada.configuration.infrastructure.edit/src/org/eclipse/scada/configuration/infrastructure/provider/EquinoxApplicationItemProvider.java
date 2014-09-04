@@ -260,6 +260,8 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createProfileConfiguration () ) );
 
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventInjectorManager () ) );
+
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__MODULES, InfrastructureFactory.eINSTANCE.createHttpServiceModule () ) );
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__MODULES, InfrastructureFactory.eINSTANCE.createRestExporterModule () ) );

@@ -48,12 +48,7 @@ public final class WorldEditPlugin extends EMFPlugin
      */
     public WorldEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                EcoreEditPlugin.INSTANCE,
-                ExecEditPlugin.INSTANCE,
-                SecurityEditPlugin.INSTANCE,
-        } );
+        super ( new ResourceLocator[] { EcoreEditPlugin.INSTANCE, ExecEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, } );
     }
 
     /**

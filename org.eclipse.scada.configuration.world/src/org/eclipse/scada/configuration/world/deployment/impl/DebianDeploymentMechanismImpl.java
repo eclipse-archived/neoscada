@@ -23,8 +23,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  *
  * @generated
  */
-public class DebianDeploymentMechanismImpl extends
-        CommonDeploymentMechanismImpl implements DebianDeploymentMechanism
+public class DebianDeploymentMechanismImpl extends CommonDeploymentMechanismImpl implements DebianDeploymentMechanism
 {
     /**
      * <!-- begin-user-doc -->

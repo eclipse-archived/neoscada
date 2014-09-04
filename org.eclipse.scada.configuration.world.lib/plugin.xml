@@ -46,6 +46,9 @@
       <oscarProcessor
             class="org.eclipse.scada.configuration.world.lib.oscar.EventInjectorSyslogProcessor">
       </oscarProcessor>
+      <oscarProcessor
+            class="org.eclipse.scada.configuration.world.lib.oscar.event.EventInjectorManagerProcessor">
+      </oscarProcessor>
    </extension>
    <extension
          point="org.eclipse.core.runtime.adapters">
@@ -54,6 +57,23 @@
             class="org.eclipse.scada.configuration.world.lib.setup.AdapterFactoryImpl">
          <adapter
                type="org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler">
+         </adapter>
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.scada.configuration.world.osgi.DefaultStorageHandler"
+            class="org.eclipse.scada.configuration.world.lib.oscar.event.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.world.lib.oscar.event.EventHandlerProcessor">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="org.eclipse.scada.configuration.world.osgi.MailEventHandler"
+            class="org.eclipse.scada.configuration.world.lib.oscar.event.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.world.lib.oscar.event.EventHandlerProcessor">
          </adapter>
       </factory>
    </extension>

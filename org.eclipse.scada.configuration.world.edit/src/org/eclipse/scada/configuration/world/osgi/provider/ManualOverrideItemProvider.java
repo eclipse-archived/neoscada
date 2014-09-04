@@ -66,19 +66,9 @@ public class ManualOverrideItemProvider extends ItemFeatureEntryItemProvider
      */
     protected void addInitialValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ManualOverride_initialValue_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ManualOverride_initialValue_feature", "_UI_ManualOverride_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.MANUAL_OVERRIDE__INITIAL_VALUE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ManualOverride_initialValue_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ManualOverride_initialValue_feature", "_UI_ManualOverride_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.MANUAL_OVERRIDE__INITIAL_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -114,9 +104,8 @@ public class ManualOverrideItemProvider extends ItemFeatureEntryItemProvider
     public String getText ( Object object )
     {
         String label = ( (ManualOverride)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ManualOverride_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ManualOverride_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ManualOverride_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ManualOverride_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -148,8 +137,7 @@ public class ManualOverrideItemProvider extends ItemFeatureEntryItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

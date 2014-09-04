@@ -34,8 +34,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class AttributesSummaryImpl extends ItemFeatureEntryImpl implements
-        AttributesSummary
+public class AttributesSummaryImpl extends ItemFeatureEntryImpl implements AttributesSummary
 {
     /**
      * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' attribute list.

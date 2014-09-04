@@ -29,8 +29,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class GlobalSummaryItemImpl extends ItemImpl implements
-        GlobalSummaryItem
+public class GlobalSummaryItemImpl extends ItemImpl implements GlobalSummaryItem
 {
     /**
      * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.

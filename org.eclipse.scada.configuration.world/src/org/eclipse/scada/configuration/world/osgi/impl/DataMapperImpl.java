@@ -31,8 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public abstract class DataMapperImpl extends MinimalEObjectImpl.Container
-        implements DataMapper
+public abstract class DataMapperImpl extends MinimalEObjectImpl.Container implements DataMapper
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.

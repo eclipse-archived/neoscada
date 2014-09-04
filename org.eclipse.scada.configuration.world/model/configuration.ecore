@@ -933,6 +933,31 @@
           eType="#//Endpoint"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="bindAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjectorManager" eSuperTypes="#//osgi/IndependentConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="handler" upperBound="-1"
+          eType="#//osgi/EventHandler" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventHandler" abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DefaultStorageHandler" eSuperTypes="#//osgi/EventHandler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FilterEventHandler" abstract="true"
+        eSuperTypes="#//osgi/EventHandler">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IncludeEventFilter" eSuperTypes="#//osgi/FilterEventHandler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExcludeEventFilter" eSuperTypes="#//osgi/FilterEventHandler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ScriptEventHandler" eSuperTypes="#//osgi/EventHandler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MailEventHandler" eSuperTypes="#//osgi/EventHandler">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sessionProperties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" lowerBound="1" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">
       <eClassifiers xsi:type="ecore:EClass" name="Profile">

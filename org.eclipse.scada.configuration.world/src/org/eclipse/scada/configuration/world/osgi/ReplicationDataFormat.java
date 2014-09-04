@@ -134,14 +134,7 @@ public enum ReplicationDataFormat implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final ReplicationDataFormat[] VALUES_ARRAY =
-            new ReplicationDataFormat[]
-            {
-                    BLOB,
-                    BYTES,
-                    JSON,
-                    ARRAY,
-            };
+    private static final ReplicationDataFormat[] VALUES_ARRAY = new ReplicationDataFormat[] { BLOB, BYTES, JSON, ARRAY, };
 
     /**
      * A public read-only list of all the '<em><b>Replication Data Format</b></em>' enumerators.

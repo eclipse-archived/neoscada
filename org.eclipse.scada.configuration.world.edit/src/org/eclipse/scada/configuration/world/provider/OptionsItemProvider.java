@@ -37,10 +37,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OptionsItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class OptionsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,19 +76,9 @@ public class OptionsItemProvider extends ItemProviderAdapter implements
      */
     protected void addMasterHandlerPrioritiesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Options_masterHandlerPriorities_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Options_masterHandlerPriorities_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.OPTIONS__MASTER_HANDLER_PRIORITIES,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Options_masterHandlerPriorities_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Options_masterHandlerPriorities_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.OPTIONS__MASTER_HANDLER_PRIORITIES, true, false, true, null, null, null ) );
     }
 
     /**
@@ -103,8 +90,7 @@ public class OptionsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -192,8 +178,7 @@ public class OptionsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

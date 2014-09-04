@@ -64,19 +64,9 @@ public class ImportItemItemProvider extends ItemItemProvider
      */
     protected void addExportPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ImportItem_export_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ImportItem_export_feature", "_UI_ImportItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.IMPORT_ITEM__EXPORT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ImportItem_export_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ImportItem_export_feature", "_UI_ImportItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.IMPORT_ITEM__EXPORT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -112,9 +102,8 @@ public class ImportItemItemProvider extends ItemItemProvider
     public String getText ( Object object )
     {
         String label = ( (ImportItem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ImportItem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ImportItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ImportItem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ImportItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -139,8 +128,7 @@ public class ImportItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

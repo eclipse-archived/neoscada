@@ -48,8 +48,7 @@ import org.eclipse.scada.configuration.world.osgi.PasswordType;
  *
  * @generated
  */
-public class JdbcUserServiceImpl extends MinimalEObjectImpl.Container implements
-        JdbcUserService
+public class JdbcUserServiceImpl extends MinimalEObjectImpl.Container implements JdbcUserService
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -532,8 +531,7 @@ public class JdbcUserServiceImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

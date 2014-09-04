@@ -28,8 +28,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChangeCounterItemItemProvider
-        extends ItemItemProvider
+public class ChangeCounterItemItemProvider extends ItemItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -71,19 +70,9 @@ public class ChangeCounterItemItemProvider
      */
     protected void addBufferPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ChangeCounterItem_buffer_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounterItem_buffer_feature", "_UI_ChangeCounterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.CHANGE_COUNTER_ITEM__BUFFER,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounterItem_buffer_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounterItem_buffer_feature", "_UI_ChangeCounterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.CHANGE_COUNTER_ITEM__BUFFER, true, false, true, null, null, null ) );
     }
 
     /**
@@ -94,19 +83,9 @@ public class ChangeCounterItemItemProvider
      */
     protected void addTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ChangeCounterItem_type_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounterItem_type_feature", "_UI_ChangeCounterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.CHANGE_COUNTER_ITEM__TYPE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounterItem_type_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounterItem_type_feature", "_UI_ChangeCounterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.CHANGE_COUNTER_ITEM__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -117,19 +96,9 @@ public class ChangeCounterItemItemProvider
      */
     protected void addOnErrorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ChangeCounterItem_onError_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounterItem_onError_feature", "_UI_ChangeCounterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.CHANGE_COUNTER_ITEM__ON_ERROR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounterItem_onError_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounterItem_onError_feature", "_UI_ChangeCounterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.CHANGE_COUNTER_ITEM__ON_ERROR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -140,19 +109,9 @@ public class ChangeCounterItemItemProvider
      */
     protected void addValuesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ChangeCounterItem_values_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounterItem_values_feature", "_UI_ChangeCounterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.CHANGE_COUNTER_ITEM__VALUES,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounterItem_values_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounterItem_values_feature", "_UI_ChangeCounterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.CHANGE_COUNTER_ITEM__VALUES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -188,9 +147,8 @@ public class ChangeCounterItemItemProvider
     public String getText ( Object object )
     {
         String label = ( (ChangeCounterItem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ChangeCounterItem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ChangeCounterItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ChangeCounterItem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ChangeCounterItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -32,8 +32,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  *
  * @generated
  */
-public class SystemPropertyImpl extends MinimalEObjectImpl.Container implements
-        SystemProperty
+public class SystemPropertyImpl extends MinimalEObjectImpl.Container implements SystemProperty
 {
     /**
      * The default value of the '{@link #getKey() <em>Key</em>}' attribute.

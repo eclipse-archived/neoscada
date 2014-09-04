@@ -46,15 +46,7 @@ import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MappingsItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class MappingsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -93,19 +85,9 @@ public class MappingsItemProvider
      */
     protected void addFallbackModePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Mappings_fallbackMode_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Mappings_fallbackMode_feature", "_UI_Mappings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MAPPINGS__FALLBACK_MODE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Mappings_fallbackMode_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Mappings_fallbackMode_feature", "_UI_Mappings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MAPPINGS__FALLBACK_MODE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -175,9 +157,8 @@ public class MappingsItemProvider
     {
         FallbackMappingMode labelValue = ( (Mappings)object ).getFallbackMode ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Mappings_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Mappings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Mappings_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Mappings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -216,15 +197,9 @@ public class MappingsItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DeploymentPackage.Literals.MAPPINGS__ENTRIES,
-                        DeploymentFactory.eINSTANCE.createExpressionNodeMappingEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( DeploymentPackage.Literals.MAPPINGS__ENTRIES, DeploymentFactory.eINSTANCE.createExpressionNodeMappingEntry () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DeploymentPackage.Literals.MAPPINGS__ENTRIES,
-                        DeploymentFactory.eINSTANCE.createSimpleNodeMappingEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( DeploymentPackage.Literals.MAPPINGS__ENTRIES, DeploymentFactory.eINSTANCE.createSimpleNodeMappingEntry () ) );
     }
 
     /**

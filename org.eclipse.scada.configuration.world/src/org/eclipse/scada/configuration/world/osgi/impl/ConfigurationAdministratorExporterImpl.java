@@ -26,8 +26,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class ConfigurationAdministratorExporterImpl extends ExporterImpl
-        implements ConfigurationAdministratorExporter
+public class ConfigurationAdministratorExporterImpl extends ExporterImpl implements ConfigurationAdministratorExporter
 {
     /**
      * <!-- begin-user-doc -->
@@ -66,8 +65,7 @@ public class ConfigurationAdministratorExporterImpl extends ExporterImpl
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

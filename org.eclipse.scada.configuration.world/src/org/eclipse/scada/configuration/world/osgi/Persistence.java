@@ -109,13 +109,7 @@ public enum Persistence implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final Persistence[] VALUES_ARRAY =
-            new Persistence[]
-            {
-                    NONE,
-                    LAZY,
-                    REQUIRED,
-            };
+    private static final Persistence[] VALUES_ARRAY = new Persistence[] { NONE, LAZY, REQUIRED, };
 
     /**
      * A public read-only list of all the '<em><b>Persistence</b></em>' enumerators.

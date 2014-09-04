@@ -66,8 +66,7 @@ public class ExecDriverItemProvider extends CommonDriverItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -124,9 +123,8 @@ public class ExecDriverItemProvider extends CommonDriverItemProvider
     public String getText ( Object object )
     {
         String label = ( (ExecDriver)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ExecDriver_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ExecDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ExecDriver_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ExecDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -158,15 +156,11 @@ public class ExecDriverItemProvider extends CommonDriverItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.EXEC_DRIVER__ROOT,
-                        ConfigurationFactory.eINSTANCE.createRootType () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.EXEC_DRIVER__ROOT, ConfigurationFactory.eINSTANCE.createRootType () ) );
     }
 
 }

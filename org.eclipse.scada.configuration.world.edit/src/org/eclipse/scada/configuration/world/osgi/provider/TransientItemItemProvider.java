@@ -87,9 +87,8 @@ public class TransientItemItemProvider extends ItemItemProvider
     public String getText ( Object object )
     {
         String label = ( (TransientItem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_TransientItem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_TransientItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_TransientItem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_TransientItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -114,8 +113,7 @@ public class TransientItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

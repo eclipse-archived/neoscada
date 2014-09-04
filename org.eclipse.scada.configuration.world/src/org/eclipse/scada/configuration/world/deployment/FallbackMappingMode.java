@@ -84,12 +84,7 @@ public enum FallbackMappingMode implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final FallbackMappingMode[] VALUES_ARRAY =
-            new FallbackMappingMode[]
-            {
-                    FAIL,
-                    IGNORE,
-            };
+    private static final FallbackMappingMode[] VALUES_ARRAY = new FallbackMappingMode[] { FAIL, IGNORE, };
 
     /**
      * A public read-only list of all the '<em><b>Fallback Mapping Mode</b></em>' enumerators.

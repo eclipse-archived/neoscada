@@ -36,8 +36,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class DataAccessExporterImpl extends ExporterImpl implements
-        DataAccessExporter
+public class DataAccessExporterImpl extends ExporterImpl implements DataAccessExporter
 {
     /**
      * The cached value of the '{@link #getExports() <em>Exports</em>}' containment reference list.
@@ -100,8 +99,7 @@ public class DataAccessExporterImpl extends ExporterImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -185,8 +183,7 @@ public class DataAccessExporterImpl extends ExporterImpl implements
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

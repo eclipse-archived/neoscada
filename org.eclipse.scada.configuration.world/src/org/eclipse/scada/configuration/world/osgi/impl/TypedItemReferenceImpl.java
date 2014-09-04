@@ -30,8 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
  *
  * @generated
  */
-public class TypedItemReferenceImpl extends ItemReferenceImpl implements
-        TypedItemReference
+public class TypedItemReferenceImpl extends ItemReferenceImpl implements TypedItemReference
 {
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.

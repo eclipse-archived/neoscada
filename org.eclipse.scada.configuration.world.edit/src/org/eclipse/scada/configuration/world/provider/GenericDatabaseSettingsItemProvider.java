@@ -28,8 +28,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GenericDatabaseSettingsItemProvider
-        extends AbstractGenericDatabaseSettingsItemProvider
+public class GenericDatabaseSettingsItemProvider extends AbstractGenericDatabaseSettingsItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -70,19 +69,9 @@ public class GenericDatabaseSettingsItemProvider
      */
     protected void addUrlPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_GenericDatabaseSettings_url_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_GenericDatabaseSettings_url_feature", "_UI_GenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.GENERIC_DATABASE_SETTINGS__URL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenericDatabaseSettings_url_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GenericDatabaseSettings_url_feature", "_UI_GenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.GENERIC_DATABASE_SETTINGS__URL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -93,19 +82,9 @@ public class GenericDatabaseSettingsItemProvider
      */
     protected void addDriverNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_GenericDatabaseSettings_driverName_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_GenericDatabaseSettings_driverName_feature", "_UI_GenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.GENERIC_DATABASE_SETTINGS__DRIVER_NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenericDatabaseSettings_driverName_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GenericDatabaseSettings_driverName_feature", "_UI_GenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.GENERIC_DATABASE_SETTINGS__DRIVER_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -116,19 +95,9 @@ public class GenericDatabaseSettingsItemProvider
      */
     protected void addBundlesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_GenericDatabaseSettings_bundles_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_GenericDatabaseSettings_bundles_feature", "_UI_GenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.GENERIC_DATABASE_SETTINGS__BUNDLES,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenericDatabaseSettings_bundles_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GenericDatabaseSettings_bundles_feature", "_UI_GenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.GENERIC_DATABASE_SETTINGS__BUNDLES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -164,9 +133,8 @@ public class GenericDatabaseSettingsItemProvider
     public String getText ( Object object )
     {
         String label = ( (GenericDatabaseSettings)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_GenericDatabaseSettings_type" ) : //$NON-NLS-1$
-                getString ( "_UI_GenericDatabaseSettings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_GenericDatabaseSettings_type" ) : //$NON-NLS-1$
+        getString ( "_UI_GenericDatabaseSettings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

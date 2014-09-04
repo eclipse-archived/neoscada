@@ -40,8 +40,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class MasterHandlerPrioritiesImpl extends MinimalEObjectImpl.Container
-        implements MasterHandlerPriorities
+public class MasterHandlerPrioritiesImpl extends MinimalEObjectImpl.Container implements MasterHandlerPriorities
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -180,8 +179,7 @@ public class MasterHandlerPrioritiesImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

@@ -33,8 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class HttpServiceImpl extends MinimalEObjectImpl.Container implements
-        HttpService
+public class HttpServiceImpl extends MinimalEObjectImpl.Container implements HttpService
 {
     /**
      * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' reference.

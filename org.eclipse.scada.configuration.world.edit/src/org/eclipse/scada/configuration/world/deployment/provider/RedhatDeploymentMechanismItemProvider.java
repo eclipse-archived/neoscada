@@ -28,8 +28,7 @@ import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RedhatDeploymentMechanismItemProvider extends
-        CommonDeploymentMechanismItemProvider
+public class RedhatDeploymentMechanismItemProvider extends CommonDeploymentMechanismItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -68,19 +67,10 @@ public class RedhatDeploymentMechanismItemProvider extends
      */
     protected void addLicensePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_RedhatDeploymentMechanism_license_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_RedhatDeploymentMechanism_license_feature", "_UI_RedhatDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.REDHAT_DEPLOYMENT_MECHANISM__LICENSE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RedhatDeploymentMechanism_license_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_RedhatDeploymentMechanism_license_feature", "_UI_RedhatDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.REDHAT_DEPLOYMENT_MECHANISM__LICENSE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -117,9 +107,8 @@ public class RedhatDeploymentMechanismItemProvider extends
     {
         StartupMechanism labelValue = ( (RedhatDeploymentMechanism)object ).getStartupMechanism ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_RedhatDeploymentMechanism_type" ) : //$NON-NLS-1$
-                getString ( "_UI_RedhatDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_RedhatDeploymentMechanism_type" ) : //$NON-NLS-1$
+        getString ( "_UI_RedhatDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -151,8 +140,7 @@ public class RedhatDeploymentMechanismItemProvider extends
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

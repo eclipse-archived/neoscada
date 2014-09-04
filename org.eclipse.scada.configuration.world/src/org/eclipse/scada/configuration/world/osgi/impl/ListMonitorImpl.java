@@ -45,8 +45,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class ListMonitorImpl extends ItemFeatureEntryImpl implements
-        ListMonitor
+public class ListMonitorImpl extends ItemFeatureEntryImpl implements ListMonitor
 {
     /**
      * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
@@ -357,8 +356,7 @@ public class ListMonitorImpl extends ItemFeatureEntryImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

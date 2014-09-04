@@ -37,8 +37,7 @@ import org.eclipse.scada.configuration.world.osgi.PullEvents;
  *
  * @generated
  */
-public class PullEventsImpl extends MinimalEObjectImpl.Container implements
-        PullEvents
+public class PullEventsImpl extends MinimalEObjectImpl.Container implements PullEvents
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.

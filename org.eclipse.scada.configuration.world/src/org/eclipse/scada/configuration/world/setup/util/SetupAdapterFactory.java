@@ -80,45 +80,43 @@ public class SetupAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SetupSwitch<Adapter> modelSwitch =
-            new SetupSwitch<Adapter> ()
-            {
-                @Override
-                public Adapter caseOperatingSystemDescriptor ( OperatingSystemDescriptor object )
-                {
-                    return createOperatingSystemDescriptorAdapter ();
-                }
+    protected SetupSwitch<Adapter> modelSwitch = new SetupSwitch<Adapter> () {
+        @Override
+        public Adapter caseOperatingSystemDescriptor ( OperatingSystemDescriptor object )
+        {
+            return createOperatingSystemDescriptorAdapter ();
+        }
 
-                @Override
-                public Adapter caseSetupModuleContainer ( SetupModuleContainer object )
-                {
-                    return createSetupModuleContainerAdapter ();
-                }
+        @Override
+        public Adapter caseSetupModuleContainer ( SetupModuleContainer object )
+        {
+            return createSetupModuleContainerAdapter ();
+        }
 
-                @Override
-                public Adapter caseSetupModule ( SetupModule object )
-                {
-                    return createSetupModuleAdapter ();
-                }
+        @Override
+        public Adapter caseSetupModule ( SetupModule object )
+        {
+            return createSetupModuleAdapter ();
+        }
 
-                @Override
-                public Adapter caseSubContainerModule ( SubContainerModule object )
-                {
-                    return createSubContainerModuleAdapter ();
-                }
+        @Override
+        public Adapter caseSubContainerModule ( SubContainerModule object )
+        {
+            return createSubContainerModuleAdapter ();
+        }
 
-                @Override
-                public Adapter caseSetupDefinitions ( SetupDefinitions object )
-                {
-                    return createSetupDefinitionsAdapter ();
-                }
+        @Override
+        public Adapter caseSetupDefinitions ( SetupDefinitions object )
+        {
+            return createSetupDefinitionsAdapter ();
+        }
 
-                @Override
-                public Adapter defaultCase ( EObject object )
-                {
-                    return createEObjectAdapter ();
-                }
-            };
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.

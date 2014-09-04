@@ -67,8 +67,7 @@ public class ApplicationNodeItemProvider extends NodeItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -126,9 +125,8 @@ public class ApplicationNodeItemProvider extends NodeItemProvider
     public String getText ( Object object )
     {
         String label = ( (ApplicationNode)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ApplicationNode_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ApplicationNode_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ApplicationNode_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ApplicationNode_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -161,35 +159,19 @@ public class ApplicationNodeItemProvider extends NodeItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                        WorldFactory.eINSTANCE.createExecDriver () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, WorldFactory.eINSTANCE.createExecDriver () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                        OsgiFactory.eINSTANCE.createDefaultMasterServer () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, OsgiFactory.eINSTANCE.createDefaultMasterServer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                        OsgiFactory.eINSTANCE.createCustomMasterServer () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, OsgiFactory.eINSTANCE.createCustomMasterServer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                        OsgiFactory.eINSTANCE.createDefaultValueArchiveServer () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, OsgiFactory.eINSTANCE.createDefaultValueArchiveServer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                        OsgiFactory.eINSTANCE.createDefaultEquinoxApplication () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, OsgiFactory.eINSTANCE.createDefaultEquinoxApplication () ) );
     }
 
 }

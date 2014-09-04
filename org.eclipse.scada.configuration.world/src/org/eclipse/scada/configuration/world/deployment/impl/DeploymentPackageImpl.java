@@ -54,8 +54,7 @@ import org.eclipse.scada.da.exec.configuration.ConfigurationPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeploymentPackageImpl extends EPackageImpl implements
-        DeploymentPackage
+public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPackage
 {
     /**
      * <!-- begin-user-doc -->

@@ -51,8 +51,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *
  * @generated
  */
-public abstract class ValueArchiveServerImpl extends
-        MinimalEObjectImpl.Container implements ValueArchiveServer
+public abstract class ValueArchiveServerImpl extends MinimalEObjectImpl.Container implements ValueArchiveServer
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -292,8 +291,7 @@ public abstract class ValueArchiveServerImpl extends
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetCustomizationProfile (
-            Profile newCustomizationProfile, NotificationChain msgs )
+    public NotificationChain basicSetCustomizationProfile ( Profile newCustomizationProfile, NotificationChain msgs )
     {
         Profile oldCustomizationProfile = customizationProfile;
         customizationProfile = newCustomizationProfile;
@@ -419,8 +417,7 @@ public abstract class ValueArchiveServerImpl extends
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -589,8 +586,7 @@ public abstract class ValueArchiveServerImpl extends
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

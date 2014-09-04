@@ -13,27 +13,27 @@ package org.eclipse.scada.configuration.world.lib.oscar;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.EventInjectorSyslog;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 
-public class EventInjectorSyslogProcessor extends BasicTypedOscarProcessor<EventInjectorSyslog>
+public class EventInjectorSyslogProcessor extends TypedOscarProcessor<EventInjectorSyslog>
 {
-
     private static final String BUNDLE = "org.eclipse.scada.ae.server.syslog"; //$NON-NLS-1$
 
     private static final String FACTORY_ID = "org.eclipse.scada.ae.server.syslog.receiver"; //$NON-NLS-1$
 
-    public EventInjectorSyslogProcessor ( final EquinoxApplication app, final OscarContext ctx, final Class<EventInjectorSyslog> clazz )
+    public EventInjectorSyslogProcessor ()
     {
-        super ( app, ctx, clazz );
+        super ( EventInjectorSyslog.class );
     }
 
     @Override
-    protected void process ( final EventInjectorSyslog item )
+    protected void process ( final EventInjectorSyslog item, final EquinoxApplication app, final OscarContext ctx, final IProgressMonitor monitor )
     {
-        final Profile profile = Profiles.createOrGetCustomizationProfile ( this.app );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( app );
 
         Profiles.addStartBundle ( profile, BUNDLE );
         profile.getInstallationUnits ().add ( BUNDLE );
@@ -47,7 +47,7 @@ public class EventInjectorSyslogProcessor extends BasicTypedOscarProcessor<Event
             data.put ( "host", item.getBindAddress () );
         }
 
-        addData ( FACTORY_ID, id, data );
+        ctx.addData ( FACTORY_ID, id, data );
     }
 
 }

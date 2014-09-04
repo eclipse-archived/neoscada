@@ -97,8 +97,7 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected WorldSwitch<Adapter> modelSwitch = new WorldSwitch<Adapter> ()
-    {
+    protected WorldSwitch<Adapter> modelSwitch = new WorldSwitch<Adapter> () {
         @Override
         public Adapter caseWorld ( World object )
         {

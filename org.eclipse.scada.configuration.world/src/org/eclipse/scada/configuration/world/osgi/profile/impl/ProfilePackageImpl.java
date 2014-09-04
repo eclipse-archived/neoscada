@@ -536,94 +536,46 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
     protected void createExtendedMetaDataAnnotations ()
     {
         String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
-        addAnnotation ( profileEClass,
-                source,
-                new String[]
-                {       "name", "profile" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProfile_InstallationUnits (),
-                source,
-                new String[]
-                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-                        "name", "feature" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProfile_JvmArguments (),
-                source,
-                new String[]
-                {       "name", "argument", //$NON-NLS-1$ //$NON-NLS-2$
-                        "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProfile_Setbsl (),
-                source,
-                new String[]
-                {       "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProfile_Notes (),
-                source,
-                new String[]
-                {       "name", "note", //$NON-NLS-1$ //$NON-NLS-2$
-                        "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProfile_Name (),
-                source,
-                new String[]
-                {       "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProfile_Arguments (),
-                source,
-                new String[]
-                {       "name", "arg", //$NON-NLS-1$ //$NON-NLS-2$
-                        "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( startBundleEClass,
-                source,
-                new String[]
-                {       "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getStartBundle_Name (),
-                source,
-                new String[]
-                {       "name", ":0", //$NON-NLS-1$ //$NON-NLS-2$
-                        "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( systemPropertyEClass,
-                source,
-                new String[]
-                {       "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getSystemProperty_Key (),
-                source,
-                new String[]
-                {       "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getSystemProperty_Value (),
-                source,
-                new String[]
-                {       "kind", "simple", //$NON-NLS-1$ //$NON-NLS-2$
-                        "name", ":0" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getSystemProperty_Eval (),
-                source,
-                new String[]
-                {       "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( bundleStartLevelEClass,
-                source,
-                new String[]
-                {       "name", "BundleStartLevel", //$NON-NLS-1$ //$NON-NLS-2$
-                        "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getBundleStartLevel_Level (),
-                source,
-                new String[]
-                {       "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getBundleStartLevel_Name (),
-                source,
-                new String[]
-                {       "name", ":0", //$NON-NLS-1$ //$NON-NLS-2$
-                        "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
+        addAnnotation ( profileEClass, source, new String[] { "name", "profile" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProfile_InstallationUnits (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+        "name", "feature" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProfile_JvmArguments (), source, new String[] { "name", "argument", //$NON-NLS-1$ //$NON-NLS-2$
+        "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProfile_Setbsl (), source, new String[] { "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProfile_Notes (), source, new String[] { "name", "note", //$NON-NLS-1$ //$NON-NLS-2$
+        "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProfile_Name (), source, new String[] { "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProfile_Arguments (), source, new String[] { "name", "arg", //$NON-NLS-1$ //$NON-NLS-2$
+        "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( startBundleEClass, source, new String[] { "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getStartBundle_Name (), source, new String[] { "name", ":0", //$NON-NLS-1$ //$NON-NLS-2$
+        "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( systemPropertyEClass, source, new String[] { "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getSystemProperty_Key (), source, new String[] { "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getSystemProperty_Value (), source, new String[] { "kind", "simple", //$NON-NLS-1$ //$NON-NLS-2$
+        "name", ":0" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getSystemProperty_Eval (), source, new String[] { "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( bundleStartLevelEClass, source, new String[] { "name", "BundleStartLevel", //$NON-NLS-1$ //$NON-NLS-2$
+        "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getBundleStartLevel_Level (), source, new String[] { "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getBundleStartLevel_Name (), source, new String[] { "name", ":0", //$NON-NLS-1$ //$NON-NLS-2$
+        "kind", "simple" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
     }
 
 } //ProfilePackageImpl

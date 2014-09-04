@@ -41,8 +41,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public abstract class CommonDriverImpl extends MinimalEObjectImpl.Container
-        implements CommonDriver
+public abstract class CommonDriverImpl extends MinimalEObjectImpl.Container implements CommonDriver
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -228,8 +227,7 @@ public abstract class CommonDriverImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetPassword ( PasswordCredentials newPassword,
-            NotificationChain msgs )
+    public NotificationChain basicSetPassword ( PasswordCredentials newPassword, NotificationChain msgs )
     {
         PasswordCredentials oldPassword = password;
         password = newPassword;
@@ -272,8 +270,7 @@ public abstract class CommonDriverImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

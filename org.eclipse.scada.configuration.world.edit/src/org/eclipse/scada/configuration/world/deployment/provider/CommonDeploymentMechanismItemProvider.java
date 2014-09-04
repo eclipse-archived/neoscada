@@ -40,10 +40,7 @@ import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
-        implements IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -89,19 +86,10 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      */
     protected void addMaintainerPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CommonDeploymentMechanism_maintainer_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_maintainer_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__MAINTAINER,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CommonDeploymentMechanism_maintainer_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_maintainer_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__MAINTAINER, true, false, true, null, getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -112,19 +100,10 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      */
     protected void addAdditionalDependenciesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CommonDeploymentMechanism_additionalDependencies_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_additionalDependencies_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CommonDeploymentMechanism_additionalDependencies_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_additionalDependencies_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -135,19 +114,10 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      */
     protected void addStartupMechanismPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CommonDeploymentMechanism_startupMechanism_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_startupMechanism_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CommonDeploymentMechanism_startupMechanism_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_startupMechanism_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -158,19 +128,10 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      */
     protected void addMultiUserScreenPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CommonDeploymentMechanism_multiUserScreen_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_multiUserScreen_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CommonDeploymentMechanism_multiUserScreen_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_multiUserScreen_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__MULTI_USER_SCREEN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -181,19 +142,10 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      */
     protected void addOperatingSystemPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CommonDeploymentMechanism_operatingSystem_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_operatingSystem_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CommonDeploymentMechanism_operatingSystem_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_operatingSystem_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__OPERATING_SYSTEM, true, false, true, null, getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -204,19 +156,10 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      */
     protected void addAutomaticCreatePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CommonDeploymentMechanism_automaticCreate_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_automaticCreate_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CommonDeploymentMechanism_automaticCreate_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_automaticCreate_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -227,19 +170,10 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      */
     protected void addRecreateBackupsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CommonDeploymentMechanism_recreateBackups_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_recreateBackups_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CommonDeploymentMechanism_recreateBackups_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_recreateBackups_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -250,19 +184,9 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      */
     protected void addSetupPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CommonDeploymentMechanism_setup_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_setup_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__SETUP,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CommonDeploymentMechanism_setup_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_setup_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__SETUP, true, false, true, null, null, null ) );
     }
 
     /**
@@ -274,8 +198,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -333,9 +256,8 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
     {
         StartupMechanism labelValue = ( (CommonDeploymentMechanism)object ).getStartupMechanism ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_CommonDeploymentMechanism_type" ) : //$NON-NLS-1$
-                getString ( "_UI_CommonDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_CommonDeploymentMechanism_type" ) : //$NON-NLS-1$
+        getString ( "_UI_CommonDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -374,15 +296,11 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__CHANGES,
-                        DeploymentFactory.eINSTANCE.createChangeEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__CHANGES, DeploymentFactory.eINSTANCE.createChangeEntry () ) );
     }
 
     /**

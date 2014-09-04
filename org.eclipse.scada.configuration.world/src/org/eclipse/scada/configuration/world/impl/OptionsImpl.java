@@ -32,8 +32,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class OptionsImpl extends MinimalEObjectImpl.Container implements
-        Options
+public class OptionsImpl extends MinimalEObjectImpl.Container implements Options
 {
     /**
      * The cached value of the '{@link #getMasterHandlerPriorities() <em>Master Handler Priorities</em>}' reference.
@@ -101,8 +100,7 @@ public class OptionsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setMasterHandlerPriorities (
-            MasterHandlerPriorities newMasterHandlerPriorities )
+    public void setMasterHandlerPriorities ( MasterHandlerPriorities newMasterHandlerPriorities )
     {
         MasterHandlerPriorities oldMasterHandlerPriorities = masterHandlerPriorities;
         masterHandlerPriorities = newMasterHandlerPriorities;

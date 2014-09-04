@@ -40,8 +40,7 @@ import org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat;
  *
  * @generated
  */
-public abstract class AbstractEventStorageJdbcImpl extends
-        MinimalEObjectImpl.Container implements AbstractEventStorageJdbc
+public abstract class AbstractEventStorageJdbcImpl extends MinimalEObjectImpl.Container implements AbstractEventStorageJdbc
 {
     /**
      * The default value of the '{@link #getSchema() <em>Schema</em>}' attribute.

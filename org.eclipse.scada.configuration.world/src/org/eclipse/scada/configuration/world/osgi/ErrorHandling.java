@@ -109,13 +109,7 @@ public enum ErrorHandling implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final ErrorHandling[] VALUES_ARRAY =
-            new ErrorHandling[]
-            {
-                    IGNORE,
-                    COUNT,
-                    ERROR,
-            };
+    private static final ErrorHandling[] VALUES_ARRAY = new ErrorHandling[] { IGNORE, COUNT, ERROR, };
 
     /**
      * A public read-only list of all the '<em><b>Error Handling</b></em>' enumerators.

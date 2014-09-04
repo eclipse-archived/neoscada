@@ -37,8 +37,7 @@ import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
  *
  * @generated
  */
-public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
-        implements SimpleNodeMappingEntry
+public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container implements SimpleNodeMappingEntry
 {
     /**
      * The default value of the '{@link #getFromHostName() <em>From Host Name</em>}' attribute.
@@ -313,8 +312,7 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

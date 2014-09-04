@@ -30,8 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class CodeFragmentImpl extends MinimalEObjectImpl.Container implements
-        CodeFragment
+public class CodeFragmentImpl extends MinimalEObjectImpl.Container implements CodeFragment
 {
     /**
      * The default value of the '{@link #getCode() <em>Code</em>}' attribute.

@@ -183,15 +183,7 @@ public enum AverageReferenceType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final AverageReferenceType[] VALUES_ARRAY = new AverageReferenceType[]
-    {
-            MIN,
-            MAX,
-            MEAN,
-            MEDIAN,
-            DEVIATION,
-            SUM,
-    };
+    private static final AverageReferenceType[] VALUES_ARRAY = new AverageReferenceType[] { MIN, MAX, MEAN, MEDIAN, DEVIATION, SUM, };
 
     /**
      * A public read-only list of all the '<em><b>Average Reference Type</b></em>' enumerators.

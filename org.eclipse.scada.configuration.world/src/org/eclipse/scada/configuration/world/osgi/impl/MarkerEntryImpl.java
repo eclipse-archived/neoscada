@@ -31,8 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class MarkerEntryImpl extends MinimalEObjectImpl.Container implements
-        MarkerEntry
+public class MarkerEntryImpl extends MinimalEObjectImpl.Container implements MarkerEntry
 {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.

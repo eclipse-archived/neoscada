@@ -33,8 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.ValueMapper;
  *
  * @generated
  */
-public class ValueMapperImpl extends ItemFeatureEntryImpl implements
-        ValueMapper
+public class ValueMapperImpl extends ItemFeatureEntryImpl implements ValueMapper
 {
     /**
      * The default value of the '{@link #getSourceAttribute() <em>Source Attribute</em>}' attribute.

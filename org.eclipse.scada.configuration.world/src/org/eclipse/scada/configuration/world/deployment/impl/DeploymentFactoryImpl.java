@@ -25,8 +25,7 @@ import org.eclipse.scada.configuration.world.deployment.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeploymentFactoryImpl extends EFactoryImpl implements
-        DeploymentFactory
+public class DeploymentFactoryImpl extends EFactoryImpl implements DeploymentFactory
 {
     /**
      * Creates the default factory implementation.

@@ -31,8 +31,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class UsernamePasswordCredentialsImpl extends
-        MinimalEObjectImpl.Container implements UsernamePasswordCredentials
+public class UsernamePasswordCredentialsImpl extends MinimalEObjectImpl.Container implements UsernamePasswordCredentials
 {
     /**
      * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.

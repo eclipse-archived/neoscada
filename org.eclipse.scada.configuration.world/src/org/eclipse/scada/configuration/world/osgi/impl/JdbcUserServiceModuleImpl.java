@@ -36,8 +36,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class JdbcUserServiceModuleImpl extends MinimalEObjectImpl.Container
-        implements JdbcUserServiceModule
+public class JdbcUserServiceModuleImpl extends MinimalEObjectImpl.Container implements JdbcUserServiceModule
 {
     /**
      * The cached value of the '{@link #getUserServices() <em>User Services</em>}' containment reference list.
@@ -90,8 +89,7 @@ public class JdbcUserServiceModuleImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

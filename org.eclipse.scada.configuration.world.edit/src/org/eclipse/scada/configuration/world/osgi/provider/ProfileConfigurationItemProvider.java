@@ -45,15 +45,7 @@ import org.eclipse.scada.configuration.world.osgi.ProfileConfiguration;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProfileConfigurationItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class ProfileConfigurationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -93,19 +85,9 @@ public class ProfileConfigurationItemProvider
      */
     protected void addStartBundlesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ProfileConfiguration_startBundles_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProfileConfiguration_startBundles_feature", "_UI_ProfileConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.PROFILE_CONFIGURATION__START_BUNDLES,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProfileConfiguration_startBundles_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProfileConfiguration_startBundles_feature", "_UI_ProfileConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.PROFILE_CONFIGURATION__START_BUNDLES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -116,19 +98,9 @@ public class ProfileConfigurationItemProvider
      */
     protected void addInstallBundlesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ProfileConfiguration_installBundles_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProfileConfiguration_installBundles_feature", "_UI_ProfileConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.PROFILE_CONFIGURATION__INSTALL_BUNDLES,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProfileConfiguration_installBundles_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProfileConfiguration_installBundles_feature", "_UI_ProfileConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.PROFILE_CONFIGURATION__INSTALL_BUNDLES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -236,18 +208,11 @@ public class ProfileConfigurationItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.PROFILE_CONFIGURATION__START_BUNDLES, "" ) ); //$NON-NLS-1$
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.PROFILE_CONFIGURATION__START_BUNDLES, "" ) ); //$NON-NLS-1$
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.PROFILE_CONFIGURATION__INSTALL_BUNDLES, "" ) ); //$NON-NLS-1$
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.PROFILE_CONFIGURATION__INSTALL_BUNDLES, "" ) ); //$NON-NLS-1$
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.PROFILE_CONFIGURATION__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.PROFILE_CONFIGURATION__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

@@ -23,8 +23,7 @@ import org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExpo
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConfigurationAdministratorExporterItemProvider extends
-        ExporterItemProvider
+public class ConfigurationAdministratorExporterItemProvider extends ExporterItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -32,8 +31,7 @@ public class ConfigurationAdministratorExporterItemProvider extends
      * <!-- end-user-doc -->
      * @generated
      */
-    public ConfigurationAdministratorExporterItemProvider (
-            AdapterFactory adapterFactory )
+    public ConfigurationAdministratorExporterItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -88,9 +86,8 @@ public class ConfigurationAdministratorExporterItemProvider extends
     public String getText ( Object object )
     {
         String label = ( (ConfigurationAdministratorExporter)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ConfigurationAdministratorExporter_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ConfigurationAdministratorExporter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ConfigurationAdministratorExporter_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ConfigurationAdministratorExporter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -115,8 +112,7 @@ public class ConfigurationAdministratorExporterItemProvider extends
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

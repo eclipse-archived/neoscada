@@ -29,8 +29,7 @@ import org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem;
  *
  * @generated
  */
-public class WeakReferenceDataSourceItemImpl extends ItemImpl implements
-        WeakReferenceDataSourceItem
+public class WeakReferenceDataSourceItemImpl extends ItemImpl implements WeakReferenceDataSourceItem
 {
     /**
      * The default value of the '{@link #getDataSourceId() <em>Data Source Id</em>}' attribute.

@@ -37,8 +37,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  *
  * @generated
  */
-public class ChangeEntryImpl extends MinimalEObjectImpl.Container implements
-        ChangeEntry
+public class ChangeEntryImpl extends MinimalEObjectImpl.Container implements ChangeEntry
 {
     /**
      * The cached value of the '{@link #getAuthor() <em>Author</em>}' reference.

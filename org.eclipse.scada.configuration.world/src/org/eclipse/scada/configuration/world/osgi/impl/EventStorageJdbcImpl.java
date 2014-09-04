@@ -30,8 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class EventStorageJdbcImpl extends AbstractEventStorageJdbcImpl
-        implements EventStorageJdbc
+public class EventStorageJdbcImpl extends AbstractEventStorageJdbcImpl implements EventStorageJdbc
 {
     /**
      * The default value of the '{@link #getMaxFieldLength() <em>Max Field Length</em>}' attribute.

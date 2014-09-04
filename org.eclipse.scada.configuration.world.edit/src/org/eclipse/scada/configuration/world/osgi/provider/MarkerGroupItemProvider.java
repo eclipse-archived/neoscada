@@ -39,10 +39,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MarkerGroupItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class MarkerGroupItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -82,19 +79,9 @@ public class MarkerGroupItemProvider extends ItemProviderAdapter implements
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MarkerGroup_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerGroup_name_feature", "_UI_MarkerGroup_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.MARKER_GROUP__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MarkerGroup_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerGroup_name_feature", "_UI_MarkerGroup_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.MARKER_GROUP__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -105,19 +92,9 @@ public class MarkerGroupItemProvider extends ItemProviderAdapter implements
      */
     protected void addMarkersPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MarkerGroup_markers_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerGroup_markers_feature", "_UI_MarkerGroup_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.MARKER_GROUP__MARKERS,
-                        true,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MarkerGroup_markers_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerGroup_markers_feature", "_UI_MarkerGroup_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.MARKER_GROUP__MARKERS, true, false, false, null, null, null ) );
     }
 
     /**
@@ -129,8 +106,7 @@ public class MarkerGroupItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -187,9 +163,8 @@ public class MarkerGroupItemProvider extends ItemProviderAdapter implements
     public String getText ( Object object )
     {
         String label = ( (MarkerGroup)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_MarkerGroup_type" ) : //$NON-NLS-1$
-                getString ( "_UI_MarkerGroup_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_MarkerGroup_type" ) : //$NON-NLS-1$
+        getString ( "_UI_MarkerGroup_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -225,85 +200,39 @@ public class MarkerGroupItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createSourceItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createSourceItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createScriptItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createScriptItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createImportItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createImportItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createConstantItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createConstantItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createSummaryItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createSummaryItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createPersistentItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createPersistentItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createProxyItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createProxyItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createFormulaItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createFormulaItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createAverageItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createAverageItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createMovingAverageItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createMovingAverageItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createGlobalSummaryItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createGlobalSummaryItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createWeakReferenceDataSourceItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createWeakReferenceDataSourceItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createReferenceItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createReferenceItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createTransientItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createTransientItem () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                        OsgiFactory.eINSTANCE.createChangeCounterItem () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, OsgiFactory.eINSTANCE.createChangeCounterItem () ) );
     }
 
     /**

@@ -32,8 +32,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class EventLoggerImpl extends ItemFeatureEntryImpl implements
-        EventLogger
+public class EventLoggerImpl extends ItemFeatureEntryImpl implements EventLogger
 {
     /**
      * The default value of the '{@link #isLogAttributesChange() <em>Log Attributes Change</em>}' attribute.

@@ -132,14 +132,7 @@ public enum StartupMechanism implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final StartupMechanism[] VALUES_ARRAY =
-            new StartupMechanism[]
-            {
-                    DEFAULT,
-                    UPSTART,
-                    REDHAT_SYSV,
-                    LSB_SYSV,
-            };
+    private static final StartupMechanism[] VALUES_ARRAY = new StartupMechanism[] { DEFAULT, UPSTART, REDHAT_SYSV, LSB_SYSV, };
 
     /**
      * A public read-only list of all the '<em><b>Startup Mechanism</b></em>' enumerators.

@@ -39,8 +39,7 @@ import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
  *
  * @generated
  */
-public class FormulaItemInboundImpl extends MinimalEObjectImpl.Container
-        implements FormulaItemInbound
+public class FormulaItemInboundImpl extends MinimalEObjectImpl.Container implements FormulaItemInbound
 {
     /**
      * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
@@ -136,8 +135,7 @@ public class FormulaItemInboundImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

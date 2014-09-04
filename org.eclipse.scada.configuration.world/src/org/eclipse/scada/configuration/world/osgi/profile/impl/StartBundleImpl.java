@@ -30,8 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.StartBundle;
  *
  * @generated
  */
-public class StartBundleImpl extends MinimalEObjectImpl.Container implements
-        StartBundle
+public class StartBundleImpl extends MinimalEObjectImpl.Container implements StartBundle
 {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.

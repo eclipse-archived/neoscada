@@ -70,19 +70,9 @@ public class ScriptItemItemProvider extends ItemItemProvider
      */
     protected void addInitScriptPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ScriptItem_initScript_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_initScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.SCRIPT_ITEM__INIT_SCRIPT,
-                        true,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_initScript_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_initScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SCRIPT_ITEM__INIT_SCRIPT, true, false, false, null, null, null ) );
     }
 
     /**
@@ -93,19 +83,9 @@ public class ScriptItemItemProvider extends ItemItemProvider
      */
     protected void addUpdateScriptPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ScriptItem_updateScript_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_updateScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.SCRIPT_ITEM__UPDATE_SCRIPT,
-                        true,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_updateScript_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_updateScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SCRIPT_ITEM__UPDATE_SCRIPT, true, false, false, null, null, null ) );
     }
 
     /**
@@ -116,19 +96,9 @@ public class ScriptItemItemProvider extends ItemItemProvider
      */
     protected void addScriptEnginePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ScriptItem_scriptEngine_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_scriptEngine_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.SCRIPT_ITEM__SCRIPT_ENGINE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_scriptEngine_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_scriptEngine_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SCRIPT_ITEM__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -140,8 +110,7 @@ public class ScriptItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -201,9 +170,8 @@ public class ScriptItemItemProvider extends ItemItemProvider
     public String getText ( Object object )
     {
         String label = ( (ScriptItem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ScriptItem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ScriptItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ScriptItem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ScriptItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -243,40 +211,21 @@ public class ScriptItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.SCRIPT_ITEM__INPUTS,
-                        OsgiFactory.eINSTANCE.createItemReference () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__INPUTS, OsgiFactory.eINSTANCE.createItemReference () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.SCRIPT_ITEM__INPUTS,
-                        OsgiFactory.eINSTANCE.createTypedItemReference () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__INPUTS, OsgiFactory.eINSTANCE.createTypedItemReference () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.SCRIPT_ITEM__TIMER,
-                        OsgiFactory.eINSTANCE.createScriptTimer () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__TIMER, OsgiFactory.eINSTANCE.createScriptTimer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.SCRIPT_ITEM__COMMANDS,
-                        OsgiFactory.eINSTANCE.createItemReference () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__COMMANDS, OsgiFactory.eINSTANCE.createItemReference () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.SCRIPT_ITEM__COMMANDS,
-                        OsgiFactory.eINSTANCE.createTypedItemReference () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__COMMANDS, OsgiFactory.eINSTANCE.createTypedItemReference () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT,
-                        OsgiFactory.eINSTANCE.createCodeFragment () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT, OsgiFactory.eINSTANCE.createCodeFragment () ) );
     }
 
     /**
@@ -286,15 +235,12 @@ public class ScriptItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    public String getCreateChildText ( Object owner, Object feature,
-            Object child, Collection<?> selection )
+    public String getCreateChildText ( Object owner, Object feature, Object child, Collection<?> selection )
     {
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify =
-                childFeature == OsgiPackage.Literals.SCRIPT_ITEM__INPUTS ||
-                        childFeature == OsgiPackage.Literals.SCRIPT_ITEM__COMMANDS;
+        boolean qualify = childFeature == OsgiPackage.Literals.SCRIPT_ITEM__INPUTS || childFeature == OsgiPackage.Literals.SCRIPT_ITEM__COMMANDS;
 
         if ( qualify )
         {

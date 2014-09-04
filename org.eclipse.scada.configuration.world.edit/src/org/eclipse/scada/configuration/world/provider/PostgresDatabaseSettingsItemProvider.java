@@ -24,8 +24,7 @@ import org.eclipse.scada.configuration.world.PostgresDatabaseSettings;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PostgresDatabaseSettingsItemProvider
-        extends AbstractGenericDatabaseSettingsItemProvider
+public class PostgresDatabaseSettingsItemProvider extends AbstractGenericDatabaseSettingsItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -88,9 +87,8 @@ public class PostgresDatabaseSettingsItemProvider
     public String getText ( Object object )
     {
         String label = ( (PostgresDatabaseSettings)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_PostgresDatabaseSettings_type" ) : //$NON-NLS-1$
-                getString ( "_UI_PostgresDatabaseSettings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_PostgresDatabaseSettings_type" ) : //$NON-NLS-1$
+        getString ( "_UI_PostgresDatabaseSettings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

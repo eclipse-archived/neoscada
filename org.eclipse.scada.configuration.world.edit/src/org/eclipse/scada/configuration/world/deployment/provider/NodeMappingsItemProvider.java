@@ -89,9 +89,8 @@ public class NodeMappingsItemProvider extends MappingsItemProvider
     {
         FallbackMappingMode labelValue = ( (NodeMappings)object ).getFallbackMode ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_NodeMappings_type" ) : //$NON-NLS-1$
-                getString ( "_UI_NodeMappings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_NodeMappings_type" ) : //$NON-NLS-1$
+        getString ( "_UI_NodeMappings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -116,8 +115,7 @@ public class NodeMappingsItemProvider extends MappingsItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

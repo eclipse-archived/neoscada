@@ -35,8 +35,7 @@ import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
  *
  * @generated
  */
-public class FormulaItemOutboundImpl extends MinimalEObjectImpl.Container
-        implements FormulaItemOutbound
+public class FormulaItemOutboundImpl extends MinimalEObjectImpl.Container implements FormulaItemOutbound
 {
     /**
      * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
@@ -152,8 +151,7 @@ public class FormulaItemOutboundImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetOutput ( TypedItemReference newOutput,
-            NotificationChain msgs )
+    public NotificationChain basicSetOutput ( TypedItemReference newOutput, NotificationChain msgs )
     {
         TypedItemReference oldOutput = output;
         output = newOutput;
@@ -242,8 +240,7 @@ public class FormulaItemOutboundImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

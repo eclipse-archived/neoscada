@@ -109,13 +109,7 @@ public enum ChangeType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final ChangeType[] VALUES_ARRAY =
-            new ChangeType[]
-            {
-                    DELTA,
-                    SET,
-                    DIRECTION,
-            };
+    private static final ChangeType[] VALUES_ARRAY = new ChangeType[] { DELTA, SET, DIRECTION, };
 
     /**
      * A public read-only list of all the '<em><b>Change Type</b></em>' enumerators.

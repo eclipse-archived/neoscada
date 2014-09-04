@@ -133,13 +133,7 @@ public enum RoundingType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final RoundingType[] VALUES_ARRAY = new RoundingType[]
-    {
-            NONE,
-            ROUND,
-            CEIL,
-            FLOOR,
-    };
+    private static final RoundingType[] VALUES_ARRAY = new RoundingType[] { NONE, ROUND, CEIL, FLOOR, };
 
     /**
      * A public read-only list of all the '<em><b>Rounding Type</b></em>' enumerators.

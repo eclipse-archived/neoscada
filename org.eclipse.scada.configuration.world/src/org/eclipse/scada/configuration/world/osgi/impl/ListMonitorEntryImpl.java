@@ -34,8 +34,7 @@ import org.eclipse.scada.core.Variant;
  *
  * @generated
  */
-public class ListMonitorEntryImpl extends MinimalEObjectImpl.Container
-        implements ListMonitorEntry
+public class ListMonitorEntryImpl extends MinimalEObjectImpl.Container implements ListMonitorEntry
 {
     /**
      * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

@@ -42,8 +42,7 @@ import org.eclipse.scada.configuration.world.osgi.PullEvents;
  *
  * @generated
  */
-public class AlarmsEventsModuleImpl extends MinimalEObjectImpl.Container
-        implements AlarmsEventsModule
+public class AlarmsEventsModuleImpl extends MinimalEObjectImpl.Container implements AlarmsEventsModule
 {
     /**
      * The cached value of the '{@link #getMonitorPoolProxies() <em>Monitor Pool Proxies</em>}' containment reference list.
@@ -168,8 +167,7 @@ public class AlarmsEventsModuleImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

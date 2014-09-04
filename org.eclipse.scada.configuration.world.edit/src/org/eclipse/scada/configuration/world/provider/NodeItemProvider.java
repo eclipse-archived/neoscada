@@ -41,15 +41,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NodeItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class NodeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -90,19 +82,10 @@ public class NodeItemProvider
      */
     protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -113,19 +96,10 @@ public class NodeItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -136,19 +110,9 @@ public class NodeItemProvider
      */
     protected void addHostNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Node_hostName_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Node_hostName_feature", "_UI_Node_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NODE__HOST_NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Node_hostName_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Node_hostName_feature", "_UI_Node_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.NODE__HOST_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -206,9 +170,8 @@ public class NodeItemProvider
     public String getText ( Object object )
     {
         String label = ( (Node)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Node_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Node_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Node_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Node_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -250,25 +213,13 @@ public class NodeItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.NODE__ENDPOINTS,
-                        WorldFactory.eINSTANCE.createEndpoint () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.NODE__ENDPOINTS, WorldFactory.eINSTANCE.createEndpoint () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.NODE__DEPLOYMENTS,
-                        DeploymentFactory.eINSTANCE.createDebianDeploymentMechanism () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.NODE__DEPLOYMENTS, DeploymentFactory.eINSTANCE.createDebianDeploymentMechanism () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.NODE__DEPLOYMENTS,
-                        DeploymentFactory.eINSTANCE.createRedhatDeploymentMechanism () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.NODE__DEPLOYMENTS, DeploymentFactory.eINSTANCE.createRedhatDeploymentMechanism () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.NODE__DEPLOYMENTS,
-                        DeploymentFactory.eINSTANCE.createMsiDeploymentMechanism () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.NODE__DEPLOYMENTS, DeploymentFactory.eINSTANCE.createMsiDeploymentMechanism () ) );
     }
 
     /**

@@ -42,8 +42,7 @@ import org.eclipse.scada.configuration.world.osgi.RestExporter;
  *
  * @generated
  */
-public class RestExporterImpl extends MinimalEObjectImpl.Container implements
-        RestExporter
+public class RestExporterImpl extends MinimalEObjectImpl.Container implements RestExporter
 {
     /**
      * The cached value of the '{@link #getItems() <em>Items</em>}' reference list.
@@ -163,8 +162,7 @@ public class RestExporterImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

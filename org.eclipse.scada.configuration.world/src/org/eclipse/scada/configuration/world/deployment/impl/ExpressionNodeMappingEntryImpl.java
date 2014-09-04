@@ -38,8 +38,7 @@ import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEnt
  *
  * @generated
  */
-public class ExpressionNodeMappingEntryImpl extends
-        MinimalEObjectImpl.Container implements ExpressionNodeMappingEntry
+public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container implements ExpressionNodeMappingEntry
 {
     /**
      * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
@@ -259,8 +258,7 @@ public class ExpressionNodeMappingEntryImpl extends
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

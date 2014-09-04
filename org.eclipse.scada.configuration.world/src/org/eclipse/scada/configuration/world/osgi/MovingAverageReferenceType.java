@@ -208,16 +208,7 @@ public enum MovingAverageReferenceType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final MovingAverageReferenceType[] VALUES_ARRAY = new MovingAverageReferenceType[]
-    {
-            MIN,
-            MAX,
-            MEDIAN,
-            ARITHMETIC,
-            WEIGHTED,
-            DEVIATION_ARITHMETIC,
-            DEVIATION_WEIGHTED,
-    };
+    private static final MovingAverageReferenceType[] VALUES_ARRAY = new MovingAverageReferenceType[] { MIN, MAX, MEDIAN, ARITHMETIC, WEIGHTED, DEVIATION_ARITHMETIC, DEVIATION_WEIGHTED, };
 
     /**
      * A public read-only list of all the '<em><b>Moving Average Reference Type</b></em>' enumerators.

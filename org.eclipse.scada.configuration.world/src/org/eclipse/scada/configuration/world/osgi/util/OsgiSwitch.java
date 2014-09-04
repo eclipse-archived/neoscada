@@ -1175,6 +1175,92 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case OsgiPackage.EVENT_INJECTOR_MANAGER:
+            {
+                EventInjectorManager eventInjectorManager = (EventInjectorManager)theEObject;
+                T result = caseEventInjectorManager ( eventInjectorManager );
+                if ( result == null )
+                    result = caseIndependentConfiguration ( eventInjectorManager );
+                if ( result == null )
+                    result = caseApplicationConfiguration ( eventInjectorManager );
+                if ( result == null )
+                    result = caseApplicationModule ( eventInjectorManager );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.EVENT_HANDLER:
+            {
+                EventHandler eventHandler = (EventHandler)theEObject;
+                T result = caseEventHandler ( eventHandler );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.DEFAULT_STORAGE_HANDLER:
+            {
+                DefaultStorageHandler defaultStorageHandler = (DefaultStorageHandler)theEObject;
+                T result = caseDefaultStorageHandler ( defaultStorageHandler );
+                if ( result == null )
+                    result = caseEventHandler ( defaultStorageHandler );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.FILTER_EVENT_HANDLER:
+            {
+                FilterEventHandler filterEventHandler = (FilterEventHandler)theEObject;
+                T result = caseFilterEventHandler ( filterEventHandler );
+                if ( result == null )
+                    result = caseEventHandler ( filterEventHandler );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.INCLUDE_EVENT_FILTER:
+            {
+                IncludeEventFilter includeEventFilter = (IncludeEventFilter)theEObject;
+                T result = caseIncludeEventFilter ( includeEventFilter );
+                if ( result == null )
+                    result = caseFilterEventHandler ( includeEventFilter );
+                if ( result == null )
+                    result = caseEventHandler ( includeEventFilter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.EXCLUDE_EVENT_FILTER:
+            {
+                ExcludeEventFilter excludeEventFilter = (ExcludeEventFilter)theEObject;
+                T result = caseExcludeEventFilter ( excludeEventFilter );
+                if ( result == null )
+                    result = caseFilterEventHandler ( excludeEventFilter );
+                if ( result == null )
+                    result = caseEventHandler ( excludeEventFilter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.SCRIPT_EVENT_HANDLER:
+            {
+                ScriptEventHandler scriptEventHandler = (ScriptEventHandler)theEObject;
+                T result = caseScriptEventHandler ( scriptEventHandler );
+                if ( result == null )
+                    result = caseEventHandler ( scriptEventHandler );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.MAIL_EVENT_HANDLER:
+            {
+                MailEventHandler mailEventHandler = (MailEventHandler)theEObject;
+                T result = caseMailEventHandler ( mailEventHandler );
+                if ( result == null )
+                    result = caseEventHandler ( mailEventHandler );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -2391,8 +2477,7 @@ public class OsgiSwitch<T> extends Switch<T>
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseConfigurationAdministratorExporter (
-            ConfigurationAdministratorExporter object )
+    public T caseConfigurationAdministratorExporter ( ConfigurationAdministratorExporter object )
     {
         return null;
     }
@@ -2697,6 +2782,134 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseEventInjectorSyslog ( EventInjectorSyslog object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Event Injector Manager</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Event Injector Manager</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEventInjectorManager ( EventInjectorManager object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Event Handler</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Event Handler</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEventHandler ( EventHandler object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Default Storage Handler</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Default Storage Handler</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDefaultStorageHandler ( DefaultStorageHandler object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Filter Event Handler</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Filter Event Handler</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFilterEventHandler ( FilterEventHandler object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Include Event Filter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Include Event Filter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseIncludeEventFilter ( IncludeEventFilter object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Exclude Event Filter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Exclude Event Filter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExcludeEventFilter ( ExcludeEventFilter object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Script Event Handler</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Script Event Handler</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseScriptEventHandler ( ScriptEventHandler object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Mail Event Handler</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Mail Event Handler</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMailEventHandler ( MailEventHandler object )
     {
         return null;
     }

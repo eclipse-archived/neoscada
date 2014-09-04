@@ -67,19 +67,9 @@ public class DataAccessExporterItemProvider extends ExporterItemProvider
      */
     protected void addExportsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DataAccessExporter_exports_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataAccessExporter_exports_feature", "_UI_DataAccessExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.DATA_ACCESS_EXPORTER__EXPORTS,
-                        true,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DataAccessExporter_exports_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DataAccessExporter_exports_feature", "_UI_DataAccessExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.DATA_ACCESS_EXPORTER__EXPORTS, true, false, false, null, null, null ) );
     }
 
     /**
@@ -91,8 +81,7 @@ public class DataAccessExporterItemProvider extends ExporterItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -149,9 +138,8 @@ public class DataAccessExporterItemProvider extends ExporterItemProvider
     public String getText ( Object object )
     {
         String label = ( (DataAccessExporter)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DataAccessExporter_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DataAccessExporter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DataAccessExporter_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DataAccessExporter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -183,15 +171,11 @@ public class DataAccessExporterItemProvider extends ExporterItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.DATA_ACCESS_EXPORTER__EXPORTS,
-                        OsgiFactory.eINSTANCE.createItemExport () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.DATA_ACCESS_EXPORTER__EXPORTS, OsgiFactory.eINSTANCE.createItemExport () ) );
     }
 
 }

@@ -38,8 +38,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public abstract class ExporterImpl extends MinimalEObjectImpl.Container
-        implements Exporter
+public abstract class ExporterImpl extends MinimalEObjectImpl.Container implements Exporter
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -278,8 +277,7 @@ public abstract class ExporterImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

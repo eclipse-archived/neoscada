@@ -39,8 +39,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class EventPoolProxyImpl extends MinimalEObjectImpl.Container implements
-        EventPoolProxy
+public class EventPoolProxyImpl extends MinimalEObjectImpl.Container implements EventPoolProxy
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.

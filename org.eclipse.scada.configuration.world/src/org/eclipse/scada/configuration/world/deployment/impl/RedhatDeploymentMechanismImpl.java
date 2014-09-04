@@ -30,8 +30,7 @@ import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanis
  *
  * @generated
  */
-public class RedhatDeploymentMechanismImpl extends
-        CommonDeploymentMechanismImpl implements RedhatDeploymentMechanism
+public class RedhatDeploymentMechanismImpl extends CommonDeploymentMechanismImpl implements RedhatDeploymentMechanism
 {
     /**
      * The default value of the '{@link #getLicense() <em>License</em>}' attribute.

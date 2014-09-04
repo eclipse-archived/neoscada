@@ -44,8 +44,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *
  * @generated
  */
-public abstract class NodeImpl extends MinimalEObjectImpl.Container implements
-        Node
+public abstract class NodeImpl extends MinimalEObjectImpl.Container implements Node
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -260,8 +259,7 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public NotificationChain eInverseAdd ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -277,8 +275,7 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

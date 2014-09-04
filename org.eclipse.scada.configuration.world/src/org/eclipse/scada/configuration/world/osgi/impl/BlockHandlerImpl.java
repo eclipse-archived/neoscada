@@ -32,8 +32,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class BlockHandlerImpl extends ItemFeatureEntryImpl implements
-        BlockHandler
+public class BlockHandlerImpl extends ItemFeatureEntryImpl implements BlockHandler
 {
     /**
      * The cached value of the '{@link #getGroup() <em>Group</em>}' reference.
@@ -101,8 +100,7 @@ public class BlockHandlerImpl extends ItemFeatureEntryImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetGroup ( BlockGroup newGroup,
-            NotificationChain msgs )
+    public NotificationChain basicSetGroup ( BlockGroup newGroup, NotificationChain msgs )
     {
         BlockGroup oldGroup = group;
         group = newGroup;
@@ -145,8 +143,7 @@ public class BlockHandlerImpl extends ItemFeatureEntryImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -164,8 +161,7 @@ public class BlockHandlerImpl extends ItemFeatureEntryImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

@@ -39,8 +39,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  *
  * @generated
  */
-public class SubProfileImpl extends MinimalEObjectImpl.Container implements
-        SubProfile
+public class SubProfileImpl extends MinimalEObjectImpl.Container implements SubProfile
 {
     /**
      * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
@@ -136,8 +135,7 @@ public class SubProfileImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

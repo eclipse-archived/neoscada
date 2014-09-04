@@ -346,8 +346,7 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
      * 
      * @generated NOT
      */
-    public Pattern createPatternFromString ( final EDataType eDataType,
-            final String initialValue )
+    public Pattern createPatternFromString ( final EDataType eDataType, final String initialValue )
     {
         return Pattern.compile ( initialValue );
     }

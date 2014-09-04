@@ -33,8 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  *
  * @generated
  */
-public class DefaultMasterServerImpl extends MasterServerImpl implements
-        DefaultMasterServer
+public class DefaultMasterServerImpl extends MasterServerImpl implements DefaultMasterServer
 {
 
     /**
@@ -77,14 +76,10 @@ public class DefaultMasterServerImpl extends MasterServerImpl implements
             {
                 throw new RuntimeException ( e );
             }
-            this.profile = (Profile)EcoreUtil.getObjectByType ( r.getContents (),
-                    ProfilePackage.Literals.PROFILE );
+            this.profile = (Profile)EcoreUtil.getObjectByType ( r.getContents (), ProfilePackage.Literals.PROFILE );
             if ( this.profile == null )
             {
-                throw new IllegalStateException (
-                        String.format (
-                                "Resource loaded from %s does not contain an object of type %s",
-                                DEFAULT_URI, Profile.class.getName () ) );
+                throw new IllegalStateException ( String.format ( "Resource loaded from %s does not contain an object of type %s", DEFAULT_URI, Profile.class.getName () ) );
             }
         }
 

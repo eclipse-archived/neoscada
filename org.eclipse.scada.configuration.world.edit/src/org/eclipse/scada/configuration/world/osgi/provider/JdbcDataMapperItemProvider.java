@@ -69,19 +69,9 @@ public class JdbcDataMapperItemProvider extends DataMapperItemProvider
      */
     protected void addJdbcDriverPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_JdbcDataMapper_jdbcDriver_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcDataMapper_jdbcDriver_feature", "_UI_JdbcDataMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.JDBC_DATA_MAPPER__JDBC_DRIVER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcDataMapper_jdbcDriver_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcDataMapper_jdbcDriver_feature", "_UI_JdbcDataMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_DATA_MAPPER__JDBC_DRIVER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -92,19 +82,9 @@ public class JdbcDataMapperItemProvider extends DataMapperItemProvider
      */
     protected void addSqlPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_JdbcDataMapper_sql_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcDataMapper_sql_feature", "_UI_JdbcDataMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.JDBC_DATA_MAPPER__SQL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcDataMapper_sql_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcDataMapper_sql_feature", "_UI_JdbcDataMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_DATA_MAPPER__SQL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -116,8 +96,7 @@ public class JdbcDataMapperItemProvider extends DataMapperItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -174,9 +153,8 @@ public class JdbcDataMapperItemProvider extends DataMapperItemProvider
     public String getText ( Object object )
     {
         String label = ( (JdbcDataMapper)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_JdbcDataMapper_type" ) : //$NON-NLS-1$
-                getString ( "_UI_JdbcDataMapper_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_JdbcDataMapper_type" ) : //$NON-NLS-1$
+        getString ( "_UI_JdbcDataMapper_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -212,15 +190,11 @@ public class JdbcDataMapperItemProvider extends DataMapperItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.JDBC_DATA_MAPPER__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.JDBC_DATA_MAPPER__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
 }

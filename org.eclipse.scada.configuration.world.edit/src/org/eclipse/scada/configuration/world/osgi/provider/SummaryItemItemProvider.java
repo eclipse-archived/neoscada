@@ -67,19 +67,9 @@ public class SummaryItemItemProvider extends ItemItemProvider
      */
     protected void addGroupPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_SummaryItem_group_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryItem_group_feature", "_UI_SummaryItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.SUMMARY_ITEM__GROUP,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummaryItem_group_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_SummaryItem_group_feature", "_UI_SummaryItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SUMMARY_ITEM__GROUP, true, false, true, null, null, null ) );
     }
 
     /**
@@ -91,8 +81,7 @@ public class SummaryItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -149,9 +138,8 @@ public class SummaryItemItemProvider extends ItemItemProvider
     public String getText ( Object object )
     {
         String label = ( (SummaryItem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_SummaryItem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_SummaryItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_SummaryItem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_SummaryItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -183,15 +171,11 @@ public class SummaryItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.SUMMARY_ITEM__GROUP,
-                        OsgiFactory.eINSTANCE.createSummaryGroup () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SUMMARY_ITEM__GROUP, OsgiFactory.eINSTANCE.createSummaryGroup () ) );
     }
 
 }

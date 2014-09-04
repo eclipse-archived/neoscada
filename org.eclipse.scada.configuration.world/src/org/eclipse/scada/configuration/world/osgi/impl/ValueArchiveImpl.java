@@ -37,8 +37,7 @@ import org.eclipse.scada.configuration.world.osgi.ValueArchive;
  *
  * @generated
  */
-public class ValueArchiveImpl extends MinimalEObjectImpl.Container implements
-        ValueArchive
+public class ValueArchiveImpl extends MinimalEObjectImpl.Container implements ValueArchive
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.

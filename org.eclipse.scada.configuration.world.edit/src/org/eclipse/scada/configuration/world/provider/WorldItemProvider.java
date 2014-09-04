@@ -37,10 +37,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WorldItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
-        ITableItemLabelProvider
+public class WorldItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,8 +76,7 @@ public class WorldItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -170,25 +166,15 @@ public class WorldItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.WORLD__NODES,
-                        WorldFactory.eINSTANCE.createApplicationNode () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.WORLD__NODES, WorldFactory.eINSTANCE.createApplicationNode () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.WORLD__NODES,
-                        WorldFactory.eINSTANCE.createExternalNode () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.WORLD__NODES, WorldFactory.eINSTANCE.createExternalNode () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.WORLD__OPTIONS,
-                        WorldFactory.eINSTANCE.createOptions () ) );
+        newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.WORLD__OPTIONS, WorldFactory.eINSTANCE.createOptions () ) );
     }
 
     /**

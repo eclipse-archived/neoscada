@@ -84,12 +84,7 @@ public enum Architecture implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final Architecture[] VALUES_ARRAY =
-            new Architecture[]
-            {
-                    I386,
-                    AMD64,
-            };
+    private static final Architecture[] VALUES_ARRAY = new Architecture[] { I386, AMD64, };
 
     /**
      * A public read-only list of all the '<em><b>Architecture</b></em>' enumerators.

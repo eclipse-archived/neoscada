@@ -33,8 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class MovingAverageItemImpl extends ItemImpl implements
-        MovingAverageItem
+public class MovingAverageItemImpl extends ItemImpl implements MovingAverageItem
 {
     /**
      * The cached value of the '{@link #getSource() <em>Source</em>}' reference.

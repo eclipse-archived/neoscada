@@ -69,32 +69,24 @@ public class SourceItemItemProvider extends ItemItemProvider
      */
     protected void addConnectionPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors
-                .add ( new ItemPropertyDescriptor (
-                        ( (ComposeableAdapterFactory)this.adapterFactory )
-                                .getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_SourceItem_connection_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_SourceItem_connection_feature", "_UI_SourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.SOURCE_ITEM__CONNECTION, true,
-                        false, true, null, null, null ) {
-                    @Override
-                    protected java.util.Collection<?> getComboBoxObjects (
-                            final Object object )
-                    {
-                        final SourceItem sourceItem = (SourceItem)object;
-                        if ( sourceItem.eContainer () instanceof EquinoxApplication )
-                        {
-                            final EquinoxApplication app = (EquinoxApplication)sourceItem
-                                    .eContainer ();
-                            return app.getConnections ();
-                        }
-                        else
-                        {
-                            return super.getComboBoxObjects ( object );
-                        }
-                    };
-                } );
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SourceItem_connection_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SourceItem_connection_feature", "_UI_SourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.SOURCE_ITEM__CONNECTION, true, false, true, null, null, null ) {
+            @Override
+            protected java.util.Collection<?> getComboBoxObjects ( final Object object )
+            {
+                final SourceItem sourceItem = (SourceItem)object;
+                if ( sourceItem.eContainer () instanceof EquinoxApplication )
+                {
+                    final EquinoxApplication app = (EquinoxApplication)sourceItem.eContainer ();
+                    return app.getConnections ();
+                }
+                else
+                {
+                    return super.getComboBoxObjects ( object );
+                }
+            };
+        } );
     }
 
     /**
@@ -105,19 +97,9 @@ public class SourceItemItemProvider extends ItemItemProvider
      */
     protected void addSourceNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_SourceItem_sourceName_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_SourceItem_sourceName_feature", "_UI_SourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.SOURCE_ITEM__SOURCE_NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SourceItem_sourceName_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_SourceItem_sourceName_feature", "_UI_SourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SOURCE_ITEM__SOURCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -153,9 +135,8 @@ public class SourceItemItemProvider extends ItemItemProvider
     public String getText ( Object object )
     {
         String label = ( (SourceItem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_SourceItem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_SourceItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_SourceItem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_SourceItem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -187,8 +168,7 @@ public class SourceItemItemProvider extends ItemItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

@@ -39,8 +39,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class LevelMonitorImpl extends ItemFeatureEntryImpl implements
-        LevelMonitor
+public class LevelMonitorImpl extends ItemFeatureEntryImpl implements LevelMonitor
 {
     /**
      * The default value of the '{@link #getPreset() <em>Preset</em>}' attribute.

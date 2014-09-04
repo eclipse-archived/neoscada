@@ -68,19 +68,9 @@ public class ValueMapperItemProvider extends ItemFeatureEntryItemProvider
      */
     protected void addSourceAttributePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ValueMapper_sourceAttribute_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ValueMapper_sourceAttribute_feature", "_UI_ValueMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.VALUE_MAPPER__SOURCE_ATTRIBUTE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueMapper_sourceAttribute_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ValueMapper_sourceAttribute_feature", "_UI_ValueMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.VALUE_MAPPER__SOURCE_ATTRIBUTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -91,19 +81,9 @@ public class ValueMapperItemProvider extends ItemFeatureEntryItemProvider
      */
     protected void addTargetAttributePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ValueMapper_targetAttribute_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ValueMapper_targetAttribute_feature", "_UI_ValueMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.VALUE_MAPPER__TARGET_ATTRIBUTE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueMapper_targetAttribute_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ValueMapper_targetAttribute_feature", "_UI_ValueMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.VALUE_MAPPER__TARGET_ATTRIBUTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -114,19 +94,9 @@ public class ValueMapperItemProvider extends ItemFeatureEntryItemProvider
      */
     protected void addDataMapperPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ValueMapper_dataMapper_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ValueMapper_dataMapper_feature", "_UI_ValueMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.VALUE_MAPPER__DATA_MAPPER,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueMapper_dataMapper_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ValueMapper_dataMapper_feature", "_UI_ValueMapper_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.VALUE_MAPPER__DATA_MAPPER, true, false, true, null, null, null ) );
     }
 
     /**
@@ -162,9 +132,8 @@ public class ValueMapperItemProvider extends ItemFeatureEntryItemProvider
     public String getText ( Object object )
     {
         String label = ( (ValueMapper)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ValueMapper_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ValueMapper_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ValueMapper_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ValueMapper_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -197,8 +166,7 @@ public class ValueMapperItemProvider extends ItemFeatureEntryItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

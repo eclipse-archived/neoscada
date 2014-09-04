@@ -24,8 +24,7 @@ import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DebianDeploymentMechanismItemProvider extends
-        CommonDeploymentMechanismItemProvider
+public class DebianDeploymentMechanismItemProvider extends CommonDeploymentMechanismItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -89,9 +88,8 @@ public class DebianDeploymentMechanismItemProvider extends
     {
         StartupMechanism labelValue = ( (DebianDeploymentMechanism)object ).getStartupMechanism ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DebianDeploymentMechanism_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DebianDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DebianDeploymentMechanism_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DebianDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -116,8 +114,7 @@ public class DebianDeploymentMechanismItemProvider extends
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

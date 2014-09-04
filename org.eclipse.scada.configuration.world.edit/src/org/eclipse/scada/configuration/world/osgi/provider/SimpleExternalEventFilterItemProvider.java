@@ -27,8 +27,7 @@ import org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SimpleExternalEventFilterItemProvider extends
-        ExternalEventFilterItemProvider
+public class SimpleExternalEventFilterItemProvider extends ExternalEventFilterItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -67,19 +66,9 @@ public class SimpleExternalEventFilterItemProvider extends
      */
     protected void addFilterPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_SimpleExternalEventFilter_filter_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_SimpleExternalEventFilter_filter_feature", "_UI_SimpleExternalEventFilter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.SIMPLE_EXTERNAL_EVENT_FILTER__FILTER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SimpleExternalEventFilter_filter_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_SimpleExternalEventFilter_filter_feature", "_UI_SimpleExternalEventFilter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SIMPLE_EXTERNAL_EVENT_FILTER__FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -115,9 +104,8 @@ public class SimpleExternalEventFilterItemProvider extends
     public String getText ( Object object )
     {
         String label = ( (SimpleExternalEventFilter)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_SimpleExternalEventFilter_type" ) : //$NON-NLS-1$
-                getString ( "_UI_SimpleExternalEventFilter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_SimpleExternalEventFilter_type" ) : //$NON-NLS-1$
+        getString ( "_UI_SimpleExternalEventFilter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -149,8 +137,7 @@ public class SimpleExternalEventFilterItemProvider extends
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

@@ -81,8 +81,7 @@ public class ProfileAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ProfileSwitch<Adapter> modelSwitch = new ProfileSwitch<Adapter> ()
-    {
+    protected ProfileSwitch<Adapter> modelSwitch = new ProfileSwitch<Adapter> () {
         @Override
         public Adapter caseProfile ( Profile object )
         {

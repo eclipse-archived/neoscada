@@ -90,4 +90,12 @@ public final class Properties
         return defaultValue;
     }
 
+    public static void putNonEmpty ( final Map<String, String> properties, final String key, final String value )
+    {
+        if ( value != null && !value.isEmpty () )
+        {
+            properties.put ( key, value );
+        }
+    }
+
 }

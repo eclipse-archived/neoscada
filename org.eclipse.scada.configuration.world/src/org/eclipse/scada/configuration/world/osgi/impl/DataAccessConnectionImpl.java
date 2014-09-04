@@ -31,8 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class DataAccessConnectionImpl extends ConnectionImpl implements
-        DataAccessConnection
+public class DataAccessConnectionImpl extends ConnectionImpl implements DataAccessConnection
 {
     /**
      * <!-- begin-user-doc -->
@@ -94,8 +93,7 @@ public class DataAccessConnectionImpl extends ConnectionImpl implements
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
-            throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

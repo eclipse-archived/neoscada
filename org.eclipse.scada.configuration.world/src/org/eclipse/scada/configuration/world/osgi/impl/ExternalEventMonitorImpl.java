@@ -40,8 +40,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class ExternalEventMonitorImpl extends MinimalEObjectImpl.Container
-        implements ExternalEventMonitor
+public class ExternalEventMonitorImpl extends MinimalEObjectImpl.Container implements ExternalEventMonitor
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -223,8 +222,7 @@ public class ExternalEventMonitorImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

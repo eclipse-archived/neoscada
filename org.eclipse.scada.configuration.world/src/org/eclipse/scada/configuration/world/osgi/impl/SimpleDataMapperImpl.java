@@ -35,8 +35,7 @@ import org.eclipse.scada.configuration.world.osgi.SimpleDataMapper;
  *
  * @generated
  */
-public class SimpleDataMapperImpl extends DataMapperImpl implements
-        SimpleDataMapper
+public class SimpleDataMapperImpl extends DataMapperImpl implements SimpleDataMapper
 {
     /**
      * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
@@ -89,8 +88,7 @@ public class SimpleDataMapperImpl extends DataMapperImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

@@ -30,8 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class EventStoragePostgresImpl extends AbstractEventStorageJdbcImpl
-        implements EventStoragePostgres
+public class EventStoragePostgresImpl extends AbstractEventStorageJdbcImpl implements EventStoragePostgres
 {
     /**
      * The default value of the '{@link #getBatchSize() <em>Batch Size</em>}' attribute.

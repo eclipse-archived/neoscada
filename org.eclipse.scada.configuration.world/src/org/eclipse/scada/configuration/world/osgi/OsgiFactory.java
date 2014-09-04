@@ -751,6 +751,60 @@ public interface OsgiFactory extends EFactory
     EventInjectorSyslog createEventInjectorSyslog ();
 
     /**
+     * Returns a new object of class '<em>Event Injector Manager</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Event Injector Manager</em>'.
+     * @generated
+     */
+    EventInjectorManager createEventInjectorManager ();
+
+    /**
+     * Returns a new object of class '<em>Default Storage Handler</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Default Storage Handler</em>'.
+     * @generated
+     */
+    DefaultStorageHandler createDefaultStorageHandler ();
+
+    /**
+     * Returns a new object of class '<em>Include Event Filter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Include Event Filter</em>'.
+     * @generated
+     */
+    IncludeEventFilter createIncludeEventFilter ();
+
+    /**
+     * Returns a new object of class '<em>Exclude Event Filter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exclude Event Filter</em>'.
+     * @generated
+     */
+    ExcludeEventFilter createExcludeEventFilter ();
+
+    /**
+     * Returns a new object of class '<em>Script Event Handler</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Script Event Handler</em>'.
+     * @generated
+     */
+    ScriptEventHandler createScriptEventHandler ();
+
+    /**
+     * Returns a new object of class '<em>Mail Event Handler</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Mail Event Handler</em>'.
+     * @generated
+     */
+    MailEventHandler createMailEventHandler ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

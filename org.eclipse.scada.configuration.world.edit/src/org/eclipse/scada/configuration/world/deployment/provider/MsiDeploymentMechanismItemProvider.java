@@ -44,15 +44,7 @@ import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MsiDeploymentMechanismItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class MsiDeploymentMechanismItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -98,19 +90,10 @@ public class MsiDeploymentMechanismItemProvider
      */
     protected void addVersionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MsiDeploymentMechanism_version_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_version_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__VERSION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MsiDeploymentMechanism_version_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_version_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__VERSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -121,19 +104,10 @@ public class MsiDeploymentMechanismItemProvider
      */
     protected void addUpgradeCodePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MsiDeploymentMechanism_upgradeCode_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_upgradeCode_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__UPGRADE_CODE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MsiDeploymentMechanism_upgradeCode_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_upgradeCode_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__UPGRADE_CODE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -144,19 +118,10 @@ public class MsiDeploymentMechanismItemProvider
      */
     protected void addManufacturerPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MsiDeploymentMechanism_manufacturer_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_manufacturer_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__MANUFACTURER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MsiDeploymentMechanism_manufacturer_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_manufacturer_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__MANUFACTURER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -167,19 +132,10 @@ public class MsiDeploymentMechanismItemProvider
      */
     protected void addSharedPlatformPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MsiDeploymentMechanism_sharedPlatform_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_sharedPlatform_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__SHARED_PLATFORM,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_p2PropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MsiDeploymentMechanism_sharedPlatform_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_sharedPlatform_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__SHARED_PLATFORM, true, false, true, null, getString ( "_UI_p2PropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -190,19 +146,10 @@ public class MsiDeploymentMechanismItemProvider
      */
     protected void addArchitecturePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MsiDeploymentMechanism_architecture_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_architecture_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MsiDeploymentMechanism_architecture_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_architecture_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_informationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -213,19 +160,10 @@ public class MsiDeploymentMechanismItemProvider
      */
     protected void addEnableFirewallPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MsiDeploymentMechanism_enableFirewall_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_enableFirewall_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MsiDeploymentMechanism_enableFirewall_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_enableFirewall_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -236,19 +174,10 @@ public class MsiDeploymentMechanismItemProvider
      */
     protected void addEnableUserInterfacePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MsiDeploymentMechanism_enableUserInterface_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_enableUserInterface_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MsiDeploymentMechanism_enableUserInterface_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_enableUserInterface_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_setupPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -259,19 +188,10 @@ public class MsiDeploymentMechanismItemProvider
      */
     protected void addLicenseFilePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MsiDeploymentMechanism_licenseFile_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_licenseFile_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MsiDeploymentMechanism_licenseFile_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_licenseFile_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -340,9 +260,8 @@ public class MsiDeploymentMechanismItemProvider
     public String getText ( Object object )
     {
         String label = ( (MsiDeploymentMechanism)object ).getVersion ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_MsiDeploymentMechanism_type" ) : //$NON-NLS-1$
-                getString ( "_UI_MsiDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_MsiDeploymentMechanism_type" ) : //$NON-NLS-1$
+        getString ( "_UI_MsiDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -387,10 +306,7 @@ public class MsiDeploymentMechanismItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__LOCAL_PLATFORM,
-                        DeploymentFactory.eINSTANCE.createP2Platform () ) );
+        newChildDescriptors.add ( createChildParameter ( DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__LOCAL_PLATFORM, DeploymentFactory.eINSTANCE.createP2Platform () ) );
     }
 
     /**

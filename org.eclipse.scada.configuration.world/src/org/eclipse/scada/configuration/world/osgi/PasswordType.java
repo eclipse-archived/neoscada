@@ -133,13 +133,7 @@ public enum PasswordType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final PasswordType[] VALUES_ARRAY = new PasswordType[]
-    {
-            PLAIN,
-            PLAIN_IGNORE_CASE,
-            MD5_HEX,
-            SHA1_HEX,
-    };
+    private static final PasswordType[] VALUES_ARRAY = new PasswordType[] { PLAIN, PLAIN_IGNORE_CASE, MD5_HEX, SHA1_HEX, };
 
     /**
      * A public read-only list of all the '<em><b>Password Type</b></em>' enumerators.

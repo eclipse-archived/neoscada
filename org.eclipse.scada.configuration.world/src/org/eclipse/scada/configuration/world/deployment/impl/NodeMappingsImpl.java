@@ -24,8 +24,7 @@ import org.eclipse.scada.configuration.world.deployment.NodeMappings;
  *
  * @generated
  */
-public class NodeMappingsImpl extends MappingsImpl implements
-        NodeMappings
+public class NodeMappingsImpl extends MappingsImpl implements NodeMappings
 {
     /**
      * <!-- begin-user-doc -->

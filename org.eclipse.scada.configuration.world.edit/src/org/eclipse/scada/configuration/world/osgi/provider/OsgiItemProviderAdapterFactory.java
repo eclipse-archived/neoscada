@@ -46,9 +46,7 @@ import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable,
-        IChildCreationExtender
+public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender
 {
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -2099,6 +2097,156 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.EventInjectorManager} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventInjectorManagerItemProvider eventInjectorManagerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.EventInjectorManager}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEventInjectorManagerAdapter ()
+    {
+        if ( eventInjectorManagerItemProvider == null )
+        {
+            eventInjectorManagerItemProvider = new EventInjectorManagerItemProvider ( this );
+        }
+
+        return eventInjectorManagerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.DefaultStorageHandler} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DefaultStorageHandlerItemProvider defaultStorageHandlerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.DefaultStorageHandler}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDefaultStorageHandlerAdapter ()
+    {
+        if ( defaultStorageHandlerItemProvider == null )
+        {
+            defaultStorageHandlerItemProvider = new DefaultStorageHandlerItemProvider ( this );
+        }
+
+        return defaultStorageHandlerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.IncludeEventFilter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IncludeEventFilterItemProvider includeEventFilterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.IncludeEventFilter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createIncludeEventFilterAdapter ()
+    {
+        if ( includeEventFilterItemProvider == null )
+        {
+            includeEventFilterItemProvider = new IncludeEventFilterItemProvider ( this );
+        }
+
+        return includeEventFilterItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.ExcludeEventFilter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ExcludeEventFilterItemProvider excludeEventFilterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.ExcludeEventFilter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createExcludeEventFilterAdapter ()
+    {
+        if ( excludeEventFilterItemProvider == null )
+        {
+            excludeEventFilterItemProvider = new ExcludeEventFilterItemProvider ( this );
+        }
+
+        return excludeEventFilterItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.ScriptEventHandler} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScriptEventHandlerItemProvider scriptEventHandlerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.ScriptEventHandler}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScriptEventHandlerAdapter ()
+    {
+        if ( scriptEventHandlerItemProvider == null )
+        {
+            scriptEventHandlerItemProvider = new ScriptEventHandlerItemProvider ( this );
+        }
+
+        return scriptEventHandlerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.MailEventHandler} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MailEventHandlerItemProvider mailEventHandlerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.MailEventHandler}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMailEventHandlerAdapter ()
+    {
+        if ( mailEventHandlerItemProvider == null )
+        {
+            mailEventHandlerItemProvider = new MailEventHandlerItemProvider ( this );
+        }
+
+        return mailEventHandlerItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2115,8 +2263,7 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentAdapterFactory (
-            ComposedAdapterFactory parentAdapterFactory )
+    public void setParentAdapterFactory ( ComposedAdapterFactory parentAdapterFactory )
     {
         this.parentAdapterFactory = parentAdapterFactory;
     }
@@ -2179,8 +2326,7 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
      * <!-- end-user-doc -->
      * @generated
      */
-    public Collection<?> getNewChildDescriptors ( Object object,
-            EditingDomain editingDomain )
+    public Collection<?> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
     {
         return childCreationExtenderManager.getNewChildDescriptors ( object, editingDomain );
     }
@@ -2401,6 +2547,18 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
             profileConfigurationItemProvider.dispose ();
         if ( eventInjectorSyslogItemProvider != null )
             eventInjectorSyslogItemProvider.dispose ();
+        if ( eventInjectorManagerItemProvider != null )
+            eventInjectorManagerItemProvider.dispose ();
+        if ( defaultStorageHandlerItemProvider != null )
+            defaultStorageHandlerItemProvider.dispose ();
+        if ( includeEventFilterItemProvider != null )
+            includeEventFilterItemProvider.dispose ();
+        if ( excludeEventFilterItemProvider != null )
+            excludeEventFilterItemProvider.dispose ();
+        if ( scriptEventHandlerItemProvider != null )
+            scriptEventHandlerItemProvider.dispose ();
+        if ( mailEventHandlerItemProvider != null )
+            mailEventHandlerItemProvider.dispose ();
     }
 
 }

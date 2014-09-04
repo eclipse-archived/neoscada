@@ -42,8 +42,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class MarkerGroupImpl extends MinimalEObjectImpl.Container implements
-        MarkerGroup
+public class MarkerGroupImpl extends MinimalEObjectImpl.Container implements MarkerGroup
 {
     /**
      * The cached value of the '{@link #getItems() <em>Items</em>}' reference list.
@@ -149,8 +148,7 @@ public class MarkerGroupImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

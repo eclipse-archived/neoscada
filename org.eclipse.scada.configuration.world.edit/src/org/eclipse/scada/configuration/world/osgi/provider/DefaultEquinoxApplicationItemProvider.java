@@ -42,15 +42,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DefaultEquinoxApplicationItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class DefaultEquinoxApplicationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -93,19 +85,10 @@ public class DefaultEquinoxApplicationItemProvider
      */
     protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -116,19 +99,10 @@ public class DefaultEquinoxApplicationItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -139,19 +113,9 @@ public class DefaultEquinoxApplicationItemProvider
      */
     protected void addCustomizationProfilePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_EquinoxApplication_customizationProfile_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_customizationProfile_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxApplication_customizationProfile_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_customizationProfile_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -162,19 +126,9 @@ public class DefaultEquinoxApplicationItemProvider
      */
     protected void addSecurityConfigurationPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_EquinoxApplication_securityConfiguration_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_securityConfiguration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.EQUINOX_APPLICATION__SECURITY_CONFIGURATION,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxApplication_securityConfiguration_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_securityConfiguration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EQUINOX_APPLICATION__SECURITY_CONFIGURATION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -185,19 +139,9 @@ public class DefaultEquinoxApplicationItemProvider
      */
     protected void addProfilePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DefaultEquinoxApplication_profile_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DefaultEquinoxApplication_profile_feature", "_UI_DefaultEquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.DEFAULT_EQUINOX_APPLICATION__PROFILE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DefaultEquinoxApplication_profile_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DefaultEquinoxApplication_profile_feature", "_UI_DefaultEquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.DEFAULT_EQUINOX_APPLICATION__PROFILE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -269,9 +213,8 @@ public class DefaultEquinoxApplicationItemProvider
     public String getText ( Object object )
     {
         String label = ( (DefaultEquinoxApplication)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DefaultEquinoxApplication_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DefaultEquinoxApplication_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DefaultEquinoxApplication_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DefaultEquinoxApplication_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -314,100 +257,45 @@ public class DefaultEquinoxApplicationItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__CONNECTIONS,
-                        OsgiFactory.eINSTANCE.createDataAccessConnection () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__CONNECTIONS, OsgiFactory.eINSTANCE.createDataAccessConnection () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__CONNECTIONS,
-                        OsgiFactory.eINSTANCE.createAlarmsEventsConnection () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__CONNECTIONS, OsgiFactory.eINSTANCE.createAlarmsEventsConnection () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER,
-                        OsgiFactory.eINSTANCE.createDataAccessExporter () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER, OsgiFactory.eINSTANCE.createDataAccessExporter () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER,
-                        OsgiFactory.eINSTANCE.createAlarmsEventsExporter () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER, OsgiFactory.eINSTANCE.createAlarmsEventsExporter () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER,
-                        OsgiFactory.eINSTANCE.createHistoricalDataExporter () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER, OsgiFactory.eINSTANCE.createHistoricalDataExporter () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER,
-                        OsgiFactory.eINSTANCE.createConfigurationAdministratorExporter () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER, OsgiFactory.eINSTANCE.createConfigurationAdministratorExporter () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE,
-                        ProfileFactory.eINSTANCE.createProfile () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE, ProfileFactory.eINSTANCE.createProfile () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createBlockings () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createBlockings () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createAlarmsEventsModule () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createAlarmsEventsModule () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createJdbcUserServiceModule () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createJdbcUserServiceModule () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createRestExporter () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createRestExporter () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createHttpService () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createHttpService () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createTelnetConsole () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createTelnetConsole () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createEventInjectorPostgres () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createEventInjectorPostgres () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createEventInjectorJdbc () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createEventInjectorJdbc () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createProfileConfiguration () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createProfileConfiguration () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                        OsgiFactory.eINSTANCE.createEventInjectorSyslog () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createEventInjectorSyslog () ) );
+
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createEventInjectorManager () ) );
     }
 
     /**

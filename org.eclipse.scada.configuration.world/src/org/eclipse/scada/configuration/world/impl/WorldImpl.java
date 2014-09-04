@@ -140,8 +140,7 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetOptions ( Options newOptions,
-            NotificationChain msgs )
+    public NotificationChain basicSetOptions ( Options newOptions, NotificationChain msgs )
     {
         Options oldOptions = options;
         options = newOptions;
@@ -184,8 +183,7 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

@@ -66,8 +66,7 @@ public class SimpleDataMapperItemProvider extends DataMapperItemProvider
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
         if ( childrenFeatures == null )
         {
@@ -124,9 +123,8 @@ public class SimpleDataMapperItemProvider extends DataMapperItemProvider
     public String getText ( Object object )
     {
         String label = ( (SimpleDataMapper)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_SimpleDataMapper_type" ) : //$NON-NLS-1$
-                getString ( "_UI_SimpleDataMapper_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_SimpleDataMapper_type" ) : //$NON-NLS-1$
+        getString ( "_UI_SimpleDataMapper_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -158,15 +156,11 @@ public class SimpleDataMapperItemProvider extends DataMapperItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( OsgiPackage.Literals.SIMPLE_DATA_MAPPER__ENTRIES,
-                        OsgiFactory.eINSTANCE.createDataMapperEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SIMPLE_DATA_MAPPER__ENTRIES, OsgiFactory.eINSTANCE.createDataMapperEntry () ) );
     }
 
 }

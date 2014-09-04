@@ -39,9 +39,7 @@ import org.eclipse.scada.configuration.world.deployment.util.DeploymentAdapterFa
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeploymentItemProviderAdapterFactory extends
-        DeploymentAdapterFactory implements ComposeableAdapterFactory,
-        IChangeNotifier, IDisposable
+public class DeploymentItemProviderAdapterFactory extends DeploymentAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable
 {
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
@@ -377,8 +375,7 @@ public class DeploymentItemProviderAdapterFactory extends
      * @generated
      */
     @Override
-    public void setParentAdapterFactory (
-            ComposedAdapterFactory parentAdapterFactory )
+    public void setParentAdapterFactory ( ComposedAdapterFactory parentAdapterFactory )
     {
         this.parentAdapterFactory = parentAdapterFactory;
     }

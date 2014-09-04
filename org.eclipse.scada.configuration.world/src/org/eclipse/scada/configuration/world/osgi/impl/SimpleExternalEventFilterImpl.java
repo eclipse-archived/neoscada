@@ -29,8 +29,7 @@ import org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter;
  *
  * @generated
  */
-public class SimpleExternalEventFilterImpl extends ExternalEventFilterImpl
-        implements SimpleExternalEventFilter
+public class SimpleExternalEventFilterImpl extends ExternalEventFilterImpl implements SimpleExternalEventFilter
 {
     /**
      * The default value of the '{@link #getFilter() <em>Filter</em>}' attribute.

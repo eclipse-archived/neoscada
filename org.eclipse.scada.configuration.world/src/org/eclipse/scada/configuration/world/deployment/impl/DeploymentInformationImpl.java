@@ -36,8 +36,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  *
  * @generated
  */
-public class DeploymentInformationImpl extends MinimalEObjectImpl.Container
-        implements DeploymentInformation
+public class DeploymentInformationImpl extends MinimalEObjectImpl.Container implements DeploymentInformation
 {
     /**
      * The cached value of the '{@link #getAuthors() <em>Authors</em>}' containment reference list.
@@ -90,8 +89,7 @@ public class DeploymentInformationImpl extends MinimalEObjectImpl.Container
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

@@ -39,8 +39,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class EndpointImpl extends MinimalEObjectImpl.Container implements
-        Endpoint
+public class EndpointImpl extends MinimalEObjectImpl.Container implements Endpoint
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
@@ -347,8 +346,7 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -366,8 +364,7 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -385,8 +382,7 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature (
-            NotificationChain msgs )
+    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
     {
         switch ( eContainerFeatureID () )
         {

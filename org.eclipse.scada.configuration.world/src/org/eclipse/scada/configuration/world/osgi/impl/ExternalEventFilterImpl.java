@@ -31,8 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public abstract class ExternalEventFilterImpl extends
-        MinimalEObjectImpl.Container implements ExternalEventFilter
+public abstract class ExternalEventFilterImpl extends MinimalEObjectImpl.Container implements ExternalEventFilter
 {
     /**
      * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.

@@ -108,8 +108,7 @@ public class ExecDriverImpl extends CommonDriverImpl implements ExecDriver
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetRoot ( RootType newRoot,
-            NotificationChain msgs )
+    public NotificationChain basicSetRoot ( RootType newRoot, NotificationChain msgs )
     {
         RootType oldRoot = root;
         root = newRoot;
@@ -152,8 +151,7 @@ public class ExecDriverImpl extends CommonDriverImpl implements ExecDriver
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

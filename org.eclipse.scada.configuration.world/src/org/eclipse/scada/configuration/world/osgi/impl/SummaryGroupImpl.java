@@ -41,8 +41,7 @@ import org.eclipse.scada.configuration.world.osgi.SummaryGroup;
  *
  * @generated
  */
-public class SummaryGroupImpl extends MinimalEObjectImpl.Container implements
-        SummaryGroup
+public class SummaryGroupImpl extends MinimalEObjectImpl.Container implements SummaryGroup
 {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -162,8 +161,7 @@ public class SummaryGroupImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {

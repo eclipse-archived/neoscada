@@ -42,15 +42,7 @@ import org.eclipse.scada.configuration.world.setup.SetupPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SetupDefinitionsItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource,
-        ITableItemLabelProvider
+public class SetupDefinitionsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -183,15 +175,9 @@ public class SetupDefinitionsItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( SetupPackage.Literals.SETUP_DEFINITIONS__CONTAINERS,
-                        SetupFactory.eINSTANCE.createSetupModuleContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( SetupPackage.Literals.SETUP_DEFINITIONS__CONTAINERS, SetupFactory.eINSTANCE.createSetupModuleContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( SetupPackage.Literals.SETUP_DEFINITIONS__OPERATION_SYSTEM_DEFINITIONS,
-                        SetupFactory.eINSTANCE.createOperatingSystemDescriptor () ) );
+        newChildDescriptors.add ( createChildParameter ( SetupPackage.Literals.SETUP_DEFINITIONS__OPERATION_SYSTEM_DEFINITIONS, SetupFactory.eINSTANCE.createOperatingSystemDescriptor () ) );
     }
 
     /**

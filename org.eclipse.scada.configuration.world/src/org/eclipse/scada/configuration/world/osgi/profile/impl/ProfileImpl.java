@@ -53,8 +53,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  *
  * @generated
  */
-public class ProfileImpl extends MinimalEObjectImpl.Container implements
-        Profile
+public class ProfileImpl extends MinimalEObjectImpl.Container implements Profile
 {
     /**
      * The cached value of the '{@link #getInstallationUnits() <em>Installation Units</em>}' attribute list.
@@ -385,8 +384,7 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
-            int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
