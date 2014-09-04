@@ -7,8 +7,10 @@ Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.ae;version="0.2.0",
  org.eclipse.scada.ae.server.handler;version="0.2.0",
+ org.eclipse.scada.ae.server.injector;version="0.2.0",
  org.eclipse.scada.ca;version="0.2.0",
  org.eclipse.scada.utils.script;version="0.2.0",
+ org.osgi.framework;version="1.7.0",
  org.slf4j;version="1.7.2"
 Service-Component: OSGI-INF/handler.xml
 Bundle-ActivationPolicy: lazy

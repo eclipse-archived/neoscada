@@ -7,6 +7,7 @@ import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.Event.EventBuilder;
 import org.eclipse.scada.ae.server.handler.AbstractEventHandler;
 import org.eclipse.scada.ae.server.handler.InjectionContext;
+import org.eclipse.scada.ae.server.injector.EventInjectorQueue;
 import org.eclipse.scada.utils.script.ScriptExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,9 +18,12 @@ public class ScriptEventHandler extends AbstractEventHandler
 
     private final ScriptExecutor script;
 
-    public ScriptEventHandler ( final ScriptExecutor script )
+    private final EventInjectorQueue injector;
+
+    public ScriptEventHandler ( final ScriptExecutor script, final EventInjectorQueue injector )
     {
         this.script = script;
+        this.injector = injector;
     }
 
     @Override
@@ -30,6 +34,7 @@ public class ScriptEventHandler extends AbstractEventHandler
         {
             scriptContext.setAttribute ( "event", event, ScriptContext.GLOBAL_SCOPE );
             scriptContext.setAttribute ( "logger", logger, ScriptContext.GLOBAL_SCOPE );
+            scriptContext.setAttribute ( "injector", this.injector, ScriptContext.GLOBAL_SCOPE );
 
             final Object result = this.script.execute ( scriptContext );
             final Event resultEvent = convert ( result, event );
