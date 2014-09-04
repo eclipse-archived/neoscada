@@ -28,6 +28,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.scada.base.pipe.PipeService;
 import org.eclipse.scada.base.pipe.Producer;
@@ -53,6 +55,19 @@ public class PipeServiceImpl implements PipeService
     private boolean started;
 
     private WorkerHandle testWorker;
+
+    static class MetaInfo
+    {
+        public MetaInfo ( final long timestamp, final long idx, final long retry )
+        {
+            this.timestamp = timestamp;
+            this.retry = retry;
+        }
+
+        long timestamp;
+
+        long retry;
+    }
 
     public PipeServiceImpl ()
     {
@@ -142,7 +157,7 @@ public class PipeServiceImpl implements PipeService
     {
         final String name = encode ( pipeName );
 
-        final File file = makeFile ( name, 0 );
+        final File file = makeFile ( name, null );
 
         logger.trace ( "Block file: {}", file );
 
@@ -181,18 +196,25 @@ public class PipeServiceImpl implements PipeService
         }
     }
 
-    File makeFile ( final String pipeName, long time )
+    File makeFile ( final String pipeName, final MetaInfo info )
     {
-        if ( time <= 0 )
+        long time;
+        final long retry = info == null ? 0 : info.retry;
+
+        if ( info == null || info.timestamp <= 0 )
         {
             time = System.currentTimeMillis ();
+        }
+        else
+        {
+            time = info.timestamp;
         }
 
         final long value = this.counter.incrementAndGet ();
 
         final File queueDir = getQueueDir ( pipeName );
 
-        return new File ( queueDir, String.format ( "%08x-%08x.evt", time, value ) );
+        return new File ( queueDir, String.format ( "%016x-%016x-%08x.evt", time, value, retry ) );
     }
 
     private File getQueueDir ( final String pipeName )
@@ -267,26 +289,15 @@ public class PipeServiceImpl implements PipeService
             if ( file.getName ().endsWith ( ".evt" ) && file.length () > 0 )
             {
                 logger.trace ( "Preparing: {}", file );
-                final String n = file.getName ();
-                final int idx = n.indexOf ( '-' );
-                if ( idx <= 0 )
-                {
-                    logger.info ( "Broken file name: {}", n );
-                    continue;
-                }
-                final String tix = n.substring ( 0, idx );
-                logger.trace ( "Tix: {}", tix );
 
-                final long timestamp;
-                try
+                final MetaInfo info = parse ( file.getName () );
+                if ( info == null )
                 {
-                    timestamp = Long.parseLong ( tix, 16 );
-                }
-                catch ( final NumberFormatException e )
-                {
-                    logger.warn ( "Failed to decode timestamp of: {}", n );
+                    logger.info ( "Broken file name: {}", file.getName () );
                     continue;
                 }
+
+                final long timestamp = info.timestamp;
 
                 if ( timestamp > now )
                 {
@@ -298,7 +309,7 @@ public class PipeServiceImpl implements PipeService
                         }
                         endTime = timestamp;
                     }
-                    logger.debug ( "Postponed item: {}", n );
+                    logger.debug ( "Postponed item: {}", file.getName () );
                     continue;
                 }
 
@@ -312,6 +323,23 @@ public class PipeServiceImpl implements PipeService
         }
 
         return endTime;
+    }
+
+    private static final Pattern FILE_PATTERN = Pattern.compile ( "([0-9a-z]+)-([0-9a-z]+)-([0-9a-z]+)\\.evt", Pattern.CASE_INSENSITIVE );
+
+    static MetaInfo parse ( final String n )
+    {
+        final Matcher m = FILE_PATTERN.matcher ( n );
+        if ( !m.matches () )
+        {
+            return null;
+        }
+
+        final long timestamp = Long.parseLong ( m.group ( 1 ), 16 );
+        final long idx = Long.parseLong ( m.group ( 2 ), 16 );
+        final long retry = Long.parseLong ( m.group ( 3 ), 16 );
+
+        return new MetaInfo ( timestamp, idx, retry );
     }
 
     public void processNextEvent ( final Worker worker, final String pipeName ) throws IOException
@@ -382,21 +410,25 @@ public class PipeServiceImpl implements PipeService
             {
                 continue;
             }
-            if ( !f.getName ().endsWith ( ".evt" ) )
-            {
-                continue;
-            }
             if ( f.length () <= 0 )
             {
                 continue;
             }
+            final MetaInfo info = parse ( f.getName () );
+            if ( info == null )
+            {
+                continue;
+            }
+
             final List<String> row = new LinkedList<> ();
             row.add ( f.getName () );
             row.add ( "" + f.length () );
             row.add ( String.format ( "%tc", new Date ( f.lastModified () ) ) );
+            row.add ( String.format ( "%tc", new Date ( info.timestamp ) ) );
+            row.add ( "" + info.retry );
             rows.add ( row );
         }
-        Tables.showTable ( System.out, Arrays.asList ( "Name", "Size", "Entry Date" ), rows, 1 );
+        Tables.showTable ( System.out, Arrays.asList ( "Name", "Size", "Entry Date", "Schedule", "Retry" ), rows, 3 );
     }
 
     private String decode ( final String name )

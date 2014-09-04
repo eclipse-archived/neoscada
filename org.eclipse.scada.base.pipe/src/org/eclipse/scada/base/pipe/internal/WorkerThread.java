@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.scada.base.pipe.Worker;
+import org.eclipse.scada.base.pipe.internal.PipeServiceImpl.MetaInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -140,8 +141,13 @@ class WorkerThread extends Thread
                 else
                 {
                     // postpone
-                    final long next = System.currentTimeMillis () + 1_000 * 60;
-                    final File newFile = this.pipeService.makeFile ( this.pipeName, next );
+                    final MetaInfo info = PipeServiceImpl.parse ( file.getName () );
+                    if ( info != null )
+                    {
+                        info.timestamp = System.currentTimeMillis () + 1_000 * 60;
+                        info.retry++;
+                    }
+                    final File newFile = this.pipeService.makeFile ( this.pipeName, info );
                     logger.debug ( "Postponing event - {} -> {}", file.getName (), newFile.getName () );
                     Files.move ( file.toPath (), newFile.toPath (), StandardCopyOption.ATOMIC_MOVE );
                 }
