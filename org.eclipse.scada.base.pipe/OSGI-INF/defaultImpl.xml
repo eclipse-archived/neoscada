@@ -10,5 +10,6 @@ list
 startTestWorker
 closeTestWorker
 testPublish
+drop
 </property>
 </scr:component>

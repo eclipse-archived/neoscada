@@ -34,6 +34,7 @@ import org.eclipse.scada.base.pipe.Producer;
 import org.eclipse.scada.base.pipe.Worker;
 import org.eclipse.scada.base.pipe.WorkerAlreadyCreated;
 import org.eclipse.scada.base.pipe.WorkerHandle;
+import org.eclipse.scada.utils.io.RecursiveDeleteVisitor;
 import org.eclipse.scada.utils.str.Tables;
 import org.osgi.framework.FrameworkUtil;
 import org.slf4j.Logger;
@@ -462,5 +463,21 @@ public class PipeServiceImpl implements PipeService
     public void testPublish ( final String pipeName, final String data ) throws IOException
     {
         publishEvent ( pipeName, StandardCharsets.UTF_8.encode ( data ).array () );
+    }
+
+    public void drop ( final String pipeName ) throws IOException
+    {
+        final File dir = getQueueDir ( pipeName );
+
+        File ndir;
+        int i = 0;
+        do
+        {
+            ndir = new File ( dir.getName () + "-" + i );
+            i++;
+        } while ( ndir.exists () );
+
+        Files.move ( dir.toPath (), ndir.toPath (), StandardCopyOption.ATOMIC_MOVE );
+        Files.walkFileTree ( ndir.toPath (), new RecursiveDeleteVisitor () );
     }
 }
