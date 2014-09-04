@@ -81,9 +81,15 @@ public class ASDUAddress
     @Override
     public String toString ()
     {
+        final int[] add = toArray ();
+        return isBroadcast () ? "[BCAST]" : String.format ( "[%d-%d # %d]", add[0], add[1], this.address );
+    }
+
+    public int[] toArray ()
+    {
         final ByteBuf buf = Unpooled.buffer ( 2 );
         buf.writeShort ( this.address );
-        return isBroadcast () ? "[BCAST]" : String.format ( "[%d-%d # %d]", buf.getUnsignedByte ( 0 ), buf.getUnsignedByte ( 1 ), this.address );
+        return new int[] { buf.getUnsignedByte ( 0 ), buf.getUnsignedByte ( 1 ) };
     }
 
     public static ASDUAddress fromString ( final String value )
