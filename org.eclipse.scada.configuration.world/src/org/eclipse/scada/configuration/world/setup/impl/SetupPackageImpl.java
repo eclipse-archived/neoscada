@@ -19,28 +19,17 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.scada.configuration.security.SecurityPackage;
-
 import org.eclipse.scada.configuration.world.WorldPackage;
-
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
-
 import org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl;
-
 import org.eclipse.scada.configuration.world.impl.WorldPackageImpl;
-
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
-
 import org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl;
-
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
-
 import org.eclipse.scada.configuration.world.osgi.profile.impl.ProfilePackageImpl;
-
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 import org.eclipse.scada.configuration.world.setup.SetupDefinitions;
 import org.eclipse.scada.configuration.world.setup.SetupFactory;
@@ -48,7 +37,6 @@ import org.eclipse.scada.configuration.world.setup.SetupModule;
 import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 import org.eclipse.scada.configuration.world.setup.SetupPackage;
 import org.eclipse.scada.configuration.world.setup.SubContainerModule;
-
 import org.eclipse.scada.da.exec.configuration.ConfigurationPackage;
 
 /**
@@ -160,6 +148,7 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
         // Initialize simple dependencies
         EcorePackage.eINSTANCE.eClass ();
         ConfigurationPackage.eINSTANCE.eClass ();
+        org.eclipse.scada.configuration.script.ScriptPackage.eINSTANCE.eClass ();
         SecurityPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies

@@ -1007,6 +1007,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         // Initialize simple dependencies
         EcorePackage.eINSTANCE.eClass ();
         ConfigurationPackage.eINSTANCE.eClass ();
+        org.eclipse.scada.configuration.script.ScriptPackage.eINSTANCE.eClass ();
         SecurityPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
@@ -4668,6 +4669,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getScriptEventHandler_Script ()
+    {
+        return (EReference)scriptEventHandlerEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getMailEventHandler ()
     {
         return mailEventHandlerEClass;
@@ -5329,6 +5340,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         excludeEventFilterEClass = createEClass ( EXCLUDE_EVENT_FILTER );
 
         scriptEventHandlerEClass = createEClass ( SCRIPT_EVENT_HANDLER );
+        createEReference ( scriptEventHandlerEClass, SCRIPT_EVENT_HANDLER__SCRIPT );
 
         mailEventHandlerEClass = createEClass ( MAIL_EVENT_HANDLER );
         createEReference ( mailEventHandlerEClass, MAIL_EVENT_HANDLER__SESSION_PROPERTIES );
@@ -5384,6 +5396,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
         SecurityPackage theSecurityPackage = (SecurityPackage)EPackage.Registry.INSTANCE.getEPackage ( SecurityPackage.eNS_URI );
         EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage ( EcorePackage.eNS_URI );
+        org.eclipse.scada.configuration.script.ScriptPackage theScriptPackage = (org.eclipse.scada.configuration.script.ScriptPackage)EPackage.Registry.INSTANCE.getEPackage ( org.eclipse.scada.configuration.script.ScriptPackage.eNS_URI );
 
         // Add subpackages
         getESubpackages ().add ( theProfilePackage );
@@ -5939,6 +5952,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEClass ( excludeEventFilterEClass, ExcludeEventFilter.class, "ExcludeEventFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         initEClass ( scriptEventHandlerEClass, ScriptEventHandler.class, "ScriptEventHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getScriptEventHandler_Script (), theScriptPackage.getJavaScript (), null, "script", null, 1, 1, ScriptEventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( mailEventHandlerEClass, MailEventHandler.class, "MailEventHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getMailEventHandler_SessionProperties (), theWorldPackage.getPropertyEntry (), null, "sessionProperties", null, 0, -1, MailEventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

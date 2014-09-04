@@ -11,11 +11,18 @@
  */
 package org.eclipse.scada.configuration.world.osgi;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Script Event Handler</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptEventHandler#getScript <em>Script</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptEventHandler()
  * @model
@@ -23,4 +30,30 @@ package org.eclipse.scada.configuration.world.osgi;
  */
 public interface ScriptEventHandler extends EventHandler
 {
+
+    /**
+     * Returns the value of the '<em><b>Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Script</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Script</em>' containment reference.
+     * @see #setScript(org.eclipse.scada.configuration.script.JavaScript)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptEventHandler_Script()
+     * @model containment="true" resolveProxies="true" required="true"
+     * @generated
+     */
+    org.eclipse.scada.configuration.script.JavaScript getScript ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptEventHandler#getScript <em>Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Script</em>' containment reference.
+     * @see #getScript()
+     * @generated
+     */
+    void setScript ( org.eclipse.scada.configuration.script.JavaScript value );
 } // ScriptEventHandler

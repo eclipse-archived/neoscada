@@ -25,6 +25,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.scada.da.server.exec;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.scada.configuration.script;visibility:=reexport,
  org.eclipse.scada.configuration.security;bundle-version="0.1.0";visibility:=reexport,
  org.eclipse.scada.configuration.utils;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

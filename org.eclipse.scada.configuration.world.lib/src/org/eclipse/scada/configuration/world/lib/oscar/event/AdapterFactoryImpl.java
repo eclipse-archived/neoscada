@@ -15,6 +15,7 @@ import org.eclipse.scada.configuration.world.osgi.DefaultStorageHandler;
 import org.eclipse.scada.configuration.world.osgi.ExcludeEventFilter;
 import org.eclipse.scada.configuration.world.osgi.IncludeEventFilter;
 import org.eclipse.scada.configuration.world.osgi.MailEventHandler;
+import org.eclipse.scada.configuration.world.osgi.ScriptEventHandler;
 
 public class AdapterFactoryImpl implements IAdapterFactory
 {
@@ -40,6 +41,10 @@ public class AdapterFactoryImpl implements IAdapterFactory
             else if ( adaptableObject instanceof ExcludeEventFilter )
             {
                 return new ExcludeFilterHandlerProcessor ();
+            }
+            else if ( adaptableObject instanceof ScriptEventHandler )
+            {
+                return new ScriptHandlerProcessor ();
             }
         }
 

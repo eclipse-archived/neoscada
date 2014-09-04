@@ -19,6 +19,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.eclipse.scada.da.server.exec;visibility:=reexport,
  org.eclipse.scada.da.server.exec.edit;visibility:=reexport,
+ org.eclipse.scada.configuration.script;visibility:=reexport,
+ org.eclipse.scada.configuration.script.edit;visibility:=reexport,
  org.eclipse.scada.configuration.security;bundle-version="0.1.0";visibility:=reexport,
  org.eclipse.scada.configuration.security.edit;bundle-version="0.1.0";visibility:=reexport
 Import-Package: org.eclipse.scada.configuration.lib;version="0.2.0",

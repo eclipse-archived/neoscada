@@ -7201,13 +7201,22 @@ public interface OsgiPackage extends EPackage
     int SCRIPT_EVENT_HANDLER = 101;
 
     /**
+     * The feature id for the '<em><b>Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_EVENT_HANDLER__SCRIPT = EVENT_HANDLER_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Script Event Handler</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_EVENT_HANDLER_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 0;
+    int SCRIPT_EVENT_HANDLER_FEATURE_COUNT = EVENT_HANDLER_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Script Event Handler</em>' class.
@@ -10969,6 +10978,17 @@ public interface OsgiPackage extends EPackage
     EClass getScriptEventHandler ();
 
     /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.world.osgi.ScriptEventHandler#getScript <em>Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Script</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ScriptEventHandler#getScript()
+     * @see #getScriptEventHandler()
+     * @generated
+     */
+    EReference getScriptEventHandler_Script ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.MailEventHandler <em>Mail Event Handler</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -14066,6 +14086,14 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EClass SCRIPT_EVENT_HANDLER = eINSTANCE.getScriptEventHandler ();
+
+        /**
+         * The meta object literal for the '<em><b>Script</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SCRIPT_EVENT_HANDLER__SCRIPT = eINSTANCE.getScriptEventHandler_Script ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.MailEventHandlerImpl <em>Mail Event Handler</em>}' class.

@@ -129,6 +129,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
         // Initialize simple dependencies
         EcorePackage.eINSTANCE.eClass ();
         ConfigurationPackage.eINSTANCE.eClass ();
+        org.eclipse.scada.configuration.script.ScriptPackage.eINSTANCE.eClass ();
         SecurityPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
