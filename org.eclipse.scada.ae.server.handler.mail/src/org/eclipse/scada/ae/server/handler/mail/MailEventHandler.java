@@ -61,10 +61,13 @@ public class MailEventHandler implements EventHandler
 
     private final int maxSubjectLength = 64;
 
-    public MailEventHandler ( final String id, final MailSender sender, final PipeService pipeService ) throws Exception
+    private final int retries;
+
+    public MailEventHandler ( final String id, final MailSender sender, final PipeService pipeService, final int retries ) throws Exception
     {
         this.bundle = FrameworkUtil.getBundle ( MailHandlerFactory.class );
         this.sender = sender;
+        this.retries = retries;
 
         final String pipeName = "mail." + id;
 
@@ -94,7 +97,7 @@ public class MailEventHandler implements EventHandler
             os.writeObject ( makeRequest ( event ) );
             os.close ();
 
-            this.producer.publish ( bos.toByteArray () );
+            this.producer.publish ( bos.toByteArray (), this.retries );
         }
         catch ( final Exception e )
         {

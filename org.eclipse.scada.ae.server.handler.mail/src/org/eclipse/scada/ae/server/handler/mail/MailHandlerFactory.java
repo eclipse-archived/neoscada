@@ -79,6 +79,8 @@ public class MailHandlerFactory implements EventHandlerFactory
             from = new InternetAddress ( fromString );
         }
 
+        final int retries = cfg.getInteger ( "retries", 60 );
+
         Authenticator auth = null;
         final String username = cfg.getString ( "username" );
         final String password = cfg.getString ( "password" );
@@ -115,6 +117,6 @@ public class MailHandlerFactory implements EventHandlerFactory
 
         final MailSender sender = new MailSender ( session, from, to.toArray ( new InternetAddress[0] ), password );
 
-        return new MailEventHandler ( id, sender, this.pipeService );
+        return new MailEventHandler ( id, sender, this.pipeService, retries );
     }
 }
