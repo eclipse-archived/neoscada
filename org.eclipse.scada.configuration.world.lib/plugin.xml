@@ -76,6 +76,20 @@
                type="org.eclipse.scada.configuration.world.lib.oscar.event.EventHandlerProcessor">
          </adapter>
       </factory>
+       <factory
+            adaptableType="org.eclipse.scada.configuration.world.osgi.IncludeEventFilter"
+            class="org.eclipse.scada.configuration.world.lib.oscar.event.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.world.lib.oscar.event.EventHandlerProcessor">
+         </adapter>
+      </factory>
+             <factory
+            adaptableType="org.eclipse.scada.configuration.world.osgi.ExcludeEventFilter"
+            class="org.eclipse.scada.configuration.world.lib.oscar.event.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.world.lib.oscar.event.EventHandlerProcessor">
+         </adapter>
+      </factory>
    </extension>
 
 </plugin>
