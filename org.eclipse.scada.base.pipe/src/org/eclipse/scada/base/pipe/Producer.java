@@ -14,5 +14,5 @@ import java.io.IOException;
 
 public interface Producer
 {
-    public void publish ( byte[] data ) throws IOException;
+    public void publish ( byte[] data, int retries ) throws IOException;
 }

@@ -58,7 +58,7 @@ public class PipeServiceImpl implements PipeService
 
     static class MetaInfo
     {
-        public MetaInfo ( final long timestamp, final long idx, final long retry )
+        public MetaInfo ( final long timestamp, final long retry )
         {
             this.timestamp = timestamp;
             this.retry = retry;
@@ -146,18 +146,19 @@ public class PipeServiceImpl implements PipeService
         return new Producer () {
 
             @Override
-            public void publish ( final byte[] data ) throws IOException
+            public void publish ( final byte[] data, final int retries ) throws IOException
             {
-                publishEvent ( pipeName, data );
+                publishEvent ( pipeName, data, retries );
             }
         };
     }
 
-    protected void publishEvent ( final String pipeName, final byte[] data ) throws IOException
+    protected void publishEvent ( final String pipeName, final byte[] data, final int retries ) throws IOException
     {
         final String name = encode ( pipeName );
 
-        final File file = makeFile ( name, null );
+        final MetaInfo info = new MetaInfo ( 0, retries );
+        final File file = makeFile ( name, info );
 
         logger.trace ( "Block file: {}", file );
 
@@ -336,10 +337,9 @@ public class PipeServiceImpl implements PipeService
         }
 
         final long timestamp = Long.parseLong ( m.group ( 1 ), 16 );
-        final long idx = Long.parseLong ( m.group ( 2 ), 16 );
         final long retry = Long.parseLong ( m.group ( 3 ), 16 );
 
-        return new MetaInfo ( timestamp, idx, retry );
+        return new MetaInfo ( timestamp, retry );
     }
 
     public void processNextEvent ( final Worker worker, final String pipeName ) throws IOException
@@ -494,7 +494,7 @@ public class PipeServiceImpl implements PipeService
 
     public void testPublish ( final String pipeName, final String data ) throws IOException
     {
-        publishEvent ( pipeName, StandardCharsets.UTF_8.encode ( data ).array () );
+        publishEvent ( pipeName, StandardCharsets.UTF_8.encode ( data ).array (), 2 );
     }
 
     public void drop ( final String pipeName ) throws IOException

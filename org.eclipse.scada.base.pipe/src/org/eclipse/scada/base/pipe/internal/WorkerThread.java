@@ -145,11 +145,19 @@ class WorkerThread extends Thread
                     if ( info != null )
                     {
                         info.timestamp = System.currentTimeMillis () + 1_000 * 60;
-                        info.retry++;
+                        info.retry--;
                     }
-                    final File newFile = this.pipeService.makeFile ( this.pipeName, info );
-                    logger.debug ( "Postponing event - {} -> {}", file.getName (), newFile.getName () );
-                    Files.move ( file.toPath (), newFile.toPath (), StandardCopyOption.ATOMIC_MOVE );
+                    if ( info.retry > 0 )
+                    {
+                        final File newFile = this.pipeService.makeFile ( this.pipeName, info );
+                        logger.debug ( "Postponing event - {} -> {}", file.getName (), newFile.getName () );
+                        Files.move ( file.toPath (), newFile.toPath (), StandardCopyOption.ATOMIC_MOVE );
+                    }
+                    else
+                    {
+                        logger.debug ( "Purging event - {}", file.getName () );
+                        Files.delete ( file.toPath () );
+                    }
                 }
             }
             catch ( final IOException e )
