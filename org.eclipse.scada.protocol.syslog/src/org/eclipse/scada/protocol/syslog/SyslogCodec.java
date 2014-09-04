@@ -87,9 +87,16 @@ public class SyslogCodec extends ChannelDuplexHandler
             final char c = data.charAt ( i );
             if ( c == '#' )
             {
-                final int code = Integer.parseInt ( data.substring ( i + 1, i + 4 ), 8 );
-                sb.append ( (char)code );
-                i += 3;
+                try
+                {
+                    final int code = Integer.parseInt ( data.substring ( i + 1, i + 4 ), 8 );
+                    sb.append ( (char)code );
+                    i += 3;
+                }
+                catch ( final NumberFormatException e )
+                {
+                    sb.append ( c );
+                }
             }
             else
             {
