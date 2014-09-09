@@ -14,9 +14,12 @@ public class DataModuleOptions
 {
     private final boolean ignoreBackgroundScan;
 
-    private DataModuleOptions ( final boolean ignoreBackgroundScan )
+    private final boolean automaticDataStart;
+
+    private DataModuleOptions ( final boolean ignoreBackgroundScan, final boolean automaticDataStart )
     {
         this.ignoreBackgroundScan = ignoreBackgroundScan;
+        this.automaticDataStart = automaticDataStart;
     }
 
     public boolean isIgnoreBackgroundScan ()
@@ -24,9 +27,16 @@ public class DataModuleOptions
         return this.ignoreBackgroundScan;
     }
 
+    public boolean isAutomaticDataStart ()
+    {
+        return this.automaticDataStart;
+    }
+
     public static class Builder
     {
         private boolean ignoreBackgroundScan;
+
+        private boolean automaticDataStart = true;
 
         public Builder ()
         {
@@ -42,9 +52,19 @@ public class DataModuleOptions
             return this.ignoreBackgroundScan;
         }
 
+        public void setAutomaticDataStart ( final boolean automaticDataStart )
+        {
+            this.automaticDataStart = automaticDataStart;
+        }
+
+        public boolean isAutomaticDataStart ()
+        {
+            return this.automaticDataStart;
+        }
+
         public DataModuleOptions build ()
         {
-            return new DataModuleOptions ( this.ignoreBackgroundScan );
+            return new DataModuleOptions ( this.ignoreBackgroundScan, this.automaticDataStart );
         }
     }
 }

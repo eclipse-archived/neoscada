@@ -40,6 +40,8 @@ public class DataModuleHandler extends AbstractModuleHandler
 
     private final DataModuleOptions options;
 
+    private ChannelHandlerContext ctx;
+
     public DataModuleHandler ( final DataHandler dataHandler, final DataModuleOptions options )
     {
         this.dataHandler = dataHandler;
@@ -50,7 +52,19 @@ public class DataModuleHandler extends AbstractModuleHandler
     public void channelActive ( final ChannelHandlerContext ctx ) throws Exception
     {
         super.channelActive ( ctx );
-        ctx.writeAndFlush ( DataTransmissionMessage.REQUEST_START );
+        this.ctx = ctx;
+        if ( this.options.isAutomaticDataStart () )
+        {
+            requestStartData ();
+        }
+    }
+
+    public void requestStartData ()
+    {
+        if ( this.ctx != null && !this.options.isAutomaticDataStart () )
+        {
+            this.ctx.writeAndFlush ( DataTransmissionMessage.REQUEST_START );
+        }
     }
 
     @Override
