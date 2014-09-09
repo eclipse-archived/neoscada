@@ -137,7 +137,7 @@ public class Client implements AutoCloseable
             future.get ();
             this.channel = future.channel ();
 
-            fireConnected ();
+            fireConnected ( this.channel );
             result.set ( null );
         }
         catch ( final InterruptedException | ExecutionException e )
@@ -147,7 +147,7 @@ public class Client implements AutoCloseable
         }
     }
 
-    private void fireConnected ()
+    private void fireConnected ( final Channel channel )
     {
         if ( this.listener != null )
         {
@@ -155,7 +155,7 @@ public class Client implements AutoCloseable
                 @Override
                 public void run ()
                 {
-                    Client.this.listener.connected ();
+                    Client.this.listener.connected ( channel );
                 };
             } );
         }

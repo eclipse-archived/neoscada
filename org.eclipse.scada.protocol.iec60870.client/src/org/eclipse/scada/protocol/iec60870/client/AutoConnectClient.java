@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.iec60870.client;
 
+import io.netty.channel.Channel;
+
 import java.net.InetSocketAddress;
 import java.nio.channels.UnresolvedAddressException;
 import java.util.List;
@@ -44,7 +46,7 @@ public class AutoConnectClient implements AutoCloseable
         }
 
         @Override
-        public void connected ()
+        public void connected ( final Channel channel )
         {
             handleConnected ();
         }

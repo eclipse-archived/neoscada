@@ -10,9 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.iec60870.client;
 
+import io.netty.channel.Channel;
+
 public interface ConnectionStateListener
 {
-    public void connected ();
+    public void connected ( Channel channel );
 
     public void disconnected ( Throwable error );
 }
