@@ -61,7 +61,7 @@ public class DataModuleHandler extends AbstractModuleHandler
 
     public void requestStartData ()
     {
-        if ( this.ctx != null && !this.options.isAutomaticDataStart () )
+        if ( this.ctx != null )
         {
             this.ctx.writeAndFlush ( DataTransmissionMessage.REQUEST_START );
         }
