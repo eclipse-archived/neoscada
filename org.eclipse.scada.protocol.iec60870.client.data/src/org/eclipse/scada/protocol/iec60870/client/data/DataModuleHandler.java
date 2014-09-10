@@ -12,10 +12,12 @@ package org.eclipse.scada.protocol.iec60870.client.data;
 
 import io.netty.channel.ChannelHandlerContext;
 
+import org.eclipse.scada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DataTransmissionMessage;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.InterrogationCommand;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSequence;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledTimeSingle;
@@ -25,7 +27,10 @@ import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloati
 import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSequence;
 import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationTimeSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Cause;
+import org.eclipse.scada.protocol.iec60870.asdu.types.CauseOfTransmission;
+import org.eclipse.scada.protocol.iec60870.asdu.types.QualifierOfInterrogation;
 import org.eclipse.scada.protocol.iec60870.asdu.types.StandardCause;
 import org.eclipse.scada.protocol.iec60870.io.AbstractModuleHandler;
 import org.slf4j.Logger;
@@ -57,14 +62,44 @@ public class DataModuleHandler extends AbstractModuleHandler
         {
             requestStartData ();
         }
+        if ( this.options.isAutomaticInterroggationStart () )
+        {
+            startInterrogation ( ASDUAddress.BROADCAST );
+        }
+    }
+
+    protected ASDUHeader makeHeader ( final Cause cause, final ASDUAddress address )
+    {
+        if ( this.options.getCauseSourceAddress () != null )
+        {
+            return new ASDUHeader ( new CauseOfTransmission ( cause, this.options.getCauseSourceAddress () ), address );
+        }
+        else
+        {
+            return new ASDUHeader ( new CauseOfTransmission ( cause ), address );
+        }
+    }
+
+    public void startInterrogation ( final ASDUAddress address )
+    {
+        final ChannelHandlerContext ctx = this.ctx;
+        if ( ctx == null )
+        {
+            return;
+        }
+
+        ctx.writeAndFlush ( new InterrogationCommand ( makeHeader ( StandardCause.ACTIVATED, address ), QualifierOfInterrogation.GLOBAL ) );
     }
 
     public void requestStartData ()
     {
-        if ( this.ctx != null )
+        final ChannelHandlerContext ctx = this.ctx;
+        if ( ctx == null )
         {
-            this.ctx.writeAndFlush ( DataTransmissionMessage.REQUEST_START );
+            return;
         }
+
+        ctx.writeAndFlush ( DataTransmissionMessage.REQUEST_START );
     }
 
     @Override
