@@ -6,5 +6,6 @@ Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.ca;version="0.2.0",
- org.eclipse.scada.protocol.iec60870;version="0.2.0"
+ org.eclipse.scada.protocol.iec60870;version="0.2.0",
+ org.eclipse.scada.utils.beans;version="0.2.0"
 Export-Package: org.eclipse.scada.core.common.iec60870;version="0.2.0";uses:="org.eclipse.scada.ca,org.eclipse.scada.protocol.iec60870"
