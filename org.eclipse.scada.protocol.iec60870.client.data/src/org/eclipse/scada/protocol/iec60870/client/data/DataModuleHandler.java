@@ -30,13 +30,12 @@ import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationTi
 import org.eclipse.scada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Cause;
 import org.eclipse.scada.protocol.iec60870.asdu.types.CauseOfTransmission;
-import org.eclipse.scada.protocol.iec60870.asdu.types.QualifierOfInterrogation;
 import org.eclipse.scada.protocol.iec60870.asdu.types.StandardCause;
 import org.eclipse.scada.protocol.iec60870.io.AbstractModuleHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DataModuleHandler extends AbstractModuleHandler
+public class DataModuleHandler extends AbstractModuleHandler implements DataModuleContext
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( DataModuleHandler.class );
@@ -58,14 +57,7 @@ public class DataModuleHandler extends AbstractModuleHandler
     {
         super.channelActive ( ctx );
         this.ctx = ctx;
-        if ( this.options.isAutomaticDataStart () )
-        {
-            requestStartData ();
-        }
-        if ( this.options.isAutomaticInterroggationStart () )
-        {
-            startInterrogation ( ASDUAddress.BROADCAST );
-        }
+        this.dataHandler.activated ( this, ctx );
     }
 
     protected ASDUHeader makeHeader ( final Cause cause, final ASDUAddress address )
@@ -80,7 +72,8 @@ public class DataModuleHandler extends AbstractModuleHandler
         }
     }
 
-    public void startInterrogation ( final ASDUAddress address )
+    @Override
+    public void startInterrogation ( final ASDUAddress address, final short qualifierOfInterrogation )
     {
         final ChannelHandlerContext ctx = this.ctx;
         if ( ctx == null )
@@ -88,9 +81,10 @@ public class DataModuleHandler extends AbstractModuleHandler
             return;
         }
 
-        ctx.writeAndFlush ( new InterrogationCommand ( makeHeader ( StandardCause.ACTIVATED, address ), QualifierOfInterrogation.GLOBAL ) );
+        ctx.writeAndFlush ( new InterrogationCommand ( makeHeader ( StandardCause.ACTIVATED, address ), qualifierOfInterrogation ) );
     }
 
+    @Override
     public void requestStartData ()
     {
         final ChannelHandlerContext ctx = this.ctx;
@@ -109,7 +103,7 @@ public class DataModuleHandler extends AbstractModuleHandler
 
         if ( msg == DataTransmissionMessage.CONFIRM_START )
         {
-            handleStarted ( ctx );
+            handleStarted ();
         }
         else if ( msg instanceof SinglePointInformationTimeSingle )
         {
@@ -177,9 +171,9 @@ public class DataModuleHandler extends AbstractModuleHandler
         this.dataHandler.disconnected ();
     }
 
-    protected void handleStarted ( final ChannelHandlerContext ctx )
+    protected void handleStarted ()
     {
-        this.dataHandler.connected ( ctx );
+        this.dataHandler.started ();
     }
 
     protected void handleDataMessage ( final SinglePointInformationTimeSingle msg )

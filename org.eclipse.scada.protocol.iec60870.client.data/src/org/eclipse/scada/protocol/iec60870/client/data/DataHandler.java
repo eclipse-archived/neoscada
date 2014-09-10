@@ -27,7 +27,9 @@ import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationTi
 
 public interface DataHandler
 {
-    public void connected ( ChannelHandlerContext ctx );
+    public void activated ( DataModuleContext dataModuleContext, ChannelHandlerContext ctx );
+
+    public void started ();
 
     public void disconnected ();
 

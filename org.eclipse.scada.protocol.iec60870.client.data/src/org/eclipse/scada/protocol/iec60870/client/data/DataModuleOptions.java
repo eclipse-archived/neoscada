@@ -14,33 +14,17 @@ public class DataModuleOptions
 {
     private final boolean ignoreBackgroundScan;
 
-    private final boolean automaticDataStart;
-
-    private final boolean automaticInterroggationStart;
-
     private final Byte causeSourceAddress;
 
-    private DataModuleOptions ( final boolean ignoreBackgroundScan, final boolean automaticDataStart, final boolean automaticInterroggationStart, final Byte causeSourceAddress )
+    private DataModuleOptions ( final boolean ignoreBackgroundScan, final Byte causeSourceAddress )
     {
         this.ignoreBackgroundScan = ignoreBackgroundScan;
-        this.automaticDataStart = automaticDataStart;
-        this.automaticInterroggationStart = automaticInterroggationStart;
         this.causeSourceAddress = causeSourceAddress;
     }
 
     public boolean isIgnoreBackgroundScan ()
     {
         return this.ignoreBackgroundScan;
-    }
-
-    public boolean isAutomaticDataStart ()
-    {
-        return this.automaticDataStart;
-    }
-
-    public boolean isAutomaticInterroggationStart ()
-    {
-        return this.automaticInterroggationStart;
     }
 
     public Byte getCauseSourceAddress ()
@@ -51,10 +35,6 @@ public class DataModuleOptions
     public static class Builder
     {
         private boolean ignoreBackgroundScan;
-
-        private boolean automaticDataStart = true;
-
-        private boolean automaticInterroggationStart = true;
 
         private Byte causeSourceAddress;
 
@@ -72,16 +52,6 @@ public class DataModuleOptions
             return this.causeSourceAddress;
         }
 
-        public void setAutomaticInterroggationStart ( final boolean automaticInterroggationStart )
-        {
-            this.automaticInterroggationStart = automaticInterroggationStart;
-        }
-
-        public boolean isAutomaticInterroggationStart ()
-        {
-            return this.automaticInterroggationStart;
-        }
-
         public void setIgnoreBackgroundScan ( final boolean ignoreBackgroundScan )
         {
             this.ignoreBackgroundScan = ignoreBackgroundScan;
@@ -92,19 +62,9 @@ public class DataModuleOptions
             return this.ignoreBackgroundScan;
         }
 
-        public void setAutomaticDataStart ( final boolean automaticDataStart )
-        {
-            this.automaticDataStart = automaticDataStart;
-        }
-
-        public boolean isAutomaticDataStart ()
-        {
-            return this.automaticDataStart;
-        }
-
         public DataModuleOptions build ()
         {
-            return new DataModuleOptions ( this.ignoreBackgroundScan, this.automaticDataStart, this.automaticInterroggationStart, this.causeSourceAddress );
+            return new DataModuleOptions ( this.ignoreBackgroundScan, this.causeSourceAddress );
         }
     }
 }

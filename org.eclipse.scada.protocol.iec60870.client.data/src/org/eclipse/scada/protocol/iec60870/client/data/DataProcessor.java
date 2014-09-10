@@ -14,11 +14,9 @@ import io.netty.channel.ChannelHandlerContext;
 
 import java.util.concurrent.Executor;
 
-import org.eclipse.scada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
-import org.eclipse.scada.protocol.iec60870.asdu.message.InterrogationCommand;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSequence;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledTimeSingle;
@@ -29,11 +27,10 @@ import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSe
 import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationTimeSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.types.ASDUAddress;
-import org.eclipse.scada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.scada.protocol.iec60870.asdu.types.DoublePoint;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationEntry;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
-import org.eclipse.scada.protocol.iec60870.asdu.types.StandardCause;
+import org.eclipse.scada.protocol.iec60870.asdu.types.QualifierOfInterrogation;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Value;
 
 public class DataProcessor implements DataHandler
@@ -49,9 +46,15 @@ public class DataProcessor implements DataHandler
     }
 
     @Override
-    public void connected ( final ChannelHandlerContext ctx )
+    public void activated ( final DataModuleContext dataModuleContext, final ChannelHandlerContext ctx )
     {
-        ctx.writeAndFlush ( new InterrogationCommand ( new ASDUHeader ( CauseOfTransmission.ACTIVATED, ASDUAddress.BROADCAST ), StandardCause.STATION_REQUEST.getValue () ) );
+        dataModuleContext.requestStartData ();
+        dataModuleContext.startInterrogation ( ASDUAddress.BROADCAST, QualifierOfInterrogation.GLOBAL );
+    }
+
+    @Override
+    public void started ()
+    {
     }
 
     @Override
