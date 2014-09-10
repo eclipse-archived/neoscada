@@ -10,9 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.iec60870;
 
+import java.io.Serializable;
 import java.util.TimeZone;
 
 import org.eclipse.scada.protocol.iec60870.apci.Supervisory;
+import org.eclipse.scada.utils.beans.AbstractPropertyChange;
 
 public class ProtocolOptions
 {
@@ -43,7 +45,7 @@ public class ProtocolOptions
 
     private CauseOfTransmissionType causeOfTransmissionType = CauseOfTransmissionType.SIZE_2;
 
-    private short maxSequenceNumber = 32767;
+    private final short maxSequenceNumber = 32767;
 
     /**
      * aka parameter "k"
@@ -67,32 +69,28 @@ public class ProtocolOptions
      * An internal copy of the time zone ID <br/>
      * This is used to implement hashCode and equals
      */
-    private String timeZoneId;
+    private final String timeZoneId;
 
     /**
      * A flag indicating of the daylight saving time information should be
      * ignored
      */
-    private boolean ignoreDaylightSavingTime;
+    private final boolean ignoreDaylightSavingTime;
 
-    private ProtocolOptions ()
+    public ProtocolOptions ( final int timeout1, final int timeout2, final int timeout3, final ASDUAddressType adsuAddressType, final InformationObjectAddressType informationObjectAddressType, final CauseOfTransmissionType causeOfTransmissionType, final short maxUnacknowledged, final short acknowledgeWindow, final TimeZone timeZone, final boolean ignoreDaylightSavingTime )
     {
-    }
-
-    private ProtocolOptions ( final ProtocolOptions other )
-    {
-        this.timeout1 = other.timeout1;
-        this.timeout2 = other.timeout2;
-        this.timeout3 = other.timeout3;
-        this.adsuAddressType = other.adsuAddressType;
-        this.informationObjectAddressType = other.informationObjectAddressType;
-        this.causeOfTransmissionType = other.causeOfTransmissionType;
-        this.acknowledgeWindow = other.acknowledgeWindow;
-        this.maxUnacknowledged = other.maxUnacknowledged;
-        this.maxSequenceNumber = other.maxSequenceNumber;
-        this.timeZone = other.timeZone;
-        this.timeZoneId = other.timeZoneId;
-        this.ignoreDaylightSavingTime = other.ignoreDaylightSavingTime;
+        super ();
+        this.timeout1 = timeout1;
+        this.timeout2 = timeout2;
+        this.timeout3 = timeout3;
+        this.adsuAddressType = adsuAddressType;
+        this.informationObjectAddressType = informationObjectAddressType;
+        this.causeOfTransmissionType = causeOfTransmissionType;
+        this.maxUnacknowledged = maxUnacknowledged;
+        this.acknowledgeWindow = acknowledgeWindow;
+        this.timeZone = timeZone;
+        this.timeZoneId = timeZone != null ? timeZone.getID () : null;
+        this.ignoreDaylightSavingTime = ignoreDaylightSavingTime;
     }
 
     public int getTimeout1 ()
@@ -150,30 +148,74 @@ public class ProtocolOptions
         return this.ignoreDaylightSavingTime;
     }
 
-    public static class Builder
+    public static class Builder extends AbstractPropertyChange implements Serializable
     {
-        private final ProtocolOptions value;
+        private static final long serialVersionUID = 1L;
+
+        public static final String PROP_TIMEOUT1 = "timeout1";
+
+        public static final String PROP_TIMEOUT2 = "timeout2";
+
+        public static final String PROP_TIMEOUT3 = "timeout3";
+
+        public static final String PROP_MAX_UNACKNOWLEDGED = "maxUnacknowledged";
+
+        public static final String PROP_ACKNOWLEDGE_WINDOW = "acknowledgeWindow";
+
+        private int timeout1 = 15_000;
+
+        private int timeout2 = 10_000;
+
+        private int timeout3 = 20_000;
+
+        private ASDUAddressType adsuAddressType = ASDUAddressType.SIZE_2;
+
+        private InformationObjectAddressType informationObjectAddressType = InformationObjectAddressType.SIZE_3;
+
+        private CauseOfTransmissionType causeOfTransmissionType = CauseOfTransmissionType.SIZE_2;
+
+        private final short maxSequenceNumber = 32767;
+
+        private short maxUnacknowledged = 15;
+
+        private short acknowledgeWindow = 10;
+
+        private TimeZone timeZone = TimeZone.getTimeZone ( "UTC" );
+
+        /**
+         * A flag indicating of the daylight saving time information should be
+         * ignored
+         */
+        private boolean ignoreDaylightSavingTime;
 
         public Builder ()
         {
-            this.value = new ProtocolOptions ();
         }
 
         public Builder ( final ProtocolOptions other )
         {
-            this.value = new ProtocolOptions ( other );
+            this.timeout1 = other.timeout1;
+            this.timeout2 = other.timeout2;
+            this.timeout3 = other.timeout3;
+            this.adsuAddressType = other.adsuAddressType;
+            this.informationObjectAddressType = other.informationObjectAddressType;
+            this.causeOfTransmissionType = other.causeOfTransmissionType;
+            this.acknowledgeWindow = other.acknowledgeWindow;
+            this.maxUnacknowledged = other.maxUnacknowledged;
+            this.timeZone = other.timeZone;
+            this.ignoreDaylightSavingTime = other.ignoreDaylightSavingTime;
         }
 
         public ProtocolOptions build ()
         {
             validate ();
-            return new ProtocolOptions ( this.value );
+            return new ProtocolOptions ( this.timeout1, this.timeout2, this.timeout3, this.adsuAddressType, this.informationObjectAddressType, this.causeOfTransmissionType, this.maxUnacknowledged, this.acknowledgeWindow, this.timeZone, this.ignoreDaylightSavingTime );
         }
 
         public void validate ()
         {
-            validate ( "maxUnacknowledged", this.value.maxUnacknowledged, 1, this.value.maxSequenceNumber - 1 );
-            validate ( "acknowledgeWindow", this.value.acknowledgeWindow, 1, this.value.maxUnacknowledged - 1 );
+            validate ( "maxUnacknowledged", this.maxUnacknowledged, 1, this.maxSequenceNumber - 1 );
+            validate ( "acknowledgeWindow", this.acknowledgeWindow, 1, this.maxUnacknowledged - 1 );
         }
 
         private void validate ( final String parameter, final int value, final int start, final int end )
@@ -186,87 +228,87 @@ public class ProtocolOptions
 
         public int getTimeout1 ()
         {
-            return this.value.timeout1;
+            return this.timeout1;
         }
 
         public void setTimeout1 ( final int timeout1 )
         {
-            this.value.timeout1 = timeout1;
+            firePropertyChange ( PROP_TIMEOUT1, this.timeout1, this.timeout1 = timeout1 );
         }
 
         public int getTimeout2 ()
         {
-            return this.value.timeout2;
+            return this.timeout2;
         }
 
         public void setTimeout2 ( final int timeout2 )
         {
-            this.value.timeout2 = timeout2;
+            firePropertyChange ( PROP_TIMEOUT2, this.timeout2, this.timeout2 = timeout2 );
         }
 
         public int getTimeout3 ()
         {
-            return this.value.timeout3;
+            return this.timeout3;
         }
 
         public void setTimeout3 ( final int timeout3 )
         {
-            this.value.timeout3 = timeout3;
+            firePropertyChange ( PROP_TIMEOUT3, this.timeout3, this.timeout3 = timeout3 );
         }
 
         public short getAcknowledgeWindow ()
         {
-            return this.value.acknowledgeWindow;
+            return this.acknowledgeWindow;
         }
 
         public void setAcknowledgeWindow ( final short acknowledgeWindow )
         {
-            this.value.acknowledgeWindow = acknowledgeWindow;
+            firePropertyChange ( PROP_ACKNOWLEDGE_WINDOW, this.acknowledgeWindow, this.acknowledgeWindow = acknowledgeWindow );
         }
 
         public short getMaxUnacknowledged ()
         {
-            return this.value.maxUnacknowledged;
+            return this.maxUnacknowledged;
         }
 
         public void setMaxUnacknowledged ( final short maxUnacknowledged )
         {
-            this.value.maxUnacknowledged = maxUnacknowledged;
+            firePropertyChange ( PROP_MAX_UNACKNOWLEDGED, this.maxUnacknowledged, this.maxUnacknowledged = maxUnacknowledged );
         }
 
         public ASDUAddressType getAdsuAddressType ()
         {
-            return this.value.adsuAddressType;
+            return this.adsuAddressType;
         }
 
         public void setAdsuAddressType ( final ASDUAddressType adsuAddressType )
         {
-            this.value.adsuAddressType = adsuAddressType;
+            this.adsuAddressType = adsuAddressType;
         }
 
         public InformationObjectAddressType getInformationObjectAddressType ()
         {
-            return this.value.informationObjectAddressType;
+            return this.informationObjectAddressType;
         }
 
         public void setInformationObjectAddressType ( final InformationObjectAddressType informationObjectAddressType )
         {
-            this.value.informationObjectAddressType = informationObjectAddressType;
+            this.informationObjectAddressType = informationObjectAddressType;
         }
 
         public CauseOfTransmissionType getCauseOfTransmissionType ()
         {
-            return this.value.causeOfTransmissionType;
+            return this.causeOfTransmissionType;
         }
 
         public void setCauseOfTransmissionType ( final CauseOfTransmissionType causeOfTransmissionType )
         {
-            this.value.causeOfTransmissionType = causeOfTransmissionType;
+            this.causeOfTransmissionType = causeOfTransmissionType;
         }
 
         public TimeZone getTimeZone ()
         {
-            return this.value.timeZone;
+            return this.timeZone;
         }
 
         /**
@@ -281,23 +323,22 @@ public class ProtocolOptions
         {
             if ( timeZone == null )
             {
-                setTimeZone ( TimeZone.getTimeZone ( "UTC" ) );
+                this.timeZone = TimeZone.getTimeZone ( "UTC" );
             }
             else
             {
-                this.value.timeZone = timeZone;
-                this.value.timeZoneId = timeZone.getID ();
+                this.timeZone = timeZone;
             }
         }
 
         public void setIgnoreDaylightSavingTime ( final boolean ignoreDaylightSavingTime )
         {
-            this.value.ignoreDaylightSavingTime = ignoreDaylightSavingTime;
+            this.ignoreDaylightSavingTime = ignoreDaylightSavingTime;
         }
 
         public boolean isIgnoreDaylightSavingTime ()
         {
-            return this.value.ignoreDaylightSavingTime;
+            return this.ignoreDaylightSavingTime;
         }
     }
 

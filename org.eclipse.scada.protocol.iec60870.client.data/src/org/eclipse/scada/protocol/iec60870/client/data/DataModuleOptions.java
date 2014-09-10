@@ -10,6 +10,10 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.iec60870.client.data;
 
+import java.io.Serializable;
+
+import org.eclipse.scada.utils.beans.AbstractPropertyChange;
+
 public class DataModuleOptions
 {
     private final boolean ignoreBackgroundScan;
@@ -32,14 +36,22 @@ public class DataModuleOptions
         return this.causeSourceAddress;
     }
 
-    public static class Builder
+    public static class Builder extends AbstractPropertyChange implements Serializable
     {
+        private static final long serialVersionUID = 1L;
+
         private boolean ignoreBackgroundScan;
 
         private Byte causeSourceAddress;
 
         public Builder ()
         {
+        }
+
+        public Builder ( final DataModuleOptions options )
+        {
+            this.causeSourceAddress = options.getCauseSourceAddress ();
+            this.ignoreBackgroundScan = options.isIgnoreBackgroundScan ();
         }
 
         public void setCauseSourceAddress ( final Byte causeSourceAddress )

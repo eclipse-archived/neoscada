@@ -22,5 +22,6 @@ Import-Package: io.netty.bootstrap;version="4.0.19",
  org.eclipse.scada.protocol.iec60870.asdu.types;version="0.2.0",
  org.eclipse.scada.protocol.iec60870.client;version="0.2.0",
  org.eclipse.scada.protocol.iec60870.io;version="0.2.0",
+ org.eclipse.scada.utils.beans;version="0.2.0",
  org.slf4j;version="1.7.2"
 Export-Package: org.eclipse.scada.protocol.iec60870.client.data
