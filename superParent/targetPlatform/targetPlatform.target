@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1409744517">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1410420888">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20140221-1852"/>
@@ -65,7 +65,9 @@
       <unit id="javax.ws.rs" version="1.1.1.v20130318-1750"/>
       <unit id="javax.ws.rs.source" version="1.1.1.v20130318-1750"/>
       <unit id="javax.mail.glassfish" version="1.4.1.v201108011116"/>
+      <unit id="javax.mail.glassfish.source" version="1.4.1.v201108011116"/>
       <unit id="javax.activation" version="1.1.0.v201211130549"/>
+      <unit id="javax.activation.source" version="1.1.0.v201211130549"/>
       <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
       <unit id="osgi.enterprise.source" version="4.2.0.v201108120515"/>
       <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
