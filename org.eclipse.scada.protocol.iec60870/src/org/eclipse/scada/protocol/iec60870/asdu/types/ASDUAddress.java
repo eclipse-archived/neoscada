@@ -92,6 +92,21 @@ public class ASDUAddress
         return new int[] { buf.getUnsignedByte ( 0 ), buf.getUnsignedByte ( 1 ) };
     }
 
+    public static ASDUAddress fromArray ( final int[] data )
+    {
+        if ( data.length > 2 )
+        {
+            throw new IllegalArgumentException ( "Address may only have a maximum of 2 segments" );
+        }
+
+        int address = 0;
+        for ( final int i : data )
+        {
+            address = address << 8 | i;
+        }
+        return valueOf ( address );
+    }
+
     public static ASDUAddress fromString ( final String value )
     {
         int address = 0;

@@ -93,6 +93,21 @@ public class InformationObjectAddress
         return new int[] { buf.getUnsignedByte ( 0 ), buf.getUnsignedByte ( 1 ), buf.getUnsignedByte ( 2 ) };
     }
 
+    public static InformationObjectAddress fromArray ( final int[] data )
+    {
+        if ( data.length > 3 )
+        {
+            throw new IllegalArgumentException ( "Address may only have a maximum of 3 segments" );
+        }
+
+        int address = 0;
+        for ( final int seg : data )
+        {
+            address = address << 8 | seg;
+        }
+        return valueOf ( address );
+    }
+
     public static InformationObjectAddress fromString ( final String value )
     {
         int address = 0;
