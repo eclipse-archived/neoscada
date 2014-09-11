@@ -253,4 +253,9 @@ public class Client implements AutoCloseable
         logger.debug ( "Shutting down executor" );
         this.executor.shutdown ();
     }
+
+    public void writeCommand ( final Object command )
+    {
+        this.channel.writeAndFlush ( command );
+    }
 }
