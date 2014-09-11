@@ -192,4 +192,18 @@
          version="2.0.7.v201401141305"
          unpack="false"/>
 
+   <plugin
+         id="javax.mail.glassfish"
+         download-size="0"
+         install-size="0"
+         version="1.4.1.v201108011116"
+         unpack="false"/>
+
+   <plugin
+         id="javax.activation"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.v201211130549"
+         unpack="false"/>
+
 </feature>
