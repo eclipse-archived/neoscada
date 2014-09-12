@@ -162,6 +162,16 @@ public class ProtocolOptions
 
         public static final String PROP_ACKNOWLEDGE_WINDOW = "acknowledgeWindow";
 
+        public static final String PROP_ASDU_ADDRESS_TYPE = "adsuAddressType";
+
+        public static final String PROP_INFORMATION_OBJECT_ADDRESS_TYPE = "informationObjectAddressType";
+
+        public static final String PROP_CAUSE_OF_TRANSMISSION_TYPE = "causeOfTransmissionType";
+
+        public static final String PROP_TIME_ZONE = "timeZone";
+
+        public static final String PROP_IGNORE_DAYLIGHT_SAVING_TIME = "ignoreDaylightSavingTime";
+
         private int timeout1 = 15_000;
 
         private int timeout2 = 10_000;
@@ -283,7 +293,7 @@ public class ProtocolOptions
 
         public void setAdsuAddressType ( final ASDUAddressType adsuAddressType )
         {
-            this.adsuAddressType = adsuAddressType;
+            firePropertyChange ( PROP_ASDU_ADDRESS_TYPE, this.adsuAddressType, this.adsuAddressType = adsuAddressType );
         }
 
         public InformationObjectAddressType getInformationObjectAddressType ()
@@ -293,7 +303,7 @@ public class ProtocolOptions
 
         public void setInformationObjectAddressType ( final InformationObjectAddressType informationObjectAddressType )
         {
-            this.informationObjectAddressType = informationObjectAddressType;
+            firePropertyChange ( PROP_INFORMATION_OBJECT_ADDRESS_TYPE, this.informationObjectAddressType, this.informationObjectAddressType = informationObjectAddressType );
         }
 
         public CauseOfTransmissionType getCauseOfTransmissionType ()
@@ -303,7 +313,7 @@ public class ProtocolOptions
 
         public void setCauseOfTransmissionType ( final CauseOfTransmissionType causeOfTransmissionType )
         {
-            this.causeOfTransmissionType = causeOfTransmissionType;
+            firePropertyChange ( PROP_CAUSE_OF_TRANSMISSION_TYPE, this.causeOfTransmissionType, this.causeOfTransmissionType = causeOfTransmissionType );
         }
 
         public TimeZone getTimeZone ()
@@ -321,6 +331,8 @@ public class ProtocolOptions
          */
         public void setTimeZone ( final TimeZone timeZone )
         {
+            final TimeZone oldTimeZone = this.timeZone;
+
             if ( timeZone == null )
             {
                 this.timeZone = TimeZone.getTimeZone ( "UTC" );
@@ -329,11 +341,14 @@ public class ProtocolOptions
             {
                 this.timeZone = timeZone;
             }
+
+            firePropertyChange ( PROP_TIME_ZONE, oldTimeZone, this.timeZone );
         }
 
         public void setIgnoreDaylightSavingTime ( final boolean ignoreDaylightSavingTime )
         {
             this.ignoreDaylightSavingTime = ignoreDaylightSavingTime;
+            firePropertyChange ( PROP_IGNORE_DAYLIGHT_SAVING_TIME, this.ignoreDaylightSavingTime, this.ignoreDaylightSavingTime = ignoreDaylightSavingTime );
         }
 
         public boolean isIgnoreDaylightSavingTime ()
