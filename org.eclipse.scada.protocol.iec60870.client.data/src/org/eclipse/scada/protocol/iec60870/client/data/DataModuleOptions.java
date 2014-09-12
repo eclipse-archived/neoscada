@@ -40,6 +40,10 @@ public class DataModuleOptions
     {
         private static final long serialVersionUID = 1L;
 
+        public static final String PROP_IGNORE_BACKGROUND_SCAN = "ignoreBackgroundScan";
+
+        public static final String PROP_CAUSE_SOURCE_ADDRESS = "causeSourceAddress";
+
         private boolean ignoreBackgroundScan;
 
         private Byte causeSourceAddress;
@@ -56,7 +60,7 @@ public class DataModuleOptions
 
         public void setCauseSourceAddress ( final Byte causeSourceAddress )
         {
-            this.causeSourceAddress = causeSourceAddress;
+            firePropertyChange ( PROP_CAUSE_SOURCE_ADDRESS, this.causeSourceAddress, this.causeSourceAddress = causeSourceAddress );
         }
 
         public Byte getCauseSourceAddress ()
@@ -66,7 +70,7 @@ public class DataModuleOptions
 
         public void setIgnoreBackgroundScan ( final boolean ignoreBackgroundScan )
         {
-            this.ignoreBackgroundScan = ignoreBackgroundScan;
+            firePropertyChange ( PROP_IGNORE_BACKGROUND_SCAN, this.ignoreBackgroundScan, this.ignoreBackgroundScan = ignoreBackgroundScan );
         }
 
         public boolean isIgnoreBackgroundScan ()
