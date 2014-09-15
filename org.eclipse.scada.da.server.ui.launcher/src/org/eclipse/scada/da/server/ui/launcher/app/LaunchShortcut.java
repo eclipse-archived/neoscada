@@ -77,7 +77,7 @@ import org.slf4j.LoggerFactory;
  * Note: The launcher uses the environment variable SCADA_PROFILE as a marker.
  * The variable itself has no function in the application.
  * </p>
- * 
+ *
  * @author Jens Reimann
  */
 @SuppressWarnings ( "restriction" )
@@ -86,9 +86,9 @@ public class LaunchShortcut implements ILaunchShortcut2
 
     private final static Logger logger = LoggerFactory.getLogger ( LaunchShortcut.class );
 
-    private static final String ATTR_ENV_VARS = "org.eclipse.debug.core.environmentVariables"; //$NON-NLS-1$ 
+    private static final String ATTR_ENV_VARS = "org.eclipse.debug.core.environmentVariables"; //$NON-NLS-1$
 
-    private static final String CONFIGURATION_TYPE_ID = "org.eclipse.pde.ui.EquinoxLauncher"; //$NON-NLS-1$ 
+    private static final String CONFIGURATION_TYPE_ID = "org.eclipse.pde.ui.EquinoxLauncher"; //$NON-NLS-1$
 
     protected ILaunchConfiguration createConfiguration ( final IResource resource ) throws Exception
     {
@@ -104,12 +104,12 @@ public class LaunchShortcut implements ILaunchShortcut2
         String name = profile.getName ();
         if ( name == null || name.isEmpty () )
         {
-            name = String.format ( "Application profile: %s", resource.getFullPath () ); //$NON-NLS-1$ 
+            name = String.format ( "Application profile: %s", resource.getFullPath () ); //$NON-NLS-1$
         }
 
         final ILaunchConfigurationWorkingCopy cfg = getConfigurationType ().newInstance ( resource.getParent (), name );
 
-        final Map<Object, Object> envs = new HashMap<> ();
+        final Map<String, String> envs = new HashMap<> ();
         envs.put ( "SCADA_PROFILE", String.format ( "${project_loc:/%s}/%s", resource.getProject ().getName (), resource.getProjectRelativePath () ) ); //$NON-NLS-1$ //$NON-NLS-2$
         cfg.setAttribute ( ATTR_ENV_VARS, envs );
 
@@ -123,7 +123,7 @@ public class LaunchShortcut implements ILaunchShortcut2
         addAllBundels ( cfg, profile );
         addJvmOptions ( cfg, profile, resource.getParent () );
 
-        cfg.setAttribute ( IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS, "-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl}  -consoleLog -console" ); //$NON-NLS-1$ 
+        cfg.setAttribute ( IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS, "-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl}  -consoleLog -console" ); //$NON-NLS-1$
 
         return cfg.doSave ();
     }
@@ -144,10 +144,10 @@ public class LaunchShortcut implements ILaunchShortcut2
             addSystemProperty ( profile, args, entry.getKey (), entry.getValue (), false );
         }
 
-        final IFile dataJson = container.getFile ( new Path ( "data.json" ) ); //$NON-NLS-1$ 
+        final IFile dataJson = container.getFile ( new Path ( "data.json" ) ); //$NON-NLS-1$
         if ( dataJson.exists () )
         {
-            addJvmArg ( args, "org.eclipse.scada.ca.file.provisionJsonUrl", escapeArgValue ( dataJson.getLocation ().toFile ().toURI ().toString () ) ); //$NON-NLS-1$ 
+            addJvmArg ( args, "org.eclipse.scada.ca.file.provisionJsonUrl", escapeArgValue ( dataJson.getLocation ().toFile ().toURI ().toString () ) ); //$NON-NLS-1$
         }
 
         cfg.setAttribute ( IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS, StringHelper.join ( args, "\n" ) );
@@ -175,22 +175,22 @@ public class LaunchShortcut implements ILaunchShortcut2
 
     private void addJvmArg ( final List<String> args, final String key, final String value )
     {
-        String wrap = ""; //$NON-NLS-1$ 
+        String wrap = ""; //$NON-NLS-1$
         if ( key.contains ( " " ) || value.contains ( " " ) ) //$NON-NLS-1$ //$NON-NLS-2$
         {
-            wrap = "\""; //$NON-NLS-1$ 
+            wrap = "\""; //$NON-NLS-1$
         }
-        args.add ( String.format ( "%1$s-D%2$s=%3$s%1$s", wrap, key, value ) ); //$NON-NLS-1$ 
+        args.add ( String.format ( "%1$s-D%2$s=%3$s%1$s", wrap, key, value ) ); //$NON-NLS-1$
     }
 
     protected String getConfigurationArea ( final Profile profile )
     {
-        return String.format ( "${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/%s", profile.getName () ); //$NON-NLS-1$ 
+        return String.format ( "${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/%s", profile.getName () ); //$NON-NLS-1$
     }
 
     /**
      * Allow intercepting properties
-     * 
+     *
      * @param profile
      * @param pair
      *            the property
@@ -203,27 +203,27 @@ public class LaunchShortcut implements ILaunchShortcut2
             return pair;
         }
 
-        if ( "logback.configurationFile".equals ( pair.first ) ) //$NON-NLS-1$ 
+        if ( "logback.configurationFile".equals ( pair.first ) ) //$NON-NLS-1$
         {
             return null;
         }
 
-        if ( "org.eclipse.scada.ds.storage.file.root".equals ( pair.first ) ) //$NON-NLS-1$ 
+        if ( "org.eclipse.scada.ds.storage.file.root".equals ( pair.first ) ) //$NON-NLS-1$
         {
             return new Pair<String, String> ( pair.first, String.format ( "%s/ds.root", getConfigurationArea ( profile ) ) );
         }
 
-        if ( "org.eclipse.scada.ca.file.root".equals ( pair.first ) ) //$NON-NLS-1$ 
+        if ( "org.eclipse.scada.ca.file.root".equals ( pair.first ) ) //$NON-NLS-1$
         {
-            return new Pair<String, String> ( pair.first, String.format ( "%s/ca.root", getConfigurationArea ( profile ) ) ); //$NON-NLS-1$ 
+            return new Pair<String, String> ( pair.first, String.format ( "%s/ca.root", getConfigurationArea ( profile ) ) ); //$NON-NLS-1$
         }
 
-        if ( "org.eclipse.scada.ca.file.provisionJsonUrl".equals ( pair.first ) ) //$NON-NLS-1$ 
+        if ( "org.eclipse.scada.ca.file.provisionJsonUrl".equals ( pair.first ) ) //$NON-NLS-1$
         {
             return null;
         }
 
-        if ( "org.eclipse.scada.ca.file.provisionOscarUrl".equals ( pair.first ) ) //$NON-NLS-1$ 
+        if ( "org.eclipse.scada.ca.file.provisionOscarUrl".equals ( pair.first ) ) //$NON-NLS-1$
         {
             return null;
         }
@@ -233,8 +233,8 @@ public class LaunchShortcut implements ILaunchShortcut2
 
     private String escapeArgValue ( final String string )
     {
-        final String s1 = Matcher.quoteReplacement ( "\\$\\{" ); //$NON-NLS-1$ 
-        final String s2 = Matcher.quoteReplacement ( "\\}" ); //$NON-NLS-1$ 
+        final String s1 = Matcher.quoteReplacement ( "\\$\\{" ); //$NON-NLS-1$
+        final String s2 = Matcher.quoteReplacement ( "\\}" ); //$NON-NLS-1$
         return string.replaceAll ( "\\$\\{(.*?)\\}", s1 + "$1" + s2 ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
@@ -282,7 +282,7 @@ public class LaunchShortcut implements ILaunchShortcut2
             }
             else
             {
-                sb.append ( "default" ); //$NON-NLS-1$ 
+                sb.append ( "default" ); //$NON-NLS-1$
             }
             sb.append ( ':' );
             sb.append ( bundle.autostart == null ? "default" : "" + bundle.autostart ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -353,9 +353,9 @@ public class LaunchShortcut implements ILaunchShortcut2
             {
                 String iu = initialUnits.poll ();
 
-                if ( iu.endsWith ( ".feature.group" ) ) //$NON-NLS-1$ 
+                if ( iu.endsWith ( ".feature.group" ) ) //$NON-NLS-1$
                 {
-                    iu = iu.substring ( 0, iu.length () - ".feature.group".length () ); //$NON-NLS-1$ 
+                    iu = iu.substring ( 0, iu.length () - ".feature.group".length () ); //$NON-NLS-1$
                 }
 
                 final IFeatureModel f = features.get ( iu );
@@ -431,16 +431,16 @@ public class LaunchShortcut implements ILaunchShortcut2
 
         // osgi.bundles=org.eclipse.equinox.common@1:start, org.eclipse.update.configurator@2:start, org.eclipse.scada.utils.osgi.autostart@3:start
 
-        result.add ( new Bundle ( "org.eclipse.equinox.common", 1 ) ); //$NON-NLS-1$ 
+        result.add ( new Bundle ( "org.eclipse.equinox.common", 1 ) ); //$NON-NLS-1$
         // result.add ( new Bundle ( "org.eclipse.update.configurator", 2 ) );
-        result.add ( new Bundle ( "org.eclipse.core.runtime", 1 ) ); //$NON-NLS-1$ 
+        result.add ( new Bundle ( "org.eclipse.core.runtime", 1 ) ); //$NON-NLS-1$
 
-        result.add ( new Bundle ( "org.eclipse.osgi", 0 ) ); //$NON-NLS-1$ 
+        result.add ( new Bundle ( "org.eclipse.osgi", 0 ) ); //$NON-NLS-1$
 
-        result.add ( new Bundle ( "org.eclipse.equinox.console", 1 ) ); //$NON-NLS-1$ 
-        result.add ( new Bundle ( "org.apache.felix.gogo.command", 1 ) ); //$NON-NLS-1$ 
-        result.add ( new Bundle ( "org.apache.felix.gogo.shell", 1 ) ); //$NON-NLS-1$ 
-        result.add ( new Bundle ( "org.apache.felix.gogo.runtime", 1 ) ); //$NON-NLS-1$ 
+        result.add ( new Bundle ( "org.eclipse.equinox.console", 1 ) ); //$NON-NLS-1$
+        result.add ( new Bundle ( "org.apache.felix.gogo.command", 1 ) ); //$NON-NLS-1$
+        result.add ( new Bundle ( "org.apache.felix.gogo.shell", 1 ) ); //$NON-NLS-1$
+        result.add ( new Bundle ( "org.apache.felix.gogo.runtime", 1 ) ); //$NON-NLS-1$
 
         return result;
     }
@@ -500,7 +500,7 @@ public class LaunchShortcut implements ILaunchShortcut2
         final ILaunchConfiguration[] cfgs = DebugPlugin.getDefault ().getLaunchManager ().getLaunchConfigurations ( getConfigurationType () );
         for ( final ILaunchConfiguration cfg : cfgs )
         {
-            final Map<?, ?> envs = cfg.getAttribute ( ATTR_ENV_VARS, Collections.EMPTY_MAP );
+            final Map<?, ?> envs = cfg.getAttribute ( ATTR_ENV_VARS, Collections.<String, String> emptyMap () );
             if ( envs != null )
             {
                 final Object profile = envs.get ( "SCADA_PROFILE" ); //$NON-NLS-1$
