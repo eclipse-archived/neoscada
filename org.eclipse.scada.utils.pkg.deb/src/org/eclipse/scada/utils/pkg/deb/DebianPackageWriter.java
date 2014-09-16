@@ -193,8 +193,19 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
 
     private static void applyInfo ( final TarArchiveEntry entry, final EntryInformation entryInformation )
     {
-        entry.setUserName ( entryInformation.getUser () );
-        entry.setGroupName ( entryInformation.getGroup () );
+        if ( entryInformation == null )
+        {
+            return;
+        }
+
+        if ( entryInformation.getUser () != null )
+        {
+            entry.setUserName ( entryInformation.getUser () );
+        }
+        if ( entryInformation.getGroup () != null )
+        {
+            entry.setGroupName ( entryInformation.getGroup () );
+        }
         entry.setMode ( entryInformation.getMode () );
     }
 
@@ -254,7 +265,7 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
             try (
                     GZIPOutputStream gout = new GZIPOutputStream ( new FileOutputStream ( controlFile ) );
                     TarArchiveOutputStream tout = new TarArchiveOutputStream ( gout ) )
-                    {
+            {
                 tout.setLongFileMode ( TarArchiveOutputStream.LONGFILE_GNU );
 
                 addControlContent ( tout, "control", createControlContent (), -1 );
@@ -264,7 +275,7 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
                 addControlContent ( tout, "prerm", this.prermScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
                 addControlContent ( tout, "postinst", this.postinstScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
                 addControlContent ( tout, "postrm", this.postrmScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
-                    }
+            }
             addArFile ( controlFile, "control.tar.gz" );
         }
         finally
