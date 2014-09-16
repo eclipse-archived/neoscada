@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,12 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add variant with PrintWriter
  *******************************************************************************/
 package org.eclipse.scada.utils.str;
 
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -22,9 +24,18 @@ public final class Tables
     {
     }
 
+    private static interface Output
+    {
+        public void println ();
+
+        public void print ( String string );
+
+        public void print ( char c );
+    }
+
     /**
      * Print out a table
-     * 
+     *
      * @param out
      *            the stream to print to
      * @param header
@@ -34,7 +45,68 @@ public final class Tables
      * @param gap
      *            gap between columns
      */
-    public static void showTable ( final PrintStream out, final List<String> header, final List<List<String>> data, int gap )
+    public static void showTable ( final PrintStream out, final List<String> header, final List<List<String>> data, final int gap )
+    {
+        showTable ( new Output () {
+
+            @Override
+            public void println ()
+            {
+                out.println ();
+            }
+
+            @Override
+            public void print ( final String string )
+            {
+                out.print ( string );
+            }
+
+            @Override
+            public void print ( final char c )
+            {
+                out.print ( c );
+            }
+        }, header, data, gap );
+    }
+
+    /**
+     * Print out a table
+     *
+     * @since 0.2.0
+     * @param out
+     *            the stream to print to
+     * @param header
+     *            the column headers
+     * @param data
+     *            the data, in rows and cells
+     * @param gap
+     *            gap between columns
+     */
+    public static void showTable ( final PrintWriter out, final List<String> header, final List<List<String>> data, final int gap )
+    {
+        showTable ( new Output () {
+
+            @Override
+            public void println ()
+            {
+                out.println ();
+            }
+
+            @Override
+            public void print ( final String string )
+            {
+                out.print ( string );
+            }
+
+            @Override
+            public void print ( final char c )
+            {
+                out.print ( c );
+            }
+        }, header, data, gap );
+    }
+
+    protected static void showTable ( final Output out, final List<String> header, final List<List<String>> data, int gap )
     {
         if ( gap < 0 )
         {
@@ -112,5 +184,4 @@ public final class Tables
             out.println ();
         }
     }
-
 }

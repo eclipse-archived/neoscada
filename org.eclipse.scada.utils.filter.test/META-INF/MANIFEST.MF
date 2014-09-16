@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Unit Tests for org.eclipse.scada.utils.filter
+Bundle-SymbolicName: org.eclipse.scada.utils.filter.test
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.scada.utils.filter;bundle-version="0.1.0",
+ org.junit;bundle-version="4.11.0"
