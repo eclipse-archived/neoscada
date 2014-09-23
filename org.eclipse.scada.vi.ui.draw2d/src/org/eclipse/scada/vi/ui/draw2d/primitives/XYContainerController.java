@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,12 +7,14 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow controlling the XY child properties
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.XYLayout;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.scada.vi.model.XYChild;
 import org.eclipse.scada.vi.model.XYContainer;
 import org.eclipse.scada.vi.ui.draw2d.BasicViewElementFactory;
@@ -33,7 +35,10 @@ public class XYContainerController implements Controller
         {
             final Controller elementController = factory.create ( controller, child.getElement () );
             final IFigure childFigure = elementController.getFigure ();
-            this.figure.add ( childFigure, factory.create ( child.getPosition (), child.getDimension () ) );
+
+            final Rectangle rect = factory.create ( child.getPosition (), child.getDimension () );
+            controller.addRawElement ( child.getName (), new XYChildController ( childFigure, rect ) );
+            this.figure.add ( childFigure, rect );
         }
 
         controller.addElement ( element, this );
