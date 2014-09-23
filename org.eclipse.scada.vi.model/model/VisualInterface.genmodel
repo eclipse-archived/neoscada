@@ -5,8 +5,8 @@
     editorDirectory="/org.eclipse.scada.vi.model.editor/src" modelPluginID="org.eclipse.scada.vi.model"
     modelName="VisualInterface" modelPluginClass="" nonNLSMarkers="true" codeFormatting="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    editorPluginID="org.eclipse.scada.vi.model.editor" language="" interfaceNamePattern=""
-    classNamePattern="" importOrganizing="true">
+    editorPluginID="org.eclipse.scada.vi.model.editor" runtimeVersion="2.9" language=""
+    interfaceNamePattern="" classNamePattern="" importOrganizing="true">
   <foreignModel>VisualInterface.ecore</foreignModel>
   <genPackages prefix="VisualInterface" basePackage="org.eclipse.scada.vi" disposableProviderFactory="true"
       generateModelWizard="false" extensibleProviderFactory="true" childCreationExtenders="true"
@@ -74,8 +74,10 @@
       <genFeatures createChild="false" propertyCategory="common" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Child/name"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//XYChild">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/position"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/dimension"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="layout"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/position"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="layout"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/dimension"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//XYContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYContainer/children"/>
@@ -148,17 +150,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderContainer/horizontalSpacing"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//BorderChild">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderChild/alignment"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderChild/alignment"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//GridChild">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/horizontalAlignment"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/verticalAlignment"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabHorizontalSpace"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabVerticalSpace"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanCols"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanRows"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/widthHint"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/heightHint"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/horizontalAlignment"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/verticalAlignment"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabHorizontalSpace"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabVerticalSpace"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanCols"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanRows"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/widthHint"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/heightHint"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//FigureContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//FigureContainer/content"/>
@@ -178,6 +180,12 @@
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//StackContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//StackContainer/children"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Polygon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Polygon/points"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//RoundedRectangle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//RoundedRectangle/corner"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

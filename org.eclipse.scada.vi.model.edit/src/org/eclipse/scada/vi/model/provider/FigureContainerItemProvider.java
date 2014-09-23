@@ -12,16 +12,10 @@ package org.eclipse.scada.vi.model.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.model.FigureContainer;
 import org.eclipse.scada.vi.model.VisualInterfaceFactory;
@@ -33,7 +27,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FigureContainerItemProvider extends FigureItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class FigureContainerItemProvider extends FigureItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -118,9 +112,8 @@ public class FigureContainerItemProvider extends FigureItemProvider implements I
     public String getText ( Object object )
     {
         String label = ( (FigureContainer)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_FigureContainer_type" ) : //$NON-NLS-1$
-                getString ( "_UI_FigureContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_FigureContainer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_FigureContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -156,75 +149,33 @@ public class FigureContainerItemProvider extends FigureItemProvider implements I
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createText () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createText () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createLine () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createLine () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createImage () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createImage () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createArc () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createArc () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
-                        VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT, VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
     }
 
 }

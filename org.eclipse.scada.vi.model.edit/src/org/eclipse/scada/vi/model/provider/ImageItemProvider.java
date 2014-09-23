@@ -12,16 +12,10 @@ package org.eclipse.scada.vi.model.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.model.Image;
@@ -33,7 +27,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ImageItemProvider extends FigureItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class ImageItemProvider extends FigureItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -73,19 +67,10 @@ public class ImageItemProvider extends FigureItemProvider implements IEditingDom
      */
     protected void addUriPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Image_uri_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Image_uri_feature", "_UI_Image_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.IMAGE__URI,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_imagePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Image_uri_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Image_uri_feature", "_UI_Image_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.IMAGE__URI, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_imagePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -96,19 +81,10 @@ public class ImageItemProvider extends FigureItemProvider implements IEditingDom
      */
     protected void addImageAlignmentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Image_imageAlignment_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Image_imageAlignment_feature", "_UI_Image_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.IMAGE__IMAGE_ALIGNMENT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_imagePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Image_imageAlignment_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Image_imageAlignment_feature", "_UI_Image_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.IMAGE__IMAGE_ALIGNMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_imagePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -133,9 +109,8 @@ public class ImageItemProvider extends FigureItemProvider implements IEditingDom
     public String getText ( Object object )
     {
         String label = ( (Image)object ).getUri ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Image_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Image_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Image_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Image_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

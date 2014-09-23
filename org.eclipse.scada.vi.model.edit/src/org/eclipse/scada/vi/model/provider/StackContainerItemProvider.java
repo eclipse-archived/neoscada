@@ -77,19 +77,10 @@ public class StackContainerItemProvider extends ItemProviderAdapter implements I
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.PRIMITIVE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -147,9 +138,8 @@ public class StackContainerItemProvider extends ItemProviderAdapter implements I
     public String getText ( Object object )
     {
         String label = ( (StackContainer)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_StackContainer_type" ) : //$NON-NLS-1$
-                getString ( "_UI_StackContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_StackContainer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_StackContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -188,75 +178,33 @@ public class StackContainerItemProvider extends ItemProviderAdapter implements I
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createText () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createText () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createLine () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createLine () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createImage () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createImage () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createArc () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createArc () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
     }
 
     /**

@@ -72,19 +72,9 @@ public class DimensionItemProvider extends ItemProviderAdapter implements IEditi
      */
     protected void addWidthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Dimension_width_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Dimension_width_feature", "_UI_Dimension_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.DIMENSION__WIDTH,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Dimension_width_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Dimension_width_feature", "_UI_Dimension_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.DIMENSION__WIDTH, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -94,19 +84,9 @@ public class DimensionItemProvider extends ItemProviderAdapter implements IEditi
      */
     protected void addHeightPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Dimension_height_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Dimension_height_feature", "_UI_Dimension_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.DIMENSION__HEIGHT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Dimension_height_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Dimension_height_feature", "_UI_Dimension_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.DIMENSION__HEIGHT, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
