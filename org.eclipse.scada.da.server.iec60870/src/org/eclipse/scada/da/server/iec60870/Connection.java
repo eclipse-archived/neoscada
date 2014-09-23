@@ -59,6 +59,7 @@ import org.eclipse.scada.protocol.iec60870.client.ClientModule;
 import org.eclipse.scada.protocol.iec60870.client.data.DataHandler;
 import org.eclipse.scada.protocol.iec60870.client.data.DataListener;
 import org.eclipse.scada.protocol.iec60870.client.data.DataModule;
+import org.eclipse.scada.protocol.iec60870.client.data.DataModuleOptions;
 import org.eclipse.scada.protocol.iec60870.client.data.DataProcessor;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
@@ -124,6 +125,8 @@ public class Connection
 
     private String id;
 
+    private DataModuleOptions dataModuleOptions;
+
     public Connection ( final String id, final Hive hive, final Executor executor, final ConnectionConfiguration configuration )
     {
         this.hive = hive;
@@ -131,8 +134,10 @@ public class Connection
         this.id = id;
 
         this.executor = executor;
+
+        this.dataModuleOptions = configuration.getDataModuleOptions ();
         this.handler = new DataProcessor ( executor, this.dataListener );
-        final DataModule dataModule = new DataModule ( this.handler, configuration.getDataModuleOptions () );
+        final DataModule dataModule = new DataModule ( this.handler, this.dataModuleOptions );
 
         this.protocolOptions = configuration.getProtocolOptions ();
 
@@ -307,7 +312,7 @@ public class Connection
             return null;
         }
 
-        final ASDUHeader header = new ASDUHeader ( new CauseOfTransmission ( StandardCause.ACTIVATED /*FIXME: data options*/), commonAddress );
+        final ASDUHeader header = new ASDUHeader ( new CauseOfTransmission ( StandardCause.ACTIVATED, this.dataModuleOptions.getCauseSourceAddress () ), commonAddress );
 
         try
         {
