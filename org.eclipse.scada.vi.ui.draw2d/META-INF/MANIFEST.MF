@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Draw2D Implementation
+Bundle-Name: Draw2D Implementation (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.vi.ui.draw2d;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.vi.ui.draw2d.Activator

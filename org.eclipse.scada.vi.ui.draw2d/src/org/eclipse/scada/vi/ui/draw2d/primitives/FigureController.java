@@ -35,6 +35,7 @@ import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.ui.blink.AbstractBlinker;
+import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.scada.utils.script.ScriptExecutor;
 import org.eclipse.scada.vi.model.Cursor;
 import org.eclipse.scada.vi.model.Dimension;
@@ -353,7 +354,7 @@ public abstract class FigureController implements Controller
     /**
      * Set a cursor for the figure <br/>
      * The name of the cursor must be one of the {@link SWTCursors} enum.
-     * 
+     *
      * @param cursor
      *            the name of the cursor
      */
@@ -421,6 +422,10 @@ public abstract class FigureController implements Controller
         catch ( final Exception e )
         {
             this.controller.errorLog ( "Failed to handle event: " + eventName, e ); //$NON-NLS-1$
+            if ( !Boolean.getBoolean ( "org.eclipse.scada.vi.ui.draw2d.suppressErrors" ) ) //$NON-NLS-1$
+            {
+                StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, "Failed to handle event", e ), StatusManager.SHOW );
+            }
         }
     }
 

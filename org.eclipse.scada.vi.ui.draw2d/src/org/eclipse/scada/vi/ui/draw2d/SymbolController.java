@@ -15,6 +15,7 @@ package org.eclipse.scada.vi.ui.draw2d;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -125,6 +126,8 @@ public class SymbolController implements Listener
     private final SymbolLoader symbolLoader;
 
     private final ScriptEngine scriptEngine;
+
+    private PrintWriter errorPrintWriter;
 
     public SymbolController ( final Shell shell, final SymbolLoader symbolLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
     {
@@ -247,7 +250,8 @@ public class SymbolController implements Listener
 
         this.errorStream = this.console.newMessageStream ();
         this.errorStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_RED ) );
-        scriptContext.setErrorWriter ( new PrintWriter ( new OutputStreamWriter ( this.errorStream ) ) );
+        this.errorPrintWriter = new PrintWriter ( new OutputStreamWriter ( this.errorStream ) );
+        scriptContext.setErrorWriter ( this.errorPrintWriter );
 
         this.logStream = this.console.newMessageStream ();
         this.logStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_GRAY ) );
@@ -582,7 +586,7 @@ public class SymbolController implements Listener
         return new ScriptExecutor ( this.scriptEngine, command, this.classLoader, sourceName );
     }
 
-    public void execute ( final ScriptExecutor scriptExecutor, final Map<String, Object> scriptObjects )
+    public void execute ( final ScriptExecutor scriptExecutor, final Map<String, Object> scriptObjects ) throws Exception
     {
         if ( scriptExecutor == null )
         {
@@ -596,6 +600,7 @@ public class SymbolController implements Listener
         catch ( final Exception e )
         {
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
+            throw new InvocationTargetException ( e );
         }
     }
 
@@ -632,10 +637,12 @@ public class SymbolController implements Listener
 
     public void errorLog ( final String string, final Exception e )
     {
-        final PrintWriter pw = new PrintWriter ( this.errorStream );
-        pw.println ( string );
-        e.printStackTrace ( pw );
-        pw.flush ();
+        this.errorPrintWriter.println ( string );
+        if ( e != null )
+        {
+            e.printStackTrace ( this.errorPrintWriter );
+        }
+        this.errorPrintWriter.flush ();
     }
 
     protected SymbolContext getContext ()
