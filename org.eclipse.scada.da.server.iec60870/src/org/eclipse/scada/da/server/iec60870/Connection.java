@@ -18,6 +18,8 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.eclipse.scada.core.NotConvertableException;
+import org.eclipse.scada.core.NullValueException;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.server.OperationParameters;
 import org.eclipse.scada.da.core.DataItemInformation;
@@ -32,15 +34,22 @@ import org.eclipse.scada.da.server.browser.common.query.ItemDescriptor;
 import org.eclipse.scada.da.server.browser.common.query.SplitGroupProvider;
 import org.eclipse.scada.da.server.browser.common.query.SplitNameProvider;
 import org.eclipse.scada.da.server.common.AttributeMode;
+import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.common.DataItemInformationBase;
 import org.eclipse.scada.da.server.common.chain.DataItemInputOutputChained;
 import org.eclipse.scada.da.server.common.chain.item.SumErrorChainItem;
 import org.eclipse.scada.da.server.common.exporter.ObjectExporter;
 import org.eclipse.scada.da.server.common.item.factory.DefaultChainItemFactory;
 import org.eclipse.scada.protocol.iec60870.ProtocolOptions;
+import org.eclipse.scada.protocol.iec60870.asdu.ASDUHeader;
+import org.eclipse.scada.protocol.iec60870.asdu.message.SetPointCommandScaledValue;
+import org.eclipse.scada.protocol.iec60870.asdu.message.SetPointCommandShortFloatingPoint;
+import org.eclipse.scada.protocol.iec60870.asdu.message.SingleCommand;
 import org.eclipse.scada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.scada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.scada.protocol.iec60870.asdu.types.DoublePoint;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
+import org.eclipse.scada.protocol.iec60870.asdu.types.StandardCause;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Value;
 import org.eclipse.scada.protocol.iec60870.client.AutoConnectClient;
 import org.eclipse.scada.protocol.iec60870.client.AutoConnectClient.ModulesFactory;
@@ -52,6 +61,7 @@ import org.eclipse.scada.protocol.iec60870.client.data.DataListener;
 import org.eclipse.scada.protocol.iec60870.client.data.DataModule;
 import org.eclipse.scada.protocol.iec60870.client.data.DataProcessor;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
+import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -150,9 +160,14 @@ public class Connection
         this.client = new AutoConnectClient ( configuration.getHost (), configuration.getPort (), configuration.getProtocolOptions (), this.modulesFactory, this.clientListener );
     }
 
-    protected void handleDisconnected ()
+    protected synchronized void handleDisconnected ()
     {
-        // FIXME: dispose all items
+        this.storage.clear ();
+        for ( final DataItem item : this.itemCache.values () )
+        {
+            this.hive.unregisterItem ( item );
+        }
+        this.itemCache.clear ();
     }
 
     protected void handleDataUpdate ( final ASDUAddress commonAddress, final InformationObjectAddress objectAddress, final Value<?> value )
@@ -266,7 +281,58 @@ public class Connection
 
     protected NotifyFuture<WriteResult> handleStartWriteValue ( final ASDUAddress commonAddress, final InformationObjectAddress objectAddress, final Variant value, final OperationParameters operationParameters )
     {
-        return new InstantErrorFuture<WriteResult> ( new UnsupportedOperationException () ); // FIXME: implement
+        final Object command = makeCommand ( commonAddress, objectAddress, value );
+
+        if ( command == null )
+        {
+            return new InstantErrorFuture<> ( new IllegalArgumentException ( String.format ( "Unable to write value: %s", value ) ) );
+        }
+
+        final boolean didWrite = this.client.writeCommand ( command );
+
+        if ( didWrite )
+        {
+            return new InstantFuture<WriteResult> ( WriteResult.OK );
+        }
+        else
+        {
+            return new InstantErrorFuture<WriteResult> ( new IllegalStateException ( "Client is not connected" ) );
+        }
+    }
+
+    private Object makeCommand ( final ASDUAddress commonAddress, final InformationObjectAddress objectAddress, final Variant value )
+    {
+        if ( value == null )
+        {
+            return null;
+        }
+
+        final ASDUHeader header = new ASDUHeader ( new CauseOfTransmission ( StandardCause.ACTIVATED /*FIXME: data options*/), commonAddress );
+
+        try
+        {
+            switch ( value.getType () )
+            {
+                case BOOLEAN:
+                    return new SingleCommand ( header, objectAddress, value.asBoolean () );
+
+                case STRING:
+                case DOUBLE:
+                    return new SetPointCommandShortFloatingPoint ( header, objectAddress, (float)value.asDouble () );
+
+                case INT32:
+                case INT64:
+                    return new SetPointCommandScaledValue ( header, objectAddress, (short)value.asInteger () );
+
+                default:
+                    return null;
+            }
+        }
+        catch ( final NotConvertableException | NullValueException e )
+        {
+            // should never happen
+        }
+        return null;
     }
 
     private String makeLocalId ( final ASDUAddress commonAddress, final InformationObjectAddress objectAddress )
