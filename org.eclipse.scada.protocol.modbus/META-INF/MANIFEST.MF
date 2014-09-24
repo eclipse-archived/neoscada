@@ -14,7 +14,12 @@ Export-Package: org.eclipse.scada.protocol.modbus;version="0.2.0",
    org.apache.mina.core.write,
    org.apache.mina.filter.codec",
  org.eclipse.scada.protocol.modbus.io;version="0.2.0",
- org.eclipse.scada.protocol.modbus.message;version="0.2.0";uses:="org.apache.mina.core.buffer"
+ org.eclipse.scada.protocol.modbus.message;version="0.2.0";uses:="org.apache.mina.core.buffer",
+ org.eclipse.scada.protocol.modbus.slave;version="0.2.0";
+  uses:="org.eclipse.scada.utils.beans,
+   org.apache.mina.core.session,
+   org.eclipse.scada.protocol.modbus.message,
+   org.apache.mina.transport.socket"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
  org.apache.mina.core.filterchain;version="[2.0.7,3.0.0)",
@@ -22,6 +27,9 @@ Import-Package: org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
  org.apache.mina.core.session;version="[2.0.7,3.0.0)",
  org.apache.mina.core.write;version="[2.0.7,3.0.0)",
  org.apache.mina.filter.codec;version="[2.0.7,3.0.0)",
+ org.apache.mina.transport.socket;version="2.0.7",
+ org.apache.mina.transport.socket.nio;version="[2.0.7,3.0.0)",
  org.eclipse.scada.protocol.common;version="0.1.0",
  org.eclipse.scada.protocol.common.io;version="0.1.0",
+ org.eclipse.scada.utils.beans;version="0.2.0",
  org.slf4j;version="1.7.0"
