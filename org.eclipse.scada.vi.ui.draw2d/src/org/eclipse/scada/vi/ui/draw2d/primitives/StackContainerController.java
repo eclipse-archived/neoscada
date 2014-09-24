@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,13 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix click issue
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Layer;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.scada.vi.model.Primitive;
 import org.eclipse.scada.vi.model.StackContainer;
@@ -27,7 +29,8 @@ public class StackContainerController implements Controller
 
     public StackContainerController ( final SymbolController controller, final StackContainer element, final BasicViewElementFactory factory ) throws Exception
     {
-        this.figure = new Figure ();
+        this.figure = new Layer ();
+        this.figure.setOpaque ( false );
 
         this.figure.setLayoutManager ( this.layout = new StackLayout () );
 

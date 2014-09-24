@@ -7,12 +7,13 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - allow controlling the XY child properties
+ *     IBH SYSTEMS GmbH - allow controlling the XY child properties, fix click issue
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Layer;
 import org.eclipse.draw2d.XYLayout;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.scada.vi.model.XYChild;
@@ -27,7 +28,8 @@ public class XYContainerController implements Controller
 
     public XYContainerController ( final SymbolController controller, final XYContainer element, final BasicViewElementFactory factory ) throws Exception
     {
-        this.figure = new Figure ();
+        this.figure = new Layer ();
+        this.figure.setOpaque ( false );
 
         this.figure.setLayoutManager ( new XYLayout () );
 
