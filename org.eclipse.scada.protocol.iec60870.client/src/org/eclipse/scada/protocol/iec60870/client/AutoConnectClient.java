@@ -173,6 +173,23 @@ public class AutoConnectClient implements AutoCloseable
         this.client.connect ();
     }
 
+    public boolean writeCommand ( final Object command )
+    {
+        Client client;
+
+        synchronized ( this )
+        {
+            client = this.client;
+        }
+
+        if ( client != null )
+        {
+            client.writeCommand ( command );
+            return true;
+        }
+        return false;
+    }
+
     private void fireState ( final State state )
     {
         fireState ( state, null );
