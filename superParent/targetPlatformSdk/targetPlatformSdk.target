@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform (SDK)" sequenceNumber="1403087254">
+<target name="Eclipse SCADA Target Platform (SDK)" sequenceNumber="1409744534">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.paho.client.mqttv3" version="0.9.0"/>
+      <unit id="org.eclipse.paho.client.mqttv3" version="1.0.0"/>
       <repository location="http://download.eclipse.org/paho/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -50,6 +50,8 @@
       <unit id="javax.inject.source" version="1.0.0.v20091030"/>
       <unit id="javax.ws.rs" version="1.1.1.v20130318-1750"/>
       <unit id="javax.ws.rs.source" version="1.1.1.v20130318-1750"/>
+      <unit id="javax.mail.glassfish" version="1.4.1.v201108011116"/>
+      <unit id="javax.activation" version="1.1.0.v201211130549"/>
       <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
       <unit id="osgi.enterprise.source" version="4.2.0.v201108120515"/>
       <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
@@ -59,17 +61,17 @@
       <repository location="http://download.eclipse.org/gemini/updates/dbaccess/1.1.0"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.scada.external.wrapper.feature.group" version="0.2.0.v20140519-1034"/>
-      <unit id="org.eclipse.scada.external.sdk.feature.group" version="0.2.0.v20140519-1028"/>
-      <unit id="org.eclipse.scada.base.sdk.feature.group" version="0.2.0.v20140602-0918"/>
-      <unit id="org.eclipse.scada.protocols.sdk.feature.group" version="0.2.0.v20140612-1006"/>
-      <unit id="org.eclipse.scada.configuration.sdk.feature.group" version="0.2.0.v20140616-1545"/>
+      <unit id="org.eclipse.scada.external.wrapper.feature.group" version="0.2.0.v20140722-1451"/>
+      <unit id="org.eclipse.scada.external.sdk.feature.group" version="0.2.0.v20140722-1451"/>
+      <unit id="org.eclipse.scada.base.sdk.feature.group" version="0.2.0.v20140902-1629"/>
+      <unit id="org.eclipse.scada.protocols.sdk.feature.group" version="0.2.0.v20140827-1116"/>
+      <unit id="org.eclipse.scada.configuration.sdk.feature.group" version="0.2.0.v20140828-1740"/>
       <unit id="org.eclipse.scada.external.orbit.feature.group" version="0.2.0.v20140527-0923"/>
-      <unit id="org.eclipse.scada.chart.sdk.feature.group" version="0.2.0.v20140604-1513"/>
-      <unit id="org.eclipse.scada.hmi.sdk.feature.group" version="0.2.0.v20140618-1005"/>
-      <unit id="org.eclipse.scada.utils.sdk.feature.group" version="0.2.0.v20140616-1601"/>
-      <unit id="org.eclipse.scada.core.sdk.feature.group" version="0.2.0.v20140616-1514"/>
-      <unit id="org.eclipse.scada.external.feature.group" version="0.2.0.v20140519-1028"/>
+      <unit id="org.eclipse.scada.chart.sdk.feature.group" version="0.2.0.v20140723-0935"/>
+      <unit id="org.eclipse.scada.hmi.sdk.feature.group" version="0.2.0.v20140901-1207"/>
+      <unit id="org.eclipse.scada.utils.sdk.feature.group" version="0.2.0.v20140826-1252"/>
+      <unit id="org.eclipse.scada.core.sdk.feature.group" version="0.2.0.v20140902-0947"/>
+      <unit id="org.eclipse.scada.external.feature.group" version="0.2.0.v20140722-1451"/>
       <repository location="http://download.eclipse.org/eclipsescada/updates/nightly/0.2"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">

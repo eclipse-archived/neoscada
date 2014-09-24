@@ -81,6 +81,10 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2014052502125
 	javax.inject.^source;version=[1.0.0,1.0.1)
 	javax.ws.rs;version=[1.1.1,1.1.2)
 	javax.ws.rs.^source;version=[1.1.1,1.1.2)
+	javax.mail.glassfish;version=[1.4.1,1.4.2)
+	javax.mail.glassfish.^source;version=[1.4.1,1.4.2)
+	javax.activation;version=[1.1.0,1.1.1)
+	javax.activation.^source;version=[1.1.0,1.1.1)
 	
 	osgi.enterprise;version=[4.2.0,4.2.1)
 	osgi.enterprise.^source;version=[4.2.0,4.2.1)
