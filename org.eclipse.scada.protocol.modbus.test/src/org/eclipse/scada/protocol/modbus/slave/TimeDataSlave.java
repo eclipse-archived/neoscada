@@ -20,7 +20,7 @@ public class TimeDataSlave extends AbstractDataSlave
 
         for ( int i = 0; i < result.length; i++ )
         {
-            result[i] = (int) ( System.currentTimeMillis () & 0xFFFF );
+            result[i] = (int) ( System.currentTimeMillis () / 1000 & 0xFFFF );
         }
 
         return result;
@@ -45,25 +45,6 @@ public class TimeDataSlave extends AbstractDataSlave
                 result[i] = true;
             }
         }
-
-        System.out.println ( "Result :" + make ( result ) );
         return result;
-    }
-
-    private String make ( final boolean[] result )
-    {
-        final StringBuilder sb = new StringBuilder ();
-        for ( int i = 0; i < result.length; i++ )
-        {
-            if ( result[i] )
-            {
-                sb.append ( "X" );
-            }
-            else
-            {
-                sb.append ( "-" );
-            }
-        }
-        return sb.toString ();
     }
 }
