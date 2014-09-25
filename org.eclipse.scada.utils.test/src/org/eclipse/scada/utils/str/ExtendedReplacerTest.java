@@ -65,9 +65,22 @@ public class ExtendedReplacerTest
     }
 
     @Test
+    public void testDefaultNested2 ()
+    {
+        test ( "${foo:${test}} ${foo:${test}}", "bar bar" );
+        test ( "${foo3:${test}} ${foo3:${test}}", "blubb blubb" );
+    }
+
+    @Test
     public void testNested ()
     {
         test ( "${${foo2}}", "bar" );
+    }
+
+    @Test
+    public void testNested2 ()
+    {
+        test ( "${${foo2}} ${${foo2}}", "bar bar" );
     }
 
     private void test ( final String string, final String expected )
