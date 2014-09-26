@@ -77,9 +77,9 @@ public class SingleCommand extends AbstractInformationObjectMessage implements M
         b |= this.type << 2 & 0b011111100;
         b |= this.execute ? 0 : 0b100000000;
 
-        out.writeByte ( b );
-
         this.informationObjectAddress.encode ( options, out );
+
+        out.writeByte ( b );
     }
 
     public static SingleCommand parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )
