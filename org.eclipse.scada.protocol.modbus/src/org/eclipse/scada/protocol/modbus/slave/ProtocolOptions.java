@@ -30,6 +30,13 @@ public class ProtocolOptions extends AbstractPropertyChange
     {
     }
 
+    public ProtocolOptions ( final ProtocolOptions other )
+    {
+        this.mode = other.mode;
+        this.readTimeout = other.readTimeout;
+        this.interFrameDelay = other.interFrameDelay;
+    }
+
     public void setMode ( final Mode mode )
     {
         firePropertyChange ( PROP_MODE, this.mode, this.mode = mode );
