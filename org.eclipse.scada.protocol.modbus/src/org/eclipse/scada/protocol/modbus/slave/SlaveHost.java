@@ -20,6 +20,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.mina.core.buffer.IoBuffer;
+import org.apache.mina.core.filterchain.IoFilterChainBuilder;
 import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.service.IoConnector;
 import org.apache.mina.core.service.IoHandlerAdapter;
@@ -61,6 +62,11 @@ public class SlaveHost
 
     private final IoConnector connector;
 
+    public interface SlaveHostCustomizer
+    {
+        public void customizeFilterChain ( IoFilterChainBuilder filterChain );
+    }
+
     /**
      * Create a new slave host and bind to a single TCP port
      *
@@ -84,7 +90,7 @@ public class SlaveHost
 
         this.disposeAcceptor = true;
 
-        setupAcceptor ();
+        setupAcceptor ( null );
 
         this.acceptor.bind ( new InetSocketAddress ( port ) );
     }
@@ -98,7 +104,7 @@ public class SlaveHost
      *            a list of socket addresses to bind to.
      *            <em>Note:<em> these socket addresses must be addresses of local interfaces, not remote addresses.
      */
-    public SlaveHost ( final ProtocolOptions options, final SocketAddress... socketAddresses ) throws IOException
+    public SlaveHost ( final ProtocolOptions options, final SlaveHostCustomizer slaveHostCustomizer, final SocketAddress... socketAddresses ) throws IOException
     {
         this.options = makeOptions ( options );
 
@@ -108,7 +114,7 @@ public class SlaveHost
         this.acceptor = new NioSocketAcceptor ( this.processor );
         this.disposeAcceptor = true;
 
-        setupAcceptor ();
+        setupAcceptor ( slaveHostCustomizer );
 
         this.acceptor.bind ( socketAddresses );
     }
@@ -125,7 +131,7 @@ public class SlaveHost
      * @param acceptor
      *            the socket acceptor to use
      */
-    public SlaveHost ( final ProtocolOptions options, final SocketAcceptor acceptor )
+    public SlaveHost ( final ProtocolOptions options, final SocketAcceptor acceptor, final SlaveHostCustomizer slaveHostCustomizer )
     {
         this.options = makeOptions ( options );
 
@@ -134,10 +140,10 @@ public class SlaveHost
         this.processor = null;
         this.disposeAcceptor = false;
 
-        setupAcceptor ();
+        setupAcceptor ( slaveHostCustomizer );
     }
 
-    public SlaveHost ( final ProtocolOptions options, final IoConnector connector )
+    public SlaveHost ( final ProtocolOptions options, final IoConnector connector, final SlaveHostCustomizer slaveHostCustomizer )
     {
         this.options = makeOptions ( options );
 
@@ -146,7 +152,7 @@ public class SlaveHost
         this.processor = null;
         this.disposeAcceptor = false;
 
-        setupConnector ();
+        setupConnector ( slaveHostCustomizer );
     }
 
     private static ProtocolOptions makeOptions ( final ProtocolOptions options )
@@ -159,17 +165,17 @@ public class SlaveHost
         return new ProtocolOptions ( options );
     }
 
-    private void setupConnector ()
+    private void setupConnector ( final SlaveHostCustomizer slaveHostCustomizer )
     {
-        setup ( this.connector );
+        setup ( this.connector, slaveHostCustomizer );
     }
 
-    private void setupAcceptor ()
+    private void setupAcceptor ( final SlaveHostCustomizer slaveHostCustomizer )
     {
-        setup ( this.acceptor );
+        setup ( this.acceptor, slaveHostCustomizer );
     }
 
-    private void setup ( final IoService service )
+    private void setup ( final IoService service, final SlaveHostCustomizer slaveHostCustomizer )
     {
         this.executor = Executors.newSingleThreadScheduledExecutor ();
 
@@ -193,6 +199,11 @@ public class SlaveHost
         }
 
         service.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$
+
+        if ( slaveHostCustomizer != null )
+        {
+            slaveHostCustomizer.customizeFilterChain ( service.getFilterChain () );
+        }
 
         service.setHandler ( new IoHandlerAdapter () {
             @Override
