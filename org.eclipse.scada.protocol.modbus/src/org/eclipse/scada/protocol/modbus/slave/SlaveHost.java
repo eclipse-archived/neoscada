@@ -20,6 +20,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.mina.core.buffer.IoBuffer;
+import org.apache.mina.core.service.IoAcceptor;
+import org.apache.mina.core.service.IoConnector;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.service.IoService;
 import org.apache.mina.core.service.SimpleIoProcessorPool;
@@ -27,7 +29,6 @@ import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.SocketAcceptor;
-import org.apache.mina.transport.socket.SocketConnector;
 import org.apache.mina.transport.socket.nio.NioProcessor;
 import org.apache.mina.transport.socket.nio.NioSession;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
@@ -48,7 +49,7 @@ public class SlaveHost
 
     private final SimpleIoProcessorPool<NioSession> processor;
 
-    private final SocketAcceptor acceptor;
+    private final IoAcceptor acceptor;
 
     private final boolean disposeAcceptor;
 
@@ -58,7 +59,7 @@ public class SlaveHost
 
     private final Map<Integer, Slave> slaves = new HashMap<> ();
 
-    private final SocketConnector connector;
+    private final IoConnector connector;
 
     /**
      * Create a new slave host and bind to a single TCP port
@@ -75,10 +76,11 @@ public class SlaveHost
         this.connector = null;
 
         this.processor = new SimpleIoProcessorPool<> ( NioProcessor.class );
-        this.acceptor = new NioSocketAcceptor ( this.processor );
+        final SocketAcceptor nioAcceptor = new NioSocketAcceptor ( this.processor );
+        this.acceptor = nioAcceptor;
 
-        this.acceptor.setReuseAddress ( true );
-        this.acceptor.setBacklog ( 5 );
+        nioAcceptor.setReuseAddress ( true );
+        nioAcceptor.setBacklog ( 5 );
 
         this.disposeAcceptor = true;
 
@@ -135,7 +137,7 @@ public class SlaveHost
         setupAcceptor ();
     }
 
-    public SlaveHost ( final ProtocolOptions options, final SocketConnector connector )
+    public SlaveHost ( final ProtocolOptions options, final IoConnector connector )
     {
         this.options = makeOptions ( options );
 
