@@ -91,6 +91,7 @@
 						</goals>
 						<configuration>
 							<target>
+								<ant antfile="post.ant" />
 								<ant antfile="../aggregateRepositories/build.ant" dir="../aggregateRepositories">
 									<property name="version" value="${unqualifiedVersion}" /> <!-- provided by the build helper -->
 									<property name="release" value="${release}" />
