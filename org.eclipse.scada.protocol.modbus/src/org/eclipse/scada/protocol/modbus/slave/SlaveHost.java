@@ -20,7 +20,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.mina.core.buffer.IoBuffer;
-import org.apache.mina.core.filterchain.IoFilterChainBuilder;
+import org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder;
 import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.service.IoConnector;
 import org.apache.mina.core.service.IoHandlerAdapter;
@@ -64,7 +64,7 @@ public class SlaveHost
 
     public interface SlaveHostCustomizer
     {
-        public void customizeFilterChain ( IoFilterChainBuilder filterChain );
+        public void customizeFilterChain ( DefaultIoFilterChainBuilder filterChain );
     }
 
     /**
@@ -187,7 +187,7 @@ public class SlaveHost
                 final ModbusRtuDecoder decoder = new ModbusRtuDecoder ( this.executor, this.options.getInterFrameDelay (), TimeUnit.MILLISECONDS );
                 service.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
             }
-            break;
+                break;
 
             case TCP:
             {
@@ -195,7 +195,7 @@ public class SlaveHost
                 final ModbusTcpDecoder decoder = new ModbusTcpDecoder ();
                 service.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
             }
-            break;
+                break;
         }
 
         service.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$

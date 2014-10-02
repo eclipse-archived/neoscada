@@ -94,7 +94,7 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         // get unit id
         final byte unitIdentifier = currentFrame.get ();
 
-        final int len = currentFrame.limit () - ( 2 /*crc*/+ Constants.RTU_HEADER_SIZE );
+        final int len = currentFrame.limit () - ( 2 /*crc*/+ 1/*unit id*/);
 
         final IoBuffer pdu = IoBuffer.allocate ( len );
         for ( int i = 0; i < len; i++ )
@@ -104,6 +104,7 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         pdu.flip ();
 
         // decode and send
+        logger.trace ( "Decoded PDU - data: {}", pdu.getHexDump () );
         out.write ( new Pdu ( 0, unitIdentifier, pdu ) );
     }
 
