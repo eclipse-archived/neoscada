@@ -67,7 +67,7 @@
             </fileset>
         </copy>
     	
-    	<!-- updates is handles by repgen -->
+    	<!-- updates are handled by repgen -->
     </target>
 
     <!-- =================================
