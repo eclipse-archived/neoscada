@@ -21,11 +21,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.service.IoHandlerAdapter;
+import org.apache.mina.core.service.IoService;
 import org.apache.mina.core.service.SimpleIoProcessorPool;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.SocketAcceptor;
+import org.apache.mina.transport.socket.SocketConnector;
 import org.apache.mina.transport.socket.nio.NioProcessor;
 import org.apache.mina.transport.socket.nio.NioSession;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
@@ -56,9 +58,21 @@ public class SlaveHost
 
     private final Map<Integer, Slave> slaves = new HashMap<> ();
 
+    private final SocketConnector connector;
+
+    /**
+     * Create a new slave host and bind to a single TCP port
+     *
+     * @param options
+     *            optional protocol options
+     * @param port
+     *            the TCP port to bind to
+     */
     public SlaveHost ( final ProtocolOptions options, final int port ) throws IOException
     {
         this.options = makeOptions ( options );
+
+        this.connector = null;
 
         this.processor = new SimpleIoProcessorPool<> ( NioProcessor.class );
         this.acceptor = new NioSocketAcceptor ( this.processor );
@@ -68,22 +82,69 @@ public class SlaveHost
 
         this.disposeAcceptor = true;
 
-        setup ();
+        setupAcceptor ();
 
         this.acceptor.bind ( new InetSocketAddress ( port ) );
     }
 
+    /**
+     * Create a new slave host and bind to a list of socket addresses
+     *
+     * @param options
+     *            optional protocol options
+     * @param socketAddresses
+     *            a list of socket addresses to bind to.
+     *            <em>Note:<em> these socket addresses must be addresses of local interfaces, not remote addresses.
+     */
     public SlaveHost ( final ProtocolOptions options, final SocketAddress... socketAddresses ) throws IOException
     {
         this.options = makeOptions ( options );
+
+        this.connector = null;
 
         this.processor = new SimpleIoProcessorPool<> ( NioProcessor.class );
         this.acceptor = new NioSocketAcceptor ( this.processor );
         this.disposeAcceptor = true;
 
-        setup ();
+        setupAcceptor ();
 
         this.acceptor.bind ( socketAddresses );
+    }
+
+    /**
+     * Create a new slave host <br/>
+     * This constructor allows for the most flexible socket binding since the
+     * caller can provide a arbitrary socket connection. In this case the caller
+     * also has the responsibility of configuring and disposing the socket
+     * acceptor.
+     *
+     * @param options
+     *            optional protocol options
+     * @param acceptor
+     *            the socket acceptor to use
+     */
+    public SlaveHost ( final ProtocolOptions options, final SocketAcceptor acceptor )
+    {
+        this.options = makeOptions ( options );
+
+        this.connector = null;
+        this.acceptor = acceptor;
+        this.processor = null;
+        this.disposeAcceptor = false;
+
+        setupAcceptor ();
+    }
+
+    public SlaveHost ( final ProtocolOptions options, final SocketConnector connector )
+    {
+        this.options = makeOptions ( options );
+
+        this.connector = connector;
+        this.acceptor = null;
+        this.processor = null;
+        this.disposeAcceptor = false;
+
+        setupConnector ();
     }
 
     private static ProtocolOptions makeOptions ( final ProtocolOptions options )
@@ -93,21 +154,20 @@ public class SlaveHost
             return new ProtocolOptions ();
         }
 
-        return options; // FIXME: make clone
+        return new ProtocolOptions ( options );
     }
 
-    public SlaveHost ( final ProtocolOptions options, final SocketAcceptor acceptor )
+    private void setupConnector ()
     {
-        this.options = makeOptions ( options );
-
-        this.acceptor = acceptor;
-        this.processor = null;
-        this.disposeAcceptor = false;
-
-        setup ();
+        setup ( this.connector );
     }
 
-    private void setup ()
+    private void setupAcceptor ()
+    {
+        setup ( this.acceptor );
+    }
+
+    private void setup ( final IoService service )
     {
         this.executor = Executors.newSingleThreadScheduledExecutor ();
 
@@ -117,7 +177,7 @@ public class SlaveHost
             {
                 final ModbusRtuEncoder encoder = new ModbusRtuEncoder ();
                 final ModbusRtuDecoder decoder = new ModbusRtuDecoder ( this.executor, this.options.getInterFrameDelay (), TimeUnit.MILLISECONDS );
-                this.acceptor.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
+                service.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
             }
             break;
 
@@ -125,14 +185,14 @@ public class SlaveHost
             {
                 final ModbusTcpEncoder encoder = new ModbusTcpEncoder ();
                 final ModbusTcpDecoder decoder = new ModbusTcpDecoder ();
-                this.acceptor.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
+                service.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
             }
             break;
         }
 
-        this.acceptor.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$
+        service.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$
 
-        this.acceptor.setHandler ( new IoHandlerAdapter () {
+        service.setHandler ( new IoHandlerAdapter () {
             @Override
             public void exceptionCaught ( final IoSession session, final Throwable cause ) throws Exception
             {
