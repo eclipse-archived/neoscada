@@ -103,6 +103,10 @@
 								<phase>verify</phase>
 							</execution>
 						</executions>
+						<configuration>
+							<doctitle>Eclipse SCADA</doctitle>
+							<excludePackageNames>org.apache</excludePackageNames>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
