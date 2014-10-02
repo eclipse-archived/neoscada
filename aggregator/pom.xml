@@ -99,6 +99,7 @@
 							<execution>
 								<goals>
 									<goal>aggregate</goal>
+									<goal>aggregate-jar</goal>
 								</goals>
 								<phase>verify</phase>
 							</execution>
