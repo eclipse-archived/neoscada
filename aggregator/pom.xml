@@ -107,6 +107,7 @@
 						<configuration>
 							<doctitle>Eclipse SCADA ${project.version}</doctitle>
 							<excludePackageNames>org.apache:org.eclipse.scada.ide:org.eclipse.scada.configuration</excludePackageNames>
+							<finalName>org.eclipse.scada-${project.verson}</finalName>
 						</configuration>
 					</plugin>
 				</plugins>
