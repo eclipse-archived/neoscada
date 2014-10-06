@@ -186,7 +186,7 @@ public class ModbusProtocol
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
                 final int startAddress = data.getUnsignedShort ();
-                data.getUnsignedShort (); /* number of registers */
+                final int numRegisters = data.getUnsignedShort (); /* number of registers */
                 final byte num = data.get ();
                 if ( data.remaining () != num )
                 {
@@ -194,7 +194,7 @@ public class ModbusProtocol
                 }
                 final byte[] b = new byte[data.remaining ()];
                 data.get ( b );
-                return new WriteMultiDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, startAddress, b );
+                return new WriteMultiDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, startAddress, b, numRegisters );
             default:
                 throw new IllegalStateException ( String.format ( "Function code %02x is not supported", functionCode ) );
         }

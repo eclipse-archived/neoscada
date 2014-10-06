@@ -209,7 +209,8 @@ public class SlaveHost
             @Override
             public void exceptionCaught ( final IoSession session, final Throwable cause ) throws Exception
             {
-                session.close ( true );
+                logger.info ( "Uncaught exception", cause );
+                handleExceptionCaught ( session, cause );
             };
 
             @Override
@@ -239,6 +240,11 @@ public class SlaveHost
                 handleMessageReceived ( session, message );
             };
         } );
+    }
+
+    protected void handleExceptionCaught ( final IoSession session, final Throwable cause )
+    {
+        session.close ( true );
     }
 
     protected void handleMessageReceived ( final IoSession session, final Object message )
