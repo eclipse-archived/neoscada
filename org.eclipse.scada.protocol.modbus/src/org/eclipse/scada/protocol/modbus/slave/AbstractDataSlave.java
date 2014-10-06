@@ -48,7 +48,7 @@ public abstract class AbstractDataSlave implements Slave
                             return;
                         }
                     }
-                        break;
+                    break;
 
                     case Constants.FUNCTION_CODE_READ_HOLDING_REGISTERS:
                     case Constants.FUNCTION_CODE_READ_INPUT_REGISTERS:
@@ -60,7 +60,7 @@ public abstract class AbstractDataSlave implements Slave
                             return;
                         }
                     }
-                        break;
+                    break;
 
                     default:
                         ctx.sendExceptionReply ( baseMessage, Constants.EXCEPTION_ILLEGAL_FUNCTION );
@@ -152,8 +152,8 @@ public abstract class AbstractDataSlave implements Slave
 
     protected abstract int[] handleReadAnalog ( AnalogType type, final int startAddress, final int quantity ) throws ModbusRequestException;
 
-    protected abstract void handleAnalogWrite ( final int address, final int[] value ) throws ModbusRequestException;
+    protected abstract void handleAnalogWrite ( final int address, final int[] values ) throws ModbusRequestException;
 
-    protected abstract void handleDigitalWrite ( final int address, final boolean[] value ) throws ModbusRequestException;
+    protected abstract void handleDigitalWrite ( final int address, final boolean[] values ) throws ModbusRequestException;
 
 }
