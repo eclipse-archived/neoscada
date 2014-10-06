@@ -27,7 +27,13 @@ public class TimeDataSlave extends AbstractDataSlave
     }
 
     @Override
-    protected void handleWrite ( final int address, final int[] value )
+    protected void handleDigitalWrite ( final int address, final boolean[] value ) throws ModbusRequestException
+    {
+        throw new ModbusRequestException ( 1 );
+    }
+
+    @Override
+    protected void handleAnalogWrite ( final int address, final int[] value )
     {
         throw new ModbusRequestException ( 1 );
     }

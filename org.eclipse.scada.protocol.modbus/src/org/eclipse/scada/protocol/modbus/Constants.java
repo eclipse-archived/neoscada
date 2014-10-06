@@ -36,4 +36,20 @@ public interface Constants
     public static final byte FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS = 0x10;
 
     public static final byte FUNCTION_CODE_WRITE_MULTIPLE_COILS = 0x0F;
+
+    public static final int EXCEPTION_ILLEGAL_FUNCTION = 1;
+
+    public static final int EXCEPTION_ILLEGAL_DATA_ADDRESS = 2;
+
+    public static final int EXCEPTION_ILLEGAL_DATA_VALUE = 3;
+
+    public static final int EXCEPTION_SLAVE_DEVICE_FAILURE = 4;
+
+    public static final int EXCEPTION_ACKNOWLEDGE = 5;
+
+    public static final int EXCEPTION_SLAVE_DEVICE_BUSY = 6;
+
+    public static final int EXCEPTION_NEGATIVE_EXCEPTION_ACKNOWLEDGE = 7;
+
+    public static final int EXCEPTION_MEMORY_ERROR = 8;
 }
