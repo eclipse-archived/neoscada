@@ -41,6 +41,10 @@ import org.eclipse.scada.protocol.modbus.codec.ModbusTcpEncoder;
 import org.eclipse.scada.protocol.modbus.message.BaseMessage;
 import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
 import org.eclipse.scada.protocol.modbus.message.ReadResponse;
+import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteMultiDataResponse;
+import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteSingleDataResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -280,6 +284,20 @@ public class SlaveHost
             public void sendReadReply ( final BaseMessage baseMessage, final boolean[] data )
             {
                 session.write ( makeReadReply ( baseMessage, data ) );
+            }
+
+            @Override
+            public void sendWriteReply ( final WriteMultiDataRequest message )
+            {
+                final WriteMultiDataResponse reply = new WriteMultiDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), message.getStartAddress (), message.getNumRegisters () );
+                session.write ( reply );
+            }
+
+            @Override
+            public void sendWriteReply ( final WriteSingleDataRequest message )
+            {
+                final WriteSingleDataResponse reply = new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), message.getAddress (), message.getValue () );
+                session.write ( reply );
             }
         }, baseMessage );
     }

@@ -24,6 +24,7 @@ public class ModbusRequestException extends RuntimeException
 
     public ModbusRequestException ( final int exceptionCode )
     {
+        super ( "" + exceptionCode );
         this.exceptionCode = exceptionCode;
     }
 

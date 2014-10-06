@@ -11,6 +11,8 @@
 package org.eclipse.scada.protocol.modbus.slave;
 
 import org.eclipse.scada.protocol.modbus.message.BaseMessage;
+import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
 
 public interface SessionContext
 {
@@ -20,5 +22,9 @@ public interface SessionContext
     public void sendReadReply ( BaseMessage baseMessage, int[] data );
 
     public void sendReadReply ( BaseMessage baseMessage, boolean[] data );
+
+    public void sendWriteReply ( WriteSingleDataRequest message );
+
+    public void sendWriteReply ( WriteMultiDataRequest message );
 
 }

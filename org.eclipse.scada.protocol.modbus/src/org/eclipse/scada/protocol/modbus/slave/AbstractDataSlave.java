@@ -16,9 +16,12 @@ import org.eclipse.scada.protocol.modbus.message.BaseMessage;
 import org.eclipse.scada.protocol.modbus.message.ReadRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class AbstractDataSlave implements Slave
 {
+    private static final Logger logger = LoggerFactory.getLogger ( AbstractDataSlave.class );
 
     @Override
     public void dispose ()
@@ -78,9 +81,11 @@ public abstract class AbstractDataSlave implements Slave
                 {
                     case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
                         handleDigitalWrite ( msg.getAddress (), new boolean[] { msg.isTrue () } );
+                        ctx.sendWriteReply ( msg );
                         return;
                     case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
                         handleAnalogWrite ( msg.getAddress (), new int[] { msg.getValue () } );
+                        ctx.sendWriteReply ( msg );
                         return;
                     default:
                         ctx.sendExceptionReply ( baseMessage, Constants.EXCEPTION_ILLEGAL_FUNCTION );
@@ -96,9 +101,11 @@ public abstract class AbstractDataSlave implements Slave
                 {
                     case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
                         processDigitalWrite ( msg );
+                        ctx.sendWriteReply ( msg );
                         break;
                     case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
                         processAnalogWrite ( msg );
+                        ctx.sendWriteReply ( msg );
                         return;
                     default:
                         ctx.sendExceptionReply ( baseMessage, Constants.EXCEPTION_ILLEGAL_FUNCTION );
@@ -113,10 +120,12 @@ public abstract class AbstractDataSlave implements Slave
         }
         catch ( final ModbusRequestException e )
         {
+            logger.debug ( "Modbus request exception", e );
             ctx.sendExceptionReply ( baseMessage, e.getExceptionCode () );
         }
         catch ( final Exception e )
         {
+            logger.debug ( "Failed to handle message", e );
             ctx.sendExceptionReply ( baseMessage, Constants.EXCEPTION_SLAVE_DEVICE_FAILURE );
         }
     }
