@@ -13,6 +13,7 @@ package org.eclipse.scada.protocol.modbus.slave;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
@@ -191,7 +192,7 @@ public class SlaveHost
                 final ModbusRtuDecoder decoder = new ModbusRtuDecoder ( this.executor, this.options.getInterFrameDelay (), TimeUnit.MILLISECONDS );
                 service.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
             }
-                break;
+            break;
 
             case TCP:
             {
@@ -199,7 +200,7 @@ public class SlaveHost
                 final ModbusTcpDecoder decoder = new ModbusTcpDecoder ();
                 service.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
             }
-                break;
+            break;
         }
 
         service.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$
@@ -275,9 +276,9 @@ public class SlaveHost
             }
 
             @Override
-            public void sendReadReply ( final BaseMessage baseMessage, final int[] data )
+            public void sendReadReply ( final BaseMessage baseMessage, final int[] data, final ByteOrder order )
             {
-                session.write ( makeReadReply ( baseMessage, data ) );
+                session.write ( makeReadReply ( baseMessage, data, order ) );
             }
 
             @Override
@@ -296,7 +297,7 @@ public class SlaveHost
             @Override
             public void sendWriteReply ( final WriteSingleDataRequest message )
             {
-                final WriteSingleDataResponse reply = new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), message.getAddress (), message.getValue () );
+                final WriteSingleDataResponse reply = new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), message.getAddress (), message.getData () );
                 session.write ( reply );
             }
         }, baseMessage );
@@ -317,9 +318,12 @@ public class SlaveHost
         return new ReadResponse ( baseMessage.getTransactionId (), baseMessage.getUnitIdentifier (), baseMessage.getFunctionCode (), IoBuffer.wrap ( reply ) );
     }
 
-    protected Object makeReadReply ( final BaseMessage baseMessage, final int[] data )
+    protected Object makeReadReply ( final BaseMessage baseMessage, final int[] data, final ByteOrder order )
     {
         final IoBuffer reply = IoBuffer.allocate ( data.length * 2 );
+
+        reply.order ( order );
+
         for ( int i = 0; i < data.length; i++ )
         {
             reply.putUnsignedShort ( data[i] );

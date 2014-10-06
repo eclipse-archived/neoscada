@@ -84,7 +84,7 @@ public class ModbusProtocol
             final WriteSingleDataRequest writeMessage = (WriteSingleDataRequest)message;
             data.put ( writeMessage.getFunctionCode () );
             data.putUnsignedShort ( writeMessage.getAddress () );
-            data.putUnsignedShort ( writeMessage.getValue () );
+            data.put ( writeMessage.getData () );
         }
         else
         {
@@ -120,7 +120,7 @@ public class ModbusProtocol
             final WriteSingleDataResponse writeResponseMessage = (WriteSingleDataResponse)message;
             data.put ( writeResponseMessage.getFunctionCode () );
             data.putUnsignedShort ( writeResponseMessage.getAddress () );
-            data.putUnsignedShort ( writeResponseMessage.getValue () );
+            data.put ( writeResponseMessage.getData () );
         }
         else if ( message instanceof ErrorResponse )
         {
@@ -158,7 +158,7 @@ public class ModbusProtocol
                 return new ReadResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, readBytes ( data ) );
             case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
             case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
-                return new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+                return new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), readBytes ( data, 2 ) );
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
                 return new WriteMultiDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
@@ -182,7 +182,7 @@ public class ModbusProtocol
                 return new ReadRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
             case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
             case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
-                return new WriteSingleDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+                return new WriteSingleDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), readBytes ( data, 2 ) );
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
                 final int startAddress = data.getUnsignedShort ();
@@ -200,14 +200,36 @@ public class ModbusProtocol
         }
     }
 
+    private static byte[] readBytes ( final IoBuffer data, final int bytes )
+    {
+        final byte[] result = new byte[bytes];
+        data.get ( result );
+        return result;
+    }
+
     private static IoBuffer readBytes ( final IoBuffer buffer )
+    {
+        return IoBuffer.wrap ( readBytesArrayWithPrefix ( buffer ) );
+    }
+
+    private static byte[] readBytesArrayWithPrefix ( final IoBuffer buffer )
     {
         final short numOfBytes = buffer.getUnsigned ();
         final byte[] result = new byte[numOfBytes];
         buffer.get ( result, 0, numOfBytes );
-        return IoBuffer.wrap ( result );
+        return result;
     }
 
+    /**
+     * Encode the data from Java byte order to requested modbus byte order
+     *
+     * @param data
+     *            the data to encode
+     * @param dataOrder
+     *            the target modbus byte order
+     * @return the converted data, or the input data if no conversion was
+     *         necessary
+     */
     public static IoBuffer convertData ( final IoBuffer data, final ByteOrder dataOrder )
     {
         if ( dataOrder == ByteOrder.BIG_ENDIAN )
@@ -230,6 +252,16 @@ public class ModbusProtocol
         return result;
     }
 
+    /**
+     * Encode the data from Java byte order to requested modbus byte order
+     *
+     * @param data
+     *            the data to encode
+     * @param dataOrder
+     *            the target modbus byte order
+     * @return the converted data, or the input data if no conversion was
+     *         necessary
+     */
     public static byte[] encodeData ( final byte[] data, final ByteOrder dataOrder )
     {
         if ( dataOrder == ByteOrder.BIG_ENDIAN )

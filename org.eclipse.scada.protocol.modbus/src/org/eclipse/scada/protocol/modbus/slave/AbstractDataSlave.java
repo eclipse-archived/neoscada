@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.slave;
 
+import java.nio.ByteOrder;
+
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.protocol.modbus.Constants;
 import org.eclipse.scada.protocol.modbus.message.BaseMessage;
@@ -22,6 +24,18 @@ import org.slf4j.LoggerFactory;
 public abstract class AbstractDataSlave implements Slave
 {
     private static final Logger logger = LoggerFactory.getLogger ( AbstractDataSlave.class );
+
+    private final ByteOrder order;
+
+    public AbstractDataSlave ()
+    {
+        this ( Constants.DEFAULT_BYTE_ORDER );
+    }
+
+    public AbstractDataSlave ( final ByteOrder order )
+    {
+        this.order = order;
+    }
 
     @Override
     public void dispose ()
@@ -51,7 +65,7 @@ public abstract class AbstractDataSlave implements Slave
                             return;
                         }
                     }
-                    break;
+                        break;
 
                     case Constants.FUNCTION_CODE_READ_HOLDING_REGISTERS:
                     case Constants.FUNCTION_CODE_READ_INPUT_REGISTERS:
@@ -59,11 +73,11 @@ public abstract class AbstractDataSlave implements Slave
                         final int[] data = handleReadAnalog ( fc == Constants.FUNCTION_CODE_READ_HOLDING_REGISTERS ? AnalogType.HOLDING : AnalogType.INPUT, msg.getStartAddress (), msg.getQuantity () );
                         if ( data != null )
                         {
-                            ctx.sendReadReply ( baseMessage, data );
+                            ctx.sendReadReply ( baseMessage, data, this.order );
                             return;
                         }
                     }
-                    break;
+                        break;
 
                     default:
                         ctx.sendExceptionReply ( baseMessage, Constants.EXCEPTION_ILLEGAL_FUNCTION );
@@ -84,7 +98,7 @@ public abstract class AbstractDataSlave implements Slave
                         ctx.sendWriteReply ( msg );
                         return;
                     case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
-                        handleAnalogWrite ( msg.getAddress (), new int[] { msg.getValue () } );
+                        processAnalogWrite ( msg.getAddress (), 1, msg.getData () );
                         ctx.sendWriteReply ( msg );
                         return;
                     default:
@@ -104,7 +118,7 @@ public abstract class AbstractDataSlave implements Slave
                         ctx.sendWriteReply ( msg );
                         break;
                     case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
-                        processAnalogWrite ( msg );
+                        processAnalogWrite ( msg.getStartAddress (), msg.getNumRegisters (), msg.getData () );
                         ctx.sendWriteReply ( msg );
                         return;
                     default:
@@ -130,17 +144,19 @@ public abstract class AbstractDataSlave implements Slave
         }
     }
 
-    private void processAnalogWrite ( final WriteMultiDataRequest msg )
+    private void processAnalogWrite ( final int startAddress, final int numRegisters, final byte[] rawData )
     {
-        final int[] regs = new int[msg.getNumRegisters ()];
-        final IoBuffer data = IoBuffer.wrap ( msg.getData () );
+        final int[] regs = new int[numRegisters];
+        final IoBuffer data = IoBuffer.wrap ( rawData );
 
-        for ( int i = 0; i < msg.getNumRegisters (); i++ )
+        data.order ( this.order );
+
+        for ( int i = 0; i < numRegisters; i++ )
         {
             regs[i] = data.getUnsignedShort ();
         }
 
-        handleAnalogWrite ( msg.getStartAddress (), regs );
+        handleAnalogWrite ( startAddress, regs );
     }
 
     private void processDigitalWrite ( final WriteMultiDataRequest msg )

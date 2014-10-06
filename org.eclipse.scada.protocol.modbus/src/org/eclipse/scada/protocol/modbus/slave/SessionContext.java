@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.slave;
 
+import java.nio.ByteOrder;
+
 import org.eclipse.scada.protocol.modbus.message.BaseMessage;
 import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
@@ -19,7 +21,7 @@ public interface SessionContext
 
     public void sendExceptionReply ( BaseMessage baseMessage, int exceptionCode );
 
-    public void sendReadReply ( BaseMessage baseMessage, int[] data );
+    public void sendReadReply ( BaseMessage baseMessage, int[] data, ByteOrder order );
 
     public void sendReadReply ( BaseMessage baseMessage, boolean[] data );
 

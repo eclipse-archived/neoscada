@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,6 +9,8 @@
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus;
+
+import java.nio.ByteOrder;
 
 public interface Constants
 {
@@ -52,4 +54,6 @@ public interface Constants
     public static final int EXCEPTION_NEGATIVE_EXCEPTION_ACKNOWLEDGE = 7;
 
     public static final int EXCEPTION_MEMORY_ERROR = 8;
+
+    public static final ByteOrder DEFAULT_BYTE_ORDER = ByteOrder.BIG_ENDIAN;
 }
