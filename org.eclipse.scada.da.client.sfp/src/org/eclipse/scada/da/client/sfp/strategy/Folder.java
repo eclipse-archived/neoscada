@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.da.client.sfp.strategy;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -37,7 +38,7 @@ public class Folder
 
     private final Location location;
 
-    private static class Entry
+    private abstract static class Entry implements org.eclipse.scada.da.core.browser.Entry
     {
         private final String name;
 
@@ -46,6 +47,7 @@ public class Folder
             this.name = name;
         }
 
+        @Override
         public String getName ()
         {
             return this.name;
@@ -122,6 +124,16 @@ public class Folder
     public void setListener ( final FolderListener listener )
     {
         this.listener = listener;
+        // fire already known items
+        if ( listener != null && !this.entries.isEmpty () )
+        {
+            final Collection<org.eclipse.scada.da.core.browser.Entry> added = new ArrayList<> ( this.entries.size () );
+            for ( final Map.Entry<String, Entry> entry : this.entries.entrySet () )
+            {
+                added.add ( entry.getValue () );
+            }
+            fireListener ( added, null, true );
+        }
     }
 
     public void dispose ()
