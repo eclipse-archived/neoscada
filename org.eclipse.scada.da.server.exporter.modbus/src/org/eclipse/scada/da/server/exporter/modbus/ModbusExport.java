@@ -351,9 +351,7 @@ public abstract class ModbusExport
 
     private void writeRegister ( final IoSession session, final WriteSingleDataRequest message )
     {
-        final IoBuffer buffer = IoBuffer.allocate ( 2 );
-        buffer.putUnsignedShort ( message.getValue () );
-        buffer.flip ();
+        final IoBuffer buffer = IoBuffer.wrap ( message.getData () );
         final int rc = performWrite ( message.getAddress (), buffer );
 
         if ( rc != 0 )
@@ -362,7 +360,7 @@ public abstract class ModbusExport
             return;
         }
 
-        final WriteSingleDataResponse response = new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), message.getAddress (), message.getValue () );
+        final WriteSingleDataResponse response = new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), message.getAddress (), message.getData () );
         sendReply ( session, response );
     }
 
