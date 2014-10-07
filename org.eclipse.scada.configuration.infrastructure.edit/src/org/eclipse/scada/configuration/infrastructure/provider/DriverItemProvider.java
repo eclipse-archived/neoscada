@@ -64,6 +64,7 @@ public class DriverItemProvider extends ItemProviderAdapter implements IEditingD
 
             addNamePropertyDescriptor ( object );
             addNodePropertyDescriptor ( object );
+            addProtocolTypeTagPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -92,6 +93,19 @@ public class DriverItemProvider extends ItemProviderAdapter implements IEditingD
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Driver_node_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_Driver_node_feature", "_UI_Driver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 InfrastructurePackage.Literals.DRIVER__NODE, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Protocol Type Tag feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addProtocolTypeTagPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Driver_protocolTypeTag_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Driver_protocolTypeTag_feature", "_UI_Driver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.DRIVER__PROTOCOL_TYPE_TAG, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -148,6 +162,7 @@ public class DriverItemProvider extends ItemProviderAdapter implements IEditingD
         switch ( notification.getFeatureID ( Driver.class ) )
         {
             case InfrastructurePackage.DRIVER__NAME:
+            case InfrastructurePackage.DRIVER__PROTOCOL_TYPE_TAG:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

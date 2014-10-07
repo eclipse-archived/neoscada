@@ -219,6 +219,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="node" lowerBound="1" eType="#//SystemNode"
         eOpposite="#//SystemNode/drivers"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolTypeTag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="ngp"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalDriverPlaceholder" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver">
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" upperBound="-1"

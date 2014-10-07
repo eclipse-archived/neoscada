@@ -1247,6 +1247,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getDriver_ProtocolTypeTag ()
+    {
+        return (EAttribute)driverEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getExternalDriverPlaceholder ()
     {
@@ -1787,6 +1797,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         driverEClass = createEClass ( DRIVER );
         createEAttribute ( driverEClass, DRIVER__NAME );
         createEReference ( driverEClass, DRIVER__NODE );
+        createEAttribute ( driverEClass, DRIVER__PROTOCOL_TYPE_TAG );
 
         externalDriverPlaceholderEClass = createEClass ( EXTERNAL_DRIVER_PLACEHOLDER );
         createEReference ( externalDriverPlaceholderEClass, EXTERNAL_DRIVER_PLACEHOLDER__ENDPOINTS );
@@ -2006,6 +2017,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEClass ( driverEClass, Driver.class, "Driver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getDriver_Name (), ecorePackage.getEString (), "name", null, 1, 1, Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDriver_Node (), this.getSystemNode (), this.getSystemNode_Drivers (), "node", null, 1, 1, Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getDriver_ProtocolTypeTag (), ecorePackage.getEString (), "protocolTypeTag", "ngp", 0, 1, Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( externalDriverPlaceholderEClass, ExternalDriverPlaceholder.class, "ExternalDriverPlaceholder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExternalDriverPlaceholder_Endpoints (), theWorldPackage.getEndpoint (), null, "endpoints", null, 0, -1, ExternalDriverPlaceholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

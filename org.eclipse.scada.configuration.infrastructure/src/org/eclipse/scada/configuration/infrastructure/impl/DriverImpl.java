@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.infrastructure.SystemNode;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DriverImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DriverImpl#getNode <em>Node</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DriverImpl#getProtocolTypeTag <em>Protocol Type Tag</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +57,26 @@ public abstract class DriverImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getProtocolTypeTag() <em>Protocol Type Tag</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProtocolTypeTag()
+     * @generated
+     * @ordered
+     */
+    protected static final String PROTOCOL_TYPE_TAG_EDEFAULT = "ngp"; //$NON-NLS-1$
+
+    /**
+     * The cached value of the '{@link #getProtocolTypeTag() <em>Protocol Type Tag</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProtocolTypeTag()
+     * @generated
+     * @ordered
+     */
+    protected String protocolTypeTag = PROTOCOL_TYPE_TAG_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -165,6 +186,29 @@ public abstract class DriverImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getProtocolTypeTag ()
+    {
+        return protocolTypeTag;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setProtocolTypeTag ( String newProtocolTypeTag )
+    {
+        String oldProtocolTypeTag = protocolTypeTag;
+        protocolTypeTag = newProtocolTypeTag;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.DRIVER__PROTOCOL_TYPE_TAG, oldProtocolTypeTag, protocolTypeTag ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -226,6 +270,8 @@ public abstract class DriverImpl extends MinimalEObjectImpl.Container implements
                 if ( resolve )
                     return getNode ();
                 return basicGetNode ();
+            case InfrastructurePackage.DRIVER__PROTOCOL_TYPE_TAG:
+                return getProtocolTypeTag ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -245,6 +291,9 @@ public abstract class DriverImpl extends MinimalEObjectImpl.Container implements
                 return;
             case InfrastructurePackage.DRIVER__NODE:
                 setNode ( (SystemNode)newValue );
+                return;
+            case InfrastructurePackage.DRIVER__PROTOCOL_TYPE_TAG:
+                setProtocolTypeTag ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -266,6 +315,9 @@ public abstract class DriverImpl extends MinimalEObjectImpl.Container implements
             case InfrastructurePackage.DRIVER__NODE:
                 setNode ( (SystemNode)null );
                 return;
+            case InfrastructurePackage.DRIVER__PROTOCOL_TYPE_TAG:
+                setProtocolTypeTag ( PROTOCOL_TYPE_TAG_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -284,6 +336,8 @@ public abstract class DriverImpl extends MinimalEObjectImpl.Container implements
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case InfrastructurePackage.DRIVER__NODE:
                 return basicGetNode () != null;
+            case InfrastructurePackage.DRIVER__PROTOCOL_TYPE_TAG:
+                return PROTOCOL_TYPE_TAG_EDEFAULT == null ? protocolTypeTag != null : !PROTOCOL_TYPE_TAG_EDEFAULT.equals ( protocolTypeTag );
         }
         return super.eIsSet ( featureID );
     }
@@ -302,6 +356,8 @@ public abstract class DriverImpl extends MinimalEObjectImpl.Container implements
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (name: " ); //$NON-NLS-1$
         result.append ( name );
+        result.append ( ", protocolTypeTag: " ); //$NON-NLS-1$
+        result.append ( protocolTypeTag );
         result.append ( ')' );
         return result.toString ();
     }

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.Driver#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.Driver#getNode <em>Node</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Driver#getProtocolTypeTag <em>Protocol Type Tag</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,5 +85,32 @@ public interface Driver extends EObject
      * @generated
      */
     void setNode ( SystemNode value );
+
+    /**
+     * Returns the value of the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * The default value is <code>"ngp"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Protocol Type Tag</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Protocol Type Tag</em>' attribute.
+     * @see #setProtocolTypeTag(String)
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getDriver_ProtocolTypeTag()
+     * @model default="ngp"
+     * @generated
+     */
+    String getProtocolTypeTag ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.Driver#getProtocolTypeTag <em>Protocol Type Tag</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Protocol Type Tag</em>' attribute.
+     * @see #getProtocolTypeTag()
+     * @generated
+     */
+    void setProtocolTypeTag ( String value );
 
 } // Driver

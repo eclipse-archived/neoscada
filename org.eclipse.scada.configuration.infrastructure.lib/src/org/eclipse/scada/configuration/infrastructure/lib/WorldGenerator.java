@@ -344,7 +344,6 @@ public class WorldGenerator
             }
 
             final SystemNode infraNode = (SystemNode)anyNode;
-
             final ApplicationNode node = (ApplicationNode)basicNode;
 
             for ( final org.eclipse.scada.configuration.infrastructure.Driver infraDriver : infraNode.getDrivers () )
@@ -355,9 +354,10 @@ public class WorldGenerator
 
         // do this after all masters and drivers have been created
 
+        final List<MasterServer> masters = new TypeWalker<> ( MasterServer.class ).toList ( this.infrastructure );
         for ( final Map.Entry<org.eclipse.scada.configuration.infrastructure.Driver, Driver> entry : this.driverMap.entrySet () )
         {
-            for ( final MasterServer master : new TypeWalker<> ( MasterServer.class ).toList ( this.infrastructure ) )
+            for ( final MasterServer master : masters )
             {
                 if ( master.getDriver ().contains ( entry.getKey () ) )
                 {
@@ -466,7 +466,26 @@ public class WorldGenerator
 
     private void connectMasterToDriver ( final MasterServer master, final org.eclipse.scada.configuration.infrastructure.Driver driver, final Endpoint ep )
     {
-        final DataAccessConnection connection = OsgiFactory.eINSTANCE.createDataAccessConnection ();
+        String tt = driver.getProtocolTypeTag ();
+        if ( tt == null || tt.isEmpty () )
+        {
+            tt = "ngp";
+        }
+
+        final DataAccessConnection connection;
+
+        switch ( tt )
+        {
+            case "sfp":
+                connection = OsgiFactory.eINSTANCE.createSfpDataAccessConnection ();
+                break;
+            case "ngp":
+                connection = OsgiFactory.eINSTANCE.createDataAccessConnection ();
+                break;
+            default:
+                throw new IllegalStateException ( String.format ( "Protocol type '%s' is unsupported", tt ) );
+        }
+
         connection.setEndpoint ( ep );
         connection.setName ( Worlds.makeConnectionName ( driver ) );
         connection.setCredentials ( EcoreUtil.copy ( Worlds.findConnectionPassword ( driver ) ) );

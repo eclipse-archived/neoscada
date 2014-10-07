@@ -668,13 +668,22 @@ public interface InfrastructurePackage extends EPackage
     int DRIVER__NODE = 1;
 
     /**
+     * The feature id for the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER__PROTOCOL_TYPE_TAG = 2;
+
+    /**
      * The number of structural features of the '<em>Driver</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DRIVER_FEATURE_COUNT = 2;
+    int DRIVER_FEATURE_COUNT = 3;
 
     /**
      * The number of operations of the '<em>Driver</em>' class.
@@ -712,6 +721,15 @@ public interface InfrastructurePackage extends EPackage
      * @ordered
      */
     int ABSTRACT_FACTORY_DRIVER__NODE = DRIVER__NODE;
+
+    /**
+     * The feature id for the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_FACTORY_DRIVER__PROTOCOL_TYPE_TAG = DRIVER__PROTOCOL_TYPE_TAG;
 
     /**
      * The feature id for the '<em><b>Driver Type Id</b></em>' attribute.
@@ -776,6 +794,15 @@ public interface InfrastructurePackage extends EPackage
      * @ordered
      */
     int COMMON_DRIVER__NODE = ABSTRACT_FACTORY_DRIVER__NODE;
+
+    /**
+     * The feature id for the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DRIVER__PROTOCOL_TYPE_TAG = ABSTRACT_FACTORY_DRIVER__PROTOCOL_TYPE_TAG;
 
     /**
      * The feature id for the '<em><b>Driver Type Id</b></em>' attribute.
@@ -1354,6 +1381,15 @@ public interface InfrastructurePackage extends EPackage
     int EQUINOX_DRIVER__NODE = ABSTRACT_FACTORY_DRIVER__NODE;
 
     /**
+     * The feature id for the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EQUINOX_DRIVER__PROTOCOL_TYPE_TAG = ABSTRACT_FACTORY_DRIVER__PROTOCOL_TYPE_TAG;
+
+    /**
      * The feature id for the '<em><b>Driver Type Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1452,6 +1488,15 @@ public interface InfrastructurePackage extends EPackage
      * @ordered
      */
     int EXTERNAL_DRIVER__NODE = DRIVER__NODE;
+
+    /**
+     * The feature id for the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_DRIVER__PROTOCOL_TYPE_TAG = DRIVER__PROTOCOL_TYPE_TAG;
 
     /**
      * The feature id for the '<em><b>Port Number</b></em>' attribute.
@@ -2032,6 +2077,15 @@ public interface InfrastructurePackage extends EPackage
     int ABSTRACT_EQUINOX_DRIVER__NODE = DRIVER__NODE;
 
     /**
+     * The feature id for the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_EQUINOX_DRIVER__PROTOCOL_TYPE_TAG = DRIVER__PROTOCOL_TYPE_TAG;
+
+    /**
      * The feature id for the '<em><b>Instance Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2167,6 +2221,15 @@ public interface InfrastructurePackage extends EPackage
      * @ordered
      */
     int ABSTRACT_COMMON_DRIVER__NODE = DRIVER__NODE;
+
+    /**
+     * The feature id for the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_COMMON_DRIVER__PROTOCOL_TYPE_TAG = DRIVER__PROTOCOL_TYPE_TAG;
 
     /**
      * The feature id for the '<em><b>Port Number</b></em>' attribute.
@@ -3124,6 +3187,17 @@ public interface InfrastructurePackage extends EPackage
      * @generated
      */
     EReference getDriver_Node ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.Driver#getProtocolTypeTag <em>Protocol Type Tag</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Protocol Type Tag</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.Driver#getProtocolTypeTag()
+     * @see #getDriver()
+     * @generated
+     */
+    EAttribute getDriver_ProtocolTypeTag ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder <em>External Driver Placeholder</em>}'.
@@ -4204,6 +4278,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference DRIVER__NODE = eINSTANCE.getDriver_Node ();
+
+        /**
+         * The meta object literal for the '<em><b>Protocol Type Tag</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DRIVER__PROTOCOL_TYPE_TAG = eINSTANCE.getDriver_ProtocolTypeTag ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverPlaceholderImpl <em>External Driver Placeholder</em>}' class.
