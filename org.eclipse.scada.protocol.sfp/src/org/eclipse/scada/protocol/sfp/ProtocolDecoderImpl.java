@@ -253,6 +253,8 @@ public class ProtocolDecoderImpl extends CumulativeProtocolDecoder
 
         final EnumSet<Welcome.Features> features = data.getEnumSetShort ( Welcome.Features.class );
 
+        logger.debug ( "Features: {}", features );
+
         final CharsetDecoder decoder = this.defaultCharset.newDecoder ();
 
         final int count = data.getUnsignedShort ();

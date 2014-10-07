@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add logging
  *******************************************************************************/
 package org.eclipse.scada.protocol.sfp;
 
@@ -15,9 +16,13 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
 
 import org.apache.mina.core.session.IoSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Sessions
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( Sessions.class );
 
     public static final String DEFAULT_CHARSET_NAME = "UTF-8";
 
@@ -53,11 +58,13 @@ public class Sessions
 
     public static void setCharset ( final IoSession session, final Charset charset )
     {
+        logger.info ( "Setting character encoding to {} - session: {}", charset != null ? charset.name () : null, session );
         session.setAttribute ( ATTR_CHARSET, charset );
     }
 
     public static void setLittleEndian ( final IoSession session )
     {
+        logger.info ( "Setting byte order to little endian - session: {}", session );
         session.setAttribute ( ATTR_LITTLE_ENDIAN );
     }
 
