@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -66,7 +66,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
 
     /**
      * The the configured request
-     * 
+     *
      * @return the request
      */
     public Request getRequest ()
@@ -161,7 +161,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
 
     /* (non-Javadoc)
      * @see org.eclipse.scada.da.server.common.memory.MemoryRequestBlock#getStartAddress()
-     * 
+     *
      * in this case it is actually the modbus register
      */
     @Override
@@ -180,7 +180,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
     private int toWriteAddressBit ( final int blockAddress, final int subIndex )
     {
         // blockAddress is given in bytes, but we have to align it
-        // back to the actual modbus register, in this case it is just 
+        // back to the actual modbus register, in this case it is just
         // a continuous address space
         return this.request.getStartAddress () + blockAddress * 8 + subIndex;
     }
@@ -214,7 +214,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         else
         {
             data = ModbusProtocol.encodeData ( data, this.dataOrder ); // apply requested byte order
-            this.slave.writeCommand ( new WriteMultiDataRequest ( this.transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toWriteAddress ( blockAddress ), data ), this.request.getTimeout () );
+            this.slave.writeCommand ( new WriteMultiDataRequest ( this.transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toWriteAddress ( blockAddress ), data, data.length / 2 ), this.request.getTimeout () );
         }
         requestUpdate ();
     }
