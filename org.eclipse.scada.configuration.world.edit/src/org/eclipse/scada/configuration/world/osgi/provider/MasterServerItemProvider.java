@@ -271,6 +271,8 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements IEd
 
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__CONNECTIONS, OsgiFactory.eINSTANCE.createAlarmsEventsConnection () ) );
 
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__CONNECTIONS, OsgiFactory.eINSTANCE.createSfpDataAccessConnection () ) );
+
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER, OsgiFactory.eINSTANCE.createDataAccessExporter () ) );
 
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER, OsgiFactory.eINSTANCE.createAlarmsEventsExporter () ) );

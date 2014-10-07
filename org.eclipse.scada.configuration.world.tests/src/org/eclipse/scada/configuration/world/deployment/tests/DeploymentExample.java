@@ -49,20 +49,15 @@ public class DeploymentExample
 
         // Register the appropriate resource factory to handle the content type.
         //
-        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put
-                ( DeploymentPackage.eCONTENT_TYPE,
-                        new DeploymentResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put ( DeploymentPackage.eCONTENT_TYPE, new DeploymentResourceFactoryImpl () );
 
         // Register the appropriate content handler for all file extensions and any element from the package's namespace.
         //
-        resourceSet.getURIConverter ().getContentHandlers ().add
-                ( new RootXMLContentHandlerImpl ( DeploymentPackage.eCONTENT_TYPE, null, null, DeploymentPackage.eNS_URI, null ) );
+        resourceSet.getURIConverter ().getContentHandlers ().add ( new RootXMLContentHandlerImpl ( DeploymentPackage.eCONTENT_TYPE, null, null, DeploymentPackage.eNS_URI, null ) );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( DeploymentPackage.eNS_URI,
-                        DeploymentPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( DeploymentPackage.eNS_URI, DeploymentPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

@@ -195,6 +195,11 @@
       <eOperations name="getMatchingEndpoint" eType="#//Endpoint">
         <eParameters name="exporter" eType="#//osgi/Exporter"/>
       </eOperations>
+      <eOperations name="getFactoryId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return getTypeTag () + &quot;.connection&quot;;"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
           eType="#//Endpoint" eKeys="#//Endpoint/portNumber"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpointLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -962,6 +967,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SfpDataAccessConnection" eSuperTypes="#//osgi/DataAccessConnection"/>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">
       <eClassifiers xsi:type="ecore:EClass" name="Profile">

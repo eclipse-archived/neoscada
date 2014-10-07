@@ -279,13 +279,22 @@ public interface OsgiPackage extends EPackage
     int CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 3;
 
     /**
+     * The operation id for the '<em>Get Factory Id</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONNECTION___GET_FACTORY_ID = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 4;
+
+    /**
      * The number of operations of the '<em>Connection</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONNECTION_OPERATION_COUNT = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 4;
+    int CONNECTION_OPERATION_COUNT = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 5;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ExporterImpl <em>Exporter</em>}' class.
@@ -441,6 +450,15 @@ public interface OsgiPackage extends EPackage
      * @ordered
      */
     int DATA_ACCESS_CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER;
+
+    /**
+     * The operation id for the '<em>Get Factory Id</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ACCESS_CONNECTION___GET_FACTORY_ID = CONNECTION___GET_FACTORY_ID;
 
     /**
      * The operation id for the '<em>Get Type Tag</em>' operation.
@@ -4833,6 +4851,15 @@ public interface OsgiPackage extends EPackage
     int ALARMS_EVENTS_CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER;
 
     /**
+     * The operation id for the '<em>Get Factory Id</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ALARMS_EVENTS_CONNECTION___GET_FACTORY_ID = CONNECTION___GET_FACTORY_ID;
+
+    /**
      * The operation id for the '<em>Get Type Tag</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7310,6 +7337,133 @@ public interface OsgiPackage extends EPackage
     int MAIL_EVENT_HANDLER_OPERATION_COUNT = EVENT_HANDLER_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.SfpDataAccessConnectionImpl <em>Sfp Data Access Connection</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.SfpDataAccessConnectionImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSfpDataAccessConnection()
+     * @generated
+     */
+    int SFP_DATA_ACCESS_CONNECTION = 103;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION__SHORT_DESCRIPTION = DATA_ACCESS_CONNECTION__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION__NAME = DATA_ACCESS_CONNECTION__NAME;
+
+    /**
+     * The feature id for the '<em><b>Endpoint</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION__ENDPOINT = DATA_ACCESS_CONNECTION__ENDPOINT;
+
+    /**
+     * The feature id for the '<em><b>Endpoint Label</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION__ENDPOINT_LABEL = DATA_ACCESS_CONNECTION__ENDPOINT_LABEL;
+
+    /**
+     * The feature id for the '<em><b>Credentials</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION__CREDENTIALS = DATA_ACCESS_CONNECTION__CREDENTIALS;
+
+    /**
+     * The feature id for the '<em><b>Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION__TIMEOUT = DATA_ACCESS_CONNECTION__TIMEOUT;
+
+    /**
+     * The number of structural features of the '<em>Sfp Data Access Connection</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION_FEATURE_COUNT = DATA_ACCESS_CONNECTION_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get Possible Endpoints</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION___GET_POSSIBLE_ENDPOINTS__EXPORTER = DATA_ACCESS_CONNECTION___GET_POSSIBLE_ENDPOINTS__EXPORTER;
+
+    /**
+     * The operation id for the '<em>Get Matching Endpoint</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = DATA_ACCESS_CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER;
+
+    /**
+     * The operation id for the '<em>Get Factory Id</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION___GET_FACTORY_ID = DATA_ACCESS_CONNECTION___GET_FACTORY_ID;
+
+    /**
+     * The operation id for the '<em>Get Type Tag</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION___GET_TYPE_TAG = DATA_ACCESS_CONNECTION___GET_TYPE_TAG;
+
+    /**
+     * The operation id for the '<em>Make Uri</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION___MAKE_URI__BOOLEAN = DATA_ACCESS_CONNECTION___MAKE_URI__BOOLEAN;
+
+    /**
+     * The number of operations of the '<em>Sfp Data Access Connection</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SFP_DATA_ACCESS_CONNECTION_OPERATION_COUNT = DATA_ACCESS_CONNECTION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7317,7 +7471,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 103;
+    int AVERAGE_REFERENCE_TYPE = 104;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -7327,7 +7481,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 104;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 105;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -7337,7 +7491,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 105;
+    int ROUNDING_TYPE = 106;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -7347,7 +7501,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 106;
+    int DATA_TYPE = 107;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -7357,7 +7511,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 107;
+    int PASSWORD_TYPE = 108;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat <em>Replication Data Format</em>}' enum.
@@ -7367,7 +7521,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getReplicationDataFormat()
      * @generated
      */
-    int REPLICATION_DATA_FORMAT = 108;
+    int REPLICATION_DATA_FORMAT = 109;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
@@ -7377,7 +7531,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 109;
+    int PERSISTENCE = 110;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -7387,7 +7541,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 110;
+    int ERROR_HANDLING = 111;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -7397,7 +7551,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 111;
+    int CHANGE_TYPE = 112;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -7407,7 +7561,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 112;
+    int SEVERITY = 113;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -7417,7 +7571,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 113;
+    int VARIANT = 114;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -7587,6 +7741,16 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EOperation getConnection__GetMatchingEndpoint__Exporter ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.osgi.Connection#getFactoryId() <em>Get Factory Id</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Factory Id</em>' operation.
+     * @see org.eclipse.scada.configuration.world.osgi.Connection#getFactoryId()
+     * @generated
+     */
+    EOperation getConnection__GetFactoryId ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.Exporter <em>Exporter</em>}'.
@@ -11065,6 +11229,16 @@ public interface OsgiPackage extends EPackage
     EAttribute getMailEventHandler_QueueId ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.SfpDataAccessConnection <em>Sfp Data Access Connection</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Sfp Data Access Connection</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.SfpDataAccessConnection
+     * @generated
+     */
+    EClass getSfpDataAccessConnection ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11342,6 +11516,14 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EOperation CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = eINSTANCE.getConnection__GetMatchingEndpoint__Exporter ();
+
+        /**
+         * The meta object literal for the '<em><b>Get Factory Id</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CONNECTION___GET_FACTORY_ID = eINSTANCE.getConnection__GetFactoryId ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ExporterImpl <em>Exporter</em>}' class.
@@ -14152,6 +14334,16 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EAttribute MAIL_EVENT_HANDLER__QUEUE_ID = eINSTANCE.getMailEventHandler_QueueId ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.SfpDataAccessConnectionImpl <em>Sfp Data Access Connection</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.SfpDataAccessConnectionImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSfpDataAccessConnection()
+         * @generated
+         */
+        EClass SFP_DATA_ACCESS_CONNECTION = eINSTANCE.getSfpDataAccessConnection ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.

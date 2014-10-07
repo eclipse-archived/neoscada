@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.scada.configuration.script.ScriptPackage;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings;
 import org.eclipse.scada.configuration.world.Application;
@@ -326,7 +327,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         // Initialize simple dependencies
         EcorePackage.eINSTANCE.eClass ();
         ConfigurationPackage.eINSTANCE.eClass ();
-        org.eclipse.scada.configuration.script.ScriptPackage.eINSTANCE.eClass ();
+        ScriptPackage.eINSTANCE.eClass ();
         SecurityPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies

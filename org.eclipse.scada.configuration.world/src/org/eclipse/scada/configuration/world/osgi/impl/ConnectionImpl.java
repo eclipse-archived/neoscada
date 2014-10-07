@@ -575,6 +575,8 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implem
                 return makeUri ( (Boolean)arguments.get ( 0 ) );
             case OsgiPackage.CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER:
                 return getMatchingEndpoint ( (Exporter)arguments.get ( 0 ) );
+            case OsgiPackage.CONNECTION___GET_FACTORY_ID:
+                return getFactoryId ();
         }
         return super.eInvoke ( operationID, arguments );
     }
@@ -591,6 +593,16 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implem
         {
             return null;
         }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getFactoryId ()
+    {
+        return getTypeTag () + ".connection";
     }
 
     /**

@@ -805,6 +805,15 @@ public interface OsgiFactory extends EFactory
     MailEventHandler createMailEventHandler ();
 
     /**
+     * Returns a new object of class '<em>Sfp Data Access Connection</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Sfp Data Access Connection</em>'.
+     * @generated
+     */
+    SfpDataAccessConnection createSfpDataAccessConnection ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

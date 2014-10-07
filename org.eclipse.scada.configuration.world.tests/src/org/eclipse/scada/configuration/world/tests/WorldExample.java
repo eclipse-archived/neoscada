@@ -49,20 +49,15 @@ public class WorldExample
 
         // Register the appropriate resource factory to handle the content type.
         //
-        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put
-                ( WorldPackage.eCONTENT_TYPE,
-                        new WorldResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put ( WorldPackage.eCONTENT_TYPE, new WorldResourceFactoryImpl () );
 
         // Register the appropriate content handler for all file extensions and any element from the package's namespace.
         //
-        resourceSet.getURIConverter ().getContentHandlers ().add
-                ( new RootXMLContentHandlerImpl ( WorldPackage.eCONTENT_TYPE, null, null, WorldPackage.eNS_URI, null ) );
+        resourceSet.getURIConverter ().getContentHandlers ().add ( new RootXMLContentHandlerImpl ( WorldPackage.eCONTENT_TYPE, null, null, WorldPackage.eNS_URI, null ) );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( WorldPackage.eNS_URI,
-                        WorldPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( WorldPackage.eNS_URI, WorldPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

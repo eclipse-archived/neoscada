@@ -1,27 +1,28 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
-package org.eclipse.scada.configuration.world.deployment.tests;
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
+package org.eclipse.scada.configuration.world.osgi.tests;
 
 import junit.textui.TestRunner;
 
-import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
-import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
+import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
+import org.eclipse.scada.configuration.world.osgi.SfpDataAccessConnection;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Redhat Deployment Mechanism</b></em>'.
+ * A test case for the model object '<em><b>Sfp Data Access Connection</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class RedhatDeploymentMechanismTest extends CommonDeploymentMechanismTest
+public class SfpDataAccessConnectionTest extends DataAccessConnectionTest
 {
 
     /**
@@ -31,30 +32,30 @@ public class RedhatDeploymentMechanismTest extends CommonDeploymentMechanismTest
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( RedhatDeploymentMechanismTest.class );
+        TestRunner.run ( SfpDataAccessConnectionTest.class );
     }
 
     /**
-     * Constructs a new Redhat Deployment Mechanism test case with the given name.
+     * Constructs a new Sfp Data Access Connection test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public RedhatDeploymentMechanismTest ( String name )
+    public SfpDataAccessConnectionTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Returns the fixture for this Redhat Deployment Mechanism test case.
+     * Returns the fixture for this Sfp Data Access Connection test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    protected RedhatDeploymentMechanism getFixture ()
+    protected SfpDataAccessConnection getFixture ()
     {
-        return (RedhatDeploymentMechanism)fixture;
+        return (SfpDataAccessConnection)fixture;
     }
 
     /**
@@ -66,7 +67,7 @@ public class RedhatDeploymentMechanismTest extends CommonDeploymentMechanismTest
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( DeploymentFactory.eINSTANCE.createRedhatDeploymentMechanism () );
+        setFixture ( OsgiFactory.eINSTANCE.createSfpDataAccessConnection () );
     }
 
     /**
@@ -81,4 +82,4 @@ public class RedhatDeploymentMechanismTest extends CommonDeploymentMechanismTest
         setFixture ( null );
     }
 
-} //RedhatDeploymentMechanismTest
+} //SfpDataAccessConnectionTest

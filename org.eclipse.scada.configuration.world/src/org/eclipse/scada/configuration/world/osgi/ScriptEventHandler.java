@@ -11,6 +11,7 @@
  */
 package org.eclipse.scada.configuration.world.osgi;
 
+import org.eclipse.scada.configuration.script.JavaScript;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,12 +41,12 @@ public interface ScriptEventHandler extends EventHandler
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Script</em>' containment reference.
-     * @see #setScript(org.eclipse.scada.configuration.script.JavaScript)
+     * @see #setScript(JavaScript)
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptEventHandler_Script()
      * @model containment="true" resolveProxies="true" required="true"
      * @generated
      */
-    org.eclipse.scada.configuration.script.JavaScript getScript ();
+    JavaScript getScript ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptEventHandler#getScript <em>Script</em>}' containment reference.
@@ -55,5 +56,5 @@ public interface ScriptEventHandler extends EventHandler
      * @see #getScript()
      * @generated
      */
-    void setScript ( org.eclipse.scada.configuration.script.JavaScript value );
+    void setScript ( JavaScript value );
 } // ScriptEventHandler

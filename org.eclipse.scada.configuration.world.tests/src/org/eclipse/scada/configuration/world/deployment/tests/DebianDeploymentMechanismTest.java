@@ -21,8 +21,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DebianDeploymentMechanismTest extends
-        CommonDeploymentMechanismTest
+public class DebianDeploymentMechanismTest extends CommonDeploymentMechanismTest
 {
 
     /**

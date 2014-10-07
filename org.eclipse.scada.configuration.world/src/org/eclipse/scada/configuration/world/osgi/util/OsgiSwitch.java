@@ -1261,6 +1261,22 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case OsgiPackage.SFP_DATA_ACCESS_CONNECTION:
+            {
+                SfpDataAccessConnection sfpDataAccessConnection = (SfpDataAccessConnection)theEObject;
+                T result = caseSfpDataAccessConnection ( sfpDataAccessConnection );
+                if ( result == null )
+                    result = caseDataAccessConnection ( sfpDataAccessConnection );
+                if ( result == null )
+                    result = caseConnection ( sfpDataAccessConnection );
+                if ( result == null )
+                    result = caseNamedDocumentable ( sfpDataAccessConnection );
+                if ( result == null )
+                    result = caseDocumentable ( sfpDataAccessConnection );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -2910,6 +2926,22 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseMailEventHandler ( MailEventHandler object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Sfp Data Access Connection</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Sfp Data Access Connection</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSfpDataAccessConnection ( SfpDataAccessConnection object )
     {
         return null;
     }

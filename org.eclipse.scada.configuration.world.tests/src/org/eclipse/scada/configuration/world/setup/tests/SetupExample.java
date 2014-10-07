@@ -55,15 +55,11 @@ public class SetupExample
 
         // Register the appropriate resource factory to handle all file extensions.
         //
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put
-                ( Resource.Factory.Registry.DEFAULT_EXTENSION,
-                        new SetupResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( Resource.Factory.Registry.DEFAULT_EXTENSION, new SetupResourceFactoryImpl () );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( SetupPackage.eNS_URI,
-                        SetupPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( SetupPackage.eNS_URI, SetupPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

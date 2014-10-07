@@ -161,4 +161,13 @@ public interface Connection extends NamedDocumentable
      */
     Endpoint getMatchingEndpoint ( Exporter exporter );
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" required="true"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return getTypeTag () + \".connection\";'"
+     * @generated
+     */
+    String getFactoryId ();
+
 } // Connection

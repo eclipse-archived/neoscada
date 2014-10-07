@@ -2247,6 +2247,31 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implement
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.SfpDataAccessConnection} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SfpDataAccessConnectionItemProvider sfpDataAccessConnectionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.SfpDataAccessConnection}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSfpDataAccessConnectionAdapter ()
+    {
+        if ( sfpDataAccessConnectionItemProvider == null )
+        {
+            sfpDataAccessConnectionItemProvider = new SfpDataAccessConnectionItemProvider ( this );
+        }
+
+        return sfpDataAccessConnectionItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2559,6 +2584,8 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implement
             scriptEventHandlerItemProvider.dispose ();
         if ( mailEventHandlerItemProvider != null )
             mailEventHandlerItemProvider.dispose ();
+        if ( sfpDataAccessConnectionItemProvider != null )
+            sfpDataAccessConnectionItemProvider.dispose ();
     }
 
 }

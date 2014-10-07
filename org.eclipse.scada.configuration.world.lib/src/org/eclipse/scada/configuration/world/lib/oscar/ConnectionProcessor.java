@@ -40,7 +40,7 @@ public class ConnectionProcessor extends BasicOscarProcessor
 
     private void createConnection ( final Connection connection )
     {
-        final Map<String, String> data = new HashMap<> ();
+        final Map<String, String> data = new HashMap<> ( 1 );
 
         final String configurationId = Names.makeName ( connection );
 
@@ -50,7 +50,6 @@ public class ConnectionProcessor extends BasicOscarProcessor
 
         data.put ( "connection.uri", connection.makeUri ( isLocal ) ); //$NON-NLS-1$
 
-        // FIXME: this is the factory name, which could be different than the following schema
-        addData ( connection.getTypeTag () + ".connection", configurationId, data );
+        addData ( connection.getFactoryId (), configurationId, data );
     }
 }

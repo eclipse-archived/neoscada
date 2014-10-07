@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.scada.configuration.script.JavaScript;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.ScriptEventHandler;
 
@@ -43,7 +44,7 @@ public class ScriptEventHandlerImpl extends MinimalEObjectImpl.Container impleme
      * @generated
      * @ordered
      */
-    protected org.eclipse.scada.configuration.script.JavaScript script;
+    protected JavaScript script;
 
     /**
      * <!-- begin-user-doc -->
@@ -71,12 +72,12 @@ public class ScriptEventHandlerImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
-    public org.eclipse.scada.configuration.script.JavaScript getScript ()
+    public JavaScript getScript ()
     {
         if ( script != null && script.eIsProxy () )
         {
             InternalEObject oldScript = (InternalEObject)script;
-            script = (org.eclipse.scada.configuration.script.JavaScript)eResolveProxy ( oldScript );
+            script = (JavaScript)eResolveProxy ( oldScript );
             if ( script != oldScript )
             {
                 InternalEObject newScript = (InternalEObject)script;
@@ -99,7 +100,7 @@ public class ScriptEventHandlerImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
-    public org.eclipse.scada.configuration.script.JavaScript basicGetScript ()
+    public JavaScript basicGetScript ()
     {
         return script;
     }
@@ -109,9 +110,9 @@ public class ScriptEventHandlerImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetScript ( org.eclipse.scada.configuration.script.JavaScript newScript, NotificationChain msgs )
+    public NotificationChain basicSetScript ( JavaScript newScript, NotificationChain msgs )
     {
-        org.eclipse.scada.configuration.script.JavaScript oldScript = script;
+        JavaScript oldScript = script;
         script = newScript;
         if ( eNotificationRequired () )
         {
@@ -129,7 +130,7 @@ public class ScriptEventHandlerImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setScript ( org.eclipse.scada.configuration.script.JavaScript newScript )
+    public void setScript ( JavaScript newScript )
     {
         if ( newScript != script )
         {
@@ -191,7 +192,7 @@ public class ScriptEventHandlerImpl extends MinimalEObjectImpl.Container impleme
         switch ( featureID )
         {
             case OsgiPackage.SCRIPT_EVENT_HANDLER__SCRIPT:
-                setScript ( (org.eclipse.scada.configuration.script.JavaScript)newValue );
+                setScript ( (JavaScript)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -208,7 +209,7 @@ public class ScriptEventHandlerImpl extends MinimalEObjectImpl.Container impleme
         switch ( featureID )
         {
             case OsgiPackage.SCRIPT_EVENT_HANDLER__SCRIPT:
-                setScript ( (org.eclipse.scada.configuration.script.JavaScript)null );
+                setScript ( (JavaScript)null );
                 return;
         }
         super.eUnset ( featureID );

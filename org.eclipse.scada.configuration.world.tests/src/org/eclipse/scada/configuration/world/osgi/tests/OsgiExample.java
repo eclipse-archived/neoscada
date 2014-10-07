@@ -48,15 +48,11 @@ public class OsgiExample
 
         // Register the appropriate resource factory to handle all file extensions.
         //
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put
-                ( Resource.Factory.Registry.DEFAULT_EXTENSION,
-                        new OsgiResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( Resource.Factory.Registry.DEFAULT_EXTENSION, new OsgiResourceFactoryImpl () );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( OsgiPackage.eNS_URI,
-                        OsgiPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( OsgiPackage.eNS_URI, OsgiPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

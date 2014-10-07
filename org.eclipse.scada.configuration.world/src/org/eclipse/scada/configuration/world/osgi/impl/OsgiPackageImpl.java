@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.ae.data.Severity;
+import org.eclipse.scada.configuration.script.ScriptPackage;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
@@ -126,6 +127,7 @@ import org.eclipse.scada.configuration.world.osgi.Scale;
 import org.eclipse.scada.configuration.world.osgi.ScriptEventHandler;
 import org.eclipse.scada.configuration.world.osgi.ScriptItem;
 import org.eclipse.scada.configuration.world.osgi.ScriptTimer;
+import org.eclipse.scada.configuration.world.osgi.SfpDataAccessConnection;
 import org.eclipse.scada.configuration.world.osgi.SimpleDataMapper;
 import org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
@@ -880,6 +882,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass sfpDataAccessConnectionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum averageReferenceTypeEEnum = null;
 
     /**
@@ -1007,7 +1016,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         // Initialize simple dependencies
         EcorePackage.eINSTANCE.eClass ();
         ConfigurationPackage.eINSTANCE.eClass ();
-        org.eclipse.scada.configuration.script.ScriptPackage.eINSTANCE.eClass ();
+        ScriptPackage.eINSTANCE.eClass ();
         SecurityPackage.eINSTANCE.eClass ();
 
         // Obtain or create and register interdependencies
@@ -1212,6 +1221,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EOperation getConnection__GetMatchingEndpoint__Exporter ()
     {
         return connectionEClass.getEOperations ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getConnection__GetFactoryId ()
+    {
+        return connectionEClass.getEOperations ().get ( 4 );
     }
 
     /**
@@ -4749,6 +4768,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getSfpDataAccessConnection ()
+    {
+        return sfpDataAccessConnectionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getAverageReferenceType ()
     {
@@ -4921,6 +4950,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEOperation ( connectionEClass, CONNECTION___GET_POSSIBLE_ENDPOINTS__EXPORTER );
         createEOperation ( connectionEClass, CONNECTION___MAKE_URI__BOOLEAN );
         createEOperation ( connectionEClass, CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER );
+        createEOperation ( connectionEClass, CONNECTION___GET_FACTORY_ID );
 
         exporterEClass = createEClass ( EXPORTER );
         createEReference ( exporterEClass, EXPORTER__ENDPOINTS );
@@ -5350,6 +5380,8 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEAttribute ( mailEventHandlerEClass, MAIL_EVENT_HANDLER__PASSWORD );
         createEAttribute ( mailEventHandlerEClass, MAIL_EVENT_HANDLER__QUEUE_ID );
 
+        sfpDataAccessConnectionEClass = createEClass ( SFP_DATA_ACCESS_CONNECTION );
+
         // Create enums
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
         movingAverageReferenceTypeEEnum = createEEnum ( MOVING_AVERAGE_REFERENCE_TYPE );
@@ -5396,7 +5428,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
         SecurityPackage theSecurityPackage = (SecurityPackage)EPackage.Registry.INSTANCE.getEPackage ( SecurityPackage.eNS_URI );
         EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage ( EcorePackage.eNS_URI );
-        org.eclipse.scada.configuration.script.ScriptPackage theScriptPackage = (org.eclipse.scada.configuration.script.ScriptPackage)EPackage.Registry.INSTANCE.getEPackage ( org.eclipse.scada.configuration.script.ScriptPackage.eNS_URI );
+        ScriptPackage theScriptPackage = (ScriptPackage)EPackage.Registry.INSTANCE.getEPackage ( ScriptPackage.eNS_URI );
 
         // Add subpackages
         getESubpackages ().add ( theProfilePackage );
@@ -5492,6 +5524,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         excludeEventFilterEClass.getESuperTypes ().add ( this.getFilterEventHandler () );
         scriptEventHandlerEClass.getESuperTypes ().add ( this.getEventHandler () );
         mailEventHandlerEClass.getESuperTypes ().add ( this.getEventHandler () );
+        sfpDataAccessConnectionEClass.getESuperTypes ().add ( this.getDataAccessConnection () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -5520,6 +5553,8 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         op = initEOperation ( getConnection__GetMatchingEndpoint__Exporter (), theWorldPackage.getEndpoint (), "getMatchingEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
         addEParameter ( op, this.getExporter (), "exporter", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getConnection__GetFactoryId (), ecorePackage.getEString (), "getFactoryId", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( exporterEClass, Exporter.class, "Exporter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExporter_Endpoints (), theWorldPackage.getEndpoint (), null, "endpoints", null, 0, -1, Exporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -5961,6 +5996,8 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEAttribute ( getMailEventHandler_Username (), ecorePackage.getEString (), "username", null, 0, 1, MailEventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getMailEventHandler_Password (), ecorePackage.getEString (), "password", null, 0, 1, MailEventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getMailEventHandler_QueueId (), ecorePackage.getEString (), "queueId", null, 0, 1, MailEventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( sfpDataAccessConnectionEClass, SfpDataAccessConnection.class, "SfpDataAccessConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( averageReferenceTypeEEnum, AverageReferenceType.class, "AverageReferenceType" ); //$NON-NLS-1$

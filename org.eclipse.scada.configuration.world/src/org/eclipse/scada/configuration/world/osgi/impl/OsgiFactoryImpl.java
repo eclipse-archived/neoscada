@@ -245,6 +245,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createScriptEventHandler ();
             case OsgiPackage.MAIL_EVENT_HANDLER:
                 return createMailEventHandler ();
+            case OsgiPackage.SFP_DATA_ACCESS_CONNECTION:
+                return createSfpDataAccessConnection ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1268,6 +1270,17 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         MailEventHandlerImpl mailEventHandler = new MailEventHandlerImpl ();
         return mailEventHandler;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SfpDataAccessConnection createSfpDataAccessConnection ()
+    {
+        SfpDataAccessConnectionImpl sfpDataAccessConnection = new SfpDataAccessConnectionImpl ();
+        return sfpDataAccessConnection;
     }
 
     /**

@@ -52,6 +52,7 @@ public class OsgiTests extends TestSuite
         suite.addTestSuite ( HistoricalDataExporterTest.class );
         suite.addTestSuite ( ConfigurationAdministratorExporterTest.class );
         suite.addTestSuite ( DefaultEquinoxApplicationTest.class );
+        suite.addTestSuite ( SfpDataAccessConnectionTest.class );
         return suite;
     }
 

@@ -31,6 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.Connection;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getPossibleEndpoints(org.eclipse.scada.configuration.world.osgi.Exporter) <em>Get Possible Endpoints</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#makeUri(boolean) <em>Make Uri</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getMatchingEndpoint(org.eclipse.scada.configuration.world.osgi.Exporter) <em>Get Matching Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getFactoryId() <em>Get Factory Id</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -143,6 +144,20 @@ public abstract class ConnectionTest extends TestCase
      * @generated
      */
     public void testGetMatchingEndpoint__Exporter ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.Connection#getFactoryId() <em>Get Factory Id</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.Connection#getFactoryId()
+     * @generated
+     */
+    public void testGetFactoryId ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT

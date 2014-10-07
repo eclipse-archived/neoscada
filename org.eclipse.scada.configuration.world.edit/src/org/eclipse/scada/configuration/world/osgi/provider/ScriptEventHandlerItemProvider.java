@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.scada.configuration.script.ScriptFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.ScriptEventHandler;
 
@@ -167,7 +168,7 @@ public class ScriptEventHandlerItemProvider extends ItemProviderAdapter implemen
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_EVENT_HANDLER__SCRIPT, org.eclipse.scada.configuration.script.ScriptFactory.eINSTANCE.createJavaScript () ) );
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_EVENT_HANDLER__SCRIPT, ScriptFactory.eINSTANCE.createJavaScript () ) );
     }
 
     /**
