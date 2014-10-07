@@ -56,9 +56,18 @@ is active.
         
         <mkdir dir="${download.dir}"/>
         
-        <copy todir="${download.dir}">
-            <fileset dir="${output}/javadoc" />
-        </copy>
+        <copy
+        	file="${output}/javadoc/org.eclipse.scada-javadoc.jar"
+        	todir="${download.dir}"/>
+    	
+    	<mkdir dir="${download.dir}/javadoc"/>
+    	
+    	<unzip dest="${download.dir}/javadoc" src="${download.dir}/org.eclipse.scada-javadoc.jar">
+    		<patternset>
+    			<exclude name="META-INF"/>
+    			<exclude name="META-INF/*"/>
+    		</patternset>
+    	</unzip>
     </target>
 
 </project>
