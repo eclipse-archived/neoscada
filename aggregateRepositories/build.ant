@@ -15,6 +15,11 @@
 	
     <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${release}" />
     <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
+	
+	<!--
+	  - for javadoc we explicity only have one directory (for nightly, milestone, release)
+	  -->
+	<property name="javadoc.base" location="${download.root}/javadoc/${release}" />
 
     <!-- ================================= 
           target: default
@@ -66,6 +71,12 @@
             <fileset dir="${download.base.dir}/repos">
             </fileset>
         </copy>
+    	
+    	<mkdir dir="${javadoc.base}"/>
+    	<copy todir="${javadoc.base}">
+    		<fileset dir="${download.base.dir}/javadoc">
+            </fileset>
+		</copy>
     	
     	<!-- updates are handled by repgen -->
     </target>
