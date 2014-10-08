@@ -35,6 +35,10 @@ public final class TypeHelper
             max = Math.max ( max, offset + var.getType ().getIndex () + var.getType ().getLength () );
             for ( final Attribute attr : var.getAttributes () )
             {
+                if ( attr.getType () == null )
+                {
+                    continue;
+                }
                 max = Math.max ( max, offset + attr.getType ().getIndex () + attr.getType ().getLength () );
             }
         }
