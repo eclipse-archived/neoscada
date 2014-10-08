@@ -12,7 +12,6 @@
  * opens item detail dialog
  */
 function openItemDetails(connectionId, itemId) {
-	println("Opening item detail dialog: " + connectionId + "#" + itemId);
 	controller
 			.executeCommand(
 					"org.eclipse.scada.da.client.dataitem.details.openDetailsDialog",
@@ -26,9 +25,6 @@ function openItemDetails(connectionId, itemId) {
  * opens detail dialog given by detailId from properties
  */
 function openDetailDialogDefault() {
-	println("called openDetailDialogDefault with: id = "
-			+ controller.getProperty("detailsId") + ", properties = "
-			+ controller.getPropertiesAsMap());
 	controller.executeCommand("org.eclipse.scada.vi.details.showDetailDialog", {
 		"org.eclipse.scada.vi.details.showDetailDialog.id" : controller
 				.getProperty("detailsId"),
@@ -41,8 +37,6 @@ function openDetailDialogDefault() {
  * opens detail dialog with explicit id
  */
 function openDetailDialogById(id) {
-	println("called openDetailDialogDefault with: id = " + id
-			+ ", properties = " + controller.getPropertiesAsMap());
 	controller.executeCommand("org.eclipse.scada.vi.details.showDetailDialog", {
 		"org.eclipse.scada.vi.details.showDetailDialog.id" : id,
 		"org.eclipse.scada.vi.details.showDetailDialog.parameters" : GSON
@@ -55,9 +49,6 @@ function openDetailDialogById(id) {
  * overwrite default properties
  */
 function openDetailDialogWithProperties(id, properties) {
-	println("called openDetailDialogDefault with: id = " + id
-			+ ", implicit properties = " + controller.getPropertiesAsMap()
-			+ ", explicit properties = " + dump(properties));
 	var finalProperties = new java.util.HashMap(controller.getPropertiesAsMap());
 	if (isString(properties)) {
 		finalProperties.putAll(GSON.fromJson(properties, java.util.HashMap));
