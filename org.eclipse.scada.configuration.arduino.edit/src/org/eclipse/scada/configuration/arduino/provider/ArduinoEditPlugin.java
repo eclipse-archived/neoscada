@@ -12,8 +12,10 @@ package org.eclipse.scada.configuration.arduino.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
+import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
 import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
@@ -22,7 +24,6 @@ import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
  * This is the central singleton for the Arduino edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public final class ArduinoEditPlugin extends EMFPlugin
@@ -31,7 +32,6 @@ public final class ArduinoEditPlugin extends EMFPlugin
      * Keep track of the singleton.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final ArduinoEditPlugin INSTANCE = new ArduinoEditPlugin ();
@@ -40,7 +40,6 @@ public final class ArduinoEditPlugin extends EMFPlugin
      * Keep track of the singleton.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private static Implementation plugin;
@@ -49,26 +48,17 @@ public final class ArduinoEditPlugin extends EMFPlugin
      * Create the instance.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ArduinoEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                ExecEditPlugin.INSTANCE,
-                GlobalizeEditPlugin.INSTANCE,
-                InfrastructureEditPlugin.INSTANCE,
-                SecurityEditPlugin.INSTANCE,
-                WorldEditPlugin.INSTANCE,
-        } );
+        super ( new ResourceLocator[] { ExecEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, InfrastructureEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, } );
     }
 
     /**
      * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the singleton instance.
      * @generated
      */
@@ -82,7 +72,6 @@ public final class ArduinoEditPlugin extends EMFPlugin
      * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the singleton instance.
      * @generated
      */
@@ -95,7 +84,6 @@ public final class ArduinoEditPlugin extends EMFPlugin
      * The actual implementation of the Eclipse <b>Plugin</b>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static class Implementation extends EclipsePlugin
@@ -104,7 +92,6 @@ public final class ArduinoEditPlugin extends EMFPlugin
          * Creates an instance.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         public Implementation ()

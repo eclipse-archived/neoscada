@@ -770,6 +770,15 @@ public interface IEC60870Package extends EPackage
     int IEC60870_DRIVER__NODE = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__NODE;
 
     /**
+     * The feature id for the '<em><b>Protocol Type Tag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER__PROTOCOL_TYPE_TAG = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__PROTOCOL_TYPE_TAG;
+
+    /**
      * The feature id for the '<em><b>Instance Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

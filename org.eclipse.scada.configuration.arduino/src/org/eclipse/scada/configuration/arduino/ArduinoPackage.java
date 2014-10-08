@@ -29,7 +29,6 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.configuration.arduino.ArduinoFactory
  * @model kind="package"
  * @generated
@@ -40,7 +39,6 @@ public interface ArduinoPackage extends EPackage
      * The package name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNAME = "arduino"; //$NON-NLS-1$
@@ -49,7 +47,6 @@ public interface ArduinoPackage extends EPackage
      * The package namespace URI.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNS_URI = "http://eclipe.org/SCADA/Configuration/Arduino"; //$NON-NLS-1$
@@ -58,7 +55,6 @@ public interface ArduinoPackage extends EPackage
      * The package namespace name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNS_PREFIX = "arduino"; //$NON-NLS-1$
@@ -67,18 +63,14 @@ public interface ArduinoPackage extends EPackage
      * The singleton instance of the package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     ArduinoPackage eINSTANCE = org.eclipse.scada.configuration.arduino.impl.ArduinoPackageImpl.init ();
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.configuration.arduino.impl.ArduinoDriverImpl
-     * <em>Driver</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.configuration.arduino.impl.ArduinoDriverImpl <em>Driver</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.configuration.arduino.impl.ArduinoDriverImpl
      * @see org.eclipse.scada.configuration.arduino.impl.ArduinoPackageImpl#getArduinoDriver()
      * @generated
@@ -89,7 +81,6 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -99,73 +90,60 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_DRIVER__NAME = WorldPackage.DRIVER__NAME;
 
     /**
-     * The feature id for the '<em><b>Connections</b></em>' containment
-     * reference list.
+     * The feature id for the '<em><b>Connections</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_DRIVER__CONNECTIONS = WorldPackage.DRIVER_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Exporter</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Exporter</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_DRIVER__EXPORTER = WorldPackage.DRIVER_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Customization Profile</b></em>'
-     * containment reference.
+     * The feature id for the '<em><b>Customization Profile</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_DRIVER__CUSTOMIZATION_PROFILE = WorldPackage.DRIVER_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Security Configuration</b></em>'
-     * reference.
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_DRIVER__SECURITY_CONFIGURATION = WorldPackage.DRIVER_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Modules</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_DRIVER__MODULES = WorldPackage.DRIVER_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Arduino Connections</b></em>' containment
-     * reference list.
+     * The feature id for the '<em><b>Arduino Connections</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -175,7 +153,6 @@ public interface ArduinoPackage extends EPackage
      * The number of structural features of the '<em>Driver</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -185,7 +162,6 @@ public interface ArduinoPackage extends EPackage
      * The operation id for the '<em>Get Endpoints</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -195,7 +171,6 @@ public interface ArduinoPackage extends EPackage
      * The operation id for the '<em>Get Profile</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -205,19 +180,15 @@ public interface ArduinoPackage extends EPackage
      * The number of operations of the '<em>Driver</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_DRIVER_OPERATION_COUNT = WorldPackage.DRIVER_OPERATION_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.configuration.arduino.impl.ArduinoConnectionImpl
-     * <em>Connection</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.configuration.arduino.impl.ArduinoConnectionImpl <em>Connection</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.configuration.arduino.impl.ArduinoConnectionImpl
      * @see org.eclipse.scada.configuration.arduino.impl.ArduinoPackageImpl#getArduinoConnection()
      * @generated
@@ -228,7 +199,6 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -238,7 +208,6 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -248,7 +217,6 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Endpoint</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -258,7 +226,6 @@ public interface ArduinoPackage extends EPackage
      * The number of structural features of the '<em>Connection</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -268,19 +235,15 @@ public interface ArduinoPackage extends EPackage
      * The number of operations of the '<em>Connection</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_CONNECTION_OPERATION_COUNT = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.configuration.arduino.impl.ArduinoDeviceImpl
-     * <em>Device</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.configuration.arduino.impl.ArduinoDeviceImpl <em>Device</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.configuration.arduino.impl.ArduinoDeviceImpl
      * @see org.eclipse.scada.configuration.arduino.impl.ArduinoPackageImpl#getArduinoDevice()
      * @generated
@@ -291,7 +254,6 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -301,7 +263,6 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -311,7 +272,6 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Node</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -321,7 +281,6 @@ public interface ArduinoPackage extends EPackage
      * The feature id for the '<em><b>Port</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -331,7 +290,6 @@ public interface ArduinoPackage extends EPackage
      * The number of structural features of the '<em>Device</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -341,19 +299,15 @@ public interface ArduinoPackage extends EPackage
      * The number of operations of the '<em>Device</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ARDUINO_DEVICE_OPERATION_COUNT = InfrastructurePackage.DEVICE_OPERATION_COUNT + 0;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoDriver
-     * <em>Driver</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.arduino.ArduinoDriver <em>Driver</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Driver</em>'.
      * @see org.eclipse.scada.configuration.arduino.ArduinoDriver
      * @generated
@@ -361,14 +315,10 @@ public interface ArduinoPackage extends EPackage
     EClass getArduinoDriver ();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoDriver#getArduinoConnections
-     * <em>Arduino Connections</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.arduino.ArduinoDriver#getArduinoConnections <em>Arduino Connections</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the meta object for the containment reference list '
-     *         <em>Arduino Connections</em>'.
+     * @return the meta object for the containment reference list '<em>Arduino Connections</em>'.
      * @see org.eclipse.scada.configuration.arduino.ArduinoDriver#getArduinoConnections()
      * @see #getArduinoDriver()
      * @generated
@@ -376,12 +326,9 @@ public interface ArduinoPackage extends EPackage
     EReference getArduinoDriver_ArduinoConnections ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoConnection
-     * <em>Connection</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.arduino.ArduinoConnection <em>Connection</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Connection</em>'.
      * @see org.eclipse.scada.configuration.arduino.ArduinoConnection
      * @generated
@@ -389,12 +336,9 @@ public interface ArduinoPackage extends EPackage
     EClass getArduinoConnection ();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoConnection#getEndpoint
-     * <em>Endpoint</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.arduino.ArduinoConnection#getEndpoint <em>Endpoint</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the reference '<em>Endpoint</em>'.
      * @see org.eclipse.scada.configuration.arduino.ArduinoConnection#getEndpoint()
      * @see #getArduinoConnection()
@@ -403,12 +347,9 @@ public interface ArduinoPackage extends EPackage
     EReference getArduinoConnection_Endpoint ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoDevice
-     * <em>Device</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.arduino.ArduinoDevice <em>Device</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Device</em>'.
      * @see org.eclipse.scada.configuration.arduino.ArduinoDevice
      * @generated
@@ -416,12 +357,9 @@ public interface ArduinoPackage extends EPackage
     EClass getArduinoDevice ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoDevice#getPort
-     * <em>Port</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.arduino.ArduinoDevice#getPort <em>Port</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Port</em>'.
      * @see org.eclipse.scada.configuration.arduino.ArduinoDevice#getPort()
      * @see #getArduinoDevice()
@@ -433,7 +371,6 @@ public interface ArduinoPackage extends EPackage
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -450,18 +387,14 @@ public interface ArduinoPackage extends EPackage
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     interface Literals
     {
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.configuration.arduino.impl.ArduinoDriverImpl
-         * <em>Driver</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.arduino.impl.ArduinoDriverImpl <em>Driver</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.configuration.arduino.impl.ArduinoDriverImpl
          * @see org.eclipse.scada.configuration.arduino.impl.ArduinoPackageImpl#getArduinoDriver()
          * @generated
@@ -469,22 +402,17 @@ public interface ArduinoPackage extends EPackage
         EClass ARDUINO_DRIVER = eINSTANCE.getArduinoDriver ();
 
         /**
-         * The meta object literal for the '<em><b>Arduino Connections</b></em>'
-         * containment reference list feature.
+         * The meta object literal for the '<em><b>Arduino Connections</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference ARDUINO_DRIVER__ARDUINO_CONNECTIONS = eINSTANCE.getArduinoDriver_ArduinoConnections ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.configuration.arduino.impl.ArduinoConnectionImpl
-         * <em>Connection</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.arduino.impl.ArduinoConnectionImpl <em>Connection</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.configuration.arduino.impl.ArduinoConnectionImpl
          * @see org.eclipse.scada.configuration.arduino.impl.ArduinoPackageImpl#getArduinoConnection()
          * @generated
@@ -492,22 +420,17 @@ public interface ArduinoPackage extends EPackage
         EClass ARDUINO_CONNECTION = eINSTANCE.getArduinoConnection ();
 
         /**
-         * The meta object literal for the '<em><b>Endpoint</b></em>' reference
-         * feature.
+         * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference ARDUINO_CONNECTION__ENDPOINT = eINSTANCE.getArduinoConnection_Endpoint ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.configuration.arduino.impl.ArduinoDeviceImpl
-         * <em>Device</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.arduino.impl.ArduinoDeviceImpl <em>Device</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.configuration.arduino.impl.ArduinoDeviceImpl
          * @see org.eclipse.scada.configuration.arduino.impl.ArduinoPackageImpl#getArduinoDevice()
          * @generated
@@ -515,11 +438,9 @@ public interface ArduinoPackage extends EPackage
         EClass ARDUINO_DEVICE = eINSTANCE.getArduinoDevice ();
 
         /**
-         * The meta object literal for the '<em><b>Port</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ARDUINO_DEVICE__PORT = eINSTANCE.getArduinoDevice_Port ();

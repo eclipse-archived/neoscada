@@ -82,11 +82,7 @@ public enum ProtocolType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final ProtocolType[] VALUES_ARRAY = new ProtocolType[]
-    {
-            TCP,
-            RTU,
-    };
+    private static final ProtocolType[] VALUES_ARRAY = new ProtocolType[] { TCP, RTU, };
 
     /**
      * A public read-only list of all the '<em><b>Protocol Type</b></em>' enumerators.

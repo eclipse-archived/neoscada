@@ -90,147 +90,145 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IEC60870Switch<Adapter> modelSwitch =
-            new IEC60870Switch<Adapter> ()
-            {
-                @Override
-                public Adapter caseExporter ( Exporter object )
-                {
-                    return createExporterAdapter ();
-                }
+    protected IEC60870Switch<Adapter> modelSwitch = new IEC60870Switch<Adapter> () {
+        @Override
+        public Adapter caseExporter ( Exporter object )
+        {
+            return createExporterAdapter ();
+        }
 
-                @Override
-                public Adapter caseDevice ( Device object )
-                {
-                    return createDeviceAdapter ();
-                }
+        @Override
+        public Adapter caseDevice ( Device object )
+        {
+            return createDeviceAdapter ();
+        }
 
-                @Override
-                public Adapter caseItem ( Item object )
-                {
-                    return createItemAdapter ();
-                }
+        @Override
+        public Adapter caseItem ( Item object )
+        {
+            return createItemAdapter ();
+        }
 
-                @Override
-                public Adapter caseExporterItemInterceptor ( ExporterItemInterceptor object )
-                {
-                    return createExporterItemInterceptorAdapter ();
-                }
+        @Override
+        public Adapter caseExporterItemInterceptor ( ExporterItemInterceptor object )
+        {
+            return createExporterItemInterceptorAdapter ();
+        }
 
-                @Override
-                public Adapter caseProtocolOptions ( ProtocolOptions object )
-                {
-                    return createProtocolOptionsAdapter ();
-                }
+        @Override
+        public Adapter caseProtocolOptions ( ProtocolOptions object )
+        {
+            return createProtocolOptionsAdapter ();
+        }
 
-                @Override
-                public Adapter caseDataModuleOptions ( DataModuleOptions object )
-                {
-                    return createDataModuleOptionsAdapter ();
-                }
+        @Override
+        public Adapter caseDataModuleOptions ( DataModuleOptions object )
+        {
+            return createDataModuleOptionsAdapter ();
+        }
 
-                @Override
-                public Adapter caseClientDevice ( ClientDevice object )
-                {
-                    return createClientDeviceAdapter ();
-                }
+        @Override
+        public Adapter caseClientDevice ( ClientDevice object )
+        {
+            return createClientDeviceAdapter ();
+        }
 
-                @Override
-                public Adapter caseDriverApplication ( DriverApplication object )
-                {
-                    return createDriverApplicationAdapter ();
-                }
+        @Override
+        public Adapter caseDriverApplication ( DriverApplication object )
+        {
+            return createDriverApplicationAdapter ();
+        }
 
-                @Override
-                public Adapter caseClientDataModuleOptions ( ClientDataModuleOptions object )
-                {
-                    return createClientDataModuleOptionsAdapter ();
-                }
+        @Override
+        public Adapter caseClientDataModuleOptions ( ClientDataModuleOptions object )
+        {
+            return createClientDataModuleOptionsAdapter ();
+        }
 
-                @Override
-                public Adapter caseIEC60870Driver ( IEC60870Driver object )
-                {
-                    return createIEC60870DriverAdapter ();
-                }
+        @Override
+        public Adapter caseIEC60870Driver ( IEC60870Driver object )
+        {
+            return createIEC60870DriverAdapter ();
+        }
 
-                @Override
-                public Adapter caseIEC60870Device ( IEC60870Device object )
-                {
-                    return createIEC60870DeviceAdapter ();
-                }
+        @Override
+        public Adapter caseIEC60870Device ( IEC60870Device object )
+        {
+            return createIEC60870DeviceAdapter ();
+        }
 
-                @Override
-                public Adapter caseApplicationModule ( ApplicationModule object )
-                {
-                    return createApplicationModuleAdapter ();
-                }
+        @Override
+        public Adapter caseApplicationModule ( ApplicationModule object )
+        {
+            return createApplicationModuleAdapter ();
+        }
 
-                @Override
-                public Adapter caseItemInterceptor ( ItemInterceptor object )
-                {
-                    return createItemInterceptorAdapter ();
-                }
+        @Override
+        public Adapter caseItemInterceptor ( ItemInterceptor object )
+        {
+            return createItemInterceptorAdapter ();
+        }
 
-                @Override
-                public Adapter caseDocumentable ( Documentable object )
-                {
-                    return createDocumentableAdapter ();
-                }
+        @Override
+        public Adapter caseDocumentable ( Documentable object )
+        {
+            return createDocumentableAdapter ();
+        }
 
-                @Override
-                public Adapter caseNamedDocumentable ( NamedDocumentable object )
-                {
-                    return createNamedDocumentableAdapter ();
-                }
+        @Override
+        public Adapter caseNamedDocumentable ( NamedDocumentable object )
+        {
+            return createNamedDocumentableAdapter ();
+        }
 
-                @Override
-                public Adapter caseApplication ( Application object )
-                {
-                    return createApplicationAdapter ();
-                }
+        @Override
+        public Adapter caseApplication ( Application object )
+        {
+            return createApplicationAdapter ();
+        }
 
-                @Override
-                public Adapter caseDriver ( Driver object )
-                {
-                    return createDriverAdapter ();
-                }
+        @Override
+        public Adapter caseDriver ( Driver object )
+        {
+            return createDriverAdapter ();
+        }
 
-                @Override
-                public Adapter caseEquinoxApplication ( EquinoxApplication object )
-                {
-                    return createEquinoxApplicationAdapter ();
-                }
+        @Override
+        public Adapter caseEquinoxApplication ( EquinoxApplication object )
+        {
+            return createEquinoxApplicationAdapter ();
+        }
 
-                @Override
-                public Adapter caseInfrastructure_Driver ( org.eclipse.scada.configuration.infrastructure.Driver object )
-                {
-                    return createInfrastructure_DriverAdapter ();
-                }
+        @Override
+        public Adapter caseInfrastructure_Driver ( org.eclipse.scada.configuration.infrastructure.Driver object )
+        {
+            return createInfrastructure_DriverAdapter ();
+        }
 
-                @Override
-                public Adapter caseEquinoxBase ( EquinoxBase object )
-                {
-                    return createEquinoxBaseAdapter ();
-                }
+        @Override
+        public Adapter caseEquinoxBase ( EquinoxBase object )
+        {
+            return createEquinoxBaseAdapter ();
+        }
 
-                @Override
-                public Adapter caseAbstractEquinoxDriver ( AbstractEquinoxDriver object )
-                {
-                    return createAbstractEquinoxDriverAdapter ();
-                }
+        @Override
+        public Adapter caseAbstractEquinoxDriver ( AbstractEquinoxDriver object )
+        {
+            return createAbstractEquinoxDriverAdapter ();
+        }
 
-                @Override
-                public Adapter caseInfrastructure_Device ( org.eclipse.scada.configuration.infrastructure.Device object )
-                {
-                    return createInfrastructure_DeviceAdapter ();
-                }
+        @Override
+        public Adapter caseInfrastructure_Device ( org.eclipse.scada.configuration.infrastructure.Device object )
+        {
+            return createInfrastructure_DeviceAdapter ();
+        }
 
-                @Override
-                public Adapter defaultCase ( EObject object )
-                {
-                    return createEObjectAdapter ();
-                }
-            };
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.

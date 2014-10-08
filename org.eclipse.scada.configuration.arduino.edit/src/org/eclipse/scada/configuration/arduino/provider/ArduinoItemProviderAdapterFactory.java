@@ -386,10 +386,7 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
             @Override
             public Object caseNode ( Node object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( InfrastructurePackage.Literals.NODE__DEVICES,
-                                ArduinoFactory.eINSTANCE.createArduinoDevice () ) );
+                newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.NODE__DEVICES, ArduinoFactory.eINSTANCE.createArduinoDevice () ) );
 
                 return null;
             }
@@ -481,10 +478,7 @@ public class ArduinoItemProviderAdapterFactory extends ArduinoAdapterFactory imp
             @Override
             public Object caseApplicationNode ( ApplicationNode object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                                ArduinoFactory.eINSTANCE.createArduinoDriver () ) );
+                newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, ArduinoFactory.eINSTANCE.createArduinoDriver () ) );
 
                 return null;
             }

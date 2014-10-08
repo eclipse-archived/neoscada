@@ -40,14 +40,7 @@ import org.eclipse.scada.configuration.modbus.ModbusUInt16;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModbusUInt16ItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ModbusUInt16ItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -87,19 +80,9 @@ public class ModbusUInt16ItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusDataType_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusDataType_name_feature", "_UI_ModbusDataType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_DATA_TYPE__NAME,
-                        false,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusDataType_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusDataType_name_feature", "_UI_ModbusDataType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_DATA_TYPE__NAME, false, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -110,19 +93,9 @@ public class ModbusUInt16ItemProvider
      */
     protected void addScalePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusDataType_scale_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusDataType_scale_feature", "_UI_ModbusDataType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_DATA_TYPE__SCALE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusDataType_scale_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusDataType_scale_feature", "_UI_ModbusDataType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_DATA_TYPE__SCALE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -158,9 +131,8 @@ public class ModbusUInt16ItemProvider
     public String getText ( Object object )
     {
         String label = ( (ModbusUInt16)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ModbusUInt16_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ModbusUInt16_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ModbusUInt16_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ModbusUInt16_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

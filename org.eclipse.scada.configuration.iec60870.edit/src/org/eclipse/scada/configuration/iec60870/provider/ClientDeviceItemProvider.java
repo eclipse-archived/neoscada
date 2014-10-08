@@ -43,14 +43,7 @@ import org.eclipse.scada.configuration.iec60870.IEC60870Package;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ClientDeviceItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ClientDeviceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -90,19 +83,9 @@ public class ClientDeviceItemProvider
      */
     protected void addEndpointPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ClientDevice_endpoint_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ClientDevice_endpoint_feature", "_UI_ClientDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.CLIENT_DEVICE__ENDPOINT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ClientDevice_endpoint_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ClientDevice_endpoint_feature", "_UI_ClientDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.CLIENT_DEVICE__ENDPOINT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -113,19 +96,9 @@ public class ClientDeviceItemProvider
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ClientDevice_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ClientDevice_id_feature", "_UI_ClientDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.CLIENT_DEVICE__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ClientDevice_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ClientDevice_id_feature", "_UI_ClientDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.CLIENT_DEVICE__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -184,9 +157,8 @@ public class ClientDeviceItemProvider
     public String getText ( Object object )
     {
         String label = ( (ClientDevice)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ClientDevice_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ClientDevice_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ClientDevice_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ClientDevice_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -226,15 +198,9 @@ public class ClientDeviceItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.CLIENT_DEVICE__PROTOCOL_OPTIONS,
-                        IEC60870Factory.eINSTANCE.createProtocolOptions () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.CLIENT_DEVICE__PROTOCOL_OPTIONS, IEC60870Factory.eINSTANCE.createProtocolOptions () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.CLIENT_DEVICE__DATA_MODULE_OPTIONS,
-                        IEC60870Factory.eINSTANCE.createClientDataModuleOptions () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.CLIENT_DEVICE__DATA_MODULE_OPTIONS, IEC60870Factory.eINSTANCE.createClientDataModuleOptions () ) );
     }
 
     /**

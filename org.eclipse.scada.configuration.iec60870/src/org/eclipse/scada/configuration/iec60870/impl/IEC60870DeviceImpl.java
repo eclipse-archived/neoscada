@@ -13,22 +13,14 @@ package org.eclipse.scada.configuration.iec60870.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions;
 import org.eclipse.scada.configuration.iec60870.IEC60870Device;
 import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
-
-import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
-import org.eclipse.scada.configuration.infrastructure.Node;
+import org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,9 +29,6 @@ import org.eclipse.scada.configuration.infrastructure.Node;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl#getShortDescription <em>Short Description</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl#getNode <em>Node</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl#getDataModuleOptions <em>Data Module Options</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl#getProtocolOptions <em>Protocol Options</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl#getPort <em>Port</em>}</li>
@@ -48,48 +37,8 @@ import org.eclipse.scada.configuration.infrastructure.Node;
  *
  * @generated
  */
-public class IEC60870DeviceImpl extends MinimalEObjectImpl.Container implements IEC60870Device
+public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
 {
-    /**
-     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getShortDescription()
-     * @generated
-     * @ordered
-     */
-    protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getShortDescription()
-     * @generated
-     * @ordered
-     */
-    protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
     /**
      * The cached value of the '{@link #getDataModuleOptions() <em>Data Module Options</em>}' containment reference.
      * <!-- begin-user-doc -->
@@ -149,111 +98,6 @@ public class IEC60870DeviceImpl extends MinimalEObjectImpl.Container implements 
     protected EClass eStaticClass ()
     {
         return IEC60870Package.Literals.IEC60870_DEVICE;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getShortDescription ()
-    {
-        return shortDescription;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setShortDescription ( String newShortDescription )
-    {
-        String oldShortDescription = shortDescription;
-        shortDescription = newShortDescription;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.IEC60870_DEVICE__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getName ()
-    {
-        return name;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName ( String newName )
-    {
-        String oldName = name;
-        name = newName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.IEC60870_DEVICE__NAME, oldName, name ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Node getNode ()
-    {
-        if ( eContainerFeatureID () != IEC60870Package.IEC60870_DEVICE__NODE )
-            return null;
-        return (Node)eContainer ();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Node basicGetNode ()
-    {
-        if ( eContainerFeatureID () != IEC60870Package.IEC60870_DEVICE__NODE )
-            return null;
-        return (Node)eInternalContainer ();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetNode ( Node newNode, NotificationChain msgs )
-    {
-        msgs = eBasicSetContainer ( (InternalEObject)newNode, IEC60870Package.IEC60870_DEVICE__NODE, msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setNode ( Node newNode )
-    {
-        if ( newNode != eInternalContainer () || ( eContainerFeatureID () != IEC60870Package.IEC60870_DEVICE__NODE && newNode != null ) )
-        {
-            if ( EcoreUtil.isAncestor ( this, newNode ) )
-                throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () ); //$NON-NLS-1$
-            NotificationChain msgs = null;
-            if ( eInternalContainer () != null )
-                msgs = eBasicRemoveFromContainer ( msgs );
-            if ( newNode != null )
-                msgs = ( (InternalEObject)newNode ).eInverseAdd ( this, InfrastructurePackage.NODE__DEVICES, Node.class, msgs );
-            msgs = basicSetNode ( newNode, msgs );
-            if ( msgs != null )
-                msgs.dispatch ();
-        }
-        else if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.IEC60870_DEVICE__NODE, newNode, newNode ) );
     }
 
     /**
@@ -389,30 +233,10 @@ public class IEC60870DeviceImpl extends MinimalEObjectImpl.Container implements 
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
-    {
-        switch ( featureID )
-        {
-            case IEC60870Package.IEC60870_DEVICE__NODE:
-                if ( eInternalContainer () != null )
-                    msgs = eBasicRemoveFromContainer ( msgs );
-                return basicSetNode ( (Node)otherEnd, msgs );
-        }
-        return super.eInverseAdd ( otherEnd, featureID, msgs );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
-            case IEC60870Package.IEC60870_DEVICE__NODE:
-                return basicSetNode ( null, msgs );
             case IEC60870Package.IEC60870_DEVICE__DATA_MODULE_OPTIONS:
                 return basicSetDataModuleOptions ( null, msgs );
             case IEC60870Package.IEC60870_DEVICE__PROTOCOL_OPTIONS:
@@ -427,34 +251,10 @@ public class IEC60870DeviceImpl extends MinimalEObjectImpl.Container implements 
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
-    {
-        switch ( eContainerFeatureID () )
-        {
-            case IEC60870Package.IEC60870_DEVICE__NODE:
-                return eInternalContainer ().eInverseRemove ( this, InfrastructurePackage.NODE__DEVICES, Node.class, msgs );
-        }
-        return super.eBasicRemoveFromContainerFeature ( msgs );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
-            case IEC60870Package.IEC60870_DEVICE__SHORT_DESCRIPTION:
-                return getShortDescription ();
-            case IEC60870Package.IEC60870_DEVICE__NAME:
-                return getName ();
-            case IEC60870Package.IEC60870_DEVICE__NODE:
-                if ( resolve )
-                    return getNode ();
-                return basicGetNode ();
             case IEC60870Package.IEC60870_DEVICE__DATA_MODULE_OPTIONS:
                 return getDataModuleOptions ();
             case IEC60870Package.IEC60870_DEVICE__PROTOCOL_OPTIONS:
@@ -475,15 +275,6 @@ public class IEC60870DeviceImpl extends MinimalEObjectImpl.Container implements 
     {
         switch ( featureID )
         {
-            case IEC60870Package.IEC60870_DEVICE__SHORT_DESCRIPTION:
-                setShortDescription ( (String)newValue );
-                return;
-            case IEC60870Package.IEC60870_DEVICE__NAME:
-                setName ( (String)newValue );
-                return;
-            case IEC60870Package.IEC60870_DEVICE__NODE:
-                setNode ( (Node)newValue );
-                return;
             case IEC60870Package.IEC60870_DEVICE__DATA_MODULE_OPTIONS:
                 setDataModuleOptions ( (ClientDataModuleOptions)newValue );
                 return;
@@ -507,15 +298,6 @@ public class IEC60870DeviceImpl extends MinimalEObjectImpl.Container implements 
     {
         switch ( featureID )
         {
-            case IEC60870Package.IEC60870_DEVICE__SHORT_DESCRIPTION:
-                setShortDescription ( SHORT_DESCRIPTION_EDEFAULT );
-                return;
-            case IEC60870Package.IEC60870_DEVICE__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
-            case IEC60870Package.IEC60870_DEVICE__NODE:
-                setNode ( (Node)null );
-                return;
             case IEC60870Package.IEC60870_DEVICE__DATA_MODULE_OPTIONS:
                 setDataModuleOptions ( (ClientDataModuleOptions)null );
                 return;
@@ -539,12 +321,6 @@ public class IEC60870DeviceImpl extends MinimalEObjectImpl.Container implements 
     {
         switch ( featureID )
         {
-            case IEC60870Package.IEC60870_DEVICE__SHORT_DESCRIPTION:
-                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
-            case IEC60870Package.IEC60870_DEVICE__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
-            case IEC60870Package.IEC60870_DEVICE__NODE:
-                return basicGetNode () != null;
             case IEC60870Package.IEC60870_DEVICE__DATA_MODULE_OPTIONS:
                 return dataModuleOptions != null;
             case IEC60870Package.IEC60870_DEVICE__PROTOCOL_OPTIONS:
@@ -567,11 +343,7 @@ public class IEC60870DeviceImpl extends MinimalEObjectImpl.Container implements 
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (shortDescription: " ); //$NON-NLS-1$
-        result.append ( shortDescription );
-        result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( name );
-        result.append ( ", port: " ); //$NON-NLS-1$
+        result.append ( " (port: " ); //$NON-NLS-1$
         result.append ( port );
         result.append ( ')' );
         return result.toString ();

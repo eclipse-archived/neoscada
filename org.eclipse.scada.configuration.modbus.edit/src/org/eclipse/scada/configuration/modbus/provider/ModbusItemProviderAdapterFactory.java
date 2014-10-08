@@ -716,10 +716,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
             @Override
             public Object caseContainer ( Container object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS,
-                                ModbusFactory.eINSTANCE.createModbusExporterInterceptor () ) );
+                newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS, ModbusFactory.eINSTANCE.createModbusExporterInterceptor () ) );
 
                 return null;
             }
@@ -813,10 +810,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
             @Override
             public Object caseNode ( Node object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( InfrastructurePackage.Literals.NODE__DEVICES,
-                                ModbusFactory.eINSTANCE.createModbusDevice () ) );
+                newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.NODE__DEVICES, ModbusFactory.eINSTANCE.createModbusDevice () ) );
 
                 return null;
             }
@@ -829,10 +823,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
             @Override
             public Object caseConfigurations ( Configurations object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS,
-                                ModbusFactory.eINSTANCE.createModbusExporterModule () ) );
+                newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS, ModbusFactory.eINSTANCE.createModbusExporterModule () ) );
 
                 return null;
             }
@@ -926,10 +917,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
             @Override
             public Object caseApplicationNode ( ApplicationNode object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                                ModbusFactory.eINSTANCE.createModbusDriver () ) );
+                newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, ModbusFactory.eINSTANCE.createModbusDriver () ) );
 
                 return null;
             }
@@ -1023,10 +1011,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
             @Override
             public Object caseEquinoxApplication ( EquinoxApplication object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                                ModbusFactory.eINSTANCE.createModbusExporter () ) );
+                newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, ModbusFactory.eINSTANCE.createModbusExporter () ) );
 
                 return null;
             }

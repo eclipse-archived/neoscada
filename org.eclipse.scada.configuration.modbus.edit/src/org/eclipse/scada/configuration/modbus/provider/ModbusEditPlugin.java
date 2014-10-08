@@ -55,19 +55,7 @@ public final class ModbusEditPlugin extends EMFPlugin
      */
     public ModbusEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                ComponentEditPlugin.INSTANCE,
-                ExecEditPlugin.INSTANCE,
-                GlobalizeEditPlugin.INSTANCE,
-                InfrastructureEditPlugin.INSTANCE,
-                ItemEditPlugin.INSTANCE,
-                MemoryEditPlugin.INSTANCE,
-                ScriptEditPlugin.INSTANCE,
-                SecurityEditPlugin.INSTANCE,
-                WorldEditPlugin.INSTANCE,
-                EcoreEditPlugin.INSTANCE,
-        } );
+        super ( new ResourceLocator[] { ComponentEditPlugin.INSTANCE, ExecEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, InfrastructureEditPlugin.INSTANCE, ItemEditPlugin.INSTANCE, MemoryEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, } );
     }
 
     /**

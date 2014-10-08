@@ -88,81 +88,79 @@ public class DaveAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DaveSwitch<Adapter> modelSwitch =
-            new DaveSwitch<Adapter> ()
-            {
-                @Override
-                public Adapter caseDaveDevice ( DaveDevice object )
-                {
-                    return createDaveDeviceAdapter ();
-                }
+    protected DaveSwitch<Adapter> modelSwitch = new DaveSwitch<Adapter> () {
+        @Override
+        public Adapter caseDaveDevice ( DaveDevice object )
+        {
+            return createDaveDeviceAdapter ();
+        }
 
-                @Override
-                public Adapter caseDaveDriver ( DaveDriver object )
-                {
-                    return createDaveDriverAdapter ();
-                }
+        @Override
+        public Adapter caseDaveDriver ( DaveDriver object )
+        {
+            return createDaveDriverAdapter ();
+        }
 
-                @Override
-                public Adapter caseDaveCommunicationProcessor ( DaveCommunicationProcessor object )
-                {
-                    return createDaveCommunicationProcessorAdapter ();
-                }
+        @Override
+        public Adapter caseDaveCommunicationProcessor ( DaveCommunicationProcessor object )
+        {
+            return createDaveCommunicationProcessorAdapter ();
+        }
 
-                @Override
-                public Adapter caseDaveRequestBlock ( DaveRequestBlock object )
-                {
-                    return createDaveRequestBlockAdapter ();
-                }
+        @Override
+        public Adapter caseDaveRequestBlock ( DaveRequestBlock object )
+        {
+            return createDaveRequestBlockAdapter ();
+        }
 
-                @Override
-                public Adapter caseDaveBlockDefinition ( DaveBlockDefinition object )
-                {
-                    return createDaveBlockDefinitionAdapter ();
-                }
+        @Override
+        public Adapter caseDaveBlockDefinition ( DaveBlockDefinition object )
+        {
+            return createDaveBlockDefinitionAdapter ();
+        }
 
-                @Override
-                public Adapter caseDocumentable ( Documentable object )
-                {
-                    return createDocumentableAdapter ();
-                }
+        @Override
+        public Adapter caseDocumentable ( Documentable object )
+        {
+            return createDocumentableAdapter ();
+        }
 
-                @Override
-                public Adapter caseNamedDocumentable ( NamedDocumentable object )
-                {
-                    return createNamedDocumentableAdapter ();
-                }
+        @Override
+        public Adapter caseNamedDocumentable ( NamedDocumentable object )
+        {
+            return createNamedDocumentableAdapter ();
+        }
 
-                @Override
-                public Adapter caseDevice ( Device object )
-                {
-                    return createDeviceAdapter ();
-                }
+        @Override
+        public Adapter caseDevice ( Device object )
+        {
+            return createDeviceAdapter ();
+        }
 
-                @Override
-                public Adapter caseApplication ( Application object )
-                {
-                    return createApplicationAdapter ();
-                }
+        @Override
+        public Adapter caseApplication ( Application object )
+        {
+            return createApplicationAdapter ();
+        }
 
-                @Override
-                public Adapter caseDriver ( Driver object )
-                {
-                    return createDriverAdapter ();
-                }
+        @Override
+        public Adapter caseDriver ( Driver object )
+        {
+            return createDriverAdapter ();
+        }
 
-                @Override
-                public Adapter caseEquinoxApplication ( EquinoxApplication object )
-                {
-                    return createEquinoxApplicationAdapter ();
-                }
+        @Override
+        public Adapter caseEquinoxApplication ( EquinoxApplication object )
+        {
+            return createEquinoxApplicationAdapter ();
+        }
 
-                @Override
-                public Adapter defaultCase ( EObject object )
-                {
-                    return createEObjectAdapter ();
-                }
-            };
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.

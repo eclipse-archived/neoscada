@@ -16,12 +16,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.iec60870.IEC60870Driver;
 import org.eclipse.scada.configuration.iec60870.IEC60870Package;
@@ -33,14 +28,7 @@ import org.eclipse.scada.configuration.infrastructure.provider.AbstractEquinoxDr
  * <!-- end-user-doc -->
  * @generated
  */
-public class IEC60870DriverItemProvider
-        extends AbstractEquinoxDriverItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class IEC60870DriverItemProvider extends AbstractEquinoxDriverItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -79,19 +67,9 @@ public class IEC60870DriverItemProvider
      */
     protected void addDevicesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_IEC60870Driver_devices_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_IEC60870Driver_devices_feature", "_UI_IEC60870Driver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.IEC60870_DRIVER__DEVICES,
-                        true,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_IEC60870Driver_devices_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_IEC60870Driver_devices_feature", "_UI_IEC60870Driver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.IEC60870_DRIVER__DEVICES, true, false, false, null, null, null ) );
     }
 
     /**
@@ -116,9 +94,8 @@ public class IEC60870DriverItemProvider
     public String getText ( Object object )
     {
         String label = ( (IEC60870Driver)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_IEC60870Driver_type" ) : //$NON-NLS-1$
-                getString ( "_UI_IEC60870Driver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_IEC60870Driver_type" ) : //$NON-NLS-1$
+        getString ( "_UI_IEC60870Driver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

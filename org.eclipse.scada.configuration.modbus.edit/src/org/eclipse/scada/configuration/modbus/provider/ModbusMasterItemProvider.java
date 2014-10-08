@@ -80,19 +80,9 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addEndpointPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusMaster_endpoint_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_endpoint_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_MASTER__ENDPOINT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusMaster_endpoint_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_endpoint_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_MASTER__ENDPOINT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -103,19 +93,9 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusMaster_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_id_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_MASTER__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusMaster_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_id_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_MASTER__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -126,19 +106,9 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addProtocolTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusMaster_protocolType_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_protocolType_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_MASTER__PROTOCOL_TYPE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusMaster_protocolType_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_protocolType_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_MASTER__PROTOCOL_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -149,19 +119,9 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addInterFrameDelayPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusMaster_interFrameDelay_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_interFrameDelay_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_MASTER__INTER_FRAME_DELAY,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusMaster_interFrameDelay_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_interFrameDelay_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_MASTER__INTER_FRAME_DELAY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -230,9 +190,8 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
     public String getText ( Object object )
     {
         String label = ( (ModbusMaster)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ModbusMaster_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ModbusMaster_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ModbusMaster_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ModbusMaster_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -273,10 +232,7 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_MASTER__SLAVES,
-                        ModbusFactory.eINSTANCE.createModbusSlave () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_MASTER__SLAVES, ModbusFactory.eINSTANCE.createModbusSlave () ) );
     }
 
     /**

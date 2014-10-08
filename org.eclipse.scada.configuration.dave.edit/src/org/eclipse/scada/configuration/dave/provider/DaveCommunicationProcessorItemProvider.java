@@ -43,14 +43,7 @@ import org.eclipse.scada.configuration.dave.DavePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DaveCommunicationProcessorItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class DaveCommunicationProcessorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -93,19 +86,9 @@ public class DaveCommunicationProcessorItemProvider
      */
     protected void addEndpointPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveCommunicationProcessor_endpoint_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_endpoint_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__ENDPOINT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveCommunicationProcessor_endpoint_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_endpoint_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__ENDPOINT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -116,19 +99,9 @@ public class DaveCommunicationProcessorItemProvider
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveCommunicationProcessor_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_id_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveCommunicationProcessor_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_id_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -139,19 +112,9 @@ public class DaveCommunicationProcessorItemProvider
      */
     protected void addRackPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveCommunicationProcessor_rack_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_rack_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__RACK,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveCommunicationProcessor_rack_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_rack_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__RACK, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -162,19 +125,9 @@ public class DaveCommunicationProcessorItemProvider
      */
     protected void addSlotPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveCommunicationProcessor_slot_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_slot_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__SLOT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveCommunicationProcessor_slot_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_slot_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__SLOT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -185,19 +138,9 @@ public class DaveCommunicationProcessorItemProvider
      */
     protected void addReadTimeoutPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveCommunicationProcessor_readTimeout_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_readTimeout_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__READ_TIMEOUT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveCommunicationProcessor_readTimeout_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveCommunicationProcessor_readTimeout_feature", "_UI_DaveCommunicationProcessor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__READ_TIMEOUT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -255,9 +198,8 @@ public class DaveCommunicationProcessorItemProvider
     public String getText ( Object object )
     {
         String label = ( (DaveCommunicationProcessor)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DaveCommunicationProcessor_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DaveCommunicationProcessor_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DaveCommunicationProcessor_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DaveCommunicationProcessor_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -299,10 +241,7 @@ public class DaveCommunicationProcessorItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__BLOCKS,
-                        DaveFactory.eINSTANCE.createDaveRequestBlock () ) );
+        newChildDescriptors.add ( createChildParameter ( DavePackage.Literals.DAVE_COMMUNICATION_PROCESSOR__BLOCKS, DaveFactory.eINSTANCE.createDaveRequestBlock () ) );
     }
 
     /**

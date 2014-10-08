@@ -39,14 +39,7 @@ import org.eclipse.scada.configuration.iec60870.IEC60870Package;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataModuleOptionsItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class DataModuleOptionsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -88,19 +81,9 @@ public class DataModuleOptionsItemProvider
      */
     protected void addBackgroundScanPeriodPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DataModuleOptions_backgroundScanPeriod_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_backgroundScanPeriod_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.DATA_MODULE_OPTIONS__BACKGROUND_SCAN_PERIOD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DataModuleOptions_backgroundScanPeriod_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_backgroundScanPeriod_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.DATA_MODULE_OPTIONS__BACKGROUND_SCAN_PERIOD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -111,19 +94,9 @@ public class DataModuleOptionsItemProvider
      */
     protected void addSpontaneousItemBufferPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DataModuleOptions_spontaneousItemBuffer_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_spontaneousItemBuffer_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.DATA_MODULE_OPTIONS__SPONTANEOUS_ITEM_BUFFER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DataModuleOptions_spontaneousItemBuffer_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_spontaneousItemBuffer_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.DATA_MODULE_OPTIONS__SPONTANEOUS_ITEM_BUFFER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -134,19 +107,9 @@ public class DataModuleOptionsItemProvider
      */
     protected void addTimestampsForBooleanPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DataModuleOptions_timestampsForBoolean_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_timestampsForBoolean_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_BOOLEAN,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DataModuleOptions_timestampsForBoolean_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_timestampsForBoolean_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_BOOLEAN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -157,19 +120,9 @@ public class DataModuleOptionsItemProvider
      */
     protected void addTimestampsForFloatPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DataModuleOptions_timestampsForFloat_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_timestampsForFloat_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DataModuleOptions_timestampsForFloat_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_timestampsForFloat_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -195,9 +148,8 @@ public class DataModuleOptionsItemProvider
     {
         Integer labelValue = ( (DataModuleOptions)object ).getBackgroundScanPeriod ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DataModuleOptions_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DataModuleOptions_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DataModuleOptions_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DataModuleOptions_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

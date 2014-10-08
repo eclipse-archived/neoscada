@@ -36,14 +36,7 @@ import org.eclipse.scada.configuration.iec60870.IEC60870Package;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExporterItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ExporterItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -163,10 +156,7 @@ public class ExporterItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.EXPORTER__DEVICES,
-                        IEC60870Factory.eINSTANCE.createDevice () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.EXPORTER__DEVICES, IEC60870Factory.eINSTANCE.createDevice () ) );
     }
 
     /**

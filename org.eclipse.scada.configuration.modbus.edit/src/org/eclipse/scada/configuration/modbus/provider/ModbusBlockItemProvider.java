@@ -83,19 +83,9 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusBlock_type_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_type_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_BLOCK__TYPE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_type_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_type_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_BLOCK__TYPE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -126,19 +116,9 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addStartAddressPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusBlock_startAddress_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_startAddress_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_BLOCK__START_ADDRESS,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_startAddress_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_startAddress_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_BLOCK__START_ADDRESS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -149,19 +129,9 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addCountPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusBlock_count_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_count_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_BLOCK__COUNT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_count_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_count_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_BLOCK__COUNT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -172,19 +142,9 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addPeriodPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusBlock_period_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_period_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_BLOCK__PERIOD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_period_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_period_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_BLOCK__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -195,19 +155,9 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addTimeoutPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusBlock_timeout_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_timeout_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_BLOCK__TIMEOUT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_timeout_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_timeout_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_BLOCK__TIMEOUT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -218,19 +168,9 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusBlock_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_id_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_BLOCK__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_id_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_BLOCK__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

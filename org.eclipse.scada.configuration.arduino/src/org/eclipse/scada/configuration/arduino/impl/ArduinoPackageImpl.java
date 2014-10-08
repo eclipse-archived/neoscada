@@ -28,7 +28,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
@@ -36,7 +35,6 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass arduinoDriverEClass = null;
@@ -44,7 +42,6 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass arduinoConnectionEClass = null;
@@ -52,7 +49,6 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass arduinoDeviceEClass = null;
@@ -81,7 +77,6 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -103,12 +98,10 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
     public static ArduinoPackage init ()
     {
         if ( isInited )
-        {
             return (ArduinoPackage)EPackage.Registry.INSTANCE.getEPackage ( ArduinoPackage.eNS_URI );
-        }
 
         // Obtain or create and register package
-        final ArduinoPackageImpl theArduinoPackage = (ArduinoPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof ArduinoPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new ArduinoPackageImpl () );
+        ArduinoPackageImpl theArduinoPackage = (ArduinoPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof ArduinoPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new ArduinoPackageImpl () );
 
         isInited = true;
 
@@ -132,79 +125,72 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getArduinoDriver ()
     {
-        return this.arduinoDriverEClass;
+        return arduinoDriverEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getArduinoDriver_ArduinoConnections ()
     {
-        return (EReference)this.arduinoDriverEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)arduinoDriverEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getArduinoConnection ()
     {
-        return this.arduinoConnectionEClass;
+        return arduinoConnectionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getArduinoConnection_Endpoint ()
     {
-        return (EReference)this.arduinoConnectionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)arduinoConnectionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getArduinoDevice ()
     {
-        return this.arduinoDeviceEClass;
+        return arduinoDeviceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getArduinoDevice_Port ()
     {
-        return (EAttribute)this.arduinoDeviceEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)arduinoDeviceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -216,61 +202,53 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package. This method is
+     * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( this.isCreated )
-        {
+        if ( isCreated )
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.arduinoDriverEClass = createEClass ( ARDUINO_DRIVER );
-        createEReference ( this.arduinoDriverEClass, ARDUINO_DRIVER__ARDUINO_CONNECTIONS );
+        arduinoDriverEClass = createEClass ( ARDUINO_DRIVER );
+        createEReference ( arduinoDriverEClass, ARDUINO_DRIVER__ARDUINO_CONNECTIONS );
 
-        this.arduinoConnectionEClass = createEClass ( ARDUINO_CONNECTION );
-        createEReference ( this.arduinoConnectionEClass, ARDUINO_CONNECTION__ENDPOINT );
+        arduinoConnectionEClass = createEClass ( ARDUINO_CONNECTION );
+        createEReference ( arduinoConnectionEClass, ARDUINO_CONNECTION__ENDPOINT );
 
-        this.arduinoDeviceEClass = createEClass ( ARDUINO_DEVICE );
-        createEAttribute ( this.arduinoDeviceEClass, ARDUINO_DEVICE__PORT );
+        arduinoDeviceEClass = createEClass ( ARDUINO_DEVICE );
+        createEAttribute ( arduinoDeviceEClass, ARDUINO_DEVICE__PORT );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model. This
+     * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( this.isInitialized )
-        {
+        if ( isInitialized )
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -278,29 +256,29 @@ public class ArduinoPackageImpl extends EPackageImpl implements ArduinoPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        final WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
-        final OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
-        final InfrastructurePackage theInfrastructurePackage = (InfrastructurePackage)EPackage.Registry.INSTANCE.getEPackage ( InfrastructurePackage.eNS_URI );
+        WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
+        InfrastructurePackage theInfrastructurePackage = (InfrastructurePackage)EPackage.Registry.INSTANCE.getEPackage ( InfrastructurePackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.arduinoDriverEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
-        this.arduinoDriverEClass.getESuperTypes ().add ( theOsgiPackage.getEquinoxApplication () );
-        this.arduinoConnectionEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
-        this.arduinoDeviceEClass.getESuperTypes ().add ( theInfrastructurePackage.getDevice () );
+        arduinoDriverEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
+        arduinoDriverEClass.getESuperTypes ().add ( theOsgiPackage.getEquinoxApplication () );
+        arduinoConnectionEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        arduinoDeviceEClass.getESuperTypes ().add ( theInfrastructurePackage.getDevice () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( this.arduinoDriverEClass, ArduinoDriver.class, "ArduinoDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getArduinoDriver_ArduinoConnections (), getArduinoConnection (), null, "arduinoConnections", null, 0, -1, ArduinoDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( arduinoDriverEClass, ArduinoDriver.class, "ArduinoDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getArduinoDriver_ArduinoConnections (), this.getArduinoConnection (), null, "arduinoConnections", null, 0, -1, ArduinoDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.arduinoConnectionEClass, ArduinoConnection.class, "ArduinoConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( arduinoConnectionEClass, ArduinoConnection.class, "ArduinoConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getArduinoConnection_Endpoint (), theWorldPackage.getEndpoint (), null, "endpoint", null, 1, 1, ArduinoConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.arduinoDeviceEClass, ArduinoDevice.class, "ArduinoDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getArduinoDevice_Port (), this.ecorePackage.getEShort (), "port", null, 1, 1, ArduinoDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( arduinoDeviceEClass, ArduinoDevice.class, "ArduinoDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getArduinoDevice_Port (), ecorePackage.getEShort (), "port", null, 1, 1, ArduinoDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

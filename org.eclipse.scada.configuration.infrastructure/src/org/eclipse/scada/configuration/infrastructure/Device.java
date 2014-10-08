@@ -25,7 +25,7 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getDevice()
- * @model interface="true" abstract="true"
+ * @model abstract="true"
  * @generated
  */
 public interface Device extends NamedDocumentable

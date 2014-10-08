@@ -195,7 +195,6 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
 
         // Initialize simple dependencies
         ComponentPackage.eINSTANCE.eClass ();
-        ScriptPackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
         theIEC60870Package.createPackageContents ();
@@ -204,15 +203,12 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         theIEC60870Package.initializePackageContents ();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put
-                ( theIEC60870Package,
-                        new EValidator.Descriptor ()
-                        {
-                            public EValidator getEValidator ()
-                            {
-                                return IEC60870Validator.INSTANCE;
-                            }
-                        } );
+        EValidator.Registry.INSTANCE.put ( theIEC60870Package, new EValidator.Descriptor () {
+            public EValidator getEValidator ()
+            {
+                return IEC60870Validator.INSTANCE;
+            }
+        } );
 
         // Mark meta-data to indicate it can't be changed
         theIEC60870Package.freeze ();
@@ -977,14 +973,11 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      */
     protected void createImportAnnotations ()
     {
-        String source = "http://www.eclipse.org/OCL/Import"; //$NON-NLS-1$		
-        addAnnotation ( this,
-                source,
-                new String[]
-                {       "component", "/resource/org.eclipse.scada.configuration.component/model/component.ecore#/", //$NON-NLS-1$ //$NON-NLS-2$
-                        "ecore", "http://www.eclipse.org/emf/2002/Ecore#/", //$NON-NLS-1$ //$NON-NLS-2$
-                        "script_0", "/resource/org.eclipse.scada.configuration.script/model/script.ecore#/" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
+        String source = "http://www.eclipse.org/OCL/Import"; //$NON-NLS-1$	
+        addAnnotation ( this, source, new String[] { "component", "/resource/org.eclipse.scada.configuration.component/model/component.ecore#/", //$NON-NLS-1$ //$NON-NLS-2$
+        "ecore", "http://www.eclipse.org/emf/2002/Ecore#/", //$NON-NLS-1$ //$NON-NLS-2$
+        "script_0", "/resource/org.eclipse.scada.configuration.script/model/script.ecore#/" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
     }
 
     /**
@@ -995,24 +988,15 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      */
     protected void createEcoreAnnotations ()
     {
-        String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$			
-        addAnnotation ( this,
-                source,
-                new String[]
-                {       "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$ //$NON-NLS-2$
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$ //$NON-NLS-2$
-                        "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( protocolOptionsEClass,
-                source,
-                new String[]
-                {       "constraints", "asduAddressSizeCheck\ncauseOfTransmissionSizeCheck" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( iec60870DeviceEClass,
-                source,
-                new String[]
-                {       "constraints", "portCheck" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
+        String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$	
+        addAnnotation ( this, source, new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$ //$NON-NLS-2$
+        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$ //$NON-NLS-2$
+        "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( protocolOptionsEClass, source, new String[] { "constraints", "asduAddressSizeCheck\ncauseOfTransmissionSizeCheck" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( iec60870DeviceEClass, source, new String[] { "constraints", "portCheck" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
     }
 
     /**
@@ -1023,19 +1007,13 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      */
     protected void createOCLAnnotations ()
     {
-        String source = "http://www.eclipse.org/emf/2002/Ecore/OCL"; //$NON-NLS-1$					
-        addAnnotation ( protocolOptionsEClass,
-                source,
-                new String[]
-                {       "asduAddressSizeCheck", "asduAddressSize>=1 and asduAddressSize <=2", //$NON-NLS-1$ //$NON-NLS-2$
-                        "causeOfTransmissionSizeCheck", "causeOfTransmissionSize>=1 and causeOfTransmissionSize<=2", //$NON-NLS-1$ //$NON-NLS-2$
-                        "informationObjectAddressSizeCheck", "informationObjectAddressSize>=1 and informationObjectAddressSize<=3" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( iec60870DeviceEClass,
-                source,
-                new String[]
-                {       "portCheck", "port > 0 and port < 65535" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
+        String source = "http://www.eclipse.org/emf/2002/Ecore/OCL"; //$NON-NLS-1$	
+        addAnnotation ( protocolOptionsEClass, source, new String[] { "asduAddressSizeCheck", "asduAddressSize>=1 and asduAddressSize <=2", //$NON-NLS-1$ //$NON-NLS-2$
+        "causeOfTransmissionSizeCheck", "causeOfTransmissionSize>=1 and causeOfTransmissionSize<=2", //$NON-NLS-1$ //$NON-NLS-2$
+        "informationObjectAddressSizeCheck", "informationObjectAddressSize>=1 and informationObjectAddressSize<=3" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( iec60870DeviceEClass, source, new String[] { "portCheck", "port > 0 and port < 65535" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
     }
 
     /**
@@ -1046,85 +1024,40 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      */
     protected void createDescriptorAnnotations ()
     {
-        String source = "http://eclipse.org/SCADA/CA/Descriptor"; //$NON-NLS-1$						
-        addAnnotation ( getProtocolOptions_Timeout1 (),
-                source,
-                new String[]
-                {       "name", "t1" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_Timeout2 (),
-                source,
-                new String[]
-                {       "name", "t2" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_Timeout3 (),
-                source,
-                new String[]
-                {       "name", "t3" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_AsduAddressSize (),
-                source,
-                new String[]
-                {       "name", "asduAddressType", //$NON-NLS-1$ //$NON-NLS-2$
-                        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_InformationObjectAddressSize (),
-                source,
-                new String[]
-                {       "name", "informationObjectAddressType", //$NON-NLS-1$ //$NON-NLS-2$
-                        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_CauseOfTransmissionSize (),
-                source,
-                new String[]
-                {       "name", "causeOfTransmissionType", //$NON-NLS-1$ //$NON-NLS-2$
-                        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_W (),
-                source,
-                new String[]
-                {       "name", "w" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_K (),
-                source,
-                new String[]
-                {       "name", "k" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_TargetTimeZone (),
-                source,
-                new String[]
-                {       "name", "timeZone" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getProtocolOptions_IgnoreDaylightSavingTime (),
-                source,
-                new String[]
-                {       "name", "ignoreDaylightSavingTime" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getDataModuleOptions_BackgroundScanPeriod (),
-                source,
-                new String[]
-                {       "name", "backgroundScanPeriod" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getDataModuleOptions_SpontaneousItemBuffer (),
-                source,
-                new String[]
-                {       "name", "spontaneousItemBuffer" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getDataModuleOptions_TimestampsForBoolean (),
-                source,
-                new String[]
-                {       "name", "withTimestamp.boolean" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getDataModuleOptions_TimestampsForFloat (),
-                source,
-                new String[]
-                {       "name", "withTimestamp.float" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
-        addAnnotation ( getClientDataModuleOptions_IgnoreBackgroundScan (),
-                source,
-                new String[]
-                {       "name", "ignoreBackgroundScan" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
+        String source = "http://eclipse.org/SCADA/CA/Descriptor"; //$NON-NLS-1$	
+        addAnnotation ( getProtocolOptions_Timeout1 (), source, new String[] { "name", "t1" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_Timeout2 (), source, new String[] { "name", "t2" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_Timeout3 (), source, new String[] { "name", "t3" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_AsduAddressSize (), source, new String[] { "name", "asduAddressType", //$NON-NLS-1$ //$NON-NLS-2$
+        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_InformationObjectAddressSize (), source, new String[] { "name", "informationObjectAddressType", //$NON-NLS-1$ //$NON-NLS-2$
+        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_CauseOfTransmissionSize (), source, new String[] { "name", "causeOfTransmissionType", //$NON-NLS-1$ //$NON-NLS-2$
+        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_W (), source, new String[] { "name", "w" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_K (), source, new String[] { "name", "k" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_TargetTimeZone (), source, new String[] { "name", "timeZone" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getProtocolOptions_IgnoreDaylightSavingTime (), source, new String[] { "name", "ignoreDaylightSavingTime" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getDataModuleOptions_BackgroundScanPeriod (), source, new String[] { "name", "backgroundScanPeriod" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getDataModuleOptions_SpontaneousItemBuffer (), source, new String[] { "name", "spontaneousItemBuffer" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getDataModuleOptions_TimestampsForBoolean (), source, new String[] { "name", "withTimestamp.boolean" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getDataModuleOptions_TimestampsForFloat (), source, new String[] { "name", "withTimestamp.float" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+        addAnnotation ( getClientDataModuleOptions_IgnoreBackgroundScan (), source, new String[] { "name", "ignoreBackgroundScan" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
     }
 
 } //IEC60870PackageImpl

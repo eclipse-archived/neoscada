@@ -218,15 +218,9 @@ public class IEC60870Validator extends EObjectValidator
      */
     public boolean validateProtocolOptions_asduAddressSizeCheck ( ProtocolOptions protocolOptions, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
-        return validate ( IEC60870Package.Literals.PROTOCOL_OPTIONS,
-                protocolOptions,
-                diagnostics,
-                context, "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$
+        return validate ( IEC60870Package.Literals.PROTOCOL_OPTIONS, protocolOptions, diagnostics, context, "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$
                 "asduAddressSizeCheck", //$NON-NLS-1$
-                PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE_CHECK__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+                PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE_CHECK__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -245,15 +239,9 @@ public class IEC60870Validator extends EObjectValidator
      */
     public boolean validateProtocolOptions_causeOfTransmissionSizeCheck ( ProtocolOptions protocolOptions, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
-        return validate ( IEC60870Package.Literals.PROTOCOL_OPTIONS,
-                protocolOptions,
-                diagnostics,
-                context, "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$
+        return validate ( IEC60870Package.Literals.PROTOCOL_OPTIONS, protocolOptions, diagnostics, context, "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$
                 "causeOfTransmissionSizeCheck", //$NON-NLS-1$
-                PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE_CHECK__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+                PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE_CHECK__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**
@@ -351,15 +339,9 @@ public class IEC60870Validator extends EObjectValidator
      */
     public boolean validateIEC60870Device_portCheck ( IEC60870Device iec60870Device, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
-        return validate ( IEC60870Package.Literals.IEC60870_DEVICE,
-                iec60870Device,
-                diagnostics,
-                context, "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$
+        return validate ( IEC60870Package.Literals.IEC60870_DEVICE, iec60870Device, diagnostics, context, "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$
                 "portCheck", //$NON-NLS-1$
-                IEC60870_DEVICE__PORT_CHECK__EEXPRESSION,
-                Diagnostic.ERROR,
-                DIAGNOSTIC_SOURCE,
-                0 );
+                IEC60870_DEVICE__PORT_CHECK__EEXPRESSION, Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0 );
     }
 
     /**

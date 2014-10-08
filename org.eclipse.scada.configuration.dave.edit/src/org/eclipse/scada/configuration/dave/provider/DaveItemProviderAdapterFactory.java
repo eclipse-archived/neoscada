@@ -442,10 +442,7 @@ public class DaveItemProviderAdapterFactory extends DaveAdapterFactory implement
             @Override
             public Object caseNode ( Node object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( InfrastructurePackage.Literals.NODE__DEVICES,
-                                DaveFactory.eINSTANCE.createDaveDevice () ) );
+                newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.NODE__DEVICES, DaveFactory.eINSTANCE.createDaveDevice () ) );
 
                 return null;
             }
@@ -537,10 +534,7 @@ public class DaveItemProviderAdapterFactory extends DaveAdapterFactory implement
             @Override
             public Object caseApplicationNode ( ApplicationNode object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                                DaveFactory.eINSTANCE.createDaveDriver () ) );
+                newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, DaveFactory.eINSTANCE.createDaveDriver () ) );
 
                 return null;
             }

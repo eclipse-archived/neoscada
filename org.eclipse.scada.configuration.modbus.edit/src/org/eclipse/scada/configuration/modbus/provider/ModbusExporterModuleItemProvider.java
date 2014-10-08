@@ -39,14 +39,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModbusExporterModuleItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ModbusExporterModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -85,19 +78,9 @@ public class ModbusExporterModuleItemProvider
      */
     protected void addDataOrderPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusExporterModule_dataOrder_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterModule_dataOrder_feature", "_UI_ModbusExporterModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_EXPORTER_MODULE__DATA_ORDER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusExporterModule_dataOrder_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterModule_dataOrder_feature", "_UI_ModbusExporterModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_EXPORTER_MODULE__DATA_ORDER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -167,9 +150,8 @@ public class ModbusExporterModuleItemProvider
     {
         ByteOrder labelValue = ( (ModbusExporterModule)object ).getDataOrder ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ModbusExporterModule_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ModbusExporterModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ModbusExporterModule_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ModbusExporterModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -208,10 +190,7 @@ public class ModbusExporterModuleItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_MODULE__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_MODULE__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

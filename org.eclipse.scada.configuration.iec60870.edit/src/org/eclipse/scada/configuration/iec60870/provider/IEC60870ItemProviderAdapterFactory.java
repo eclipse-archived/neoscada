@@ -613,10 +613,7 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
             @Override
             public Object caseContainer ( Container object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS,
-                                IEC60870Factory.eINSTANCE.createExporterItemInterceptor () ) );
+                newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS, IEC60870Factory.eINSTANCE.createExporterItemInterceptor () ) );
 
                 return null;
             }
@@ -710,10 +707,7 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
             @Override
             public Object caseNode ( Node object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( InfrastructurePackage.Literals.NODE__DEVICES,
-                                IEC60870Factory.eINSTANCE.createIEC60870Device () ) );
+                newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.NODE__DEVICES, IEC60870Factory.eINSTANCE.createIEC60870Device () ) );
 
                 return null;
             }
@@ -726,10 +720,7 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
             @Override
             public Object caseSystemNode ( SystemNode object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS,
-                                IEC60870Factory.eINSTANCE.createIEC60870Driver () ) );
+                newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS, IEC60870Factory.eINSTANCE.createIEC60870Driver () ) );
 
                 return null;
             }
@@ -821,10 +812,7 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
             @Override
             public Object caseApplicationNode ( ApplicationNode object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
-                                IEC60870Factory.eINSTANCE.createDriverApplication () ) );
+                newChildDescriptors.add ( createChildParameter ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS, IEC60870Factory.eINSTANCE.createDriverApplication () ) );
 
                 return null;
             }
@@ -916,10 +904,7 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
             @Override
             public Object caseEquinoxApplication ( EquinoxApplication object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
-                                IEC60870Factory.eINSTANCE.createExporter () ) );
+                newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, IEC60870Factory.eINSTANCE.createExporter () ) );
 
                 return null;
             }

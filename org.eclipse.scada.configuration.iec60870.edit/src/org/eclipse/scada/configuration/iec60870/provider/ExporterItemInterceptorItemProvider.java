@@ -48,14 +48,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExporterItemInterceptorItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ExporterItemInterceptorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -95,19 +88,9 @@ public class ExporterItemInterceptorItemProvider
      */
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemInterceptor_masterOn_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInterceptor_masterOn_feature", "_UI_ItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.ITEM_INTERCEPTOR__MASTER_ON,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInterceptor_masterOn_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInterceptor_masterOn_feature", "_UI_ItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.ITEM_INTERCEPTOR__MASTER_ON, true, false, true, null, null, null ) );
     }
 
     /**
@@ -118,19 +101,9 @@ public class ExporterItemInterceptorItemProvider
      */
     protected void addPortPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ExporterItemInterceptor_port_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExporterItemInterceptor_port_feature", "_UI_ExporterItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PORT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExporterItemInterceptor_port_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExporterItemInterceptor_port_feature", "_UI_ExporterItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -235,40 +208,19 @@ public class ExporterItemInterceptorItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT,
-                        ScriptFactory.eINSTANCE.createGenericScript () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT, ScriptFactory.eINSTANCE.createGenericScript () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT,
-                        ScriptFactory.eINSTANCE.createJavaScript () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT, ScriptFactory.eINSTANCE.createJavaScript () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT,
-                        ScriptFactory.eINSTANCE.createScriptReference () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT, ScriptFactory.eINSTANCE.createScriptReference () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS,
-                        IEC60870Factory.eINSTANCE.createProtocolOptions () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS, IEC60870Factory.eINSTANCE.createProtocolOptions () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS,
-                        IEC60870Factory.eINSTANCE.createDataModuleOptions () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS, IEC60870Factory.eINSTANCE.createDataModuleOptions () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**
@@ -283,9 +235,7 @@ public class ExporterItemInterceptorItemProvider
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify =
-                childFeature == ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES ||
-                        childFeature == IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES;
+        boolean qualify = childFeature == ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES || childFeature == IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES;
 
         if ( qualify )
         {

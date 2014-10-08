@@ -18,15 +18,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.dave.DaveBlockDefinition;
 import org.eclipse.scada.configuration.dave.DaveDevice;
 import org.eclipse.scada.configuration.dave.DavePackage;
-import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
-import org.eclipse.scada.configuration.infrastructure.Node;
+import org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl;
 import org.eclipse.scada.configuration.memory.TypeSystem;
 
 /**
@@ -36,9 +33,6 @@ import org.eclipse.scada.configuration.memory.TypeSystem;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getShortDescription <em>Short Description</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getNode <em>Node</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getPort <em>Port</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getRack <em>Rack</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getSlot <em>Slot</em>}</li>
@@ -50,48 +44,8 @@ import org.eclipse.scada.configuration.memory.TypeSystem;
  *
  * @generated
  */
-public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements DaveDevice
+public class DaveDeviceImpl extends DeviceImpl implements DaveDevice
 {
-    /**
-     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getShortDescription()
-     * @generated
-     * @ordered
-     */
-    protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getShortDescription()
-     * @generated
-     * @ordered
-     */
-    protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
     /**
      * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -211,111 +165,6 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
     protected EClass eStaticClass ()
     {
         return DavePackage.Literals.DAVE_DEVICE;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getShortDescription ()
-    {
-        return shortDescription;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setShortDescription ( String newShortDescription )
-    {
-        String oldShortDescription = shortDescription;
-        shortDescription = newShortDescription;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DEVICE__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getName ()
-    {
-        return name;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName ( String newName )
-    {
-        String oldName = name;
-        name = newName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DEVICE__NAME, oldName, name ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Node getNode ()
-    {
-        if ( eContainerFeatureID () != DavePackage.DAVE_DEVICE__NODE )
-            return null;
-        return (Node)eContainer ();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Node basicGetNode ()
-    {
-        if ( eContainerFeatureID () != DavePackage.DAVE_DEVICE__NODE )
-            return null;
-        return (Node)eInternalContainer ();
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetNode ( Node newNode, NotificationChain msgs )
-    {
-        msgs = eBasicSetContainer ( (InternalEObject)newNode, DavePackage.DAVE_DEVICE__NODE, msgs );
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setNode ( Node newNode )
-    {
-        if ( newNode != eInternalContainer () || ( eContainerFeatureID () != DavePackage.DAVE_DEVICE__NODE && newNode != null ) )
-        {
-            if ( EcoreUtil.isAncestor ( this, newNode ) )
-                throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () ); //$NON-NLS-1$
-            NotificationChain msgs = null;
-            if ( eInternalContainer () != null )
-                msgs = eBasicRemoveFromContainer ( msgs );
-            if ( newNode != null )
-                msgs = ( (InternalEObject)newNode ).eInverseAdd ( this, InfrastructurePackage.NODE__DEVICES, Node.class, msgs );
-            msgs = basicSetNode ( newNode, msgs );
-            if ( msgs != null )
-                msgs.dispatch ();
-        }
-        else if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DEVICE__NODE, newNode, newNode ) );
     }
 
     /**
@@ -478,10 +327,6 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
     {
         switch ( featureID )
         {
-            case DavePackage.DAVE_DEVICE__NODE:
-                if ( eInternalContainer () != null )
-                    msgs = eBasicRemoveFromContainer ( msgs );
-                return basicSetNode ( (Node)otherEnd, msgs );
             case DavePackage.DAVE_DEVICE__BLOCKS:
                 return ( (InternalEList<InternalEObject>)(InternalEList<?>)getBlocks () ).basicAdd ( otherEnd, msgs );
         }
@@ -498,8 +343,6 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
     {
         switch ( featureID )
         {
-            case DavePackage.DAVE_DEVICE__NODE:
-                return basicSetNode ( null, msgs );
             case DavePackage.DAVE_DEVICE__BLOCKS:
                 return ( (InternalEList<?>)getBlocks () ).basicRemove ( otherEnd, msgs );
         }
@@ -512,34 +355,10 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
-    {
-        switch ( eContainerFeatureID () )
-        {
-            case DavePackage.DAVE_DEVICE__NODE:
-                return eInternalContainer ().eInverseRemove ( this, InfrastructurePackage.NODE__DEVICES, Node.class, msgs );
-        }
-        return super.eBasicRemoveFromContainerFeature ( msgs );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
-            case DavePackage.DAVE_DEVICE__SHORT_DESCRIPTION:
-                return getShortDescription ();
-            case DavePackage.DAVE_DEVICE__NAME:
-                return getName ();
-            case DavePackage.DAVE_DEVICE__NODE:
-                if ( resolve )
-                    return getNode ();
-                return basicGetNode ();
             case DavePackage.DAVE_DEVICE__PORT:
                 return getPort ();
             case DavePackage.DAVE_DEVICE__RACK:
@@ -569,15 +388,6 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
     {
         switch ( featureID )
         {
-            case DavePackage.DAVE_DEVICE__SHORT_DESCRIPTION:
-                setShortDescription ( (String)newValue );
-                return;
-            case DavePackage.DAVE_DEVICE__NAME:
-                setName ( (String)newValue );
-                return;
-            case DavePackage.DAVE_DEVICE__NODE:
-                setNode ( (Node)newValue );
-                return;
             case DavePackage.DAVE_DEVICE__PORT:
                 setPort ( (Integer)newValue );
                 return;
@@ -611,15 +421,6 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
     {
         switch ( featureID )
         {
-            case DavePackage.DAVE_DEVICE__SHORT_DESCRIPTION:
-                setShortDescription ( SHORT_DESCRIPTION_EDEFAULT );
-                return;
-            case DavePackage.DAVE_DEVICE__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
-            case DavePackage.DAVE_DEVICE__NODE:
-                setNode ( (Node)null );
-                return;
             case DavePackage.DAVE_DEVICE__PORT:
                 setPort ( PORT_EDEFAULT );
                 return;
@@ -652,12 +453,6 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
     {
         switch ( featureID )
         {
-            case DavePackage.DAVE_DEVICE__SHORT_DESCRIPTION:
-                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
-            case DavePackage.DAVE_DEVICE__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
-            case DavePackage.DAVE_DEVICE__NODE:
-                return basicGetNode () != null;
             case DavePackage.DAVE_DEVICE__PORT:
                 return port != PORT_EDEFAULT;
             case DavePackage.DAVE_DEVICE__RACK:
@@ -686,11 +481,7 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (shortDescription: " ); //$NON-NLS-1$
-        result.append ( shortDescription );
-        result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( name );
-        result.append ( ", port: " ); //$NON-NLS-1$
+        result.append ( " (port: " ); //$NON-NLS-1$
         result.append ( port );
         result.append ( ", rack: " ); //$NON-NLS-1$
         result.append ( rack );

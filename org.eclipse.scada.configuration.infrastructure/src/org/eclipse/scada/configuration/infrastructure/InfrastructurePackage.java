@@ -1298,10 +1298,10 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SERVER_OPERATION_COUNT = EQUINOX_APPLICATION_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.Device <em>Device</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl <em>Device</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.infrastructure.Device
+     * @see org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getDevice()
      * @generated
      */
@@ -4184,10 +4184,10 @@ public interface InfrastructurePackage extends EPackage
         EReference ABSTRACT_FACTORY_DRIVER__DEVICES = eINSTANCE.getAbstractFactoryDriver_Devices ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.Device <em>Device</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl <em>Device</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.eclipse.scada.configuration.infrastructure.Device
+         * @see org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl
          * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getDevice()
          * @generated
          */

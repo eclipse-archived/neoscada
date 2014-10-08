@@ -40,14 +40,7 @@ import org.eclipse.scada.configuration.dave.DaveRequestBlock;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DaveRequestBlockItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class DaveRequestBlockItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -94,19 +87,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_type_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_type_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__TYPE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_type_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_type_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__TYPE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -117,19 +100,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_id_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_id_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -140,19 +113,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_name_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_name_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -163,19 +126,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addAreaPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_area_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_area_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__AREA,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_area_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_area_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__AREA, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -186,19 +139,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addBlockPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_block_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_block_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__BLOCK,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_block_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_block_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__BLOCK, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -209,19 +152,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addOffsetPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_offset_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_offset_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__OFFSET,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_offset_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_offset_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__OFFSET, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -232,19 +165,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addLengthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_length_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_length_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__LENGTH,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_length_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_length_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__LENGTH, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -255,19 +178,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addPeriodPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_period_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_period_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__PERIOD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_period_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_period_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -278,19 +191,9 @@ public class DaveRequestBlockItemProvider
      */
     protected void addEnableStatisticsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveRequestBlock_enableStatistics_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_enableStatistics_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_REQUEST_BLOCK__ENABLE_STATISTICS,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveRequestBlock_enableStatistics_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveRequestBlock_enableStatistics_feature", "_UI_DaveRequestBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_REQUEST_BLOCK__ENABLE_STATISTICS, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -315,9 +218,8 @@ public class DaveRequestBlockItemProvider
     public String getText ( Object object )
     {
         String label = ( (DaveRequestBlock)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DaveRequestBlock_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DaveRequestBlock_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DaveRequestBlock_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DaveRequestBlock_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

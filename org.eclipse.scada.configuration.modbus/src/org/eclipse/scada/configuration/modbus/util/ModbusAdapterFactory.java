@@ -103,8 +103,7 @@ public class ModbusAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ModbusSwitch<Adapter> modelSwitch = new ModbusSwitch<Adapter> ()
-    {
+    protected ModbusSwitch<Adapter> modelSwitch = new ModbusSwitch<Adapter> () {
         @Override
         public Adapter caseModbusDevice ( ModbusDevice object )
         {

@@ -15,11 +15,13 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
 
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
 
 import org.eclipse.scada.configuration.memory.provider.MemoryEditPlugin;
+import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
@@ -58,15 +60,7 @@ public final class DaveEditPlugin extends EMFPlugin
      */
     public DaveEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                ExecEditPlugin.INSTANCE,
-                GlobalizeEditPlugin.INSTANCE,
-                InfrastructureEditPlugin.INSTANCE,
-                MemoryEditPlugin.INSTANCE,
-                SecurityEditPlugin.INSTANCE,
-                WorldEditPlugin.INSTANCE,
-        } );
+        super ( new ResourceLocator[] { ExecEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, InfrastructureEditPlugin.INSTANCE, MemoryEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, } );
     }
 
     /**

@@ -31,7 +31,6 @@ import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
  * It provides an adapter <code>createXXX</code> method for each class of the
  * model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.configuration.arduino.ArduinoPackage
  * @generated
  */
@@ -41,7 +40,6 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
      * The cached model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected static ArduinoPackage modelPackage;
@@ -50,7 +48,6 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
      * Creates an instance of the adapter factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ArduinoAdapterFactory ()
@@ -67,12 +64,11 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
      * This implementation returns <code>true</code> if the object is either the
      * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
-     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType ( final Object object )
+    public boolean isFactoryForType ( Object object )
     {
         if ( object == modelPackage )
         {
@@ -89,67 +85,65 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
      * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected ArduinoSwitch<Adapter> modelSwitch = new ArduinoSwitch<Adapter> ()
-    {
+    protected ArduinoSwitch<Adapter> modelSwitch = new ArduinoSwitch<Adapter> () {
         @Override
-        public Adapter caseArduinoDriver ( final ArduinoDriver object )
+        public Adapter caseArduinoDriver ( ArduinoDriver object )
         {
             return createArduinoDriverAdapter ();
         }
 
         @Override
-        public Adapter caseArduinoConnection ( final ArduinoConnection object )
+        public Adapter caseArduinoConnection ( ArduinoConnection object )
         {
             return createArduinoConnectionAdapter ();
         }
 
         @Override
-        public Adapter caseArduinoDevice ( final ArduinoDevice object )
+        public Adapter caseArduinoDevice ( ArduinoDevice object )
         {
             return createArduinoDeviceAdapter ();
         }
 
         @Override
-        public Adapter caseDocumentable ( final Documentable object )
+        public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
         }
 
         @Override
-        public Adapter caseNamedDocumentable ( final NamedDocumentable object )
+        public Adapter caseNamedDocumentable ( NamedDocumentable object )
         {
             return createNamedDocumentableAdapter ();
         }
 
         @Override
-        public Adapter caseApplication ( final Application object )
+        public Adapter caseApplication ( Application object )
         {
             return createApplicationAdapter ();
         }
 
         @Override
-        public Adapter caseDriver ( final Driver object )
+        public Adapter caseDriver ( Driver object )
         {
             return createDriverAdapter ();
         }
 
         @Override
-        public Adapter caseEquinoxApplication ( final EquinoxApplication object )
+        public Adapter caseEquinoxApplication ( EquinoxApplication object )
         {
             return createEquinoxApplicationAdapter ();
         }
 
         @Override
-        public Adapter caseDevice ( final Device object )
+        public Adapter caseDevice ( Device object )
         {
             return createDeviceAdapter ();
         }
 
         @Override
-        public Adapter defaultCase ( final EObject object )
+        public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
         }
@@ -159,29 +153,24 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
      * Creates an adapter for the <code>target</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param target
-     *            the object to adapt.
+     * @param target the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter ( final Notifier target )
+    public Adapter createAdapter ( Notifier target )
     {
-        return this.modelSwitch.doSwitch ( (EObject)target );
+        return modelSwitch.doSwitch ( (EObject)target );
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoDriver
-     * <em>Driver</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.arduino.ArduinoDriver <em>Driver</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.arduino.ArduinoDriver
      * @generated
@@ -192,16 +181,13 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoConnection
-     * <em>Connection</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.arduino.ArduinoConnection <em>Connection</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.arduino.ArduinoConnection
      * @generated
@@ -212,16 +198,13 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.arduino.ArduinoDevice
-     * <em>Device</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.arduino.ArduinoDevice <em>Device</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.arduino.ArduinoDevice
      * @generated
@@ -232,16 +215,13 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Documentable
-     * <em>Documentable</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Documentable
      * @generated
@@ -252,16 +232,13 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.NamedDocumentable
-     * <em>Named Documentable</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.NamedDocumentable <em>Named Documentable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.NamedDocumentable
      * @generated
@@ -272,16 +249,13 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Application
-     * <em>Application</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Application <em>Application</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Application
      * @generated
@@ -292,16 +266,13 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication
-     * <em>Equinox Application</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.EquinoxApplication
      * @generated
@@ -312,16 +283,13 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.infrastructure.Device
-     * <em>Device</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Device <em>Device</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.Device
      * @generated
@@ -332,15 +300,13 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Driver <em>Driver</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Driver <em>Driver</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Driver
      * @generated
@@ -355,7 +321,6 @@ public class ArduinoAdapterFactory extends AdapterFactoryImpl
      * <!-- begin-user-doc -->
      * This default implementation returns null.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @generated
      */

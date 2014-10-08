@@ -79,19 +79,10 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addUnitAddressPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusSlave_unitAddress_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusSlave_unitAddress_feature", "_UI_ModbusSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_SLAVE__UNIT_ADDRESS,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusSlave_unitAddress_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusSlave_unitAddress_feature", "_UI_ModbusSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_SLAVE__UNIT_ADDRESS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -102,19 +93,10 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusSlave_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusSlave_id_feature", "_UI_ModbusSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_SLAVE__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_infoPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusSlave_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusSlave_id_feature", "_UI_ModbusSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_SLAVE__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_infoPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -125,19 +107,10 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addDataOrderPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusSlave_dataOrder_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusSlave_dataOrder_feature", "_UI_ModbusSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_SLAVE__DATA_ORDER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusSlave_dataOrder_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusSlave_dataOrder_feature", "_UI_ModbusSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_SLAVE__DATA_ORDER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -206,9 +179,8 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
     public String getText ( Object object )
     {
         String label = ( (ModbusSlave)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ModbusSlave_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ModbusSlave_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ModbusSlave_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ModbusSlave_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -249,10 +221,7 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_SLAVE__BLOCKS,
-                        ModbusFactory.eINSTANCE.createModbusBlock () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_SLAVE__BLOCKS, ModbusFactory.eINSTANCE.createModbusBlock () ) );
     }
 
     /**

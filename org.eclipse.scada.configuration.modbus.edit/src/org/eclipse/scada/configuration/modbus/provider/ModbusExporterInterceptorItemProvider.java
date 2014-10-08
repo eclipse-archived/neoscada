@@ -39,14 +39,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModbusExporterInterceptorItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ModbusExporterInterceptorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -86,19 +79,9 @@ public class ModbusExporterInterceptorItemProvider
      */
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemInterceptor_masterOn_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInterceptor_masterOn_feature", "_UI_ItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.ITEM_INTERCEPTOR__MASTER_ON,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInterceptor_masterOn_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInterceptor_masterOn_feature", "_UI_ItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.ITEM_INTERCEPTOR__MASTER_ON, true, false, true, null, null, null ) );
     }
 
     /**
@@ -109,19 +92,9 @@ public class ModbusExporterInterceptorItemProvider
      */
     protected void addSettingsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusExporterInterceptor_settings_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterInterceptor_settings_feature", "_UI_ModbusExporterInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SETTINGS,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusExporterInterceptor_settings_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterInterceptor_settings_feature", "_UI_ModbusExporterInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SETTINGS, true, false, true, null, null, null ) );
     }
 
     /**
@@ -227,25 +200,13 @@ public class ModbusExporterInterceptorItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT,
-                        ScriptFactory.eINSTANCE.createGenericScript () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT, ScriptFactory.eINSTANCE.createGenericScript () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT,
-                        ScriptFactory.eINSTANCE.createJavaScript () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT, ScriptFactory.eINSTANCE.createJavaScript () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT,
-                        ScriptFactory.eINSTANCE.createScriptReference () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT, ScriptFactory.eINSTANCE.createScriptReference () ) );
     }
 
     /**

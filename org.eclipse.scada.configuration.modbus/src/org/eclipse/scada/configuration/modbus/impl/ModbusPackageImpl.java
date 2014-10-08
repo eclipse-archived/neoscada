@@ -242,7 +242,6 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         // Initialize simple dependencies
         ComponentPackage.eINSTANCE.eClass ();
         MemoryPackage.eINSTANCE.eClass ();
-        ScriptPackage.eINSTANCE.eClass ();
         XMLTypePackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects

@@ -15,21 +15,13 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.arduino.ArduinoDevice;
 import org.eclipse.scada.configuration.arduino.ArduinoPackage;
-import org.eclipse.scada.configuration.world.WorldPackage;
+import org.eclipse.scada.configuration.infrastructure.provider.DeviceItemProvider;
 
 /**
  * This is the item provider adapter for a
@@ -39,7 +31,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * 
  * @generated
  */
-public class ArduinoDeviceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class ArduinoDeviceItemProvider extends DeviceItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -67,59 +59,9 @@ public class ArduinoDeviceItemProvider extends ItemProviderAdapter implements IE
         {
             super.getPropertyDescriptors ( object );
 
-            addShortDescriptionPropertyDescriptor ( object );
-            addNamePropertyDescriptor ( object );
             addPortPropertyDescriptor ( object );
         }
         return this.itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Short Description feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected void addShortDescriptionPropertyDescriptor ( final Object object )
-    {
-        this.itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Name feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected void addNamePropertyDescriptor ( final Object object )
-    {
-        this.itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
     }
 
     /**
@@ -131,19 +73,9 @@ public class ArduinoDeviceItemProvider extends ItemProviderAdapter implements IE
      */
     protected void addPortPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ArduinoDevice_port_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ArduinoDevice_port_feature", "_UI_ArduinoDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ArduinoPackage.Literals.ARDUINO_DEVICE__PORT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ArduinoDevice_port_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ArduinoDevice_port_feature", "_UI_ArduinoDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ArduinoPackage.Literals.ARDUINO_DEVICE__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -159,20 +91,10 @@ public class ArduinoDeviceItemProvider extends ItemProviderAdapter implements IE
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ArduinoDevice" ) ); //$NON-NLS-1$
     }
 
-    /**
-     * This returns the label text for the adapted class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
     @Override
-    public String getText ( final Object object )
+    protected String getDeviceType ()
     {
-        final String label = ( (ArduinoDevice)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ArduinoDevice_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ArduinoDevice_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_ArduinoDevice_type" );
     }
 
     /**
@@ -192,8 +114,6 @@ public class ArduinoDeviceItemProvider extends ItemProviderAdapter implements IE
 
         switch ( notification.getFeatureID ( ArduinoDevice.class ) )
         {
-            case ArduinoPackage.ARDUINO_DEVICE__SHORT_DESCRIPTION:
-            case ArduinoPackage.ARDUINO_DEVICE__NAME:
             case ArduinoPackage.ARDUINO_DEVICE__PORT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
@@ -214,19 +134,6 @@ public class ArduinoDeviceItemProvider extends ItemProviderAdapter implements IE
     protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator ()
-    {
-        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
     }
 
 }

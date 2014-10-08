@@ -44,14 +44,7 @@ import org.eclipse.swt.widgets.Composite;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DaveBlockDefinitionItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -96,19 +89,10 @@ public class DaveBlockDefinitionItemProvider
      */
     protected void addBlockPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveBlockDefinition_block_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_block_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_BLOCK_DEFINITION__BLOCK,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_block_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_block_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_BLOCK_DEFINITION__BLOCK, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -119,19 +103,10 @@ public class DaveBlockDefinitionItemProvider
      */
     protected void addOffsetPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveBlockDefinition_offset_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_offset_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_BLOCK_DEFINITION__OFFSET,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_offset_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_offset_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_BLOCK_DEFINITION__OFFSET, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -142,19 +117,10 @@ public class DaveBlockDefinitionItemProvider
      */
     protected void addPeriodPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveBlockDefinition_period_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_period_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_BLOCK_DEFINITION__PERIOD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_period_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_period_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_BLOCK_DEFINITION__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -165,19 +131,10 @@ public class DaveBlockDefinitionItemProvider
      */
     protected void addEnableStatisticsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveBlockDefinition_enableStatistics_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_enableStatistics_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_BLOCK_DEFINITION__ENABLE_STATISTICS,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_enableStatistics_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_enableStatistics_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_BLOCK_DEFINITION__ENABLE_STATISTICS, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -188,19 +145,10 @@ public class DaveBlockDefinitionItemProvider
      */
     protected void addTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveBlockDefinition_type_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_type_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_BLOCK_DEFINITION__TYPE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_type_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_type_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_BLOCK_DEFINITION__TYPE, true, false, true, null, getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -212,26 +160,13 @@ public class DaveBlockDefinitionItemProvider
      */
     protected void addAreaPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add
-                ( new ItemPropertyDescriptor2 (
-                        ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveBlockDefinition_area_feature" ),
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_area_feature", "_UI_DaveBlockDefinition_type" ),
-                        DavePackage.Literals.DAVE_BLOCK_DEFINITION__AREA,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_addressPropertyCategory" ),
-                        null ) {
-                    @Override
-                    public CellEditor createPropertyEditor ( final Composite composite )
-                    {
-                        return new AreaSelector ( composite );
-                    };
-                }
-                );
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_area_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_area_feature", "_UI_DaveBlockDefinition_type" ), DavePackage.Literals.DAVE_BLOCK_DEFINITION__AREA, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_addressPropertyCategory" ), null ) {
+            @Override
+            public CellEditor createPropertyEditor ( final Composite composite )
+            {
+                return new AreaSelector ( composite );
+            };
+        } );
     }
 
     /**
@@ -242,19 +177,10 @@ public class DaveBlockDefinitionItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DaveBlockDefinition_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_name_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DavePackage.Literals.DAVE_BLOCK_DEFINITION__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_mainPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_name_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DavePackage.Literals.DAVE_BLOCK_DEFINITION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_mainPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**

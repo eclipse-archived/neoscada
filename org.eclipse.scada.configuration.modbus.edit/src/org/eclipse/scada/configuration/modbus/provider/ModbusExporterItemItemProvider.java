@@ -43,14 +43,7 @@ import org.eclipse.scada.configuration.modbus.ModbusPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModbusExporterItemItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ModbusExporterItemItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -90,19 +83,9 @@ public class ModbusExporterItemItemProvider
      */
     protected void addSourcePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusExporterItem_source_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterItem_source_feature", "_UI_ModbusExporterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__SOURCE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusExporterItem_source_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterItem_source_feature", "_UI_ModbusExporterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__SOURCE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -113,19 +96,9 @@ public class ModbusExporterItemItemProvider
      */
     protected void addOffsetPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ModbusExporterItem_offset_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterItem_offset_feature", "_UI_ModbusExporterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__OFFSET,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusExporterItem_offset_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterItem_offset_feature", "_UI_ModbusExporterItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__OFFSET, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -233,30 +206,15 @@ public class ModbusExporterItemItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE,
-                        ModbusFactory.eINSTANCE.createModbusDouble () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE, ModbusFactory.eINSTANCE.createModbusDouble () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE,
-                        ModbusFactory.eINSTANCE.createModbusSInt16 () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE, ModbusFactory.eINSTANCE.createModbusSInt16 () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE,
-                        ModbusFactory.eINSTANCE.createModbusSInt32 () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE, ModbusFactory.eINSTANCE.createModbusSInt32 () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE,
-                        ModbusFactory.eINSTANCE.createModbusUInt16 () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE, ModbusFactory.eINSTANCE.createModbusUInt16 () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE,
-                        ModbusFactory.eINSTANCE.createModbusUInt32 () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER_ITEM__TYPE, ModbusFactory.eINSTANCE.createModbusUInt32 () ) );
     }
 
     /**

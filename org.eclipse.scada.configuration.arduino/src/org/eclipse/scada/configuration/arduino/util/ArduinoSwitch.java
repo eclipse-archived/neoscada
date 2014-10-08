@@ -34,7 +34,6 @@ import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.configuration.arduino.ArduinoPackage
  * @generated
  */
@@ -44,7 +43,6 @@ public class ArduinoSwitch<T> extends Switch<T>
      * The cached model package
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected static ArduinoPackage modelPackage;
@@ -53,7 +51,6 @@ public class ArduinoSwitch<T> extends Switch<T>
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ArduinoSwitch ()
@@ -68,100 +65,70 @@ public class ArduinoSwitch<T> extends Switch<T>
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @parameter ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
     @Override
-    protected boolean isSwitchFor ( final EPackage ePackage )
+    protected boolean isSwitchFor ( EPackage ePackage )
     {
         return ePackage == modelPackage;
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns
-     * a non null result; it yields that result.
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the first non-null result returned by a <code>caseXXX</code>
-     *         call.
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
     @Override
-    protected T doSwitch ( final int classifierID, final EObject theEObject )
+    protected T doSwitch ( int classifierID, EObject theEObject )
     {
         switch ( classifierID )
         {
             case ArduinoPackage.ARDUINO_DRIVER:
             {
-                final ArduinoDriver arduinoDriver = (ArduinoDriver)theEObject;
+                ArduinoDriver arduinoDriver = (ArduinoDriver)theEObject;
                 T result = caseArduinoDriver ( arduinoDriver );
                 if ( result == null )
-                {
                     result = caseDriver ( arduinoDriver );
-                }
                 if ( result == null )
-                {
                     result = caseEquinoxApplication ( arduinoDriver );
-                }
                 if ( result == null )
-                {
                     result = caseApplication ( arduinoDriver );
-                }
                 if ( result == null )
-                {
                     result = caseNamedDocumentable ( arduinoDriver );
-                }
                 if ( result == null )
-                {
                     result = caseDocumentable ( arduinoDriver );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case ArduinoPackage.ARDUINO_CONNECTION:
             {
-                final ArduinoConnection arduinoConnection = (ArduinoConnection)theEObject;
+                ArduinoConnection arduinoConnection = (ArduinoConnection)theEObject;
                 T result = caseArduinoConnection ( arduinoConnection );
                 if ( result == null )
-                {
                     result = caseNamedDocumentable ( arduinoConnection );
-                }
                 if ( result == null )
-                {
                     result = caseDocumentable ( arduinoConnection );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case ArduinoPackage.ARDUINO_DEVICE:
             {
-                final ArduinoDevice arduinoDevice = (ArduinoDevice)theEObject;
+                ArduinoDevice arduinoDevice = (ArduinoDevice)theEObject;
                 T result = caseArduinoDevice ( arduinoDevice );
                 if ( result == null )
-                {
                     result = caseDevice ( arduinoDevice );
-                }
                 if ( result == null )
-                {
                     result = caseNamedDocumentable ( arduinoDevice );
-                }
                 if ( result == null )
-                {
                     result = caseDocumentable ( arduinoDevice );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             default:
@@ -170,203 +137,163 @@ public class ArduinoSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Driver</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Driver</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseArduinoDriver ( final ArduinoDriver object )
+    public T caseArduinoDriver ( ArduinoDriver object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Connection</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Connection</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Connection</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Connection</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseArduinoConnection ( final ArduinoConnection object )
+    public T caseArduinoConnection ( ArduinoConnection object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Device</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Device</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Device</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Device</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseArduinoDevice ( final ArduinoDevice object )
+    public T caseArduinoDevice ( ArduinoDevice object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Documentable</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Documentable</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Documentable</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Documentable</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDocumentable ( final Documentable object )
+    public T caseDocumentable ( Documentable object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Named Documentable</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Named Documentable</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Named Documentable</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Named Documentable</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNamedDocumentable ( final NamedDocumentable object )
+    public T caseNamedDocumentable ( NamedDocumentable object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Application</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Application</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseApplication ( final Application object )
+    public T caseApplication ( Application object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Equinox Application</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Equinox Application</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Equinox Application</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Equinox Application</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEquinoxApplication ( final EquinoxApplication object )
+    public T caseEquinoxApplication ( EquinoxApplication object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Device</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Device</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Device</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Device</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDevice ( final Device object )
+    public T caseDevice ( Device object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Driver</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Driver</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDriver ( final Driver object )
+    public T caseDriver ( Driver object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>EObject</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch, but this is the
      * last case anyway.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>EObject</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
     @Override
-    public T defaultCase ( final EObject object )
+    public T defaultCase ( EObject object )
     {
         return null;
     }

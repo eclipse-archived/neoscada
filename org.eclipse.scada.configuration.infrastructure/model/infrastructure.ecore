@@ -194,8 +194,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
         eType="#//Device"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Device" abstract="true" interface="true"
-      eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
+  <eClassifiers xsi:type="ecore:EClass" name="Device" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Node" eOpposite="#//Node/devices"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EquinoxDriver" eSuperTypes="#//AbstractFactoryDriver #//EquinoxBase">

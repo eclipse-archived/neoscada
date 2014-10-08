@@ -41,14 +41,7 @@ import org.eclipse.scada.configuration.modbus.ModbusPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModbusExporterItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ModbusExporterItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -179,10 +172,7 @@ public class ModbusExporterItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ModbusPackage.Literals.MODBUS_EXPORTER__DEVICES,
-                        ModbusFactory.eINSTANCE.createModbusExporterDevice () ) );
+        newChildDescriptors.add ( createChildParameter ( ModbusPackage.Literals.MODBUS_EXPORTER__DEVICES, ModbusFactory.eINSTANCE.createModbusExporterDevice () ) );
     }
 
     /**
