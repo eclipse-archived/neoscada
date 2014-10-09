@@ -3,7 +3,7 @@
 <stringAttribute key="org.eclipse.acceleo.ide.ui.ARGUMENTS" value="site.properties"/>
 <booleanAttribute key="org.eclipse.acceleo.ide.ui.COMPUTE_PROFILING" value="false"/>
 <booleanAttribute key="org.eclipse.acceleo.ide.ui.COMPUTE_TRACEABILITY" value="false"/>
-<stringAttribute key="org.eclipse.acceleo.ide.ui.LAUNCHING_STRATEGY_DESCRIPTION" value="Java Application (Advanced)"/>
+<stringAttribute key="org.eclipse.acceleo.ide.ui.LAUNCHING_STRATEGY_DESCRIPTION" value="Java Application"/>
 <stringAttribute key="org.eclipse.acceleo.ide.ui.MODEL_PATH" value="/eclipsescada/website.xmi"/>
 <stringAttribute key="org.eclipse.acceleo.ide.ui.TARGET_PATH" value="/eclipsescada"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">

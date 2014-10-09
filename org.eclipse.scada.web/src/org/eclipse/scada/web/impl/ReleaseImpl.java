@@ -41,6 +41,7 @@ import org.eclipse.scada.web.WebPackage;
  *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#getUnqualifiedName <em>Unqualified Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#getAlternateMsiName <em>Alternate Msi Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#isJavadoc <em>Javadoc</em>}</li>
  * </ul>
  * </p>
  *
@@ -186,6 +187,26 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 	 * @ordered
 	 */
 	protected String alternateMsiName = ALTERNATE_MSI_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isJavadoc() <em>Javadoc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isJavadoc()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean JAVADOC_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isJavadoc() <em>Javadoc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isJavadoc()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean javadoc = JAVADOC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -399,6 +420,27 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isJavadoc() {
+		return javadoc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJavadoc(boolean newJavadoc) {
+		boolean oldJavadoc = javadoc;
+		javadoc = newJavadoc;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebPackage.RELEASE__JAVADOC, oldJavadoc, javadoc));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -462,6 +504,8 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 				return getUnqualifiedName();
 			case WebPackage.RELEASE__ALTERNATE_MSI_NAME:
 				return getAlternateMsiName();
+			case WebPackage.RELEASE__JAVADOC:
+				return isJavadoc();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -497,6 +541,9 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 				return;
 			case WebPackage.RELEASE__ALTERNATE_MSI_NAME:
 				setAlternateMsiName((String)newValue);
+				return;
+			case WebPackage.RELEASE__JAVADOC:
+				setJavadoc((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -534,6 +581,9 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 			case WebPackage.RELEASE__ALTERNATE_MSI_NAME:
 				setAlternateMsiName(ALTERNATE_MSI_NAME_EDEFAULT);
 				return;
+			case WebPackage.RELEASE__JAVADOC:
+				setJavadoc(JAVADOC_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -562,6 +612,8 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 				return UNQUALIFIED_NAME_EDEFAULT == null ? unqualifiedName != null : !UNQUALIFIED_NAME_EDEFAULT.equals(unqualifiedName);
 			case WebPackage.RELEASE__ALTERNATE_MSI_NAME:
 				return ALTERNATE_MSI_NAME_EDEFAULT == null ? alternateMsiName != null : !ALTERNATE_MSI_NAME_EDEFAULT.equals(alternateMsiName);
+			case WebPackage.RELEASE__JAVADOC:
+				return javadoc != JAVADOC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -590,6 +642,8 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 		result.append(unqualifiedName);
 		result.append(", alternateMsiName: ");
 		result.append(alternateMsiName);
+		result.append(", javadoc: ");
+		result.append(javadoc);
 		result.append(')');
 		return result.toString();
 	}

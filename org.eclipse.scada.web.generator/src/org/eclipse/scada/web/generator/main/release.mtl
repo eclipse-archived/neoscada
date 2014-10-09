@@ -29,6 +29,13 @@
 	<a href="[dropsLink(release, 'org.eclipse.scada', 'p2', false)/]">Composite P2 repository</a>
 </li>
 
+[if (release.javadoc)]
+<li>
+	<img class="download-type" src="[relative(base, 'images/icons/javadoc.png')/]"/>
+	<a href="[dropsLink(release, 'org.eclipse.scada', 'javadoc', false)/]">Online Javadoc</a>
+</li>
+[/if]
+
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/box.png')/]"/>
 	<a href="javascript:void(0)" onclick="toggle('maven.[release.buildId/]');">Maven 2 repository</a>

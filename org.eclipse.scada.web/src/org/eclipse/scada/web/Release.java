@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.web.Release#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#getUnqualifiedName <em>Unqualified Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#getAlternateMsiName <em>Alternate Msi Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.web.Release#isJavadoc <em>Javadoc</em>}</li>
  * </ul>
  * </p>
  *
@@ -249,5 +250,32 @@ public interface Release extends EObject {
 	 * @generated
 	 */
 	void setAlternateMsiName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Javadoc</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Javadoc</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Javadoc</em>' attribute.
+	 * @see #setJavadoc(boolean)
+	 * @see org.eclipse.scada.web.WebPackage#getRelease_Javadoc()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isJavadoc();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.web.Release#isJavadoc <em>Javadoc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Javadoc</em>' attribute.
+	 * @see #isJavadoc()
+	 * @generated
+	 */
+	void setJavadoc(boolean value);
 
 } // Release
