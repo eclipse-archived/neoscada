@@ -12,16 +12,10 @@ package org.eclipse.scada.configuration.memory.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.memory.BitType;
@@ -33,7 +27,7 @@ import org.eclipse.scada.configuration.memory.MemoryPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BitTypeItemProvider extends BaseScalarTypeItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class BitTypeItemProvider extends BaseScalarTypeItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -72,19 +66,9 @@ public class BitTypeItemProvider extends BaseScalarTypeItemProvider implements I
      */
     protected void addSubIndexPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_BitType_subIndex_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_BitType_subIndex_feature", "_UI_BitType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        MemoryPackage.Literals.BIT_TYPE__SUB_INDEX,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BitType_subIndex_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BitType_subIndex_feature", "_UI_BitType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                MemoryPackage.Literals.BIT_TYPE__SUB_INDEX, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**

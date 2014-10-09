@@ -52,5 +52,10 @@
     <genClasses image="false" ecoreClass="memory.ecore#//OrderedType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memory.ecore#//OrderedType/order"/>
     </genClasses>
+    <genClasses ecoreClass="memory.ecore#//Float64Type"/>
+    <genClasses ecoreClass="memory.ecore#//SignedInteger8Type"/>
+    <genClasses ecoreClass="memory.ecore#//SignedInteger16Type"/>
+    <genClasses ecoreClass="memory.ecore#//SignedInteger32Type"/>
+    <genClasses ecoreClass="memory.ecore#//SignedInteger64Type"/>
   </genPackages>
 </genmodel:GenModel>

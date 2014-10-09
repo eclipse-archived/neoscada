@@ -13,20 +13,12 @@ package org.eclipse.scada.configuration.memory.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.scada.configuration.memory.MemoryPackage;
 import org.eclipse.scada.configuration.memory.OrderedType;
 
@@ -36,14 +28,7 @@ import org.eclipse.scada.configuration.memory.OrderedType;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OrderedTypeItemProvider
-        extends BaseScalarTypeItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class OrderedTypeItemProvider extends BaseScalarTypeItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -82,19 +67,9 @@ public class OrderedTypeItemProvider
      */
     protected void addOrderPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_OrderedType_order_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_OrderedType_order_feature", "_UI_OrderedType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        MemoryPackage.Literals.ORDERED_TYPE__ORDER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OrderedType_order_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_OrderedType_order_feature", "_UI_OrderedType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                MemoryPackage.Literals.ORDERED_TYPE__ORDER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

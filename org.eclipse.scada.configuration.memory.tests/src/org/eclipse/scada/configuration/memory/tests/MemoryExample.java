@@ -48,15 +48,11 @@ public class MemoryExample
 
         // Register the appropriate resource factory to handle all file extensions.
         //
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put
-                ( Resource.Factory.Registry.DEFAULT_EXTENSION,
-                        new MemoryResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( Resource.Factory.Registry.DEFAULT_EXTENSION, new MemoryResourceFactoryImpl () );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( MemoryPackage.eNS_URI,
-                        MemoryPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( MemoryPackage.eNS_URI, MemoryPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

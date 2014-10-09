@@ -29,6 +29,7 @@ public class UnsignedInteger8TypeImpl extends BaseScalarTypeImpl implements Unsi
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     protected UnsignedInteger8TypeImpl ()
@@ -36,15 +37,10 @@ public class UnsignedInteger8TypeImpl extends BaseScalarTypeImpl implements Unsi
         super ();
     }
 
-    @Override
-    public String encode ()
-    {
-        return String.format ( "BYTE:%s:0", this.index );
-    }
-
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -60,6 +56,12 @@ public class UnsignedInteger8TypeImpl extends BaseScalarTypeImpl implements Unsi
     public int getLength ()
     {
         return 1;
+    }
+
+    @Override
+    public String encode ()
+    {
+        return String.format ( "UINT8:%s:0", this.index );
     }
 
 } //UnsignedInteger8TypeImpl

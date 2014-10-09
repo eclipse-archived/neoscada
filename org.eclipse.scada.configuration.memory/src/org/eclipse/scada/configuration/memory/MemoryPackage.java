@@ -897,6 +897,308 @@ public interface MemoryPackage extends EPackage
     int TYPE_SYSTEM_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.Float64TypeImpl <em>Float64 Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.impl.Float64TypeImpl
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getFloat64Type()
+     * @generated
+     */
+    int FLOAT64_TYPE = 14;
+
+    /**
+     * The feature id for the '<em><b>Index</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FLOAT64_TYPE__INDEX = BASE_SCALAR_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FLOAT64_TYPE__LENGTH = BASE_SCALAR_TYPE__LENGTH;
+
+    /**
+     * The number of structural features of the '<em>Float64 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FLOAT64_TYPE_FEATURE_COUNT = BASE_SCALAR_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Encode</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FLOAT64_TYPE___ENCODE = BASE_SCALAR_TYPE___ENCODE;
+
+    /**
+     * The number of operations of the '<em>Float64 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FLOAT64_TYPE_OPERATION_COUNT = BASE_SCALAR_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.SignedInteger8TypeImpl <em>Signed Integer8 Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.impl.SignedInteger8TypeImpl
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getSignedInteger8Type()
+     * @generated
+     */
+    int SIGNED_INTEGER8_TYPE = 15;
+
+    /**
+     * The feature id for the '<em><b>Index</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER8_TYPE__INDEX = BASE_SCALAR_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER8_TYPE__LENGTH = BASE_SCALAR_TYPE__LENGTH;
+
+    /**
+     * The number of structural features of the '<em>Signed Integer8 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER8_TYPE_FEATURE_COUNT = BASE_SCALAR_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Encode</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER8_TYPE___ENCODE = BASE_SCALAR_TYPE___ENCODE;
+
+    /**
+     * The number of operations of the '<em>Signed Integer8 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER8_TYPE_OPERATION_COUNT = BASE_SCALAR_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.SignedInteger16TypeImpl <em>Signed Integer16 Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.impl.SignedInteger16TypeImpl
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getSignedInteger16Type()
+     * @generated
+     */
+    int SIGNED_INTEGER16_TYPE = 16;
+
+    /**
+     * The feature id for the '<em><b>Index</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER16_TYPE__INDEX = ORDERED_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER16_TYPE__LENGTH = ORDERED_TYPE__LENGTH;
+
+    /**
+     * The feature id for the '<em><b>Order</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER16_TYPE__ORDER = ORDERED_TYPE__ORDER;
+
+    /**
+     * The number of structural features of the '<em>Signed Integer16 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER16_TYPE_FEATURE_COUNT = ORDERED_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Encode</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER16_TYPE___ENCODE = ORDERED_TYPE___ENCODE;
+
+    /**
+     * The number of operations of the '<em>Signed Integer16 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER16_TYPE_OPERATION_COUNT = ORDERED_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.SignedInteger32TypeImpl <em>Signed Integer32 Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.impl.SignedInteger32TypeImpl
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getSignedInteger32Type()
+     * @generated
+     */
+    int SIGNED_INTEGER32_TYPE = 17;
+
+    /**
+     * The feature id for the '<em><b>Index</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER32_TYPE__INDEX = ORDERED_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER32_TYPE__LENGTH = ORDERED_TYPE__LENGTH;
+
+    /**
+     * The feature id for the '<em><b>Order</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER32_TYPE__ORDER = ORDERED_TYPE__ORDER;
+
+    /**
+     * The number of structural features of the '<em>Signed Integer32 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER32_TYPE_FEATURE_COUNT = ORDERED_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Encode</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER32_TYPE___ENCODE = ORDERED_TYPE___ENCODE;
+
+    /**
+     * The number of operations of the '<em>Signed Integer32 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER32_TYPE_OPERATION_COUNT = ORDERED_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.SignedInteger64TypeImpl <em>Signed Integer64 Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.impl.SignedInteger64TypeImpl
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getSignedInteger64Type()
+     * @generated
+     */
+    int SIGNED_INTEGER64_TYPE = 18;
+
+    /**
+     * The feature id for the '<em><b>Index</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER64_TYPE__INDEX = ORDERED_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER64_TYPE__LENGTH = ORDERED_TYPE__LENGTH;
+
+    /**
+     * The feature id for the '<em><b>Order</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER64_TYPE__ORDER = ORDERED_TYPE__ORDER;
+
+    /**
+     * The number of structural features of the '<em>Signed Integer64 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER64_TYPE_FEATURE_COUNT = ORDERED_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Encode</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER64_TYPE___ENCODE = ORDERED_TYPE___ENCODE;
+
+    /**
+     * The number of operations of the '<em>Signed Integer64 Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIGNED_INTEGER64_TYPE_OPERATION_COUNT = ORDERED_TYPE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -904,7 +1206,7 @@ public interface MemoryPackage extends EPackage
      * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getByteOrder()
      * @generated
      */
-    int BYTE_ORDER = 14;
+    int BYTE_ORDER = 19;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.UserDefinedType <em>User Defined Type</em>}'.
@@ -1030,6 +1332,56 @@ public interface MemoryPackage extends EPackage
      * @generated
      */
     EAttribute getOrderedType_Order ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.Float64Type <em>Float64 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Float64 Type</em>'.
+     * @see org.eclipse.scada.configuration.memory.Float64Type
+     * @generated
+     */
+    EClass getFloat64Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.SignedInteger8Type <em>Signed Integer8 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Signed Integer8 Type</em>'.
+     * @see org.eclipse.scada.configuration.memory.SignedInteger8Type
+     * @generated
+     */
+    EClass getSignedInteger8Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.SignedInteger16Type <em>Signed Integer16 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Signed Integer16 Type</em>'.
+     * @see org.eclipse.scada.configuration.memory.SignedInteger16Type
+     * @generated
+     */
+    EClass getSignedInteger16Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.SignedInteger32Type <em>Signed Integer32 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Signed Integer32 Type</em>'.
+     * @see org.eclipse.scada.configuration.memory.SignedInteger32Type
+     * @generated
+     */
+    EClass getSignedInteger32Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.SignedInteger64Type <em>Signed Integer64 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Signed Integer64 Type</em>'.
+     * @see org.eclipse.scada.configuration.memory.SignedInteger64Type
+     * @generated
+     */
+    EClass getSignedInteger64Type ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}'.
@@ -1358,6 +1710,56 @@ public interface MemoryPackage extends EPackage
          * @generated
          */
         EAttribute ORDERED_TYPE__ORDER = eINSTANCE.getOrderedType_Order ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.Float64TypeImpl <em>Float64 Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.impl.Float64TypeImpl
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getFloat64Type()
+         * @generated
+         */
+        EClass FLOAT64_TYPE = eINSTANCE.getFloat64Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.SignedInteger8TypeImpl <em>Signed Integer8 Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.impl.SignedInteger8TypeImpl
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getSignedInteger8Type()
+         * @generated
+         */
+        EClass SIGNED_INTEGER8_TYPE = eINSTANCE.getSignedInteger8Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.SignedInteger16TypeImpl <em>Signed Integer16 Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.impl.SignedInteger16TypeImpl
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getSignedInteger16Type()
+         * @generated
+         */
+        EClass SIGNED_INTEGER16_TYPE = eINSTANCE.getSignedInteger16Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.SignedInteger32TypeImpl <em>Signed Integer32 Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.impl.SignedInteger32TypeImpl
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getSignedInteger32Type()
+         * @generated
+         */
+        EClass SIGNED_INTEGER32_TYPE = eINSTANCE.getSignedInteger32Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.SignedInteger64TypeImpl <em>Signed Integer64 Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.impl.SignedInteger64TypeImpl
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getSignedInteger64Type()
+         * @generated
+         */
+        EClass SIGNED_INTEGER64_TYPE = eINSTANCE.getSignedInteger64Type ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}' enum.

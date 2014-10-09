@@ -76,19 +76,9 @@ public class AttributeItemProvider extends ItemProviderAdapter implements IEditi
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Attribute_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_name_feature", "_UI_Attribute_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        MemoryPackage.Literals.ATTRIBUTE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Attribute_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_name_feature", "_UI_Attribute_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                MemoryPackage.Literals.ATTRIBUTE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -146,9 +136,8 @@ public class AttributeItemProvider extends ItemProviderAdapter implements IEditi
     public String getText ( Object object )
     {
         String label = ( (Attribute)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Attribute_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Attribute_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Attribute_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Attribute_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -187,30 +176,25 @@ public class AttributeItemProvider extends ItemProviderAdapter implements IEditi
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( MemoryPackage.Literals.ATTRIBUTE__TYPE,
-                        MemoryFactory.eINSTANCE.createBitType () ) );
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createBitType () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( MemoryPackage.Literals.ATTRIBUTE__TYPE,
-                        MemoryFactory.eINSTANCE.createFloat32Type () ) );
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createFloat32Type () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( MemoryPackage.Literals.ATTRIBUTE__TYPE,
-                        MemoryFactory.eINSTANCE.createUnsignedInteger16Type () ) );
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createUnsignedInteger16Type () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( MemoryPackage.Literals.ATTRIBUTE__TYPE,
-                        MemoryFactory.eINSTANCE.createUnsignedInteger32Type () ) );
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createUnsignedInteger32Type () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( MemoryPackage.Literals.ATTRIBUTE__TYPE,
-                        MemoryFactory.eINSTANCE.createUnsignedInteger8Type () ) );
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createUnsignedInteger8Type () ) );
+
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createFloat64Type () ) );
+
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createSignedInteger8Type () ) );
+
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createSignedInteger16Type () ) );
+
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createSignedInteger32Type () ) );
+
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createSignedInteger64Type () ) );
     }
 
     /**

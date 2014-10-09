@@ -48,6 +48,11 @@ public class MemoryTests extends TestSuite
         suite.addTestSuite ( UnsignedInteger16TypeTest.class );
         suite.addTestSuite ( UnsignedInteger32TypeTest.class );
         suite.addTestSuite ( UnsignedInteger8TypeTest.class );
+        suite.addTestSuite ( Float64TypeTest.class );
+        suite.addTestSuite ( SignedInteger8TypeTest.class );
+        suite.addTestSuite ( SignedInteger16TypeTest.class );
+        suite.addTestSuite ( SignedInteger32TypeTest.class );
+        suite.addTestSuite ( SignedInteger64TypeTest.class );
         return suite;
     }
 

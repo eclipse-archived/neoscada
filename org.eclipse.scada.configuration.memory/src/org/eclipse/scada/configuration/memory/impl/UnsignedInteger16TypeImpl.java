@@ -29,6 +29,7 @@ public class UnsignedInteger16TypeImpl extends OrderedTypeImpl implements Unsign
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected UnsignedInteger16TypeImpl ()
@@ -39,12 +40,13 @@ public class UnsignedInteger16TypeImpl extends OrderedTypeImpl implements Unsign
     @Override
     public String encode ()
     {
-        return String.format ( "WORD:%s:0:%s", this.index, this.order );
+        return String.format ( "UINT16:%s:0:%s", this.index, this.order );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override

@@ -330,6 +330,131 @@ public class MemoryItemProviderAdapterFactory extends MemoryAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.memory.Float64Type} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Float64TypeItemProvider float64TypeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.memory.Float64Type}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createFloat64TypeAdapter ()
+    {
+        if ( float64TypeItemProvider == null )
+        {
+            float64TypeItemProvider = new Float64TypeItemProvider ( this );
+        }
+
+        return float64TypeItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.memory.SignedInteger8Type} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SignedInteger8TypeItemProvider signedInteger8TypeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.memory.SignedInteger8Type}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSignedInteger8TypeAdapter ()
+    {
+        if ( signedInteger8TypeItemProvider == null )
+        {
+            signedInteger8TypeItemProvider = new SignedInteger8TypeItemProvider ( this );
+        }
+
+        return signedInteger8TypeItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.memory.SignedInteger16Type} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SignedInteger16TypeItemProvider signedInteger16TypeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.memory.SignedInteger16Type}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSignedInteger16TypeAdapter ()
+    {
+        if ( signedInteger16TypeItemProvider == null )
+        {
+            signedInteger16TypeItemProvider = new SignedInteger16TypeItemProvider ( this );
+        }
+
+        return signedInteger16TypeItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.memory.SignedInteger32Type} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SignedInteger32TypeItemProvider signedInteger32TypeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.memory.SignedInteger32Type}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSignedInteger32TypeAdapter ()
+    {
+        if ( signedInteger32TypeItemProvider == null )
+        {
+            signedInteger32TypeItemProvider = new SignedInteger32TypeItemProvider ( this );
+        }
+
+        return signedInteger32TypeItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.memory.SignedInteger64Type} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SignedInteger64TypeItemProvider signedInteger64TypeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.memory.SignedInteger64Type}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSignedInteger64TypeAdapter ()
+    {
+        if ( signedInteger64TypeItemProvider == null )
+        {
+            signedInteger64TypeItemProvider = new SignedInteger64TypeItemProvider ( this );
+        }
+
+        return signedInteger64TypeItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -460,6 +585,16 @@ public class MemoryItemProviderAdapterFactory extends MemoryAdapterFactory imple
             unsignedInteger8TypeItemProvider.dispose ();
         if ( typeSystemItemProvider != null )
             typeSystemItemProvider.dispose ();
+        if ( float64TypeItemProvider != null )
+            float64TypeItemProvider.dispose ();
+        if ( signedInteger8TypeItemProvider != null )
+            signedInteger8TypeItemProvider.dispose ();
+        if ( signedInteger16TypeItemProvider != null )
+            signedInteger16TypeItemProvider.dispose ();
+        if ( signedInteger32TypeItemProvider != null )
+            signedInteger32TypeItemProvider.dispose ();
+        if ( signedInteger64TypeItemProvider != null )
+            signedInteger64TypeItemProvider.dispose ();
     }
 
 }

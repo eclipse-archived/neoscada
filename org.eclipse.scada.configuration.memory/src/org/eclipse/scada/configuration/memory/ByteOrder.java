@@ -84,12 +84,7 @@ public enum ByteOrder implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final ByteOrder[] VALUES_ARRAY =
-            new ByteOrder[]
-            {
-                    BIG_ENDIAN,
-                    LITTLE_ENDIAN,
-            };
+    private static final ByteOrder[] VALUES_ARRAY = new ByteOrder[] { BIG_ENDIAN, LITTLE_ENDIAN, };
 
     /**
      * A public read-only list of all the '<em><b>Byte Order</b></em>' enumerators.

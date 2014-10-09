@@ -90,6 +90,16 @@ public class MemoryFactoryImpl extends EFactoryImpl implements MemoryFactory
                 return createUnsignedInteger8Type ();
             case MemoryPackage.TYPE_SYSTEM:
                 return createTypeSystem ();
+            case MemoryPackage.FLOAT64_TYPE:
+                return createFloat64Type ();
+            case MemoryPackage.SIGNED_INTEGER8_TYPE:
+                return createSignedInteger8Type ();
+            case MemoryPackage.SIGNED_INTEGER16_TYPE:
+                return createSignedInteger16Type ();
+            case MemoryPackage.SIGNED_INTEGER32_TYPE:
+                return createSignedInteger32Type ();
+            case MemoryPackage.SIGNED_INTEGER64_TYPE:
+                return createSignedInteger64Type ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -193,6 +203,61 @@ public class MemoryFactoryImpl extends EFactoryImpl implements MemoryFactory
     {
         TypeSystemImpl typeSystem = new TypeSystemImpl ();
         return typeSystem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Float64Type createFloat64Type ()
+    {
+        Float64TypeImpl float64Type = new Float64TypeImpl ();
+        return float64Type;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SignedInteger8Type createSignedInteger8Type ()
+    {
+        SignedInteger8TypeImpl signedInteger8Type = new SignedInteger8TypeImpl ();
+        return signedInteger8Type;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SignedInteger16Type createSignedInteger16Type ()
+    {
+        SignedInteger16TypeImpl signedInteger16Type = new SignedInteger16TypeImpl ();
+        return signedInteger16Type;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SignedInteger32Type createSignedInteger32Type ()
+    {
+        SignedInteger32TypeImpl signedInteger32Type = new SignedInteger32TypeImpl ();
+        return signedInteger32Type;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SignedInteger64Type createSignedInteger64Type ()
+    {
+        SignedInteger64TypeImpl signedInteger64Type = new SignedInteger64TypeImpl ();
+        return signedInteger64Type;
     }
 
     /**

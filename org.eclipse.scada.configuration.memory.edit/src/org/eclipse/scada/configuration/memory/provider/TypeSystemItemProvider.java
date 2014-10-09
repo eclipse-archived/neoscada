@@ -77,19 +77,9 @@ public class TypeSystemItemProvider extends ItemProviderAdapter implements IEdit
      */
     protected void addIncludesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_TypeSystem_includes_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_TypeSystem_includes_feature", "_UI_TypeSystem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        MemoryPackage.Literals.TYPE_SYSTEM__INCLUDES,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TypeSystem_includes_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_TypeSystem_includes_feature", "_UI_TypeSystem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                MemoryPackage.Literals.TYPE_SYSTEM__INCLUDES, true, false, true, null, null, null ) );
     }
 
     /**
@@ -100,19 +90,9 @@ public class TypeSystemItemProvider extends ItemProviderAdapter implements IEdit
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_TypeSystem_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_TypeSystem_name_feature", "_UI_TypeSystem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        MemoryPackage.Literals.TYPE_SYSTEM__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TypeSystem_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_TypeSystem_name_feature", "_UI_TypeSystem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                MemoryPackage.Literals.TYPE_SYSTEM__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -170,9 +150,8 @@ public class TypeSystemItemProvider extends ItemProviderAdapter implements IEdit
     public String getText ( Object object )
     {
         String label = ( (TypeSystem)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_TypeSystem_type" ) : //$NON-NLS-1$
-                getString ( "_UI_TypeSystem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_TypeSystem_type" ) : //$NON-NLS-1$
+        getString ( "_UI_TypeSystem_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -211,10 +190,7 @@ public class TypeSystemItemProvider extends ItemProviderAdapter implements IEdit
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( MemoryPackage.Literals.TYPE_SYSTEM__TYPES,
-                        MemoryFactory.eINSTANCE.createTypeDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.TYPE_SYSTEM__TYPES, MemoryFactory.eINSTANCE.createTypeDefinition () ) );
     }
 
     /**

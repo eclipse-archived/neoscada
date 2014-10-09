@@ -238,6 +238,82 @@ public class MemorySwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case MemoryPackage.FLOAT64_TYPE:
+            {
+                Float64Type float64Type = (Float64Type)theEObject;
+                T result = caseFloat64Type ( float64Type );
+                if ( result == null )
+                    result = caseBaseScalarType ( float64Type );
+                if ( result == null )
+                    result = caseScalarType ( float64Type );
+                if ( result == null )
+                    result = caseType ( float64Type );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case MemoryPackage.SIGNED_INTEGER8_TYPE:
+            {
+                SignedInteger8Type signedInteger8Type = (SignedInteger8Type)theEObject;
+                T result = caseSignedInteger8Type ( signedInteger8Type );
+                if ( result == null )
+                    result = caseBaseScalarType ( signedInteger8Type );
+                if ( result == null )
+                    result = caseScalarType ( signedInteger8Type );
+                if ( result == null )
+                    result = caseType ( signedInteger8Type );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case MemoryPackage.SIGNED_INTEGER16_TYPE:
+            {
+                SignedInteger16Type signedInteger16Type = (SignedInteger16Type)theEObject;
+                T result = caseSignedInteger16Type ( signedInteger16Type );
+                if ( result == null )
+                    result = caseOrderedType ( signedInteger16Type );
+                if ( result == null )
+                    result = caseBaseScalarType ( signedInteger16Type );
+                if ( result == null )
+                    result = caseScalarType ( signedInteger16Type );
+                if ( result == null )
+                    result = caseType ( signedInteger16Type );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case MemoryPackage.SIGNED_INTEGER32_TYPE:
+            {
+                SignedInteger32Type signedInteger32Type = (SignedInteger32Type)theEObject;
+                T result = caseSignedInteger32Type ( signedInteger32Type );
+                if ( result == null )
+                    result = caseOrderedType ( signedInteger32Type );
+                if ( result == null )
+                    result = caseBaseScalarType ( signedInteger32Type );
+                if ( result == null )
+                    result = caseScalarType ( signedInteger32Type );
+                if ( result == null )
+                    result = caseType ( signedInteger32Type );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case MemoryPackage.SIGNED_INTEGER64_TYPE:
+            {
+                SignedInteger64Type signedInteger64Type = (SignedInteger64Type)theEObject;
+                T result = caseSignedInteger64Type ( signedInteger64Type );
+                if ( result == null )
+                    result = caseOrderedType ( signedInteger64Type );
+                if ( result == null )
+                    result = caseBaseScalarType ( signedInteger64Type );
+                if ( result == null )
+                    result = caseScalarType ( signedInteger64Type );
+                if ( result == null )
+                    result = caseType ( signedInteger64Type );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -367,6 +443,86 @@ public class MemorySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseOrderedType ( OrderedType object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Float64 Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Float64 Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFloat64Type ( Float64Type object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Signed Integer8 Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Signed Integer8 Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSignedInteger8Type ( SignedInteger8Type object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Signed Integer16 Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Signed Integer16 Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSignedInteger16Type ( SignedInteger16Type object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Signed Integer32 Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Signed Integer32 Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSignedInteger32Type ( SignedInteger32Type object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Signed Integer64 Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Signed Integer64 Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSignedInteger64Type ( SignedInteger64Type object )
     {
         return null;
     }

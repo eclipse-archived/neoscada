@@ -22,10 +22,15 @@ import org.eclipse.scada.configuration.memory.BaseScalarType;
 import org.eclipse.scada.configuration.memory.BitType;
 import org.eclipse.scada.configuration.memory.ByteOrder;
 import org.eclipse.scada.configuration.memory.Float32Type;
+import org.eclipse.scada.configuration.memory.Float64Type;
 import org.eclipse.scada.configuration.memory.MemoryFactory;
 import org.eclipse.scada.configuration.memory.MemoryPackage;
 import org.eclipse.scada.configuration.memory.OrderedType;
 import org.eclipse.scada.configuration.memory.ScalarType;
+import org.eclipse.scada.configuration.memory.SignedInteger16Type;
+import org.eclipse.scada.configuration.memory.SignedInteger32Type;
+import org.eclipse.scada.configuration.memory.SignedInteger64Type;
+import org.eclipse.scada.configuration.memory.SignedInteger8Type;
 import org.eclipse.scada.configuration.memory.Type;
 import org.eclipse.scada.configuration.memory.TypeDefinition;
 import org.eclipse.scada.configuration.memory.TypeSystem;
@@ -98,6 +103,41 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
      * @generated
      */
     private EClass orderedTypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass float64TypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass signedInteger8TypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass signedInteger16TypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass signedInteger32TypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass signedInteger64TypeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -384,6 +424,56 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getFloat64Type ()
+    {
+        return float64TypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSignedInteger8Type ()
+    {
+        return signedInteger8TypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSignedInteger16Type ()
+    {
+        return signedInteger16TypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSignedInteger32Type ()
+    {
+        return signedInteger32TypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSignedInteger64Type ()
+    {
+        return signedInteger64TypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getByteOrder ()
     {
@@ -630,6 +720,16 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         orderedTypeEClass = createEClass ( ORDERED_TYPE );
         createEAttribute ( orderedTypeEClass, ORDERED_TYPE__ORDER );
 
+        float64TypeEClass = createEClass ( FLOAT64_TYPE );
+
+        signedInteger8TypeEClass = createEClass ( SIGNED_INTEGER8_TYPE );
+
+        signedInteger16TypeEClass = createEClass ( SIGNED_INTEGER16_TYPE );
+
+        signedInteger32TypeEClass = createEClass ( SIGNED_INTEGER32_TYPE );
+
+        signedInteger64TypeEClass = createEClass ( SIGNED_INTEGER64_TYPE );
+
         // Create enums
         byteOrderEEnum = createEEnum ( BYTE_ORDER );
     }
@@ -673,6 +773,11 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         unsignedInteger32TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
         unsignedInteger8TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
         orderedTypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        float64TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        signedInteger8TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        signedInteger16TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
+        signedInteger32TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
+        signedInteger64TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -722,6 +827,16 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
 
         initEClass ( orderedTypeEClass, OrderedType.class, "OrderedType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getOrderedType_Order (), this.getByteOrder (), "order", "BIG_ENDIAN", 1, 1, OrderedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( float64TypeEClass, Float64Type.class, "Float64Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( signedInteger8TypeEClass, SignedInteger8Type.class, "SignedInteger8Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( signedInteger16TypeEClass, SignedInteger16Type.class, "SignedInteger16Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( signedInteger32TypeEClass, SignedInteger32Type.class, "SignedInteger32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( signedInteger64TypeEClass, SignedInteger64Type.class, "SignedInteger64Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( byteOrderEEnum, ByteOrder.class, "ByteOrder" ); //$NON-NLS-1$

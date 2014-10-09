@@ -76,8 +76,7 @@ public class MemoryAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected MemorySwitch<Adapter> modelSwitch = new MemorySwitch<Adapter> ()
-    {
+    protected MemorySwitch<Adapter> modelSwitch = new MemorySwitch<Adapter> () {
         @Override
         public Adapter caseTypeDefinition ( TypeDefinition object )
         {
@@ -160,6 +159,36 @@ public class MemoryAdapterFactory extends AdapterFactoryImpl
         public Adapter caseOrderedType ( OrderedType object )
         {
             return createOrderedTypeAdapter ();
+        }
+
+        @Override
+        public Adapter caseFloat64Type ( Float64Type object )
+        {
+            return createFloat64TypeAdapter ();
+        }
+
+        @Override
+        public Adapter caseSignedInteger8Type ( SignedInteger8Type object )
+        {
+            return createSignedInteger8TypeAdapter ();
+        }
+
+        @Override
+        public Adapter caseSignedInteger16Type ( SignedInteger16Type object )
+        {
+            return createSignedInteger16TypeAdapter ();
+        }
+
+        @Override
+        public Adapter caseSignedInteger32Type ( SignedInteger32Type object )
+        {
+            return createSignedInteger32TypeAdapter ();
+        }
+
+        @Override
+        public Adapter caseSignedInteger64Type ( SignedInteger64Type object )
+        {
+            return createSignedInteger64TypeAdapter ();
         }
 
         @Override
@@ -299,6 +328,81 @@ public class MemoryAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createOrderedTypeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.memory.Float64Type <em>Float64 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.memory.Float64Type
+     * @generated
+     */
+    public Adapter createFloat64TypeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.memory.SignedInteger8Type <em>Signed Integer8 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.memory.SignedInteger8Type
+     * @generated
+     */
+    public Adapter createSignedInteger8TypeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.memory.SignedInteger16Type <em>Signed Integer16 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.memory.SignedInteger16Type
+     * @generated
+     */
+    public Adapter createSignedInteger16TypeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.memory.SignedInteger32Type <em>Signed Integer32 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.memory.SignedInteger32Type
+     * @generated
+     */
+    public Adapter createSignedInteger32TypeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.memory.SignedInteger64Type <em>Signed Integer64 Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.memory.SignedInteger64Type
+     * @generated
+     */
+    public Adapter createSignedInteger64TypeAdapter ()
     {
         return null;
     }

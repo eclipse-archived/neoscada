@@ -46,9 +46,7 @@ public final class MemoryEditPlugin extends EMFPlugin
      */
     public MemoryEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                } );
+        super ( new ResourceLocator[] {} );
     }
 
     /**

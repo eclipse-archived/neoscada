@@ -58,4 +58,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1" eType="#//ByteOrder"
         defaultValueLiteral="BIG_ENDIAN"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Float64Type" eSuperTypes="#//BaseScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignedInteger8Type" eSuperTypes="#//BaseScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignedInteger16Type" eSuperTypes="#//OrderedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignedInteger32Type" eSuperTypes="#//OrderedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignedInteger64Type" eSuperTypes="#//OrderedType"/>
 </ecore:EPackage>

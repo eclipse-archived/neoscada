@@ -29,6 +29,7 @@ public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements Unsign
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected UnsignedInteger32TypeImpl ()
@@ -39,12 +40,13 @@ public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements Unsign
     @Override
     public String encode ()
     {
-        return String.format ( "DINT:%s:0:%s", this.index, this.order );
+        return String.format ( "UINT32:%s:0:%s", this.index, this.order );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override

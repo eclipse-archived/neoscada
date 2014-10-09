@@ -85,6 +85,51 @@ public interface MemoryFactory extends EFactory
     TypeSystem createTypeSystem ();
 
     /**
+     * Returns a new object of class '<em>Float64 Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Float64 Type</em>'.
+     * @generated
+     */
+    Float64Type createFloat64Type ();
+
+    /**
+     * Returns a new object of class '<em>Signed Integer8 Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Signed Integer8 Type</em>'.
+     * @generated
+     */
+    SignedInteger8Type createSignedInteger8Type ();
+
+    /**
+     * Returns a new object of class '<em>Signed Integer16 Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Signed Integer16 Type</em>'.
+     * @generated
+     */
+    SignedInteger16Type createSignedInteger16Type ();
+
+    /**
+     * Returns a new object of class '<em>Signed Integer32 Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Signed Integer32 Type</em>'.
+     * @generated
+     */
+    SignedInteger32Type createSignedInteger32Type ();
+
+    /**
+     * Returns a new object of class '<em>Signed Integer64 Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Signed Integer64 Type</em>'.
+     * @generated
+     */
+    SignedInteger64Type createSignedInteger64Type ();
+
+    /**
      * Returns a new object of class '<em>Bit Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
