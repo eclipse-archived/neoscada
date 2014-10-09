@@ -442,8 +442,7 @@ public abstract class ModbusExport
     {
         this.info.incrementErrorReplies ();
 
-        byte functionCode = message.getFunctionCode ();
-        functionCode |= (byte)0x80;
+        final byte functionCode = message.getFunctionCode ();
         return new ErrorResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, (byte)exceptionCode );
     }
 
