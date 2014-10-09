@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,9 +24,19 @@ import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteMultiDataResponse;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class ModbusProtocol
+/**
+ * A class with modbus protocol helper functions
+ */
+public final class ModbusProtocol
 {
+    private ModbusProtocol ()
+    {
+    }
+
+    private final static Logger logger = LoggerFactory.getLogger ( ModbusProtocol.class );
 
     /**
      * Convert the string to a {@link ByteOrder}
@@ -137,16 +147,29 @@ public class ModbusProtocol
         return new Pdu ( message.getTransactionId (), message.getUnitIdentifier (), data );
     }
 
+    /**
+     * Decode a PDU as a master
+     *
+     * @param message
+     *            the message PDU
+     * @return the decoded messages
+     * @throws IllegalStateException
+     *             if the function code is not supported
+     */
     public static Object decodeAsMaster ( final Pdu message )
     {
         final IoBuffer data = message.getData ();
 
         final byte functionCode = data.get ();
 
+        logger.trace ( "Decoding functionCode = {}", functionCode );
+
         if ( ( functionCode & Constants.FUNCTION_CODE_ERROR_FLAG ) != 0 )
         {
             final byte exceptionCode = data.get ();
-            return new ErrorResponse ( message.getTransactionId (), message.getUnitIdentifier (), (byte) ( functionCode & ~Constants.FUNCTION_CODE_ERROR_FLAG ), exceptionCode );
+            final byte originalFunctionCode = (byte) ( functionCode & ~Constants.FUNCTION_CODE_ERROR_FLAG );
+            logger.trace ( "EC = {}, FC = {}", exceptionCode, functionCode );
+            return new ErrorResponse ( message.getTransactionId (), message.getUnitIdentifier (), originalFunctionCode, exceptionCode );
         }
 
         switch ( functionCode )
@@ -167,6 +190,15 @@ public class ModbusProtocol
         }
     }
 
+    /**
+     * Decode a PDU as a slave
+     *
+     * @param message
+     *            the message PDU
+     * @return the decoded messages
+     * @throws IllegalStateException
+     *             if the function code is not supported
+     */
     public static Object decodeAsSlave ( final Pdu message ) throws ProtocolCodecException
     {
         final IoBuffer data = message.getData ();
@@ -200,6 +232,16 @@ public class ModbusProtocol
         }
     }
 
+    /**
+     * Read the requested number of bytes from the IoBuffer
+     *
+     * @param data
+     *            the buffer to read from
+     * @param bytes
+     *            the number of bytes
+     * @return the newly allocated byte array containing the data read from the
+     *         IoBuffer
+     */
     private static byte[] readBytes ( final IoBuffer data, final int bytes )
     {
         final byte[] result = new byte[bytes];
@@ -207,14 +249,33 @@ public class ModbusProtocol
         return result;
     }
 
+    /**
+     * Read the requested number of bytes from the IoBuffer <br/>
+     * This actually calls {@link #readBytesArrayWithPrefix(IoBuffer)} and wraps
+     * the result in an IoBuffer
+     *
+     * @param buffer
+     *            the buffer to read from
+     * @return a new IoBuffer containing the bytes read
+     */
     private static IoBuffer readBytes ( final IoBuffer buffer )
     {
         return IoBuffer.wrap ( readBytesArrayWithPrefix ( buffer ) );
     }
 
+    /**
+     * Read a set of bytes with the first byte being the number of bytes to read
+     *
+     * @param buffer
+     *            the buffer to read from
+     * @return the result read
+     */
     private static byte[] readBytesArrayWithPrefix ( final IoBuffer buffer )
     {
         final short numOfBytes = buffer.getUnsigned ();
+
+        logger.trace ( "Prepare to read {} bytes", numOfBytes );
+
         final byte[] result = new byte[numOfBytes];
         buffer.get ( result, 0, numOfBytes );
         return result;
