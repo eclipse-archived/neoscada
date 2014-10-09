@@ -64,7 +64,15 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
         /**
          * User defined type
          */
-        UDT
+        UDT,
+        INT8,
+        INT16,
+        INT32,
+        INT64,
+        /**
+         * 64bit floating point
+         */
+        DOUBLE
     }
 
     private static class TypeEntry
@@ -330,6 +338,21 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                     case UDT:
                         result.add ( new UdtVariable ( entry.getName (), entry.getIndex (), createVariables ( entry.getTypeName () ) ) );
                         break;
+                    case INT8:
+                        result.add ( new Int8Variable ( entry.getName (), entry.getIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        break;
+                    case INT16:
+                        result.add ( new Int16Variable ( entry.getName (), entry.getIndex (), entry.getOrder (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        break;
+                    case INT32:
+                        result.add ( new Int32Variable ( entry.getName (), entry.getIndex (), entry.getOrder (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        break;
+                    case INT64:
+                        result.add ( new Int64Variable ( entry.getName (), entry.getIndex (), entry.getOrder (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        break;
+                    case DOUBLE:
+                        result.add ( new DoubleFloatVariable ( entry.getName (), entry.getIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        break;
                 }
             }
             return result.toArray ( new Variable[result.size ()] );
@@ -366,6 +389,21 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                     break;
                 case UINT32:
                     result.add ( new DoubleIntegerAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
+                    break;
+                case INT8:
+                    result.add ( new Int8Attribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getIndexes ()[1] != 0 ) );
+                    break;
+                case INT16:
+                    result.add ( new Int16Attribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
+                    break;
+                case INT32:
+                    result.add ( new Int32Attribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
+                    break;
+                case INT64:
+                    result.add ( new Int64Attribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
+                    break;
+                case DOUBLE:
+                    result.add ( new DoubleFloatAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getIndexes ()[1] != 0 ) );
                     break;
                 default:
                     break;
