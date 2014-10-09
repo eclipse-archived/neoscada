@@ -450,17 +450,32 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
             case BIT:
                 result.add ( new TypeEntry ( varName, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), Integer.parseInt ( args[1] ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
-            case UINT8:
-                result.add ( new TypeEntry ( varName, TYPE.UINT8, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
-                break;
             case FLOAT:
                 result.add ( new TypeEntry ( varName, TYPE.FLOAT, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
+                break;
+            case DOUBLE:
+                result.add ( new TypeEntry ( varName, TYPE.DOUBLE, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
+                break;
+            case UINT8:
+                result.add ( new TypeEntry ( varName, TYPE.UINT8, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case UINT16:
                 result.add ( new TypeEntry ( varName, TYPE.UINT16, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case UINT32:
                 result.add ( new TypeEntry ( varName, TYPE.UINT32, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
+                break;
+            case INT8:
+                result.add ( new TypeEntry ( varName, TYPE.INT8, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
+                break;
+            case INT16:
+                result.add ( new TypeEntry ( varName, TYPE.INT16, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
+                break;
+            case INT32:
+                result.add ( new TypeEntry ( varName, TYPE.INT32, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
+                break;
+            case INT64:
+                result.add ( new TypeEntry ( varName, TYPE.INT64, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case UDT:
                 if ( attribute )
