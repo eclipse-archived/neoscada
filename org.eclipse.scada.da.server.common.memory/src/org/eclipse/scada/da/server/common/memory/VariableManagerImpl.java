@@ -48,7 +48,7 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
         /**
          * 8bit unsigned integer
          */
-        BYTE,
+        UINT8,
         /**
          * 32bit floating point
          */
@@ -56,11 +56,11 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
         /**
          * 16bit unsigned integer
          */
-        WORD,
+        UINT16,
         /**
          * 32bit unsigned integer
          */
-        DINT,
+        UINT32,
         /**
          * User defined type
          */
@@ -166,6 +166,14 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
         }
     }
 
+    private static Map<String, String> typeAliasMap = new HashMap<> ();
+    static
+    {
+        typeAliasMap.put ( "BYTE", TYPE.UINT8.name () );
+        typeAliasMap.put ( "WORD", TYPE.UINT16.name () );
+        typeAliasMap.put ( "DINT", TYPE.UINT32.name () );
+    }
+
     private final Multimap<String, VariableListener> listeners = HashMultimap.create ();
 
     private final Multimap<String, String> typeDeps = HashMultimap.create ();
@@ -267,7 +275,7 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
 
     /**
      * Handle a type change and fire change events for all dependent types
-     * 
+     *
      * @param configurationId
      */
     private void handleTypeChange ( final String configurationId )
@@ -307,16 +315,16 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                     case BIT:
                         result.add ( new BitVariable ( entry.getName (), entry.getIndex (), entry.getSubIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
-                    case BYTE:
+                    case UINT8:
                         result.add ( new ByteVariable ( entry.getName (), entry.getIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
                     case FLOAT:
                         result.add ( new FloatVariable ( entry.getName (), entry.getIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
-                    case WORD:
+                    case UINT16:
                         result.add ( new WordVariable ( entry.getName (), entry.getIndex (), entry.getOrder (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
-                    case DINT:
+                    case UINT32:
                         result.add ( new DoubleIntegerVariable ( entry.getName (), entry.getIndex (), entry.getOrder (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
                     case UDT:
@@ -350,13 +358,13 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                     final int[] index = attrEntry.getIndexes ();
                     result.add ( new TriBitAttribute ( attrEntry.getName (), index[0], index[1], index[2], index[3], index[4], index[5], index[6] != 0, index[7] != 0 ) );
                     break;
-                case BYTE:
+                case UINT8:
                     result.add ( new ByteAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getIndexes ()[1] != 0 ) );
                     break;
-                case WORD:
+                case UINT16:
                     result.add ( new WordAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
                     break;
-                case DINT:
+                case UINT32:
                     result.add ( new DoubleIntegerAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
                     break;
                 default:
@@ -399,22 +407,22 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
 
     protected void parseType ( final Map<String, String> properties, final Collection<TypeEntry> result, final String varName, final String typeName, final String[] args, final boolean attribute )
     {
-        switch ( TYPE.valueOf ( typeName ) )
+        switch ( typeValue ( typeName ) )
         {
             case BIT:
                 result.add ( new TypeEntry ( varName, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), Integer.parseInt ( args[1] ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
-            case BYTE:
-                result.add ( new TypeEntry ( varName, TYPE.BYTE, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
+            case UINT8:
+                result.add ( new TypeEntry ( varName, TYPE.UINT8, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case FLOAT:
                 result.add ( new TypeEntry ( varName, TYPE.FLOAT, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
                 break;
-            case WORD:
-                result.add ( new TypeEntry ( varName, TYPE.WORD, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
+            case UINT16:
+                result.add ( new TypeEntry ( varName, TYPE.UINT16, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
-            case DINT:
-                result.add ( new TypeEntry ( varName, TYPE.DINT, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
+            case UINT32:
+                result.add ( new TypeEntry ( varName, TYPE.UINT32, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case UDT:
                 if ( attribute )
@@ -428,15 +436,29 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                 break;
             case TRIBIT:
                 result.add ( new TypeEntry ( varName, new int[] {//
-                Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ),// read bit
-                Integer.parseInt ( args[2] ), Integer.parseInt ( args[3] ),// write true bit
-                Integer.parseInt ( args[4] ), Integer.parseInt ( args[5] ),// write false bit
-                Integer.parseInt ( args[6] ), // invert
-                Integer.parseInt ( args[7] ), // enableTimestamp
+                        Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ),// read bit
+                        Integer.parseInt ( args[2] ), Integer.parseInt ( args[3] ),// write true bit
+                        Integer.parseInt ( args[4] ), Integer.parseInt ( args[5] ),// write false bit
+                        Integer.parseInt ( args[6] ), // invert
+                        Integer.parseInt ( args[7] ), // enableTimestamp
                 } ) );
                 break;
             default:
                 throw new IllegalArgumentException ( String.format ( "Type %s is not supported at the moment", typeName ) );
+        }
+    }
+
+    private TYPE typeValue ( final String typeName )
+    {
+        try
+        {
+            // directly go with new names
+            return TYPE.valueOf ( typeName );
+        }
+        catch ( final Exception e )
+        {
+            // fall back to old alias map
+            return TYPE.valueOf ( typeAliasMap.get ( typeName ) );
         }
     }
 
