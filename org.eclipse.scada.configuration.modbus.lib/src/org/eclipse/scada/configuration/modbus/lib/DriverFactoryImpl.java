@@ -164,7 +164,16 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
                 {
                     ctx.add ( Severity.ERROR, new Object[] { block }, "The defined block type ({0} bytes) is bigger than the block request ({1} bytes / {2} registers).", typeLen, block.getCount () * 2, block.getCount () );
                 }
+                validateTypeSystem ( device.getTypeSystem (), block, device, ctx );
             }
+        }
+    }
+
+    private void validateTypeSystem ( final TypeSystem typeSystem, final ModbusBlock block, final ModbusDevice device, final ValidationContext ctx )
+    {
+        if ( !TypeHelper.hasType ( typeSystem, block.getType () ) )
+        {
+            ctx.add ( Severity.ERROR, new Object[] { block, ModbusPackage.Literals.MODBUS_BLOCK__TYPE }, "Block type {0} is not define in the type system of the device {1}", block.getId (), device.getName () );
         }
     }
 }
