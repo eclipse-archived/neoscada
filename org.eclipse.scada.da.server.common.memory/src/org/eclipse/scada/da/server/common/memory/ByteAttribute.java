@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,73 +11,33 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory;
 
-import java.util.Map;
-
-import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.da.server.common.memory.accessor.UInt8Accessor;
 
 /**
  * Implement a single bit attribute
- * 
+ *
  * @author Jens Reimann
  */
-public class ByteAttribute extends AbstractAttribute implements Attribute
+public class ByteAttribute extends AbstractAccessorAttribute<Short>
 {
-    private final int index;
-
-    private Byte lastValue;
-
-    private Variant lastTimestamp;
-
-    private final boolean enableTimestamp;
 
     public ByteAttribute ( final String name, final int index, final boolean enableTimestamp )
     {
-        super ( name );
-        this.index = index;
-        this.enableTimestamp = enableTimestamp;
+        super ( name, index, null, enableTimestamp, UInt8Accessor.INSTANCE );
     }
 
     @Override
-    public void handleData ( final IoBuffer data, final Map<String, Variant> attributes, final Variant timestamp )
+    protected Short getValue ( final Variant value )
     {
-        final byte b = data.get ( toAddress ( this.index ) );
-        attributes.put ( this.name, Variant.valueOf ( b ) );
-
-        if ( !Byte.valueOf ( b ).equals ( this.lastValue ) )
-        {
-            this.lastValue = b;
-            this.lastTimestamp = timestamp;
-        }
-
-        if ( this.enableTimestamp )
-        {
-            attributes.put ( this.name + ".timestamp", this.lastTimestamp );
-        }
-    }
-
-    @Override
-    public void handleError ( final Map<String, Variant> attributes )
-    {
-        this.lastValue = null;
-        this.lastTimestamp = null;
-    }
-
-    @Override
-    public void handleWrite ( final Variant value )
-    {
-        final MemoryRequestBlock block = this.block;
-
-        if ( block == null )
-        {
-            throw new IllegalStateException ( "Device is not connected" );
-        }
-
         final Integer i = value.asInteger ( null );
-        if ( i != null )
+        if ( i == null )
         {
-            block.writeData ( toAddress ( this.index ), new byte[] { i.byteValue () } );
+            return null;
+        }
+        else
+        {
+            return i.shortValue ();
         }
     }
-
 }

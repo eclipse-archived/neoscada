@@ -14,7 +14,7 @@ package org.eclipse.scada.da.server.common.memory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AbstractAttribute
+public abstract class AbstractAttribute implements Attribute
 {
     private final static Logger logger = LoggerFactory.getLogger ( AbstractAttribute.class );
 
@@ -33,11 +33,13 @@ public class AbstractAttribute
         this.stopped = true;
     }
 
+    @Override
     public String getName ()
     {
         return this.name;
     }
 
+    @Override
     public void start ( final MemoryRequestBlock block, final int offset )
     {
         logger.debug ( "Starting attribute: {}", this.name );
@@ -49,6 +51,7 @@ public class AbstractAttribute
         this.offset = offset;
     }
 
+    @Override
     public void stop ()
     {
         logger.debug ( "Stopping attribute: {}", this.name );

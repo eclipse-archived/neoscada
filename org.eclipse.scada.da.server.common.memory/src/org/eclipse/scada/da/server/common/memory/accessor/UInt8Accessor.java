@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,25 +12,25 @@ package org.eclipse.scada.da.server.common.memory.accessor;
 
 import org.apache.mina.core.buffer.IoBuffer;
 
-public class Int32Accessor implements Accessor<Integer>
+public class UInt8Accessor implements Accessor<Short>
 {
-    public static final Int32Accessor INSTANCE = new Int32Accessor ();
+    public static final UInt8Accessor INSTANCE = new UInt8Accessor ();
 
     @Override
-    public Integer get ( final IoBuffer data, final int index )
+    public Short get ( final IoBuffer data, final int index )
     {
-        return data.getInt ( index );
+        return data.getUnsigned ( index );
     }
 
     @Override
-    public void put ( final IoBuffer data, final Integer value )
+    public void put ( final IoBuffer data, final Short value )
     {
-        data.putInt ( value );
+        data.putUnsigned ( value );
     }
 
     @Override
-    public int getBufferSize ( final Integer value )
+    public int getBufferSize ( final Short value )
     {
-        return 4;
+        return 1;
     }
 }

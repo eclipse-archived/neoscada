@@ -18,12 +18,11 @@ import org.eclipse.scada.core.Variant;
 
 /**
  * Implement a single bit attribute
- * 
+ *
  * @author Jens Reimann
  */
-public class BitAttribute extends AbstractAttribute implements Attribute
+public class BitAttribute extends AbstractAttribute
 {
-
     private final int index;
 
     private final int subIndex;

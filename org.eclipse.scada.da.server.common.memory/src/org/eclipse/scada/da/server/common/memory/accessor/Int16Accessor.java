@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,7 +12,7 @@ package org.eclipse.scada.da.server.common.memory.accessor;
 
 import org.apache.mina.core.buffer.IoBuffer;
 
-public class Int16Accessor implements Getter<Short>, Setter<Short>
+public class Int16Accessor implements Accessor<Short>
 {
     public static final Int16Accessor INSTANCE = new Int16Accessor ();
 
@@ -26,5 +26,11 @@ public class Int16Accessor implements Getter<Short>, Setter<Short>
     public void put ( final IoBuffer data, final Short value )
     {
         data.putShort ( value );
+    }
+
+    @Override
+    public int getBufferSize ( final Short value )
+    {
+        return 2;
     }
 }

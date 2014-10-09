@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,16 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory.accessor;
 
-import org.apache.mina.core.buffer.IoBuffer;
-
-public interface Getter<T>
+public interface Accessor<T> extends Getter<T>, Setter<T>
 {
-    public T get ( IoBuffer data, int index );
-
-    /**
-     * Get the size in bytes required to serialize this value
-     *
-     * @return the size in bytes
-     */
-    public int getBufferSize ( T value );
 }

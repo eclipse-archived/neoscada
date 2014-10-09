@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,7 +12,7 @@ package org.eclipse.scada.da.server.common.memory.accessor;
 
 import org.apache.mina.core.buffer.IoBuffer;
 
-public class UInt16Accessor implements Getter<Integer>, Setter<Integer>
+public class UInt16Accessor implements Accessor<Integer>
 {
     public static final UInt16Accessor INSTANCE = new UInt16Accessor ();
 
@@ -26,5 +26,11 @@ public class UInt16Accessor implements Getter<Integer>, Setter<Integer>
     public void put ( final IoBuffer data, final Integer value )
     {
         data.putUnsignedShort ( value );
+    }
+
+    @Override
+    public int getBufferSize ( final Integer value )
+    {
+        return 2;
     }
 }

@@ -20,10 +20,10 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Implement a single bit attribute
- * 
+ *
  * @author Jens Reimann
  */
-public class TriBitAttribute extends AbstractAttribute implements Attribute
+public class TriBitAttribute extends AbstractAttribute
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( TriBitAttribute.class );
