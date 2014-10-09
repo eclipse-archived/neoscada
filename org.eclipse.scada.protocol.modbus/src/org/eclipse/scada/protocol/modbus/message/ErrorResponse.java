@@ -10,10 +10,27 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.message;
 
+import org.eclipse.scada.protocol.modbus.Constants;
+
+/**
+ * An error response to a request
+ */
 public class ErrorResponse extends BaseMessage
 {
     private final byte exceptionCode;
 
+    /**
+     * Create a new error response
+     *
+     * @param transactionId
+     *            the request transaction id
+     * @param unitIdentifier
+     *            the request unit id
+     * @param functionCode
+     *            the original function code, no having the exception flag set
+     * @param exceptionCode
+     *            the exception code. Also see {@link Constants}.
+     */
     public ErrorResponse ( final int transactionId, final byte unitIdentifier, final byte functionCode, final byte exceptionCode )
     {
         super ( transactionId, unitIdentifier, functionCode );

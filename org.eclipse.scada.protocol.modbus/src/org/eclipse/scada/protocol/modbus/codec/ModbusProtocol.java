@@ -135,7 +135,7 @@ public final class ModbusProtocol
         else if ( message instanceof ErrorResponse )
         {
             final ErrorResponse errorResponseMessage = (ErrorResponse)message;
-            data.put ( errorResponseMessage.getFunctionCode () );
+            data.putUnsigned ( errorResponseMessage.getFunctionCode () | Constants.FUNCTION_CODE_ERROR_FLAG );
             data.put ( errorResponseMessage.getExceptionCode () );
         }
         else
