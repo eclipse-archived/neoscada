@@ -95,6 +95,12 @@ public class PreviewEditorImpl extends AbstractModelEditor
         dumpState ();
     }
 
+    public void reload ()
+    {
+        dumpState ();
+        updateSymbol ();
+    }
+
     @Override
     protected void handleInputChanged ( final List<Resource> changedResources, final List<Resource> removedResources )
     {
@@ -107,7 +113,9 @@ public class PreviewEditorImpl extends AbstractModelEditor
     public void createPartControl ( final Composite parent )
     {
         final Composite wrapper = new Composite ( parent, SWT.NONE );
-        wrapper.setLayout ( new GridLayout ( 1, false ) );
+        final GridLayout layout = new GridLayout ( 1, false );
+        layout.marginHeight = layout.marginWidth = 0;
+        wrapper.setLayout ( layout );
 
         this.symbolArea = new Composite ( wrapper, SWT.NONE );
         this.symbolArea.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );

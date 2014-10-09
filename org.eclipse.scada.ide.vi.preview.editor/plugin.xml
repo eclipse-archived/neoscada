@@ -8,9 +8,57 @@
             default="false"
             extensions="vi"
             icon="icons/preview-editor.png"
-            id="org.eclipse.scada.ide.vi.preview.editor.editor1"
+            id="org.eclipse.scada.ide.vi.preview.editor"
             name="Visual Interface Preview">
       </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="org.eclipse.scada.ide.vi.preview">
+            <command
+                  commandId="org.eclipse.scada.ide.vi.preview.editor.reload"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
+  
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.eclipse.scada.ide.vi.preview.editor.reload">
+         <class
+               class="org.eclipse.scada.ide.vi.preview.editor.ReloadHandler"></class>
+         <activeWhen>
+            <and>
+               <with
+                     variable="activeEditorId">
+                  <equals
+                        value="org.eclipse.scada.ide.vi.preview.editor">
+                  </equals>
+               </with>
+            </and>
+         </activeWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.scada.configuration"
+            id="org.eclipse.scada.ide.vi.preview.editor.reload"
+            name="Reload">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="org.eclipse.scada.ide.vi.preview.editor.reload"
+            icon="icons/refresh.png">
+      </image>
    </extension>
 
 </plugin>
