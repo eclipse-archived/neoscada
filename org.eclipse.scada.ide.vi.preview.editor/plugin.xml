@@ -10,6 +10,9 @@
             icon="icons/preview-editor.png"
             id="org.eclipse.scada.ide.vi.preview.editor"
             name="Visual Interface Preview">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.scada.hmi.vi">
+         </contentTypeBinding>
       </editor>
    </extension>
    <extension
@@ -24,6 +27,17 @@
                   style="push">
             </command>
          </toolbar>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <command
+               commandId="org.eclipse.scada.ide.vi.preview.editor.OpenPreview"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
       </menuContribution>
   
    </extension>
@@ -44,6 +58,26 @@
             </and>
          </activeWhen>
       </handler>
+      <handler
+            commandId="org.eclipse.scada.ide.vi.preview.editor.OpenPreview">
+         <class
+               class="org.eclipse.scada.ide.vi.preview.editor.PreviewHandler"></class>
+         <activeWhen>
+            <with
+                  variable="activeMenuSelection">
+               <iterate>
+                  <adapt
+                        type="org.eclipse.core.resources.IFile">
+                     <test
+                           property="org.eclipse.core.resources.contentTypeId"
+                           value="org.eclipse.scada.hmi.vi">
+                     </test>
+                  </adapt>
+               </iterate>
+            </with>
+         </activeWhen>
+
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
@@ -52,12 +86,21 @@
             id="org.eclipse.scada.ide.vi.preview.editor.reload"
             name="Reload">
       </command>
+      <command
+            categoryId="org.eclipse.scada.configuration"
+            id="org.eclipse.scada.ide.vi.preview.editor.OpenPreview"
+            name="Preview">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.commandImages">
       <image
             commandId="org.eclipse.scada.ide.vi.preview.editor.reload"
             icon="icons/refresh.png">
+      </image>
+      <image
+            commandId="org.eclipse.scada.ide.vi.preview.editor.OpenPreview"
+            icon="icons/preview-editor.png">
       </image>
    </extension>
 

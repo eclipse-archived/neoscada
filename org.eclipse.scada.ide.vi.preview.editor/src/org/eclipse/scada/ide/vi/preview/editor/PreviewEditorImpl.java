@@ -39,6 +39,8 @@ import org.slf4j.LoggerFactory;
 
 public class PreviewEditorImpl extends AbstractModelEditor
 {
+    public static final String EDITOR_ID = "org.eclipse.scada.ide.vi.preview.editor";
+
     private final static Logger logger = LoggerFactory.getLogger ( PreviewEditorImpl.class );
 
     private final ComposedAdapterFactory adapterFactory;
