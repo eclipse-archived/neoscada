@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+      Post process build
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+Things to do after the main build
+        
+Called from the pom.xml when the profile "eclipse-hudson"
+is active.
+    </description>
+	    
+    <property name="output" location="../output"/>
+    
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    
+    <!-- the base where drops will be placed for this repository -->
+    <property name="download.base" location="${download.root}/downloads/org.eclipse.scada/drops"/>
+    
+    <!-- the actual drop directory -->
+    <property name="download.dir" location="${download.base}/${unqualifiedVersion}/${buildType}${buildTimestamp}"/>
+    
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="clean,build,copy">
+    </target>
+    
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="${output}"/>
+    </target>
+    
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <mkdir dir="${output}/javadoc"/>
+            
+        <move todir="${output}/javadoc">
+            <fileset dir=".">
+                <include name="target/org.eclipse.scada-javadoc.jar"/>
+            </fileset>
+            <mapper type="flatten"/>
+        </move>
+   </target>
+    
+    <!-- ================================= 
+          target: copy
+         ================================= -->
+    <target name="copy" unless="skip.copy">
+        <echo message="Download Directory: ${download.dir}"/>
+        
+        <mkdir dir="${download.dir}"/>
+        
+        <copy
+        	file="${output}/javadoc/org.eclipse.scada-javadoc.jar"
+        	todir="${download.dir}"/>
+    	
+    	<mkdir dir="${download.dir}/javadoc"/>
+    	
+    	<unzip dest="${download.dir}/javadoc" src="${download.dir}/org.eclipse.scada-javadoc.jar">
+    		<patternset>
+    			<exclude name="META-INF"/>
+    			<exclude name="META-INF/*"/>
+    		</patternset>
+    	</unzip>
+    </target>
+
+</project>
