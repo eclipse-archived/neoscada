@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -36,8 +36,11 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
         {
             // peek body size
             final int bodySize = in.getUnsignedShort ( in.position () + 2 + 2 );
+            final int reqBytes = Constants.TCP_HEADER_SIZE + bodySize - 1;
+            final int remaining = in.remaining ();
+            logger.trace ( "Remaining bytes: {}, required: {} (Body: {})", remaining, reqBytes, bodySize );
 
-            if ( in.remaining () < Constants.TCP_HEADER_SIZE + bodySize - 1 ) // unit identifier is part of length, so it has to be subtracted
+            if ( remaining < reqBytes ) // unit identifier is part of length, so it has to be subtracted
             {
                 // message is not complete so skip for next try
                 return false;
@@ -47,18 +50,18 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
             final int transactionIdentifier = in.getUnsignedShort ();
             if ( logger.isTraceEnabled () )
             {
-                logger.trace ( "transaction identifier: {} ({})", transactionIdentifier, String.format ( "%02x", transactionIdentifier ) );
+                logger.trace ( "transaction identifier: {} ({})", transactionIdentifier, String.format ( "%04x", transactionIdentifier ) );
             }
 
             // ensure specification compliance
-            final short protocolIdentifier = in.getShort ();
+            final int protocolIdentifier = in.getUnsignedShort ();
             if ( protocolIdentifier != 0 )
             {
                 throw new ModbusProtocolError ( String.format ( "protocol identifier must be 0, but was: %d", protocolIdentifier ) );
             }
 
             // remove length
-            in.getShort ();
+            in.getUnsignedShort ();
 
             // get unit id
             final byte unitIdentifier = in.get ();
