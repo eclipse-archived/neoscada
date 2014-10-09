@@ -35,7 +35,7 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
         while ( in.remaining () >= Constants.TCP_HEADER_SIZE )
         {
             // peek body size
-            final short bodySize = in.getShort ( in.position () + 2 + 2 );
+            final int bodySize = in.getUnsignedShort ( in.position () + 2 + 2 );
 
             if ( in.remaining () < Constants.TCP_HEADER_SIZE + bodySize - 1 ) // unit identifier is part of length, so it has to be subtracted
             {
