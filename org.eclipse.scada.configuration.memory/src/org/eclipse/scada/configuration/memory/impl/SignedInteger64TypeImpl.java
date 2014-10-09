@@ -62,7 +62,7 @@ public class SignedInteger64TypeImpl extends OrderedTypeImpl implements SignedIn
     @Override
     public String encode ()
     {
-        return String.format ( "INT64:%s:0", this.index );
+        return String.format ( "INT64:%s:0:%s", this.index, this.order );
     }
 
 } //SignedInteger64TypeImpl

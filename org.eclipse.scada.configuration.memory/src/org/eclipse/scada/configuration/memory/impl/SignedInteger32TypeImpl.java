@@ -30,7 +30,7 @@ public class SignedInteger32TypeImpl extends OrderedTypeImpl implements SignedIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SignedInteger32TypeImpl ()
@@ -41,7 +41,7 @@ public class SignedInteger32TypeImpl extends OrderedTypeImpl implements SignedIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class SignedInteger32TypeImpl extends OrderedTypeImpl implements SignedIn
     @Override
     public String encode ()
     {
-        return String.format ( "INT32:%s:0", this.index );
+        return String.format ( "INT32:%s:0:%s", this.index, this.order );
     }
 
 } //SignedInteger32TypeImpl
