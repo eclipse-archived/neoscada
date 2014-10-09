@@ -30,7 +30,7 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
     }
 
     @Override
-    protected boolean doDecode ( IoSession session, IoBuffer in, ProtocolDecoderOutput out ) throws Exception
+    protected boolean doDecode ( final IoSession session, final IoBuffer in, final ProtocolDecoderOutput out ) throws Exception
     {
         while ( in.remaining () >= Constants.TCP_HEADER_SIZE )
         {
@@ -45,7 +45,10 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
             logger.trace ( "doDecode () frame = {}", in.getHexDump () );
 
             final int transactionIdentifier = in.getUnsignedShort ();
-            logger.trace ( "transaction identifier: {}", transactionIdentifier );
+            if ( logger.isTraceEnabled () )
+            {
+                logger.trace ( "transaction identifier: {} ({})", transactionIdentifier, String.format ( "%02x", transactionIdentifier ) );
+            }
 
             // ensure specification compliance
             final short protocolIdentifier = in.getShort ();
@@ -56,7 +59,7 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
 
             // remove length
             in.getShort ();
-            
+
             // get unit id
             final byte unitIdentifier = in.get ();
 
