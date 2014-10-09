@@ -16,6 +16,13 @@
     <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${release}" />
     <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
 	
+	<condition property="doJavadoc">
+		<or>
+			<equals arg1="milestone" arg2="${buildTypeLong}"/>
+			<equals arg1="release" arg2="${buildTypeLong}"/>
+		</or>
+	</condition>
+	
 	<!--
 	  - for javadoc we explicity only have one directory (for nightly, milestone, release)
 	  -->
@@ -64,7 +71,7 @@
     <!-- ================================= 
           target: link
          ================================= -->
-    <target name="link">
+    <target name="link" depends="link.javadoc">
         <!-- symlinks won't work on download.eclipse.org -->
         <mkdir dir="${repo.base}" />
         <copy todir="${repo.base}">
@@ -72,13 +79,18 @@
             </fileset>
         </copy>
     	
+    	<!-- updates are handled by repgen -->
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: link.javadoc                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="link.javadoc" if="doJavadoc">
     	<mkdir dir="${javadoc.base}"/>
     	<copy todir="${javadoc.base}">
     		<fileset dir="${download.base.dir}/javadoc">
             </fileset>
 		</copy>
-    	
-    	<!-- updates are handled by repgen -->
     </target>
 
     <!-- =================================
