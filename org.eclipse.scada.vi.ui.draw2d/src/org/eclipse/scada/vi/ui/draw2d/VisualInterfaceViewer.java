@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add factory context
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d;
 
@@ -82,6 +83,8 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
     private final Set<org.eclipse.emf.common.util.URI> loadedResources = new HashSet<> ();
 
+    private final FactoryContext factoryContext;
+
     /**
      * Create a new viewer
      *
@@ -143,6 +146,8 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
         this.initialProperties = properties == null ? Collections.<String, String> emptyMap () : properties;
         this.scriptObjects = scriptObjects;
 
+        this.factoryContext = factoryContext;
+
         this.manager = new LocalResourceManager ( JFaceResources.getResources () );
 
         addDisposeListener ( new DisposeListener () {
@@ -158,7 +163,7 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
         this.canvas = createCanvas ();
         setZooming ( null );
 
-        this.factory = new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader, factoryContext );
+        this.factory = new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader, this.factoryContext );
 
         try
         {
@@ -307,7 +312,7 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
             }
             properties.putAll ( this.initialProperties );
 
-            this.controller = new SymbolController ( getShell (), symbolLoader, properties, this.scriptObjects );
+            this.controller = new SymbolController ( getShell (), symbolLoader, properties, this.scriptObjects, this.factoryContext );
 
             final Controller controller = create ( this.symbol.getRoot () );
 

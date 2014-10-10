@@ -146,7 +146,7 @@ public class BasicViewElementFactory
         else if ( element instanceof SymbolReference )
         {
             final XMISymbolLoader subLoader = load ( ( (SymbolReference)element ).getUri () );
-            return new SymbolReferenceController ( controller, (SymbolReference)element, createSubFactory ( subLoader ), this.manager );
+            return new SymbolReferenceController ( controller, (SymbolReference)element, createSubFactory ( subLoader ), this.manager, this.factoryContext );
         }
         else if ( element instanceof Rectangle )
         {
