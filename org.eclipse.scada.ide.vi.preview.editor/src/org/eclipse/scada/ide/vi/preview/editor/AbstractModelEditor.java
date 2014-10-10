@@ -42,8 +42,7 @@ public abstract class AbstractModelEditor extends EditorPart implements IEditing
 {
     private final static Logger logger = LoggerFactory.getLogger ( AbstractModelEditor.class );
 
-    protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener ()
-    {
+    private final IResourceChangeListener resourceChangeListener = new IResourceChangeListener () {
         @Override
         public void resourceChanged ( final IResourceChangeEvent event )
         {
