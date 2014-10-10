@@ -22,6 +22,7 @@ import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.eclipse.scada.da.server.common.DataItem;
+import org.eclipse.scada.da.server.common.memory.internal.VariableManagerImpl;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;

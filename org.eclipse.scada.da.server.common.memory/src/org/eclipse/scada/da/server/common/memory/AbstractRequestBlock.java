@@ -184,7 +184,7 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
 
     /**
      * The the update priority used to find the next block to request
-     * 
+     *
      * @param now
      * @return the update priority, or <code>null</code> if the block does not
      *         want to be
@@ -315,7 +315,7 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
 
     /**
      * Set the new variable configuration
-     * 
+     *
      * @param variables
      *            the new variables to set
      */

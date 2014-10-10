@@ -9,7 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - refactor for generic memory devices
  *******************************************************************************/
-package org.eclipse.scada.da.server.common.memory;
+package org.eclipse.scada.da.server.common.memory.internal;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,6 +24,33 @@ import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationFactory;
 import org.eclipse.scada.da.server.common.DataItem;
+import org.eclipse.scada.da.server.common.memory.Attribute;
+import org.eclipse.scada.da.server.common.memory.BitAttribute;
+import org.eclipse.scada.da.server.common.memory.BitVariable;
+import org.eclipse.scada.da.server.common.memory.ByteAttribute;
+import org.eclipse.scada.da.server.common.memory.ByteOrder;
+import org.eclipse.scada.da.server.common.memory.ByteVariable;
+import org.eclipse.scada.da.server.common.memory.DoubleFloatAttribute;
+import org.eclipse.scada.da.server.common.memory.DoubleFloatVariable;
+import org.eclipse.scada.da.server.common.memory.DoubleIntegerAttribute;
+import org.eclipse.scada.da.server.common.memory.DoubleIntegerVariable;
+import org.eclipse.scada.da.server.common.memory.FloatAttribute;
+import org.eclipse.scada.da.server.common.memory.FloatVariable;
+import org.eclipse.scada.da.server.common.memory.Int16Attribute;
+import org.eclipse.scada.da.server.common.memory.Int16Variable;
+import org.eclipse.scada.da.server.common.memory.Int32Attribute;
+import org.eclipse.scada.da.server.common.memory.Int32Variable;
+import org.eclipse.scada.da.server.common.memory.Int64Attribute;
+import org.eclipse.scada.da.server.common.memory.Int64Variable;
+import org.eclipse.scada.da.server.common.memory.Int8Attribute;
+import org.eclipse.scada.da.server.common.memory.Int8Variable;
+import org.eclipse.scada.da.server.common.memory.TriBitAttribute;
+import org.eclipse.scada.da.server.common.memory.UdtVariable;
+import org.eclipse.scada.da.server.common.memory.Variable;
+import org.eclipse.scada.da.server.common.memory.VariableListener;
+import org.eclipse.scada.da.server.common.memory.VariableManager;
+import org.eclipse.scada.da.server.common.memory.WordAttribute;
+import org.eclipse.scada.da.server.common.memory.WordVariable;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
