@@ -83,7 +83,7 @@ public abstract class ScalarVariable implements Variable
             attr.handleError ( attributes );
         }
 
-        attributes.put ( "communcation.error", Variant.TRUE );
+        attributes.put ( "communication.error", Variant.TRUE );
 
         final MemoryDeviceDataitem item = this.item;
         if ( item != null )
