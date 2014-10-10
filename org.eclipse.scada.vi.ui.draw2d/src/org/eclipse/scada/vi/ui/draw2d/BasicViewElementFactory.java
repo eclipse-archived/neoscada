@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.FigureCanvas;
@@ -26,6 +27,7 @@ import org.eclipse.draw2d.PolylineConnection;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.jface.util.SafeRunnable;
 import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 import org.eclipse.scada.vi.model.Arc;
 import org.eclipse.scada.vi.model.BorderContainer;
@@ -68,7 +70,6 @@ import org.slf4j.LoggerFactory;
 
 public class BasicViewElementFactory
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( BasicViewElementFactory.class );
 
     private final ResourceManager manager;
@@ -79,11 +80,32 @@ public class BasicViewElementFactory
 
     private final SymbolLoader symbolLoader;
 
+    private final FactoryContext factoryContext;
+
     public BasicViewElementFactory ( final FigureCanvas canvas, final ResourceManager manager, final SymbolLoader symbolLoader )
+    {
+        this ( canvas, manager, symbolLoader, null );
+    }
+
+    public BasicViewElementFactory ( final FigureCanvas canvas, final ResourceManager manager, final SymbolLoader symbolLoader, final FactoryContext factoryContext )
     {
         this.manager = manager;
         this.canvas = canvas;
         this.symbolLoader = symbolLoader;
+
+        this.factoryContext = factoryContext == null ? FactoryContext.DEFAULT : factoryContext;
+    }
+
+    protected void fireResourceLoaded ( final URI uri )
+    {
+        SafeRunner.run ( new SafeRunnable () {
+
+            @Override
+            public void run () throws Exception
+            {
+                BasicViewElementFactory.this.factoryContext.loadedResource ( uri );
+            }
+        } );
     }
 
     public Controller create ( final SymbolController controller, final Primitive element ) throws Exception
@@ -156,13 +178,13 @@ public class BasicViewElementFactory
         }
         else if ( element instanceof Image )
         {
-            return new ImageController ( this.canvas, controller, (Image)element, this.symbolLoader, this.manager );
+            return new ImageController ( this.canvas, controller, (Image)element, this.symbolLoader, this.manager, this.factoryContext );
         }
 
         final ViewElementFactory factory = Activator.createFactory ( element );
         if ( factory != null )
         {
-            return factory.create ( controller, element, this.symbolLoader, this.manager, this );
+            return factory.create ( controller, element, this.symbolLoader, this.manager, this, this.factoryContext );
         }
 
         throw new IllegalArgumentException ( String.format ( "Element type %s is unknown", element.eClass ().getName () ) );
@@ -197,7 +219,7 @@ public class BasicViewElementFactory
      * <p>
      * Note that the implementation caches by URI
      * </p>
-     * 
+     *
      * @param uri
      *            the URI from where to load the symbol
      * @return a symbol loader
@@ -215,6 +237,8 @@ public class BasicViewElementFactory
         }
 
         logger.info ( "Loading: {}", uri ); //$NON-NLS-1$
+
+        fireResourceLoaded ( uri );
 
         final XMISymbolLoader loader = new XMISymbolLoader ( uri );
         this.symbolCache.put ( uri, loader );
@@ -234,14 +258,14 @@ public class BasicViewElementFactory
      * context for resolving resource URIs, a new factory must be created for
      * every child symbol.
      * </p>
-     * 
+     *
      * @param symbolLoader
      *            symbol loader, resource context for the new factory
      * @return a new factory
      */
     public BasicViewElementFactory createSubFactory ( final SymbolLoader symbolLoader )
     {
-        return new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader );
+        return new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader, this.factoryContext );
     }
 
     public void createConnections ( final Layer layer, final SymbolController controller, final EList<Connection> connections )

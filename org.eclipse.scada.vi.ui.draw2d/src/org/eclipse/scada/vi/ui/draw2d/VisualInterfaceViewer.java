@@ -14,7 +14,9 @@ package org.eclipse.scada.vi.ui.draw2d;
 import java.net.URI;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.draw2d.ConnectionLayer;
 import org.eclipse.draw2d.FigureCanvas;
@@ -78,9 +80,11 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
     private ConnectionLayer connectionLayer;
 
+    private final Set<org.eclipse.emf.common.util.URI> loadedResources = new HashSet<> ();
+
     /**
      * Create a new viewer
-     * 
+     *
      * @param parent
      *            the parent composite
      * @param style
@@ -102,7 +106,7 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
     /**
      * Create a new viewer
-     * 
+     *
      * @param parent
      *            the parent composite
      * @param style
@@ -129,6 +133,11 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
     public VisualInterfaceViewer ( final Composite parent, final int style, final SymbolLoader symbolLoader, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
+        this ( parent, style, symbolLoader, scriptObjects, properties, null );
+    }
+
+    public VisualInterfaceViewer ( final Composite parent, final int style, final SymbolLoader symbolLoader, final Map<String, Object> scriptObjects, final Map<String, String> properties, final FactoryContext factoryContext )
+    {
         super ( parent, style );
 
         this.initialProperties = properties == null ? Collections.<String, String> emptyMap () : properties;
@@ -149,7 +158,7 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
         this.canvas = createCanvas ();
         setZooming ( null );
 
-        this.factory = new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader );
+        this.factory = new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader, factoryContext );
 
         try
         {
@@ -163,7 +172,7 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
             this.symbol = symbolLoader.loadSymbol ();
             create ( symbolLoader );
-            applyColor ( symbolLoader.loadSymbol () );
+            applyColor ( this.symbol );
         }
         catch ( final Exception e )
         {
@@ -172,6 +181,21 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
             this.canvas.setContents ( Helper.createErrorFigure ( e ) );
         }
+    }
+
+    /**
+     * Gets the loaded resources <br/>
+     * Note that this method does not return the symbol resource which was
+     * passed to the constructor. Only the resources loaded by building up that
+     * symbol. <br/>
+     * Also if the process of loading and building the symbol fails, the list if
+     * resources may be incomplete.
+     *
+     * @return the loaded resources
+     */
+    public Set<org.eclipse.emf.common.util.URI> getResources ()
+    {
+        return this.loadedResources;
     }
 
     private ScalableLayeredPane createPane ()

@@ -14,9 +14,11 @@ package org.eclipse.scada.vi.ui.chart.draw2d;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.vi.chart.model.ChartView;
 import org.eclipse.scada.vi.ui.draw2d.ErrorFigure;
+import org.eclipse.scada.vi.ui.draw2d.FactoryContext;
 import org.eclipse.scada.vi.ui.draw2d.SymbolController;
 import org.eclipse.scada.vi.ui.draw2d.loader.SymbolLoader;
 import org.eclipse.scada.vi.ui.draw2d.primitives.FigureController;
@@ -32,9 +34,13 @@ public class ChartController extends FigureController
 
     private final SymbolLoader symbolLoader;
 
-    public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view, final SymbolLoader symbolLoader )
+    private final FactoryContext context;
+
+    public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view, final SymbolLoader symbolLoader, final FactoryContext context )
     {
         super ( symbolController, resourceManager );
+
+        this.context = context;
 
         this.symbolLoader = symbolLoader;
 
@@ -83,7 +89,9 @@ public class ChartController extends FigureController
         {
             try
             {
-                this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( this.symbolLoader.resolveUri ( configurationUri ) ) );
+                final String uri = this.symbolLoader.resolveUri ( configurationUri );
+                this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( uri ) );
+                this.context.loadedResource ( URI.createURI ( uri ) );
             }
             catch ( final Exception e )
             {

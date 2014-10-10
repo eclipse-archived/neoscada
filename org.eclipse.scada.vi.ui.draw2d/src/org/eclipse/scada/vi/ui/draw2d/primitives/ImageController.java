@@ -19,9 +19,11 @@ import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.vi.model.Image;
+import org.eclipse.scada.vi.ui.draw2d.FactoryContext;
 import org.eclipse.scada.vi.ui.draw2d.SymbolController;
 import org.eclipse.scada.vi.ui.draw2d.loader.SymbolLoader;
 
@@ -33,9 +35,12 @@ public class ImageController extends FigureController
 
     private final SymbolLoader symbolLoader;
 
-    public ImageController ( final FigureCanvas canvas, final SymbolController controller, final Image element, final SymbolLoader symbolLoader, final ResourceManager manager )
+    private final FactoryContext factoryContext;
+
+    public ImageController ( final FigureCanvas canvas, final SymbolController controller, final Image element, final SymbolLoader symbolLoader, final ResourceManager manager, final FactoryContext factoryContext )
     {
         super ( controller, manager );
+        this.factoryContext = factoryContext;
 
         this.symbolLoader = symbolLoader;
 
@@ -89,7 +94,9 @@ public class ImageController extends FigureController
         {
             try
             {
-                this.figure.setIcon ( this.manager.createImageWithDefault ( this.currentImage = ImageDescriptor.createFromURL ( new URL ( this.symbolLoader.resolveUri ( uri ) ) ) ) );
+                final URL url = new URL ( this.symbolLoader.resolveUri ( uri ) );
+                this.figure.setIcon ( this.manager.createImageWithDefault ( this.currentImage = ImageDescriptor.createFromURL ( url ) ) );
+                this.factoryContext.loadedResource ( URI.createURI ( url.toString () ) );
             }
             catch ( final MalformedURLException e )
             {

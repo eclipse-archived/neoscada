@@ -16,6 +16,7 @@ import org.eclipse.scada.vi.chart.model.ChartView;
 import org.eclipse.scada.vi.model.Primitive;
 import org.eclipse.scada.vi.ui.draw2d.BasicViewElementFactory;
 import org.eclipse.scada.vi.ui.draw2d.Controller;
+import org.eclipse.scada.vi.ui.draw2d.FactoryContext;
 import org.eclipse.scada.vi.ui.draw2d.Helper;
 import org.eclipse.scada.vi.ui.draw2d.SymbolController;
 import org.eclipse.scada.vi.ui.draw2d.loader.SymbolLoader;
@@ -24,12 +25,12 @@ public class ViewElementFactory implements org.eclipse.scada.vi.ui.draw2d.ViewEl
 {
 
     @Override
-    public Controller create ( final SymbolController controller, final Primitive element, final SymbolLoader symbolLoader, final ResourceManager manager, final BasicViewElementFactory basicViewElementFactory )
+    public Controller create ( final SymbolController controller, final Primitive element, final SymbolLoader symbolLoader, final ResourceManager manager, final BasicViewElementFactory basicViewElementFactory, final FactoryContext context )
     {
         try
         {
             final ChartView view = (ChartView)element;
-            return new ChartController ( controller, manager, view, symbolLoader );
+            return new ChartController ( controller, manager, view, symbolLoader, context );
         }
         catch ( final Exception e )
         {
