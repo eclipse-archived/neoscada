@@ -3,6 +3,7 @@
   <start>org.eclipse.scada.sec.audit.log.ae</start>
   <start>org.eclipse.scada.da.server.exporter.ngp</start>
   <start>org.eclipse.scada.da.client.ngp</start>
+  <start>org.eclipse.scada.da.client.sfp</start>
   <start>org.eclipse.scada.da.server.common.osgi</start>
   <start>org.eclipse.scada.da.connection.provider</start>
   <start>org.eclipse.scada.da.client.connection.service</start>
