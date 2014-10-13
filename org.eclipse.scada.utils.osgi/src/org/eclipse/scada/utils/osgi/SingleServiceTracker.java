@@ -154,6 +154,8 @@ public class SingleServiceTracker<T>
         {
         }
 
+        logger.debug ( "isHigher - new: {}, current: {}", ref1, ref2 );
+
         return ref1 > ref2;
     }
 
