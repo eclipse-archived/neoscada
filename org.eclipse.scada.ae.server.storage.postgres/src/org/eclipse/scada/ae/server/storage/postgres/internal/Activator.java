@@ -80,7 +80,7 @@ public class Activator implements BundleActivator
             @Override
             public void serviceChange ( final ServiceReference<DataSourceFactory> reference, final DataSourceFactory dsf )
             {
-                logger.info ( "Data source factory change - {}", null, dsf );
+                logger.info ( "Data source factory change - {}", dsf );
                 try
                 {
                     deactivate ();
