@@ -49,6 +49,9 @@ function openDetailDialogById(id) {
  * overwrite default properties
  */
 function openDetailDialogWithProperties(id, properties) {
+
+   id = ( id == null ) ? null : id.toString (); // required for nashorn
+
 	var finalProperties = new java.util.HashMap(controller.getPropertiesAsMap());
 	if (isString(properties)) {
 		finalProperties.putAll(GSON.fromJson(properties, java.util.HashMap));

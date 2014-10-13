@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.ide.validation.handler">
+      <validationContext
+            contextId="org.eclipse.scada.configuration.component"
+            packageUri="http://eclipse.org/SCADA/Configuration/Component">
+         <validator
+               class="org.eclipse.scada.configuration.component.validation.MovingAverageValidator"
+               filterClass="org.eclipse.scada.configuration.component.MovingAverageModule">
+         </validator>
+      </validationContext>
+   </extension>
+
+</plugin>
