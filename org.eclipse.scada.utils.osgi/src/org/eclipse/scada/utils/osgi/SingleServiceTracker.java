@@ -112,6 +112,8 @@ public class SingleServiceTracker<T>
 
         final T service = this.context.getService ( reference );
 
+        logger.debug ( "Service: {}", service );
+
         if ( this.currentService == null )
         {
             // take the first we have
@@ -188,6 +190,7 @@ public class SingleServiceTracker<T>
     {
         if ( this.listener != null )
         {
+            logger.debug ( "Notify listener: {} / {}", reference, service );
             try
             {
                 this.listener.serviceChange ( reference, service );
