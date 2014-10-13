@@ -74,6 +74,8 @@ public class Activator implements BundleActivator
         }
 
         final Filter filter = context.createFilter ( "(&(objectClass=" + DataSourceFactory.class.getName () + ")(" + DataSourceFactory.OSGI_JDBC_DRIVER_CLASS + "=" + driver + "))" );
+        logger.info ( "Data source filter: {}", filter );
+
         this.dataSouceFactoryTracker = new SingleServiceTracker<DataSourceFactory> ( bundleContext, filter, new SingleServiceListener<DataSourceFactory> () {
             @Override
             public void serviceChange ( final ServiceReference<DataSourceFactory> reference, final DataSourceFactory dsf )
