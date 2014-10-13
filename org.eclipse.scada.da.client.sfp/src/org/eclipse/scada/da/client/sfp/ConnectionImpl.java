@@ -67,14 +67,14 @@ public class ConnectionImpl extends ClientBaseConnection implements Connection
     {
         super ( new HandlerFactory (), new FilterChainBuilder (), connectionInformation );
 
-        final String pollTime = connectionInformation.getProperties ().get ( "pollTime" );
+        final String pollTime = connectionInformation.getProperties ().get ( "pollTime" ); //$NON-NLS-1$
         if ( pollTime != null )
         {
             this.pollTime = Long.parseLong ( pollTime );
         }
         else
         {
-            this.pollTime = 1_000L;
+            this.pollTime = Long.getLong ( "org.eclipse.scada.da.client.sfp.pollTime", 250L );
         }
     }
 
@@ -94,7 +94,7 @@ public class ConnectionImpl extends ClientBaseConnection implements Connection
     @Override
     protected synchronized void handleMessage ( final Object message )
     {
-        logger.debug ( "Handle message: {}", message );
+        logger.debug ( "Handle message: {}", message ); //$NON-NLS-1$
         if ( message instanceof Welcome )
         {
             processWelcome ( (Welcome)message );
@@ -107,7 +107,7 @@ public class ConnectionImpl extends ClientBaseConnection implements Connection
 
     private void processWelcome ( final Welcome message )
     {
-        final String charsetName = message.getProperties ().get ( "charset" );
+        final String charsetName = message.getProperties ().get ( "charset" ); //$NON-NLS-1$
         if ( charsetName != null )
         {
             final Charset charset = Charset.forName ( charsetName );
