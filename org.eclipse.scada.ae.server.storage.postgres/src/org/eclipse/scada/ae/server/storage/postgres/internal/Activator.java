@@ -100,6 +100,10 @@ public class Activator implements BundleActivator
                         logger.error ( "an error occured on activating ae postgres storage", e );
                     }
                 }
+                else
+                {
+                    logger.info ( "No service set" );
+                }
             }
         } );
         this.dataSouceFactoryTracker.open ();
