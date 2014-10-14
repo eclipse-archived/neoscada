@@ -16,6 +16,7 @@
   <start>org.eclipse.scada.da.datasource.proxy</start>
   <start>org.eclipse.scada.da.datasource.item</start>
   <start>org.eclipse.scada.da.datasource.sum</start>
+  <start>org.eclipse.scada.da.datasource.delta</start>
   <start>org.eclipse.scada.da.datasource.ds</start>
   <start>org.eclipse.scada.da.datasource.constant</start>
   <start>org.eclipse.scada.da.datasource.average</start>
