@@ -126,6 +126,7 @@
 		<module>../org.eclipse.scada.da.datasource.average</module>
 		<module>../org.eclipse.scada.da.datasource.constant</module>
 		<module>../org.eclipse.scada.da.datasource.changecounter</module>
+		<module>../org.eclipse.scada.da.datasource.delta</module>
 		<module>../org.eclipse.scada.da.datasource.ds</module>
 		<module>../org.eclipse.scada.da.datasource.formula</module>
 		<module>../org.eclipse.scada.da.datasource.item</module>

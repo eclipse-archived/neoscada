@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Delta Datasource
+Bundle-SymbolicName: org.eclipse.scada.da.datasource.delta
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.scada.ca;version="0.2.0",
+ org.eclipse.scada.ca.common.factory;version="0.2.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.core.data;version="0.1.0",
+ org.eclipse.scada.core.server;version="0.2.0",
+ org.eclipse.scada.da.client;version="0.1.0",
+ org.eclipse.scada.da.core;version="0.2.0",
+ org.eclipse.scada.da.datasource;version="0.1.0",
+ org.eclipse.scada.da.datasource.base;version="0.1.0",
+ org.eclipse.scada.sec;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.2.0",
+ org.eclipse.scada.utils.osgi.pool;version="0.1.0",
+ org.osgi.framework;version="1.7.0",
+ org.slf4j;version="1.7.2"
+Bundle-Activator: org.eclipse.scada.da.datasource.delta.Activator
