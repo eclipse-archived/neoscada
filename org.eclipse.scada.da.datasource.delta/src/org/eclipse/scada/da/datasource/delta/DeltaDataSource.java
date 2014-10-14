@@ -73,14 +73,15 @@ public class DeltaDataSource extends AbstractDataSourceHandler
     {
         logger.trace ( "Value change - lastValue: {}, change: {}", this.lastValue, value );
 
+        final Double newValue = value.getValue ().asDouble ( null );
+
         if ( this.lastValue == null )
         {
-            this.lastValue = value.getValue ().asDouble ( null );
+            this.lastValue = newValue;
             updateNewValue ( null );
         }
         else
         {
-            final Double newValue = value.getValue ().asDouble ( null );
             if ( newValue != null )
             {
                 final double delta = newValue - this.lastValue;
