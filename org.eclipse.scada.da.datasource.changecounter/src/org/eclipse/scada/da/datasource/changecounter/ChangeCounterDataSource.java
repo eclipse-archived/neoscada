@@ -32,9 +32,13 @@ import org.eclipse.scada.da.datasource.data.DataItemValueRange.DataItemValueRang
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.osgi.pool.SingleObjectPoolServiceTracker;
 import org.eclipse.scada.utils.osgi.pool.SingleObjectPoolServiceTracker.ServiceListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ChangeCounterDataSource extends AbstractInputDataSource implements BufferedDataSourceListener, ServiceListener<BufferedDataSource>
 {
+    private final static Logger logger = LoggerFactory.getLogger ( ChangeCounterDataSource.class );
+
     // initialized by constructor
 
     private final ScheduledExecutorService scheduler;
@@ -146,13 +150,17 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
 
     private synchronized void setBufferedDataSource ( final BufferedDataSource service )
     {
-        if ( service == null && this.bufferedDataSource != null )
+        logger.debug ( "setting buffer: {}", service );
+
+        if ( this.bufferedDataSource != null )
         {
             this.bufferedDataSource.removeListener ( this );
         }
-        else
+
+        this.bufferedDataSource = service;
+
+        if ( this.bufferedDataSource != null )
         {
-            this.bufferedDataSource = service;
             this.bufferedDataSource.addListener ( this );
         }
     }
