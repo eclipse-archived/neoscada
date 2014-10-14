@@ -19,6 +19,12 @@ import org.eclipse.scada.configuration.component.GlobalizeComponent;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Globalize Component</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getMasterOn() <em>Master On</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class GlobalizeComponentTest extends DataComponentTest
@@ -79,6 +85,20 @@ public class GlobalizeComponentTest extends DataComponentTest
     protected void tearDown () throws Exception
     {
         setFixture ( null );
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getMasterOn() <em>Master On</em>}' feature getter.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.GlobalizeComponent#getMasterOn()
+     * @generated
+     */
+    public void testGetMasterOn ()
+    {
+        // TODO: implement this feature getter test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //GlobalizeComponentTest

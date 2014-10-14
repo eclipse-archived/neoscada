@@ -1277,6 +1277,16 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case OsgiPackage.DELTA_ITEM:
+            {
+                DeltaItem deltaItem = (DeltaItem)theEObject;
+                T result = caseDeltaItem ( deltaItem );
+                if ( result == null )
+                    result = caseItem ( deltaItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -2942,6 +2952,22 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSfpDataAccessConnection ( SfpDataAccessConnection object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Delta Item</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Delta Item</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDeltaItem ( DeltaItem object )
     {
         return null;
     }

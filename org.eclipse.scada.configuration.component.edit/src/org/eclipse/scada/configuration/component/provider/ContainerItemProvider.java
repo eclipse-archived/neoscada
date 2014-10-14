@@ -42,14 +42,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ContainerItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ContainerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -159,15 +152,9 @@ public class ContainerItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS,
-                        ComponentFactory.eINSTANCE.createRestInterceptor () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS, ComponentFactory.eINSTANCE.createRestInterceptor () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.CONTAINER__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CONTAINER__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

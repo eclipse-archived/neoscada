@@ -341,6 +341,8 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements IEd
 
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MASTER_SERVER__ITEMS, OsgiFactory.eINSTANCE.createChangeCounterItem () ) );
 
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MASTER_SERVER__ITEMS, OsgiFactory.eINSTANCE.createDeltaItem () ) );
+
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MASTER_SERVER__MARKERS, OsgiFactory.eINSTANCE.createMarkers () ) );
 
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MASTER_SERVER__MONITOR_POOLS, OsgiFactory.eINSTANCE.createMonitorPool () ) );

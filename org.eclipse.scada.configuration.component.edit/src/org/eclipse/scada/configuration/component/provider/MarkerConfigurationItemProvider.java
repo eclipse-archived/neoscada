@@ -147,10 +147,7 @@ public class MarkerConfigurationItemProvider extends ConfigurationItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.MARKER_CONFIGURATION__MARKERS,
-                        OsgiFactory.eINSTANCE.createMarkerEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.MARKER_CONFIGURATION__MARKERS, OsgiFactory.eINSTANCE.createMarkerEntry () ) );
     }
 
 }

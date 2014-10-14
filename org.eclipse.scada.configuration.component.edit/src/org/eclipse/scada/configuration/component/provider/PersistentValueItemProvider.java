@@ -75,9 +75,8 @@ public class PersistentValueItemProvider extends SingleValueItemProvider
     public String getText ( Object object )
     {
         String label = ( (PersistentValue)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_PersistentValue_type" ) : //$NON-NLS-1$
-                getString ( "_UI_PersistentValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_PersistentValue_type" ) : //$NON-NLS-1$
+        getString ( "_UI_PersistentValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

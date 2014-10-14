@@ -284,8 +284,38 @@
   <eClassifiers xsi:type="ecore:EClass" name="ChangeCounter" eSuperTypes="#//SingleValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" eType="#//BufferedValue"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ChangeType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
-        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+        eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="onError" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ErrorHandling"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MovingAverageModule" eSuperTypes="#//CalculationModule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullRange" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="30">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The amount of time (seconds) that is required to be valid to produce a valid output value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="60">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The time range in seconds for which this average will be calculated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The update time period in seconds."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerOnly" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Whether value changes or only timed triggers will update the value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeltaValue" eSuperTypes="#//SingleValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//InputDefinition" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

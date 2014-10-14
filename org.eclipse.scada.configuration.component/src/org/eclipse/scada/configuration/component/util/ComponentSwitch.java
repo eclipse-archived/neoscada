@@ -638,6 +638,36 @@ public class ComponentSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ComponentPackage.MOVING_AVERAGE_MODULE:
+            {
+                MovingAverageModule movingAverageModule = (MovingAverageModule)theEObject;
+                T result = caseMovingAverageModule ( movingAverageModule );
+                if ( result == null )
+                    result = caseCalculationModule ( movingAverageModule );
+                if ( result == null )
+                    result = caseService ( movingAverageModule );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.DELTA_VALUE:
+            {
+                DeltaValue deltaValue = (DeltaValue)theEObject;
+                T result = caseDeltaValue ( deltaValue );
+                if ( result == null )
+                    result = caseSingleValue ( deltaValue );
+                if ( result == null )
+                    result = caseMasterComponent ( deltaValue );
+                if ( result == null )
+                    result = caseDataComponent ( deltaValue );
+                if ( result == null )
+                    result = caseComponent ( deltaValue );
+                if ( result == null )
+                    result = caseDocumentable ( deltaValue );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -1311,6 +1341,38 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseChangeCounter ( ChangeCounter object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Moving Average Module</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Moving Average Module</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMovingAverageModule ( MovingAverageModule object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Delta Value</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Delta Value</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDeltaValue ( DeltaValue object )
     {
         return null;
     }

@@ -319,6 +319,24 @@ public interface ComponentFactory extends EFactory
     ChangeCounter createChangeCounter ();
 
     /**
+     * Returns a new object of class '<em>Moving Average Module</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Moving Average Module</em>'.
+     * @generated
+     */
+    MovingAverageModule createMovingAverageModule ();
+
+    /**
+     * Returns a new object of class '<em>Delta Value</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Delta Value</em>'.
+     * @generated
+     */
+    DeltaValue createDeltaValue ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -133,7 +133,7 @@ public abstract class ItemGenerator
 
     /**
      * Create a new master item instance
-     * 
+     *
      * @param id
      * @param dataSourceId
      */
@@ -148,7 +148,7 @@ public abstract class ItemGenerator
 
     /**
      * Create an item export
-     * 
+     *
      * @param id
      * @param itemId
      * @param dataSourceId

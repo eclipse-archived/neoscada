@@ -74,19 +74,9 @@ public class LevelItemProvider extends ContainerItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Level_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Level_name_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.LEVEL__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Level_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Level_name_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.LEVEL__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -97,19 +87,9 @@ public class LevelItemProvider extends ContainerItemProvider
      */
     protected void addDescriptionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Level_description_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Level_description_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.LEVEL__DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Level_description_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Level_description_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.LEVEL__DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -120,19 +100,9 @@ public class LevelItemProvider extends ContainerItemProvider
      */
     protected void addCustomizationPipelinePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Level_customizationPipeline_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Level_customizationPipeline_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.LEVEL__CUSTOMIZATION_PIPELINE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Level_customizationPipeline_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Level_customizationPipeline_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.LEVEL__CUSTOMIZATION_PIPELINE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -143,19 +113,9 @@ public class LevelItemProvider extends ContainerItemProvider
      */
     protected void addArchiveSelectorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Level_archiveSelector_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Level_archiveSelector_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.LEVEL__ARCHIVE_SELECTOR,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Level_archiveSelector_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Level_archiveSelector_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.LEVEL__ARCHIVE_SELECTOR, true, false, true, null, null, null ) );
     }
 
     /**
@@ -214,9 +174,8 @@ public class LevelItemProvider extends ContainerItemProvider
     public String getText ( Object object )
     {
         String label = ( (Level)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Level_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Level_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Level_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Level_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -257,75 +216,35 @@ public class LevelItemProvider extends ContainerItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createMasterComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createMasterComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createConstantValue () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createConstantValue () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createPersistentValue () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createPersistentValue () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createDriverConnectionAnalyzer () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createDriverConnectionAnalyzer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createMasterImportConnectionAnalyzer () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createMasterImportConnectionAnalyzer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createDataMapperAnalyzer () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createDataMapperAnalyzer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createMappedSourceValue () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createMappedSourceValue () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createCalculationComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createCalculationComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createExternalValue () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createExternalValue () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createGlobalizeComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createGlobalizeComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createTransientValue () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createTransientValue () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createBufferedValue () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createBufferedValue () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                        ComponentFactory.eINSTANCE.createChangeCounter () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createChangeCounter () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.LEVEL__LEVELS,
-                        ComponentFactory.eINSTANCE.createLevel () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, ComponentFactory.eINSTANCE.createDeltaValue () ) );
+
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__LEVELS, ComponentFactory.eINSTANCE.createLevel () ) );
     }
 
     @Override

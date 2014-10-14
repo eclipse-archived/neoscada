@@ -122,8 +122,7 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ComponentSwitch<Adapter> modelSwitch = new ComponentSwitch<Adapter> ()
-    {
+    protected ComponentSwitch<Adapter> modelSwitch = new ComponentSwitch<Adapter> () {
         @Override
         public Adapter caseComponentWorld ( ComponentWorld object )
         {
@@ -374,6 +373,18 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
         public Adapter caseChangeCounter ( ChangeCounter object )
         {
             return createChangeCounterAdapter ();
+        }
+
+        @Override
+        public Adapter caseMovingAverageModule ( MovingAverageModule object )
+        {
+            return createMovingAverageModuleAdapter ();
+        }
+
+        @Override
+        public Adapter caseDeltaValue ( DeltaValue object )
+        {
+            return createDeltaValueAdapter ();
         }
 
         @Override
@@ -1121,6 +1132,36 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createChangeCounterAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.MovingAverageModule <em>Moving Average Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.MovingAverageModule
+     * @generated
+     */
+    public Adapter createMovingAverageModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.DeltaValue <em>Delta Value</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.DeltaValue
+     * @generated
+     */
+    public Adapter createDeltaValueAdapter ()
     {
         return null;
     }

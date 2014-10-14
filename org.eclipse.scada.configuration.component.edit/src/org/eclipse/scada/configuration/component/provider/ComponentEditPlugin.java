@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
 import org.eclipse.scada.configuration.item.provider.ItemEditPlugin;
+import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
@@ -52,16 +53,7 @@ public final class ComponentEditPlugin extends EMFPlugin
      */
     public ComponentEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                ExecEditPlugin.INSTANCE,
-                InfrastructureEditPlugin.INSTANCE,
-                ItemEditPlugin.INSTANCE,
-                SecurityEditPlugin.INSTANCE,
-                WorldEditPlugin.INSTANCE,
-                GlobalizeEditPlugin.INSTANCE,
-                EcoreEditPlugin.INSTANCE,
-        } );
+        super ( new ResourceLocator[] { ExecEditPlugin.INSTANCE, InfrastructureEditPlugin.INSTANCE, ItemEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, } );
     }
 
     /**

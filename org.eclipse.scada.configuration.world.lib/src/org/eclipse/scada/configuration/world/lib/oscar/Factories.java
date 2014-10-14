@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -52,6 +52,8 @@ public interface Factories
     public static final String FACTORY_DA_SUM_SOURCE = "org.eclipse.scada.da.datasource.sum"; //$NON-NLS-1$
 
     public static final String FACTORY_DA_CONST_SOURCE = "org.eclipse.scada.da.datasource.constant"; //$NON-NLS-1$
+
+    public static final String FACTORY_DA_DELTA_SOURCE = "org.eclipse.scada.da.datasource.delta"; //$NON-NLS-1$
 
     public static final String FACTORY_DA_DS_SOURCE = "org.eclipse.scada.da.datasource.ds"; //$NON-NLS-1$
 

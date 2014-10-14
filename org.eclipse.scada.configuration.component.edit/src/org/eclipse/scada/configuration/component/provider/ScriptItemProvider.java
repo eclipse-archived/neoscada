@@ -75,19 +75,9 @@ public class ScriptItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addCodePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Script_code_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Script_code_feature", "_UI_Script_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.SCRIPT__CODE,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Script_code_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Script_code_feature", "_UI_Script_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.SCRIPT__CODE, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -112,9 +102,8 @@ public class ScriptItemProvider extends ItemProviderAdapter implements IEditingD
     public String getText ( Object object )
     {
         String label = crop ( ( (Script)object ).getCode () );
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Script_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Script_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Script_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Script_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

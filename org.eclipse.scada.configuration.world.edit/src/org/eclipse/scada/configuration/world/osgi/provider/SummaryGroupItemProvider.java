@@ -221,6 +221,8 @@ public class SummaryGroupItemProvider extends ItemProviderAdapter implements IEd
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SUMMARY_GROUP__ITEMS, OsgiFactory.eINSTANCE.createTransientItem () ) );
 
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SUMMARY_GROUP__ITEMS, OsgiFactory.eINSTANCE.createChangeCounterItem () ) );
+
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SUMMARY_GROUP__ITEMS, OsgiFactory.eINSTANCE.createDeltaItem () ) );
     }
 
     /**

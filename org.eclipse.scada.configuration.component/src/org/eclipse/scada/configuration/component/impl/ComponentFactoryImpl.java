@@ -161,6 +161,10 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
                 return createBufferedValue ();
             case ComponentPackage.CHANGE_COUNTER:
                 return createChangeCounter ();
+            case ComponentPackage.MOVING_AVERAGE_MODULE:
+                return createMovingAverageModule ();
+            case ComponentPackage.DELTA_VALUE:
+                return createDeltaValue ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -546,6 +550,28 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         ChangeCounterImpl changeCounter = new ChangeCounterImpl ();
         return changeCounter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MovingAverageModule createMovingAverageModule ()
+    {
+        MovingAverageModuleImpl movingAverageModule = new MovingAverageModuleImpl ();
+        return movingAverageModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DeltaValue createDeltaValue ()
+    {
+        DeltaValueImpl deltaValue = new DeltaValueImpl ();
+        return deltaValue;
     }
 
     /**

@@ -80,19 +80,10 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      */
     protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -103,19 +94,10 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -126,19 +108,9 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      */
     protected void addScriptEnginePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_FormulaModule_scriptEngine_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaModule_scriptEngine_feature", "_UI_FormulaModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.FORMULA_MODULE__SCRIPT_ENGINE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaModule_scriptEngine_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaModule_scriptEngine_feature", "_UI_FormulaModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.FORMULA_MODULE__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -199,9 +171,8 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
     public String getText ( Object object )
     {
         String label = ( (FormulaModule)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_FormulaModule_type" ) : //$NON-NLS-1$
-                getString ( "_UI_FormulaModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_FormulaModule_type" ) : //$NON-NLS-1$
+        getString ( "_UI_FormulaModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -246,20 +217,11 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.FORMULA_MODULE__INPUTS,
-                        ComponentFactory.eINSTANCE.createInputSpecification () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.FORMULA_MODULE__INPUTS, ComponentFactory.eINSTANCE.createInputSpecification () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.FORMULA_MODULE__UPDATE,
-                        ComponentFactory.eINSTANCE.createScript () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.FORMULA_MODULE__UPDATE, ComponentFactory.eINSTANCE.createScript () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.FORMULA_MODULE__INIT,
-                        ComponentFactory.eINSTANCE.createScript () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.FORMULA_MODULE__INIT, ComponentFactory.eINSTANCE.createScript () ) );
     }
 
     /**
@@ -274,9 +236,7 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify =
-                childFeature == ComponentPackage.Literals.FORMULA_MODULE__UPDATE ||
-                        childFeature == ComponentPackage.Literals.FORMULA_MODULE__INIT;
+        boolean qualify = childFeature == ComponentPackage.Literals.FORMULA_MODULE__UPDATE || childFeature == ComponentPackage.Literals.FORMULA_MODULE__INIT;
 
         if ( qualify )
         {

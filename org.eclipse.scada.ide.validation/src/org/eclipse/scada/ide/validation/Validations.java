@@ -20,13 +20,13 @@ public final class Validations
     {
     }
 
-    public static final void validateRange ( final ValidationContext context, final EStructuralFeature feature, final long value, final Integer min, final Integer max, final String label )
+    public static final void validateRange ( final ValidationContext context, final EStructuralFeature feature, final long value, final Long min, final Long max, final String label )
     {
-        if ( min != null && value < min.longValue () )
+        if ( min != null && value < min )
         {
             context.add ( feature, MessageFormat.format ( "''{0}'' be greater or equal to {1,number,integer}", label, min ) );
         }
-        if ( max != null && value > max.longValue () )
+        if ( max != null && value > max )
         {
             context.add ( feature, MessageFormat.format ( "''{0}'' be less or equal to {1,number,integer}", label, min ) );
         }

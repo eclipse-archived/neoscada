@@ -26,8 +26,7 @@ import org.eclipse.scada.configuration.component.MasterComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MasterComponentItemProvider
-        extends DataComponentItemProvider
+public class MasterComponentItemProvider extends DataComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -66,19 +65,10 @@ public class MasterComponentItemProvider
      */
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MasterComponent_masterOn_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterComponent_masterOn_feature", "_UI_MasterComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.MASTER_COMPONENT__MASTER_ON,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_runtimePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterComponent_masterOn_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterComponent_masterOn_feature", "_UI_MasterComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.MASTER_COMPONENT__MASTER_ON, true, false, true, null, getString ( "_UI_runtimePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -103,9 +93,8 @@ public class MasterComponentItemProvider
     public String getText ( Object object )
     {
         String label = ( (MasterComponent)object ).getShortDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_MasterComponent_type" ) : //$NON-NLS-1$
-                getString ( "_UI_MasterComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_MasterComponent_type" ) : //$NON-NLS-1$
+        getString ( "_UI_MasterComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

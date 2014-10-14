@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.component.DanglingItemReference;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
 import org.eclipse.scada.configuration.component.DataMapperService;
+import org.eclipse.scada.configuration.component.DeltaValue;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
@@ -50,6 +51,7 @@ import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.MarkerConfiguration;
 import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
+import org.eclipse.scada.configuration.component.MovingAverageModule;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
 import org.eclipse.scada.configuration.component.PersistentValue;
@@ -367,6 +369,20 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * @generated
      */
     private EClass changeCounterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass movingAverageModuleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass deltaValueEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1827,6 +1843,76 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getMovingAverageModule ()
+    {
+        return movingAverageModuleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverageModule_NullRange ()
+    {
+        return (EAttribute)movingAverageModuleEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverageModule_Range ()
+    {
+        return (EAttribute)movingAverageModuleEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverageModule_Trigger ()
+    {
+        return (EAttribute)movingAverageModuleEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMovingAverageModule_TriggerOnly ()
+    {
+        return (EAttribute)movingAverageModuleEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDeltaValue ()
+    {
+        return deltaValueEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDeltaValue_Source ()
+    {
+        return (EReference)deltaValueEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getNotification ()
     {
         return notificationEDataType;
@@ -2043,6 +2129,15 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEAttribute ( changeCounterEClass, CHANGE_COUNTER__VALUES );
         createEAttribute ( changeCounterEClass, CHANGE_COUNTER__ON_ERROR );
 
+        movingAverageModuleEClass = createEClass ( MOVING_AVERAGE_MODULE );
+        createEAttribute ( movingAverageModuleEClass, MOVING_AVERAGE_MODULE__NULL_RANGE );
+        createEAttribute ( movingAverageModuleEClass, MOVING_AVERAGE_MODULE__RANGE );
+        createEAttribute ( movingAverageModuleEClass, MOVING_AVERAGE_MODULE__TRIGGER );
+        createEAttribute ( movingAverageModuleEClass, MOVING_AVERAGE_MODULE__TRIGGER_ONLY );
+
+        deltaValueEClass = createEClass ( DELTA_VALUE );
+        createEReference ( deltaValueEClass, DELTA_VALUE__SOURCE );
+
         // Create data types
         notificationEDataType = createEDataType ( NOTIFICATION );
     }
@@ -2119,6 +2214,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         masterComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
         bufferedValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
         changeCounterEClass.getESuperTypes ().add ( this.getSingleValue () );
+        movingAverageModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
+        deltaValueEClass.getESuperTypes ().add ( this.getSingleValue () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentWorldEClass, ComponentWorld.class, "ComponentWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -2309,8 +2406,17 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( changeCounterEClass, ChangeCounter.class, "ChangeCounter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getChangeCounter_Buffer (), this.getBufferedValue (), null, "buffer", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getChangeCounter_Type (), theOsgiPackage.getChangeType (), "type", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getChangeCounter_Values (), theOsgiPackage.getVariant (), "values", null, 1, -1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getChangeCounter_Values (), theOsgiPackage.getVariant (), "values", null, 0, -1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getChangeCounter_OnError (), theOsgiPackage.getErrorHandling (), "onError", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( movingAverageModuleEClass, MovingAverageModule.class, "MovingAverageModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getMovingAverageModule_NullRange (), ecorePackage.getELong (), "nullRange", "30", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMovingAverageModule_Range (), ecorePackage.getELong (), "range", "60", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMovingAverageModule_Trigger (), ecorePackage.getELong (), "trigger", "1", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMovingAverageModule_TriggerOnly (), ecorePackage.getEBoolean (), "triggerOnly", "false", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( deltaValueEClass, DeltaValue.class, "DeltaValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getDeltaValue_Source (), this.getInputDefinition (), null, "source", null, 1, 1, DeltaValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -2332,11 +2438,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     protected void createExtendedMetaDataAnnotations ()
     {
         String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
-        addAnnotation ( getGlobalizeComponent_Components (),
-                source,
-                new String[]
-                {       "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
-                } );
+        addAnnotation ( getGlobalizeComponent_Components (), source, new String[] { "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
     }
 
 } //ComponentPackageImpl

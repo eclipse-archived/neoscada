@@ -59,6 +59,7 @@ import org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.DefaultMasterServer;
 import org.eclipse.scada.configuration.world.osgi.DefaultStorageHandler;
 import org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer;
+import org.eclipse.scada.configuration.world.osgi.DeltaItem;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.ErrorHandling;
 import org.eclipse.scada.configuration.world.osgi.EventHandler;
@@ -883,6 +884,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     private EClass sfpDataAccessConnectionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass deltaItemEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -4778,6 +4786,26 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getDeltaItem ()
+    {
+        return deltaItemEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDeltaItem_Source ()
+    {
+        return (EReference)deltaItemEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getAverageReferenceType ()
     {
@@ -5382,6 +5410,9 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         sfpDataAccessConnectionEClass = createEClass ( SFP_DATA_ACCESS_CONNECTION );
 
+        deltaItemEClass = createEClass ( DELTA_ITEM );
+        createEReference ( deltaItemEClass, DELTA_ITEM__SOURCE );
+
         // Create enums
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
         movingAverageReferenceTypeEEnum = createEEnum ( MOVING_AVERAGE_REFERENCE_TYPE );
@@ -5525,6 +5556,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         scriptEventHandlerEClass.getESuperTypes ().add ( this.getEventHandler () );
         mailEventHandlerEClass.getESuperTypes ().add ( this.getEventHandler () );
         sfpDataAccessConnectionEClass.getESuperTypes ().add ( this.getDataAccessConnection () );
+        deltaItemEClass.getESuperTypes ().add ( this.getItem () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -5998,6 +6030,9 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEAttribute ( getMailEventHandler_QueueId (), ecorePackage.getEString (), "queueId", null, 0, 1, MailEventHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( sfpDataAccessConnectionEClass, SfpDataAccessConnection.class, "SfpDataAccessConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( deltaItemEClass, DeltaItem.class, "DeltaItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getDeltaItem_Source (), this.getItem (), null, "source", null, 1, 1, DeltaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( averageReferenceTypeEEnum, AverageReferenceType.class, "AverageReferenceType" ); //$NON-NLS-1$

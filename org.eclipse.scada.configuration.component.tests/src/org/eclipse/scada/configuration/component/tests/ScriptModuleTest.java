@@ -27,12 +27,6 @@ import org.eclipse.scada.configuration.component.ScriptModule;
  *   <li>{@link org.eclipse.scada.configuration.component.CalculationModule#getKnownOutputs() <em>Known Outputs</em>}</li>
  * </ul>
  * </p>
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#customENotify(org.eclipse.emf.common.notify.Notification) <em>Custom ENotify</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class ScriptModuleTest extends TestCase
@@ -137,20 +131,6 @@ public class ScriptModuleTest extends TestCase
     public void testGetKnownOutputs ()
     {
         // TODO: implement this feature getter test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
-    }
-
-    /**
-     * Tests the '{@link org.eclipse.scada.configuration.component.ScriptModule#customENotify(org.eclipse.emf.common.notify.Notification) <em>Custom ENotify</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.component.ScriptModule#customENotify(org.eclipse.emf.common.notify.Notification)
-     * @generated
-     */
-    public void testCustomENotify__Notification ()
-    {
-        // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT
         fail ();
     }

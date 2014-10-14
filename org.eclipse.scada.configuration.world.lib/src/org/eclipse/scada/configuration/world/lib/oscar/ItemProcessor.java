@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.world.lib.oscar;
 import org.eclipse.scada.configuration.world.lib.oscar.item.AverageItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.ChangeCounterItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.ConstantItemGenerator;
+import org.eclipse.scada.configuration.world.lib.oscar.item.DeltaItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.FormulaItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.GlobalSummaryItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.MovingAverageItemGenerator;
@@ -27,6 +28,7 @@ import org.eclipse.scada.configuration.world.lib.oscar.item.WeakReferenceDataSou
 import org.eclipse.scada.configuration.world.osgi.AverageItem;
 import org.eclipse.scada.configuration.world.osgi.ChangeCounterItem;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
+import org.eclipse.scada.configuration.world.osgi.DeltaItem;
 import org.eclipse.scada.configuration.world.osgi.FormulaItem;
 import org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem;
 import org.eclipse.scada.configuration.world.osgi.Item;
@@ -120,6 +122,10 @@ public class ItemProcessor extends BasicOscarProcessor
         else if ( item instanceof ReferenceItem )
         {
             new ReferenceItemGenerator ( (ReferenceItem)item, this.ctx, this.priorities ).generate ();
+        }
+        else if ( item instanceof DeltaItem )
+        {
+            new DeltaItemGenerator ( (DeltaItem)item, this.ctx, this.priorities ).generate ();;
         }
         else
         {

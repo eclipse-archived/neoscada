@@ -7464,6 +7464,70 @@ public interface OsgiPackage extends EPackage
     int SFP_DATA_ACCESS_CONNECTION_OPERATION_COUNT = DATA_ACCESS_CONNECTION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.DeltaItemImpl <em>Delta Item</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.DeltaItemImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDeltaItem()
+     * @generated
+     */
+    int DELTA_ITEM = 104;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_ITEM__NAME = ITEM__NAME;
+
+    /**
+     * The feature id for the '<em><b>Information</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_ITEM__INFORMATION = ITEM__INFORMATION;
+
+    /**
+     * The feature id for the '<em><b>Item Features</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_ITEM__ITEM_FEATURES = ITEM__ITEM_FEATURES;
+
+    /**
+     * The feature id for the '<em><b>Source</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_ITEM__SOURCE = ITEM_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Delta Item</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Delta Item</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_ITEM_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7471,7 +7535,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 104;
+    int AVERAGE_REFERENCE_TYPE = 105;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -7481,7 +7545,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 105;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 106;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -7491,7 +7555,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 106;
+    int ROUNDING_TYPE = 107;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -7501,7 +7565,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 107;
+    int DATA_TYPE = 108;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -7511,7 +7575,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 108;
+    int PASSWORD_TYPE = 109;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat <em>Replication Data Format</em>}' enum.
@@ -7521,7 +7585,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getReplicationDataFormat()
      * @generated
      */
-    int REPLICATION_DATA_FORMAT = 109;
+    int REPLICATION_DATA_FORMAT = 110;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
@@ -7531,7 +7595,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 110;
+    int PERSISTENCE = 111;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -7541,7 +7605,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 111;
+    int ERROR_HANDLING = 112;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -7551,7 +7615,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 112;
+    int CHANGE_TYPE = 113;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -7561,7 +7625,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 113;
+    int SEVERITY = 114;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -7571,7 +7635,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 114;
+    int VARIANT = 115;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -11239,6 +11303,27 @@ public interface OsgiPackage extends EPackage
     EClass getSfpDataAccessConnection ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.DeltaItem <em>Delta Item</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Delta Item</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.DeltaItem
+     * @generated
+     */
+    EClass getDeltaItem ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.osgi.DeltaItem#getSource <em>Source</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Source</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.DeltaItem#getSource()
+     * @see #getDeltaItem()
+     * @generated
+     */
+    EReference getDeltaItem_Source ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -14344,6 +14429,24 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EClass SFP_DATA_ACCESS_CONNECTION = eINSTANCE.getSfpDataAccessConnection ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.DeltaItemImpl <em>Delta Item</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.DeltaItemImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDeltaItem()
+         * @generated
+         */
+        EClass DELTA_ITEM = eINSTANCE.getDeltaItem ();
+
+        /**
+         * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DELTA_ITEM__SOURCE = eINSTANCE.getDeltaItem_Source ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.

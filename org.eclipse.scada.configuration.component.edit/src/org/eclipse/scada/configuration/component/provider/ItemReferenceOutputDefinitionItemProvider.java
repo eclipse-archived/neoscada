@@ -28,8 +28,7 @@ import org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ItemReferenceOutputDefinitionItemProvider
-        extends OutputDefinitionItemProvider
+public class ItemReferenceOutputDefinitionItemProvider extends OutputDefinitionItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -68,19 +67,9 @@ public class ItemReferenceOutputDefinitionItemProvider
      */
     protected void addItemIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemReferenceOutputDefinition_itemId_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReferenceOutputDefinition_itemId_feature", "_UI_ItemReferenceOutputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemReferenceOutputDefinition_itemId_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReferenceOutputDefinition_itemId_feature", "_UI_ItemReferenceOutputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -105,9 +94,8 @@ public class ItemReferenceOutputDefinitionItemProvider
     public String getText ( Object object )
     {
         String label = ( (ItemReferenceOutputDefinition)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ItemReferenceOutputDefinition_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ItemReferenceOutputDefinition_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ItemReferenceOutputDefinition_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ItemReferenceOutputDefinition_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

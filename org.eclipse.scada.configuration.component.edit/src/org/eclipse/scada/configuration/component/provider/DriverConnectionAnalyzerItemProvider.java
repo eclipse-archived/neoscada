@@ -64,19 +64,9 @@ public class DriverConnectionAnalyzerItemProvider extends MasterComponentItemPro
      */
     protected void addDriverPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DriverConnectionAnalyzer_driver_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DriverConnectionAnalyzer_driver_feature", "_UI_DriverConnectionAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.DRIVER_CONNECTION_ANALYZER__DRIVER,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DriverConnectionAnalyzer_driver_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DriverConnectionAnalyzer_driver_feature", "_UI_DriverConnectionAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.DRIVER_CONNECTION_ANALYZER__DRIVER, true, false, true, null, null, null ) );
     }
 
     /**
@@ -101,9 +91,8 @@ public class DriverConnectionAnalyzerItemProvider extends MasterComponentItemPro
     public String getText ( Object object )
     {
         String label = ( (DriverConnectionAnalyzer)object ).getShortDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DriverConnectionAnalyzer_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DriverConnectionAnalyzer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DriverConnectionAnalyzer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DriverConnectionAnalyzer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

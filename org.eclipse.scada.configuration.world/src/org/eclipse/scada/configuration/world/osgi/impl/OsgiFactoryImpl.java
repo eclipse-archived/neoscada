@@ -247,6 +247,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createMailEventHandler ();
             case OsgiPackage.SFP_DATA_ACCESS_CONNECTION:
                 return createSfpDataAccessConnection ();
+            case OsgiPackage.DELTA_ITEM:
+                return createDeltaItem ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1281,6 +1283,17 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         SfpDataAccessConnectionImpl sfpDataAccessConnection = new SfpDataAccessConnectionImpl ();
         return sfpDataAccessConnection;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DeltaItem createDeltaItem ()
+    {
+        DeltaItemImpl deltaItem = new DeltaItemImpl ();
+        return deltaItem;
     }
 
     /**

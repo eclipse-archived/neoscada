@@ -84,19 +84,10 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
      */
     protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -107,19 +98,10 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -130,19 +112,10 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
      */
     protected void addCustomizationPipelinePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Component_customizationPipeline_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Component_customizationPipeline_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.COMPONENT__CUSTOMIZATION_PIPELINE,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Component_customizationPipeline_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Component_customizationPipeline_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.COMPONENT__CUSTOMIZATION_PIPELINE, true, false, true, null, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -153,19 +126,10 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
      */
     protected void addArchiveSelectorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Component_archiveSelector_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Component_archiveSelector_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.COMPONENT__ARCHIVE_SELECTOR,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Component_archiveSelector_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Component_archiveSelector_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.COMPONENT__ARCHIVE_SELECTOR, true, false, true, null, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -176,19 +140,10 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
      */
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MasterComponent_masterOn_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterComponent_masterOn_feature", "_UI_MasterComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.MASTER_COMPONENT__MASTER_ON,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_runtimePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterComponent_masterOn_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterComponent_masterOn_feature", "_UI_MasterComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.MASTER_COMPONENT__MASTER_ON, true, false, true, null, getString ( "_UI_runtimePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -199,19 +154,9 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
      */
     protected void addImplementationPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CalculationComponent_implementation_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CalculationComponent_implementation_feature", "_UI_CalculationComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.CALCULATION_COMPONENT__IMPLEMENTATION,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CalculationComponent_implementation_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CalculationComponent_implementation_feature", "_UI_CalculationComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.CALCULATION_COMPONENT__IMPLEMENTATION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -271,9 +216,8 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     public String getText ( Object object )
     {
         String label = ( (CalculationComponent)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_CalculationComponent_type" ) : //$NON-NLS-1$
-                getString ( "_UI_CalculationComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_CalculationComponent_type" ) : //$NON-NLS-1$
+        getString ( "_UI_CalculationComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -315,30 +259,15 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.COMPONENT__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.COMPONENT__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.CALCULATION_COMPONENT__OUTPUTS,
-                        ComponentFactory.eINSTANCE.createOutputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CALCULATION_COMPONENT__OUTPUTS, ComponentFactory.eINSTANCE.createOutputDefinition () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.CALCULATION_COMPONENT__OUTPUTS,
-                        ComponentFactory.eINSTANCE.createItemReferenceOutputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CALCULATION_COMPONENT__OUTPUTS, ComponentFactory.eINSTANCE.createItemReferenceOutputDefinition () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS,
-                        ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS, ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS,
-                        ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS, ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
     }
 
     /**

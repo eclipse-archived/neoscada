@@ -902,6 +902,56 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.MovingAverageModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MovingAverageModuleItemProvider movingAverageModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.MovingAverageModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMovingAverageModuleAdapter ()
+    {
+        if ( movingAverageModuleItemProvider == null )
+        {
+            movingAverageModuleItemProvider = new MovingAverageModuleItemProvider ( this );
+        }
+
+        return movingAverageModuleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.DeltaValue} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DeltaValueItemProvider deltaValueItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.DeltaValue}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDeltaValueAdapter ()
+    {
+        if ( deltaValueItemProvider == null )
+        {
+            deltaValueItemProvider = new DeltaValueItemProvider ( this );
+        }
+
+        return deltaValueItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1114,6 +1164,10 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             bufferedValueItemProvider.dispose ();
         if ( changeCounterItemProvider != null )
             changeCounterItemProvider.dispose ();
+        if ( movingAverageModuleItemProvider != null )
+            movingAverageModuleItemProvider.dispose ();
+        if ( deltaValueItemProvider != null )
+            deltaValueItemProvider.dispose ();
     }
 
     /**
@@ -1168,15 +1222,9 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             @Override
             public Object caseSummaryGroup ( SummaryGroup object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( OsgiPackage.Literals.SUMMARY_GROUP__ITEMS,
-                                ComponentFactory.eINSTANCE.createAbsoluteDanglingReference () ) );
+                newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SUMMARY_GROUP__ITEMS, ComponentFactory.eINSTANCE.createAbsoluteDanglingReference () ) );
 
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( OsgiPackage.Literals.SUMMARY_GROUP__ITEMS,
-                                ComponentFactory.eINSTANCE.createComponentDanglingReference () ) );
+                newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SUMMARY_GROUP__ITEMS, ComponentFactory.eINSTANCE.createComponentDanglingReference () ) );
 
                 return null;
             }
@@ -1189,15 +1237,9 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             @Override
             public Object caseMarkerGroup ( MarkerGroup object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                                ComponentFactory.eINSTANCE.createAbsoluteDanglingReference () ) );
+                newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, ComponentFactory.eINSTANCE.createAbsoluteDanglingReference () ) );
 
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
-                                ComponentFactory.eINSTANCE.createComponentDanglingReference () ) );
+                newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MARKER_GROUP__ITEMS, ComponentFactory.eINSTANCE.createComponentDanglingReference () ) );
 
                 return null;
             }
@@ -1210,15 +1252,9 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             @Override
             public Object caseMasterServer ( MasterServer object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( OsgiPackage.Literals.MASTER_SERVER__ITEMS,
-                                ComponentFactory.eINSTANCE.createAbsoluteDanglingReference () ) );
+                newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MASTER_SERVER__ITEMS, ComponentFactory.eINSTANCE.createAbsoluteDanglingReference () ) );
 
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( OsgiPackage.Literals.MASTER_SERVER__ITEMS,
-                                ComponentFactory.eINSTANCE.createComponentDanglingReference () ) );
+                newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.MASTER_SERVER__ITEMS, ComponentFactory.eINSTANCE.createComponentDanglingReference () ) );
 
                 return null;
             }

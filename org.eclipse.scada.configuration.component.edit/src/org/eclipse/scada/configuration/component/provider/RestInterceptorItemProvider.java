@@ -38,14 +38,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RestInterceptorItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class RestInterceptorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -86,19 +79,9 @@ public class RestInterceptorItemProvider
      */
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemInterceptor_masterOn_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInterceptor_masterOn_feature", "_UI_ItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.ITEM_INTERCEPTOR__MASTER_ON,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInterceptor_masterOn_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInterceptor_masterOn_feature", "_UI_ItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.ITEM_INTERCEPTOR__MASTER_ON, true, false, true, null, null, null ) );
     }
 
     /**
@@ -109,19 +92,9 @@ public class RestInterceptorItemProvider
      */
     protected void addSelectorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_RestInterceptor_selector_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_RestInterceptor_selector_feature", "_UI_RestInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR,
-                        true,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RestInterceptor_selector_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_RestInterceptor_selector_feature", "_UI_RestInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR, true, false, false, null, null, null ) );
     }
 
     /**
@@ -132,19 +105,9 @@ public class RestInterceptorItemProvider
      */
     protected void addDefinitionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_RestInterceptor_definition_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_RestInterceptor_definition_feature", "_UI_RestInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.REST_INTERCEPTOR__DEFINITION,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RestInterceptor_definition_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_RestInterceptor_definition_feature", "_UI_RestInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.REST_INTERCEPTOR__DEFINITION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -239,20 +202,11 @@ public class RestInterceptorItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES,
-                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR,
-                        ItemFactory.eINSTANCE.createJavaScriptSelector () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR, ItemFactory.eINSTANCE.createJavaScriptSelector () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR,
-                        ItemFactory.eINSTANCE.createCustomScriptSelector () ) );
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR, ItemFactory.eINSTANCE.createCustomScriptSelector () ) );
     }
 
     /**

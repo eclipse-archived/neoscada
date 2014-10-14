@@ -16,6 +16,7 @@ import org.eclipse.scada.configuration.component.ChangeCounter;
 import org.eclipse.scada.configuration.component.ConstantValue;
 import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
 import org.eclipse.scada.configuration.component.DataMapperService;
+import org.eclipse.scada.configuration.component.DeltaValue;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
@@ -30,6 +31,7 @@ import org.eclipse.scada.configuration.component.generator.mapper.DataMapperAnal
 import org.eclipse.scada.configuration.component.generator.mapper.DataMapperServiceGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.MappedSourceValueGenerator;
 import org.eclipse.scada.configuration.component.generator.simple.ConstantValueGenerator;
+import org.eclipse.scada.configuration.component.generator.simple.DeltaValueGenerator;
 import org.eclipse.scada.configuration.component.generator.simple.ExternalValueGenerator;
 import org.eclipse.scada.configuration.component.generator.simple.PersistentValueGenerator;
 import org.eclipse.scada.configuration.component.generator.simple.TransientValueGenerator;
@@ -89,6 +91,10 @@ public class GeneratorAdapterFactory implements IAdapterFactory
         else if ( adaptableObject instanceof GlobalizeComponent )
         {
             return new GlobalizeGenerator ( (GlobalizeComponent)adaptableObject );
+        }
+        else if ( adaptableObject instanceof DeltaValue )
+        {
+            return new DeltaValueGenerator ( (DeltaValue)adaptableObject );
         }
         return null;
     }

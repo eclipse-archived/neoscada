@@ -2272,6 +2272,31 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implement
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.DeltaItem} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DeltaItemItemProvider deltaItemItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.DeltaItem}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDeltaItemAdapter ()
+    {
+        if ( deltaItemItemProvider == null )
+        {
+            deltaItemItemProvider = new DeltaItemItemProvider ( this );
+        }
+
+        return deltaItemItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2586,6 +2611,8 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implement
             mailEventHandlerItemProvider.dispose ();
         if ( sfpDataAccessConnectionItemProvider != null )
             sfpDataAccessConnectionItemProvider.dispose ();
+        if ( deltaItemItemProvider != null )
+            deltaItemItemProvider.dispose ();
     }
 
 }

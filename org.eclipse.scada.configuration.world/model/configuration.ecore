@@ -968,6 +968,10 @@
           iD="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SfpDataAccessConnection" eSuperTypes="#//osgi/DataAccessConnection"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DeltaItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//osgi/Item"/>
+    </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">
       <eClassifiers xsi:type="ecore:EClass" name="Profile">

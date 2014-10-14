@@ -66,19 +66,9 @@ public class ConstantValueItemProvider extends SingleValueItemProvider
      */
     protected void addValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ConstantValue_value_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ConstantValue_value_feature", "_UI_ConstantValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.CONSTANT_VALUE__VALUE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ConstantValue_value_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ConstantValue_value_feature", "_UI_ConstantValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.CONSTANT_VALUE__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -103,9 +93,8 @@ public class ConstantValueItemProvider extends SingleValueItemProvider
     public String getText ( Object object )
     {
         String label = ( (ConstantValue)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ConstantValue_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ConstantValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ConstantValue_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ConstantValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

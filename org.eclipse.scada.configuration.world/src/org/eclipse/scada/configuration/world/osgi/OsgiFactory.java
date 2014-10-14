@@ -814,6 +814,15 @@ public interface OsgiFactory extends EFactory
     SfpDataAccessConnection createSfpDataAccessConnection ();
 
     /**
+     * Returns a new object of class '<em>Delta Item</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Delta Item</em>'.
+     * @generated
+     */
+    DeltaItem createDeltaItem ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

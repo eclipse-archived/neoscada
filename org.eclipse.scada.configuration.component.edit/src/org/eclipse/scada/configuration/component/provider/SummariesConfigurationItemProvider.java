@@ -27,8 +27,7 @@ import org.eclipse.scada.configuration.component.SummariesConfiguration;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SummariesConfigurationItemProvider
-        extends ConfigurationItemProvider
+public class SummariesConfigurationItemProvider extends ConfigurationItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -67,19 +66,9 @@ public class SummariesConfigurationItemProvider
      */
     protected void addItemThresholdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_SummariesConfiguration_itemThreshold_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_SummariesConfiguration_itemThreshold_feature", "_UI_SummariesConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.SUMMARIES_CONFIGURATION__ITEM_THRESHOLD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummariesConfiguration_itemThreshold_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_SummariesConfiguration_itemThreshold_feature", "_UI_SummariesConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.SUMMARIES_CONFIGURATION__ITEM_THRESHOLD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -105,9 +94,8 @@ public class SummariesConfigurationItemProvider
     {
         Integer labelValue = ( (SummariesConfiguration)object ).getItemThreshold ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_SummariesConfiguration_type" ) : //$NON-NLS-1$
-                getString ( "_UI_SummariesConfiguration_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_SummariesConfiguration_type" ) : //$NON-NLS-1$
+        getString ( "_UI_SummariesConfiguration_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

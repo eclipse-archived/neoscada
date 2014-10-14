@@ -75,19 +75,9 @@ public class InputSpecificationItemProvider extends ItemProviderAdapter implemen
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_InputSpecification_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_InputSpecification_name_feature", "_UI_InputSpecification_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.INPUT_SPECIFICATION__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_InputSpecification_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_InputSpecification_name_feature", "_UI_InputSpecification_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.INPUT_SPECIFICATION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -112,9 +102,8 @@ public class InputSpecificationItemProvider extends ItemProviderAdapter implemen
     public String getText ( Object object )
     {
         String label = ( (InputSpecification)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_InputSpecification_type" ) : //$NON-NLS-1$
-                getString ( "_UI_InputSpecification_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_InputSpecification_type" ) : //$NON-NLS-1$
+        getString ( "_UI_InputSpecification_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

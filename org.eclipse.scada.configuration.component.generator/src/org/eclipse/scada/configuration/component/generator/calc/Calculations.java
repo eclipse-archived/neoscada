@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,6 +37,19 @@ public final class Calculations
         }
 
         throw new IllegalArgumentException ( String.format ( "Unable to find an output named '%s'", name ) );
+    }
+
+    public static InputDefinition findSingleInputByName ( final Collection<InputDefinition> defs, final String name )
+    {
+        for ( final InputDefinition def : defs )
+        {
+            if ( name.equals ( def.getName () ) )
+            {
+                return def;
+            }
+        }
+
+        throw new IllegalArgumentException ( String.format ( "Unable to find an input named '%s'", name ) );
     }
 
     public static List<InputDefinition> findByName ( final Collection<InputDefinition> defs, final String name )

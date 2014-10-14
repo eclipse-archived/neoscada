@@ -64,19 +64,9 @@ public class DataMapperAnalyzerItemProvider extends MasterComponentItemProvider
      */
     protected void addDataMapperPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_DataMapperAnalyzer_dataMapper_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataMapperAnalyzer_dataMapper_feature", "_UI_DataMapperAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.DATA_MAPPER_ANALYZER__DATA_MAPPER,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DataMapperAnalyzer_dataMapper_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DataMapperAnalyzer_dataMapper_feature", "_UI_DataMapperAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.DATA_MAPPER_ANALYZER__DATA_MAPPER, true, false, true, null, null, null ) );
     }
 
     /**
@@ -101,9 +91,8 @@ public class DataMapperAnalyzerItemProvider extends MasterComponentItemProvider
     public String getText ( Object object )
     {
         String label = ( (DataMapperAnalyzer)object ).getShortDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_DataMapperAnalyzer_type" ) : //$NON-NLS-1$
-                getString ( "_UI_DataMapperAnalyzer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_DataMapperAnalyzer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_DataMapperAnalyzer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

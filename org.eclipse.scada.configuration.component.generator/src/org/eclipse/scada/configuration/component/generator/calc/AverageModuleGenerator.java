@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.AverageItem;
 import org.eclipse.scada.configuration.world.osgi.AverageReferenceType;
 import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
+import org.eclipse.scada.utils.str.StringHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,7 +66,7 @@ public class AverageModuleGenerator extends CalculationComponentGenerator<Averag
             final AverageReferenceType type = AverageReferenceType.get ( output.getName () );
             if ( type == null )
             {
-                throw new IllegalStateException ( String.format ( "Average reference type %s is unknown. Use any of %s.", output.getName (), AverageReferenceType.values () ) );
+                throw new IllegalStateException ( String.format ( "Average reference type %s is unknown. Use any of: %s.", output.getName (), StringHelper.join ( AverageReferenceType.values (), ", " ) ) );
             }
             final CreationRequest<AverageItem> c = createAverageItem ( creator, type );
             c.localTags ( output.getLocalTag () );

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ public class CommonCalculationsFactory implements GeneratorFactory
 
         final Collection<Generator> result = new LinkedList<> ();
 
+        result.add ( new MovingAverageModuleGenerator ( (CalculationComponent)element ) );
         result.add ( new AverageModuleGenerator ( (CalculationComponent)element ) );
         result.add ( new FormulaModuleGenerator ( (CalculationComponent)element ) );
         result.add ( new ScriptModuleGenerator ( (CalculationComponent)element ) );

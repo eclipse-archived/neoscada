@@ -103,7 +103,7 @@ public interface ChangeCounter extends SingleValue
      * <!-- end-user-doc -->
      * @return the value of the '<em>Values</em>' attribute list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getChangeCounter_Values()
-     * @model dataType="org.eclipse.scada.configuration.world.osgi.Variant" required="true"
+     * @model dataType="org.eclipse.scada.configuration.world.osgi.Variant"
      * @generated
      */
     EList<Variant> getValues ();

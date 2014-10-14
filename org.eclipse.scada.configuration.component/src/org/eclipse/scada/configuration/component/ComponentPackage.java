@@ -3486,6 +3486,215 @@ public interface ComponentPackage extends EPackage
     int CHANGE_COUNTER_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl <em>Moving Average Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getMovingAverageModule()
+     * @generated
+     */
+    int MOVING_AVERAGE_MODULE = 42;
+
+    /**
+     * The feature id for the '<em><b>Known Inputs</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_MODULE__KNOWN_INPUTS = CALCULATION_MODULE__KNOWN_INPUTS;
+
+    /**
+     * The feature id for the '<em><b>Known Outputs</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_MODULE__KNOWN_OUTPUTS = CALCULATION_MODULE__KNOWN_OUTPUTS;
+
+    /**
+     * The feature id for the '<em><b>Null Range</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_MODULE__NULL_RANGE = CALCULATION_MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Range</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_MODULE__RANGE = CALCULATION_MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Trigger</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_MODULE__TRIGGER = CALCULATION_MODULE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Trigger Only</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_MODULE__TRIGGER_ONLY = CALCULATION_MODULE_FEATURE_COUNT + 3;
+
+    /**
+     * The number of structural features of the '<em>Moving Average Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_MODULE_FEATURE_COUNT = CALCULATION_MODULE_FEATURE_COUNT + 4;
+
+    /**
+     * The number of operations of the '<em>Moving Average Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MOVING_AVERAGE_MODULE_OPERATION_COUNT = CALCULATION_MODULE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.DeltaValueImpl <em>Delta Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.DeltaValueImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getDeltaValue()
+     * @generated
+     */
+    int DELTA_VALUE = 43;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__SHORT_DESCRIPTION = SINGLE_VALUE__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__LEVEL = SINGLE_VALUE__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__CUSTOMIZATION_PIPELINE = SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__MASTER_ON = SINGLE_VALUE__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__NAME = SINGLE_VALUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__DATA_TYPE = SINGLE_VALUE__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Source</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__SOURCE = SINGLE_VALUE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Delta Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The number of operations of the '<em>Delta Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Notification</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3493,7 +3702,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 42;
+    int NOTIFICATION = 44;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -4962,6 +5171,81 @@ public interface ComponentPackage extends EPackage
     EAttribute getChangeCounter_OnError ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.MovingAverageModule <em>Moving Average Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Moving Average Module</em>'.
+     * @see org.eclipse.scada.configuration.component.MovingAverageModule
+     * @generated
+     */
+    EClass getMovingAverageModule ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.MovingAverageModule#getNullRange <em>Null Range</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Null Range</em>'.
+     * @see org.eclipse.scada.configuration.component.MovingAverageModule#getNullRange()
+     * @see #getMovingAverageModule()
+     * @generated
+     */
+    EAttribute getMovingAverageModule_NullRange ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.MovingAverageModule#getRange <em>Range</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Range</em>'.
+     * @see org.eclipse.scada.configuration.component.MovingAverageModule#getRange()
+     * @see #getMovingAverageModule()
+     * @generated
+     */
+    EAttribute getMovingAverageModule_Range ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.MovingAverageModule#getTrigger <em>Trigger</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Trigger</em>'.
+     * @see org.eclipse.scada.configuration.component.MovingAverageModule#getTrigger()
+     * @see #getMovingAverageModule()
+     * @generated
+     */
+    EAttribute getMovingAverageModule_Trigger ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.MovingAverageModule#isTriggerOnly <em>Trigger Only</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Trigger Only</em>'.
+     * @see org.eclipse.scada.configuration.component.MovingAverageModule#isTriggerOnly()
+     * @see #getMovingAverageModule()
+     * @generated
+     */
+    EAttribute getMovingAverageModule_TriggerOnly ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.DeltaValue <em>Delta Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Delta Value</em>'.
+     * @see org.eclipse.scada.configuration.component.DeltaValue
+     * @generated
+     */
+    EClass getDeltaValue ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.DeltaValue#getSource <em>Source</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Source</em>'.
+     * @see org.eclipse.scada.configuration.component.DeltaValue#getSource()
+     * @see #getDeltaValue()
+     * @generated
+     */
+    EReference getDeltaValue_Source ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6183,6 +6467,66 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EAttribute CHANGE_COUNTER__ON_ERROR = eINSTANCE.getChangeCounter_OnError ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl <em>Moving Average Module</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getMovingAverageModule()
+         * @generated
+         */
+        EClass MOVING_AVERAGE_MODULE = eINSTANCE.getMovingAverageModule ();
+
+        /**
+         * The meta object literal for the '<em><b>Null Range</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE_MODULE__NULL_RANGE = eINSTANCE.getMovingAverageModule_NullRange ();
+
+        /**
+         * The meta object literal for the '<em><b>Range</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE_MODULE__RANGE = eINSTANCE.getMovingAverageModule_Range ();
+
+        /**
+         * The meta object literal for the '<em><b>Trigger</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE_MODULE__TRIGGER = eINSTANCE.getMovingAverageModule_Trigger ();
+
+        /**
+         * The meta object literal for the '<em><b>Trigger Only</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MOVING_AVERAGE_MODULE__TRIGGER_ONLY = eINSTANCE.getMovingAverageModule_TriggerOnly ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.DeltaValueImpl <em>Delta Value</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.DeltaValueImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getDeltaValue()
+         * @generated
+         */
+        EClass DELTA_VALUE = eINSTANCE.getDeltaValue ();
+
+        /**
+         * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DELTA_VALUE__SOURCE = eINSTANCE.getDeltaValue_Source ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.
