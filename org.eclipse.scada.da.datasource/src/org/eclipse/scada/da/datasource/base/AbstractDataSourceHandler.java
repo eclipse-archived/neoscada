@@ -26,9 +26,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Basic implementation of a data source which is based on another data source.
- * 
+ *
  * @author Jens Reimann
- * @since 0.15.0
  */
 public abstract class AbstractDataSourceHandler extends AbstractDataSource
 {
