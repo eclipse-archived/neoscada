@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - make the storage base
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.master.hds;
 
@@ -82,6 +83,7 @@ public class StorageManager extends AbstractStorageManager
         else
         {
             final File base = new File ( basePath );
+            base.mkdir ();
             logger.warn ( "Using global data storage - {}, exists: {}", base, base.exists () );
             return base;
         }

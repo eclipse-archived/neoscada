@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA HDS Master Storage (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.storage.master.hds
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.server.storage.master.hds.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.apache.felix.gogo.runtime;bundle-version="0.8.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.commons.io;version="2.0.1",
  org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.da.client;version="0.1.0",

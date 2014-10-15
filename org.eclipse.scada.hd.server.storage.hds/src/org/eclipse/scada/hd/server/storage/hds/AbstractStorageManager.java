@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - bug fixing
+ *     IBH SYSTEMS GmbH - bug fixing, enhance base directory handling
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.hds;
 
@@ -49,7 +49,7 @@ public class AbstractStorageManager
 
     /**
      * Scan the file base for valid storages
-     * 
+     *
      * @return an id to directory map with valid storages
      */
     protected Map<String, File> findStorages ()
@@ -58,7 +58,8 @@ public class AbstractStorageManager
 
         if ( !this.base.exists () )
         {
-            throw new IllegalStateException ( String.format ( "The storage base directory does not exists: %s", this.base ) );
+            logger.info ( "The storage base does not exists: {}", this.base );
+            handleBaseNotFound ();
         }
 
         final Map<String, File> storages = new HashMap<String, File> ();
@@ -88,9 +89,14 @@ public class AbstractStorageManager
         return storages;
     }
 
+    protected void handleBaseNotFound ()
+    {
+        throw new IllegalStateException ( String.format ( "The storage base directory does not exists: %s", this.base ) );
+    }
+
     /**
      * Probe the directory if it is a valid storage
-     * 
+     *
      * @param file
      *            the directory to probe
      * @return the id of storage or <code>null</code> if it is not a valid store
@@ -127,7 +133,7 @@ public class AbstractStorageManager
 
     /**
      * Check if the base directory is a valid directory
-     * 
+     *
      * @throws IllegalStateException
      *             if the base if not valid
      */
