@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - move to org.eclipse.scada.ui.utils 
+ *     IBH SYSTEMS GmbH - move to org.eclipse.scada.ui.utils, add ListMode
  *******************************************************************************/
 package org.eclipse.scada.ui.utils;
 
@@ -19,8 +19,23 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
+/**
+ * A helper to work with {@link ISelection}
+ */
 public final class SelectionHelper
 {
+
+    public static enum ListMode
+    {
+        /**
+         * Skip elements which cannot be casted to the target class
+         */
+        SKIP,
+        /**
+         * Return null instead of a list if at least one item cannot be casted.
+         */
+        NONE;
+    }
 
     private SelectionHelper ()
     {
@@ -33,7 +48,7 @@ public final class SelectionHelper
      * This implementation will only work with {@link IStructuredSelection} but
      * does not fail for others.
      * </p>
-     * 
+     *
      * @param selection
      *            the selection
      * @param clazz
@@ -68,6 +83,11 @@ public final class SelectionHelper
 
     public static <T> List<T> list ( final ISelection selection, final Class<T> clazz )
     {
+        return list ( selection, ListMode.SKIP, clazz );
+    }
+
+    public static <T> List<T> list ( final ISelection selection, final ListMode mode, final Class<T> clazz )
+    {
         final List<T> result = new LinkedList<T> ();
 
         if ( selection instanceof IStructuredSelection )
@@ -81,17 +101,29 @@ public final class SelectionHelper
                     continue;
                 }
 
+                boolean added = false;
                 if ( clazz.isAssignableFrom ( o.getClass () ) )
                 {
                     result.add ( clazz.cast ( o ) );
+                    added = true;
                 }
-
                 else
                 {
                     final T ro = AdapterHelper.adapt ( o, clazz );
                     if ( ro != null )
                     {
                         result.add ( ro );
+                        added = true;
+                    }
+                }
+
+                if ( !added )
+                {
+                    // we did not add the element
+                    if ( mode == ListMode.NONE )
+                    {
+                        // we are ordered to return nothing in this case
+                        return null;
                     }
                 }
             }
