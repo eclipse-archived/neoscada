@@ -65,8 +65,6 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
     @Override
     protected Collection<?> extractDragSource ( final Object object )
     {
-        System.out.println ( object.getClass () );
-
         if ( object instanceof Item[] )
         {
             final Collection<ExternalValue> result = new LinkedList<> ();
@@ -100,7 +98,6 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
 
                     result.add ( ref );
                 }
-                System.out.println ( "TEST" );
 
                 return result;
             }
