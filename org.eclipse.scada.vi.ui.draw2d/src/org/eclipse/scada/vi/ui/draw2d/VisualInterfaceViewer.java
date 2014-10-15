@@ -43,6 +43,7 @@ import org.eclipse.scada.vi.ui.draw2d.loader.StaticSymbolLoader;
 import org.eclipse.scada.vi.ui.draw2d.loader.SymbolLoader;
 import org.eclipse.scada.vi.ui.draw2d.loader.XMISymbolLoader;
 import org.eclipse.scada.vi.ui.draw2d.preferences.PreferenceConstants;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.DisposeEvent;
@@ -242,6 +243,12 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
     private void applyImage ( final Symbol symbol, final SymbolLoader symbolLoader )
     {
+        if ( symbol.getBackgroundImage () == null || symbol.getBackgroundImage ().isEmpty () )
+        {
+            return;
+        }
+
+        logInfo ( "Trying to load background image: " + symbol.getBackgroundImage () );
         final String uriString = symbolLoader.resolveUri ( symbol.getBackgroundImage () );
 
         final org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createURI ( uriString );
@@ -257,14 +264,25 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
         }
     }
 
-    private void logError ( final String string, final MalformedURLException e )
+    private void logInfo ( final String string )
     {
-        // TODO: write to console stream
+        if ( this.controller != null )
+        {
+            this.controller.debugLog ( string );
+        }
+    }
+
+    private void logError ( final String string, final Throwable e )
+    {
+        if ( this.controller != null )
+        {
+            this.controller.errorLog ( string, e );
+        }
     }
 
     protected FigureCanvas createCanvas ()
     {
-        final FigureCanvas canvas = new FigureCanvas ( this );
+        final FigureCanvas canvas = new FigureCanvas ( this, SWT.H_SCROLL | SWT.V_SCROLL | SWT.NO_REDRAW_RESIZE );
 
         addControlListener ( new ControlAdapter () {
             @Override

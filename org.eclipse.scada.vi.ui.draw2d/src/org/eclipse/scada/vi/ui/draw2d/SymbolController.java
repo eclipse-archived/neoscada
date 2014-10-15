@@ -658,7 +658,7 @@ public class SymbolController implements Listener
         errorLog ( string, null );
     }
 
-    public void errorLog ( final String string, final Exception e )
+    public void errorLog ( final String string, final Throwable e )
     {
         this.errorPrintWriter.println ( string );
         if ( e != null )
