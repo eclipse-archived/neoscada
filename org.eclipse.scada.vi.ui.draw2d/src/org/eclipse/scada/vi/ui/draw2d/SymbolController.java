@@ -332,7 +332,10 @@ public class SymbolController implements Listener
 
     public void init () throws Exception
     {
-        this.onInit.execute ( this.scriptContext );
+        if ( this.onInit != null )
+        {
+            this.onInit.execute ( this.scriptContext );
+        }
         for ( final SymbolController controller : this.controllers )
         {
             controller.init ();
@@ -552,7 +555,10 @@ public class SymbolController implements Listener
         logger.debug ( "Running update: {}", this.nameHierarchy );
         try
         {
-            this.onUpdate.execute ( this.scriptContext );
+            if ( this.onUpdate != null )
+            {
+                this.onUpdate.execute ( this.scriptContext );
+            }
         }
         catch ( final Exception e )
         {
