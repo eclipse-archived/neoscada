@@ -127,7 +127,7 @@ public abstract class LineInput extends AbstractInput implements LinePropertiesS
             {
                 rgb = DEFAULT_COLOR;
             }
-            final Color color = (Color)this.resourceManager.get ( ColorDescriptor.createFrom ( getLineRenderer ().getLineColor () ) );
+            final Color color = (Color)this.resourceManager.get ( ColorDescriptor.createFrom ( rgb ) );
             final Image newImage = makePreview ( Display.getDefault (), getLineRenderer ().getLineAttributes (), color, p );
             this.previews.put ( p, newImage );
             return newImage;
