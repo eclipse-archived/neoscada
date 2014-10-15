@@ -143,7 +143,7 @@ public class DetailsPart implements org.eclipse.scada.da.client.dataitem.details
         final XAxis x = ChartFactory.eINSTANCE.createXAxis ();
         x.setLabel ( Messages.DetailsPart_ChartModel_x_label );
         x.setFormat ( Messages.DetailsPart_ChartModel_x_format );
-        x.setMinimum ( System.currentTimeMillis () );
+        x.setMinimum ( System.currentTimeMillis () - 1000 );
         x.setMaximum ( System.currentTimeMillis () + 900 * 1000 );
 
         final YAxis y = ChartFactory.eINSTANCE.createYAxis ();
@@ -157,6 +157,7 @@ public class DetailsPart implements org.eclipse.scada.da.client.dataitem.details
 
         chartModel.getControllers ().add ( ChartFactory.eINSTANCE.createMouseController () );
         chartModel.getControllers ().add ( ChartFactory.eINSTANCE.createTimeNowAction () );
+        chartModel.getControllers ().add ( ChartFactory.eINSTANCE.createLegendController () );
 
         final DataItemSeries dataItemSeries = ChartFactory.eINSTANCE.createDataItemSeries ();
         dataItemSeries.setX ( x );
