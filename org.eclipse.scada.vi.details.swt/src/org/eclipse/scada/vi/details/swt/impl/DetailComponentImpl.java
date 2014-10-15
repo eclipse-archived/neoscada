@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - adding browser component
+ *     IBH SYSTEMS GmbH - adding browser component, fix resolve issue
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt.impl;
 
@@ -433,7 +433,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), component.getDate (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getHdQueryString () );
+                final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), component.getDate (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ), component.getHdQueryString () );
                 value.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( value.getSummaryProvider () );
@@ -459,7 +459,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
+                final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ) );
                 valueSet.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( valueSet.getSummaryProvider () );
