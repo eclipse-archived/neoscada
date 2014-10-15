@@ -76,9 +76,19 @@ public class StringToStringMapItemProvider extends ItemProviderAdapter implement
      */
     protected void addKeyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_StringToStringMap_key_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_StringToStringMap_key_feature", "_UI_StringToStringMap_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_StringToStringMap_key_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_StringToStringMap_key_feature", "_UI_StringToStringMap_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__KEY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -89,9 +99,19 @@ public class StringToStringMapItemProvider extends ItemProviderAdapter implement
      */
     protected void addValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_StringToStringMap_value_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_StringToStringMap_value_feature", "_UI_StringToStringMap_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_StringToStringMap_value_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_StringToStringMap_value_feature", "_UI_StringToStringMap_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.STRING_TO_STRING_MAP__VALUE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**

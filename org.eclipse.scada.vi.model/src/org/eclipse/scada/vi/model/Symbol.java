@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.vi.model.Symbol#getBackgroundColor <em>Background Color</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Symbol#getDesignSize <em>Design Size</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Symbol#getConnections <em>Connections</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.Symbol#getBackgroundImage <em>Background Image</em>}</li>
  * </ul>
  * </p>
  *
@@ -271,5 +272,31 @@ public interface Symbol extends EObject
      * @generated
      */
     EList<Connection> getConnections ();
+
+    /**
+     * Returns the value of the '<em><b>Background Image</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Background Image</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Background Image</em>' attribute.
+     * @see #setBackgroundImage(String)
+     * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getSymbol_BackgroundImage()
+     * @model
+     * @generated
+     */
+    String getBackgroundImage ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.vi.model.Symbol#getBackgroundImage <em>Background Image</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Background Image</em>' attribute.
+     * @see #getBackgroundImage()
+     * @generated
+     */
+    void setBackgroundImage ( String value );
 
 } // Symbol

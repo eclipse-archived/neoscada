@@ -77,10 +77,19 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Child_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Child_name_feature", "_UI_Child_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.CHILD__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Child_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Child_name_feature", "_UI_Child_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.CHILD__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -138,8 +147,9 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
     public String getText ( Object object )
     {
         String label = ( (Child)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_Child_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Child_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_Child_type" ) : //$NON-NLS-1$
+                getString ( "_UI_Child_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -178,33 +188,75 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createRectangle () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createText () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createText () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createXYContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createLine () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createLine () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createSymbolReference () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createGridContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createBorderContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createFigureContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createImage () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createImage () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createEllipse () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createArc () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createArc () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.CHILD__ELEMENT, VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
     }
 
     /**

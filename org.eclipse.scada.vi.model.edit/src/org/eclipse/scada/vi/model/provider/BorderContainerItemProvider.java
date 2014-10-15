@@ -79,10 +79,19 @@ public class BorderContainerItemProvider extends ItemProviderAdapter implements 
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.PRIMITIVE__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -93,9 +102,19 @@ public class BorderContainerItemProvider extends ItemProviderAdapter implements 
      */
     protected void addVerticalSpacingPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BorderContainer_verticalSpacing_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_BorderContainer_verticalSpacing_feature", "_UI_BorderContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.BORDER_CONTAINER__VERTICAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_BorderContainer_verticalSpacing_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BorderContainer_verticalSpacing_feature", "_UI_BorderContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.BORDER_CONTAINER__VERTICAL_SPACING,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -106,9 +125,19 @@ public class BorderContainerItemProvider extends ItemProviderAdapter implements 
      */
     protected void addHorizontalSpacingPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BorderContainer_horizontalSpacing_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_BorderContainer_horizontalSpacing_feature", "_UI_BorderContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.BORDER_CONTAINER__HORIZONTAL_SPACING, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_BorderContainer_horizontalSpacing_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BorderContainer_horizontalSpacing_feature", "_UI_BorderContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.BORDER_CONTAINER__HORIZONTAL_SPACING,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -166,8 +195,9 @@ public class BorderContainerItemProvider extends ItemProviderAdapter implements 
     public String getText ( Object object )
     {
         String label = ( (BorderContainer)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_BorderContainer_type" ) : //$NON-NLS-1$
-        getString ( "_UI_BorderContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_BorderContainer_type" ) : //$NON-NLS-1$
+                getString ( "_UI_BorderContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -208,7 +238,10 @@ public class BorderContainerItemProvider extends ItemProviderAdapter implements 
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.BORDER_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createBorderChild () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.BORDER_CONTAINER__CHILDREN,
+                        VisualInterfaceFactory.eINSTANCE.createBorderChild () ) );
     }
 
     /**

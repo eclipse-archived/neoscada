@@ -15,7 +15,12 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.model.RoundedRectangle;
 import org.eclipse.scada.vi.model.VisualInterfaceFactory;
@@ -27,7 +32,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RoundedRectangleItemProvider extends ShapeItemProvider
+public class RoundedRectangleItemProvider extends ShapeItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -112,8 +117,9 @@ public class RoundedRectangleItemProvider extends ShapeItemProvider
     public String getText ( Object object )
     {
         String label = ( (RoundedRectangle)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_RoundedRectangle_type" ) : //$NON-NLS-1$
-        getString ( "_UI_RoundedRectangle_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_RoundedRectangle_type" ) : //$NON-NLS-1$
+                getString ( "_UI_RoundedRectangle_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -149,7 +155,10 @@ public class RoundedRectangleItemProvider extends ShapeItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.ROUNDED_RECTANGLE__CORNER, VisualInterfaceFactory.eINSTANCE.createDimension () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.ROUNDED_RECTANGLE__CORNER,
+                        VisualInterfaceFactory.eINSTANCE.createDimension () ) );
     }
 
     /**
@@ -164,7 +173,9 @@ public class RoundedRectangleItemProvider extends ShapeItemProvider
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify = childFeature == VisualInterfacePackage.Literals.FIGURE__SIZE || childFeature == VisualInterfacePackage.Literals.ROUNDED_RECTANGLE__CORNER;
+        boolean qualify =
+                childFeature == VisualInterfacePackage.Literals.FIGURE__SIZE ||
+                        childFeature == VisualInterfacePackage.Literals.ROUNDED_RECTANGLE__CORNER;
 
         if ( qualify )
         {

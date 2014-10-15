@@ -175,13 +175,22 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL__CONNECTIONS = 9;
 
     /**
+     * The feature id for the '<em><b>Background Image</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__BACKGROUND_IMAGE = 10;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 10;
+    int SYMBOL_FEATURE_COUNT = 11;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.Primitive <em>Primitive</em>}' class.
@@ -3387,6 +3396,17 @@ public interface VisualInterfacePackage extends EPackage
     EReference getSymbol_Connections ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.model.Symbol#getBackgroundImage <em>Background Image</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Background Image</em>'.
+     * @see org.eclipse.scada.vi.model.Symbol#getBackgroundImage()
+     * @see #getSymbol()
+     * @generated
+     */
+    EAttribute getSymbol_BackgroundImage ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.model.Primitive <em>Primitive</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4656,6 +4676,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference SYMBOL__CONNECTIONS = eINSTANCE.getSymbol_Connections ();
+
+        /**
+         * The meta object literal for the '<em><b>Background Image</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SYMBOL__BACKGROUND_IMAGE = eINSTANCE.getSymbol_BackgroundImage ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.model.Primitive <em>Primitive</em>}' class.

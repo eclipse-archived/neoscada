@@ -12,7 +12,9 @@
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d;
 
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -28,6 +30,7 @@ import org.eclipse.draw2d.ScalableLayeredPane;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
@@ -44,6 +47,7 @@ import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
@@ -178,6 +182,7 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
             this.symbol = symbolLoader.loadSymbol ();
             create ( symbolLoader );
             applyColor ( this.symbol );
+            applyImage ( this.symbol, symbolLoader );
         }
         catch ( final Exception e )
         {
@@ -233,6 +238,28 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
         {
             this.canvas.setBackground ( this.manager.createColor ( color ) );
         }
+    }
+
+    private void applyImage ( final Symbol symbol, final SymbolLoader symbolLoader )
+    {
+        final String uriString = symbolLoader.resolveUri ( symbol.getBackgroundImage () );
+
+        final org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createURI ( uriString );
+        this.loadedResources.add ( uri );
+        try
+        {
+            final Image img = this.manager.createImageWithDefault ( ImageDescriptor.createFromURL ( new URL ( uriString ) ) );
+            this.canvas.setBackgroundImage ( img );
+        }
+        catch ( final MalformedURLException e )
+        {
+            logError ( "Loading background image: " + uriString, e ); //$NON-NLS-1$
+        }
+    }
+
+    private void logError ( final String string, final MalformedURLException e )
+    {
+        // TODO: write to console stream
     }
 
     protected FigureCanvas createCanvas ()

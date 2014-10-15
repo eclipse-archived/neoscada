@@ -54,6 +54,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getBackgroundColor <em>Background Color</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getDesignSize <em>Design Size</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getConnections <em>Connections</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getBackgroundImage <em>Background Image</em>}</li>
  * </ul>
  * </p>
  *
@@ -200,6 +201,26 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @ordered
      */
     protected EList<Connection> connections;
+
+    /**
+     * The default value of the '{@link #getBackgroundImage() <em>Background Image</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBackgroundImage()
+     * @generated
+     * @ordered
+     */
+    protected static final String BACKGROUND_IMAGE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getBackgroundImage() <em>Background Image</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBackgroundImage()
+     * @generated
+     * @ordered
+     */
+    protected String backgroundImage = BACKGROUND_IMAGE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -517,6 +538,29 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getBackgroundImage ()
+    {
+        return backgroundImage;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBackgroundImage ( String newBackgroundImage )
+    {
+        String oldBackgroundImage = backgroundImage;
+        backgroundImage = newBackgroundImage;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE, oldBackgroundImage, backgroundImage ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -569,6 +613,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return getDesignSize ();
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
                 return getConnections ();
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE:
+                return getBackgroundImage ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -616,6 +662,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 getConnections ().clear ();
                 getConnections ().addAll ( (Collection<? extends Connection>)newValue );
                 return;
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE:
+                setBackgroundImage ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -660,6 +709,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
                 getConnections ().clear ();
                 return;
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE:
+                setBackgroundImage ( BACKGROUND_IMAGE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -694,6 +746,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return designSize != null;
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
                 return connections != null && !connections.isEmpty ();
+            case VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE:
+                return BACKGROUND_IMAGE_EDEFAULT == null ? backgroundImage != null : !BACKGROUND_IMAGE_EDEFAULT.equals ( backgroundImage );
         }
         return super.eIsSet ( featureID );
     }
@@ -720,6 +774,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
         result.append ( scriptModules );
         result.append ( ", backgroundColor: " ); //$NON-NLS-1$
         result.append ( backgroundColor );
+        result.append ( ", backgroundImage: " ); //$NON-NLS-1$
+        result.append ( backgroundImage );
         result.append ( ')' );
         return result.toString ();
     }

@@ -80,10 +80,19 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.PRIMITIVE__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -94,10 +103,19 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
      */
     protected void addUriPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SymbolReference_uri_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SymbolReference_uri_feature", "_UI_SymbolReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.SYMBOL_REFERENCE__URI, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_SymbolReference_uri_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_SymbolReference_uri_feature", "_UI_SymbolReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.SYMBOL_REFERENCE__URI,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -108,10 +126,19 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
      */
     protected void addZoomPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SymbolReference_zoom_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SymbolReference_zoom_feature", "_UI_SymbolReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.SYMBOL_REFERENCE__ZOOM, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_SymbolReference_zoom_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_SymbolReference_zoom_feature", "_UI_SymbolReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.SYMBOL_REFERENCE__ZOOM,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -122,10 +149,19 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
      */
     protected void addOnCreatePropertiesPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SymbolReference_onCreateProperties_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SymbolReference_onCreateProperties_feature", "_UI_SymbolReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_SymbolReference_onCreateProperties_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_SymbolReference_onCreateProperties_feature", "_UI_SymbolReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.SYMBOL_REFERENCE__ON_CREATE_PROPERTIES,
+                        true,
+                        true,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -183,8 +219,9 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
     public String getText ( Object object )
     {
         String label = ( (SymbolReference)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_SymbolReference_type" ) : //$NON-NLS-1$
-        getString ( "_UI_SymbolReference_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_SymbolReference_type" ) : //$NON-NLS-1$
+                getString ( "_UI_SymbolReference_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -226,7 +263,10 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL_REFERENCE__PROPERTIES, VisualInterfaceFactory.eINSTANCE.create ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP ) ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.SYMBOL_REFERENCE__PROPERTIES,
+                        VisualInterfaceFactory.eINSTANCE.create ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP ) ) );
     }
 
     /**

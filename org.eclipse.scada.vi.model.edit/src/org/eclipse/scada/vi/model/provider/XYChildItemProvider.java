@@ -15,7 +15,12 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.model.VisualInterfaceFactory;
 import org.eclipse.scada.vi.model.VisualInterfacePackage;
@@ -27,7 +32,7 @@ import org.eclipse.scada.vi.model.XYChild;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XYChildItemProvider extends ChildItemProvider
+public class XYChildItemProvider extends ChildItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -113,8 +118,9 @@ public class XYChildItemProvider extends ChildItemProvider
     public String getText ( Object object )
     {
         String label = ( (XYChild)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_XYChild_type" ) : //$NON-NLS-1$
-        getString ( "_UI_XYChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_XYChild_type" ) : //$NON-NLS-1$
+                getString ( "_UI_XYChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -151,9 +157,15 @@ public class XYChildItemProvider extends ChildItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.XY_CHILD__POSITION, VisualInterfaceFactory.eINSTANCE.createPosition () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.XY_CHILD__POSITION,
+                        VisualInterfaceFactory.eINSTANCE.createPosition () ) );
 
-        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.XY_CHILD__DIMENSION, VisualInterfaceFactory.eINSTANCE.createDimension () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.XY_CHILD__DIMENSION,
+                        VisualInterfaceFactory.eINSTANCE.createDimension () ) );
     }
 
 }

@@ -15,7 +15,12 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.model.GridChild;
@@ -27,7 +32,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GridChildItemProvider extends ChildItemProvider
+public class GridChildItemProvider extends ChildItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -73,10 +78,19 @@ public class GridChildItemProvider extends ChildItemProvider
      */
     protected void addHorizontalAlignmentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_horizontalAlignment_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_horizontalAlignment_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__HORIZONTAL_ALIGNMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GridChild_horizontalAlignment_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_horizontalAlignment_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.GRID_CHILD__HORIZONTAL_ALIGNMENT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -87,10 +101,19 @@ public class GridChildItemProvider extends ChildItemProvider
      */
     protected void addVerticalAlignmentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_verticalAlignment_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_verticalAlignment_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__VERTICAL_ALIGNMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GridChild_verticalAlignment_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_verticalAlignment_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.GRID_CHILD__VERTICAL_ALIGNMENT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -101,10 +124,19 @@ public class GridChildItemProvider extends ChildItemProvider
      */
     protected void addGrabHorizontalSpacePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_grabHorizontalSpace_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_grabHorizontalSpace_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__GRAB_HORIZONTAL_SPACE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GridChild_grabHorizontalSpace_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_grabHorizontalSpace_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.GRID_CHILD__GRAB_HORIZONTAL_SPACE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -115,10 +147,19 @@ public class GridChildItemProvider extends ChildItemProvider
      */
     protected void addGrabVerticalSpacePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_grabVerticalSpace_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_grabVerticalSpace_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__GRAB_VERTICAL_SPACE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GridChild_grabVerticalSpace_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_grabVerticalSpace_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.GRID_CHILD__GRAB_VERTICAL_SPACE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -129,10 +170,19 @@ public class GridChildItemProvider extends ChildItemProvider
      */
     protected void addSpanColsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_spanCols_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_spanCols_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__SPAN_COLS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GridChild_spanCols_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_spanCols_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.GRID_CHILD__SPAN_COLS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -143,10 +193,19 @@ public class GridChildItemProvider extends ChildItemProvider
      */
     protected void addSpanRowsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_spanRows_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_spanRows_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__SPAN_ROWS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GridChild_spanRows_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_spanRows_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.GRID_CHILD__SPAN_ROWS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -157,10 +216,19 @@ public class GridChildItemProvider extends ChildItemProvider
      */
     protected void addWidthHintPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_widthHint_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_widthHint_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__WIDTH_HINT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GridChild_widthHint_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_widthHint_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.GRID_CHILD__WIDTH_HINT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -171,10 +239,19 @@ public class GridChildItemProvider extends ChildItemProvider
      */
     protected void addHeightHintPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GridChild_heightHint_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_heightHint_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                VisualInterfacePackage.Literals.GRID_CHILD__HEIGHT_HINT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GridChild_heightHint_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GridChild_heightHint_feature", "_UI_GridChild_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.GRID_CHILD__HEIGHT_HINT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
@@ -199,8 +276,9 @@ public class GridChildItemProvider extends ChildItemProvider
     public String getText ( Object object )
     {
         String label = ( (GridChild)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_GridChild_type" ) : //$NON-NLS-1$
-        getString ( "_UI_GridChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_GridChild_type" ) : //$NON-NLS-1$
+                getString ( "_UI_GridChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
