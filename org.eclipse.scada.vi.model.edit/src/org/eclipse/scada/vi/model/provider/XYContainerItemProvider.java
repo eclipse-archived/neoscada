@@ -77,19 +77,10 @@ public class XYContainerItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.PRIMITIVE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -147,9 +138,8 @@ public class XYContainerItemProvider extends ItemProviderAdapter implements IEdi
     public String getText ( Object object )
     {
         String label = ( (XYContainer)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_XYContainer_type" ) : //$NON-NLS-1$
-                getString ( "_UI_XYContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_XYContainer_type" ) : //$NON-NLS-1$
+        getString ( "_UI_XYContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -188,10 +178,7 @@ public class XYContainerItemProvider extends ItemProviderAdapter implements IEdi
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.XY_CONTAINER__CHILDREN,
-                        VisualInterfaceFactory.eINSTANCE.createXYChild () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.XY_CONTAINER__CHILDREN, VisualInterfaceFactory.eINSTANCE.createXYChild () ) );
     }
 
     /**

@@ -73,19 +73,9 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements IEdit
      */
     protected void addStartPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Connection_start_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Connection_start_feature", "_UI_Connection_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.CONNECTION__START,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Connection_start_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Connection_start_feature", "_UI_Connection_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.CONNECTION__START, true, false, true, null, null, null ) );
     }
 
     /**
@@ -96,19 +86,9 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements IEdit
      */
     protected void addEndPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Connection_end_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Connection_end_feature", "_UI_Connection_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.CONNECTION__END,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Connection_end_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Connection_end_feature", "_UI_Connection_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.CONNECTION__END, true, false, true, null, null, null ) );
     }
 
     /**

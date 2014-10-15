@@ -45,6 +45,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/backgroundColor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/designSize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/connections"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/backgroundImage"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive">
       <genFeatures createChild="false" propertyCategory="common" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>

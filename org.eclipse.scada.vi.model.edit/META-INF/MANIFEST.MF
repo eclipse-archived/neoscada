@@ -7,9 +7,9 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.vi.model.provider.VisualInterfaceEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.vi.model.provider;uses:="org.eclipse.emf.ecore,  org.eclipse.scada.vi.model.util,  org.eclipse.emf.common.util,  org.eclipse.emf.common,  org.eclipse.emf.edit.provider,  org.eclipse.emf.common.notify,  org.eclipse.emf.edit.domain";version="0.2.0"
+Export-Package: org.eclipse.scada.vi.model.provider;version="0.2.0";uses:="org.eclipse.emf.ecore,  org.eclipse.scada.vi.model.util,  org.eclipse.emf.common.util,  org.eclipse.emf.common,  org.eclipse.emf.edit.provider,  org.eclipse.emf.common.notify,  org.eclipse.emf.edit.domain"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.scada.vi.model;visibility:=reexport;bundle-version="0.2.0",
+ org.eclipse.scada.vi.model;bundle-version="0.2.0";visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

@@ -91,19 +91,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.PRIMITIVE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Primitive_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Primitive_name_feature", "_UI_Primitive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.PRIMITIVE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -114,19 +105,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addForegroundColorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_foregroundColor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_foregroundColor_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__FOREGROUND_COLOR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_foregroundColor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_foregroundColor_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__FOREGROUND_COLOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -137,19 +119,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addBackgroundColorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_backgroundColor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_backgroundColor_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__BACKGROUND_COLOR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_backgroundColor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_backgroundColor_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__BACKGROUND_COLOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -160,19 +133,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addOnClickPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_onClick_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onClick_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__ON_CLICK,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_onClick_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onClick_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__ON_CLICK, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -183,19 +147,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addOnDoubleClickPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_onDoubleClick_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onDoubleClick_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__ON_DOUBLE_CLICK,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_onDoubleClick_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onDoubleClick_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__ON_DOUBLE_CLICK, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -206,19 +161,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addCursorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_cursor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_cursor_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__CURSOR,
-                        true,
-                        false,
-                        true,
-                        null,
-                        getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_cursor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_cursor_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__CURSOR, true, false, true, null, getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -229,19 +175,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addVisiblePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_visible_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_visible_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__VISIBLE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_visible_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_visible_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__VISIBLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -252,19 +189,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addBorderPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_border_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_border_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__BORDER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_border_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_border_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__BORDER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -275,19 +203,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addOpaquePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_opaque_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_opaque_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__OPAQUE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_opaque_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_opaque_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__OPAQUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -298,19 +217,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addToolTipPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_toolTip_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_toolTip_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__TOOL_TIP,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_toolTip_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_toolTip_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__TOOL_TIP, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_figurePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -321,19 +231,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addOnMouseInPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_onMouseIn_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseIn_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_IN,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_onMouseIn_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseIn_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_IN, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -344,19 +245,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addOnMouseOutPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_onMouseOut_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseOut_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_OUT,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_onMouseOut_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseOut_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_OUT, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -367,19 +259,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addOnMouseMovePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_onMouseMove_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseMove_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_MOVE,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_onMouseMove_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseMove_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_MOVE, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -390,19 +273,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addOnMouseHoverPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_onMouseHover_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseHover_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_HOVER,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_onMouseHover_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseHover_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_HOVER, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -413,19 +287,10 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addOnMouseDragPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Figure_onMouseDrag_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseDrag_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_DRAG,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Figure_onMouseDrag_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseDrag_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_DRAG, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -483,9 +348,8 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
     public String getText ( Object object )
     {
         String label = ( (Figure)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Figure_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Figure_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Figure_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Figure_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -537,10 +401,7 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( VisualInterfacePackage.Literals.FIGURE__SIZE,
-                        VisualInterfaceFactory.eINSTANCE.createDimension () ) );
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.FIGURE__SIZE, VisualInterfaceFactory.eINSTANCE.createDimension () ) );
     }
 
     /**
