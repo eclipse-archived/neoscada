@@ -12,14 +12,21 @@ package org.eclipse.scada.configuration.component.presentation;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.ComponentFactory;
+import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.ExternalValue;
+import org.eclipse.scada.configuration.component.SingleValue;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.da.ui.connection.dnd.ItemTransfer;
+import org.eclipse.scada.ui.utils.SelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper.ListMode;
 import org.eclipse.swt.dnd.DropTargetEvent;
 
 public class DropAdapterExtension extends EditingDomainViewerDropAdapter
@@ -58,6 +65,8 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
     @Override
     protected Collection<?> extractDragSource ( final Object object )
     {
+        System.out.println ( object.getClass () );
+
         if ( object instanceof Item[] )
         {
             final Collection<ExternalValue> result = new LinkedList<> ();
@@ -72,9 +81,32 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
             }
             return result;
         }
-        else
+        if ( object instanceof ISelection )
         {
-            return super.extractDragSource ( object );
+            final List<Component> list = SelectionHelper.list ( (ISelection)object, ListMode.NONE, Component.class );
+            if ( list != null )
+            {
+                final Collection<ComponentReferenceInputDefinition> result = new LinkedList<> ();
+
+                for ( final Component c : list )
+                {
+                    final ComponentReferenceInputDefinition ref = ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition ();
+                    ref.setComponent ( c );
+
+                    if ( c instanceof SingleValue )
+                    {
+                        ref.getLocalTag ().add ( ( (SingleValue)c ).getName () );
+                    }
+
+                    result.add ( ref );
+                }
+                System.out.println ( "TEST" );
+
+                return result;
+            }
         }
+
+        return super.extractDragSource ( object );
     }
+
 }

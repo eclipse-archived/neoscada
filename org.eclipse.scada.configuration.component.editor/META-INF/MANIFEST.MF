@@ -29,4 +29,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.scada.configuration.ecore.ui;version="0.2.0",
  org.eclipse.scada.da.ui.connection.data;version="0.1.0",
- org.eclipse.scada.da.ui.connection.dnd;version="0.1.0"
+ org.eclipse.scada.da.ui.connection.dnd;version="0.1.0",
+ org.eclipse.scada.ui.utils;version="0.1.0"
