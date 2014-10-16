@@ -34,8 +34,8 @@ if (!request.isComponentClass("org.eclipse.scada.configuration.component.Globali
 	if (request.hasTag("command")) {
 		request.addFeature(DefaultFeatures.BLOCK());
 	}
-
-	// Always add the Attributes Summary
-
-	request.addFeature(DefaultFeatures.ASUM(request.getGlobalizationLevel()));
 }
+
+// Always add the Attributes Summary
+
+request.addFeature(DefaultFeatures.ASUM(request.getGlobalizationLevel()));
