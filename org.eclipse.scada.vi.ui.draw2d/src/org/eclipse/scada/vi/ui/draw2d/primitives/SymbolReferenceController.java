@@ -22,6 +22,7 @@ import org.eclipse.draw2d.StackLayout;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
+import org.eclipse.scada.vi.model.Symbol;
 import org.eclipse.scada.vi.model.SymbolReference;
 import org.eclipse.scada.vi.ui.draw2d.Activator;
 import org.eclipse.scada.vi.ui.draw2d.BasicViewElementFactory;
@@ -71,11 +72,12 @@ public class SymbolReferenceController implements Controller
 
             final SymbolController childController = new SymbolController ( controller.getShell (), controller, symbolLoader, properties, controller.getScriptObjects (), factoryContext );
 
-            final Controller elementController = factory.create ( childController, symbolLoader.loadSymbol ().getRoot () );
+            final Symbol symbol = symbolLoader.loadSymbol ();
+            final Controller elementController = factory.create ( childController, symbol.getRoot () );
             final IFigure rootFigure = elementController.getFigure ();
             layer.add ( rootFigure );
 
-            final RGB color = org.eclipse.scada.vi.ui.draw2d.primitives.Helper.makeColor ( symbolLoader.loadSymbol ().getBackgroundColor () );
+            final RGB color = org.eclipse.scada.vi.ui.draw2d.primitives.Helper.makeColor ( symbol.getBackgroundColor () );
             if ( color != null )
             {
                 layer.setBackgroundColor ( manager.createColor ( color ) );
