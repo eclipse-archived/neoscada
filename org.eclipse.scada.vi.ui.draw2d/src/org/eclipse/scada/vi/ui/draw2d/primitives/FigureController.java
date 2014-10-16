@@ -341,7 +341,7 @@ public abstract class FigureController implements Controller
 
     public void setToolTip ( final String string )
     {
-        if ( string == null )
+        if ( string == null || string.isEmpty () )
         {
             getPropertyFigure ().setToolTip ( null );
         }
