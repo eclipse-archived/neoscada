@@ -848,7 +848,7 @@ public abstract class FigureController implements Controller
 
     protected ColorHandler makeColorHandler ( final String color, final ColorApplier applier )
     {
-        if ( color == null )
+        if ( color == null || color.isEmpty () )
         {
             return new DefaultColor ( getPropertyFigure (), applier );
         }
