@@ -140,8 +140,7 @@ public class AEViewSection extends BaseTemplate
 
         createMonitorView ( factory, ext, menu, "monitors.not_ok", "All &Alarms" ); //$NON-NLS-1$
         createMonitorView ( factory, ext, menu, "monitors.ack_required", "A&cknowledge required" ); //$NON-NLS-1$
-        createMonitorView ( factory, ext, menu, "monitors.warning.not_ok", "Only active warnings" ); //$NON-NLS-1$
-        createMonitorView ( factory, ext, menu, "monitors.alarm.not_ok", "Only active alarms" ); //$NON-NLS-1$
+        createMonitorView ( factory, ext, menu, "monitors.not_ok", "Only active alarms" ); //$NON-NLS-1$
         addSeperator ( factory, menu, "separator2" ); //$NON-NLS-1$
         createEventView ( factory, ext, menu, "events.all", "&Latest Events", 20000, "monitors.not_ok" ); //$NON-NLS-1$ //$NON-NLS-3$
         createQueryView ( factory, ext, menu, "eventHistoryView", "Query &Historic Events" ); //$NON-NLS-1$
