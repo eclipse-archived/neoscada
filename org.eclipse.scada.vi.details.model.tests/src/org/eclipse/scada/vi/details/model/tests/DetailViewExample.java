@@ -48,15 +48,11 @@ public class DetailViewExample
 
         // Register the appropriate resource factory to handle all file extensions.
         //
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put
-                ( Resource.Factory.Registry.DEFAULT_EXTENSION,
-                        new XMIResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl () );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( DetailViewPackage.eNS_URI,
-                        DetailViewPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( DetailViewPackage.eNS_URI, DetailViewPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

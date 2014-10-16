@@ -121,13 +121,22 @@ public interface DetailViewPackage extends EPackage
     int VIEW__TAB_STYLE = 4;
 
     /**
+     * The feature id for the '<em><b>Write Dialog Enabled</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VIEW__WRITE_DIALOG_ENABLED = 5;
+
+    /**
      * The number of structural features of the '<em>View</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VIEW_FEATURE_COUNT = 5;
+    int VIEW_FEATURE_COUNT = 6;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.details.model.impl.ComponentImpl <em>Component</em>}' class.
@@ -2501,6 +2510,17 @@ public interface DetailViewPackage extends EPackage
     EAttribute getView_TabStyle ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.details.model.View#isWriteDialogEnabled <em>Write Dialog Enabled</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Write Dialog Enabled</em>'.
+     * @see org.eclipse.scada.vi.details.model.View#isWriteDialogEnabled()
+     * @see #getView()
+     * @generated
+     */
+    EAttribute getView_WriteDialogEnabled ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.details.model.Component <em>Component</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3942,6 +3962,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute VIEW__TAB_STYLE = eINSTANCE.getView_TabStyle ();
+
+        /**
+         * The meta object literal for the '<em><b>Write Dialog Enabled</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute VIEW__WRITE_DIALOG_ENABLED = eINSTANCE.getView_WriteDialogEnabled ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.details.model.impl.ComponentImpl <em>Component</em>}' class.

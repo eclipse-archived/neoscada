@@ -77,19 +77,9 @@ public class RegistrationItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addKeyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Registration_key_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Registration_key_feature", "_UI_Registration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.REGISTRATION__KEY,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Registration_key_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Registration_key_feature", "_UI_Registration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.REGISTRATION__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -100,19 +90,9 @@ public class RegistrationItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Registration_descriptor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Registration_descriptor_feature", "_UI_Registration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.REGISTRATION__DESCRIPTOR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Registration_descriptor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Registration_descriptor_feature", "_UI_Registration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.REGISTRATION__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -123,19 +103,9 @@ public class RegistrationItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addAggregateStatePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Registration_aggregateState_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Registration_aggregateState_feature", "_UI_Registration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.REGISTRATION__AGGREGATE_STATE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Registration_aggregateState_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Registration_aggregateState_feature", "_UI_Registration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.REGISTRATION__AGGREGATE_STATE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -160,9 +130,8 @@ public class RegistrationItemProvider extends ItemProviderAdapter implements IEd
     public String getText ( Object object )
     {
         String label = ( (Registration)object ).getKey ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Registration_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Registration_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Registration_type" ) : //$NON-NLS-1$
+        getString ( "_UI_Registration_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -45,9 +45,7 @@ public final class DetailViewEditPlugin extends EMFPlugin
      */
     public DetailViewEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                } );
+        super ( new ResourceLocator[] {} );
     }
 
     /**

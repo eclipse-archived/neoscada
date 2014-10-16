@@ -15,12 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.DetailViewPackage;
@@ -32,7 +27,7 @@ import org.eclipse.scada.vi.details.model.TestVisibility;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TestVisibilityItemProvider extends VisibilityItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class TestVisibilityItemProvider extends VisibilityItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -71,19 +66,9 @@ public class TestVisibilityItemProvider extends VisibilityItemProvider implement
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_TestVisibility_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_TestVisibility_id_feature", "_UI_TestVisibility_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.TEST_VISIBILITY__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TestVisibility_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_TestVisibility_id_feature", "_UI_TestVisibility_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.TEST_VISIBILITY__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -108,9 +93,8 @@ public class TestVisibilityItemProvider extends VisibilityItemProvider implement
     public String getText ( Object object )
     {
         String label = ( (TestVisibility)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_TestVisibility_type" ) : //$NON-NLS-1$
-                getString ( "_UI_TestVisibility_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_TestVisibility_type" ) : //$NON-NLS-1$
+        getString ( "_UI_TestVisibility_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

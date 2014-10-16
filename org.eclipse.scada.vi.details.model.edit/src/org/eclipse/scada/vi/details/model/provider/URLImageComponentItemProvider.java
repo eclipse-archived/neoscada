@@ -15,12 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.DetailViewPackage;
@@ -32,7 +27,7 @@ import org.eclipse.scada.vi.details.model.URLImageComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class URLImageComponentItemProvider extends ComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class URLImageComponentItemProvider extends ComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -76,19 +71,10 @@ public class URLImageComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_URLImageComponent_descriptor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_descriptor_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.URL_IMAGE_COMPONENT__DESCRIPTOR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_descriptor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_descriptor_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.URL_IMAGE_COMPONENT__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -99,19 +85,10 @@ public class URLImageComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addImageUrlPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_URLImageComponent_imageUrl_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_imageUrl_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.URL_IMAGE_COMPONENT__IMAGE_URL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_imageUrl_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_imageUrl_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.URL_IMAGE_COMPONENT__IMAGE_URL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -122,19 +99,10 @@ public class URLImageComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addFallbackImageUrlPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_URLImageComponent_fallbackImageUrl_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_fallbackImageUrl_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_fallbackImageUrl_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_fallbackImageUrl_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.URL_IMAGE_COMPONENT__FALLBACK_IMAGE_URL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -145,19 +113,10 @@ public class URLImageComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addWidthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_URLImageComponent_width_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_width_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.URL_IMAGE_COMPONENT__WIDTH,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_width_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_width_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.URL_IMAGE_COMPONENT__WIDTH, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -168,19 +127,10 @@ public class URLImageComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addHeightPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_URLImageComponent_height_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_height_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.URL_IMAGE_COMPONENT__HEIGHT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_height_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_height_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.URL_IMAGE_COMPONENT__HEIGHT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_layoutPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -191,19 +141,10 @@ public class URLImageComponentItemProvider extends ComponentItemProvider impleme
      */
     protected void addReloadTimerPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_URLImageComponent_reloadTimer_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_reloadTimer_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.URL_IMAGE_COMPONENT__RELOAD_TIMER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_URLImageComponent_reloadTimer_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_URLImageComponent_reloadTimer_feature", "_UI_URLImageComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.URL_IMAGE_COMPONENT__RELOAD_TIMER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -228,9 +169,8 @@ public class URLImageComponentItemProvider extends ComponentItemProvider impleme
     public String getText ( Object object )
     {
         String label = ( (URLImageComponent)object ).getDescriptor ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_URLImageComponent_type" ) : //$NON-NLS-1$
-                getString ( "_UI_URLImageComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_URLImageComponent_type" ) : //$NON-NLS-1$
+        getString ( "_UI_URLImageComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

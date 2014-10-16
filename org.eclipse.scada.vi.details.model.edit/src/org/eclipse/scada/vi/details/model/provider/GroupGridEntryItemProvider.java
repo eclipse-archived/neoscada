@@ -78,19 +78,9 @@ public class GroupGridEntryItemProvider extends ItemProviderAdapter implements I
      */
     protected void addLabelPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_GroupGridEntry_label_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridEntry_label_feature", "_UI_GroupGridEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.GROUP_GRID_ENTRY__LABEL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GroupGridEntry_label_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridEntry_label_feature", "_UI_GroupGridEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.GROUP_GRID_ENTRY__LABEL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -101,19 +91,9 @@ public class GroupGridEntryItemProvider extends ItemProviderAdapter implements I
      */
     protected void addPermissionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_GroupGridEntry_permission_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridEntry_permission_feature", "_UI_GroupGridEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.GROUP_GRID_ENTRY__PERMISSION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GroupGridEntry_permission_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridEntry_permission_feature", "_UI_GroupGridEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.GROUP_GRID_ENTRY__PERMISSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -172,9 +152,8 @@ public class GroupGridEntryItemProvider extends ItemProviderAdapter implements I
     public String getText ( Object object )
     {
         String label = ( (GroupGridEntry)object ).getLabel ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_GroupGridEntry_type" ) : //$NON-NLS-1$
-                getString ( "_UI_GroupGridEntry_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_GroupGridEntry_type" ) : //$NON-NLS-1$
+        getString ( "_UI_GroupGridEntry_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -215,105 +194,45 @@ public class GroupGridEntryItemProvider extends ItemProviderAdapter implements I
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createLabelComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createLabelComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createFillLayoutComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createFillLayoutComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createButtonComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createButtonComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createBoolLEDComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createBoolLEDComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createSimpleGridComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createSimpleGridComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createGroupGridComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createGroupGridComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createValueSetComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createValueSetComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createValueComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createValueComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createTextInputComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createTextInputComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createTextComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createTextComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createTextInputMultiComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createTextInputMultiComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createCheckComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createCheckComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createLinkComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createLinkComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createProgressComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS,
-                        DetailViewFactory.eINSTANCE.createBrowserComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__COMPONENTS, DetailViewFactory.eINSTANCE.createBrowserComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY,
-                        DetailViewFactory.eINSTANCE.createScriptVisibility () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY, DetailViewFactory.eINSTANCE.createScriptVisibility () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY,
-                        DetailViewFactory.eINSTANCE.createPermissionVisibility () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY, DetailViewFactory.eINSTANCE.createPermissionVisibility () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY,
-                        DetailViewFactory.eINSTANCE.createInvisible () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY, DetailViewFactory.eINSTANCE.createInvisible () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY,
-                        DetailViewFactory.eINSTANCE.createTestVisibility () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_ENTRY__VISIBILITY, DetailViewFactory.eINSTANCE.createTestVisibility () ) );
     }
 
     /**

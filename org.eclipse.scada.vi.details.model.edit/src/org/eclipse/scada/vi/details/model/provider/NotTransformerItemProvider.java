@@ -15,12 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.DetailViewFactory;
 import org.eclipse.scada.vi.details.model.DetailViewPackage;
@@ -32,7 +27,7 @@ import org.eclipse.scada.vi.details.model.NotTransformer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotTransformerItemProvider extends ValueSourceItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class NotTransformerItemProvider extends ValueSourceItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -152,25 +147,13 @@ public class NotTransformerItemProvider extends ValueSourceItemProvider implemen
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE,
-                        DetailViewFactory.eINSTANCE.createItemValueSource () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE, DetailViewFactory.eINSTANCE.createItemValueSource () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE,
-                        DetailViewFactory.eINSTANCE.createNotTransformer () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE, DetailViewFactory.eINSTANCE.createNotTransformer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE,
-                        DetailViewFactory.eINSTANCE.createAndTransformer () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE, DetailViewFactory.eINSTANCE.createAndTransformer () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE,
-                        DetailViewFactory.eINSTANCE.createOrTransformer () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.NOT_TRANSFORMER__VALUE, DetailViewFactory.eINSTANCE.createOrTransformer () ) );
     }
 
 }

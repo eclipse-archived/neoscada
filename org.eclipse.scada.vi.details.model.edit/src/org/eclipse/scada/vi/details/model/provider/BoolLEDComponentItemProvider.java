@@ -15,12 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.BoolLEDComponent;
@@ -32,7 +27,7 @@ import org.eclipse.scada.vi.details.model.DetailViewPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BoolLEDComponentItemProvider extends ComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class BoolLEDComponentItemProvider extends ComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -76,19 +71,10 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
      */
     protected void addFormatPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_BoolLEDComponent_format_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_format_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.BOOL_LED_COMPONENT__FORMAT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_format_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_format_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.BOOL_LED_COMPONENT__FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -99,19 +85,10 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
      */
     protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_BoolLEDComponent_descriptor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_descriptor_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.BOOL_LED_COMPONENT__DESCRIPTOR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_descriptor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_descriptor_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.BOOL_LED_COMPONENT__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -122,19 +99,10 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
      */
     protected void addAlarmPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_BoolLEDComponent_alarm_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_alarm_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.BOOL_LED_COMPONENT__ALARM,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_alarm_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_alarm_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.BOOL_LED_COMPONENT__ALARM, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -145,19 +113,10 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
      */
     protected void addAttributePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_BoolLEDComponent_attribute_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_attribute_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.BOOL_LED_COMPONENT__ATTRIBUTE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_attribute_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_attribute_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.BOOL_LED_COMPONENT__ATTRIBUTE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -168,19 +127,9 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
      */
     protected void addExpectedValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_BoolLEDComponent_expectedValue_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_expectedValue_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.BOOL_LED_COMPONENT__EXPECTED_VALUE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_expectedValue_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_expectedValue_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.BOOL_LED_COMPONENT__EXPECTED_VALUE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -191,19 +140,10 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
      */
     protected void addOnOffPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_BoolLEDComponent_onOff_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_onOff_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.BOOL_LED_COMPONENT__ON_OFF,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BoolLEDComponent_onOff_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_BoolLEDComponent_onOff_feature", "_UI_BoolLEDComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.BOOL_LED_COMPONENT__ON_OFF, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_formatPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -228,9 +168,8 @@ public class BoolLEDComponentItemProvider extends ComponentItemProvider implemen
     public String getText ( Object object )
     {
         String label = ( (BoolLEDComponent)object ).getFormat ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_BoolLEDComponent_type" ) : //$NON-NLS-1$
-                getString ( "_UI_BoolLEDComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_BoolLEDComponent_type" ) : //$NON-NLS-1$
+        getString ( "_UI_BoolLEDComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

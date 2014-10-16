@@ -117,8 +117,7 @@ public class DetailViewAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected DetailViewSwitch<Adapter> modelSwitch = new DetailViewSwitch<Adapter> ()
-    {
+    protected DetailViewSwitch<Adapter> modelSwitch = new DetailViewSwitch<Adapter> () {
         @Override
         public Adapter caseView ( View object )
         {

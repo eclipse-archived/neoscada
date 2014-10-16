@@ -77,19 +77,10 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addScriptLanguagePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ScriptModule_scriptLanguage_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptModule_scriptLanguage_feature", "_UI_ScriptModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.SCRIPT_MODULE__SCRIPT_LANGUAGE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptModule_scriptLanguage_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptModule_scriptLanguage_feature", "_UI_ScriptModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.SCRIPT_MODULE__SCRIPT_LANGUAGE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -100,19 +91,10 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addCodePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ScriptModule_code_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptModule_code_feature", "_UI_ScriptModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.SCRIPT_MODULE__CODE,
-                        true,
-                        true,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptModule_code_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptModule_code_feature", "_UI_ScriptModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.SCRIPT_MODULE__CODE, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -123,19 +105,10 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
      */
     protected void addCodeUriPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ScriptModule_codeUri_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptModule_codeUri_feature", "_UI_ScriptModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.SCRIPT_MODULE__CODE_URI,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptModule_codeUri_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptModule_codeUri_feature", "_UI_ScriptModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.SCRIPT_MODULE__CODE_URI, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -160,9 +133,8 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
     public String getText ( Object object )
     {
         String label = ( (ScriptModule)object ).getScriptLanguage ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ScriptModule_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ScriptModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ScriptModule_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ScriptModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -16,12 +16,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.DetailViewFactory;
@@ -34,7 +29,7 @@ import org.eclipse.scada.vi.details.model.GroupGridComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GroupGridComponentItemProvider extends ComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class GroupGridComponentItemProvider extends ComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -74,19 +69,9 @@ public class GroupGridComponentItemProvider extends ComponentItemProvider implem
      */
     protected void addEquallyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_GroupGridComponent_equally_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridComponent_equally_feature", "_UI_GroupGridComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.GROUP_GRID_COMPONENT__EQUALLY,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GroupGridComponent_equally_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridComponent_equally_feature", "_UI_GroupGridComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.GROUP_GRID_COMPONENT__EQUALLY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -97,19 +82,9 @@ public class GroupGridComponentItemProvider extends ComponentItemProvider implem
      */
     protected void addColsPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_GroupGridComponent_cols_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridComponent_cols_feature", "_UI_GroupGridComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.GROUP_GRID_COMPONENT__COLS,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GroupGridComponent_cols_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_GroupGridComponent_cols_feature", "_UI_GroupGridComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.GROUP_GRID_COMPONENT__COLS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -207,10 +182,7 @@ public class GroupGridComponentItemProvider extends ComponentItemProvider implem
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.GROUP_GRID_COMPONENT__GROUPS,
-                        DetailViewFactory.eINSTANCE.createGroupGridEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.GROUP_GRID_COMPONENT__GROUPS, DetailViewFactory.eINSTANCE.createGroupGridEntry () ) );
     }
 
 }

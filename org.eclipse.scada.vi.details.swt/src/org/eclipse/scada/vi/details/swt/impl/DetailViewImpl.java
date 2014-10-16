@@ -85,7 +85,7 @@ public class DetailViewImpl implements org.eclipse.scada.vi.details.DetailView, 
 
     private final Collection<ComponentVisibility> visibilities = new LinkedList<ComponentVisibility> ();
 
-    private EList<ScriptModule> scriptModuels;
+    private EList<ScriptModule> scriptModules;
 
     private View view;
 
@@ -125,7 +125,7 @@ public class DetailViewImpl implements org.eclipse.scada.vi.details.DetailView, 
             load ();
 
             // load script modules
-            for ( final ScriptModule module : this.scriptModuels )
+            for ( final ScriptModule module : this.scriptModules )
             {
                 loadScriptModule ( engineManager, scriptContext, module );
             }
@@ -268,16 +268,25 @@ public class DetailViewImpl implements org.eclipse.scada.vi.details.DetailView, 
     private void createView ( final View view )
     {
         this.view = view;
-        this.scriptModuels = view.getScriptModule ();
+        this.scriptModules = view.getScriptModule ();
         this.hiddenItems = view.getHiddenComponent ();
 
-        this.header = createComponent ( view.getHeaderComponent () );
+        final ViewContext context = new ViewContext () {
+
+            @Override
+            public boolean isWriteDialogRequired ()
+            {
+                return view.isWriteDialogEnabled ();
+            }
+        };
+
+        this.header = createComponent ( view.getHeaderComponent (), context );
 
         this.realTimeTab = new RealTimeGroupTab ();
 
         for ( final GroupEntry group : view.getGroups () )
         {
-            final DetailComponent component = createComponent ( group.getComponent () );
+            final DetailComponent component = createComponent ( group.getComponent (), context );
 
             if ( component != null )
             {
@@ -299,14 +308,14 @@ public class DetailViewImpl implements org.eclipse.scada.vi.details.DetailView, 
         }
     }
 
-    private DetailComponent createComponent ( final Component component )
+    private DetailComponent createComponent ( final Component component, final ViewContext viewContext )
     {
         if ( component == null )
         {
             return null;
         }
 
-        return new DetailComponentImpl ( component );
+        return new DetailComponentImpl ( component, viewContext );
     }
 
     @Override

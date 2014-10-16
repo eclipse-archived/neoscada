@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,12 +8,15 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - allow disabling write dialogs in order to use
+ *          server side dialogs
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt.dialog;
 
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.scada.core.ui.connection.login.SessionManager;
+import org.eclipse.scada.vi.details.swt.impl.ViewContext;
+import org.eclipse.swt.widgets.Shell;
 
 public final class WriteConfirmDialog
 {
@@ -23,8 +26,13 @@ public final class WriteConfirmDialog
     {
     }
 
-    public static boolean create ( final Shell shell )
+    public static boolean create ( final ViewContext context, final Shell shell )
     {
+        if ( !context.isWriteDialogRequired () )
+        {
+            return true;
+        }
+
         if ( SessionManager.getDefault ().hasRole ( suppressConfirmDialogRole ) )
         {
             return true;

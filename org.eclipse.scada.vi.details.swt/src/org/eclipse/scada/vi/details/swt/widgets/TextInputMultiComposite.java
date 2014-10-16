@@ -22,6 +22,7 @@ import org.eclipse.scada.vi.data.DataValue;
 import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.details.swt.data.DataItemDescriptor;
 import org.eclipse.scada.vi.details.swt.dialog.WriteConfirmDialog;
+import org.eclipse.scada.vi.details.swt.impl.ViewContext;
 import org.eclipse.scada.vi.details.swt.widgets.control.ControlImage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusAdapter;
@@ -51,9 +52,13 @@ public class TextInputMultiComposite extends WriteableComposite
 
     private final ControlImage controlImage;
 
-    public TextInputMultiComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String attribute, final String hdConnectionId, final String hdItemId )
+    private final ViewContext context;
+
+    public TextInputMultiComposite ( final ViewContext context, final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String attribute, final String hdConnectionId, final String hdItemId )
     {
         super ( parent, style, format, null, true, null, null, attribute, hdConnectionId, hdItemId );
+
+        this.context = context;
 
         this.descriptor = descriptor;
         this.attribute = attribute;
@@ -113,7 +118,7 @@ public class TextInputMultiComposite extends WriteableComposite
 
     protected void triggerCommand ( final String string )
     {
-        if ( !WriteConfirmDialog.create ( getShell () ) )
+        if ( !WriteConfirmDialog.create ( this.context, getShell () ) )
         {
             return;
         }

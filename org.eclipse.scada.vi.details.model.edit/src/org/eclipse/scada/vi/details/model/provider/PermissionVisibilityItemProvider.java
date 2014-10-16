@@ -15,12 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.DetailViewPackage;
@@ -32,7 +27,7 @@ import org.eclipse.scada.vi.details.model.PermissionVisibility;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PermissionVisibilityItemProvider extends VisibilityItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class PermissionVisibilityItemProvider extends VisibilityItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -71,19 +66,9 @@ public class PermissionVisibilityItemProvider extends VisibilityItemProvider imp
      */
     protected void addRequiredPermissionPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_PermissionVisibility_requiredPermission_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PermissionVisibility_requiredPermission_feature", "_UI_PermissionVisibility_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.PERMISSION_VISIBILITY__REQUIRED_PERMISSION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PermissionVisibility_requiredPermission_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_PermissionVisibility_requiredPermission_feature", "_UI_PermissionVisibility_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.PERMISSION_VISIBILITY__REQUIRED_PERMISSION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -108,9 +93,8 @@ public class PermissionVisibilityItemProvider extends VisibilityItemProvider imp
     public String getText ( Object object )
     {
         String label = ( (PermissionVisibility)object ).getRequiredPermission ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_PermissionVisibility_type" ) : //$NON-NLS-1$
-                getString ( "_UI_PermissionVisibility_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_PermissionVisibility_type" ) : //$NON-NLS-1$
+        getString ( "_UI_PermissionVisibility_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

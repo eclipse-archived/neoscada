@@ -11,6 +11,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="scriptModule" upperBound="-1"
         eType="#//ScriptModule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tabStyle" eType="#//TabStyle"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="writeDialogEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="visibility" eType="#//Visibility"

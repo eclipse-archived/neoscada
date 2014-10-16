@@ -90,8 +90,11 @@ public class DetailComponentImpl implements DetailComponent
 
     private final CompositeSummaryProvider summaryProvider = new CompositeSummaryProvider ();
 
-    public DetailComponentImpl ( final Component component )
+    private final ViewContext viewContext;
+
+    public DetailComponentImpl ( final Component component, final ViewContext viewContext )
     {
+        this.viewContext = viewContext;
         this.component = component;
     }
 
@@ -335,7 +338,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final CheckComposite check = new CheckComposite ( parent, SWT.NONE, descriptor, resolve ( component.getFormat (), properties ), resolve ( component.getAttribute (), properties ), readDescriptor );
+                final CheckComposite check = new CheckComposite ( DetailComponentImpl.this.viewContext, parent, SWT.NONE, descriptor, resolve ( component.getFormat (), properties ), resolve ( component.getAttribute (), properties ), readDescriptor );
 
                 setSummaryProvider ( check.getSummaryProvider () );
 
@@ -384,7 +387,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final WriteableComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), readItem, component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getWidth (), component.getHdQueryString () );
+                final WriteableComposite valueSet = new TextInputComposite ( DetailComponentImpl.this.viewContext, parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), readItem, component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getWidth (), component.getHdQueryString () );
                 valueSet.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( valueSet.getSummaryProvider () );
@@ -409,7 +412,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final TextInputMultiComposite text = new TextInputMultiComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), resolve ( component.getAttribute (), properties ), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
+                final TextInputMultiComposite text = new TextInputMultiComposite ( DetailComponentImpl.this.viewContext, parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), resolve ( component.getAttribute (), properties ), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
                 text.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( text.getSummaryProvider () );
@@ -459,7 +462,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ) );
+                final ValueSetComposite valueSet = new ValueSetComposite ( DetailComponentImpl.this.viewContext, parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ) );
                 valueSet.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( valueSet.getSummaryProvider () );
@@ -527,7 +530,7 @@ public class DetailComponentImpl implements DetailComponent
 
                 for ( final Component child : groupEntry.getComponents () )
                 {
-                    final DetailComponentImpl comp = new DetailComponentImpl ( child );
+                    final DetailComponentImpl comp = new DetailComponentImpl ( child, DetailComponentImpl.this.viewContext );
 
                     final Composite wrapper = new Composite ( groupWidget, SWT.NONE );
                     wrapper.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
@@ -559,7 +562,7 @@ public class DetailComponentImpl implements DetailComponent
 
                 for ( final Component child : component.getChildren () )
                 {
-                    final DetailComponentImpl comp = new DetailComponentImpl ( child );
+                    final DetailComponentImpl comp = new DetailComponentImpl ( child, DetailComponentImpl.this.viewContext );
                     trackSub ( comp );
 
                     final Composite wrapper = new Composite ( childParent, SWT.NONE );
@@ -620,7 +623,7 @@ public class DetailComponentImpl implements DetailComponent
             @Override
             public void create ()
             {
-                final ButtonComposite button = new ButtonComposite ( parent, SWT.NONE, readItem, writeItem, resolve ( component.getFormat (), properties ), resolve ( component.getValue (), properties ), createValueSource ( component.getActive (), properties ), component.getRegistrations (), properties, resolve ( component.getAttribute (), properties ), component.getTextHeight () );
+                final ButtonComposite button = new ButtonComposite ( DetailComponentImpl.this.viewContext, parent, SWT.NONE, readItem, writeItem, resolve ( component.getFormat (), properties ), resolve ( component.getValue (), properties ), createValueSource ( component.getActive (), properties ), component.getRegistrations (), properties, resolve ( component.getAttribute (), properties ), component.getTextHeight () );
 
                 setSummaryProvider ( button.getSummaryProvider () );
 
@@ -685,7 +688,7 @@ public class DetailComponentImpl implements DetailComponent
 
                 for ( final Component child : component.getChildren () )
                 {
-                    final DetailComponentImpl comp = new DetailComponentImpl ( child );
+                    final DetailComponentImpl comp = new DetailComponentImpl ( child, DetailComponentImpl.this.viewContext );
                     comp.init ( DetailComponentImpl.this.visibleFactory, childParent, properties );
                     trackSub ( comp );
                 }

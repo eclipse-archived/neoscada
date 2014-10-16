@@ -107,12 +107,7 @@ public enum TabStyle implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final TabStyle[] VALUES_ARRAY = new TabStyle[]
-    {
-            DEFAULT,
-            NATIVE,
-            ENHANCED,
-    };
+    private static final TabStyle[] VALUES_ARRAY = new TabStyle[] { DEFAULT, NATIVE, ENHANCED, };
 
     /**
      * A public read-only list of all the '<em><b>Tab Style</b></em>' enumerators.

@@ -75,19 +75,10 @@ public class HiddenComponentItemProvider extends ItemProviderAdapter implements 
      */
     protected void addDescriptorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_HiddenComponent_descriptor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_HiddenComponent_descriptor_feature", "_UI_HiddenComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.HIDDEN_COMPONENT__DESCRIPTOR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HiddenComponent_descriptor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_HiddenComponent_descriptor_feature", "_UI_HiddenComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.HIDDEN_COMPONENT__DESCRIPTOR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -112,9 +103,8 @@ public class HiddenComponentItemProvider extends ItemProviderAdapter implements 
     public String getText ( Object object )
     {
         String label = ( (HiddenComponent)object ).getDescriptor ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_HiddenComponent_type" ) : //$NON-NLS-1$
-                getString ( "_UI_HiddenComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_HiddenComponent_type" ) : //$NON-NLS-1$
+        getString ( "_UI_HiddenComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

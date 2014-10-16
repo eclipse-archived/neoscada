@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.vi.details.model.View#getHiddenComponent <em>Hidden Component</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.View#getScriptModule <em>Script Module</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.View#getTabStyle <em>Tab Style</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.View#isWriteDialogEnabled <em>Write Dialog Enabled</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,5 +139,32 @@ public interface View extends EObject
      * @generated
      */
     void setTabStyle ( TabStyle value );
+
+    /**
+     * Returns the value of the '<em><b>Write Dialog Enabled</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Write Dialog Enabled</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Write Dialog Enabled</em>' attribute.
+     * @see #setWriteDialogEnabled(boolean)
+     * @see org.eclipse.scada.vi.details.model.DetailViewPackage#getView_WriteDialogEnabled()
+     * @model default="true"
+     * @generated
+     */
+    boolean isWriteDialogEnabled ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.vi.details.model.View#isWriteDialogEnabled <em>Write Dialog Enabled</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Write Dialog Enabled</em>' attribute.
+     * @see #isWriteDialogEnabled()
+     * @generated
+     */
+    void setWriteDialogEnabled ( boolean value );
 
 } // View

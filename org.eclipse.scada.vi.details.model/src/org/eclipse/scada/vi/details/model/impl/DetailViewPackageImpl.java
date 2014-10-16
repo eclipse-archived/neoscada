@@ -470,6 +470,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getView_WriteDialogEnabled ()
+    {
+        return (EAttribute)viewEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getComponent ()
     {
         return componentEClass;
@@ -1782,6 +1792,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEReference ( viewEClass, VIEW__HIDDEN_COMPONENT );
         createEReference ( viewEClass, VIEW__SCRIPT_MODULE );
         createEAttribute ( viewEClass, VIEW__TAB_STYLE );
+        createEAttribute ( viewEClass, VIEW__WRITE_DIALOG_ENABLED );
 
         componentEClass = createEClass ( COMPONENT );
         createEReference ( componentEClass, COMPONENT__VISIBILITY );
@@ -2018,6 +2029,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEReference ( getView_HiddenComponent (), this.getHiddenComponent (), null, "hiddenComponent", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getView_ScriptModule (), this.getScriptModule (), null, "scriptModule", null, 0, -1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getView_TabStyle (), this.getTabStyle (), "tabStyle", null, 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getView_WriteDialogEnabled (), ecorePackage.getEBoolean (), "writeDialogEnabled", "true", 0, 1, View.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getComponent_Visibility (), this.getVisibility (), null, "visibility", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

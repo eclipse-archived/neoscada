@@ -23,6 +23,7 @@ import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.details.model.Registration;
 import org.eclipse.scada.vi.details.swt.data.DataItemDescriptor;
 import org.eclipse.scada.vi.details.swt.dialog.WriteConfirmDialog;
+import org.eclipse.scada.vi.details.swt.impl.ViewContext;
 import org.eclipse.scada.vi.details.swt.source.ValueSourceController;
 import org.eclipse.scada.vi.details.swt.widgets.control.ControlImage;
 import org.eclipse.swt.SWT;
@@ -58,10 +59,13 @@ public class ButtonComposite extends GenericComposite
 
     private final ControlImage controlImage;
 
-    public ButtonComposite ( final Composite parent, final int style, final DataItemDescriptor readDescriptor, final DataItemDescriptor writeDescriptor, final String format, final String value, final ValueSourceController active, final Collection<Registration> registrations, final Map<String, String> properties, final String attribute, final int textHeight )
+    private final ViewContext context;
+
+    public ButtonComposite ( final ViewContext context, final Composite parent, final int style, final DataItemDescriptor readDescriptor, final DataItemDescriptor writeDescriptor, final String format, final String value, final ValueSourceController active, final Collection<Registration> registrations, final Map<String, String> properties, final String attribute, final int textHeight )
     {
         super ( parent, style, registrations, properties );
 
+        this.context = context;
         this.attribute = attribute;
 
         final RowLayout layout = new RowLayout ();
@@ -135,7 +139,7 @@ public class ButtonComposite extends GenericComposite
 
     protected void handleButton ()
     {
-        if ( !WriteConfirmDialog.create ( getShell () ) )
+        if ( !WriteConfirmDialog.create ( this.context, getShell () ) )
         {
             return;
         }

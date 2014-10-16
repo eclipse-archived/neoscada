@@ -25,6 +25,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/hiddenComponent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//View/scriptModule"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//View/tabStyle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute DetailView.ecore#//View/writeDialogEnabled"/>
     </genClasses>
     <genClasses ecoreClass="DetailView.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference DetailView.ecore#//Component/visibility"/>

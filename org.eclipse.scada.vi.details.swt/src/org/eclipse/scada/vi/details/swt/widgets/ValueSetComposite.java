@@ -21,6 +21,7 @@ import org.eclipse.scada.vi.data.DataValue;
 import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.details.swt.data.DataItemDescriptor;
 import org.eclipse.scada.vi.details.swt.dialog.WriteConfirmDialog;
+import org.eclipse.scada.vi.details.swt.impl.ViewContext;
 import org.eclipse.scada.vi.details.swt.widgets.control.ControlImage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -52,9 +53,13 @@ public class ValueSetComposite extends WriteableComposite
 
     private final ControlImage controlImage;
 
-    public ValueSetComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final DataItemDescriptor setDescriptor, final DataItemDescriptor resetDescriptor, final String format, final Double ceil, final Double floor, final String decimal, final boolean isText, final String attribute, final String hdConnectionId, final String hdItemId )
+    private final ViewContext context;
+
+    public ValueSetComposite ( final ViewContext context, final Composite parent, final int style, final DataItemDescriptor descriptor, final DataItemDescriptor setDescriptor, final DataItemDescriptor resetDescriptor, final String format, final Double ceil, final Double floor, final String decimal, final boolean isText, final String attribute, final String hdConnectionId, final String hdItemId )
     {
         super ( parent, style, format, decimal, isText, ceil, floor, attribute, hdConnectionId, hdItemId );
+
+        this.context = context;
 
         this.diDescriptorButtonReset = resetDescriptor;
         this.diDescriptorButtonSet = setDescriptor;
@@ -121,7 +126,7 @@ public class ValueSetComposite extends WriteableComposite
     @Override
     protected void triggerCommand ()
     {
-        if ( !WriteConfirmDialog.create ( getShell () ) )
+        if ( !WriteConfirmDialog.create ( this.context, getShell () ) )
         {
             return;
         }
@@ -143,7 +148,7 @@ public class ValueSetComposite extends WriteableComposite
     // FIXME: implement using anonymous classes to prevent "if"
     private void triggerCommand ( final SelectionEvent evt )
     {
-        if ( !WriteConfirmDialog.create ( getShell () ) )
+        if ( !WriteConfirmDialog.create ( this.context, getShell () ) )
         {
             return;
         }
@@ -165,7 +170,7 @@ public class ValueSetComposite extends WriteableComposite
         }
         catch ( final Exception e )
         {
-            // FIXME: log error 
+            // FIXME: log error
         }
     }
 

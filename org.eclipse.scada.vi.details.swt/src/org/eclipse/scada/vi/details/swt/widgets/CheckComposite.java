@@ -19,6 +19,7 @@ import org.eclipse.scada.vi.data.DataValue;
 import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.details.swt.data.DataItemDescriptor;
 import org.eclipse.scada.vi.details.swt.dialog.WriteConfirmDialog;
+import org.eclipse.scada.vi.details.swt.impl.ViewContext;
 import org.eclipse.scada.vi.details.swt.widgets.control.BlockControlImage;
 import org.eclipse.scada.vi.details.swt.widgets.control.ControlImage;
 import org.eclipse.swt.SWT;
@@ -44,9 +45,13 @@ public class CheckComposite extends GenericComposite
 
     private final BlockControlImage blockImage;
 
-    public CheckComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String attribute, final DataItemDescriptor readDescriptor )
+    private final ViewContext context;
+
+    public CheckComposite ( final ViewContext context, final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final String attribute, final DataItemDescriptor readDescriptor )
     {
         super ( parent, style, null, null );
+
+        this.context = context;
 
         this.attribute = attribute;
         this.descriptor = descriptor;
@@ -93,7 +98,7 @@ public class CheckComposite extends GenericComposite
 
     protected void write ()
     {
-        if ( !WriteConfirmDialog.create ( getShell () ) )
+        if ( !WriteConfirmDialog.create ( this.context, getShell () ) )
         {
             return;
         }
@@ -115,7 +120,7 @@ public class CheckComposite extends GenericComposite
         }
         catch ( final Exception e )
         {
-            // FIXME: log error 
+            // FIXME: log error
         }
     }
 

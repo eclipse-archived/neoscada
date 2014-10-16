@@ -156,25 +156,13 @@ public class ComponentItemProvider extends ItemProviderAdapter implements IEditi
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPONENT__VISIBILITY,
-                        DetailViewFactory.eINSTANCE.createScriptVisibility () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPONENT__VISIBILITY, DetailViewFactory.eINSTANCE.createScriptVisibility () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPONENT__VISIBILITY,
-                        DetailViewFactory.eINSTANCE.createPermissionVisibility () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPONENT__VISIBILITY, DetailViewFactory.eINSTANCE.createPermissionVisibility () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPONENT__VISIBILITY,
-                        DetailViewFactory.eINSTANCE.createInvisible () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPONENT__VISIBILITY, DetailViewFactory.eINSTANCE.createInvisible () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPONENT__VISIBILITY,
-                        DetailViewFactory.eINSTANCE.createTestVisibility () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPONENT__VISIBILITY, DetailViewFactory.eINSTANCE.createTestVisibility () ) );
     }
 
     /**

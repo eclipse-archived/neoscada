@@ -15,12 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.DetailViewPackage;
@@ -32,7 +27,7 @@ import org.eclipse.scada.vi.details.model.WriteableComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WriteableComponentItemProvider extends ReadableComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class WriteableComponentItemProvider extends ReadableComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -72,19 +67,9 @@ public class WriteableComponentItemProvider extends ReadableComponentItemProvide
      */
     protected void addCeilPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_WriteableComponent_ceil_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_WriteableComponent_ceil_feature", "_UI_WriteableComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.WRITEABLE_COMPONENT__CEIL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_WriteableComponent_ceil_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_WriteableComponent_ceil_feature", "_UI_WriteableComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.WRITEABLE_COMPONENT__CEIL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -95,19 +80,9 @@ public class WriteableComponentItemProvider extends ReadableComponentItemProvide
      */
     protected void addFloorPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_WriteableComponent_floor_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_WriteableComponent_floor_feature", "_UI_WriteableComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.WRITEABLE_COMPONENT__FLOOR,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_WriteableComponent_floor_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_WriteableComponent_floor_feature", "_UI_WriteableComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.WRITEABLE_COMPONENT__FLOOR, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -120,9 +95,8 @@ public class WriteableComponentItemProvider extends ReadableComponentItemProvide
     public String getText ( Object object )
     {
         String label = ( (WriteableComponent)object ).getFormat ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_WriteableComponent_type" ) : //$NON-NLS-1$
-                getString ( "_UI_WriteableComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_WriteableComponent_type" ) : //$NON-NLS-1$
+        getString ( "_UI_WriteableComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -15,12 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.DetailViewPackage;
@@ -32,7 +27,7 @@ import org.eclipse.scada.vi.details.model.ItemValueSource;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ItemValueSourceItemProvider extends ValueSourceItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class ItemValueSourceItemProvider extends ValueSourceItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -71,19 +66,9 @@ public class ItemValueSourceItemProvider extends ValueSourceItemProvider impleme
      */
     protected void addValueKeyPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ItemValueSource_valueKey_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemValueSource_valueKey_feature", "_UI_ItemValueSource_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.ITEM_VALUE_SOURCE__VALUE_KEY,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemValueSource_valueKey_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemValueSource_valueKey_feature", "_UI_ItemValueSource_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.ITEM_VALUE_SOURCE__VALUE_KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -108,9 +93,8 @@ public class ItemValueSourceItemProvider extends ValueSourceItemProvider impleme
     public String getText ( Object object )
     {
         String label = ( (ItemValueSource)object ).getValueKey ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ItemValueSource_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ItemValueSource_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ItemValueSource_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ItemValueSource_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

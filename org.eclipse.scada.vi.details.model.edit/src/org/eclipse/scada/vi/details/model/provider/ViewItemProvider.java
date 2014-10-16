@@ -66,6 +66,7 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
             super.getPropertyDescriptors ( object );
 
             addTabStylePropertyDescriptor ( object );
+            addWriteDialogEnabledPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -78,19 +79,22 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
      */
     protected void addTabStylePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_View_tabStyle_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_View_tabStyle_feature", "_UI_View_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        DetailViewPackage.Literals.VIEW__TAB_STYLE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_View_tabStyle_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_View_tabStyle_feature", "_UI_View_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.VIEW__TAB_STYLE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Write Dialog Enabled feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addWriteDialogEnabledPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_View_writeDialogEnabled_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_View_writeDialogEnabled_feature", "_UI_View_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DetailViewPackage.Literals.VIEW__WRITE_DIALOG_ENABLED, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -152,9 +156,8 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
     {
         TabStyle labelValue = ( (View)object ).getTabStyle ();
         String label = labelValue == null ? null : labelValue.toString ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_View_type" ) : //$NON-NLS-1$
-                getString ( "_UI_View_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_View_type" ) : //$NON-NLS-1$
+        getString ( "_UI_View_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -172,6 +175,7 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
         switch ( notification.getFeatureID ( View.class ) )
         {
             case DetailViewPackage.VIEW__TAB_STYLE:
+            case DetailViewPackage.VIEW__WRITE_DIALOG_ENABLED:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DetailViewPackage.VIEW__HEADER_COMPONENT:
@@ -196,100 +200,43 @@ public class ViewItemProvider extends ItemProviderAdapter implements IEditingDom
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createLabelComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createLabelComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createFillLayoutComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createFillLayoutComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createButtonComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createButtonComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createBoolLEDComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createBoolLEDComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createSimpleGridComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createSimpleGridComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createGroupGridComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createGroupGridComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createValueSetComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createValueSetComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createValueComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createValueComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createTextInputComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createTextInputComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createTextComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createTextComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createTextInputMultiComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createTextInputMultiComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createCheckComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createCheckComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createLinkComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createLinkComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createProgressComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createBrowserComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HEADER_COMPONENT, DetailViewFactory.eINSTANCE.createBrowserComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__GROUPS,
-                        DetailViewFactory.eINSTANCE.createGroupEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__GROUPS, DetailViewFactory.eINSTANCE.createGroupEntry () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__HIDDEN_COMPONENT,
-                        DetailViewFactory.eINSTANCE.createHiddenComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__HIDDEN_COMPONENT, DetailViewFactory.eINSTANCE.createHiddenComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.VIEW__SCRIPT_MODULE,
-                        DetailViewFactory.eINSTANCE.createScriptModule () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.VIEW__SCRIPT_MODULE, DetailViewFactory.eINSTANCE.createScriptModule () ) );
     }
 
     /**

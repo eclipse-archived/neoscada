@@ -21,6 +21,7 @@ import org.eclipse.scada.vi.data.DataValue;
 import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.details.swt.data.DataItemDescriptor;
 import org.eclipse.scada.vi.details.swt.dialog.WriteConfirmDialog;
+import org.eclipse.scada.vi.details.swt.impl.ViewContext;
 import org.eclipse.scada.vi.details.swt.widgets.control.BlockControlImage;
 import org.eclipse.scada.vi.details.swt.widgets.control.ControlImage;
 import org.eclipse.swt.SWT;
@@ -44,9 +45,14 @@ public class TextInputComposite extends WriteableComposite
 
     private final BlockControlImage blockImage;
 
-    public TextInputComposite ( final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final Double ceil, final double floor, final String decimal, final boolean isText, final String attribute, final DataItemDescriptor readDescriptor, final String hdConnectionId, final String hdItemId, int width, final String queryString )
+    private final ViewContext context;
+
+    public TextInputComposite ( final ViewContext context, final Composite parent, final int style, final DataItemDescriptor descriptor, final String format, final Double ceil, final double floor, final String decimal, final boolean isText, final String attribute, final DataItemDescriptor readDescriptor, final String hdConnectionId, final String hdItemId, int width, final String queryString )
     {
         super ( parent, style, format, decimal, isText, ceil, floor, attribute, hdConnectionId, hdItemId );
+
+        this.context = context;
+
         this.descriptor = descriptor;
 
         if ( width == 0 )
@@ -96,7 +102,7 @@ public class TextInputComposite extends WriteableComposite
     @Override
     protected void triggerCommand ()
     {
-        if ( !WriteConfirmDialog.create ( getShell () ) )
+        if ( !WriteConfirmDialog.create ( this.context, getShell () ) )
         {
             return;
         }

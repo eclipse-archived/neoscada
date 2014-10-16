@@ -15,12 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.vi.details.model.CompositeComponent;
 import org.eclipse.scada.vi.details.model.DetailViewFactory;
@@ -32,7 +27,7 @@ import org.eclipse.scada.vi.details.model.DetailViewPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompositeComponentItemProvider extends ComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class CompositeComponentItemProvider extends ComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -140,85 +135,37 @@ public class CompositeComponentItemProvider extends ComponentItemProvider implem
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createLabelComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createLabelComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createFillLayoutComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createFillLayoutComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createButtonComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createButtonComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createBoolLEDComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createBoolLEDComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createSimpleGridComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createSimpleGridComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createGroupGridComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createGroupGridComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createValueSetComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createValueSetComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createValueComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createValueComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createTextInputComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createTextInputComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createTextComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createTextComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createTextInputMultiComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createTextInputMultiComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createCheckComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createCheckComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createLinkComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createLinkComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createURLImageComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createProgressComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createProgressComponent () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN,
-                        DetailViewFactory.eINSTANCE.createBrowserComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( DetailViewPackage.Literals.COMPOSITE_COMPONENT__CHILDREN, DetailViewFactory.eINSTANCE.createBrowserComponent () ) );
     }
 
 }

@@ -41,6 +41,7 @@ import org.eclipse.scada.vi.details.model.View;
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.ViewImpl#getHiddenComponent <em>Hidden Component</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.ViewImpl#getScriptModule <em>Script Module</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.ViewImpl#getTabStyle <em>Tab Style</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.impl.ViewImpl#isWriteDialogEnabled <em>Write Dialog Enabled</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,6 +108,26 @@ public class ViewImpl extends EObjectImpl implements View
      * @ordered
      */
     protected TabStyle tabStyle = TAB_STYLE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isWriteDialogEnabled() <em>Write Dialog Enabled</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isWriteDialogEnabled()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean WRITE_DIALOG_ENABLED_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isWriteDialogEnabled() <em>Write Dialog Enabled</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isWriteDialogEnabled()
+     * @generated
+     * @ordered
+     */
+    protected boolean writeDialogEnabled = WRITE_DIALOG_ENABLED_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -258,6 +279,29 @@ public class ViewImpl extends EObjectImpl implements View
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isWriteDialogEnabled ()
+    {
+        return writeDialogEnabled;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setWriteDialogEnabled ( boolean newWriteDialogEnabled )
+    {
+        boolean oldWriteDialogEnabled = writeDialogEnabled;
+        writeDialogEnabled = newWriteDialogEnabled;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.VIEW__WRITE_DIALOG_ENABLED, oldWriteDialogEnabled, writeDialogEnabled ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -295,6 +339,8 @@ public class ViewImpl extends EObjectImpl implements View
                 return getScriptModule ();
             case DetailViewPackage.VIEW__TAB_STYLE:
                 return getTabStyle ();
+            case DetailViewPackage.VIEW__WRITE_DIALOG_ENABLED:
+                return isWriteDialogEnabled ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -328,6 +374,9 @@ public class ViewImpl extends EObjectImpl implements View
             case DetailViewPackage.VIEW__TAB_STYLE:
                 setTabStyle ( (TabStyle)newValue );
                 return;
+            case DetailViewPackage.VIEW__WRITE_DIALOG_ENABLED:
+                setWriteDialogEnabled ( (Boolean)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -357,6 +406,9 @@ public class ViewImpl extends EObjectImpl implements View
             case DetailViewPackage.VIEW__TAB_STYLE:
                 setTabStyle ( TAB_STYLE_EDEFAULT );
                 return;
+            case DetailViewPackage.VIEW__WRITE_DIALOG_ENABLED:
+                setWriteDialogEnabled ( WRITE_DIALOG_ENABLED_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -381,6 +433,8 @@ public class ViewImpl extends EObjectImpl implements View
                 return scriptModule != null && !scriptModule.isEmpty ();
             case DetailViewPackage.VIEW__TAB_STYLE:
                 return tabStyle != TAB_STYLE_EDEFAULT;
+            case DetailViewPackage.VIEW__WRITE_DIALOG_ENABLED:
+                return writeDialogEnabled != WRITE_DIALOG_ENABLED_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -399,6 +453,8 @@ public class ViewImpl extends EObjectImpl implements View
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (tabStyle: " ); //$NON-NLS-1$
         result.append ( tabStyle );
+        result.append ( ", writeDialogEnabled: " ); //$NON-NLS-1$
+        result.append ( writeDialogEnabled );
         result.append ( ')' );
         return result.toString ();
     }
