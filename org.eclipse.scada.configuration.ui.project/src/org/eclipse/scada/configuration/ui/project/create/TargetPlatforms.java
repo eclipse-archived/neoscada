@@ -21,9 +21,9 @@ public enum TargetPlatforms implements TargetPlatformProfile
         public List<String> getRepositories ()
         {
             return Arrays.asList ( //
-            "http://download.eclipse.org/releases/kepler", //$NON-NLS-1$
-                    "http://download.eclipse.org/eclipsescada/updates/release/0.1.0/" //$NON-NLS-1$
-            );
+                    "http://download.eclipse.org/releases/kepler", //$NON-NLS-1$
+                    "http://download.eclipse.org/eclipsescada/updates/release/0.2.0/" //$NON-NLS-1$
+                    );
         }
     };
 
