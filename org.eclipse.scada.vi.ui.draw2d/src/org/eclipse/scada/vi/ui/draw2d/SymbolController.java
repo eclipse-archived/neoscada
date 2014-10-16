@@ -334,7 +334,15 @@ public class SymbolController implements Listener
     {
         if ( this.onInit != null )
         {
-            this.onInit.execute ( this.scriptContext );
+            try
+            {
+                this.onInit.execute ( this.scriptContext );
+            }
+            catch ( final Exception e )
+            {
+                errorLog ( "Failed to run init", e );
+                throw new InvocationTargetException ( e );
+            }
         }
         for ( final SymbolController controller : this.controllers )
         {
@@ -563,6 +571,7 @@ public class SymbolController implements Listener
         catch ( final Exception e )
         {
             StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
+            errorLog ( "Failed to run update", e );
         }
         notifySummaryListeners ();
 
