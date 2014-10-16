@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.scada.core.ui.styles;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.core.ui.styles.Activator
 Bundle-Vendor: %Bundle-Vendor
 Export-Package: org.eclipse.scada.core.ui.styles;version="0.1.0",
@@ -10,7 +10,7 @@ Export-Package: org.eclipse.scada.core.ui.styles;version="0.1.0",
 Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",
  org.eclipse.core.runtime;bundle-version="3.7.0",
  org.eclipse.scada.core.ui;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.ui.blink;version="0.1.0",
  org.slf4j;version="1.6.0"
 Bundle-ActivationPolicy: lazy
