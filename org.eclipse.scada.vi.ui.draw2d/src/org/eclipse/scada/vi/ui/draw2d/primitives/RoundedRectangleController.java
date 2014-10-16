@@ -53,7 +53,7 @@ public class RoundedRectangleController extends ShapeController
         applyCommon ( element );
     }
 
-    private void setCorner ( final int width, final int height )
+    public void setCorner ( final int width, final int height )
     {
         this.figure.setCornerDimensions ( new Dimension ( width, height ) );
     }
