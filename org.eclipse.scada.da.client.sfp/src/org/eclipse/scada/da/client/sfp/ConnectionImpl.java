@@ -63,6 +63,8 @@ public class ConnectionImpl extends ClientBaseConnection implements Connection
 
     private final Map<Location, FolderListener> folderListeners = new HashMap<> ();
 
+    private final long timeoutTime;
+
     public ConnectionImpl ( final ConnectionInformation connectionInformation ) throws Exception
     {
         super ( new HandlerFactory (), new FilterChainBuilder (), connectionInformation );
@@ -76,12 +78,14 @@ public class ConnectionImpl extends ClientBaseConnection implements Connection
         {
             this.pollTime = Long.getLong ( "org.eclipse.scada.da.client.sfp.pollTime", 250L );
         }
+
+        this.timeoutTime = Long.getLong ( "org.eclipse.scada.da.client.sfp.timeoutTime", this.pollTime * 3 );
     }
 
     @Override
     protected void onConnectionConnected ()
     {
-        getSession ().getConfig ().setReaderIdleTime ( (int) ( TimeUnit.MILLISECONDS.toSeconds ( this.pollTime ) * 3 ) + 1 );
+        getSession ().getConfig ().setReaderIdleTime ( (int)TimeUnit.MILLISECONDS.toSeconds ( this.timeoutTime ) + 1 );
         sendHello ();
     }
 
