@@ -47,17 +47,17 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
 {
     private final static Logger logger = LoggerFactory.getLogger ( BufferedDataSourceImpl.class );
 
-    private BundleContext context;
+    private final BundleContext context;
 
-    private ScheduledExecutorService scheduler;
+    private final ScheduledExecutorService scheduler;
 
-    private ObjectPoolTracker<DataSource> poolTracker;
+    private final ObjectPoolTracker<DataSource> poolTracker;
 
-    private DataNodeTracker dataNodeTracker;
+    private final DataNodeTracker dataNodeTracker;
 
-    private String configurationId;
+    private final String configurationId;
 
-    private ObjectPoolImpl<BufferedDataSource> objectPool;
+    private final ObjectPoolImpl<BufferedDataSource> objectPool;
 
     private String dataSourceId;
 
@@ -75,9 +75,9 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
 
     private Persistence persistence;
 
-    private Set<BufferedDataSourceListener> listeners = new CopyOnWriteArraySet<BufferedDataSourceListener> ();
+    private final Set<BufferedDataSourceListener> listeners = new CopyOnWriteArraySet<BufferedDataSourceListener> ();
 
-    private Object listenersLock = new Object ();
+    private final Object listenersLock = new Object ();
 
     private ScheduledFuture<?> triggerFuture;
 
@@ -87,7 +87,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
 
     private DataSource dataSource;
 
-    public BufferedDataSourceImpl ( BundleContext context, ScheduledExecutorService scheduler, ObjectPoolTracker<DataSource> poolTracker, DataNodeTracker dataNodeTracker, String configurationId, ObjectPoolImpl<BufferedDataSource> objectPool )
+    public BufferedDataSourceImpl ( final BundleContext context, final ScheduledExecutorService scheduler, final ObjectPoolTracker<DataSource> poolTracker, final DataNodeTracker dataNodeTracker, final String configurationId, final ObjectPoolImpl<BufferedDataSource> objectPool )
     {
         this.context = context;
         this.scheduler = scheduler;
@@ -97,15 +97,17 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
         this.objectPool = objectPool;
     }
 
-    public void update ( Map<String, String> parameters )
+    public void update ( final Map<String, String> parameters )
     {
+        logger.info ( "Update configuration" );
+
         if ( this.triggerFuture != null )
         {
             this.triggerFuture.cancel ( false );
             this.triggerFuture = null;
         }
 
-        ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
+        final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
 
         this.dataSourceId = cfg.getStringChecked ( DataSource.DATA_SOURCE_ID, String.format ( "'%s' must be set", DataSource.DATA_SOURCE_ID ) );
         this.initialValue = cfg.getVariant ( "initialValue", Variant.NULL );
@@ -114,10 +116,10 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
         this.triggerOnly = cfg.getBoolean ( "triggerOnly", false );
         this.persistence = cfg.getEnum ( "persistence", Persistence.class, Persistence.NONE );
 
-        this.valueRange = new DataItemValueRange ( range );
+        this.valueRange = new DataItemValueRange ( this.range );
         this.valueRange.add ( new DataItemValueLight ( this.initialValue, SubscriptionState.CONNECTED, 0, false, false ) );
 
-        this.nodeId = cfg.getString ( "node.id", "org.eclipse.scada.da.buffer/" + this.dataSourceId + "/" + range );
+        this.nodeId = cfg.getString ( "node.id", "org.eclipse.scada.da.buffer/" + this.dataSourceId + "/" + this.range );
 
         // check regularly for any change in status
         this.triggerFuture = this.scheduler.scheduleAtFixedRate ( new Runnable () {
@@ -126,7 +128,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
             {
                 try
                 {
-                    valueRange.checkRange ();
+                    BufferedDataSourceImpl.this.valueRange.checkRange ();
                     sendUpdate ( true );
                 }
                 catch ( final Exception e )
@@ -136,8 +138,8 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
             }
         }, this.trigger, this.trigger, TimeUnit.SECONDS );
 
-        // 
-        this.dataSourceTracker = new SingleObjectPoolServiceTracker<DataSource> ( this.poolTracker, dataSourceId, new ServiceListener<DataSource> () {
+        //
+        this.dataSourceTracker = new SingleObjectPoolServiceTracker<DataSource> ( this.poolTracker, this.dataSourceId, new ServiceListener<DataSource> () {
             @Override
             public void serviceChange ( final DataSource service, final Dictionary<?, ?> properties )
             {
@@ -145,17 +147,17 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
             }
         } );
         this.dataSourceTracker.open ();
-        if ( persistence != Persistence.REQUIRED )
+        if ( this.persistence != Persistence.REQUIRED )
         {
-            this.dataNodeTracker.addListener ( nodeId, this );
+            this.dataNodeTracker.addListener ( this.nodeId, this );
             addService ();
         }
 
-        scheduler.submit ( new Runnable () {
+        this.scheduler.submit ( new Runnable () {
             @Override
             public void run ()
             {
-                valueRange.checkRange ();
+                BufferedDataSourceImpl.this.valueRange.checkRange ();
                 sendUpdate ( false );
             }
         } );
@@ -178,11 +180,11 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
     {
         removeService ();
         setDataSource ( null );
-        if ( dataNodeTracker != null )
+        if ( this.dataNodeTracker != null )
         {
-            dataNodeTracker.removeListener ( BufferedDataSourceImpl.this.nodeId, BufferedDataSourceImpl.this );
+            this.dataNodeTracker.removeListener ( BufferedDataSourceImpl.this.nodeId, BufferedDataSourceImpl.this );
         }
-        synchronized ( listenersLock )
+        synchronized ( this.listenersLock )
         {
             BufferedDataSourceImpl.this.listeners.clear ();
         }
@@ -190,10 +192,10 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
 
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void nodeChanged ( DataNode node )
+    public void nodeChanged ( final DataNode node )
     {
-        // we are only interested in the initial values anyway 
-        if ( initialPersistentValuesLoaded )
+        // we are only interested in the initial values anyway
+        if ( this.initialPersistentValuesLoaded )
         {
             return;
         }
@@ -202,26 +204,26 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
             SortedSet<DataItemValueLight> initialValues = null;
             if ( node != null )
             {
-                initialValues = (SortedSet<DataItemValueLight>)node.getDataAsObject ( context.getBundle () );
+                initialValues = (SortedSet<DataItemValueLight>)node.getDataAsObject ( this.context.getBundle () );
             }
-            initialPersistentValuesLoaded = true;
+            this.initialPersistentValuesLoaded = true;
             if ( initialValues != null )
             {
-                for ( DataItemValueLight dataItemValue : initialValues )
+                for ( final DataItemValueLight dataItemValue : initialValues )
                 {
-                    valueRange.add ( dataItemValue );
+                    this.valueRange.add ( dataItemValue );
                 }
             }
-            if ( persistence == Persistence.REQUIRED )
+            if ( this.persistence == Persistence.REQUIRED )
             {
                 addService ();
             }
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             logger.warn ( "could not load old persistent values", e );
         }
-        scheduler.submit ( new Runnable () {
+        this.scheduler.submit ( new Runnable () {
             @Override
             public void run ()
             {
@@ -231,18 +233,24 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
     }
 
     @Override
-    public void stateChanged ( DataItemValue value )
+    public void stateChanged ( final DataItemValue value )
     {
-        valueRange.add ( DataItemValueLight.valueOf ( value ) );
-        if ( persistence != Persistence.NONE )
+        logger.debug ( "State changed - value: {}", value );
+
+        this.valueRange.add ( DataItemValueLight.valueOf ( value ) );
+        if ( this.persistence != Persistence.NONE )
         {
-            DataItemValueRangeState state = valueRange.getState ();
-            TreeSet<DataItemValueLight> valuesToPersist = new TreeSet<DataItemValueLight> ();
+            logger.trace ( "Storing update" );
+            final DataItemValueRangeState state = this.valueRange.getState ();
+            final TreeSet<DataItemValueLight> valuesToPersist = new TreeSet<DataItemValueLight> ();
             valuesToPersist.add ( state.getFirstValue () );
             valuesToPersist.addAll ( state.getValues () );
-            dataNodeTracker.write ( new DataNode ( nodeId, valuesToPersist ) );
+            this.dataNodeTracker.write ( new DataNode ( this.nodeId, valuesToPersist ) );
         }
-        scheduler.submit ( new Runnable () {
+
+        logger.trace ( "Sending update" );
+
+        this.scheduler.submit ( new Runnable () {
             @Override
             public void run ()
             {
@@ -251,21 +259,30 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
         } );
     }
 
-    private void sendUpdate ( boolean triggered )
+    private void sendUpdate ( final boolean triggered )
     {
-        if ( dataSource == null )
+        logger.debug ( "sendUpdate - triggered: {}, dataSource: {}, persistence: {}, initialPersistentValuesLoaded: {}, triggerOnly: {}", triggered, this.dataSource, this.persistence, this.initialPersistentValuesLoaded, this.triggerOnly );
+
+        if ( this.dataSource == null )
         {
             return;
         }
-        if ( persistence == Persistence.REQUIRED && !initialPersistentValuesLoaded )
+        if ( this.persistence == Persistence.REQUIRED && !this.initialPersistentValuesLoaded )
         {
             return;
         }
-        if ( ( triggerOnly && triggered ) || ( !triggerOnly ) )
+        if ( this.triggerOnly && triggered || !this.triggerOnly )
         {
-            for ( BufferedDataSourceListener listener : listeners )
+            for ( final BufferedDataSourceListener listener : this.listeners )
             {
-                listener.stateChanged ( valueRange );
+                try
+                {
+                    listener.stateChanged ( this.valueRange );
+                }
+                catch ( final Exception e )
+                {
+                    logger.info ( "Failed to call listener", e );
+                }
             }
         }
     }
@@ -273,30 +290,30 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
     @Override
     public void addListener ( final BufferedDataSourceListener listener )
     {
-        synchronized ( listenersLock )
+        synchronized ( this.listenersLock )
         {
-            listeners.add ( listener );
+            this.listeners.add ( listener );
         }
     }
 
     @Override
     public void removeListener ( final BufferedDataSourceListener listener )
     {
-        synchronized ( listenersLock )
+        synchronized ( this.listenersLock )
         {
-            listeners.remove ( listener );
+            this.listeners.remove ( listener );
         }
     }
 
     private void addService ()
     {
         final Dictionary<String, String> properties = new Hashtable<String, String> ( 1 );
-        properties.put ( BUFFERED_DATA_SOURCE_ID, configurationId );
-        this.objectPool.addService ( configurationId, this, properties );
+        properties.put ( BUFFERED_DATA_SOURCE_ID, this.configurationId );
+        this.objectPool.addService ( this.configurationId, this, properties );
     }
 
     private void removeService ()
     {
-        this.objectPool.removeService ( configurationId, this );
+        this.objectPool.removeService ( this.configurationId, this );
     }
 }
