@@ -53,7 +53,7 @@ public class RoundedRectangleController extends ShapeController
         applyCommon ( element );
     }
 
-    private void setCorner ( int width, int height )
+    private void setCorner ( final int width, final int height )
     {
         this.figure.setCornerDimensions ( new Dimension ( width, height ) );
     }
@@ -67,7 +67,7 @@ public class RoundedRectangleController extends ShapeController
     @Override
     public void setAntialias ( final Boolean value )
     {
-        setAntialias ( value, false );
+        setAntialias ( value, true );
     }
 
     @Override
