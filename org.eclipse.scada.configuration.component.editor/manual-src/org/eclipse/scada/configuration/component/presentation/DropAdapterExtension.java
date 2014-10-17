@@ -67,6 +67,7 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
     {
         if ( object instanceof Item[] )
         {
+            System.out.println ( "Item" );
             final Collection<ExternalValue> result = new LinkedList<> ();
             for ( final Item item : (Item[])object )
             {
@@ -82,7 +83,7 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
         if ( object instanceof ISelection )
         {
             final List<Component> list = SelectionHelper.list ( (ISelection)object, ListMode.NONE, Component.class );
-            if ( list != null )
+            if ( list != null && list.isEmpty () )
             {
                 final Collection<ComponentReferenceInputDefinition> result = new LinkedList<> ();
 
