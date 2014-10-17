@@ -16,5 +16,5 @@ import org.eclipse.swt.widgets.Composite;
 
 public interface IItemPropertyDescriptor2 extends IItemPropertyDescriptor
 {
-    public CellEditor createPropertyEditor ( Composite composite );
+    public CellEditor createPropertyEditor ( Composite composite, Object object );
 }

@@ -27,7 +27,7 @@ public class ExtendedPropertyDescriptor extends PropertyDescriptor
     {
         if ( this.itemPropertyDescriptor instanceof IItemPropertyDescriptor2 )
         {
-            final CellEditor editor = ( (IItemPropertyDescriptor2)this.itemPropertyDescriptor ).createPropertyEditor ( composite );
+            final CellEditor editor = ( (IItemPropertyDescriptor2)this.itemPropertyDescriptor ).createPropertyEditor ( composite, this.object );
             if ( editor != null )
             {
                 return editor;

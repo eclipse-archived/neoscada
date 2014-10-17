@@ -26,6 +26,12 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.item;visibility:=reexport,
  org.eclipse.scada.configuration.item.edit;visibility:=reexport,
  org.eclipse.scada.configuration.security;visibility:=reexport,
- org.eclipse.scada.configuration.security.edit;visibility:=reexport
+ org.eclipse.scada.configuration.security.edit;visibility:=reexport,
+ org.eclipse.swt;bundle-version="3.103.0",
+ org.eclipse.jface,
+ org.eclipse.emf.edit.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.common.ui.celleditor,
+ org.eclipse.scada.configuration.ecore.ui,
+ org.eclipse.scada.utils.str;version="0.2.0"

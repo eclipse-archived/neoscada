@@ -142,7 +142,7 @@ public class ItemPropertyDescriptor2 extends ItemPropertyDescriptor implements I
     }
 
     @Override
-    public CellEditor createPropertyEditor ( final Composite composite )
+    public CellEditor createPropertyEditor ( final Composite composite, final Object object )
     {
         return null;
     }
@@ -150,8 +150,7 @@ public class ItemPropertyDescriptor2 extends ItemPropertyDescriptor implements I
     public ILabelProvider createLabelProvider ( final Object object )
     {
         final IItemLabelProvider itemLabelProvider = getLabelProvider ( object );
-        return new LabelProvider ()
-        {
+        return new LabelProvider () {
             @Override
             public String getText ( final Object object )
             {

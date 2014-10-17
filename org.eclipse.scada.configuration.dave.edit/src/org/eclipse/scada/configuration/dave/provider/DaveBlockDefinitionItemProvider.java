@@ -39,9 +39,11 @@ import org.eclipse.scada.configuration.memory.TypeHelper;
 import org.eclipse.swt.widgets.Composite;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.dave.DaveBlockDefinition} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.dave.DaveBlockDefinition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -50,9 +52,10 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public DaveBlockDefinitionItemProvider ( AdapterFactory adapterFactory )
+    public DaveBlockDefinitionItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -61,12 +64,13 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -78,18 +82,19 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
             addAreaPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Block feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addBlockPropertyDescriptor ( Object object )
+    protected void addBlockPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_block_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_block_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_block_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 DavePackage.Literals.DAVE_BLOCK_DEFINITION__BLOCK, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -99,11 +104,12 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * This adds a property descriptor for the Offset feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addOffsetPropertyDescriptor ( Object object )
+    protected void addOffsetPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_offset_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_offset_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_offset_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 DavePackage.Literals.DAVE_BLOCK_DEFINITION__OFFSET, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -113,11 +119,12 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * This adds a property descriptor for the Period feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addPeriodPropertyDescriptor ( Object object )
+    protected void addPeriodPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_period_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_period_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_period_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 DavePackage.Literals.DAVE_BLOCK_DEFINITION__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -127,11 +134,12 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * This adds a property descriptor for the Enable Statistics feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addEnableStatisticsPropertyDescriptor ( Object object )
+    protected void addEnableStatisticsPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_enableStatistics_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_enableStatistics_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_enableStatistics_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 DavePackage.Literals.DAVE_BLOCK_DEFINITION__ENABLE_STATISTICS, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -141,11 +149,12 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * This adds a property descriptor for the Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addTypePropertyDescriptor ( Object object )
+    protected void addTypePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_type_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_type_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_type_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 DavePackage.Literals.DAVE_BLOCK_DEFINITION__TYPE, true, false, true, null, getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -162,7 +171,7 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
     {
         this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_area_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_area_feature", "_UI_DaveBlockDefinition_type" ), DavePackage.Literals.DAVE_BLOCK_DEFINITION__AREA, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_addressPropertyCategory" ), null ) {
             @Override
-            public CellEditor createPropertyEditor ( final Composite composite )
+            public CellEditor createPropertyEditor ( final Composite composite, final Object object )
             {
                 return new AreaSelector ( composite );
             };
@@ -173,11 +182,12 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addNamePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_name_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DaveBlockDefinition_name_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_name_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 DavePackage.Literals.DAVE_BLOCK_DEFINITION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_mainPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -187,10 +197,11 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * This returns DaveBlockDefinition.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/DaveBlockDefinition" ) ); //$NON-NLS-1$
     }
@@ -215,14 +226,17 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -242,14 +256,16 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -258,12 +274,13 @@ public class DaveBlockDefinitionItemProvider extends ItemProviderAdapter impleme
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
     }
 
 }
