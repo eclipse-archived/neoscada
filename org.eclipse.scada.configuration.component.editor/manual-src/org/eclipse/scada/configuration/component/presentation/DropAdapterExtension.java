@@ -27,6 +27,7 @@ import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.da.ui.connection.dnd.ItemTransfer;
 import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.scada.ui.utils.SelectionHelper.ListMode;
+import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetEvent;
 
 public class DropAdapterExtension extends EditingDomainViewerDropAdapter
@@ -67,7 +68,6 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
     {
         if ( object instanceof Item[] )
         {
-            System.out.println ( "Item" );
             final Collection<ExternalValue> result = new LinkedList<> ();
             for ( final Item item : (Item[])object )
             {
@@ -80,10 +80,20 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
             }
             return result;
         }
+
+        if ( this.originalOperation != DND.DROP_LINK )
+        {
+            return super.extractDragSource ( object );
+        }
+
         if ( object instanceof ISelection )
         {
             final List<Component> list = SelectionHelper.list ( (ISelection)object, ListMode.NONE, Component.class );
-            if ( list != null && list.isEmpty () )
+
+            // FIXME: seems broken
+            this.originalOperation = DND.DROP_MOVE;
+
+            if ( list != null && !list.isEmpty () )
             {
                 final Collection<ComponentReferenceInputDefinition> result = new LinkedList<> ();
 
@@ -106,5 +116,4 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
 
         return super.extractDragSource ( object );
     }
-
 }
