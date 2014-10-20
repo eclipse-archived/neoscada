@@ -37,6 +37,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.TextImpl#getFontSize <em>Font Size</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.TextImpl#isFontBold <em>Font Bold</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.TextImpl#isFontItalic <em>Font Italic</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.impl.TextImpl#getAlpha <em>Alpha</em>}</li>
  * </ul>
  * </p>
  *
@@ -223,6 +224,26 @@ public class TextImpl extends FigureImpl implements Text
      * @ordered
      */
     protected boolean fontItalic = FONT_ITALIC_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAlpha()
+     * @generated
+     * @ordered
+     */
+    protected static final Double ALPHA_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getAlpha() <em>Alpha</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAlpha()
+     * @generated
+     * @ordered
+     */
+    protected Double alpha = ALPHA_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -457,6 +478,29 @@ public class TextImpl extends FigureImpl implements Text
      * <!-- end-user-doc -->
      * @generated
      */
+    public Double getAlpha ()
+    {
+        return alpha;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setAlpha ( Double newAlpha )
+    {
+        Double oldAlpha = alpha;
+        alpha = newAlpha;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TEXT__ALPHA, oldAlpha, alpha ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -480,6 +524,8 @@ public class TextImpl extends FigureImpl implements Text
                 return isFontBold ();
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
                 return isFontItalic ();
+            case VisualInterfacePackage.TEXT__ALPHA:
+                return getAlpha ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -520,6 +566,9 @@ public class TextImpl extends FigureImpl implements Text
                 return;
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
                 setFontItalic ( (Boolean)newValue );
+                return;
+            case VisualInterfacePackage.TEXT__ALPHA:
+                setAlpha ( (Double)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -562,6 +611,9 @@ public class TextImpl extends FigureImpl implements Text
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
                 setFontItalic ( FONT_ITALIC_EDEFAULT );
                 return;
+            case VisualInterfacePackage.TEXT__ALPHA:
+                setAlpha ( ALPHA_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -594,6 +646,8 @@ public class TextImpl extends FigureImpl implements Text
                 return fontBold != FONT_BOLD_EDEFAULT;
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
                 return fontItalic != FONT_ITALIC_EDEFAULT;
+            case VisualInterfacePackage.TEXT__ALPHA:
+                return ALPHA_EDEFAULT == null ? alpha != null : !ALPHA_EDEFAULT.equals ( alpha );
         }
         return super.eIsSet ( featureID );
     }
@@ -628,6 +682,8 @@ public class TextImpl extends FigureImpl implements Text
         result.append ( fontBold );
         result.append ( ", fontItalic: " ); //$NON-NLS-1$
         result.append ( fontItalic );
+        result.append ( ", alpha: " ); //$NON-NLS-1$
+        result.append ( alpha );
         result.append ( ')' );
         return result.toString ();
     }

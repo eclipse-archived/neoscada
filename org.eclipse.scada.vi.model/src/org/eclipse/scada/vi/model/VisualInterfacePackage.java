@@ -1063,13 +1063,22 @@ public interface VisualInterfacePackage extends EPackage
     int TEXT__FONT_ITALIC = FIGURE_FEATURE_COUNT + 8;
 
     /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT__ALPHA = FIGURE_FEATURE_COUNT + 9;
+
+    /**
      * The number of structural features of the '<em>Text</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 9;
+    int TEXT_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 10;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.impl.ChildImpl <em>Child</em>}' class.
@@ -3622,6 +3631,17 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getText_FontItalic ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.model.Text#getAlpha <em>Alpha</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Alpha</em>'.
+     * @see org.eclipse.scada.vi.model.Text#getAlpha()
+     * @see #getText()
+     * @generated
+     */
+    EAttribute getText_Alpha ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.model.Child <em>Child</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4854,6 +4874,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute TEXT__FONT_ITALIC = eINSTANCE.getText_FontItalic ();
+
+        /**
+         * The meta object literal for the '<em><b>Alpha</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TEXT__ALPHA = eINSTANCE.getText_Alpha ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.model.impl.ChildImpl <em>Child</em>}' class.

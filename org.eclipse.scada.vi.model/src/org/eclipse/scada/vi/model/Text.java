@@ -27,6 +27,7 @@ package org.eclipse.scada.vi.model;
  *   <li>{@link org.eclipse.scada.vi.model.Text#getFontSize <em>Font Size</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Text#isFontBold <em>Font Bold</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Text#isFontItalic <em>Font Italic</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.Text#getAlpha <em>Alpha</em>}</li>
  * </ul>
  * </p>
  *
@@ -287,5 +288,31 @@ public interface Text extends Figure
      * @generated
      */
     void setFontItalic ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Alpha</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Alpha</em>' attribute.
+     * @see #setAlpha(Double)
+     * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getText_Alpha()
+     * @model
+     * @generated
+     */
+    Double getAlpha ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.vi.model.Text#getAlpha <em>Alpha</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Alpha</em>' attribute.
+     * @see #getAlpha()
+     * @generated
+     */
+    void setAlpha ( Double value );
 
 } // Text

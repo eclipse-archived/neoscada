@@ -158,15 +158,7 @@ public enum Alignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final Alignment[] VALUES_ARRAY =
-            new Alignment[]
-            {
-                    LEFT,
-                    CENTER,
-                    RIGHT,
-                    TOP,
-                    BOTTOM,
-            };
+    private static final Alignment[] VALUES_ARRAY = new Alignment[] { LEFT, CENTER, RIGHT, TOP, BOTTOM, };
 
     /**
      * A public read-only list of all the '<em><b>Alignment</b></em>' enumerators.

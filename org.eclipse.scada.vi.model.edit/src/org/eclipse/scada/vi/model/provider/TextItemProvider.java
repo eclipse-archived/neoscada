@@ -62,6 +62,7 @@ public class TextItemProvider extends FigureItemProvider
             addFontSizePropertyDescriptor ( object );
             addFontBoldPropertyDescriptor ( object );
             addFontItalicPropertyDescriptor ( object );
+            addAlphaPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -179,6 +180,20 @@ public class TextItemProvider extends FigureItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Alpha feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAlphaPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Text_alpha_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Text_alpha_feature", "_UI_Text_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                VisualInterfacePackage.Literals.TEXT__ALPHA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_textPropertyCategory" ), //$NON-NLS-1$
+                null ) );
+    }
+
+    /**
      * This adds a property descriptor for the Icon Alignment feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -241,6 +256,7 @@ public class TextItemProvider extends FigureItemProvider
             case VisualInterfacePackage.TEXT__FONT_SIZE:
             case VisualInterfacePackage.TEXT__FONT_BOLD:
             case VisualInterfacePackage.TEXT__FONT_ITALIC:
+            case VisualInterfacePackage.TEXT__ALPHA:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

@@ -69,6 +69,7 @@
       <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontSize"/>
       <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontBold"/>
       <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontItalic"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/alpha"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>

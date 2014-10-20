@@ -83,12 +83,7 @@ public enum SystemCursorType implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final SystemCursorType[] VALUES_ARRAY =
-            new SystemCursorType[]
-            {
-                    ARROW,
-                    HAND,
-            };
+    private static final SystemCursorType[] VALUES_ARRAY = new SystemCursorType[] { ARROW, HAND, };
 
     /**
      * A public read-only list of all the '<em><b>System Cursor Type</b></em>' enumerators.

@@ -81,189 +81,187 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected VisualInterfaceSwitch<Adapter> modelSwitch =
-            new VisualInterfaceSwitch<Adapter> ()
-            {
-                @Override
-                public Adapter caseSymbol ( Symbol object )
-                {
-                    return createSymbolAdapter ();
-                }
+    protected VisualInterfaceSwitch<Adapter> modelSwitch = new VisualInterfaceSwitch<Adapter> () {
+        @Override
+        public Adapter caseSymbol ( Symbol object )
+        {
+            return createSymbolAdapter ();
+        }
 
-                @Override
-                public Adapter casePrimitive ( Primitive object )
-                {
-                    return createPrimitiveAdapter ();
-                }
+        @Override
+        public Adapter casePrimitive ( Primitive object )
+        {
+            return createPrimitiveAdapter ();
+        }
 
-                @Override
-                public Adapter caseContainer ( Container object )
-                {
-                    return createContainerAdapter ();
-                }
+        @Override
+        public Adapter caseContainer ( Container object )
+        {
+            return createContainerAdapter ();
+        }
 
-                @Override
-                public Adapter caseShape ( Shape object )
-                {
-                    return createShapeAdapter ();
-                }
+        @Override
+        public Adapter caseShape ( Shape object )
+        {
+            return createShapeAdapter ();
+        }
 
-                @Override
-                public Adapter caseRectangle ( Rectangle object )
-                {
-                    return createRectangleAdapter ();
-                }
+        @Override
+        public Adapter caseRectangle ( Rectangle object )
+        {
+            return createRectangleAdapter ();
+        }
 
-                @Override
-                public Adapter caseText ( Text object )
-                {
-                    return createTextAdapter ();
-                }
+        @Override
+        public Adapter caseText ( Text object )
+        {
+            return createTextAdapter ();
+        }
 
-                @Override
-                public Adapter caseChild ( Child object )
-                {
-                    return createChildAdapter ();
-                }
+        @Override
+        public Adapter caseChild ( Child object )
+        {
+            return createChildAdapter ();
+        }
 
-                @Override
-                public Adapter caseXYChild ( XYChild object )
-                {
-                    return createXYChildAdapter ();
-                }
+        @Override
+        public Adapter caseXYChild ( XYChild object )
+        {
+            return createXYChildAdapter ();
+        }
 
-                @Override
-                public Adapter caseXYContainer ( XYContainer object )
-                {
-                    return createXYContainerAdapter ();
-                }
+        @Override
+        public Adapter caseXYContainer ( XYContainer object )
+        {
+            return createXYContainerAdapter ();
+        }
 
-                @Override
-                public Adapter casePosition ( Position object )
-                {
-                    return createPositionAdapter ();
-                }
+        @Override
+        public Adapter casePosition ( Position object )
+        {
+            return createPositionAdapter ();
+        }
 
-                @Override
-                public Adapter caseLine ( Line object )
-                {
-                    return createLineAdapter ();
-                }
+        @Override
+        public Adapter caseLine ( Line object )
+        {
+            return createLineAdapter ();
+        }
 
-                @Override
-                public Adapter caseFigure ( Figure object )
-                {
-                    return createFigureAdapter ();
-                }
+        @Override
+        public Adapter caseFigure ( Figure object )
+        {
+            return createFigureAdapter ();
+        }
 
-                @Override
-                public Adapter caseSymbolReference ( SymbolReference object )
-                {
-                    return createSymbolReferenceAdapter ();
-                }
+        @Override
+        public Adapter caseSymbolReference ( SymbolReference object )
+        {
+            return createSymbolReferenceAdapter ();
+        }
 
-                @Override
-                public Adapter caseStringToStringMap ( Map.Entry<String, String> object )
-                {
-                    return createStringToStringMapAdapter ();
-                }
+        @Override
+        public Adapter caseStringToStringMap ( Map.Entry<String, String> object )
+        {
+            return createStringToStringMapAdapter ();
+        }
 
-                @Override
-                public Adapter caseDimension ( Dimension object )
-                {
-                    return createDimensionAdapter ();
-                }
+        @Override
+        public Adapter caseDimension ( Dimension object )
+        {
+            return createDimensionAdapter ();
+        }
 
-                @Override
-                public Adapter caseCursor ( Cursor object )
-                {
-                    return createCursorAdapter ();
-                }
+        @Override
+        public Adapter caseCursor ( Cursor object )
+        {
+            return createCursorAdapter ();
+        }
 
-                @Override
-                public Adapter caseSystemCursor ( SystemCursor object )
-                {
-                    return createSystemCursorAdapter ();
-                }
+        @Override
+        public Adapter caseSystemCursor ( SystemCursor object )
+        {
+            return createSystemCursorAdapter ();
+        }
 
-                @Override
-                public Adapter caseGridContainer ( GridContainer object )
-                {
-                    return createGridContainerAdapter ();
-                }
+        @Override
+        public Adapter caseGridContainer ( GridContainer object )
+        {
+            return createGridContainerAdapter ();
+        }
 
-                @Override
-                public Adapter caseBorderContainer ( BorderContainer object )
-                {
-                    return createBorderContainerAdapter ();
-                }
+        @Override
+        public Adapter caseBorderContainer ( BorderContainer object )
+        {
+            return createBorderContainerAdapter ();
+        }
 
-                @Override
-                public Adapter caseBorderChild ( BorderChild object )
-                {
-                    return createBorderChildAdapter ();
-                }
+        @Override
+        public Adapter caseBorderChild ( BorderChild object )
+        {
+            return createBorderChildAdapter ();
+        }
 
-                @Override
-                public Adapter caseGridChild ( GridChild object )
-                {
-                    return createGridChildAdapter ();
-                }
+        @Override
+        public Adapter caseGridChild ( GridChild object )
+        {
+            return createGridChildAdapter ();
+        }
 
-                @Override
-                public Adapter caseFigureContainer ( FigureContainer object )
-                {
-                    return createFigureContainerAdapter ();
-                }
+        @Override
+        public Adapter caseFigureContainer ( FigureContainer object )
+        {
+            return createFigureContainerAdapter ();
+        }
 
-                @Override
-                public Adapter caseImage ( Image object )
-                {
-                    return createImageAdapter ();
-                }
+        @Override
+        public Adapter caseImage ( Image object )
+        {
+            return createImageAdapter ();
+        }
 
-                @Override
-                public Adapter caseEllipse ( Ellipse object )
-                {
-                    return createEllipseAdapter ();
-                }
+        @Override
+        public Adapter caseEllipse ( Ellipse object )
+        {
+            return createEllipseAdapter ();
+        }
 
-                @Override
-                public Adapter caseArc ( Arc object )
-                {
-                    return createArcAdapter ();
-                }
+        @Override
+        public Adapter caseArc ( Arc object )
+        {
+            return createArcAdapter ();
+        }
 
-                @Override
-                public Adapter caseConnection ( Connection object )
-                {
-                    return createConnectionAdapter ();
-                }
+        @Override
+        public Adapter caseConnection ( Connection object )
+        {
+            return createConnectionAdapter ();
+        }
 
-                @Override
-                public Adapter caseStackContainer ( StackContainer object )
-                {
-                    return createStackContainerAdapter ();
-                }
+        @Override
+        public Adapter caseStackContainer ( StackContainer object )
+        {
+            return createStackContainerAdapter ();
+        }
 
-                @Override
-                public Adapter casePolygon ( Polygon object )
-                {
-                    return createPolygonAdapter ();
-                }
+        @Override
+        public Adapter casePolygon ( Polygon object )
+        {
+            return createPolygonAdapter ();
+        }
 
-                @Override
-                public Adapter caseRoundedRectangle ( RoundedRectangle object )
-                {
-                    return createRoundedRectangleAdapter ();
-                }
+        @Override
+        public Adapter caseRoundedRectangle ( RoundedRectangle object )
+        {
+            return createRoundedRectangleAdapter ();
+        }
 
-                @Override
-                public Adapter defaultCase ( EObject object )
-                {
-                    return createEObjectAdapter ();
-                }
-            };
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.

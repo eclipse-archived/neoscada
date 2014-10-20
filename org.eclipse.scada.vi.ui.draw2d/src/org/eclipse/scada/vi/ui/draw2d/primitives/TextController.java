@@ -12,6 +12,7 @@
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
 import org.eclipse.draw2d.FigureCanvas;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
@@ -31,6 +32,8 @@ public class TextController extends FigureController
 
     private final FigureCanvas canvas;
 
+    private Double alpha;
+
     public TextController ( final FigureCanvas canvas, final SymbolController controller, final Text element, final ResourceManager manager )
     {
         super ( controller, manager );
@@ -41,6 +44,17 @@ public class TextController extends FigureController
             {
                 super.addNotify ();
                 start ();
+            }
+
+            @Override
+            protected void paintFigure ( final Graphics graphics )
+            {
+                final Double alpha = getAlpha ();
+                if ( alpha != null )
+                {
+                    graphics.setAlpha ( (int) ( Math.max ( 0.0, Math.min ( 1.0, alpha ) ) * 255.0 ) );
+                }
+                super.paintFigure ( graphics );
             }
 
             @Override
@@ -64,10 +78,13 @@ public class TextController extends FigureController
     protected void applyCommon ( final Text element )
     {
         super.applyCommon ( element );
+
         this.figure.setTextAlignment ( Helper.convertAlignment ( element.getTextAlignment (), PositionConstants.CENTER ) );
         this.figure.setLabelAlignment ( Helper.convertAlignment ( element.getLabelAlignment (), PositionConstants.CENTER ) );
         this.figure.setIconAlignment ( Helper.convertAlignment ( element.getIconAlignment (), PositionConstants.CENTER ) );
         this.figure.setTextPlacement ( convertOrientation ( element.getTextPlacement (), PositionConstants.EAST ) );
+
+        setAlpha ( element.getAlpha () );
 
         setFontFull ( element.getFontName (), element.getFontSize (), element.isFontBold (), element.isFontItalic () );
     }
@@ -193,5 +210,16 @@ public class TextController extends FigureController
     public void setText ( final String text )
     {
         this.figure.setText ( text );
+    }
+
+    public void setAlpha ( final Double alpha )
+    {
+        this.alpha = alpha;
+        this.figure.repaint ();
+    }
+
+    public Double getAlpha ()
+    {
+        return this.alpha;
     }
 }

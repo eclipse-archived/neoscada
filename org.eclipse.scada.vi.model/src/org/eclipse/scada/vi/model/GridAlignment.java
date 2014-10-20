@@ -133,14 +133,7 @@ public enum GridAlignment implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final GridAlignment[] VALUES_ARRAY =
-            new GridAlignment[]
-            {
-                    CENTER,
-                    FILL,
-                    BEGINNING,
-                    END,
-            };
+    private static final GridAlignment[] VALUES_ARRAY = new GridAlignment[] { CENTER, FILL, BEGINNING, END, };
 
     /**
      * A public read-only list of all the '<em><b>Grid Alignment</b></em>' enumerators.

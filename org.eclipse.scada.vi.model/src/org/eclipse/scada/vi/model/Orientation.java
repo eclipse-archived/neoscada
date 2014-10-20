@@ -133,14 +133,7 @@ public enum Orientation implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final Orientation[] VALUES_ARRAY =
-            new Orientation[]
-            {
-                    NORTH,
-                    SOUTH,
-                    EAST,
-                    WEST,
-            };
+    private static final Orientation[] VALUES_ARRAY = new Orientation[] { NORTH, SOUTH, EAST, WEST, };
 
     /**
      * A public read-only list of all the '<em><b>Orientation</b></em>' enumerators.
