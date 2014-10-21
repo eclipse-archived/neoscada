@@ -128,7 +128,12 @@ public final class Worlds
 
         if ( world.getDefaultDriverAccessCredentials () != null )
         {
-            return world.getDefaultCredentials ();
+            return world.getDefaultDriverAccessCredentials();
+        }
+
+        if ( world.getDefaultCredentials() != null )
+        {
+            return world.getDefaultCredentials();
         }
 
         if ( driver instanceof CommonDriver || driver instanceof AbstractCommonDriver )
