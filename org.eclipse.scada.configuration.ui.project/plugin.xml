@@ -6,7 +6,7 @@
       <wizard
             category="org.eclipse.scada.configuration"
             class="org.eclipse.scada.configuration.ui.project.wizard.NewProjectWizard"
-            icon="icons/smiley-cool.png"
+            icon="icons/es_icon_16.png"
             id="org.eclipse.scada.configuration.ui.project.NewProjectWizard"
             name="%wizard.newProject.name"
             project="true">
