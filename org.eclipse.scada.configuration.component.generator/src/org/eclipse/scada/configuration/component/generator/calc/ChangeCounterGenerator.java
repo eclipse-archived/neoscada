@@ -26,32 +26,33 @@ import org.eclipse.scada.configuration.world.osgi.DataType;
 
 public class ChangeCounterGenerator extends DataComponentGenerator
 {
-    private ChangeCounter changeCounter;
+    private final ChangeCounter changeCounter;
 
-    private Map<String, ChangeCounterItem> mapping = new HashMap<String, ChangeCounterItem> ();
+    private final Map<String, ChangeCounterItem> mapping = new HashMap<String, ChangeCounterItem> ();
 
-    public ChangeCounterGenerator ( ChangeCounter changeCounter )
+    public ChangeCounterGenerator ( final ChangeCounter changeCounter )
     {
         super ( changeCounter );
         this.changeCounter = changeCounter;
     }
 
     @Override
-    public void createItems ( ItemCreator itemCreator )
+    public void createItems ( final ItemCreator itemCreator )
     {
-        final CreationRequest<ChangeCounterItem> request = itemCreator.createChangeCounterItem (this.changeCounter.getType (), this.changeCounter.getOnError (), this.changeCounter.getValues ()); // FIXME: implement parameters
+        final CreationRequest<ChangeCounterItem> request = itemCreator.createChangeCounterItem ( this.changeCounter.getType (), this.changeCounter.getOnError (), this.changeCounter.getValues () ); // FIXME: implement parameters
         request.localTags ( this.changeCounter.getName () );
         request.customizationTags ( this.changeCounter.getCustomizationTags () );
         request.dataType ( DataType.INT64 );
-        mapping.put ( this.changeCounter.getBuffer ().getName (), request.create () );
+        request.information ( this.changeCounter.getShortDescription (), null, null );
+        this.mapping.put ( this.changeCounter.getBuffer ().getName (), request.create () );
     }
 
     @Override
-    protected void finishForMaster ( FinishContext context, MasterContext master )
+    protected void finishForMaster ( final FinishContext context, final MasterContext master )
     {
-        for ( Entry<String, ChangeCounterItem> entry : mapping.entrySet () )
+        for ( final Entry<String, ChangeCounterItem> entry : this.mapping.entrySet () )
         {
-            for ( BufferedValue bufferedValue : master.getImplementation ().getBufferedValues () )
+            for ( final BufferedValue bufferedValue : master.getImplementation ().getBufferedValues () )
             {
                 if ( entry.getKey ().equals ( bufferedValue.getName () ) )
                 {
