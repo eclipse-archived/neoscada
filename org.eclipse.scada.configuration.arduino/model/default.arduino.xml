@@ -7,5 +7,5 @@
 
 	<start>org.eclipse.scada.da.server.arduino</start>
 
-	<feature>org.eclipse.scada.deploy.feature.group</feature>
+	<feature>org.eclipse.scada.da.server.arduino.feature.group</feature>
 </profile:profile>
