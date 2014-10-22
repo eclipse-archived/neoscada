@@ -107,7 +107,8 @@ public class RestInterceptorItemProvider extends ItemProviderAdapter implements 
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RestInterceptor_definition_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_RestInterceptor_definition_feature", "_UI_RestInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.REST_INTERCEPTOR__DEFINITION, true, false, true, null, null, null ) );
+                ComponentPackage.Literals.REST_INTERCEPTOR__DEFINITION, true, false, true, null, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**

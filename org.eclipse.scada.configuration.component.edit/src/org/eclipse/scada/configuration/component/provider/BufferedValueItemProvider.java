@@ -76,7 +76,8 @@ public class BufferedValueItemProvider extends MasterComponentItemProvider
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BufferedValue_name_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_BufferedValue_name_feature", "_UI_BufferedValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.BUFFERED_VALUE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                ComponentPackage.Literals.BUFFERED_VALUE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -89,7 +90,8 @@ public class BufferedValueItemProvider extends MasterComponentItemProvider
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BufferedValue_range_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_BufferedValue_range_feature", "_UI_BufferedValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.BUFFERED_VALUE__RANGE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                ComponentPackage.Literals.BUFFERED_VALUE__RANGE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -102,7 +104,8 @@ public class BufferedValueItemProvider extends MasterComponentItemProvider
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BufferedValue_initialValue_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_BufferedValue_initialValue_feature", "_UI_BufferedValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.BUFFERED_VALUE__INITIAL_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                ComponentPackage.Literals.BUFFERED_VALUE__INITIAL_VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -115,7 +118,8 @@ public class BufferedValueItemProvider extends MasterComponentItemProvider
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BufferedValue_persistence_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_BufferedValue_persistence_feature", "_UI_BufferedValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.BUFFERED_VALUE__PERSISTENCE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                ComponentPackage.Literals.BUFFERED_VALUE__PERSISTENCE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -128,7 +132,8 @@ public class BufferedValueItemProvider extends MasterComponentItemProvider
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BufferedValue_trigger_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_BufferedValue_trigger_feature", "_UI_BufferedValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.BUFFERED_VALUE__TRIGGER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                ComponentPackage.Literals.BUFFERED_VALUE__TRIGGER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -141,7 +146,8 @@ public class BufferedValueItemProvider extends MasterComponentItemProvider
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BufferedValue_triggerOnly_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_BufferedValue_triggerOnly_feature", "_UI_BufferedValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.BUFFERED_VALUE__TRIGGER_ONLY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                ComponentPackage.Literals.BUFFERED_VALUE__TRIGGER_ONLY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
