@@ -29,9 +29,40 @@ import org.apache.commons.beanutils.BeanUtils;
  * In order to replace a string with the ${var} pattern using Java System
  * Properties use:
  * </p>
- * <code>
- * String str = StringReplacer.replace ( "Hello ${user.name}!", System.getProperties () );
- * </code>
+ * <blockquote>
+ *
+ * <pre>
+ * String str = StringReplacer.replace ( &quot;Hello ${user.name}!&quot;, System.getProperties () );
+ * </pre>
+ *
+ * </blockquote>
+ * <p>
+ * Replacing a variables in a string with bean like references use:
+ * </p>
+ * <blockquote>
+ *
+ * <pre>
+ * class User
+ * {
+ *     private String name;
+ * 
+ *     public String getName ()
+ *     {
+ *         return name;
+ *     };
+ * 
+ *     User ( String name )
+ *     {
+ *         this.name = name;
+ *     }
+ * }
+ * 
+ * Map&lt;String, User&gt; userMap = Collections.singletonMap ( &quot;user&quot;, new User ( &quot;Arthur Dent&quot; ) );
+ * 
+ * String str = StringReplacer.replace ( &quot;Hello ${user.name}!&quot;, userMap );
+ * </pre>
+ *
+ * </blockquote>
  *
  * @author Jens Reimann
  */
@@ -137,6 +168,21 @@ public class StringReplacer
         };
     }
 
+    /**
+     * Replace variables in a string
+     *
+     * @param string
+     *            the string to process
+     * @param replaceSource
+     *            the source of the replacements
+     * @param pattern
+     *            the pattern for detecting variables
+     * @param nested
+     *            <code>true</code> if the replacement process should honor
+     *            nested replacements
+     * @return the replaced string, or <code>null</code> if the input string was
+     *         <code>null</code>
+     */
     public static String replace ( final String string, final ReplaceSource replaceSource, final Pattern pattern, final boolean nested )
     {
         if ( string == null )
@@ -197,6 +243,11 @@ public class StringReplacer
         }
     }
 
+    /**
+     * Replace variables in a string <br/>
+     * Actually calls
+     * <code>replace ( string, replcaeSource, pattern, true )</code>.
+     */
     public static String replace ( final String string, final ReplaceSource replaceSource, final Pattern pattern )
     {
         return replace ( string, replaceSource, pattern, true );
