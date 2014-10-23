@@ -46,7 +46,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
 
     public ModbusRequestBlock ( final Executor executor, final String id, final String name, final String mainTypeName, final ModbusSlave slave, final BundleContext context, final Request request, final AtomicInteger transactionId, final boolean enableStatistics )
     {
-        super ( context, executor, mainTypeName, "modbus.data." + id, "modbus.block." + id, enableStatistics, request.getPeriod (), request.getCount (), slave.getTimeoutQuietPeriod (), request.isEager () );
+        super ( context, executor, mainTypeName, "modbus.data." + name, "modbus.block." + id, enableStatistics, request.getPeriod (), request.getCount (), slave.getTimeoutQuietPeriod (), request.isEager () );
 
         this.id = id;
 

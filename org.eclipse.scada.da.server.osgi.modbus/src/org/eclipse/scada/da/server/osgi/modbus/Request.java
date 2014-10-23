@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -31,7 +31,11 @@ public class Request
 
     private final ByteOrder dataOrder;
 
+    private final String name;
+
     /**
+     * @param name
+     *            the name of the block
      * @param type
      *            DISCRETE, COIL, INPUT, HOLDING
      * @param startAddress
@@ -47,8 +51,9 @@ public class Request
      * @param dataOrder
      *            the data byte order
      */
-    public Request ( final RequestType type, final int startAddress, final int count, final long period, final long timeout, final String mainTypeName, final boolean eager, final ByteOrder dataOrder )
+    public Request ( final String name, final RequestType type, final int startAddress, final int count, final long period, final long timeout, final String mainTypeName, final boolean eager, final ByteOrder dataOrder )
     {
+        this.name = name;
         this.type = type;
         this.startAddress = startAddress;
         this.count = count;
@@ -57,6 +62,11 @@ public class Request
         this.mainTypeName = mainTypeName;
         this.eager = eager;
         this.dataOrder = dataOrder;
+    }
+
+    public String getName ()
+    {
+        return this.name;
     }
 
     public boolean isEager ()

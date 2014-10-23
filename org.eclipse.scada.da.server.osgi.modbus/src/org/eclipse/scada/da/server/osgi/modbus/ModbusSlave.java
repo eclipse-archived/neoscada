@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -169,13 +169,13 @@ public class ModbusSlave implements Listener
 
     private Request parseRequest ( final String value, final ByteOrder dataOrder )
     {
-        // format: FC:START:COUNT:PERIOD
+        // format: FC:START:COUNT:PERIOD[:NAME]
         // period is in "ms"
 
         final String[] toks = value.split ( "\\:" );
-        if ( toks.length != 6 )
+        if ( toks.length < 6 || toks.length > 7 )
         {
-            throw new IllegalArgumentException ( String.format ( "Format must be 'functionCode:start:count:period:timeout:mainTypeName' = ( functionCode: %s )", new Object[] { RequestType.values () } ) );
+            throw new IllegalArgumentException ( String.format ( "Format must be 'functionCode:start:count:period:timeout:mainTypeName[:name]' = ( functionCode: %s )", new Object[] { RequestType.values () } ) );
         }
 
         int idx = 0;
@@ -199,7 +199,9 @@ public class ModbusSlave implements Listener
         final long timeout = Long.parseLong ( toks[idx++] );
         final String mainTypeName = toks[idx++];
 
-        return new Request ( type, startAddress, count, period, timeout, mainTypeName, eager, dataOrder );
+        final String blockName = toks.length > 6 ? toks[idx++] : null;
+
+        return new Request ( blockName, type, startAddress, count, period, timeout, mainTypeName, eager, dataOrder );
     }
 
     public synchronized void start ( final ModbusMaster master, final JobManager jobManager )
@@ -240,7 +242,12 @@ public class ModbusSlave implements Listener
 
         removeBlock ( id );
 
-        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, makeBlockId ( id ), this.name, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
+        String blockName = request.getName ();
+        if ( blockName == null || blockName.isEmpty () )
+        {
+            blockName = id;
+        }
+        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, makeBlockId ( id ), blockName, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
 
         this.blocks.put ( id, block );
 
