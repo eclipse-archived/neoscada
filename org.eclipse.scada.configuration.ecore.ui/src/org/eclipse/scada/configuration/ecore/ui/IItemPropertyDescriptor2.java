@@ -16,5 +16,15 @@ import org.eclipse.swt.widgets.Composite;
 
 public interface IItemPropertyDescriptor2 extends IItemPropertyDescriptor
 {
+    /**
+     * Create a custom cell editor for the property entry
+     *
+     * @param composite
+     *            the composite for the cell editor
+     * @param object
+     *            the object to create the cell editor for
+     * @return a new instance of {@link CellEditor} or <code>null</code> if the
+     *         default cell editor should be used
+     */
     public CellEditor createPropertyEditor ( Composite composite, Object object );
 }

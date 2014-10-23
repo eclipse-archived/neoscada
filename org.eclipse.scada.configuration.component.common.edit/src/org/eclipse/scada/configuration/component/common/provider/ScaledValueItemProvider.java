@@ -25,13 +25,14 @@ import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.ScaledValue;
 import org.eclipse.scada.configuration.component.provider.SingleValueItemProvider;
+import org.eclipse.scada.configuration.ecore.ui.ItemPropertyDescriptor2;
 
 /**
  * This is the item provider adapter for a
  * {@link org.eclipse.scada.configuration.component.common.ScaledValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ScaledValueItemProvider extends SingleValueItemProvider
@@ -40,7 +41,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ScaledValueItemProvider ( final AdapterFactory adapterFactory )
@@ -52,7 +53,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -75,75 +76,90 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This adds a property descriptor for the Input Minimum feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     protected void addInputMinimumPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMinimum_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMinimum_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__INPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMinimum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMinimum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__INPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+            @Override
+            public int getSortKey ()
+            {
+                return 100;
+            }
+        } );
     }
 
     /**
      * This adds a property descriptor for the Input Maximum feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     protected void addInputMaximumPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMaximum_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMaximum_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__INPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMaximum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMaximum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__INPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+            @Override
+            public int getSortKey ()
+            {
+                return 200;
+            }
+        } );
     }
 
     /**
      * This adds a property descriptor for the Output Minimum feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     protected void addOutputMinimumPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMinimum_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMinimum_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__OUTPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMinimum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMinimum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__OUTPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+            @Override
+            public int getSortKey ()
+            {
+                return 300;
+            }
+        } );
     }
 
     /**
      * This adds a property descriptor for the Output Maximum feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     protected void addOutputMaximumPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMaximum_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMaximum_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__OUTPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMaximum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMaximum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__OUTPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+            @Override
+            public int getSortKey ()
+            {
+                return 400;
+            }
+        } );
     }
 
     /**
      * This adds a property descriptor for the Validate Range feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     protected void addValidateRangePropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_validateRange_feature" ), //$NON-NLS-1$
-                getString ( "_UI_ScaledValue_validateRange_description" ), //$NON-NLS-1$
-                CommonPackage.Literals.SCALED_VALUE__VALIDATE_RANGE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_validateRange_feature" ), getString ( "_UI_ScaledValue_validateRange_description" ), CommonPackage.Literals.SCALED_VALUE__VALIDATE_RANGE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+            @Override
+            public int getSortKey ()
+            {
+                return 500;
+            }
+        } );
     }
 
     /**
@@ -155,7 +171,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +188,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -188,7 +204,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This returns ScaledValue.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -200,7 +216,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -213,7 +229,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -221,7 +237,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
     {
         final String label = ( (ScaledValue)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_ScaledValue_type" ) : //$NON-NLS-1$
-            getString ( "_UI_ScaledValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        getString ( "_UI_ScaledValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -231,7 +247,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -261,7 +277,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

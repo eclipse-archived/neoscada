@@ -23,7 +23,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 
-public class ItemPropertyDescriptor2 extends ItemPropertyDescriptor implements IItemPropertyDescriptor2
+public class ItemPropertyDescriptor2 extends ItemPropertyDescriptor implements IItemPropertyDescriptor2, ISortedPropertyDescriptor
 {
 
     public ItemPropertyDescriptor2 ( final AdapterFactory adapterFactory, final ResourceLocator resourceLocator, final String displayName, final String description, final EReference[] parentReferences, final boolean isSettable, final String category, final String[] filterFlags )
@@ -163,5 +163,11 @@ public class ItemPropertyDescriptor2 extends ItemPropertyDescriptor implements I
                 return ExtendedImageRegistry.getInstance ().getImage ( itemLabelProvider.getImage ( object ) );
             }
         };
+    }
+
+    @Override
+    public int getSortKey ()
+    {
+        return 0;
     }
 }

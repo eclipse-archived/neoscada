@@ -29,5 +29,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.eclipse.scada.configuration.script;visibility:=reexport,
- org.eclipse.scada.configuration.script.edit;visibility:=reexport
+ org.eclipse.scada.configuration.script.edit;visibility:=reexport,
+ org.eclipse.scada.configuration.ecore.ui
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.jface.viewers,
+ org.eclipse.swt.widgets
