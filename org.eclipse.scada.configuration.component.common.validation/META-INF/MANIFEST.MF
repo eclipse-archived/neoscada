@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Common Components Validation (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.configuration.component.common.validation
+Bundle-Version: 0.2.0.qualifier
+Bundle-Activator: org.eclipse.scada.configuration.component.common.validation.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
