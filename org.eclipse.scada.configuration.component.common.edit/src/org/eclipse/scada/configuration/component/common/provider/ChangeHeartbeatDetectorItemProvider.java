@@ -13,17 +13,11 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentFactory;
@@ -36,14 +30,7 @@ import org.eclipse.scada.configuration.component.common.CommonPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChangeHeartbeatDetectorItemProvider
-        extends HeartbeatDetectorItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ChangeHeartbeatDetectorItemProvider extends HeartbeatDetectorItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -83,19 +70,10 @@ public class ChangeHeartbeatDetectorItemProvider
      */
     protected void addTimeoutPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ChangeHeartbeatDetector_timeout_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_timeout_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__TIMEOUT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeHeartbeatDetector_timeout_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_timeout_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__TIMEOUT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -106,19 +84,10 @@ public class ChangeHeartbeatDetectorItemProvider
      */
     protected void addCheckPeriodPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ChangeHeartbeatDetector_checkPeriod_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_checkPeriod_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeHeartbeatDetector_checkPeriod_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_checkPeriod_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -187,9 +156,8 @@ public class ChangeHeartbeatDetectorItemProvider
     public String getText ( Object object )
     {
         String label = ( (ChangeHeartbeatDetector)object ).getShortDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ChangeHeartbeatDetector_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ChangeHeartbeatDetector_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ChangeHeartbeatDetector_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ChangeHeartbeatDetector_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -229,15 +197,9 @@ public class ChangeHeartbeatDetectorItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM,
-                        ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM, ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM,
-                        ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM, ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
     }
 
 }

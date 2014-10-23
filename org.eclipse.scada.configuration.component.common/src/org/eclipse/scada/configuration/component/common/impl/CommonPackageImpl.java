@@ -26,6 +26,7 @@ import org.eclipse.scada.configuration.component.common.CurrentTimeComponent;
 import org.eclipse.scada.configuration.component.common.DateFormat;
 import org.eclipse.scada.configuration.component.common.HeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.HeartbeatGenerator;
+import org.eclipse.scada.configuration.component.common.ScaledValue;
 import org.eclipse.scada.configuration.component.common.TimerAction;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
@@ -79,6 +80,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * @generated
      */
     private EClass currentTimeComponentEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass scaledValueEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -362,6 +370,66 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getScaledValue ()
+    {
+        return scaledValueEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getScaledValue_SourceItem ()
+    {
+        return (EReference)scaledValueEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScaledValue_InputMinimum ()
+    {
+        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScaledValue_InputMaximum ()
+    {
+        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScaledValue_OutputMinimum ()
+    {
+        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getScaledValue_OutputMaximum ()
+    {
+        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getDateFormat ()
     {
         return dateFormatEDataType;
@@ -424,6 +492,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         createEAttribute ( currentTimeComponentEClass, CURRENT_TIME_COMPONENT__UPDATE_PERIOD );
         createEAttribute ( currentTimeComponentEClass, CURRENT_TIME_COMPONENT__DATE_FORMAT );
 
+        scaledValueEClass = createEClass ( SCALED_VALUE );
+        createEReference ( scaledValueEClass, SCALED_VALUE__SOURCE_ITEM );
+        createEAttribute ( scaledValueEClass, SCALED_VALUE__INPUT_MINIMUM );
+        createEAttribute ( scaledValueEClass, SCALED_VALUE__INPUT_MAXIMUM );
+        createEAttribute ( scaledValueEClass, SCALED_VALUE__OUTPUT_MINIMUM );
+        createEAttribute ( scaledValueEClass, SCALED_VALUE__OUTPUT_MAXIMUM );
+
         // Create data types
         dateFormatEDataType = createEDataType ( DATE_FORMAT );
     }
@@ -469,6 +544,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         changeHeartbeatDetectorEClass.getESuperTypes ().add ( this.getHeartbeatDetector () );
         timerActionEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
         currentTimeComponentEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
+        scaledValueEClass.getESuperTypes ().add ( theComponentPackage.getSingleValue () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( heartbeatGeneratorEClass, HeartbeatGenerator.class, "HeartbeatGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -495,6 +571,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         initEAttribute ( getCurrentTimeComponent_Name (), ecorePackage.getEString (), "name", "TIME", 1, -1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getCurrentTimeComponent_UpdatePeriod (), ecorePackage.getELong (), "updatePeriod", "100", 1, 1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getCurrentTimeComponent_DateFormat (), this.getDateFormat (), "dateFormat", "", 0, 1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( scaledValueEClass, ScaledValue.class, "ScaledValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getScaledValue_SourceItem (), theComponentPackage.getInputDefinition (), null, "sourceItem", null, 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getScaledValue_InputMinimum (), ecorePackage.getEDouble (), "inputMinimum", "0", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_InputMaximum (), ecorePackage.getEDouble (), "inputMaximum", "100", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_OutputMinimum (), ecorePackage.getEDouble (), "outputMinimum", "0", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_OutputMaximum (), ecorePackage.getEDouble (), "outputMaximum", "1000", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize data types
         initEDataType ( dateFormatEDataType, DateFormat.class, "DateFormat", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

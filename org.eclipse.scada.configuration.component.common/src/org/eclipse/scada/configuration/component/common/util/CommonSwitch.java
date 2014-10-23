@@ -20,6 +20,7 @@ import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.DataComponent;
 
 import org.eclipse.scada.configuration.component.MasterComponent;
+import org.eclipse.scada.configuration.component.SingleValue;
 import org.eclipse.scada.configuration.component.common.*;
 import org.eclipse.scada.configuration.world.Documentable;
 
@@ -186,6 +187,24 @@ public class CommonSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case CommonPackage.SCALED_VALUE:
+            {
+                ScaledValue scaledValue = (ScaledValue)theEObject;
+                T result = caseScaledValue ( scaledValue );
+                if ( result == null )
+                    result = caseSingleValue ( scaledValue );
+                if ( result == null )
+                    result = caseMasterComponent ( scaledValue );
+                if ( result == null )
+                    result = caseDataComponent ( scaledValue );
+                if ( result == null )
+                    result = caseComponent ( scaledValue );
+                if ( result == null )
+                    result = caseDocumentable ( scaledValue );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -288,6 +307,22 @@ public class CommonSwitch<T> extends Switch<T>
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Scaled Value</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Scaled Value</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseScaledValue ( ScaledValue object )
+    {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Documentable</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -347,6 +382,22 @@ public class CommonSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseMasterComponent ( MasterComponent object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Single Value</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Single Value</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSingleValue ( SingleValue object )
     {
         return null;
     }

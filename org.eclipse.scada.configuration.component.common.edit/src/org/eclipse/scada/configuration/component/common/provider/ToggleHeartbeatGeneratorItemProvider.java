@@ -13,15 +13,9 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 
@@ -31,14 +25,7 @@ import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator
  * <!-- end-user-doc -->
  * @generated
  */
-public class ToggleHeartbeatGeneratorItemProvider
-        extends HeartbeatGeneratorItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ToggleHeartbeatGeneratorItemProvider extends HeartbeatGeneratorItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -102,9 +89,8 @@ public class ToggleHeartbeatGeneratorItemProvider
     public String getText ( Object object )
     {
         String label = ( (ToggleHeartbeatGenerator)object ).getShortDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ToggleHeartbeatGenerator_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ToggleHeartbeatGenerator_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_ToggleHeartbeatGenerator_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ToggleHeartbeatGenerator_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -146,9 +132,7 @@ public class ToggleHeartbeatGeneratorItemProvider
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify =
-                childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM ||
-                        childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT;
+        boolean qualify = childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM || childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT;
 
         if ( qualify )
         {

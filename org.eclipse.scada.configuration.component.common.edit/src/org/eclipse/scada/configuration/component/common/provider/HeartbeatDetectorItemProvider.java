@@ -13,15 +13,9 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.scada.configuration.component.common.HeartbeatDetector;
 import org.eclipse.scada.configuration.component.provider.MasterComponentItemProvider;
 
@@ -31,14 +25,7 @@ import org.eclipse.scada.configuration.component.provider.MasterComponentItemPro
  * <!-- end-user-doc -->
  * @generated
  */
-public class HeartbeatDetectorItemProvider
-        extends MasterComponentItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class HeartbeatDetectorItemProvider extends MasterComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -89,9 +76,8 @@ public class HeartbeatDetectorItemProvider
     public String getText ( Object object )
     {
         String label = ( (HeartbeatDetector)object ).getShortDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_HeartbeatDetector_type" ) : //$NON-NLS-1$
-                getString ( "_UI_HeartbeatDetector_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_HeartbeatDetector_type" ) : //$NON-NLS-1$
+        getString ( "_UI_HeartbeatDetector_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -79,6 +79,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
                 return createTimerAction ();
             case CommonPackage.CURRENT_TIME_COMPONENT:
                 return createCurrentTimeComponent ();
+            case CommonPackage.SCALED_VALUE:
+                return createScaledValue ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -160,6 +162,17 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     {
         CurrentTimeComponentImpl currentTimeComponent = new CurrentTimeComponentImpl ();
         return currentTimeComponent;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ScaledValue createScaledValue ()
+    {
+        ScaledValueImpl scaledValue = new ScaledValueImpl ();
+        return scaledValue;
     }
 
     /**

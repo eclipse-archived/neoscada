@@ -25,5 +25,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.security;visibility:=reexport,
  org.eclipse.scada.configuration.security.edit;visibility:=reexport,
  org.eclipse.scada.configuration.world;visibility:=reexport,
- org.eclipse.scada.configuration.world.edit;visibility:=reexport
+ org.eclipse.scada.configuration.world.edit;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
+ org.eclipse.scada.configuration.script;visibility:=reexport,
+ org.eclipse.scada.configuration.script.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

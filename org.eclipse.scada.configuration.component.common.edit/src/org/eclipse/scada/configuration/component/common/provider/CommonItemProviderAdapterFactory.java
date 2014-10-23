@@ -201,6 +201,31 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.common.ScaledValue} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScaledValueItemProvider scaledValueItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.common.ScaledValue}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScaledValueAdapter ()
+    {
+        if ( scaledValueItemProvider == null )
+        {
+            scaledValueItemProvider = new ScaledValueItemProvider ( this );
+        }
+
+        return scaledValueItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -357,6 +382,8 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
             timerActionItemProvider.dispose ();
         if ( currentTimeComponentItemProvider != null )
             currentTimeComponentItemProvider.dispose ();
+        if ( scaledValueItemProvider != null )
+            scaledValueItemProvider.dispose ();
     }
 
     /**
@@ -411,25 +438,15 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
             @Override
             public Object caseLevel ( Level object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                                CommonFactory.eINSTANCE.createToggleHeartbeatGenerator () ) );
+                newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, CommonFactory.eINSTANCE.createToggleHeartbeatGenerator () ) );
 
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                                CommonFactory.eINSTANCE.createChangeHeartbeatDetector () ) );
+                newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, CommonFactory.eINSTANCE.createChangeHeartbeatDetector () ) );
 
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                                CommonFactory.eINSTANCE.createTimerAction () ) );
+                newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, CommonFactory.eINSTANCE.createTimerAction () ) );
 
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( ComponentPackage.Literals.LEVEL__COMPONENTS,
-                                CommonFactory.eINSTANCE.createCurrentTimeComponent () ) );
+                newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, CommonFactory.eINSTANCE.createCurrentTimeComponent () ) );
+
+                newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.LEVEL__COMPONENTS, CommonFactory.eINSTANCE.createScaledValue () ) );
 
                 return null;
             }

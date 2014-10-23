@@ -22,6 +22,7 @@ import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.DataComponent;
 
 import org.eclipse.scada.configuration.component.MasterComponent;
+import org.eclipse.scada.configuration.component.SingleValue;
 import org.eclipse.scada.configuration.component.common.*;
 import org.eclipse.scada.configuration.world.Documentable;
 
@@ -85,75 +86,85 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected CommonSwitch<Adapter> modelSwitch =
-            new CommonSwitch<Adapter> ()
-            {
-                @Override
-                public Adapter caseHeartbeatGenerator ( HeartbeatGenerator object )
-                {
-                    return createHeartbeatGeneratorAdapter ();
-                }
+    protected CommonSwitch<Adapter> modelSwitch = new CommonSwitch<Adapter> () {
+        @Override
+        public Adapter caseHeartbeatGenerator ( HeartbeatGenerator object )
+        {
+            return createHeartbeatGeneratorAdapter ();
+        }
 
-                @Override
-                public Adapter caseToggleHeartbeatGenerator ( ToggleHeartbeatGenerator object )
-                {
-                    return createToggleHeartbeatGeneratorAdapter ();
-                }
+        @Override
+        public Adapter caseToggleHeartbeatGenerator ( ToggleHeartbeatGenerator object )
+        {
+            return createToggleHeartbeatGeneratorAdapter ();
+        }
 
-                @Override
-                public Adapter caseHeartbeatDetector ( HeartbeatDetector object )
-                {
-                    return createHeartbeatDetectorAdapter ();
-                }
+        @Override
+        public Adapter caseHeartbeatDetector ( HeartbeatDetector object )
+        {
+            return createHeartbeatDetectorAdapter ();
+        }
 
-                @Override
-                public Adapter caseChangeHeartbeatDetector ( ChangeHeartbeatDetector object )
-                {
-                    return createChangeHeartbeatDetectorAdapter ();
-                }
+        @Override
+        public Adapter caseChangeHeartbeatDetector ( ChangeHeartbeatDetector object )
+        {
+            return createChangeHeartbeatDetectorAdapter ();
+        }
 
-                @Override
-                public Adapter caseTimerAction ( TimerAction object )
-                {
-                    return createTimerActionAdapter ();
-                }
+        @Override
+        public Adapter caseTimerAction ( TimerAction object )
+        {
+            return createTimerActionAdapter ();
+        }
 
-                @Override
-                public Adapter caseCurrentTimeComponent ( CurrentTimeComponent object )
-                {
-                    return createCurrentTimeComponentAdapter ();
-                }
+        @Override
+        public Adapter caseCurrentTimeComponent ( CurrentTimeComponent object )
+        {
+            return createCurrentTimeComponentAdapter ();
+        }
 
-                @Override
-                public Adapter caseDocumentable ( Documentable object )
-                {
-                    return createDocumentableAdapter ();
-                }
+        @Override
+        public Adapter caseScaledValue ( ScaledValue object )
+        {
+            return createScaledValueAdapter ();
+        }
 
-                @Override
-                public Adapter caseComponent ( Component object )
-                {
-                    return createComponentAdapter ();
-                }
+        @Override
+        public Adapter caseDocumentable ( Documentable object )
+        {
+            return createDocumentableAdapter ();
+        }
 
-                @Override
-                public Adapter caseDataComponent ( DataComponent object )
-                {
-                    return createDataComponentAdapter ();
-                }
+        @Override
+        public Adapter caseComponent ( Component object )
+        {
+            return createComponentAdapter ();
+        }
 
-                @Override
-                public Adapter caseMasterComponent ( MasterComponent object )
-                {
-                    return createMasterComponentAdapter ();
-                }
+        @Override
+        public Adapter caseDataComponent ( DataComponent object )
+        {
+            return createDataComponentAdapter ();
+        }
 
-                @Override
-                public Adapter defaultCase ( EObject object )
-                {
-                    return createEObjectAdapter ();
-                }
-            };
+        @Override
+        public Adapter caseMasterComponent ( MasterComponent object )
+        {
+            return createMasterComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseSingleValue ( SingleValue object )
+        {
+            return createSingleValueAdapter ();
+        }
+
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.
@@ -260,6 +271,21 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.common.ScaledValue <em>Scaled Value</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.common.ScaledValue
+     * @generated
+     */
+    public Adapter createScaledValueAdapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -315,6 +341,21 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createMasterComponentAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.SingleValue <em>Single Value</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.SingleValue
+     * @generated
+     */
+    public Adapter createSingleValueAdapter ()
     {
         return null;
     }

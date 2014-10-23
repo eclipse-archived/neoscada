@@ -5,7 +5,7 @@
     creationSubmenus="true" modelPluginID="org.eclipse.scada.configuration.component.common"
     modelName="CommonComponents" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" usedGenPackages="../../org.eclipse.scada.configuration.component/model/component.genmodel#//component ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
+    copyrightFields="false" runtimeVersion="2.9" usedGenPackages="../../org.eclipse.scada.configuration.component/model/component.genmodel#//component ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script"
     operationReflection="true" importOrganizing="true">
   <foreignModel>commonComponents.ecore</foreignModel>
   <genPackages prefix="Common" basePackage="org.eclipse.scada.configuration.component"
@@ -35,6 +35,13 @@
       <genFeatures createChild="false" propertyCategory="configuration" ecoreFeature="ecore:EAttribute commonComponents.ecore#//CurrentTimeComponent/updatePeriod"/>
       <genFeatures createChild="false" propertyCategory="configuration" propertyDescription="A date format pattern suitable for SimpleDateFormatter"
           ecoreFeature="ecore:EAttribute commonComponents.ecore#//CurrentTimeComponent/dateFormat"/>
+    </genClasses>
+    <genClasses ecoreClass="commonComponents.ecore#//ScaledValue">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference commonComponents.ecore#//ScaledValue/sourceItem"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//ScaledValue/inputMinimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//ScaledValue/inputMaximum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//ScaledValue/outputMinimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//ScaledValue/outputMaximum"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

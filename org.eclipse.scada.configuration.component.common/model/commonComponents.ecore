@@ -57,4 +57,17 @@
         defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DateFormat" instanceClassName="org.eclipse.scada.configuration.component.common.DateFormat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ScaledValue" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceItem" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputMinimum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputMaximum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMinimum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMaximum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="1000"/>
+  </eClassifiers>
 </ecore:EPackage>

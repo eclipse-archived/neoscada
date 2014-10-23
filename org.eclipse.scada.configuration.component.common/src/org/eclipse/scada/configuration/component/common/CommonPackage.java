@@ -759,6 +759,169 @@ public interface CommonPackage extends EPackage
     int CURRENT_TIME_COMPONENT_OPERATION_COUNT = ComponentPackage.MASTER_COMPONENT_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl <em>Scaled Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl
+     * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getScaledValue()
+     * @generated
+     */
+    int SCALED_VALUE = 6;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__SHORT_DESCRIPTION = ComponentPackage.SINGLE_VALUE__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__LEVEL = ComponentPackage.SINGLE_VALUE__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__CUSTOMIZATION_PIPELINE = ComponentPackage.SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__ARCHIVE_SELECTOR = ComponentPackage.SINGLE_VALUE__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__PROPERTIES = ComponentPackage.SINGLE_VALUE__PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__MASTER_ON = ComponentPackage.SINGLE_VALUE__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__NAME = ComponentPackage.SINGLE_VALUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__DATA_TYPE = ComponentPackage.SINGLE_VALUE__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__CUSTOMIZATION_TAGS = ComponentPackage.SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Source Item</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__SOURCE_ITEM = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Input Minimum</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__INPUT_MINIMUM = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Input Maximum</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__INPUT_MAXIMUM = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Output Minimum</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__OUTPUT_MINIMUM = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Output Maximum</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__OUTPUT_MAXIMUM = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 4;
+
+    /**
+     * The number of structural features of the '<em>Scaled Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE_FEATURE_COUNT = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 5;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE___GET_MASTER_ON = ComponentPackage.SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The number of operations of the '<em>Scaled Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE_OPERATION_COUNT = ComponentPackage.SINGLE_VALUE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Date Format</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -766,7 +929,7 @@ public interface CommonPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getDateFormat()
      * @generated
      */
-    int DATE_FORMAT = 6;
+    int DATE_FORMAT = 7;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.common.HeartbeatGenerator <em>Heartbeat Generator</em>}'.
@@ -972,6 +1135,71 @@ public interface CommonPackage extends EPackage
     EAttribute getCurrentTimeComponent_DateFormat ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.common.ScaledValue <em>Scaled Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Scaled Value</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ScaledValue
+     * @generated
+     */
+    EClass getScaledValue ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.common.ScaledValue#getSourceItem <em>Source Item</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Source Item</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ScaledValue#getSourceItem()
+     * @see #getScaledValue()
+     * @generated
+     */
+    EReference getScaledValue_SourceItem ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.ScaledValue#getInputMinimum <em>Input Minimum</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Input Minimum</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ScaledValue#getInputMinimum()
+     * @see #getScaledValue()
+     * @generated
+     */
+    EAttribute getScaledValue_InputMinimum ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.ScaledValue#getInputMaximum <em>Input Maximum</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Input Maximum</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ScaledValue#getInputMaximum()
+     * @see #getScaledValue()
+     * @generated
+     */
+    EAttribute getScaledValue_InputMaximum ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.ScaledValue#getOutputMinimum <em>Output Minimum</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Output Minimum</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ScaledValue#getOutputMinimum()
+     * @see #getScaledValue()
+     * @generated
+     */
+    EAttribute getScaledValue_OutputMinimum ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.ScaledValue#getOutputMaximum <em>Output Maximum</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Output Maximum</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ScaledValue#getOutputMaximum()
+     * @see #getScaledValue()
+     * @generated
+     */
+    EAttribute getScaledValue_OutputMaximum ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.scada.configuration.component.common.DateFormat <em>Date Format</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1169,6 +1397,56 @@ public interface CommonPackage extends EPackage
          * @generated
          */
         EAttribute CURRENT_TIME_COMPONENT__DATE_FORMAT = eINSTANCE.getCurrentTimeComponent_DateFormat ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl <em>Scaled Value</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl
+         * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getScaledValue()
+         * @generated
+         */
+        EClass SCALED_VALUE = eINSTANCE.getScaledValue ();
+
+        /**
+         * The meta object literal for the '<em><b>Source Item</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SCALED_VALUE__SOURCE_ITEM = eINSTANCE.getScaledValue_SourceItem ();
+
+        /**
+         * The meta object literal for the '<em><b>Input Minimum</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCALED_VALUE__INPUT_MINIMUM = eINSTANCE.getScaledValue_InputMinimum ();
+
+        /**
+         * The meta object literal for the '<em><b>Input Maximum</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCALED_VALUE__INPUT_MAXIMUM = eINSTANCE.getScaledValue_InputMaximum ();
+
+        /**
+         * The meta object literal for the '<em><b>Output Minimum</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCALED_VALUE__OUTPUT_MINIMUM = eINSTANCE.getScaledValue_OutputMinimum ();
+
+        /**
+         * The meta object literal for the '<em><b>Output Maximum</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCALED_VALUE__OUTPUT_MAXIMUM = eINSTANCE.getScaledValue_OutputMaximum ();
 
         /**
          * The meta object literal for the '<em>Date Format</em>' data type.

@@ -68,6 +68,15 @@ public interface CommonFactory extends EFactory
     CurrentTimeComponent createCurrentTimeComponent ();
 
     /**
+     * Returns a new object of class '<em>Scaled Value</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Scaled Value</em>'.
+     * @generated
+     */
+    ScaledValue createScaledValue ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -13,27 +13,16 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.scada.configuration.component.ComponentFactory;
-
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.TimerAction;
-
 import org.eclipse.scada.configuration.component.provider.MasterComponentItemProvider;
 
 /**
@@ -42,14 +31,7 @@ import org.eclipse.scada.configuration.component.provider.MasterComponentItemPro
  * <!-- end-user-doc -->
  * @generated
  */
-public class TimerActionItemProvider
-        extends MasterComponentItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class TimerActionItemProvider extends MasterComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -90,19 +72,9 @@ public class TimerActionItemProvider
      */
     protected void addPeriodPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_TimerAction_period_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_period_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.TIMER_ACTION__PERIOD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TimerAction_period_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_period_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.TIMER_ACTION__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -113,19 +85,9 @@ public class TimerActionItemProvider
      */
     protected void addValuePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_TimerAction_value_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_value_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.TIMER_ACTION__VALUE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TimerAction_value_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_value_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.TIMER_ACTION__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -136,19 +98,9 @@ public class TimerActionItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_TimerAction_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_name_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.TIMER_ACTION__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TimerAction_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_name_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.TIMER_ACTION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -217,9 +169,8 @@ public class TimerActionItemProvider
     public String getText ( Object object )
     {
         String label = ( (TimerAction)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_TimerAction_type" ) : //$NON-NLS-1$
-                getString ( "_UI_TimerAction_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_TimerAction_type" ) : //$NON-NLS-1$
+        getString ( "_UI_TimerAction_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -260,15 +211,9 @@ public class TimerActionItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.TIMER_ACTION__TARGET_ITEM,
-                        ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( CommonPackage.Literals.TIMER_ACTION__TARGET_ITEM, ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.TIMER_ACTION__TARGET_ITEM,
-                        ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( CommonPackage.Literals.TIMER_ACTION__TARGET_ITEM, ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
     }
 
 }

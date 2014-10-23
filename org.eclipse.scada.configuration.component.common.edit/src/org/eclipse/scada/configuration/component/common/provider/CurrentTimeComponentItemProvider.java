@@ -13,16 +13,10 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
@@ -36,14 +30,7 @@ import org.eclipse.scada.configuration.component.provider.MasterComponentItemPro
  * <!-- end-user-doc -->
  * @generated
  */
-public class CurrentTimeComponentItemProvider
-        extends MasterComponentItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class CurrentTimeComponentItemProvider extends MasterComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -84,19 +71,10 @@ public class CurrentTimeComponentItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CurrentTimeComponent_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CurrentTimeComponent_name_feature", "_UI_CurrentTimeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.CURRENT_TIME_COMPONENT__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CurrentTimeComponent_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CurrentTimeComponent_name_feature", "_UI_CurrentTimeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.CURRENT_TIME_COMPONENT__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -107,19 +85,10 @@ public class CurrentTimeComponentItemProvider
      */
     protected void addUpdatePeriodPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CurrentTimeComponent_updatePeriod_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_CurrentTimeComponent_updatePeriod_feature", "_UI_CurrentTimeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.CURRENT_TIME_COMPONENT__UPDATE_PERIOD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CurrentTimeComponent_updatePeriod_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_CurrentTimeComponent_updatePeriod_feature", "_UI_CurrentTimeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.CURRENT_TIME_COMPONENT__UPDATE_PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -130,19 +99,10 @@ public class CurrentTimeComponentItemProvider
      */
     protected void addDateFormatPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_CurrentTimeComponent_dateFormat_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_CurrentTimeComponent_dateFormat_description" ), //$NON-NLS-1$
-                        CommonPackage.Literals.CURRENT_TIME_COMPONENT__DATE_FORMAT,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CurrentTimeComponent_dateFormat_feature" ), //$NON-NLS-1$
+                getString ( "_UI_CurrentTimeComponent_dateFormat_description" ), //$NON-NLS-1$
+                CommonPackage.Literals.CURRENT_TIME_COMPONENT__DATE_FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -180,9 +140,8 @@ public class CurrentTimeComponentItemProvider
     public String getText ( final Object object )
     {
         final DateFormat label = ( (CurrentTimeComponent)object ).getDateFormat ();
-        return label == null ?
-                getString ( "_UI_CurrentTimeComponent_type" ) : //$NON-NLS-1$
-                getString ( "_UI_CurrentTimeComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null ? getString ( "_UI_CurrentTimeComponent_type" ) : //$NON-NLS-1$
+        getString ( "_UI_CurrentTimeComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

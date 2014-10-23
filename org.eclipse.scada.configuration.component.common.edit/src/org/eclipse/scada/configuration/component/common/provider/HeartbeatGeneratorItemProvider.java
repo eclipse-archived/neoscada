@@ -13,17 +13,11 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentFactory;
@@ -37,14 +31,7 @@ import org.eclipse.scada.configuration.component.provider.MasterComponentItemPro
  * <!-- end-user-doc -->
  * @generated
  */
-public class HeartbeatGeneratorItemProvider
-        extends MasterComponentItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class HeartbeatGeneratorItemProvider extends MasterComponentItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -85,19 +72,10 @@ public class HeartbeatGeneratorItemProvider
      */
     protected void addPeriodPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_HeartbeatGenerator_period_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_period_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.HEARTBEAT_GENERATOR__PERIOD,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HeartbeatGenerator_period_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_period_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.HEARTBEAT_GENERATOR__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -108,19 +86,9 @@ public class HeartbeatGeneratorItemProvider
      */
     protected void addTargetItemPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_HeartbeatGenerator_targetItem_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_targetItem_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM,
-                        false,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HeartbeatGenerator_targetItem_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_targetItem_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM, false, false, false, null, null, null ) );
     }
 
     /**
@@ -131,19 +99,9 @@ public class HeartbeatGeneratorItemProvider
      */
     protected void addActiveInputPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_HeartbeatGenerator_activeInput_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_activeInput_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT,
-                        false,
-                        false,
-                        false,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HeartbeatGenerator_activeInput_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_activeInput_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT, false, false, false, null, null, null ) );
     }
 
     /**
@@ -213,9 +171,8 @@ public class HeartbeatGeneratorItemProvider
     public String getText ( Object object )
     {
         String label = ( (HeartbeatGenerator)object ).getShortDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_HeartbeatGenerator_type" ) : //$NON-NLS-1$
-                getString ( "_UI_HeartbeatGenerator_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_HeartbeatGenerator_type" ) : //$NON-NLS-1$
+        getString ( "_UI_HeartbeatGenerator_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -255,25 +212,13 @@ public class HeartbeatGeneratorItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM,
-                        ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM, ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM,
-                        ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM, ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT,
-                        ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT, ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT,
-                        ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
+        newChildDescriptors.add ( createChildParameter ( CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT, ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
     }
 
     /**
@@ -288,9 +233,7 @@ public class HeartbeatGeneratorItemProvider
         Object childFeature = feature;
         Object childObject = child;
 
-        boolean qualify =
-                childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM ||
-                        childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT;
+        boolean qualify = childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM || childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT;
 
         if ( qualify )
         {
