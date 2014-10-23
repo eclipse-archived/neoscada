@@ -18,7 +18,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.scada.configuration.item;visibility:=reexport,
  org.eclipse.scada.configuration.security;visibility:=reexport,
  org.eclipse.scada.configuration.world;visibility:=reexport,
- org.eclipse.scada.configuration.script;visibility:=reexport
+ org.eclipse.scada.configuration.script;visibility:=reexport,
+ org.eclipse.scada.ide.validation
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.scada.configuration.component.common;version="0.2.0";uses:="org.eclipse.emf.ecore,org.eclipse.scada.configuration.component",

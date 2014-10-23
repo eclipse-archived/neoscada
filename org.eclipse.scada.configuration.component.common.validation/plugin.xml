@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.ide.validation.handler">
+      <validationContext
+            contextId="org.eclipse.scada.configuration.component"
+            packageUri="http://eclipse.org/SCADA/Configuration/Component/Common">
+         <validator
+               class="org.eclipse.scada.configuration.component.common.validation.ScaledValueValidator"
+               filterClass="org.eclipse.scada.configuration.component.common.ScaledValue">
+         </validator>
+      </validationContext>
+   </extension>
+</plugin>

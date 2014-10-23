@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.component.common.impl;
 
@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
@@ -31,11 +32,13 @@ import org.eclipse.scada.configuration.component.common.ScaledValue;
 import org.eclipse.scada.configuration.component.common.TimerAction;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
+import org.eclipse.scada.ide.validation.ExtensibleValidationDescriptor;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
+ *
  * @generated
  */
 public class CommonPackageImpl extends EPackageImpl implements CommonPackage
@@ -43,6 +46,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass heartbeatGeneratorEClass = null;
@@ -50,6 +54,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass toggleHeartbeatGeneratorEClass = null;
@@ -57,6 +62,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass heartbeatDetectorEClass = null;
@@ -64,6 +70,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass changeHeartbeatDetectorEClass = null;
@@ -71,6 +78,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass timerActionEClass = null;
@@ -78,6 +86,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass currentTimeComponentEClass = null;
@@ -85,6 +94,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass scaledValueEClass = null;
@@ -92,6 +102,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private EDataType dateFormatEDataType = null;
@@ -106,7 +117,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * method {@link #init init()}, which also performs initialization of the
      * package, or returns the registered package, if one already exists. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.eclipse.scada.configuration.component.common.CommonPackage#eNS_URI
      * @see #init()
@@ -120,6 +131,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private static boolean isInited = false;
@@ -132,19 +144,21 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * that field is accessed. Clients should not invoke it directly. Instead,
      * they should simply access that field to obtain the package. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
-     * @generated
+     * @generated NOT
      */
     public static CommonPackage init ()
     {
         if ( isInited )
+        {
             return (CommonPackage)EPackage.Registry.INSTANCE.getEPackage ( CommonPackage.eNS_URI );
+        }
 
         // Obtain or create and register package
-        CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new CommonPackageImpl () );
+        final CommonPackageImpl theCommonPackage = (CommonPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new CommonPackageImpl () );
 
         isInited = true;
 
@@ -159,6 +173,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Initialize created meta-data
         theCommonPackage.initializePackageContents ();
 
+        // register validation
+        registerPackageValidator ( theCommonPackage );
+
         // Mark meta-data to indicate it can't be changed
         theCommonPackage.freeze ();
 
@@ -167,289 +184,339 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         return theCommonPackage;
     }
 
+    protected static void registerPackageValidator ( final CommonPackageImpl theCommonPackage )
+    {
+        EValidator.Registry.INSTANCE.put ( theCommonPackage, new ExtensibleValidationDescriptor () );
+    }
+
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EClass getHeartbeatGenerator ()
     {
-        return heartbeatGeneratorEClass;
+        return this.heartbeatGeneratorEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EAttribute getHeartbeatGenerator_Period ()
     {
-        return (EAttribute)heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EReference getHeartbeatGenerator_TargetItem ()
     {
-        return (EReference)heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EReference getHeartbeatGenerator_ActiveInput ()
     {
-        return (EReference)heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EClass getToggleHeartbeatGenerator ()
     {
-        return toggleHeartbeatGeneratorEClass;
+        return this.toggleHeartbeatGeneratorEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EClass getHeartbeatDetector ()
     {
-        return heartbeatDetectorEClass;
+        return this.heartbeatDetectorEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EClass getChangeHeartbeatDetector ()
     {
-        return changeHeartbeatDetectorEClass;
+        return this.changeHeartbeatDetectorEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EAttribute getChangeHeartbeatDetector_Timeout ()
     {
-        return (EAttribute)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EAttribute getChangeHeartbeatDetector_CheckPeriod ()
     {
-        return (EAttribute)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EReference getChangeHeartbeatDetector_SourceItem ()
     {
-        return (EReference)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getTimerAction ()
     {
-        return timerActionEClass;
+        return this.timerActionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getTimerAction_Period ()
     {
-        return (EAttribute)timerActionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.timerActionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getTimerAction_TargetItem ()
     {
-        return (EReference)timerActionEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.timerActionEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getTimerAction_Value ()
     {
-        return (EAttribute)timerActionEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)this.timerActionEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getTimerAction_Name ()
     {
-        return (EAttribute)timerActionEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)this.timerActionEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getCurrentTimeComponent ()
     {
-        return currentTimeComponentEClass;
+        return this.currentTimeComponentEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getCurrentTimeComponent_Name ()
     {
-        return (EAttribute)currentTimeComponentEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.currentTimeComponentEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getCurrentTimeComponent_UpdatePeriod ()
     {
-        return (EAttribute)currentTimeComponentEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.currentTimeComponentEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getCurrentTimeComponent_DateFormat ()
     {
-        return (EAttribute)currentTimeComponentEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)this.currentTimeComponentEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getScaledValue ()
     {
-        return scaledValueEClass;
+        return this.scaledValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getScaledValue_SourceItem ()
     {
-        return (EReference)scaledValueEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.scaledValueEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getScaledValue_InputMinimum ()
     {
-        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.scaledValueEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getScaledValue_InputMaximum ()
     {
-        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)this.scaledValueEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getScaledValue_OutputMinimum ()
     {
-        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)this.scaledValueEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getScaledValue_OutputMaximum ()
     {
-        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)this.scaledValueEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getScaledValue_ValidateRange ()
     {
-        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)this.scaledValueEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EDataType getDateFormat ()
     {
-        return dateFormatEDataType;
+        return this.dateFormatEDataType;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -461,80 +528,88 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package.  This method is
+     * Creates the meta-model objects for the package. This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( isCreated )
+        if ( this.isCreated )
+        {
             return;
-        isCreated = true;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        heartbeatGeneratorEClass = createEClass ( HEARTBEAT_GENERATOR );
-        createEAttribute ( heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__PERIOD );
-        createEReference ( heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__TARGET_ITEM );
-        createEReference ( heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__ACTIVE_INPUT );
+        this.heartbeatGeneratorEClass = createEClass ( HEARTBEAT_GENERATOR );
+        createEAttribute ( this.heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__PERIOD );
+        createEReference ( this.heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__TARGET_ITEM );
+        createEReference ( this.heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__ACTIVE_INPUT );
 
-        toggleHeartbeatGeneratorEClass = createEClass ( TOGGLE_HEARTBEAT_GENERATOR );
+        this.toggleHeartbeatGeneratorEClass = createEClass ( TOGGLE_HEARTBEAT_GENERATOR );
 
-        heartbeatDetectorEClass = createEClass ( HEARTBEAT_DETECTOR );
+        this.heartbeatDetectorEClass = createEClass ( HEARTBEAT_DETECTOR );
 
-        changeHeartbeatDetectorEClass = createEClass ( CHANGE_HEARTBEAT_DETECTOR );
-        createEAttribute ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__TIMEOUT );
-        createEAttribute ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD );
-        createEReference ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM );
+        this.changeHeartbeatDetectorEClass = createEClass ( CHANGE_HEARTBEAT_DETECTOR );
+        createEAttribute ( this.changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__TIMEOUT );
+        createEAttribute ( this.changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD );
+        createEReference ( this.changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM );
 
-        timerActionEClass = createEClass ( TIMER_ACTION );
-        createEAttribute ( timerActionEClass, TIMER_ACTION__PERIOD );
-        createEReference ( timerActionEClass, TIMER_ACTION__TARGET_ITEM );
-        createEAttribute ( timerActionEClass, TIMER_ACTION__VALUE );
-        createEAttribute ( timerActionEClass, TIMER_ACTION__NAME );
+        this.timerActionEClass = createEClass ( TIMER_ACTION );
+        createEAttribute ( this.timerActionEClass, TIMER_ACTION__PERIOD );
+        createEReference ( this.timerActionEClass, TIMER_ACTION__TARGET_ITEM );
+        createEAttribute ( this.timerActionEClass, TIMER_ACTION__VALUE );
+        createEAttribute ( this.timerActionEClass, TIMER_ACTION__NAME );
 
-        currentTimeComponentEClass = createEClass ( CURRENT_TIME_COMPONENT );
-        createEAttribute ( currentTimeComponentEClass, CURRENT_TIME_COMPONENT__NAME );
-        createEAttribute ( currentTimeComponentEClass, CURRENT_TIME_COMPONENT__UPDATE_PERIOD );
-        createEAttribute ( currentTimeComponentEClass, CURRENT_TIME_COMPONENT__DATE_FORMAT );
+        this.currentTimeComponentEClass = createEClass ( CURRENT_TIME_COMPONENT );
+        createEAttribute ( this.currentTimeComponentEClass, CURRENT_TIME_COMPONENT__NAME );
+        createEAttribute ( this.currentTimeComponentEClass, CURRENT_TIME_COMPONENT__UPDATE_PERIOD );
+        createEAttribute ( this.currentTimeComponentEClass, CURRENT_TIME_COMPONENT__DATE_FORMAT );
 
-        scaledValueEClass = createEClass ( SCALED_VALUE );
-        createEReference ( scaledValueEClass, SCALED_VALUE__SOURCE_ITEM );
-        createEAttribute ( scaledValueEClass, SCALED_VALUE__INPUT_MINIMUM );
-        createEAttribute ( scaledValueEClass, SCALED_VALUE__INPUT_MAXIMUM );
-        createEAttribute ( scaledValueEClass, SCALED_VALUE__OUTPUT_MINIMUM );
-        createEAttribute ( scaledValueEClass, SCALED_VALUE__OUTPUT_MAXIMUM );
-        createEAttribute ( scaledValueEClass, SCALED_VALUE__VALIDATE_RANGE );
+        this.scaledValueEClass = createEClass ( SCALED_VALUE );
+        createEReference ( this.scaledValueEClass, SCALED_VALUE__SOURCE_ITEM );
+        createEAttribute ( this.scaledValueEClass, SCALED_VALUE__INPUT_MINIMUM );
+        createEAttribute ( this.scaledValueEClass, SCALED_VALUE__INPUT_MAXIMUM );
+        createEAttribute ( this.scaledValueEClass, SCALED_VALUE__OUTPUT_MINIMUM );
+        createEAttribute ( this.scaledValueEClass, SCALED_VALUE__OUTPUT_MAXIMUM );
+        createEAttribute ( this.scaledValueEClass, SCALED_VALUE__VALIDATE_RANGE );
 
         // Create data types
-        dateFormatEDataType = createEDataType ( DATE_FORMAT );
+        this.dateFormatEDataType = createEDataType ( DATE_FORMAT );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model.  This
+     * Complete the initialization of the package and its meta-model. This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( isInitialized )
+        if ( this.isInitialized )
+        {
             return;
-        isInitialized = true;
+        }
+        this.isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -542,59 +617,59 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        ComponentPackage theComponentPackage = (ComponentPackage)EPackage.Registry.INSTANCE.getEPackage ( ComponentPackage.eNS_URI );
-        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
-        XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage ( XMLTypePackage.eNS_URI );
+        final ComponentPackage theComponentPackage = (ComponentPackage)EPackage.Registry.INSTANCE.getEPackage ( ComponentPackage.eNS_URI );
+        final OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
+        final XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage ( XMLTypePackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        heartbeatGeneratorEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
-        toggleHeartbeatGeneratorEClass.getESuperTypes ().add ( this.getHeartbeatGenerator () );
-        heartbeatDetectorEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
-        changeHeartbeatDetectorEClass.getESuperTypes ().add ( this.getHeartbeatDetector () );
-        timerActionEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
-        currentTimeComponentEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
-        scaledValueEClass.getESuperTypes ().add ( theComponentPackage.getSingleValue () );
+        this.heartbeatGeneratorEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
+        this.toggleHeartbeatGeneratorEClass.getESuperTypes ().add ( getHeartbeatGenerator () );
+        this.heartbeatDetectorEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
+        this.changeHeartbeatDetectorEClass.getESuperTypes ().add ( getHeartbeatDetector () );
+        this.timerActionEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
+        this.currentTimeComponentEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
+        this.scaledValueEClass.getESuperTypes ().add ( theComponentPackage.getSingleValue () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( heartbeatGeneratorEClass, HeartbeatGenerator.class, "HeartbeatGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getHeartbeatGenerator_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( this.heartbeatGeneratorEClass, HeartbeatGenerator.class, "HeartbeatGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getHeartbeatGenerator_Period (), this.ecorePackage.getELong (), "period", "1000", 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getHeartbeatGenerator_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 0, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getHeartbeatGenerator_ActiveInput (), theComponentPackage.getInputDefinition (), null, "activeInput", null, 0, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( toggleHeartbeatGeneratorEClass, ToggleHeartbeatGenerator.class, "ToggleHeartbeatGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.toggleHeartbeatGeneratorEClass, ToggleHeartbeatGenerator.class, "ToggleHeartbeatGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( heartbeatDetectorEClass, HeartbeatDetector.class, "HeartbeatDetector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.heartbeatDetectorEClass, HeartbeatDetector.class, "HeartbeatDetector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( changeHeartbeatDetectorEClass, ChangeHeartbeatDetector.class, "ChangeHeartbeatDetector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getChangeHeartbeatDetector_Timeout (), ecorePackage.getELong (), "timeout", "10000", 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getChangeHeartbeatDetector_CheckPeriod (), ecorePackage.getELong (), "checkPeriod", "1000", 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( this.changeHeartbeatDetectorEClass, ChangeHeartbeatDetector.class, "ChangeHeartbeatDetector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getChangeHeartbeatDetector_Timeout (), this.ecorePackage.getELong (), "timeout", "10000", 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getChangeHeartbeatDetector_CheckPeriod (), this.ecorePackage.getELong (), "checkPeriod", "1000", 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getChangeHeartbeatDetector_SourceItem (), theComponentPackage.getInputDefinition (), null, "sourceItem", null, 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( timerActionEClass, TimerAction.class, "TimerAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getTimerAction_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( this.timerActionEClass, TimerAction.class, "TimerAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getTimerAction_Period (), this.ecorePackage.getELong (), "period", "1000", 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getTimerAction_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getTimerAction_Value (), theOsgiPackage.getVariant (), "value", null, 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getTimerAction_Name (), theXMLTypePackage.getString (), "name", "$TIMER_ACTION", 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( currentTimeComponentEClass, CurrentTimeComponent.class, "CurrentTimeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getCurrentTimeComponent_Name (), ecorePackage.getEString (), "name", "TIME", 1, -1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getCurrentTimeComponent_UpdatePeriod (), ecorePackage.getELong (), "updatePeriod", "100", 1, 1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getCurrentTimeComponent_DateFormat (), this.getDateFormat (), "dateFormat", "", 0, 1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( this.currentTimeComponentEClass, CurrentTimeComponent.class, "CurrentTimeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getCurrentTimeComponent_Name (), this.ecorePackage.getEString (), "name", "TIME", 1, -1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getCurrentTimeComponent_UpdatePeriod (), this.ecorePackage.getELong (), "updatePeriod", "100", 1, 1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getCurrentTimeComponent_DateFormat (), getDateFormat (), "dateFormat", "", 0, 1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( scaledValueEClass, ScaledValue.class, "ScaledValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.scaledValueEClass, ScaledValue.class, "ScaledValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getScaledValue_SourceItem (), theComponentPackage.getInputDefinition (), null, "sourceItem", null, 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getScaledValue_InputMinimum (), ecorePackage.getEDouble (), "inputMinimum", "0", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getScaledValue_InputMaximum (), ecorePackage.getEDouble (), "inputMaximum", "100", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getScaledValue_OutputMinimum (), ecorePackage.getEDouble (), "outputMinimum", "0", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getScaledValue_OutputMaximum (), ecorePackage.getEDouble (), "outputMaximum", "1000", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getScaledValue_ValidateRange (), ecorePackage.getEBoolean (), "validateRange", "true", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_InputMinimum (), this.ecorePackage.getEDouble (), "inputMinimum", "0", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_InputMaximum (), this.ecorePackage.getEDouble (), "inputMaximum", "100", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_OutputMinimum (), this.ecorePackage.getEDouble (), "outputMinimum", "0", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_OutputMaximum (), this.ecorePackage.getEDouble (), "outputMaximum", "1000", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_ValidateRange (), this.ecorePackage.getEBoolean (), "validateRange", "true", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize data types
-        initEDataType ( dateFormatEDataType, DateFormat.class, "DateFormat", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEDataType ( this.dateFormatEDataType, DateFormat.class, "DateFormat", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );
