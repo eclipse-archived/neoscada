@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.component.common.provider;
 
@@ -16,25 +16,22 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.scada.configuration.component.ComponentFactory;
-
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.ScaledValue;
-
 import org.eclipse.scada.configuration.component.provider.SingleValueItemProvider;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.common.ScaledValue} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.component.common.ScaledValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ScaledValueItemProvider extends SingleValueItemProvider
@@ -43,9 +40,10 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public ScaledValueItemProvider ( AdapterFactory adapterFactory )
+    public ScaledValueItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -54,115 +52,131 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
-            addSourceItemPropertyDescriptor ( object );
             addInputMinimumPropertyDescriptor ( object );
             addInputMaximumPropertyDescriptor ( object );
             addOutputMinimumPropertyDescriptor ( object );
             addOutputMaximumPropertyDescriptor ( object );
+            addValidateRangePropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Source Item feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addSourceItemPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_sourceItem_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_sourceItem_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__SOURCE_ITEM, true, false, true, null, null, null ) );
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Input Minimum feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addInputMinimumPropertyDescriptor ( Object object )
+    protected void addInputMinimumPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMinimum_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMinimum_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMinimum_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__INPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
+                CommonPackage.Literals.SCALED_VALUE__INPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
      * This adds a property descriptor for the Input Maximum feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addInputMaximumPropertyDescriptor ( Object object )
+    protected void addInputMaximumPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMaximum_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMaximum_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMaximum_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__INPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
+                CommonPackage.Literals.SCALED_VALUE__INPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
      * This adds a property descriptor for the Output Minimum feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addOutputMinimumPropertyDescriptor ( Object object )
+    protected void addOutputMinimumPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMinimum_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMinimum_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMinimum_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__OUTPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
+                CommonPackage.Literals.SCALED_VALUE__OUTPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
      * This adds a property descriptor for the Output Maximum feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addOutputMaximumPropertyDescriptor ( Object object )
+    protected void addOutputMaximumPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMaximum_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMaximum_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMaximum_feature", "_UI_ScaledValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SCALED_VALUE__OUTPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null ) );
+                CommonPackage.Literals.SCALED_VALUE__OUTPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This adds a property descriptor for the Validate Range feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected void addValidateRangePropertyDescriptor ( final Object object )
+    {
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_validateRange_feature" ), //$NON-NLS-1$
+                getString ( "_UI_ScaledValue_validateRange_description" ), //$NON-NLS-1$
+                CommonPackage.Literals.SCALED_VALUE__VALIDATE_RANGE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), //$NON-NLS-1$
+                null ) );
+    }
+
+    /**
+     * This specifies how to implement {@link #getChildren} and is used to
+     * deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand},
+     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in
+     * {@link #createCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( final Object object )
     {
-        if ( childrenFeatures == null )
+        if ( this.childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( CommonPackage.Literals.SCALED_VALUE__SOURCE_ITEM );
+            this.childrenFeatures.add ( CommonPackage.Literals.SCALED_VALUE__SOURCE_ITEM );
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -174,17 +188,19 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This returns ScaledValue.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ScaledValue" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/function.png" ) ); //$NON-NLS-1$
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -197,25 +213,29 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (ScaledValue)object ).getName ();
+        final String label = ( (ScaledValue)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_ScaledValue_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ScaledValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+            getString ( "_UI_ScaledValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -225,6 +245,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
             case CommonPackage.SCALED_VALUE__INPUT_MAXIMUM:
             case CommonPackage.SCALED_VALUE__OUTPUT_MINIMUM:
             case CommonPackage.SCALED_VALUE__OUTPUT_MAXIMUM:
+            case CommonPackage.SCALED_VALUE__VALIDATE_RANGE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case CommonPackage.SCALED_VALUE__SOURCE_ITEM:
@@ -235,14 +256,16 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 

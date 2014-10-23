@@ -441,6 +441,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         isInited = true;
 
         // Initialize simple dependencies
+        org.eclipse.emf.ecore.EcorePackage.eINSTANCE.eClass ();
         InfrastructurePackage.eINSTANCE.eClass ();
         ItemPackage.eINSTANCE.eClass ();
 

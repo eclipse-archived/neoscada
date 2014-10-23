@@ -895,13 +895,22 @@ public interface CommonPackage extends EPackage
     int SCALED_VALUE__OUTPUT_MAXIMUM = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Validate Range</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE__VALIDATE_RANGE = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>Scaled Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCALED_VALUE_FEATURE_COUNT = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 5;
+    int SCALED_VALUE_FEATURE_COUNT = ComponentPackage.SINGLE_VALUE_FEATURE_COUNT + 6;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -1200,6 +1209,17 @@ public interface CommonPackage extends EPackage
     EAttribute getScaledValue_OutputMaximum ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.ScaledValue#isValidateRange <em>Validate Range</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Validate Range</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ScaledValue#isValidateRange()
+     * @see #getScaledValue()
+     * @generated
+     */
+    EAttribute getScaledValue_ValidateRange ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.scada.configuration.component.common.DateFormat <em>Date Format</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1447,6 +1467,14 @@ public interface CommonPackage extends EPackage
          * @generated
          */
         EAttribute SCALED_VALUE__OUTPUT_MAXIMUM = eINSTANCE.getScaledValue_OutputMaximum ();
+
+        /**
+         * The meta object literal for the '<em><b>Validate Range</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SCALED_VALUE__VALIDATE_RANGE = eINSTANCE.getScaledValue_ValidateRange ();
 
         /**
          * The meta object literal for the '<em>Date Format</em>' data type.

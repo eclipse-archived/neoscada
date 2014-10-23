@@ -31,6 +31,13 @@
                type="org.eclipse.scada.configuration.generator.Generator">
          </adapter>
          </factory>
+          <factory
+                adaptableType="org.eclipse.scada.configuration.component.common.ScaledValue"
+                class="org.eclipse.scada.configuration.component.common.lib.AdapterFactory">
+             <adapter
+                   type="org.eclipse.scada.configuration.generator.Generator">
+             </adapter>
+          </factory>
          
          
 </extension>

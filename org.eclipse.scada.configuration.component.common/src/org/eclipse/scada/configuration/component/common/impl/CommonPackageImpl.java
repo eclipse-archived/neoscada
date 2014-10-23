@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.scada.configuration.component.ComponentPackage;
@@ -149,6 +150,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Initialize simple dependencies
         ComponentPackage.eINSTANCE.eClass ();
+        EcorePackage.eINSTANCE.eClass ();
         XMLTypePackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
@@ -430,6 +432,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getScaledValue_ValidateRange ()
+    {
+        return (EAttribute)scaledValueEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getDateFormat ()
     {
         return dateFormatEDataType;
@@ -498,6 +510,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         createEAttribute ( scaledValueEClass, SCALED_VALUE__INPUT_MAXIMUM );
         createEAttribute ( scaledValueEClass, SCALED_VALUE__OUTPUT_MINIMUM );
         createEAttribute ( scaledValueEClass, SCALED_VALUE__OUTPUT_MAXIMUM );
+        createEAttribute ( scaledValueEClass, SCALED_VALUE__VALIDATE_RANGE );
 
         // Create data types
         dateFormatEDataType = createEDataType ( DATE_FORMAT );
@@ -578,6 +591,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         initEAttribute ( getScaledValue_InputMaximum (), ecorePackage.getEDouble (), "inputMaximum", "100", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getScaledValue_OutputMinimum (), ecorePackage.getEDouble (), "outputMinimum", "0", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getScaledValue_OutputMaximum (), ecorePackage.getEDouble (), "outputMaximum", "1000", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getScaledValue_ValidateRange (), ecorePackage.getEBoolean (), "validateRange", "true", 1, 1, ScaledValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize data types
         initEDataType ( dateFormatEDataType, DateFormat.class, "DateFormat", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

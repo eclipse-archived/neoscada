@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.common.lib;
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.CurrentTimeComponent;
+import org.eclipse.scada.configuration.component.common.ScaledValue;
 import org.eclipse.scada.configuration.component.common.TimerAction;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 import org.eclipse.scada.configuration.generator.Generator;
@@ -44,6 +45,10 @@ public class AdapterFactory implements IAdapterFactory
         else if ( adaptableObject instanceof CurrentTimeComponent )
         {
             return new CurrentTimeGenerator ( (CurrentTimeComponent)adaptableObject );
+        }
+        else if ( adaptableObject instanceof ScaledValue )
+        {
+            return new ScaledValueGeneratorGenerator ( (ScaledValue)adaptableObject );
         }
         return null;
     }

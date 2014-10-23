@@ -38,6 +38,7 @@ import org.eclipse.scada.configuration.component.impl.SingleValueImpl;
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl#getInputMaximum <em>Input Maximum</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl#getOutputMinimum <em>Output Minimum</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl#getOutputMaximum <em>Output Maximum</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl#isValidateRange <em>Validate Range</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,6 +135,26 @@ public class ScaledValueImpl extends SingleValueImpl implements ScaledValue
      * @ordered
      */
     protected double outputMaximum = OUTPUT_MAXIMUM_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isValidateRange() <em>Validate Range</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isValidateRange()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean VALIDATE_RANGE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isValidateRange() <em>Validate Range</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isValidateRange()
+     * @generated
+     * @ordered
+     */
+    protected boolean validateRange = VALIDATE_RANGE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -305,6 +326,29 @@ public class ScaledValueImpl extends SingleValueImpl implements ScaledValue
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isValidateRange ()
+    {
+        return validateRange;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setValidateRange ( boolean newValidateRange )
+    {
+        boolean oldValidateRange = validateRange;
+        validateRange = newValidateRange;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.SCALED_VALUE__VALIDATE_RANGE, oldValidateRange, validateRange ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -336,6 +380,8 @@ public class ScaledValueImpl extends SingleValueImpl implements ScaledValue
                 return getOutputMinimum ();
             case CommonPackage.SCALED_VALUE__OUTPUT_MAXIMUM:
                 return getOutputMaximum ();
+            case CommonPackage.SCALED_VALUE__VALIDATE_RANGE:
+                return isValidateRange ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -364,6 +410,9 @@ public class ScaledValueImpl extends SingleValueImpl implements ScaledValue
                 return;
             case CommonPackage.SCALED_VALUE__OUTPUT_MAXIMUM:
                 setOutputMaximum ( (Double)newValue );
+                return;
+            case CommonPackage.SCALED_VALUE__VALIDATE_RANGE:
+                setValidateRange ( (Boolean)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -394,6 +443,9 @@ public class ScaledValueImpl extends SingleValueImpl implements ScaledValue
             case CommonPackage.SCALED_VALUE__OUTPUT_MAXIMUM:
                 setOutputMaximum ( OUTPUT_MAXIMUM_EDEFAULT );
                 return;
+            case CommonPackage.SCALED_VALUE__VALIDATE_RANGE:
+                setValidateRange ( VALIDATE_RANGE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -418,6 +470,8 @@ public class ScaledValueImpl extends SingleValueImpl implements ScaledValue
                 return outputMinimum != OUTPUT_MINIMUM_EDEFAULT;
             case CommonPackage.SCALED_VALUE__OUTPUT_MAXIMUM:
                 return outputMaximum != OUTPUT_MAXIMUM_EDEFAULT;
+            case CommonPackage.SCALED_VALUE__VALIDATE_RANGE:
+                return validateRange != VALIDATE_RANGE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -442,6 +496,8 @@ public class ScaledValueImpl extends SingleValueImpl implements ScaledValue
         result.append ( outputMinimum );
         result.append ( ", outputMaximum: " ); //$NON-NLS-1$
         result.append ( outputMaximum );
+        result.append ( ", validateRange: " ); //$NON-NLS-1$
+        result.append ( validateRange );
         result.append ( ')' );
         return result.toString ();
     }

@@ -1,34 +1,26 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.component.common.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.component.provider.ComponentEditPlugin;
-
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
-
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
-
 import org.eclipse.scada.configuration.item.provider.ItemEditPlugin;
-
 import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
-
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
-
 import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
 
 /**
@@ -63,7 +55,7 @@ public final class CommonComponentsEditPlugin extends EMFPlugin
      */
     public CommonComponentsEditPlugin ()
     {
-        super ( new ResourceLocator[] { ComponentEditPlugin.INSTANCE, ExecEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, InfrastructureEditPlugin.INSTANCE, ItemEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, } );
+        super ( new ResourceLocator[] { ComponentEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, ExecEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, InfrastructureEditPlugin.INSTANCE, ItemEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, } );
     }
 
     /**

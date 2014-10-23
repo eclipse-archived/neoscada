@@ -27,6 +27,7 @@ import org.eclipse.scada.configuration.component.SingleValue;
  *   <li>{@link org.eclipse.scada.configuration.component.common.ScaledValue#getInputMaximum <em>Input Maximum</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.ScaledValue#getOutputMinimum <em>Output Minimum</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.ScaledValue#getOutputMaximum <em>Output Maximum</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.common.ScaledValue#isValidateRange <em>Validate Range</em>}</li>
  * </ul>
  * </p>
  *
@@ -169,5 +170,32 @@ public interface ScaledValue extends SingleValue
      * @generated
      */
     void setOutputMaximum ( double value );
+
+    /**
+     * Returns the value of the '<em><b>Validate Range</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Validate Range</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Validate Range</em>' attribute.
+     * @see #setValidateRange(boolean)
+     * @see org.eclipse.scada.configuration.component.common.CommonPackage#getScaledValue_ValidateRange()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isValidateRange ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.common.ScaledValue#isValidateRange <em>Validate Range</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Validate Range</em>' attribute.
+     * @see #isValidateRange()
+     * @generated
+     */
+    void setValidateRange ( boolean value );
 
 } // ScaledValue

@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.component.common.impl;
 
@@ -17,7 +17,15 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.scada.configuration.component.common.*;
+import org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector;
+import org.eclipse.scada.configuration.component.common.CommonFactory;
+import org.eclipse.scada.configuration.component.common.CommonPackage;
+import org.eclipse.scada.configuration.component.common.CurrentTimeComponent;
+import org.eclipse.scada.configuration.component.common.DateFormat;
+import org.eclipse.scada.configuration.component.common.ScaledValue;
+import org.eclipse.scada.configuration.component.common.TimerAction;
+import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
+import org.eclipse.scada.configuration.world.osgi.DataType;
 
 /**
  * <!-- begin-user-doc -->
@@ -125,6 +133,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ToggleHeartbeatGenerator createToggleHeartbeatGenerator ()
     {
         ToggleHeartbeatGeneratorImpl toggleHeartbeatGenerator = new ToggleHeartbeatGeneratorImpl ();
@@ -136,6 +145,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ChangeHeartbeatDetector createChangeHeartbeatDetector ()
     {
         ChangeHeartbeatDetectorImpl changeHeartbeatDetector = new ChangeHeartbeatDetectorImpl ();
@@ -147,6 +157,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public TimerAction createTimerAction ()
     {
         TimerActionImpl timerAction = new TimerActionImpl ();
@@ -158,6 +169,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public CurrentTimeComponent createCurrentTimeComponent ()
     {
         CurrentTimeComponentImpl currentTimeComponent = new CurrentTimeComponentImpl ();
@@ -167,11 +179,14 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
+    @Override
     public ScaledValue createScaledValue ()
     {
-        ScaledValueImpl scaledValue = new ScaledValueImpl ();
+        final ScaledValueImpl scaledValue = new ScaledValueImpl ();
+        scaledValue.setDataType ( DataType.FLOAT );
         return scaledValue;
     }
 
@@ -200,6 +215,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public CommonPackage getCommonPackage ()
     {
         return (CommonPackage)getEPackage ();
