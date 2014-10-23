@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.component.lib.create.ItemCreator;
 import org.eclipse.scada.configuration.world.osgi.DataType;
 import org.eclipse.scada.configuration.world.osgi.FormulaItem;
 import org.eclipse.scada.configuration.world.osgi.FormulaItemInbound;
+import org.eclipse.scada.configuration.world.osgi.FormulaItemOutbound;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
 import org.eclipse.scada.utils.str.StringReplacer;
@@ -50,16 +51,32 @@ public class ScaledValueGeneratorGenerator extends AbstractDanglingGenerator
         final FormulaItem item = OsgiFactory.eINSTANCE.createFormulaItem ();
         item.setScriptEngine ( "JavaScript" );
 
-        final FormulaItemInbound inbound = OsgiFactory.eINSTANCE.createFormulaItemInbound ();
+        // inbound
+        {
+            final FormulaItemInbound inbound = OsgiFactory.eINSTANCE.createFormulaItemInbound ();
 
-        final TypedItemReference ref = OsgiFactory.eINSTANCE.createTypedItemReference ();
-        ref.setName ( "A" );
-        ref.setItem ( this.generator.getSourceItem ().createReference () );
-        ref.setType ( DataType.FLOAT );
-        inbound.getInputs ().add ( ref );
-        inbound.setInputFormula ( makeInputFormula () );
+            final TypedItemReference ref = OsgiFactory.eINSTANCE.createTypedItemReference ();
+            ref.setName ( "A" );
+            ref.setItem ( this.generator.getSourceItem ().createReference () );
+            ref.setType ( DataType.FLOAT );
+            inbound.getInputs ().add ( ref );
+            inbound.setInputFormula ( makeInputFormula () );
 
-        item.setInbound ( inbound );
+            item.setInbound ( inbound );
+        }
+
+        // outbound
+        {
+            final TypedItemReference ref = OsgiFactory.eINSTANCE.createTypedItemReference ();
+            ref.setItem ( this.generator.getSourceItem ().createReference () );
+            ref.setType ( DataType.FLOAT );
+
+            final FormulaItemOutbound outbound = OsgiFactory.eINSTANCE.createFormulaItemOutbound ();
+            outbound.setWriteValueVariableName ( "B" );
+            outbound.setOutputFormula ( makeOutputFormula () );
+            outbound.setOutput ( ref );
+            item.setOutbound ( outbound );
+        }
 
         final CreationRequest<FormulaItem> req = itemCreator.addItem ( item );
         req.localTags ( this.generator.getName () );
@@ -70,19 +87,45 @@ public class ScaledValueGeneratorGenerator extends AbstractDanglingGenerator
         createFormulaItem ( req );
     }
 
+    private String makeOutputFormula ()
+    {
+        final StringBuilder sb = new StringBuilder ();
+
+        if ( this.generator.isValidateRange () )
+        {
+            sb.append ( loadResource ( "scaled.value.validate.js" ) );
+        }
+        sb.append ( loadResource ( "scaled.value.formula.js" ) ).append ( ';' );
+
+        final Map<String, Object> properties = new HashMap<> ( 5 );
+
+        properties.put ( "value", "B" );
+        properties.put ( "outMin", this.generator.getInputMinimum () );
+        properties.put ( "outMax", this.generator.getInputMaximum () );
+        properties.put ( "inMin", this.generator.getOutputMinimum () );
+        properties.put ( "inMax", this.generator.getOutputMaximum () );
+
+        return StringReplacer.replace ( sb.toString (), StringReplacer.newSource ( properties ), PATTERN );
+    }
+
     private String makeInputFormula ()
     {
         final StringBuilder sb = new StringBuilder ();
 
         if ( this.generator.isValidateRange () )
         {
-            sb.append ( loadResource ( "scaled.value.input.validate.js" ) );
+            sb.append ( loadResource ( "scaled.value.validate.js" ) );
         }
-        sb.append ( loadResource ( "scaled.value.input.js" ) );
+        sb.append ( loadResource ( "scaled.value.formula.js" ) ).append ( ';' );
 
-        final Map<String, Object> properties = new HashMap<> ();
-        properties.put ( "generator", this.generator );
+        final Map<String, Object> properties = new HashMap<> ( 5 );
 
-        return StringReplacer.replace ( sb.toString (), StringReplacer.newBeansSource ( properties ), PATTERN );
+        properties.put ( "value", "A" );
+        properties.put ( "inMin", this.generator.getInputMinimum () );
+        properties.put ( "inMax", this.generator.getInputMaximum () );
+        properties.put ( "outMin", this.generator.getOutputMinimum () );
+        properties.put ( "outMax", this.generator.getOutputMaximum () );
+
+        return StringReplacer.replace ( sb.toString (), StringReplacer.newSource ( properties ), PATTERN );
     }
 }

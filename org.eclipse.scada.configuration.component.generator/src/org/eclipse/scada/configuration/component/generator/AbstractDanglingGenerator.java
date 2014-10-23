@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.world.osgi.FormulaItem;
 import org.eclipse.scada.configuration.world.osgi.ItemReference;
 import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.ScriptItem;
+import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
 
 /**
  * Help in creating a component generator that uses script items and maybe other
@@ -124,6 +125,11 @@ public abstract class AbstractDanglingGenerator extends DataComponentGenerator
                 {
                     input.setItem ( Items.replaceDanglingReference ( this.context, master, input.getItem () ) );
                 }
+            }
+            if ( item.getOutbound () != null )
+            {
+                final TypedItemReference output = item.getOutbound ().getOutput ();
+                output.setItem ( Items.replaceDanglingReference ( this.context, master, output.getItem () ) );
             }
         }
     }
