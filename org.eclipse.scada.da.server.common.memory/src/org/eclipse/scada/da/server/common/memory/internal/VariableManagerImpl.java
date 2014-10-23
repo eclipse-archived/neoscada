@@ -380,6 +380,8 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                     case DOUBLE:
                         result.add ( new DoubleFloatVariable ( entry.getName (), entry.getIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
+                    case TRIBIT:
+                        throw new IllegalArgumentException ( String.format ( "TRIBIT variables are not supported right now" ) );
                 }
             }
             return result.toArray ( new Variable[result.size ()] );
@@ -516,11 +518,11 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                 break;
             case TRIBIT:
                 result.add ( new TypeEntry ( varName, new int[] {//
-                        Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ),// read bit
-                        Integer.parseInt ( args[2] ), Integer.parseInt ( args[3] ),// write true bit
-                        Integer.parseInt ( args[4] ), Integer.parseInt ( args[5] ),// write false bit
-                        Integer.parseInt ( args[6] ), // invert
-                        Integer.parseInt ( args[7] ), // enableTimestamp
+                Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ),// read bit
+                Integer.parseInt ( args[2] ), Integer.parseInt ( args[3] ),// write true bit
+                Integer.parseInt ( args[4] ), Integer.parseInt ( args[5] ),// write false bit
+                Integer.parseInt ( args[6] ), // invert
+                Integer.parseInt ( args[7] ), // enableTimestamp
                 } ) );
                 break;
             default:
