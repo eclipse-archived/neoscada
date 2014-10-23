@@ -247,7 +247,7 @@ public class ModbusSlave implements Listener
         {
             blockName = id;
         }
-        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, makeBlockId ( id ), blockName, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
+        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, makeBlockId ( id ), this.id + "." + blockName, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
 
         this.blocks.put ( id, block );
 
