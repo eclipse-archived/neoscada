@@ -46,6 +46,8 @@
     </genClasses>
     <genClasses ecoreClass="modbus.ecore#//ModbusBlock">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusBlock/id"/>
+      <genFeatures createChild="false" propertyDescription="An alternate name for the block. This name must not be unique as the Id has to be."
+          ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusBlock/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusBlock/blockType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusBlock/startAddress"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusBlock/count"/>

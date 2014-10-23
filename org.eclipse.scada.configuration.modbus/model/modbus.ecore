@@ -41,6 +41,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModbusBlock">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockType" lowerBound="1"
         eType="#//RequestType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startAddress" lowerBound="1"

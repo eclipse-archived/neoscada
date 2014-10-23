@@ -446,13 +446,22 @@ public interface ModbusPackage extends EPackage
     int MODBUS_BLOCK__ID = 0;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_BLOCK__NAME = 1;
+
+    /**
      * The feature id for the '<em><b>Block Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODBUS_BLOCK__BLOCK_TYPE = 1;
+    int MODBUS_BLOCK__BLOCK_TYPE = 2;
 
     /**
      * The feature id for the '<em><b>Start Address</b></em>' attribute.
@@ -461,7 +470,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_BLOCK__START_ADDRESS = 2;
+    int MODBUS_BLOCK__START_ADDRESS = 3;
 
     /**
      * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -470,7 +479,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_BLOCK__COUNT = 3;
+    int MODBUS_BLOCK__COUNT = 4;
 
     /**
      * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -479,7 +488,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_BLOCK__PERIOD = 4;
+    int MODBUS_BLOCK__PERIOD = 5;
 
     /**
      * The feature id for the '<em><b>Timeout</b></em>' attribute.
@@ -488,7 +497,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_BLOCK__TIMEOUT = 5;
+    int MODBUS_BLOCK__TIMEOUT = 6;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' reference.
@@ -497,7 +506,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_BLOCK__TYPE = 6;
+    int MODBUS_BLOCK__TYPE = 7;
 
     /**
      * The number of structural features of the '<em>Block</em>' class.
@@ -506,7 +515,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_BLOCK_FEATURE_COUNT = 7;
+    int MODBUS_BLOCK_FEATURE_COUNT = 8;
 
     /**
      * The number of operations of the '<em>Block</em>' class.
@@ -1666,6 +1675,17 @@ public interface ModbusPackage extends EPackage
     EAttribute getModbusBlock_Id ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusBlock#getName()
+     * @see #getModbusBlock()
+     * @generated
+     */
+    EAttribute getModbusBlock_Name ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.modbus.ProtocolType <em>Protocol Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2175,6 +2195,14 @@ public interface ModbusPackage extends EPackage
          * @generated
          */
         EAttribute MODBUS_BLOCK__ID = eINSTANCE.getModbusBlock_Id ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_BLOCK__NAME = eINSTANCE.getModbusBlock_Name ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.ProtocolType <em>Protocol Type</em>}' enum.
