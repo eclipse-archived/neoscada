@@ -34,9 +34,11 @@ import org.eclipse.scada.configuration.component.FormulaModule;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.FormulaModule} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.component.FormulaModule} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class FormulaModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -45,9 +47,10 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public FormulaModuleItemProvider ( AdapterFactory adapterFactory )
+    public FormulaModuleItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -56,12 +59,13 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -69,18 +73,19 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
             addNamePropertyDescriptor ( object );
             addScriptEnginePropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Short Description feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addShortDescriptionPropertyDescriptor ( Object object )
+    protected void addShortDescriptionPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -90,11 +95,12 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addNamePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -104,44 +110,50 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      * This adds a property descriptor for the Script Engine feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addScriptEnginePropertyDescriptor ( Object object )
+    protected void addScriptEnginePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaModule_scriptEngine_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaModule_scriptEngine_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaModule_scriptEngine_feature", "_UI_FormulaModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ComponentPackage.Literals.FORMULA_MODULE__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to
+     * deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand},
+     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in
+     * {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( final Object object )
     {
-        if ( childrenFeatures == null )
+        if ( this.childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_MODULE__KNOWN_INPUTS );
-            childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_MODULE__KNOWN_OUTPUTS );
-            childrenFeatures.add ( ComponentPackage.Literals.FORMULA_MODULE__UPDATE );
-            childrenFeatures.add ( ComponentPackage.Literals.FORMULA_MODULE__INIT );
+            this.childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_MODULE__KNOWN_INPUTS );
+            this.childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_MODULE__KNOWN_OUTPUTS );
+            this.childrenFeatures.add ( ComponentPackage.Literals.FORMULA_MODULE__UPDATE );
+            this.childrenFeatures.add ( ComponentPackage.Literals.FORMULA_MODULE__INIT );
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -153,37 +165,54 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      * This returns FormulaModule.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
+    public Object getImage ( final Object object )
+    {
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/FormulaModule.png" ) ); //$NON-NLS-1$
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    protected boolean shouldComposeCreationImage ()
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/FormulaModule" ) ); //$NON-NLS-1$
+        return true;
     }
 
     /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (FormulaModule)object ).getName ();
+        final String label = ( (FormulaModule)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_FormulaModule_type" ) : //$NON-NLS-1$
-        getString ( "_UI_FormulaModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+            getString ( "_UI_FormulaModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -206,14 +235,16 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
@@ -225,18 +256,20 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
     }
 
     /**
-     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * This returns the label text for
+     * {@link org.eclipse.emf.edit.command.CreateChildCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getCreateChildText ( Object owner, Object feature, Object child, Collection<?> selection )
+    public String getCreateChildText ( final Object owner, final Object feature, final Object child, final Collection<?> selection )
     {
-        Object childFeature = feature;
-        Object childObject = child;
+        final Object childFeature = feature;
+        final Object childObject = child;
 
-        boolean qualify = childFeature == ComponentPackage.Literals.FORMULA_MODULE__UPDATE || childFeature == ComponentPackage.Literals.FORMULA_MODULE__INIT;
+        final boolean qualify = childFeature == ComponentPackage.Literals.FORMULA_MODULE__UPDATE || childFeature == ComponentPackage.Literals.FORMULA_MODULE__INIT;
 
         if ( qualify )
         {
@@ -250,12 +283,13 @@ public class FormulaModuleItemProvider extends ItemProviderAdapter implements IE
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
     }
 
 }

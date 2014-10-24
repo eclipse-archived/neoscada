@@ -4,15 +4,16 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -23,9 +24,11 @@ import org.eclipse.scada.configuration.component.ChangeCounter;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ChangeCounter} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.component.ChangeCounter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ *
  * @generated
  */
 public class ChangeCounterItemProvider extends SingleValueItemProvider
@@ -34,9 +37,10 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    public ChangeCounterItemProvider ( AdapterFactory adapterFactory )
+    public ChangeCounterItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -45,12 +49,13 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -59,18 +64,19 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
             addValuesPropertyDescriptor ( object );
             addOnErrorPropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Buffer feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addBufferPropertyDescriptor ( Object object )
+    protected void addBufferPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_buffer_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_buffer_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_buffer_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ComponentPackage.Literals.CHANGE_COUNTER__BUFFER, true, false, true, null, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -80,11 +86,12 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
      * This adds a property descriptor for the Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addTypePropertyDescriptor ( Object object )
+    protected void addTypePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_type_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_type_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_type_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ComponentPackage.Literals.CHANGE_COUNTER__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -94,11 +101,12 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
      * This adds a property descriptor for the Values feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addValuesPropertyDescriptor ( Object object )
+    protected void addValuesPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_values_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_values_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_values_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ComponentPackage.Literals.CHANGE_COUNTER__VALUES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -108,11 +116,12 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
      * This adds a property descriptor for the On Error feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addOnErrorPropertyDescriptor ( Object object )
+    protected void addOnErrorPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_onError_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_onError_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_onError_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ComponentPackage.Literals.CHANGE_COUNTER__ON_ERROR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
                 null ) );
@@ -122,37 +131,54 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
      * This returns ChangeCounter.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public Object getImage ( final Object object )
+    {
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ChangeCounter.png" ) ); //$NON-NLS-1$
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    protected boolean shouldComposeCreationImage ()
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ChangeCounter" ) ); //$NON-NLS-1$
+        return true;
     }
 
     /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (ChangeCounter)object ).getName ();
+        final String label = ( (ChangeCounter)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_ChangeCounter_type" ) : //$NON-NLS-1$
         getString ( "_UI_ChangeCounter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -168,14 +194,16 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
