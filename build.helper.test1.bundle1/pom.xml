@@ -3,11 +3,59 @@
   <parent>
     <artifactId>build.helper.test1-parent</artifactId>
     <groupId>org.eclipse.scada.releng</groupId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
     <relativePath>../build.helper.test1-parent</relativePath>
   </parent>
   <groupId>org.eclipse.scada.releng</groupId>
   <artifactId>build.helper.test1.bundle1</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
+  
+  <dependencies>
+  	<dependency>
+  			<groupId>org.eclipse.scada.releng.features</groupId>
+			<artifactId>build.helper.test2</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+			<type>pom</type>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+			<groupId>org.eclipse.scada.releng</groupId>
+			<artifactId>build-helper</artifactId>
+			<version>0.0.19-SNAPSHOT</version>
+			<executions>
+				<execution>
+					<id>test</id>
+					<goals>
+						<goal>update-target-platform</goal>
+					</goals>
+					<configuration>
+						<sourceFile>test.target</sourceFile>
+						<targetFile>target/test.target</targetFile>
+						<downloadUrl>http://download.my.stuff</downloadUrl>
+					</configuration>
+				</execution>
+				
+				<execution>
+					<id>merge</id>
+					<goals>
+						<goal>merge-target-files</goal>
+					</goals>
+					<configuration>
+						<name>Test: ${project.version}</name>
+						<sourceFiles>
+							<sourceFile>base.target</sourceFile>
+							<sourceFile>target/test.target</sourceFile>
+						</sourceFiles>
+						<targetFile>target/merged.target</targetFile>
+					</configuration>
+				</execution>
+				
+			</executions>  		
+		</plugin>
+  	</plugins>
+  </build>
 </project>

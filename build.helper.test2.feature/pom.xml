@@ -7,7 +7,7 @@
 		<relativePath>../build.helper.test1-parent</relativePath>
 	</parent>
 	<groupId>org.eclipse.scada.releng.features</groupId>
-	<artifactId>build.helper.test1</artifactId>
+	<artifactId>build.helper.test2</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>eclipse-feature</packaging>
 
