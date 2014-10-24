@@ -4,7 +4,7 @@
 
 	<groupId>org.eclipse.scada.releng</groupId>
 	<artifactId>build-helper</artifactId>
-	<version>0.0.19</version>
+	<version>0.0.20-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>build-helper Maven Mojo</name>
