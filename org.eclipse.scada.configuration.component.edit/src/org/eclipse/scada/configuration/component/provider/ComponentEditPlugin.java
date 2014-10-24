@@ -53,7 +53,7 @@ public final class ComponentEditPlugin extends EMFPlugin
      */
     public ComponentEditPlugin ()
     {
-        super ( new ResourceLocator[] { ExecEditPlugin.INSTANCE, InfrastructureEditPlugin.INSTANCE, ItemEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, } );
+        super ( new ResourceLocator[] { EcoreEditPlugin.INSTANCE, ExecEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, InfrastructureEditPlugin.INSTANCE, ItemEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, } );
     }
 
     /**
