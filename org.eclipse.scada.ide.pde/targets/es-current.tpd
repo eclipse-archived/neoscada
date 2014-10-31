@@ -3,15 +3,9 @@ target "Eclipse SCADA - Current"
 with source, allEnvironments
 
 location "http://download.eclipse.org/eclipsescada/updates/milestone/0.2" {
-		org.eclipse.scada.external.sdk.feature.group
-		org.eclipse.scada.external.feature.group
-		org.eclipse.scada.external.wrapper.feature.group
-		org.eclipse.scada.external.orbit.feature.group
-		
-		org.eclipse.scada.utils.sdk.feature.group
-		org.eclipse.scada.protocols.sdk.feature.group
-		org.eclipse.scada.base.sdk.feature.group
-		org.eclipse.scada.core.sdk.feature.group
-		org.eclipse.scada.hmi.sdk.feature.group
-		org.eclipse.scada.chart.sdk.feature.group
+		org.eclipse.scada.core.common.feature.group
+		org.eclipse.scada.core.server.feature.group
+		org.eclipse.scada.core.protocols.feature.group
+		org.eclipse.scada.core.client.feature.group
+		org.eclipse.scada.deploy.console.feature.group
 }

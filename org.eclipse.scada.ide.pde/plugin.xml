@@ -18,6 +18,11 @@
             id="org.eclipse.scada.configuration.ui.pde.target.es020m3"
             name="Eclipse SCADA 0.2.0.M3 Server Runtime (milestone)">
       </target>
+      <target
+            definition="targets/es-current.target"
+            id="org.eclipse.scada.configuration.ui.pde.target.es-current"
+            name="Eclipse SCADA 0.2.0 Server Runtime">
+      </target>
    </extension>
 
 </plugin>

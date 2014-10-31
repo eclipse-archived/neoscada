@@ -14,6 +14,22 @@
 	<version>0.2.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 
+	<!-- for being sure the versions are already updated -->
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.scada.core.features</groupId>
+			<artifactId>org.eclipse.scada.core.sdk</artifactId>
+			<version>${project.version}</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.scada.deploy.features</groupId>
+			<artifactId>org.eclipse.scada.deploy.console</artifactId>
+			<version>${project.version}</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+
 	<profiles>
 		<profile>
 			<id>target-platform-update</id>
@@ -46,7 +62,7 @@
 									<goal>merge-target-files</goal>
 								</goals>
 								<configuration>
-									<name>Eclipse SCADA - ${project.version}</name>
+									<name>Eclipse SCADA - ${project.version} - Server Runtime</name>
 									<sourceFiles>
 										<sourceFile>base.target</sourceFile>
 										<sourceFile>${project.build.directory}/es-fragment.target</sourceFile>
