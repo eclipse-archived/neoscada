@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
+<target name="Eclipse SCADA Target Platform (SDK)" sequenceNumber="1414748311">
+  <locations>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.paho.client.mqttv3" version="1.0.0"/>
+      <repository location="http://download.eclipse.org/paho/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
+      <unit id="org.apache.commons.beanutils.source" version="1.8.0.v201205091237"/>
+      <unit id="org.apache.commons.collections" version="3.2.0.v2013030210310"/>
+      <unit id="org.apache.commons.collections.source" version="3.2.0.v2013030210310"/>
+      <unit id="org.apache.commons.dbcp" version="1.4.0.v201204271417"/>
+      <unit id="org.apache.commons.dbcp.source" version="1.4.0.v201204271417"/>
+      <unit id="org.apache.commons.pool" version="1.6.0.v201204271246"/>
+      <unit id="org.apache.commons.pool.source" version="1.6.0.v201204271246"/>
+      <unit id="org.apache.commons.httpclient" version="3.1.0.v201012070820"/>
+      <unit id="org.apache.commons.httpclient.source" version="3.1.0.v201012070820"/>
+      <unit id="org.apache.commons.io" version="2.0.1.v201105210651"/>
+      <unit id="org.apache.commons.io.source" version="2.0.1.v201105210651"/>
+      <unit id="org.apache.poi" version="3.9.0.v201405241750"/>
+      <unit id="org.apache.poi.source" version="3.9.0.v201405241750"/>
+      <unit id="org.apache.mina.core" version="2.0.7.v201401071602"/>
+      <unit id="org.apache.mina.core.source" version="2.0.7.v201401071602"/>
+      <unit id="org.apache.mina.filter.compression" version="2.0.7.v201401141305"/>
+      <unit id="org.apache.mina.filter.compression.source" version="2.0.7.v201401141305"/>
+      <unit id="com.google.guava" version="15.0.0.v201403281430"/>
+      <unit id="com.google.guava.source" version="15.0.0.v201403281430"/>
+      <unit id="com.google.gson" version="2.2.4.v201311231704"/>
+      <unit id="com.google.gson.source" version="2.2.4.v201311231704"/>
+      <unit id="org.junit" version="4.11.0.v201303080030"/>
+      <unit id="org.junit.source" version="4.11.0.v201303080030"/>
+      <unit id="com.jcraft.jzlib" version="1.1.1.v201205102305"/>
+      <unit id="com.jcraft.jzlib.source" version="1.1.1.v201205102305"/>
+      <unit id="org.slf4j.api" version="1.7.2.v20121108-1250"/>
+      <unit id="org.slf4j.api.source" version="1.7.2.v20121108-1250"/>
+      <unit id="org.slf4j.ext" version="1.7.2.v20121108-1250"/>
+      <unit id="org.slf4j.ext.source" version="1.7.2.v20121108-1250"/>
+      <unit id="ch.qos.logback.classic" version="1.0.7.v20121108-1250"/>
+      <unit id="ch.qos.logback.classic.source" version="1.0.7.v20121108-1250"/>
+      <unit id="ch.qos.logback.core" version="1.0.7.v20121108-1250"/>
+      <unit id="ch.qos.logback.core.source" version="1.0.7.v20121108-1250"/>
+      <unit id="ch.qos.logback.slf4j" version="1.0.7.v20121108-1250"/>
+      <unit id="ch.qos.logback.slf4j.source" version="1.0.7.v20121108-1250"/>
+      <unit id="javax.annotation" version="1.1.0.v201209060031"/>
+      <unit id="javax.annotation.source" version="1.1.0.v201209060031"/>
+      <unit id="javax.inject" version="1.0.0.v20091030"/>
+      <unit id="javax.inject.source" version="1.0.0.v20091030"/>
+      <unit id="javax.ws.rs" version="1.1.1.v20130318-1750"/>
+      <unit id="javax.ws.rs.source" version="1.1.1.v20130318-1750"/>
+      <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
+      <unit id="osgi.enterprise.source" version="4.2.0.v201108120515"/>
+      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.gemini.dbaccess.h2.feature.feature.group" version="1.1.0.RELEASE"/>
+      <repository location="http://download.eclipse.org/gemini/updates/dbaccess/1.1.0"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.scada.external.wrapper.feature.group" version="0.2.0.v20140722-1451"/>
+      <unit id="org.eclipse.scada.external.sdk.feature.group" version="0.2.0.v20140722-1451"/>
+      <unit id="org.eclipse.scada.base.sdk.feature.group" version="0.2.0.v20141002-0851"/>
+      <unit id="org.eclipse.scada.protocols.sdk.feature.group" version="0.2.0.v20141009-0956"/>
+      <unit id="org.eclipse.scada.configuration.sdk.feature.group" version="0.2.0.v20141023-1506"/>
+      <unit id="org.eclipse.scada.external.orbit.feature.group" version="0.2.0.v20140911-0727"/>
+      <unit id="org.eclipse.scada.chart.sdk.feature.group" version="0.2.0.v20140723-0935"/>
+      <unit id="org.eclipse.scada.hmi.sdk.feature.group" version="0.2.0.v20141020-1516"/>
+      <unit id="org.eclipse.scada.utils.sdk.feature.group" version="0.2.0.v20141023-0849"/>
+      <unit id="org.eclipse.scada.core.sdk.feature.group" version="0.2.0.v20141023-1513"/>
+      <unit id="org.eclipse.scada.external.feature.group" version="0.2.0.v20140722-1451"/>
+      <repository location="http://download.eclipse.org/eclipsescada/updates/nightly/0.2"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.jgit.feature.group" version="3.4.1.201406201815-r"/>
+      <unit id="org.eclipse.jgit.java7.feature.group" version="3.4.1.201406201815-r"/>
+      <unit id="org.eclipse.egit.feature.group" version="3.4.1.201406201815-r"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.10.0.v20140909-1633"/>
+      <unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.8.0.201405281429"/>
+      <unit id="org.eclipse.emf.sdk.feature.group" version="2.10.1.v20140901-1055"/>
+      <unit id="org.eclipse.ecf.core.feature.group" version="3.9.0.v20140818-1747"/>
+      <unit id="org.eclipse.ecf.discovery" version="5.0.0.v20140818-1747"/>
+      <unit id="org.eclipse.ecf.identity" version="3.4.0.v20140827-1444"/>
+      <unit id="org.eclipse.ecf" version="3.4.0.v20140827-1444"/>
+      <unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.0.2.v20140819-1612"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.4.0.v20140925-0400"/>
+      <unit id="org.eclipse.pde.feature.group" version="3.10.0.v20140925-0400"/>
+      <unit id="org.eclipse.wst.web_ui.feature.feature.group" version="3.6.1.v201409112028"/>
+      <unit id="org.eclipse.acceleo.feature.group" version="3.5.1.201409021433"/>
+      <unit id="org.eclipse.gef.sdk.feature.group" version="3.9.101.201408150207"/>
+      <unit id="org.eclipse.jdt.feature.group" version="3.10.0.v20140925-0400"/>
+      <repository location="http://download.eclipse.org/releases/luna"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.swt.tools.category" version="1.0.0.201302211459"/>
+      <repository location="http://www.eclipse.org/swt/updates/4.3"/>
+    </location>
+  </locations>
+</target>

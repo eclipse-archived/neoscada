@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<target name="Local fragment" sequenceNumber="0">
-<locations>
-<location path="${project_loc:/org.eclipse.scada.external-repo}/source" type="Directory"/>
-</locations>
-</target>
