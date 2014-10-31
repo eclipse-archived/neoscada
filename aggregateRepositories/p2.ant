@@ -191,6 +191,7 @@ Contributors:
             
             <sysproperty key="path.p2temp" file="${java.io.tmpdir}/p2tom2.p2"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
+        	<sysproperty key="useTychoVersion" value="false"/>
         </java>
     </target>
 
