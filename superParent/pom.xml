@@ -36,6 +36,7 @@
 
 		<tycho-version>0.20.0</tycho-version>
 		<tycho-extras-version>0.20.0</tycho-extras-version>
+		<build-helper-version>0.0.19</build-helper-version>
 
 		<eclipse.orbit.version>R20140525021250</eclipse.orbit.version>
 
@@ -60,13 +61,13 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
+	
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.eclipse.scada.releng</groupId>
 				<artifactId>build-helper</artifactId>
-				<version>0.0.16</version>
+				<version>${build-helper-version}</version>
 				<executions>
 					<execution>
 						<goals>
