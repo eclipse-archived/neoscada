@@ -1,0 +1,8 @@
+target "Eclipse SCADA - Base"
+
+with source, allEnvironments
+
+location "http://download.eclipse.org/releases/kepler" {
+	org.eclipse.equinox.sdk.feature.group
+	org.eclipse.emf.sdk.feature.group
+}
