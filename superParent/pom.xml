@@ -243,6 +243,7 @@
 			<properties>
 				<buildType>I</buildType>
 				<buildTypeLong>integration</buildTypeLong>
+				<ide.update.target.platform>true</ide.update.target.platform>
 			</properties>
 			<repositories>
 				<repository>
@@ -259,6 +260,7 @@
 			<properties>
 				<buildType>S</buildType>
 				<buildTypeLong>milestone</buildTypeLong>
+				<ide.update.target.platform>true</ide.update.target.platform>
 			</properties>
 			<repositories>
 				<repository>
@@ -275,6 +277,7 @@
 			<properties>
 				<buildType>R</buildType>
 				<buildTypeLong>release</buildTypeLong>
+				<ide.update.target.platform>true</ide.update.target.platform>
 			</properties>
 			<repositories>
 				<repository>
