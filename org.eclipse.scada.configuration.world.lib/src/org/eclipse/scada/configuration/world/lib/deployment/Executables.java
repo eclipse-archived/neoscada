@@ -14,8 +14,12 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.UserDefinedFileAttributeView;
 
 public final class Executables
@@ -67,5 +71,20 @@ public final class Executables
         ua.read ( ATTR_EXECUTE, buf );
         buf.flip ();
         return Boolean.parseBoolean ( CHARSET.decode ( buf ).toString () );
+    }
+
+    public static void setAllExecutable ( final Path directory, final boolean state ) throws IOException
+    {
+        Files.walkFileTree ( directory, new SimpleFileVisitor<Path> () {
+            @Override
+            public FileVisitResult visitFile ( final Path file, final BasicFileAttributes attrs ) throws IOException
+            {
+                if ( Files.isRegularFile ( file, LinkOption.NOFOLLOW_LINKS ) )
+                {
+                    setExecutable ( file, state );
+                }
+                return super.visitFile ( file, attrs );
+            }
+        } );
     }
 }
