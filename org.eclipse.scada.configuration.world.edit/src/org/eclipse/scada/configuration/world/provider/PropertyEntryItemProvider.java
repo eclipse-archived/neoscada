@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.world.provider;
 
@@ -33,9 +33,11 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.PropertyEntry} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.world.PropertyEntry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class PropertyEntryItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
@@ -44,9 +46,10 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public PropertyEntryItemProvider ( AdapterFactory adapterFactory )
+    public PropertyEntryItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -55,30 +58,32 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addKeyPropertyDescriptor ( object );
             addValuePropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Key feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addKeyPropertyDescriptor ( Object object )
+    protected void addKeyPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PropertyEntry_key_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PropertyEntry_key_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_key_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 WorldPackage.Literals.PROPERTY_ENTRY__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
@@ -87,11 +92,12 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
      * This adds a property descriptor for the Value feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addValuePropertyDescriptor ( Object object )
+    protected void addValuePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PropertyEntry_value_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PropertyEntry_value_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_value_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 WorldPackage.Literals.PROPERTY_ENTRY__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
@@ -100,17 +106,19 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
      * This returns PropertyEntry.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/PropertyEntry" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/PropertyEntry.png" ) ); //$NON-NLS-1$
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -123,7 +131,7 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -141,14 +149,17 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -163,14 +174,16 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -179,12 +192,13 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
     }
 
 }
