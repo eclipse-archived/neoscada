@@ -32,9 +32,11 @@ import org.eclipse.scada.configuration.world.osgi.MarkerEntry;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.osgi.MarkerEntry} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.world.osgi.MarkerEntry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class MarkerEntryItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
@@ -43,9 +45,10 @@ public class MarkerEntryItemProvider extends ItemProviderAdapter implements IEdi
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public MarkerEntryItemProvider ( AdapterFactory adapterFactory )
+    public MarkerEntryItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -54,30 +57,32 @@ public class MarkerEntryItemProvider extends ItemProviderAdapter implements IEdi
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addNamePropertyDescriptor ( object );
             addValuePropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addNamePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MarkerEntry_name_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MarkerEntry_name_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerEntry_name_feature", "_UI_MarkerEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 OsgiPackage.Literals.MARKER_ENTRY__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
@@ -86,11 +91,12 @@ public class MarkerEntryItemProvider extends ItemProviderAdapter implements IEdi
      * This adds a property descriptor for the Value feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addValuePropertyDescriptor ( Object object )
+    protected void addValuePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MarkerEntry_value_feature" ), //$NON-NLS-1$
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MarkerEntry_value_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerEntry_value_feature", "_UI_MarkerEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 OsgiPackage.Literals.MARKER_ENTRY__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
@@ -99,17 +105,19 @@ public class MarkerEntryItemProvider extends ItemProviderAdapter implements IEdi
      * This returns MarkerEntry.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/MarkerEntry" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/MarkerEntry.png" ) ); //$NON-NLS-1$
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -122,25 +130,29 @@ public class MarkerEntryItemProvider extends ItemProviderAdapter implements IEdi
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (MarkerEntry)object ).getName ();
+        final String label = ( (MarkerEntry)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_MarkerEntry_type" ) : //$NON-NLS-1$
-        getString ( "_UI_MarkerEntry_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+            getString ( "_UI_MarkerEntry_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -155,14 +167,16 @@ public class MarkerEntryItemProvider extends ItemProviderAdapter implements IEdi
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -171,12 +185,13 @@ public class MarkerEntryItemProvider extends ItemProviderAdapter implements IEdi
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
     }
 
 }
