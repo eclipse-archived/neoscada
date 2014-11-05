@@ -29,7 +29,6 @@ public class Float64TypeImpl extends BaseScalarTypeImpl implements Float64Type
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected Float64TypeImpl ()
@@ -40,7 +39,6 @@ public class Float64TypeImpl extends BaseScalarTypeImpl implements Float64Type
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override

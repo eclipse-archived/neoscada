@@ -52,8 +52,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WorldActionBarContributor extends
-        EditingDomainActionBarContributor implements ISelectionChangedListener
+public class WorldActionBarContributor extends EditingDomainActionBarContributor implements ISelectionChangedListener
 {
     /**
      * This keeps track of the active editor.
@@ -230,14 +229,12 @@ public class WorldActionBarContributor extends
 
         // Force an update because Eclipse hides empty menus now.
         //
-        submenuManager.addMenuListener
-                ( new IMenuListener ()
-                {
-                    public void menuAboutToShow ( IMenuManager menuManager )
-                    {
-                        menuManager.updateAll ( true );
-                    }
-                } );
+        submenuManager.addMenuListener ( new IMenuListener () {
+            public void menuAboutToShow ( IMenuManager menuManager )
+            {
+                menuManager.updateAll ( true );
+            }
+        } );
 
         addGlobalActions ( submenuManager );
     }
@@ -345,8 +342,7 @@ public class WorldActionBarContributor extends
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<IAction> generateCreateChildActions (
-            Collection<?> descriptors, ISelection selection )
+    protected Collection<IAction> generateCreateChildActions ( Collection<?> descriptors, ISelection selection )
     {
         Collection<IAction> actions = new ArrayList<IAction> ();
         if ( descriptors != null )
@@ -366,8 +362,7 @@ public class WorldActionBarContributor extends
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<IAction> generateCreateSiblingActions (
-            Collection<?> descriptors, ISelection selection )
+    protected Collection<IAction> generateCreateSiblingActions ( Collection<?> descriptors, ISelection selection )
     {
         Collection<IAction> actions = new ArrayList<IAction> ();
         if ( descriptors != null )
@@ -389,8 +384,7 @@ public class WorldActionBarContributor extends
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void populateManager ( IContributionManager manager,
-            Collection<? extends IAction> actions, String contributionID )
+    protected void populateManager ( IContributionManager manager, Collection<? extends IAction> actions, String contributionID )
     {
         if ( actions != null )
         {
@@ -415,8 +409,7 @@ public class WorldActionBarContributor extends
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void depopulateManager ( IContributionManager manager,
-            Collection<? extends IAction> actions )
+    protected void depopulateManager ( IContributionManager manager, Collection<? extends IAction> actions )
     {
         if ( actions != null )
         {
@@ -452,8 +445,7 @@ public class WorldActionBarContributor extends
      * <!-- end-user-doc -->
      * @generated
      */
-    protected Map<String, Collection<IAction>> extractSubmenuActions (
-            Collection<IAction> createActions )
+    protected Map<String, Collection<IAction>> extractSubmenuActions ( Collection<IAction> createActions )
     {
         Map<String, Collection<IAction>> createSubmenuActions = new LinkedHashMap<String, Collection<IAction>> ();
         if ( createActions != null )
@@ -489,9 +481,7 @@ public class WorldActionBarContributor extends
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void populateManager ( IContributionManager manager,
-            Map<String, Collection<IAction>> submenuActions,
-            String contributionID )
+    protected void populateManager ( IContributionManager manager, Map<String, Collection<IAction>> submenuActions, String contributionID )
     {
         if ( submenuActions != null )
         {
@@ -519,8 +509,7 @@ public class WorldActionBarContributor extends
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void depopulateManager ( IContributionManager manager,
-            Map<String, Collection<IAction>> submenuActions )
+    protected void depopulateManager ( IContributionManager manager, Map<String, Collection<IAction>> submenuActions )
     {
         if ( submenuActions != null )
         {

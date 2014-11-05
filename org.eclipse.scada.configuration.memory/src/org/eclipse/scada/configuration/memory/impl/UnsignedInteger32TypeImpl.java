@@ -29,7 +29,6 @@ public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements Unsign
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected UnsignedInteger32TypeImpl ()
@@ -46,7 +45,6 @@ public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements Unsign
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

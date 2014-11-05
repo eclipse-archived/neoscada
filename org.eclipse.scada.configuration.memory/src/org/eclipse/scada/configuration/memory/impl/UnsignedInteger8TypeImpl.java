@@ -29,7 +29,6 @@ public class UnsignedInteger8TypeImpl extends BaseScalarTypeImpl implements Unsi
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected UnsignedInteger8TypeImpl ()
@@ -40,7 +39,6 @@ public class UnsignedInteger8TypeImpl extends BaseScalarTypeImpl implements Unsi
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override

@@ -29,7 +29,6 @@ public class SignedInteger8TypeImpl extends BaseScalarTypeImpl implements Signed
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected SignedInteger8TypeImpl ()
@@ -40,7 +39,6 @@ public class SignedInteger8TypeImpl extends BaseScalarTypeImpl implements Signed
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

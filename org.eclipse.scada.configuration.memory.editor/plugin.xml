@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
- Copyright (c) 2013 IBH SYSTEMS GmbH.
+ Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  All rights reserved. This program and the accompanying materials
  are made available under the terms of the Eclipse Public License v1.0
  which accompanies this distribution, and is available at
@@ -21,18 +21,17 @@
             name="%_UI_MemoryModelWizard_label"
             class="org.eclipse.scada.configuration.memory.presentation.MemoryModelWizard"
             category="org.eclipse.scada.configuration/org.eclipse.scada.configuration.models"
-            icon="icons/full/obj16/MemoryModelFile.gif">
+            icon="icons/full/obj16/MemoryModelFile.png">
          <description>%_UI_MemoryModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
    
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated memory -->
       <editor
             id="org.eclipse.scada.configuration.memory.presentation.MemoryEditorID"
             name="%_UI_MemoryEditor_label"
-            icon="icons/full/obj16/MemoryModelFile.gif"
+            icon="icons/full/obj16/MemoryModelFile.png"
             extensions="mtd"
             class="org.eclipse.scada.configuration.memory.presentation.MemoryEditor"
             contributorClass="org.eclipse.scada.configuration.memory.presentation.MemoryActionBarContributor">

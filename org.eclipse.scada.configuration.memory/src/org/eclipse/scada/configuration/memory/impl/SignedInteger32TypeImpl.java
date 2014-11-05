@@ -30,7 +30,6 @@ public class SignedInteger32TypeImpl extends OrderedTypeImpl implements SignedIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected SignedInteger32TypeImpl ()
@@ -41,7 +40,6 @@ public class SignedInteger32TypeImpl extends OrderedTypeImpl implements SignedIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override

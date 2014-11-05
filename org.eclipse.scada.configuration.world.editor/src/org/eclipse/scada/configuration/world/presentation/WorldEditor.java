@@ -132,6 +132,7 @@ import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSup
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
 import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
+import org.eclipse.scada.configuration.script.provider.ScriptItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.security.provider.SecurityItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.world.deployment.provider.DeploymentItemProviderAdapterFactory;
 import org.eclipse.scada.da.exec.configuration.provider.ConfigurationItemProviderAdapterFactory;
@@ -142,9 +143,7 @@ import org.eclipse.scada.da.exec.configuration.provider.ConfigurationItemProvide
  * <!-- end-user-doc -->
  * @generated
  */
-public class WorldEditor extends MultiPageEditorPart implements
-        IEditingDomainProvider, ISelectionProvider, IMenuListener,
-        IViewerProvider, IGotoMarker
+public class WorldEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
 {
     /**
      * This keeps track of the editing domain that is used to track all changes to the model.
@@ -300,8 +299,7 @@ public class WorldEditor extends MultiPageEditorPart implements
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IPartListener partListener = new IPartListener ()
-    {
+    protected IPartListener partListener = new IPartListener () {
         public void partActivated ( IWorkbenchPart p )
         {
             if ( p instanceof ContentOutline )
@@ -394,8 +392,7 @@ public class WorldEditor extends MultiPageEditorPart implements
      * <!-- end-user-doc -->
      * @generated
      */
-    protected EContentAdapter problemIndicationAdapter = new EContentAdapter ()
-    {
+    protected EContentAdapter problemIndicationAdapter = new EContentAdapter () {
         @Override
         public void notifyChanged ( Notification notification )
         {
@@ -420,14 +417,12 @@ public class WorldEditor extends MultiPageEditorPart implements
 
                         if ( updateProblemIndication )
                         {
-                            getSite ().getShell ().getDisplay ().asyncExec
-                                    ( new Runnable ()
-                                    {
-                                        public void run ()
-                                        {
-                                            updateProblemIndication ();
-                                        }
-                                    } );
+                            getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                                public void run ()
+                                {
+                                    updateProblemIndication ();
+                                }
+                            } );
                         }
                         break;
                     }
@@ -452,14 +447,12 @@ public class WorldEditor extends MultiPageEditorPart implements
             resourceToDiagnosticMap.remove ( target );
             if ( updateProblemIndication )
             {
-                getSite ().getShell ().getDisplay ().asyncExec
-                        ( new Runnable ()
-                        {
-                            public void run ()
-                            {
-                                updateProblemIndication ();
-                            }
-                        } );
+                getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                    public void run ()
+                    {
+                        updateProblemIndication ();
+                    }
+                } );
             }
         }
     };
@@ -470,8 +463,7 @@ public class WorldEditor extends MultiPageEditorPart implements
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener ()
-    {
+    protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener () {
         public void resourceChanged ( IResourceChangeEvent event )
         {
             IResourceDelta delta = event.getDelta ();
@@ -489,8 +481,7 @@ public class WorldEditor extends MultiPageEditorPart implements
                     {
                         if ( delta.getResource ().getType () == IResource.FILE )
                         {
-                            if ( delta.getKind () == IResourceDelta.REMOVED ||
-                                    delta.getKind () == IResourceDelta.CHANGED )
+                            if ( delta.getKind () == IResourceDelta.REMOVED || delta.getKind () == IResourceDelta.CHANGED )
                             {
                                 final Resource resource = resourceSet.getResource ( URI.createPlatformResourceURI ( delta.getFullPath ().toString (), true ), false );
                                 if ( resource != null )
@@ -537,34 +528,30 @@ public class WorldEditor extends MultiPageEditorPart implements
 
                 if ( !visitor.getRemovedResources ().isEmpty () )
                 {
-                    getSite ().getShell ().getDisplay ().asyncExec
-                            ( new Runnable ()
+                    getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                        public void run ()
+                        {
+                            removedResources.addAll ( visitor.getRemovedResources () );
+                            if ( !isDirty () )
                             {
-                                public void run ()
-                                {
-                                    removedResources.addAll ( visitor.getRemovedResources () );
-                                    if ( !isDirty () )
-                                    {
-                                        getSite ().getPage ().closeEditor ( WorldEditor.this, false );
-                                    }
-                                }
-                            } );
+                                getSite ().getPage ().closeEditor ( WorldEditor.this, false );
+                            }
+                        }
+                    } );
                 }
 
                 if ( !visitor.getChangedResources ().isEmpty () )
                 {
-                    getSite ().getShell ().getDisplay ().asyncExec
-                            ( new Runnable ()
+                    getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                        public void run ()
+                        {
+                            changedResources.addAll ( visitor.getChangedResources () );
+                            if ( getSite ().getPage ().getActiveEditor () == WorldEditor.this )
                             {
-                                public void run ()
-                                {
-                                    changedResources.addAll ( visitor.getChangedResources () );
-                                    if ( getSite ().getPage ().getActiveEditor () == WorldEditor.this )
-                                    {
-                                        handleActivate ();
-                                    }
-                                }
-                            } );
+                                handleActivate ();
+                            }
+                        }
+                    } );
                 }
             }
             catch ( CoreException exception )
@@ -671,12 +658,8 @@ public class WorldEditor extends MultiPageEditorPart implements
     {
         if ( updateProblemIndication )
         {
-            BasicDiagnostic diagnostic =
-                    new BasicDiagnostic
-                    ( Diagnostic.OK, "org.eclipse.scada.configuration.world.editor", //$NON-NLS-1$
-                            0,
-                            null,
-                            new Object[] { editingDomain.getResourceSet () } );
+            BasicDiagnostic diagnostic = new BasicDiagnostic ( Diagnostic.OK, "org.eclipse.scada.configuration.world.editor", //$NON-NLS-1$
+            0, null, new Object[] { editingDomain.getResourceSet () } );
             for ( Diagnostic childDiagnostic : resourceToDiagnosticMap.values () )
             {
                 if ( childDiagnostic.getSeverity () != Diagnostic.OK )
@@ -738,10 +721,8 @@ public class WorldEditor extends MultiPageEditorPart implements
      */
     protected boolean handleDirtyConflict ()
     {
-        return MessageDialog.openQuestion
-                ( getSite ().getShell (),
-                        getString ( "_UI_FileConflict_label" ), //$NON-NLS-1$
-                        getString ( "_WARN_FileConflict" ) ); //$NON-NLS-1$
+        return MessageDialog.openQuestion ( getSite ().getShell (), getString ( "_UI_FileConflict_label" ), //$NON-NLS-1$
+                getString ( "_WARN_FileConflict" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -776,6 +757,7 @@ public class WorldEditor extends MultiPageEditorPart implements
         adapterFactory.addAdapterFactory ( new SetupItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new EcoreItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ConfigurationItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new ScriptItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new SecurityItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ReflectiveItemProviderAdapterFactory () );
 
@@ -785,41 +767,37 @@ public class WorldEditor extends MultiPageEditorPart implements
 
         // Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
         //
-        commandStack.addCommandStackListener
-                ( new CommandStackListener ()
-                {
-                    public void commandStackChanged ( final EventObject event )
+        commandStack.addCommandStackListener ( new CommandStackListener () {
+            public void commandStackChanged ( final EventObject event )
+            {
+                getContainer ().getDisplay ().asyncExec ( new Runnable () {
+                    public void run ()
                     {
-                        getContainer ().getDisplay ().asyncExec
-                                ( new Runnable ()
-                                {
-                                    public void run ()
-                                    {
-                                        firePropertyChange ( IEditorPart.PROP_DIRTY );
+                        firePropertyChange ( IEditorPart.PROP_DIRTY );
 
-                                        // Try to select the affected objects.
-                                        //
-                                        Command mostRecentCommand = ( (CommandStack)event.getSource () ).getMostRecentCommand ();
-                                        if ( mostRecentCommand != null )
-                                        {
-                                            setSelectionToViewer ( mostRecentCommand.getAffectedObjects () );
-                                        }
-                                        for ( Iterator<PropertySheetPage> i = propertySheetPages.iterator (); i.hasNext (); )
-                                        {
-                                            PropertySheetPage propertySheetPage = i.next ();
-                                            if ( propertySheetPage.getControl ().isDisposed () )
-                                            {
-                                                i.remove ();
-                                            }
-                                            else
-                                            {
-                                                propertySheetPage.refresh ();
-                                            }
-                                        }
-                                    }
-                                } );
+                        // Try to select the affected objects.
+                        //
+                        Command mostRecentCommand = ( (CommandStack)event.getSource () ).getMostRecentCommand ();
+                        if ( mostRecentCommand != null )
+                        {
+                            setSelectionToViewer ( mostRecentCommand.getAffectedObjects () );
+                        }
+                        for ( Iterator<PropertySheetPage> i = propertySheetPages.iterator (); i.hasNext (); )
+                        {
+                            PropertySheetPage propertySheetPage = i.next ();
+                            if ( propertySheetPage.getControl ().isDisposed () )
+                            {
+                                i.remove ();
+                            }
+                            else
+                            {
+                                propertySheetPage.refresh ();
+                            }
+                        }
                     }
                 } );
+            }
+        } );
 
         // Create the editing domain with a special command stack.
         //
@@ -851,19 +829,17 @@ public class WorldEditor extends MultiPageEditorPart implements
         //
         if ( theSelection != null && !theSelection.isEmpty () )
         {
-            Runnable runnable =
-                    new Runnable ()
+            Runnable runnable = new Runnable () {
+                public void run ()
+                {
+                    // Try to select the items in the current content viewer of the editor.
+                    //
+                    if ( currentViewer != null )
                     {
-                        public void run ()
-                        {
-                            // Try to select the items in the current content viewer of the editor.
-                            //
-                            if ( currentViewer != null )
-                            {
-                                currentViewer.setSelection ( new StructuredSelection ( theSelection.toArray () ), true );
-                            }
-                        }
-                    };
+                        currentViewer.setSelection ( new StructuredSelection ( theSelection.toArray () ), true );
+                    }
+                }
+            };
             getSite ().getShell ().getDisplay ().asyncExec ( runnable );
         }
     }
@@ -887,16 +863,14 @@ public class WorldEditor extends MultiPageEditorPart implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public class ReverseAdapterFactoryContentProvider extends
-            AdapterFactoryContentProvider
+    public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider
     {
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        public ReverseAdapterFactoryContentProvider (
-                AdapterFactory adapterFactory )
+        public ReverseAdapterFactoryContentProvider ( AdapterFactory adapterFactory )
         {
             super ( adapterFactory );
         }
@@ -984,16 +958,14 @@ public class WorldEditor extends MultiPageEditorPart implements
             {
                 // Create the listener on demand.
                 //
-                selectionChangedListener =
-                        new ISelectionChangedListener ()
-                        {
-                            // This just notifies those things that are affected by the section.
-                            //
-                            public void selectionChanged ( SelectionChangedEvent selectionChangedEvent )
-                            {
-                                setSelection ( selectionChangedEvent.getSelection () );
-                            }
-                        };
+                selectionChangedListener = new ISelectionChangedListener () {
+                    // This just notifies those things that are affected by the section.
+                    //
+                    public void selectionChanged ( SelectionChangedEvent selectionChangedEvent )
+                    {
+                        setSelection ( selectionChangedEvent.getSelection () );
+                    }
+                };
             }
 
             // Stop listening to the old one.
@@ -1092,26 +1064,21 @@ public class WorldEditor extends MultiPageEditorPart implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public Diagnostic analyzeResourceProblems ( Resource resource,
-            Exception exception )
+    public Diagnostic analyzeResourceProblems ( Resource resource, Exception exception )
     {
         if ( !resource.getErrors ().isEmpty () || !resource.getWarnings ().isEmpty () )
         {
-            BasicDiagnostic basicDiagnostic =
-                    new BasicDiagnostic
-                    ( Diagnostic.ERROR, "org.eclipse.scada.configuration.world.editor", //$NON-NLS-1$
-                            0,
-                            getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
-                            new Object[] { exception == null ? (Object)resource : exception } );
+            BasicDiagnostic basicDiagnostic = new BasicDiagnostic ( Diagnostic.ERROR, "org.eclipse.scada.configuration.world.editor", //$NON-NLS-1$
+            0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
+            new Object[] { exception == null ? (Object)resource : exception } );
             basicDiagnostic.merge ( EcoreUtil.computeDiagnostic ( resource, true ) );
             return basicDiagnostic;
         }
         else if ( exception != null )
         {
             return new BasicDiagnostic ( Diagnostic.ERROR, "org.eclipse.scada.configuration.world.editor", //$NON-NLS-1$
-                    0,
-                    getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
-                    new Object[] { exception } );
+            0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
+            new Object[] { exception } );
         }
         else
         {
@@ -1139,24 +1106,22 @@ public class WorldEditor extends MultiPageEditorPart implements
             // Create a page for the selection tree view.
             //
             {
-                ViewerPane viewerPane =
-                        new ViewerPane ( getSite ().getPage (), WorldEditor.this )
-                        {
-                            @Override
-                            public Viewer createViewer ( Composite composite )
-                            {
-                                Tree tree = new Tree ( composite, SWT.MULTI );
-                                TreeViewer newTreeViewer = new TreeViewer ( tree );
-                                return newTreeViewer;
-                            }
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
+                    {
+                        Tree tree = new Tree ( composite, SWT.MULTI );
+                        TreeViewer newTreeViewer = new TreeViewer ( tree );
+                        return newTreeViewer;
+                    }
 
-                            @Override
-                            public void requestActivation ()
-                            {
-                                super.requestActivation ();
-                                setCurrentViewerPane ( this );
-                            }
-                        };
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
                 viewerPane.createControl ( getContainer () );
 
                 selectionViewer = (TreeViewer)viewerPane.getViewer ();
@@ -1178,24 +1143,22 @@ public class WorldEditor extends MultiPageEditorPart implements
             // Create a page for the parent tree view.
             //
             {
-                ViewerPane viewerPane =
-                        new ViewerPane ( getSite ().getPage (), WorldEditor.this )
-                        {
-                            @Override
-                            public Viewer createViewer ( Composite composite )
-                            {
-                                Tree tree = new Tree ( composite, SWT.MULTI );
-                                TreeViewer newTreeViewer = new TreeViewer ( tree );
-                                return newTreeViewer;
-                            }
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
+                    {
+                        Tree tree = new Tree ( composite, SWT.MULTI );
+                        TreeViewer newTreeViewer = new TreeViewer ( tree );
+                        return newTreeViewer;
+                    }
 
-                            @Override
-                            public void requestActivation ()
-                            {
-                                super.requestActivation ();
-                                setCurrentViewerPane ( this );
-                            }
-                        };
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
                 viewerPane.createControl ( getContainer () );
 
                 parentViewer = (TreeViewer)viewerPane.getViewer ();
@@ -1211,22 +1174,20 @@ public class WorldEditor extends MultiPageEditorPart implements
             // This is the page for the list viewer
             //
             {
-                ViewerPane viewerPane =
-                        new ViewerPane ( getSite ().getPage (), WorldEditor.this )
-                        {
-                            @Override
-                            public Viewer createViewer ( Composite composite )
-                            {
-                                return new ListViewer ( composite );
-                            }
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
+                    {
+                        return new ListViewer ( composite );
+                    }
 
-                            @Override
-                            public void requestActivation ()
-                            {
-                                super.requestActivation ();
-                                setCurrentViewerPane ( this );
-                            }
-                        };
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
                 viewerPane.createControl ( getContainer () );
                 listViewer = (ListViewer)viewerPane.getViewer ();
                 listViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
@@ -1240,22 +1201,20 @@ public class WorldEditor extends MultiPageEditorPart implements
             // This is the page for the tree viewer
             //
             {
-                ViewerPane viewerPane =
-                        new ViewerPane ( getSite ().getPage (), WorldEditor.this )
-                        {
-                            @Override
-                            public Viewer createViewer ( Composite composite )
-                            {
-                                return new TreeViewer ( composite );
-                            }
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
+                    {
+                        return new TreeViewer ( composite );
+                    }
 
-                            @Override
-                            public void requestActivation ()
-                            {
-                                super.requestActivation ();
-                                setCurrentViewerPane ( this );
-                            }
-                        };
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
                 viewerPane.createControl ( getContainer () );
                 treeViewer = (TreeViewer)viewerPane.getViewer ();
                 treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
@@ -1272,22 +1231,20 @@ public class WorldEditor extends MultiPageEditorPart implements
             // This is the page for the table viewer.
             //
             {
-                ViewerPane viewerPane =
-                        new ViewerPane ( getSite ().getPage (), WorldEditor.this )
-                        {
-                            @Override
-                            public Viewer createViewer ( Composite composite )
-                            {
-                                return new TableViewer ( composite );
-                            }
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
+                    {
+                        return new TableViewer ( composite );
+                    }
 
-                            @Override
-                            public void requestActivation ()
-                            {
-                                super.requestActivation ();
-                                setCurrentViewerPane ( this );
-                            }
-                        };
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
                 viewerPane.createControl ( getContainer () );
                 tableViewer = (TableViewer)viewerPane.getViewer ();
 
@@ -1321,22 +1278,20 @@ public class WorldEditor extends MultiPageEditorPart implements
             // This is the page for the table tree viewer.
             //
             {
-                ViewerPane viewerPane =
-                        new ViewerPane ( getSite ().getPage (), WorldEditor.this )
-                        {
-                            @Override
-                            public Viewer createViewer ( Composite composite )
-                            {
-                                return new TreeViewer ( composite );
-                            }
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                    @Override
+                    public Viewer createViewer ( Composite composite )
+                    {
+                        return new TreeViewer ( composite );
+                    }
 
-                            @Override
-                            public void requestActivation ()
-                            {
-                                super.requestActivation ();
-                                setCurrentViewerPane ( this );
-                            }
-                        };
+                    @Override
+                    public void requestActivation ()
+                    {
+                        super.requestActivation ();
+                        setCurrentViewerPane ( this );
+                    }
+                };
                 viewerPane.createControl ( getContainer () );
 
                 treeViewerWithColumns = (TreeViewer)viewerPane.getViewer ();
@@ -1367,44 +1322,38 @@ public class WorldEditor extends MultiPageEditorPart implements
                 setPageText ( pageIndex, getString ( "_UI_TreeWithColumnsPage_label" ) ); //$NON-NLS-1$
             }
 
-            getSite ().getShell ().getDisplay ().asyncExec
-                    ( new Runnable ()
-                    {
-                        public void run ()
-                        {
-                            setActivePage ( 0 );
-                        }
-                    } );
+            getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                public void run ()
+                {
+                    setActivePage ( 0 );
+                }
+            } );
         }
 
         // Ensures that this editor will only display the page's tab
         // area if there are more than one page
         //
-        getContainer ().addControlListener
-                ( new ControlAdapter ()
-                {
-                    boolean guard = false;
+        getContainer ().addControlListener ( new ControlAdapter () {
+            boolean guard = false;
 
-                    @Override
-                    public void controlResized ( ControlEvent event )
-                    {
-                        if ( !guard )
-                        {
-                            guard = true;
-                            hideTabs ();
-                            guard = false;
-                        }
-                    }
-                } );
-
-        getSite ().getShell ().getDisplay ().asyncExec
-                ( new Runnable ()
+            @Override
+            public void controlResized ( ControlEvent event )
+            {
+                if ( !guard )
                 {
-                    public void run ()
-                    {
-                        updateProblemIndication ();
-                    }
-                } );
+                    guard = true;
+                    hideTabs ();
+                    guard = false;
+                }
+            }
+        } );
+
+        getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+            public void run ()
+            {
+                updateProblemIndication ();
+            }
+        } );
     }
 
     /**
@@ -1554,16 +1503,14 @@ public class WorldEditor extends MultiPageEditorPart implements
 
             // Listen to selection so that we can handle it is a special way.
             //
-            contentOutlinePage.addSelectionChangedListener
-                    ( new ISelectionChangedListener ()
-                    {
-                        // This ensures that we handle selections correctly.
-                        //
-                        public void selectionChanged ( SelectionChangedEvent event )
-                        {
-                            handleContentOutlineSelection ( event.getSelection () );
-                        }
-                    } );
+            contentOutlinePage.addSelectionChangedListener ( new ISelectionChangedListener () {
+                // This ensures that we handle selections correctly.
+                //
+                public void selectionChanged ( SelectionChangedEvent event )
+                {
+                    handleContentOutlineSelection ( event.getSelection () );
+                }
+            } );
         }
 
         return contentOutlinePage;
@@ -1577,23 +1524,21 @@ public class WorldEditor extends MultiPageEditorPart implements
      */
     public IPropertySheetPage getPropertySheetPage ()
     {
-        PropertySheetPage propertySheetPage =
-                new ExtendedPropertySheetPage ( editingDomain, ExtendedPropertySheetPage.Decoration.MANUAL )
-                {
-                    @Override
-                    public void setSelectionToViewer ( List<?> selection )
-                    {
-                        WorldEditor.this.setSelectionToViewer ( selection );
-                        WorldEditor.this.setFocus ();
-                    }
+        PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage ( editingDomain, ExtendedPropertySheetPage.Decoration.MANUAL ) {
+            @Override
+            public void setSelectionToViewer ( List<?> selection )
+            {
+                WorldEditor.this.setSelectionToViewer ( selection );
+                WorldEditor.this.setFocus ();
+            }
 
-                    @Override
-                    public void setActionBars ( IActionBars actionBars )
-                    {
-                        super.setActionBars ( actionBars );
-                        getActionBarContributor ().shareGlobalActions ( this, actionBars );
-                    }
-                };
+            @Override
+            public void setActionBars ( IActionBars actionBars )
+            {
+                super.setActionBars ( actionBars );
+                getActionBarContributor ().shareGlobalActions ( this, actionBars );
+            }
+        };
         propertySheetPage.setPropertySourceProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
         propertySheetPages.add ( propertySheetPage );
 
@@ -1675,39 +1620,37 @@ public class WorldEditor extends MultiPageEditorPart implements
 
         // Do the work within an operation because this is a long running activity that modifies the workbench.
         //
-        WorkspaceModifyOperation operation =
-                new WorkspaceModifyOperation ()
+        WorkspaceModifyOperation operation = new WorkspaceModifyOperation () {
+            // This is the method that gets invoked when the operation runs.
+            //
+            @Override
+            public void execute ( IProgressMonitor monitor )
+            {
+                // Save the resources to the file system.
+                //
+                boolean first = true;
+                for ( Resource resource : editingDomain.getResourceSet ().getResources () )
                 {
-                    // This is the method that gets invoked when the operation runs.
-                    //
-                    @Override
-                    public void execute ( IProgressMonitor monitor )
+                    if ( ( first || !resource.getContents ().isEmpty () || isPersisted ( resource ) ) && !editingDomain.isReadOnly ( resource ) )
                     {
-                        // Save the resources to the file system.
-                        //
-                        boolean first = true;
-                        for ( Resource resource : editingDomain.getResourceSet ().getResources () )
+                        try
                         {
-                            if ( ( first || !resource.getContents ().isEmpty () || isPersisted ( resource ) ) && !editingDomain.isReadOnly ( resource ) )
+                            long timeStamp = resource.getTimeStamp ();
+                            resource.save ( saveOptions );
+                            if ( resource.getTimeStamp () != timeStamp )
                             {
-                                try
-                                {
-                                    long timeStamp = resource.getTimeStamp ();
-                                    resource.save ( saveOptions );
-                                    if ( resource.getTimeStamp () != timeStamp )
-                                    {
-                                        savedResources.add ( resource );
-                                    }
-                                }
-                                catch ( Exception exception )
-                                {
-                                    resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
-                                }
-                                first = false;
+                                savedResources.add ( resource );
                             }
                         }
+                        catch ( Exception exception )
+                        {
+                            resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
+                        }
+                        first = false;
                     }
-                };
+                }
+            }
+        };
 
         updateProblemIndication = false;
         try
@@ -1801,10 +1744,7 @@ public class WorldEditor extends MultiPageEditorPart implements
         ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ).setURI ( uri );
         setInputWithNotify ( editorInput );
         setPartName ( editorInput.getName () );
-        IProgressMonitor progressMonitor =
-                getActionBars ().getStatusLineManager () != null ?
-                        getActionBars ().getStatusLineManager ().getProgressMonitor () :
-                        new NullProgressMonitor ();
+        IProgressMonitor progressMonitor = getActionBars ().getStatusLineManager () != null ? getActionBars ().getStatusLineManager ().getProgressMonitor () : new NullProgressMonitor ();
         doSave ( progressMonitor );
     }
 
@@ -1877,8 +1817,7 @@ public class WorldEditor extends MultiPageEditorPart implements
      * @generated
      */
     @Override
-    public void removeSelectionChangedListener (
-            ISelectionChangedListener listener )
+    public void removeSelectionChangedListener ( ISelectionChangedListener listener )
     {
         selectionChangedListeners.remove ( listener );
     }
@@ -1921,8 +1860,7 @@ public class WorldEditor extends MultiPageEditorPart implements
      */
     public void setStatusLineManager ( ISelection selection )
     {
-        IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
-                contentOutlineStatusLineManager : getActionBars ().getStatusLineManager ();
+        IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ? contentOutlineStatusLineManager : getActionBars ().getStatusLineManager ();
 
         if ( statusLineManager != null )
         {
