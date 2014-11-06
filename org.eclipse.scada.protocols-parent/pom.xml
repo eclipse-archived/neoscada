@@ -79,19 +79,5 @@
 		<module>../org.eclipse.scada.protocol.relp</module>
 		<module>../org.eclipse.scada.protocol.relp.service</module>
 		<module>../org.eclipse.scada.protocol.relp.service.main</module>
-
-		<!-- IEC 60870 -->
-
-		<module>../org.eclipse.scada.protocol.iec60870.feature</module>
-
-		<module>../org.eclipse.scada.protocol.iec60870</module>
-		<module>../org.eclipse.scada.protocol.iec60870.server</module>
-		<module>../org.eclipse.scada.protocol.iec60870.server.data</module>
-
-		<module>../org.eclipse.scada.protocol.iec60870.tests</module>
-		<module>../org.eclipse.scada.protocol.iec60870.server.data.tests</module>
-
-		<module>../org.eclipse.scada.protocol.iec60870.client</module>
-		<module>../org.eclipse.scada.protocol.iec60870.client.data</module>
 	</modules>
 </project>

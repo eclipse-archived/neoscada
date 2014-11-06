@@ -19,10 +19,6 @@
       %license
    </license>
 
-   <includes
-         id="org.eclipse.scada.protocol.iec60870"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.apache.mina.core"/>
       <import plugin="org.eclipse.scada.utils"/>
