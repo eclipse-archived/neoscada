@@ -39,14 +39,7 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.Parser
  *
  * @generated
  */
-public class ParserComponentHostItemProvider
-extends AbstractEquinoxDriverItemProvider
-implements
-IEditingDomainItemProvider,
-IStructuredItemContentProvider,
-ITreeItemContentProvider,
-IItemLabelProvider,
-IItemPropertySource
+public class ParserComponentHostItemProvider extends AbstractEquinoxDriverItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -121,12 +114,12 @@ IItemPropertySource
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public Object getImage ( final Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ParserComponentHost" ) ); //$NON-NLS-1$
+        return super.getImage ( object );
     }
 
     /**
@@ -180,10 +173,7 @@ IItemPropertySource
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-        ( createChildParameter
-                ( ParserPackage.Literals.PARSER_COMPONENT_HOST__COMPONENTS,
-                        ParserFactory.eINSTANCE.createComponent () ) );
+        newChildDescriptors.add ( createChildParameter ( ParserPackage.Literals.PARSER_COMPONENT_HOST__COMPONENTS, ParserFactory.eINSTANCE.createComponent () ) );
     }
 
 }

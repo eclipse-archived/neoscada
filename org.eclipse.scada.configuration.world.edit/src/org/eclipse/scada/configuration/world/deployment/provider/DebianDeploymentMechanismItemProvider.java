@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.world.deployment.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -19,9 +20,12 @@ import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanis
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism}
+ * object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class DebianDeploymentMechanismItemProvider extends CommonDeploymentMechanismItemProvider
@@ -30,9 +34,10 @@ public class DebianDeploymentMechanismItemProvider extends CommonDeploymentMecha
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public DebianDeploymentMechanismItemProvider ( AdapterFactory adapterFactory )
+    public DebianDeploymentMechanismItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -41,34 +46,37 @@ public class DebianDeploymentMechanismItemProvider extends CommonDeploymentMecha
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This returns DebianDeploymentMechanism.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/DebianDeploymentMechanism" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/DebianDeploymentMechanism.png" ) ); //$NON-NLS-1$
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -81,40 +89,46 @@ public class DebianDeploymentMechanismItemProvider extends CommonDeploymentMecha
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        StartupMechanism labelValue = ( (DebianDeploymentMechanism)object ).getStartupMechanism ();
-        String label = labelValue == null ? null : labelValue.toString ();
+        final StartupMechanism labelValue = ( (DebianDeploymentMechanism)object ).getStartupMechanism ();
+        final String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ? getString ( "_UI_DebianDeploymentMechanism_type" ) : //$NON-NLS-1$
-        getString ( "_UI_DebianDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+            getString ( "_UI_DebianDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
         super.notifyChanged ( notification );
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
