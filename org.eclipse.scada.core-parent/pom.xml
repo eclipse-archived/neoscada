@@ -260,12 +260,6 @@
 		<module>../org.eclipse.scada.core.common.feature</module>
 		<module>../org.eclipse.scada.core.server.feature</module>
 		
-		<!-- iec 60870 -->
-		
-		<module>../org.eclipse.scada.da.server.iec60870</module>
-		<module>../org.eclipse.scada.da.server.exporter.iec60870</module>
-		<module>../org.eclipse.scada.core.common.iec60870</module>
-		
 		<!-- testing -->
 		
 		<module>../org.eclipse.scada.ae.tests</module>

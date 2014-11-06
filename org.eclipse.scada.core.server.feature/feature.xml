@@ -823,26 +823,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.da.server.exporter.iec60870"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-
-   <plugin
-         id="org.eclipse.scada.core.common.iec60870"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.da.server.iec60870"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.ae.server.injector"
          download-size="0"
          install-size="0"

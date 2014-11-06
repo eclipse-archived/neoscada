@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" deactivate="dispose" immediate="false" name="org.eclipse.scada.da.server.exporter.iec60870">
-   <implementation class="org.eclipse.scada.da.server.exporter.iec60870.ExporterFactoryImpl"/>
-   <property name="factoryId" type="String" value="org.eclipse.scada.da.server.exporter.iec60870.device"/>
-   <service>
-      <provide interface="org.eclipse.scada.ca.ConfigurationFactory"/>
-   </service>
-   <property name="service.description" type="String" value="An IEC 60870-5-104 connection endpoint as controlled station."/>
-</scr:component>

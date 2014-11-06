@@ -1,7 +1,0 @@
-ca:create org.eclipse.scada.da.server.iec60870.connection device1 host=demo.openscada.org port=2404
-
-ca:create org.eclipse.scada.da.server.iec60870.connection device1 host=localhost port=2404 
-
-ca:update org.eclipse.scada.da.server.iec60870.connection device1 host=demo.openscada.org port=2404
-
-ca:update org.eclipse.scada.da.server.iec60870.connection device1 host=localhost port=2404
