@@ -180,10 +180,6 @@
 		
 		<module>../org.eclipse.scada.configuration.ecore.ui</module>
 		
-		<module>../org.eclipse.scada.configuration.iec60870</module>
-		<module>../org.eclipse.scada.configuration.iec60870.edit</module>
-		<module>../org.eclipse.scada.configuration.iec60870.lib</module>
-		
 		<module>../org.eclipse.scada.configuration.setup.common</module>
 		<module>../org.eclipse.scada.configuration.setup.common.edit</module>
 		<module>../org.eclipse.scada.configuration.setup.common.lib</module>
