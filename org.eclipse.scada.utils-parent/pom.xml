@@ -61,6 +61,7 @@
 		<module>../org.eclipse.scada.utils</module>
 		
 		<module>../org.eclipse.scada.utils.core.runtime</module>
+		<module>../org.eclipse.scada.utils.ecore.validation</module>
 
 		<module>../org.eclipse.scada.utils.filter</module>
 		<module>../org.eclipse.scada.utils.osgi</module>
