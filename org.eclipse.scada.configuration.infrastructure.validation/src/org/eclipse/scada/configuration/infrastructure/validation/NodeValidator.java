@@ -15,8 +15,8 @@ import java.util.regex.Pattern;
 
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.Node;
-import org.eclipse.scada.ide.validation.TypedValidator;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.TypedValidator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public class NodeValidator extends TypedValidator<Node>
 {

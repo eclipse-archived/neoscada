@@ -12,9 +12,9 @@ package org.eclipse.scada.configuration.component.validation;
 
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.MovingAverageModule;
-import org.eclipse.scada.ide.validation.TypedValidator;
-import org.eclipse.scada.ide.validation.ValidationContext;
-import org.eclipse.scada.ide.validation.Validations;
+import org.eclipse.scada.utils.ecore.validation.TypedValidator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Validations;
 
 public class MovingAverageValidator extends TypedValidator<MovingAverageModule>
 {

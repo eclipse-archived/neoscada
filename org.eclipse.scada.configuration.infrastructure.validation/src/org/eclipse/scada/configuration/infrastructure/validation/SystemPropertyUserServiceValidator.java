@@ -11,9 +11,9 @@
 package org.eclipse.scada.configuration.infrastructure.validation;
 
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
-import org.eclipse.scada.ide.validation.Severity;
-import org.eclipse.scada.ide.validation.TypedValidator;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Severity;
+import org.eclipse.scada.utils.ecore.validation.TypedValidator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public class SystemPropertyUserServiceValidator extends TypedValidator<SystemPropertyUserService>
 {

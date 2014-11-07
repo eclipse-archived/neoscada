@@ -12,8 +12,8 @@ package org.eclipse.scada.configuration.infrastructure.validation;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
-import org.eclipse.scada.ide.validation.AbstractTargetValidator;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.AbstractTargetValidator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public class DriverValidation extends AbstractTargetValidator<AbstractFactoryDriver>
 {

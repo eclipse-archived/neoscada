@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
+import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
@@ -55,13 +56,7 @@ public final class CommonEditPlugin extends EMFPlugin
      */
     public CommonEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                EcoreEditPlugin.INSTANCE,
-                ExecEditPlugin.INSTANCE,
-                SecurityEditPlugin.INSTANCE,
-                WorldEditPlugin.INSTANCE,
-        } );
+        super ( new ResourceLocator[] { EcoreEditPlugin.INSTANCE, ExecEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, } );
     }
 
     /**

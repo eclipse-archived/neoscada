@@ -12,7 +12,7 @@ package org.eclipse.scada.configuration.infrastructure.lib;
 
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Device;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 /**
  * A validator for a specific device type

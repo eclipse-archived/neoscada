@@ -23,8 +23,8 @@ import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.world.CommonDriver;
 import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.Endpoint;
-import org.eclipse.scada.ide.validation.Severity;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Severity;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public abstract class AbstractCommonDriverFactory<T extends CommonDriver> implements DriverFactory
 {

@@ -32,7 +32,7 @@ import org.eclipse.scada.configuration.component.common.ScaledValue;
 import org.eclipse.scada.configuration.component.common.TimerAction;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
-import org.eclipse.scada.ide.validation.ExtensibleValidationDescriptor;
+import org.eclipse.scada.utils.ecore.validation.ExtensibleValidationDescriptor;
 
 /**
  * <!-- begin-user-doc -->

@@ -23,8 +23,8 @@ import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter;
 import org.eclipse.scada.configuration.world.osgi.DataAccessExporter;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
-import org.eclipse.scada.ide.validation.Severity;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Severity;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclipse.scada.configuration.world.osgi.EquinoxApplication> implements DriverFactory
 {

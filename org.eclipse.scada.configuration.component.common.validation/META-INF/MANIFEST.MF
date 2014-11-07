@@ -6,7 +6,7 @@ Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.component.common.validation.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.scada.ide.validation,
+ org.eclipse.scada.utils.ecore.validation,
  org.eclipse.scada.configuration.component.common
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

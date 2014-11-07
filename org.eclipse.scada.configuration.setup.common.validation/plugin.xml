@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.utils.ecore.validation.handler">
+      <validationContext
+            contextId="org.eclipse.scada.configuration.infrastructure"
+            packageUri="http://eclipse.org/SCADA/Configuration/Setup/Common">
+         <validator
+               class="org.eclipse.scada.configuration.setup.common.validation.SerialMappingValidator"
+               filterClass="org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.setup.common.validation.PostgresSetupModuleValidator"
+               filterClass="org.eclipse.scada.configuration.setup.common.PostgresSetupModule">
+         </validator>
+      </validationContext>
+   </extension>
+
+</plugin>

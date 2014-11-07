@@ -61,7 +61,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
-import org.eclipse.scada.ide.validation.ExtensibleValidationDescriptor;
+import org.eclipse.scada.utils.ecore.validation.ExtensibleValidationDescriptor;
 
 /**
  * <!-- begin-user-doc -->

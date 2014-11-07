@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.scada.ide.validation.handler">
+         point="org.eclipse.scada.utils.ecore.validation.handler">
       <validationContext
             contextId="org.eclipse.scada.configuration.infrastructure"
             packageUri="http://eclipse.org/SCADA/Configuration/Infrastructure">

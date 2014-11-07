@@ -11,8 +11,8 @@
 package org.eclipse.scada.configuration.infrastructure.validation;
 
 import org.eclipse.scada.configuration.infrastructure.Options;
-import org.eclipse.scada.ide.validation.TypedValidator;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.TypedValidator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public class OptionsValidator extends TypedValidator<Options>
 {

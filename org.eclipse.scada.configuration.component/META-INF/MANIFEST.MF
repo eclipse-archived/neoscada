@@ -19,7 +19,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.world;visibility:=reexport,
  org.eclipse.scada.configuration.globalization;visibility:=reexport,
  org.eclipse.scada.configuration.script;visibility:=reexport,
- org.eclipse.scada.ide.validation
+ org.eclipse.scada.utils.ecore.validation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.scada.configuration.lib;version="0.2.0",

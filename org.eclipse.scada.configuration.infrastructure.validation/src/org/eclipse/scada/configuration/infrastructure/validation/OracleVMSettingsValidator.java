@@ -16,8 +16,8 @@ import java.util.regex.Pattern;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.OracleVMSettings;
-import org.eclipse.scada.ide.validation.TypedValidator;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.TypedValidator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public class OracleVMSettingsValidator extends TypedValidator<OracleVMSettings>
 {

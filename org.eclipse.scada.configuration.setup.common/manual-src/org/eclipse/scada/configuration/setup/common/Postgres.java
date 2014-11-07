@@ -17,6 +17,7 @@ import java.net.URL;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.utils.str.ExtendedPropertiesReplacer;
 import org.eclipse.scada.utils.str.StringReplacer;
 

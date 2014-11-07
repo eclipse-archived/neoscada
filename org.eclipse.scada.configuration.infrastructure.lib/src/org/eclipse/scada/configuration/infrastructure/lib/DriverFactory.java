@@ -16,7 +16,7 @@ import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.world.Driver;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public interface DriverFactory
 {

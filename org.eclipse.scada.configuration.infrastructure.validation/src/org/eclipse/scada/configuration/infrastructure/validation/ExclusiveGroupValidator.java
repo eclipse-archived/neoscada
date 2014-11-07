@@ -20,9 +20,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.scada.configuration.lib.ExclusiveGroups;
-import org.eclipse.scada.ide.validation.Severity;
-import org.eclipse.scada.ide.validation.ValidationContext;
-import org.eclipse.scada.ide.validation.Validator;
+import org.eclipse.scada.utils.ecore.validation.Severity;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Validator;
 
 public class ExclusiveGroupValidator implements Validator, IExecutableExtension
 {

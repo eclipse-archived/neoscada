@@ -30,7 +30,7 @@ import org.eclipse.scada.configuration.world.setup.SetupModule;
  * </p>
  *
  * @see org.eclipse.scada.configuration.setup.common.CommonPackage#getPostgresSetupModule()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='resources'"
+ * @model
  * @generated
  */
 public interface PostgresSetupModule extends SetupModule

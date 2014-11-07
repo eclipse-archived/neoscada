@@ -737,14 +737,17 @@
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/changes"/>
         <genFeatures notify="false" createChild="false" propertyCategory="legal" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/maintainer"/>
-        <genFeatures createChild="false" propertyCategory="information" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/additionalDependencies"/>
+        <genFeatures createChild="false" propertyCategory="information" propertyDescription="Additional depenencies of the created installation package."
+            ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/additionalDependencies"/>
         <genFeatures createChild="false" propertyCategory="information" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/startupMechanism"/>
         <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/multiUserScreen"/>
         <genFeatures notify="false" createChild="false" propertyCategory="setup" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/operatingSystem"/>
-        <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/automaticCreate"/>
-        <genFeatures createChild="false" propertyCategory="setup" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/recreateBackups"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+        <genFeatures createChild="false" propertyCategory="setup" propertyDescription="Wether to automatically provision OSGi based applications during installation"
+            ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/automaticCreate"/>
+        <genFeatures createChild="false" propertyCategory="setup" propertyDescription="The number of backups to keep when provisioning OSGi based applications."
+            ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/recreateBackups"/>
+        <genFeatures notify="false" createChild="false" propertyCategory="setup" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/setup"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/ChangeEntry">

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.lib.Properties;
+import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 
 public class PostgresValidator extends Postgres

@@ -35,8 +35,8 @@ import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
 import org.eclipse.scada.configuration.modbus.ProtocolType;
 import org.eclipse.scada.configuration.world.Endpoint;
-import org.eclipse.scada.ide.validation.Severity;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Severity;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver>
 {

@@ -12,9 +12,9 @@ package org.eclipse.scada.configuration.component.common.validation;
 
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.ScaledValue;
-import org.eclipse.scada.ide.validation.Severity;
-import org.eclipse.scada.ide.validation.TypedValidator;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Severity;
+import org.eclipse.scada.utils.ecore.validation.TypedValidator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public class ScaledValueValidator extends TypedValidator<ScaledValue>
 {

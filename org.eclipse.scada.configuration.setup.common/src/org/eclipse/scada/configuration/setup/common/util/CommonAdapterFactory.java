@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.setup.common.*;
 import org.eclipse.scada.configuration.setup.common.CommonPackage;
 import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.configuration.world.setup.SetupModule;
@@ -81,27 +82,37 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected CommonSwitch<Adapter> modelSwitch =
-            new CommonSwitch<Adapter> ()
-            {
-                @Override
-                public Adapter casePostgresSetupModule ( PostgresSetupModule object )
-                {
-                    return createPostgresSetupModuleAdapter ();
-                }
+    protected CommonSwitch<Adapter> modelSwitch = new CommonSwitch<Adapter> () {
+        @Override
+        public Adapter casePostgresSetupModule ( PostgresSetupModule object )
+        {
+            return createPostgresSetupModuleAdapter ();
+        }
 
-                @Override
-                public Adapter caseSetupModule ( SetupModule object )
-                {
-                    return createSetupModuleAdapter ();
-                }
+        @Override
+        public Adapter caseSerialToNetworkSetupModule ( SerialToNetworkSetupModule object )
+        {
+            return createSerialToNetworkSetupModuleAdapter ();
+        }
 
-                @Override
-                public Adapter defaultCase ( EObject object )
-                {
-                    return createEObjectAdapter ();
-                }
-            };
+        @Override
+        public Adapter caseSerialToNetworkMapping ( SerialToNetworkMapping object )
+        {
+            return createSerialToNetworkMappingAdapter ();
+        }
+
+        @Override
+        public Adapter caseSetupModule ( SetupModule object )
+        {
+            return createSetupModuleAdapter ();
+        }
+
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.
@@ -130,6 +141,36 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createPostgresSetupModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule <em>Serial To Network Setup Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule
+     * @generated
+     */
+    public Adapter createSerialToNetworkSetupModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping <em>Serial To Network Mapping</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping
+     * @generated
+     */
+    public Adapter createSerialToNetworkMappingAdapter ()
     {
         return null;
     }

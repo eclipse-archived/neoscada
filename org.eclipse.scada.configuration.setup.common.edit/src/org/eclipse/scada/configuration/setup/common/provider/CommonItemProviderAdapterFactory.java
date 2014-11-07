@@ -135,6 +135,56 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SerialToNetworkSetupModuleItemProvider serialToNetworkSetupModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSerialToNetworkSetupModuleAdapter ()
+    {
+        if ( serialToNetworkSetupModuleItemProvider == null )
+        {
+            serialToNetworkSetupModuleItemProvider = new SerialToNetworkSetupModuleItemProvider ( this );
+        }
+
+        return serialToNetworkSetupModuleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SerialToNetworkMappingItemProvider serialToNetworkMappingItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSerialToNetworkMappingAdapter ()
+    {
+        if ( serialToNetworkMappingItemProvider == null )
+        {
+            serialToNetworkMappingItemProvider = new SerialToNetworkMappingItemProvider ( this );
+        }
+
+        return serialToNetworkMappingItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -285,6 +335,10 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
     {
         if ( postgresSetupModuleItemProvider != null )
             postgresSetupModuleItemProvider.dispose ();
+        if ( serialToNetworkSetupModuleItemProvider != null )
+            serialToNetworkSetupModuleItemProvider.dispose ();
+        if ( serialToNetworkMappingItemProvider != null )
+            serialToNetworkMappingItemProvider.dispose ();
     }
 
     /**
@@ -339,10 +393,9 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
             @Override
             public Object caseSetupModuleContainer ( SetupModuleContainer object )
             {
-                newChildDescriptors.add
-                        ( createChildParameter
-                        ( SetupPackage.Literals.SETUP_MODULE_CONTAINER__MODULES,
-                                CommonFactory.eINSTANCE.createPostgresSetupModule () ) );
+                newChildDescriptors.add ( createChildParameter ( SetupPackage.Literals.SETUP_MODULE_CONTAINER__MODULES, CommonFactory.eINSTANCE.createPostgresSetupModule () ) );
+
+                newChildDescriptors.add ( createChildParameter ( SetupPackage.Literals.SETUP_MODULE_CONTAINER__MODULES, CommonFactory.eINSTANCE.createSerialToNetworkSetupModule () ) );
 
                 return null;
             }

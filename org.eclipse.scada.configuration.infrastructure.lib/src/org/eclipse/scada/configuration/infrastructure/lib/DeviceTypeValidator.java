@@ -16,8 +16,8 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Device;
-import org.eclipse.scada.ide.validation.Severity;
-import org.eclipse.scada.ide.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Severity;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 public class DeviceTypeValidator<T extends AbstractFactoryDriver> implements DriverValidator<T>
 {

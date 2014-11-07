@@ -17,8 +17,8 @@ import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
 import org.eclipse.scada.configuration.infrastructure.HttpServices;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.WebAdminConsole;
-import org.eclipse.scada.ide.validation.ValidationContext;
-import org.eclipse.scada.ide.validation.Validator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
+import org.eclipse.scada.utils.ecore.validation.Validator;
 
 public class HttpServiceValidator implements Validator
 {

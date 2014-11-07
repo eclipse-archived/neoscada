@@ -14,6 +14,7 @@ package org.eclipse.scada.configuration.setup.common.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.scada.configuration.setup.common.*;
 import org.eclipse.scada.configuration.setup.common.CommonPackage;
 import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.configuration.world.setup.SetupModule;
@@ -91,6 +92,24 @@ public class CommonSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE:
+            {
+                SerialToNetworkSetupModule serialToNetworkSetupModule = (SerialToNetworkSetupModule)theEObject;
+                T result = caseSerialToNetworkSetupModule ( serialToNetworkSetupModule );
+                if ( result == null )
+                    result = caseSetupModule ( serialToNetworkSetupModule );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case CommonPackage.SERIAL_TO_NETWORK_MAPPING:
+            {
+                SerialToNetworkMapping serialToNetworkMapping = (SerialToNetworkMapping)theEObject;
+                T result = caseSerialToNetworkMapping ( serialToNetworkMapping );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -108,6 +127,38 @@ public class CommonSwitch<T> extends Switch<T>
      * @generated
      */
     public T casePostgresSetupModule ( PostgresSetupModule object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Serial To Network Setup Module</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Serial To Network Setup Module</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSerialToNetworkSetupModule ( SerialToNetworkSetupModule object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Serial To Network Mapping</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Serial To Network Mapping</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSerialToNetworkMapping ( SerialToNetworkMapping object )
     {
         return null;
     }

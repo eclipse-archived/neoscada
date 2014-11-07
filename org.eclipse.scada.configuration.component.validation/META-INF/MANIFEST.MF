@@ -5,6 +5,6 @@ Bundle-SymbolicName: org.eclipse.scada.configuration.component.validation;single
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.eclipse.scada.ide.validation,
+Require-Bundle: org.eclipse.scada.utils.ecore.validation,
  org.eclipse.scada.configuration.component;bundle-version="0.2.0"
 Bundle-ActivationPolicy: lazy

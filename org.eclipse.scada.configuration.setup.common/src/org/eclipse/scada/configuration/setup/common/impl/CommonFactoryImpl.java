@@ -12,6 +12,7 @@
 package org.eclipse.scada.configuration.setup.common.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -75,8 +76,46 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
         {
             case CommonPackage.POSTGRES_SETUP_MODULE:
                 return createPostgresSetupModule ();
+            case CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE:
+                return createSerialToNetworkSetupModule ();
+            case CommonPackage.SERIAL_TO_NETWORK_MAPPING:
+                return createSerialToNetworkMapping ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object createFromString ( EDataType eDataType, String initialValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            case CommonPackage.PARITY:
+                return createParityFromString ( eDataType, initialValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String convertToString ( EDataType eDataType, Object instanceValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            case CommonPackage.PARITY:
+                return convertParityToString ( eDataType, instanceValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -90,6 +129,51 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     {
         PostgresSetupModuleImpl postgresSetupModule = new PostgresSetupModuleImpl ();
         return postgresSetupModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SerialToNetworkSetupModule createSerialToNetworkSetupModule ()
+    {
+        SerialToNetworkSetupModuleImpl serialToNetworkSetupModule = new SerialToNetworkSetupModuleImpl ();
+        return serialToNetworkSetupModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SerialToNetworkMapping createSerialToNetworkMapping ()
+    {
+        SerialToNetworkMappingImpl serialToNetworkMapping = new SerialToNetworkMappingImpl ();
+        return serialToNetworkMapping;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Parity createParityFromString ( EDataType eDataType, String initialValue )
+    {
+        Parity result = Parity.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertParityToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**

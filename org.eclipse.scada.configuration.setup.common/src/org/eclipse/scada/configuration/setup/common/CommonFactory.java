@@ -41,6 +41,24 @@ public interface CommonFactory extends EFactory
     PostgresSetupModule createPostgresSetupModule ();
 
     /**
+     * Returns a new object of class '<em>Serial To Network Setup Module</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Serial To Network Setup Module</em>'.
+     * @generated
+     */
+    SerialToNetworkSetupModule createSerialToNetworkSetupModule ();
+
+    /**
+     * Returns a new object of class '<em>Serial To Network Mapping</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Serial To Network Mapping</em>'.
+     * @generated
+     */
+    SerialToNetworkMapping createSerialToNetworkMapping ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
