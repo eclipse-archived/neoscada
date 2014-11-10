@@ -42,9 +42,10 @@
 
 [template public generatePage(page : NewsFeedPage, base: String)]
 [header(page.site, page.name, null, base)/]
-[for (entry : NewsEntry | page.site.news)]
+[for ( entry: NewsEntry | page.site.news->subOrderedSet(1, 10.min(page.site.news->size())) ) ]
 [processNewsEntry(entry, base)/]
 [/for]
+For older posts, see <a href="[relative(base, 'news/index.html')/]">the archive</a>…
 [footer(page.site, base)/]
 [/template]
 

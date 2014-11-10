@@ -89,6 +89,7 @@ var track = function(url, category, action) {
 [for ( index : Integer | site.news->collect(e|e.date.getIndex())->asOrderedSet()->sortedBy(i|-i) ) ]
 		<li class="menuitem postitem"><a href="[relative(fileName,'news/' + archiveLink(index))/]">[index.makeArchiveLabel()/]</a></li>
 [/for]
+		<li><a href="[relative(fileName, 'news/index.html')/]">Full archive…</a></li>
 	</ul>
 
 </nav>

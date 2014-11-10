@@ -37,7 +37,4 @@
 </description>[/if]
 [/template]
 
-[template private descriptionContent(news : NewsEntry) post (encodeHtml())]
-[processContent(news.content->first(), '')/]
-[(' → <a href="' + news.absolutePermaLink() + '">Read full article</a>')/]
-[/template]
+

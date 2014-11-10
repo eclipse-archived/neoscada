@@ -14,6 +14,24 @@
 [/file]
 [/for]
 
+[file ('news/index.html', false, 'UTF-8')]
+[header(site,'News Archive', 'News Archive', 'news/index.html')/]
+
+<header>
+<h1>All news entries</h1>
+</header>
+
+<section>
+<dl class="news">
+[for (news : NewsEntry | site.news)]
+[renderEntry(news, 'news/index.html')/]
+[/for]
+</dl>
+</section>
+
+[footer(site, 'news/index.html')/]
+[/file]
+
 [for ( index : Integer | site.news->collect(e|e.date.getIndex())->asSet() ) ]
 [file ('news/' + archiveLink(index) +'/index.html', false, 'UTF-8')]
 [newsArchive (site, index, 'news/' + archiveLink(index) +'/index.html') /]
@@ -31,22 +49,27 @@
 <section>
 <dl class="news">
 [for (news : NewsEntry | site.news->select(e|e.date.getIndex()=index))]
+[renderEntry(news, fileName)/]
+[/for]
+</dl>
+</section>
+
+[footer(site, fileName)/]
+[/template]
+
+[template protected renderEntry(news : NewsEntry, fileName: String)]
 <dt>
 <a href="[relative(fileName,news.permaLink())/]">
 <span class="time">[news.printDate()/]</span> <span class="title">[news.title.encodeHtml()/]</span>
 </a>
 </dt>
 <dd>
+[processContent(news.content->first(), '')/]
 [news.description.encodeHtml()/]
 <div style="text-align:right;">
- → <a href="[relative(fileName,news.permaLink())/]">Continue reading</a>
+ → <a href="[relative(fileName,news.permaLink())/]">Full article</a>
 </div>
 </dd>
-[/for]
-</dl>
-
-</section>
-[footer(site, fileName)/]
 [/template]
 
 [template public generateEntry(site : Site, news : NewsEntry, fileName : String )]
@@ -70,3 +93,7 @@ by <a href="[relative(fileName,authorFile(author))/]" rel="author">[entry.author
 </article>
 [/template]
 
+[template public descriptionContent(news : NewsEntry) post (encodeHtml())]
+[processContent(news.content->first(), '')/]
+[(' → <a href="' + news.absolutePermaLink() + '">Read full article</a>')/]
+[/template]
