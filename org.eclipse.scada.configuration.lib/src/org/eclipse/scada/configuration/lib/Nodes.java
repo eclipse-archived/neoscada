@@ -11,10 +11,13 @@
 package org.eclipse.scada.configuration.lib;
 
 import org.eclipse.scada.configuration.world.Application;
+import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.Node;
 
 public final class Nodes
 {
+    private static final String LOCALHOST = System.getProperty ( "org.eclipse.scada.configuration.lib.localhost", "localhost" ); //$NON-NLS-1$ //$NON-NLS-2$
+
     private Nodes ()
     {
     }
@@ -47,6 +50,16 @@ public final class Nodes
         return isLocal ( node1, fromApp ( app ) );
     }
 
+    public static boolean isLocal ( final Node node1, final Endpoint ep )
+    {
+        return isLocal ( node1, ep.getNode () );
+    }
+
+    public static boolean isLocal ( final Application app1, final Endpoint ep )
+    {
+        return isLocal ( fromApp ( app1 ), ep.getNode () );
+    }
+
     public static boolean isLocal ( final Application app1, final Application app2 )
     {
         return isLocal ( fromApp ( app1 ), fromApp ( app2 ) );
@@ -57,7 +70,7 @@ public final class Nodes
      * <p>
      * This is the name or the hostname if a name is not set.
      * </p>
-     * 
+     *
      * @param node
      *            a node
      * @return the name of the node, or <code>null</code> if it could not be
@@ -72,6 +85,15 @@ public final class Nodes
         if ( node.getName () != null && !node.getName ().isEmpty () )
         {
             return node.getName ();
+        }
+        return node.getHostName ();
+    }
+
+    public static String makeHostname ( final Application app, final Node node )
+    {
+        if ( isLocal ( fromApp ( app ), node ) )
+        {
+            return LOCALHOST;
         }
         return node.getHostName ();
     }

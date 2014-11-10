@@ -17,6 +17,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.configuration.lib.Nodes;
 import org.eclipse.scada.configuration.modbus.ModbusBlock;
 import org.eclipse.scada.configuration.modbus.ModbusDriver;
 import org.eclipse.scada.configuration.modbus.ModbusMaster;
@@ -51,7 +52,7 @@ public class ModbusDriverProcessor extends EquinoxApplicationProcessor
 
         final String id = device.getId ();
 
-        data.put ( "host", device.getEndpoint ().getNode ().getHostName () );
+        data.put ( "host", Nodes.makeHostname ( this.driver, device.getEndpoint ().getNode () ) );
         data.put ( "port", "" + device.getEndpoint ().getPortNumber () );
         data.put ( "protocolType", device.getProtocolType ().getLiteral () );
         if ( device.getProtocolType () != ProtocolType.TCP && device.getInterFrameDelay () != null )
