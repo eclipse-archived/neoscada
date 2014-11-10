@@ -51,7 +51,7 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 	<img class="download-type" src="[relative(base, 'images/icons/box.png')/]"/>
 	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/yum?d', false)/]">YUM repository</a>
 	–
-	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/deb?d', false)/]">Debian packages</a>
+	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/apt?d', false)/]">Debian packages</a>
 </li>
 
 <li>
