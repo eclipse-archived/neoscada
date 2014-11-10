@@ -195,13 +195,22 @@ public interface DeploymentPackage extends EPackage
     int COMMON_DEPLOYMENT_MECHANISM__SETUP = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 8;
 
     /**
+     * The feature id for the '<em><b>Additional Setup Modules</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 9;
+
+    /**
      * The number of structural features of the '<em>Common Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 9;
+    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 10;
 
     /**
      * The number of operations of the '<em>Common Deployment Mechanism</em>' class.
@@ -302,6 +311,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int DEBIAN_DEPLOYMENT_MECHANISM__SETUP = COMMON_DEPLOYMENT_MECHANISM__SETUP;
+
+    /**
+     * The feature id for the '<em><b>Additional Setup Modules</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEBIAN_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES = COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES;
 
     /**
      * The number of structural features of the '<em>Debian Deployment Mechanism</em>' class.
@@ -457,6 +475,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int REDHAT_DEPLOYMENT_MECHANISM__SETUP = COMMON_DEPLOYMENT_MECHANISM__SETUP;
+
+    /**
+     * The feature id for the '<em><b>Additional Setup Modules</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REDHAT_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES = COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES;
 
     /**
      * The feature id for the '<em><b>License</b></em>' attribute.
@@ -1223,6 +1250,17 @@ public interface DeploymentPackage extends EPackage
     EReference getCommonDeploymentMechanism_Setup ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalSetupModules <em>Additional Setup Modules</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Additional Setup Modules</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalSetupModules()
+     * @see #getCommonDeploymentMechanism()
+     * @generated
+     */
+    EReference getCommonDeploymentMechanism_AdditionalSetupModules ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1771,6 +1809,14 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EReference COMMON_DEPLOYMENT_MECHANISM__SETUP = eINSTANCE.getCommonDeploymentMechanism_Setup ();
+
+        /**
+         * The meta object literal for the '<em><b>Additional Setup Modules</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES = eINSTANCE.getCommonDeploymentMechanism_AdditionalSetupModules ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl <em>Change Entry</em>}' class.

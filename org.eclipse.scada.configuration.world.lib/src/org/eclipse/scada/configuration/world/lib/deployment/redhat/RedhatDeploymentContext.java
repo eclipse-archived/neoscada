@@ -32,8 +32,9 @@ public class RedhatDeploymentContext extends CommonPackageDeploymentContext
 
     private final Map<String, FileInformation> directories = new HashMap<> ();
 
-    public RedhatDeploymentContext ( final File tempBase )
+    public RedhatDeploymentContext ( final File tempBase, final String packageName )
     {
+        super ( packageName );
         this.tempBase = tempBase;
     }
 
@@ -72,7 +73,17 @@ public class RedhatDeploymentContext extends CommonPackageDeploymentContext
     @Override
     public void runAfterInstallation ( final String script )
     {
+        this.postInstallation.append ( '\n' );
         this.postInstallation.append ( script );
         this.postInstallation.append ( '\n' );
+    }
+
+    @Override
+    public void runAfterRemoval ( final String script )
+    {
+        this.postRemoval.append ( '\n' );
+        this.postRemoval.append ( "if [ $1 -eq 0 ]; then\n" );
+        this.postRemoval.append ( script );
+        this.postRemoval.append ( "\nfi\n" );
     }
 }

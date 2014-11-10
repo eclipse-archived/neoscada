@@ -23,12 +23,9 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.SummariesConfiguration;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.component.SummariesConfiguration}
- * object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.SummariesConfiguration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class SummariesConfigurationItemProvider extends ConfigurationItemProvider
@@ -37,10 +34,9 @@ public class SummariesConfigurationItemProvider extends ConfigurationItemProvide
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public SummariesConfigurationItemProvider ( final AdapterFactory adapterFactory )
+    public SummariesConfigurationItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -49,31 +45,29 @@ public class SummariesConfigurationItemProvider extends ConfigurationItemProvide
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addItemThresholdPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Item Threshold feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addItemThresholdPropertyDescriptor ( final Object object )
+    protected void addItemThresholdPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummariesConfiguration_itemThreshold_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummariesConfiguration_itemThreshold_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_SummariesConfiguration_itemThreshold_feature", "_UI_SummariesConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ComponentPackage.Literals.SUMMARIES_CONFIGURATION__ITEM_THRESHOLD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
@@ -94,7 +88,6 @@ public class SummariesConfigurationItemProvider extends ConfigurationItemProvide
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -107,30 +100,26 @@ public class SummariesConfigurationItemProvider extends ConfigurationItemProvide
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        final Integer labelValue = ( (SummariesConfiguration)object ).getItemThreshold ();
-        final String label = labelValue == null ? null : labelValue.toString ();
+        Integer labelValue = ( (SummariesConfiguration)object ).getItemThreshold ();
+        String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ? getString ( "_UI_SummariesConfiguration_type" ) : //$NON-NLS-1$
-            getString ( "_UI_SummariesConfiguration_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        getString ( "_UI_SummariesConfiguration_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -144,16 +133,14 @@ public class SummariesConfigurationItemProvider extends ConfigurationItemProvide
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

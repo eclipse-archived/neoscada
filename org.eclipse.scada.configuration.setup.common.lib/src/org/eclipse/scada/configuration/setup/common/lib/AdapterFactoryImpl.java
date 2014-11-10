@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.setup.common.lib;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
+import org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule;
 import org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler;
 
 public class AdapterFactoryImpl implements IAdapterFactory
@@ -26,6 +27,10 @@ public class AdapterFactoryImpl implements IAdapterFactory
             if ( adaptableObject instanceof PostgresSetupModule )
             {
                 return new PostgresHandler ( (PostgresSetupModule)adaptableObject );
+            }
+            else if ( adaptableObject instanceof SerialToNetworkSetupModule )
+            {
+                return new SerialToNetworkHandler ( (SerialToNetworkSetupModule)adaptableObject );
             }
         }
         return null;

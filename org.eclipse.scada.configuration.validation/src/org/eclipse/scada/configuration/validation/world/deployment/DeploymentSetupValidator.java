@@ -11,12 +11,16 @@
 
 package org.eclipse.scada.configuration.validation.world.deployment;
 
+import java.util.Collection;
+import java.util.LinkedList;
+
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.validation.AbstractModelConstraint;
 import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.emf.validation.model.ConstraintStatus;
-import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
+import org.eclipse.scada.configuration.world.setup.SetupModule;
 import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 
 public class DeploymentSetupValidator extends AbstractModelConstraint
@@ -24,23 +28,63 @@ public class DeploymentSetupValidator extends AbstractModelConstraint
     @Override
     public IStatus validate ( final IValidationContext ctx )
     {
-        if ( ctx.getTarget () instanceof DebianDeploymentMechanism )
+        if ( ctx.getTarget () instanceof CommonDeploymentMechanism )
         {
-            final DebianDeploymentMechanism dep = (DebianDeploymentMechanism)ctx.getTarget ();
+            final CommonDeploymentMechanism dep = (CommonDeploymentMechanism)ctx.getTarget ();
             final SetupModuleContainer smc = dep.getSetup ();
 
             final OperatingSystemDescriptor os = dep.getOperatingSystem ();
 
+            final LinkedList<IStatus> result = new LinkedList<> ();
+
             if ( smc != null && os == null )
             {
-                return ConstraintStatus.createStatus ( ctx, ctx.getTarget (), null, "The deployment mechansim has a setup module container set but no operating system assigned" );
+                result.add ( ConstraintStatus.createStatus ( ctx, ctx.getTarget (), null, "The deployment mechansim has a setup module container set but no operating system assigned" ) );
             }
-            if ( smc != null )
+            else if ( smc != null )
             {
-                return smc.validateOperatingSystem ( os, ctx );
+                addResult ( result, smc.validateOperatingSystem ( os, ctx ) );
+            }
+
+            if ( dep.getAdditionalSetupModules () != null && !dep.getAdditionalSetupModules ().isEmpty () && os == null )
+            {
+                result.add ( ConstraintStatus.createStatus ( ctx, ctx.getTarget (), null, "The deployment mechansim has a additional setup modules but no operating system assigned" ) );
+            }
+            else if ( smc != null )
+            {
+                for ( final SetupModule sm : dep.getAdditionalSetupModules () )
+                {
+                    addResult ( result, sm.validateOperatingSystem ( os, ctx ) );
+                }
+            }
+
+            if ( result.isEmpty () )
+            {
+                return ctx.createSuccessStatus ();
+            }
+            else if ( result.size () == 1 )
+            {
+                return result.getFirst ();
+            }
+            else
+            {
+                return ConstraintStatus.createMultiStatus ( ctx, result );
             }
         }
-        return ctx.createSuccessStatus ();
+        else
+        {
+            return ctx.createSuccessStatus ();
+        }
+    }
+
+    private void addResult ( final Collection<? super IStatus> result, final IStatus status )
+    {
+        if ( status == null || status.isOK () )
+        {
+            return;
+        }
+
+        result.add ( status );
     }
 
 }

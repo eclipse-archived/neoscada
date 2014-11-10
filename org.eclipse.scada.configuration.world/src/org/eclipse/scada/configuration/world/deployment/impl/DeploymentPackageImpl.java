@@ -468,6 +468,16 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getCommonDeploymentMechanism_AdditionalSetupModules ()
+    {
+        return (EReference)commonDeploymentMechanismEClass.getEStructuralFeatures ().get ( 9 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getChangeEntry ()
     {
@@ -871,6 +881,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
         createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__AUTOMATIC_CREATE );
         createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__RECREATE_BACKUPS );
         createEReference ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__SETUP );
+        createEReference ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES );
 
         changeEntryEClass = createEClass ( CHANGE_ENTRY );
         createEReference ( changeEntryEClass, CHANGE_ENTRY__AUTHOR );
@@ -986,6 +997,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
         initEAttribute ( getCommonDeploymentMechanism_AutomaticCreate (), ecorePackage.getEBoolean (), "automaticCreate", "false", 0, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getCommonDeploymentMechanism_RecreateBackups (), ecorePackage.getEIntegerObject (), "recreateBackups", null, 0, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getCommonDeploymentMechanism_Setup (), theSetupPackage.getSetupModuleContainer (), null, "setup", null, 0, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getCommonDeploymentMechanism_AdditionalSetupModules (), theSetupPackage.getSetupModule (), null, "additionalSetupModules", null, 0, -1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( changeEntryEClass, ChangeEntry.class, "ChangeEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getChangeEntry_Author (), this.getAuthor (), null, "author", null, 1, 1, ChangeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

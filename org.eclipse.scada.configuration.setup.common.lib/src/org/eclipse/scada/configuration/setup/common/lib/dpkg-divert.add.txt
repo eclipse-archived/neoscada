@@ -1,0 +1,4 @@
+if test "$1" = configure ; then
+	dpkg-divert --add --package "@@PKG@@" --rename --divert "@@TARGET@@.distrib" "@@TARGET@@"
+	test \! -e "@@TARGET@@" -o -L "@@TARGET@@" && ln -sf "@@DIVERSION@@" "@@TARGET@@"
+fi

@@ -683,11 +683,6 @@
               <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             </endLabelStyleDescription>
           </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_YIljcy6cEeSYytJHqr3bJQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
           <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_j10xMi6dEeSYytJHqr3bJQ" sourceArrow="FillDiamond" sizeComputationExpression="1" routingStyle="manhattan">
             <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_j10xMy6dEeSYytJHqr3bJQ" showIcon="false" labelExpression="service:render">
@@ -698,6 +693,11 @@
             </endLabelStyleDescription>
           </computedStyleDescriptions>
           <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_hgo88k4iEeSCZZDZ6VdG0g" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </computedStyleDescriptions>
+          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_zj7yAmaGEeSNaKWXiv5tmw" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
             <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -744,19 +744,19 @@
                 </value>
               </value>
             </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_YIljcS6cEeSYytJHqr3bJQ">
-              <key xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/TelnetConsole/port"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_YIljci6cEeSYytJHqr3bJQ" key="_YIljcC6cEeSYytJHqr3bJQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_YIljdC6cEeSYytJHqr3bJQ" value="_YIljcy6cEeSYytJHqr3bJQ">
-                  <key xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/TelnetConsole"/>
-                </value>
-              </value>
-            </value>
             <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_hgo88E4iEeSCZZDZ6VdG0g">
               <key xmi:type="ecore:EAttribute" href="infrastructure.ecore#//Driver/name"/>
               <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_hgo88U4iEeSCZZDZ6VdG0g" key="_hgoV4E4iEeSCZZDZ6VdG0g">
                 <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_hgo8804iEeSCZZDZ6VdG0g" value="_hgo88k4iEeSCZZDZ6VdG0g">
                   <key xmi:type="ecore:EClass" href="infrastructure.ecore#//Driver"/>
+                </value>
+              </value>
+            </value>
+            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_zj7yAGaGEeSNaKWXiv5tmw">
+              <key xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/TelnetConsole/port"/>
+              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_zj7yAWaGEeSNaKWXiv5tmw" key="_YIljcC6cEeSYytJHqr3bJQ">
+                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_zj7yA2aGEeSNaKWXiv5tmw" value="_zj7yAmaGEeSNaKWXiv5tmw">
+                  <key xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/TelnetConsole"/>
                 </value>
               </value>
             </value>
@@ -1637,10 +1637,10 @@
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_YIljcC6cEeSYytJHqr3bJQ" name="port : EInt = 0" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/TelnetConsole/port"/>
           <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/TelnetConsole/port"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_YIljdS6cEeSYytJHqr3bJQ" labelFormat="bold" labelAlignment="LEFT" description="_YIljcy6cEeSYytJHqr3bJQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_YIljdi6cEeSYytJHqr3bJQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_YIljdy6cEeSYytJHqr3bJQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_YIljeC6cEeSYytJHqr3bJQ"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zj7yBGaGEeSNaKWXiv5tmw" labelFormat="bold" labelAlignment="LEFT" description="_zj7yAmaGEeSNaKWXiv5tmw">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_zj7yBWaGEeSNaKWXiv5tmw"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_zj7yBmaGEeSNaKWXiv5tmw"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_zj7yB2aGEeSNaKWXiv5tmw"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>

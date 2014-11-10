@@ -69,7 +69,9 @@ public class DebianHandler extends CommonPackageHandler
     {
         final File packageFolder = getPackageFolder ( nodeDir );
 
-        final DebianDeploymentContext context = new DebianDeploymentContext ();
+        final String packageName = getPackageName ();
+
+        final DebianDeploymentContext context = new DebianDeploymentContext ( packageName );
         setDeploymentContext ( context );
 
         // call super
@@ -77,8 +79,6 @@ public class DebianHandler extends CommonPackageHandler
         super.handleProcess ( nodeDir, monitor, properties );
 
         // process self
-
-        final String packageName = getPackageName ();
 
         final String version = findVersion ();
 
@@ -126,9 +126,9 @@ public class DebianHandler extends CommonPackageHandler
             try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
             {
                 replacements.put ( "postinst.scripts", context.getPostInstallationString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-                replacements.put ( "preinst.scripts", createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-                replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-                replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "preinst.scripts", context.getPreInstallationString () + "\n" + createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "prerm.scripts", context.getPreRemovalString () + "\n" + createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "postrm.scripts", context.getPostRemovalString () + "\n" + createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
                 deb.setPostinstScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
                 deb.setPostrmScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$

@@ -19,13 +19,35 @@ import org.eclipse.scada.utils.pkg.deb.ContentProvider;
  * Allow access to the context of the deployment <br/>
  * <em>Note:</em> The script interpreter is part of the target deployment
  * mechanism (e.g. deb,
- * rpm). In most Unix cases a plain "bourne shell" will most likely work. Also
- * is it not a complete shell script but a script fragment. Which means that
- * a wrong syntax can cause the whole setup to fail.
+ * rpm). In most Unix cases a plain "bourne shell" (not <q>bash</q>) will most
+ * likely work. Also is it not a complete shell script but a script fragment.
+ * Which means that a wrong syntax can cause the whole setup to fail.
  */
 public interface DeploymentContext
 {
+    /**
+     * Get the name of the package that will be built <br/>
+     * This is the name, not the file name, of the package.
+     *
+     * @return the package name
+     */
+    public String getPackageName ();
+
     public void addInstallDependency ( String packageName );
+
+    /**
+     * Add a script as pre installation script
+     * <p>
+     * The method has to close the reader before it returns. Even in the case of
+     * an exception.
+     * </p>
+     *
+     * @param reader
+     *            the content to add
+     * @throws IOException
+     *             if anything goes wrong
+     */
+    public void addPreInstallationScript ( Reader reader ) throws IOException;
 
     /**
      * Add a script as post installation script
@@ -42,6 +64,34 @@ public interface DeploymentContext
     public void addPostInstallationScript ( Reader reader ) throws IOException;
 
     /**
+     * Add a script as pre removal script
+     * <p>
+     * The method has to close the reader before it returns. Even in the case of
+     * an exception.
+     * </p>
+     *
+     * @param reader
+     *            the content to add
+     * @throws IOException
+     *             if anything goes wrong
+     */
+    public void addPreRemovalScript ( Reader reader ) throws IOException;
+
+    /**
+     * Add a script as post removal script
+     * <p>
+     * The method has to close the reader before it returns. Even in the case of
+     * an exception.
+     * </p>
+     *
+     * @param reader
+     *            the content to add
+     * @throws IOException
+     *             if anything goes wrong
+     */
+    public void addPostRemovalScript ( Reader reader ) throws IOException;
+
+    /**
      * Run a shell script fragment after the installation or upgrade of the
      * package
      *
@@ -49,6 +99,14 @@ public interface DeploymentContext
      *            the script fragment to run
      */
     public void runAfterInstallation ( String script );
+
+    /**
+     * Run a shell script fragment after package was completely removed
+     * 
+     * @param script
+     *            the script fragment to run
+     */
+    public void runAfterRemoval ( String script );
 
     /**
      * Add a file to the deployment package <br/>

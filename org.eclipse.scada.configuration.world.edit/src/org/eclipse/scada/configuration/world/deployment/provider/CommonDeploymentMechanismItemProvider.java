@@ -12,12 +12,12 @@ package org.eclipse.scada.configuration.world.deployment.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -32,7 +32,7 @@ import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanis
 import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
-import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
+import org.eclipse.scada.configuration.world.setup.SetupFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism} object.
@@ -205,6 +205,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter i
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__CHANGES );
+            childrenFeatures.add ( DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES );
         }
         return childrenFeatures;
     }
@@ -283,6 +284,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter i
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__CHANGES:
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -302,6 +304,8 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter i
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
         newChildDescriptors.add ( createChildParameter ( DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__CHANGES, DeploymentFactory.eINSTANCE.createChangeEntry () ) );
+
+        newChildDescriptors.add ( createChildParameter ( DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES, SetupFactory.eINSTANCE.createSubContainerModule () ) );
     }
 
     /**
@@ -313,7 +317,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter i
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return WorldEditPlugin.INSTANCE;
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

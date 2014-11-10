@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.world.deployment;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
+import org.eclipse.scada.configuration.world.setup.SetupModule;
 import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 
 /**
@@ -32,6 +33,7 @@ import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#isAutomaticCreate <em>Automatic Create</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getRecreateBackups <em>Recreate Backups</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getSetup <em>Setup</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalSetupModules <em>Additional Setup Modules</em>}</li>
  * </ul>
  * </p>
  *
@@ -257,5 +259,21 @@ public interface CommonDeploymentMechanism extends DeploymentMechanism
      * @generated
      */
     void setSetup ( SetupModuleContainer value );
+
+    /**
+     * Returns the value of the '<em><b>Additional Setup Modules</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.setup.SetupModule}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Additional Setup Modules</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Additional Setup Modules</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getCommonDeploymentMechanism_AdditionalSetupModules()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<SetupModule> getAdditionalSetupModules ();
 
 } // CommonDeploymentMechanism

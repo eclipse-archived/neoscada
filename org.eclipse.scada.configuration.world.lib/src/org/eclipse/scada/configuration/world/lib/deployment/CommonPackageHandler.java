@@ -38,7 +38,6 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
 import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
-import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 import org.eclipse.scada.utils.pkg.deb.FileContentProvider;
 import org.eclipse.scada.utils.pkg.deb.StaticContentProvider;
 import org.eclipse.scada.utils.str.StringHelper;
@@ -62,7 +61,7 @@ public abstract class CommonPackageHandler extends CommonHandler
     {
         if ( this.deploymentContext != null )
         {
-            runSetup ( this.deploy.getSetup (), this.deploymentContext, new SubProgressMonitor ( monitor, 1 ) );
+            runSetup ( this.deploy, this.deploymentContext, new SubProgressMonitor ( monitor, 1 ) );
 
             if ( !makeEquinoxList ().isEmpty () )
             {
@@ -267,12 +266,13 @@ public abstract class CommonPackageHandler extends CommonHandler
         return sb.toString ();
     }
 
-    protected void runSetup ( final SetupModuleContainer setup, final DeploymentContext context, final IProgressMonitor monitor ) throws Exception
+    protected void runSetup ( final CommonDeploymentMechanism deploy, final DeploymentContext context, final IProgressMonitor monitor ) throws Exception
     {
-        if ( setup != null )
+        if ( deploy.getSetup () != null )
         {
-            SubModuleHandler.runSetup ( context, setup.getModules (), this.deploy.getOperatingSystem () );
+            SubModuleHandler.runSetup ( context, deploy.getSetup ().getModules (), this.deploy.getOperatingSystem () );
         }
+        SubModuleHandler.runSetup ( context, deploy.getAdditionalSetupModules (), deploy.getOperatingSystem () );
         monitor.done ();
     }
 

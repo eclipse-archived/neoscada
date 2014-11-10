@@ -23,6 +23,25 @@ public abstract class CommonPackageDeploymentContext implements DeploymentContex
 
     protected final StringBuilder postInstallation = new StringBuilder ();
 
+    protected final StringBuilder preInstallation = new StringBuilder ();
+
+    protected final StringBuilder postRemoval = new StringBuilder ();
+
+    protected final StringBuilder preRemoval = new StringBuilder ();
+
+    private final String packageName;
+
+    public CommonPackageDeploymentContext ( final String packageName )
+    {
+        this.packageName = packageName;
+    }
+
+    @Override
+    public String getPackageName ()
+    {
+        return this.packageName;
+    }
+
     @Override
     public void addInstallDependency ( final String packageName )
     {
@@ -39,12 +58,66 @@ public abstract class CommonPackageDeploymentContext implements DeploymentContex
         return this.postInstallation.toString ();
     }
 
+    public String getPreInstallationString ()
+    {
+        return this.preInstallation.toString ();
+    }
+
+    public String getPostRemovalString ()
+    {
+        return this.postRemoval.toString ();
+    }
+
+    public String getPreRemovalString ()
+    {
+        return this.preRemoval.toString ();
+    }
+
     @Override
     public void addPostInstallationScript ( final Reader reader ) throws IOException
     {
         try
         {
             CharStreams.copy ( reader, this.postInstallation );
+        }
+        finally
+        {
+            reader.close ();
+        }
+    }
+
+    @Override
+    public void addPreInstallationScript ( final Reader reader ) throws IOException
+    {
+        try
+        {
+            CharStreams.copy ( reader, this.preInstallation );
+        }
+        finally
+        {
+            reader.close ();
+        }
+    }
+
+    @Override
+    public void addPostRemovalScript ( final Reader reader ) throws IOException
+    {
+        try
+        {
+            CharStreams.copy ( reader, this.postRemoval );
+        }
+        finally
+        {
+            reader.close ();
+        }
+    }
+
+    @Override
+    public void addPreRemovalScript ( final Reader reader ) throws IOException
+    {
+        try
+        {
+            CharStreams.copy ( reader, this.preRemoval );
         }
         finally
         {

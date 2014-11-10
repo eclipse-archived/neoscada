@@ -28,6 +28,7 @@ import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanis
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
+import org.eclipse.scada.configuration.world.setup.SetupModule;
 import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 
 /**
@@ -46,6 +47,7 @@ import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#isAutomaticCreate <em>Automatic Create</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getRecreateBackups <em>Recreate Backups</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getSetup <em>Setup</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getAdditionalSetupModules <em>Additional Setup Modules</em>}</li>
  * </ul>
  * </p>
  *
@@ -182,6 +184,16 @@ public abstract class CommonDeploymentMechanismImpl extends MinimalEObjectImpl.C
      * @ordered
      */
     protected SetupModuleContainer setup;
+
+    /**
+     * The cached value of the '{@link #getAdditionalSetupModules() <em>Additional Setup Modules</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAdditionalSetupModules()
+     * @generated
+     * @ordered
+     */
+    protected EList<SetupModule> additionalSetupModules;
 
     /**
      * <!-- begin-user-doc -->
@@ -458,6 +470,20 @@ public abstract class CommonDeploymentMechanismImpl extends MinimalEObjectImpl.C
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<SetupModule> getAdditionalSetupModules ()
+    {
+        if ( additionalSetupModules == null )
+        {
+            additionalSetupModules = new EObjectContainmentEList.Resolving<SetupModule> ( SetupModule.class, this, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES );
+        }
+        return additionalSetupModules;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -465,6 +491,8 @@ public abstract class CommonDeploymentMechanismImpl extends MinimalEObjectImpl.C
         {
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__CHANGES:
                 return ( (InternalEList<?>)getChanges () ).basicRemove ( otherEnd, msgs );
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES:
+                return ( (InternalEList<?>)getAdditionalSetupModules () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -503,6 +531,8 @@ public abstract class CommonDeploymentMechanismImpl extends MinimalEObjectImpl.C
                 if ( resolve )
                     return getSetup ();
                 return basicGetSetup ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES:
+                return getAdditionalSetupModules ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -547,6 +577,10 @@ public abstract class CommonDeploymentMechanismImpl extends MinimalEObjectImpl.C
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP:
                 setSetup ( (SetupModuleContainer)newValue );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES:
+                getAdditionalSetupModules ().clear ();
+                getAdditionalSetupModules ().addAll ( (Collection<? extends SetupModule>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -588,6 +622,9 @@ public abstract class CommonDeploymentMechanismImpl extends MinimalEObjectImpl.C
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP:
                 setSetup ( (SetupModuleContainer)null );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES:
+                getAdditionalSetupModules ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -620,6 +657,8 @@ public abstract class CommonDeploymentMechanismImpl extends MinimalEObjectImpl.C
                 return RECREATE_BACKUPS_EDEFAULT == null ? recreateBackups != null : !RECREATE_BACKUPS_EDEFAULT.equals ( recreateBackups );
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__SETUP:
                 return setup != null;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_SETUP_MODULES:
+                return additionalSetupModules != null && !additionalSetupModules.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

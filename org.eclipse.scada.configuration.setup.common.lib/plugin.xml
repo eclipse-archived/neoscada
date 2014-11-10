@@ -12,6 +12,13 @@
                type="org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler">
          </adapter>
       </factory>
+       <factory
+            adaptableType="org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule"
+            class="org.eclipse.scada.configuration.setup.common.lib.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler">
+         </adapter>
+      </factory>
    </extension>
    
    

@@ -44,12 +44,15 @@ if [ ! -f ~eclipsescada/.screenrc ]; then
 fi
 
 %postun
+$$postrem.script$$
 
 %pre
 $$stop.apps$$
+$$preinst.script$$
 
 %preun
 $$stop.apps$$
+$$prerem.script$$
 
 %files
 %defattr(-,root,root)

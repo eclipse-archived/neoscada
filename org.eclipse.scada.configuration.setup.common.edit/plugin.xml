@@ -31,6 +31,9 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <!-- @generated common -->
       <extender
+            uri="http://eclipse.org/SCADA/Configuration/World/Deployment"
+            class="org.eclipse.scada.configuration.setup.common.provider.CommonItemProviderAdapterFactory$DeploymentChildCreationExtender"/>
+      <extender
             uri="http://eclipse.org/SCADA/Configuration/World/Setup"
             class="org.eclipse.scada.configuration.setup.common.provider.CommonItemProviderAdapterFactory$SetupChildCreationExtender"/>
    </extension>

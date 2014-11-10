@@ -71,7 +71,9 @@ public class RedhatHandler extends CommonPackageHandler
     {
         final File packageFolder = getPackageFolder ( nodeDir );
 
-        final RedhatDeploymentContext context = new RedhatDeploymentContext ( new File ( packageFolder, "src" ) );
+        final String packageName = getPackageName ();
+
+        final RedhatDeploymentContext context = new RedhatDeploymentContext ( new File ( packageFolder, "src" ), packageName );
         setDeploymentContext ( context );
 
         // process super
@@ -79,8 +81,6 @@ public class RedhatHandler extends CommonPackageHandler
         super.handleProcess ( nodeDir, monitor, properties );
 
         // handle self
-
-        final String packageName = getPackageName ();
 
         final File buildRoot = packageFolder.getParentFile ();
         final File specsDir = new File ( buildRoot, "SPECS" ); //$NON-NLS-1$
@@ -114,6 +114,9 @@ public class RedhatHandler extends CommonPackageHandler
         // create spec file - all content must be known
 
         replacements.put ( "postinst.scripts", context.getPostInstallationString () );
+        replacements.put ( "preinst.scripts", context.getPreInstallationString () );
+        replacements.put ( "postrem.scripts", context.getPostRemovalString () );
+        replacements.put ( "prerem.scripts", context.getPreRemovalString () );
 
         replacements.put ( "files", makeFiles ( context.getFiles (), context.getDirectories () ) ); //$NON-NLS-1$
         replacements.put ( "depends", makeDependencies ( context.getDependencies () ) );

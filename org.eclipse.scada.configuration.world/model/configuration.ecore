@@ -1138,6 +1138,8 @@
           defaultValueLiteral="false"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="recreateBackups" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="setup" eType="#//setup/SetupModuleContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="additionalSetupModules"
+          upperBound="-1" eType="#//setup/SetupModule" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"

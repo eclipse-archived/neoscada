@@ -703,8 +703,8 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Deployment" basePackage="org.eclipse.scada.configuration.world"
         resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
-        contentTypeIdentifier="org.eclipse.scada.configuration.deployment" fileExtensions="esdi"
-        ecorePackage="configuration.ecore#//deployment">
+        extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.deployment"
+        fileExtensions="esdi" ecorePackage="configuration.ecore#//deployment">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//deployment/FallbackMappingMode">
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/FallbackMappingMode/FAIL"/>
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/FallbackMappingMode/IGNORE"/>
@@ -749,6 +749,7 @@
             ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/recreateBackups"/>
         <genFeatures notify="false" createChild="false" propertyCategory="setup" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/setup"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/additionalSetupModules"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/ChangeEntry">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
