@@ -74,11 +74,6 @@
 					<layout>p2</layout>
 					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/output/p2</url>
 				</repository>
-				<repository>
-					<id>eclipse.scada.ide</id>
-					<layout>p2</layout>
-					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.ide-master/lastSuccessfulBuild/artifact/output/p2</url>
-				</repository>
 			</repositories>
 		</profile>
 	</profiles>
