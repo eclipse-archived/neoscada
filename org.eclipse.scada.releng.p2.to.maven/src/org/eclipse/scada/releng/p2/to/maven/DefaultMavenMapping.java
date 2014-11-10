@@ -24,6 +24,8 @@ public class DefaultMavenMapping implements MavenMapping
 
     private static boolean IGNORE_TYCHO = !Boolean.getBoolean ( "useTychoVersion" );
 
+    private static boolean STRIP_QUALIFIER = Boolean.getBoolean ( "stripQualifier" );
+
     private final Properties properties;
 
     private final Set<String> defaultIgnores = new HashSet<> ();
@@ -67,7 +69,7 @@ public class DefaultMavenMapping implements MavenMapping
 
         result.setGroupId ( makeGroupId ( iu ) );
         result.setArtifactId ( makeArtifactId ( iu ) );
-        result.setVersion ( makeVersion ( iu, true ) );
+        result.setVersion ( makeVersion ( iu, !STRIP_QUALIFIER ) );
         result.setClassifier ( makeClassifier ( iu ) );
 
         return result;

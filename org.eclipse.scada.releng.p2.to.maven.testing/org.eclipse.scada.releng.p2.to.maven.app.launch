@@ -16,8 +16,9 @@
 <stringAttribute key="location" value="${workspace_loc}/../runtime-org.eclipse.scada.releng.p2.to.maven.app"/>
 <stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="${project_loc:/org.eclipse.scada.releng.p2.to.maven.testing}/output.log"/>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -console -consoleLog&#10;file:${project_loc:org.eclipse.scada.releng.p2.to.maven.testing}/configuration.properties&#10;file:/tmp/my-download-test/updates/milestone/0.2/&#10;http://ftp.acc.umu.se/mirror/eclipse.org/releases/kepler"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -console -consoleLog&#10;file:${project_loc:org.eclipse.scada.releng.p2.to.maven.testing}/configuration.properties&#10;file:/tmp/my-download-test/downloads/org.eclipse.scada/drops/0.2.0/S201410311028/p2/&#10;http://ftp.acc.umu.se/mirror/eclipse.org/releases/kepler"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DuseTychoVersion=false&#10;-DstripQualifier=true"/>
 <booleanAttribute key="pde.generated.config" value="false"/>
 <stringAttribute key="pde.version" value="3.3"/>
 <stringAttribute key="product" value="org.eclipse.b3.cli.product"/>

@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.eclipse.scada.releng</groupId>
 		<artifactId>superParent</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>0.2.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.eclipse.scada.releng</groupId>
 	<artifactId>build.helper.test1-parent</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -18,6 +18,7 @@
 		<buildType>I</buildType>
 		<qualifier>${maven.build.timestamp}</qualifier>
 		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+		<tycho.version>0.21.0</tycho.version>
 	</properties>
 
 	<repositories>
@@ -135,8 +136,7 @@
 
 		</plugins>
 	</build>
-
-
+	
 	<modules>
 		<module>../build.helper.test1-p2</module> <!-- holds the p2 repository -->
 
@@ -145,6 +145,8 @@
 
 		<module>../build.helper.test1.bundle1</module>
 		<module>../build.helper.test1.withSub</module>
+		
+		<module>../build.helper.test2.feature</module>
 	</modules>
 
 </project>

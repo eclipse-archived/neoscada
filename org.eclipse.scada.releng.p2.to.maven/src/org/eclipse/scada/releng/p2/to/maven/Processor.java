@@ -235,6 +235,7 @@ public class Processor
 
             final Set<MavenDependency> deps = makeDependencies ( iu, pm );
             makePom ( ref, versionBase, deps, iu );
+            makeMetaData ( ref, versionBase );
         }
     }
 
@@ -334,6 +335,23 @@ public class Processor
             return null;
         }
         return candidates.iterator ().next ();
+    }
+
+    private void makeMetaData ( final MavenReference ref, final File versionBase ) throws Exception
+    {
+        final Document doc = this.documentBuilder.newDocument ();
+        final Element metadata = doc.createElement ( "metadata" );
+        doc.appendChild ( metadata );
+
+        addElement ( metadata, "groupId", ref.getGroupId () );
+        addElement ( metadata, "artifactId", ref.getArtifactId () );
+        addElement ( metadata, "version", ref.getVersion () );
+
+        final File file = new File ( versionBase, "maven-metadata.xml" );
+        saveXml ( doc, file );
+
+        makeChecksum ( "MD5", file, new File ( versionBase, "maven-metadata.xml.md5" ) );
+        makeChecksum ( "SHA1", file, new File ( versionBase, "maven-metadata.xml.sha1" ) );
     }
 
     private void makePom ( final MavenReference ref, final File versionBase, final Set<MavenDependency> deps, final IInstallableUnit iu ) throws Exception

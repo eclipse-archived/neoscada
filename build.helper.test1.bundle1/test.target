@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="test" sequenceNumber="0">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="build.helper.test1.bundle1" version="3.9.0.v20140221-1852"/>
+<unit id="build.helper.test2.feature.group" version="3.9.0.v20140221-1852"/>
+<unit id="org.eclipse.jdt.feature.group" version="1.2.3"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+</locations>
+</target>

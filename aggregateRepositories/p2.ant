@@ -29,7 +29,7 @@ Contributors:
     <property name="download.dir.p2" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
     
     <property name="p2tom2.file" location="p2tom2.properties"/>
-	<property name="p2tom2.version" value="0.2.0"/>
+	<property name="p2tom2.version" value="0.2.1"/>
     
     <!-- ================================= 
           target: default
@@ -191,6 +191,7 @@ Contributors:
             
             <sysproperty key="path.p2temp" file="${java.io.tmpdir}/p2tom2.p2"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
+        	<sysproperty key="stripQualifier" value="true"/>
         </java>
     </target>
 
