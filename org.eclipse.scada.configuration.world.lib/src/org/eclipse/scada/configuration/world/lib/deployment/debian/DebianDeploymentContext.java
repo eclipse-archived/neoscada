@@ -53,8 +53,7 @@ public class DebianDeploymentContext extends CommonPackageDeploymentContext
     {
         this.postRemoval.append ( '\n' );
         this.postRemoval.append ( "case \"$1\" in\n" );
-        this.postRemoval.append ( "\tremove)\n" );
-        this.postRemoval.append ( "\tpurge)\n" );
+        this.postRemoval.append ( "\tremove|purge)\n" );
         this.postRemoval.append ( script );
         this.postRemoval.append ( "\n\t;;\n" );
         this.postRemoval.append ( "\nesac\n" );
