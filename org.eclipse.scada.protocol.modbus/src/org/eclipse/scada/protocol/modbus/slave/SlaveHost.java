@@ -219,6 +219,13 @@ public class SlaveHost
             };
 
             @Override
+            public void sessionCreated ( final IoSession session ) throws Exception
+            {
+                logger.info ( "Session created: {}", session ); //$NON-NLS-1$
+                handleSessionCreated ( session );
+            }
+
+            @Override
             public void sessionOpened ( final IoSession session ) throws Exception
             {
                 logger.info ( "Session opened: {}", session ); //$NON-NLS-1$
@@ -348,6 +355,10 @@ public class SlaveHost
     protected void handleSessionIdle ( final IoSession session )
     {
         session.close ( true );
+    }
+
+    protected void handleSessionCreated ( final IoSession session )
+    {
     }
 
     protected void handleSessionOpened ( final IoSession session )
