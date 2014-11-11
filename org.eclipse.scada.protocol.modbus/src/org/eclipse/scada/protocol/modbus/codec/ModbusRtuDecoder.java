@@ -62,11 +62,14 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         {
             nextFilter = this.nextFilter;
         }
+
         logger.trace ( "timeout () flush - nextFilter: {}", nextFilter );
-        if ( nextFilter != null )
+
+        if ( nextFilter == null )
         {
-            out.flush ( nextFilter, session );
+            throw new IllegalStateException ( String.format ( "Next filter is not set. Either use %s or call setNextFilter() manually", ModbusRtuProtocolCodecFilter.class.getName () ) );
         }
+        out.flush ( nextFilter, session );
     }
 
     private void decodeTimeoutFrame ( final IoSession session, final IoBuffer currentFrame, final ProtocolDecoderOutput out )
@@ -85,8 +88,9 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         final int actualCrc = Checksum.crc16 ( currentFrame.array (), 0, currentFrame.limit () - 2 );
         if ( receivedCrc != actualCrc )
         {
-            logger.info ( "CRC error - received: {}, calculated: {} - data: {}", receivedCrc, actualCrc, currentFrame.getHexDump () );
-            throw new ChecksumProtocolException ( String.format ( "CRC error. received: %04x, but actually was: %04x", receivedCrc, actualCrc ) );
+            final String hd = currentFrame.getHexDump ();
+            logger.info ( "CRC error - received: {}, calculated: {} - data: {}", receivedCrc, actualCrc, hd );
+            throw new ChecksumProtocolException ( String.format ( "CRC error. received: %04x, but actually was: %04x - Data: %s", receivedCrc, actualCrc, hd ) );
         }
 
         currentFrame.position ( 0 );
