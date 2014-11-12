@@ -19,11 +19,15 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
+@Deprecated
+/**
+ * @deprecated use SelectionHelper instead
+ */
 public class ItemSelectionHelper
 {
     /**
      * Get all {@link Item} instances from the current selection
-     * 
+     *
      * @param selection
      *            the selection
      * @return the item instances

@@ -5,11 +5,30 @@ Bundle-SymbolicName: org.eclipse.scada.da.ui.connection;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.ui.connection.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.da.ui.connection;version="0.1.0",
- org.eclipse.scada.da.ui.connection.commands;version="0.1.0",
- org.eclipse.scada.da.ui.connection.data;version="0.1.0",
- org.eclipse.scada.da.ui.connection.dnd;version="0.1.0",
- org.eclipse.scada.da.ui.connection.views;version="0.1.0"
+Export-Package: org.eclipse.scada.da.ui.connection;version="0.2.0";uses:="org.osgi.framework,org.eclipse.core.runtime,org.eclipse.ui.plugin",
+ org.eclipse.scada.da.ui.connection.commands;version="0.2.0";uses:="org.eclipse.scada.da.ui.connection.data,org.eclipse.scada.ui.databinding",
+ org.eclipse.scada.da.ui.connection.data;version="0.2.0";
+  uses:="org.eclipse.scada.sec.callback,
+   org.eclipse.scada.da.connection.provider,
+   org.eclipse.scada.core.data,
+   org.eclipse.scada.core.connection.provider,
+   org.eclipse.jface.viewers,
+   org.osgi.framework,
+   org.eclipse.scada.core,
+   org.eclipse.scada.da.client,
+   org.eclipse.ui,
+   org.eclipse.scada.core.client,
+   org.eclipse.scada.utils.concurrent",
+ org.eclipse.scada.da.ui.connection.dnd;version="0.2.0";uses:="org.eclipse.ui.navigator,org.eclipse.swt.dnd,org.eclipse.jface.viewers",
+ org.eclipse.scada.da.ui.connection.views;version="0.2.0";
+  uses:="org.eclipse.scada.da.client,
+   org.eclipse.scada.core.ui.connection.data,
+   org.eclipse.core.databinding.observable.masterdetail,
+   org.eclipse.scada.da.ui.connection.internal,
+   org.eclipse.core.databinding.observable.set,
+   org.eclipse.jface.databinding.viewers,
+   org.eclipse.scada.ui.databinding,
+   org.eclipse.core.databinding.observable"
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.scada.core.ui.connection;bundle-version="0.1.0",
