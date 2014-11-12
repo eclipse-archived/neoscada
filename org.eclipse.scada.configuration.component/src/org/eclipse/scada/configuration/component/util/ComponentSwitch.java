@@ -183,6 +183,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( constantValue );
                 if ( result == null )
+                    result = caseMasterAssigned ( constantValue );
+                if ( result == null )
                     result = caseComponent ( constantValue );
                 if ( result == null )
                     result = caseDocumentable ( constantValue );
@@ -219,6 +221,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( persistentValue );
                 if ( result == null )
+                    result = caseMasterAssigned ( persistentValue );
+                if ( result == null )
                     result = caseComponent ( persistentValue );
                 if ( result == null )
                     result = caseDocumentable ( persistentValue );
@@ -234,6 +238,8 @@ public class ComponentSwitch<T> extends Switch<T>
                     result = caseMasterComponent ( driverConnectionAnalyzer );
                 if ( result == null )
                     result = caseDataComponent ( driverConnectionAnalyzer );
+                if ( result == null )
+                    result = caseMasterAssigned ( driverConnectionAnalyzer );
                 if ( result == null )
                     result = caseComponent ( driverConnectionAnalyzer );
                 if ( result == null )
@@ -251,6 +257,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( masterImportConnectionAnalyzer );
                 if ( result == null )
+                    result = caseMasterAssigned ( masterImportConnectionAnalyzer );
+                if ( result == null )
                     result = caseComponent ( masterImportConnectionAnalyzer );
                 if ( result == null )
                     result = caseDocumentable ( masterImportConnectionAnalyzer );
@@ -267,6 +275,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( singleValue );
                 if ( result == null )
+                    result = caseMasterAssigned ( singleValue );
+                if ( result == null )
                     result = caseComponent ( singleValue );
                 if ( result == null )
                     result = caseDocumentable ( singleValue );
@@ -282,6 +292,8 @@ public class ComponentSwitch<T> extends Switch<T>
                     result = caseMasterComponent ( dataMapperAnalyzer );
                 if ( result == null )
                     result = caseDataComponent ( dataMapperAnalyzer );
+                if ( result == null )
+                    result = caseMasterAssigned ( dataMapperAnalyzer );
                 if ( result == null )
                     result = caseComponent ( dataMapperAnalyzer );
                 if ( result == null )
@@ -311,6 +323,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( mappedSourceValue );
                 if ( result == null )
+                    result = caseMasterAssigned ( mappedSourceValue );
+                if ( result == null )
                     result = caseComponent ( mappedSourceValue );
                 if ( result == null )
                     result = caseDocumentable ( mappedSourceValue );
@@ -328,6 +342,8 @@ public class ComponentSwitch<T> extends Switch<T>
                     result = caseMasterComponent ( calculationComponent );
                 if ( result == null )
                     result = caseDataComponent ( calculationComponent );
+                if ( result == null )
+                    result = caseMasterAssigned ( calculationComponent );
                 if ( result == null )
                     result = caseComponent ( calculationComponent );
                 if ( result == null )
@@ -513,6 +529,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( externalValue );
                 if ( result == null )
+                    result = caseMasterAssigned ( externalValue );
+                if ( result == null )
                     result = caseComponent ( externalValue );
                 if ( result == null )
                     result = caseDocumentable ( externalValue );
@@ -535,6 +553,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 ItemInterceptor itemInterceptor = (ItemInterceptor)theEObject;
                 T result = caseItemInterceptor ( itemInterceptor );
                 if ( result == null )
+                    result = caseMasterAssigned ( itemInterceptor );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
@@ -552,6 +572,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 T result = caseRestInterceptor ( restInterceptor );
                 if ( result == null )
                     result = caseItemInterceptor ( restInterceptor );
+                if ( result == null )
+                    result = caseMasterAssigned ( restInterceptor );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -583,6 +605,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( transientValue );
                 if ( result == null )
+                    result = caseMasterAssigned ( transientValue );
+                if ( result == null )
                     result = caseComponent ( transientValue );
                 if ( result == null )
                     result = caseDocumentable ( transientValue );
@@ -596,6 +620,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 T result = caseMasterComponent ( masterComponent );
                 if ( result == null )
                     result = caseDataComponent ( masterComponent );
+                if ( result == null )
+                    result = caseMasterAssigned ( masterComponent );
                 if ( result == null )
                     result = caseComponent ( masterComponent );
                 if ( result == null )
@@ -612,6 +638,8 @@ public class ComponentSwitch<T> extends Switch<T>
                     result = caseMasterComponent ( bufferedValue );
                 if ( result == null )
                     result = caseDataComponent ( bufferedValue );
+                if ( result == null )
+                    result = caseMasterAssigned ( bufferedValue );
                 if ( result == null )
                     result = caseComponent ( bufferedValue );
                 if ( result == null )
@@ -630,6 +658,8 @@ public class ComponentSwitch<T> extends Switch<T>
                     result = caseMasterComponent ( changeCounter );
                 if ( result == null )
                     result = caseDataComponent ( changeCounter );
+                if ( result == null )
+                    result = caseMasterAssigned ( changeCounter );
                 if ( result == null )
                     result = caseComponent ( changeCounter );
                 if ( result == null )
@@ -661,9 +691,19 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( deltaValue );
                 if ( result == null )
+                    result = caseMasterAssigned ( deltaValue );
+                if ( result == null )
                     result = caseComponent ( deltaValue );
                 if ( result == null )
                     result = caseDocumentable ( deltaValue );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.MASTER_ASSIGNED:
+            {
+                MasterAssigned masterAssigned = (MasterAssigned)theEObject;
+                T result = caseMasterAssigned ( masterAssigned );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -1373,6 +1413,22 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDeltaValue ( DeltaValue object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Assigned</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Master Assigned</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMasterAssigned ( MasterAssigned object )
     {
         return null;
     }

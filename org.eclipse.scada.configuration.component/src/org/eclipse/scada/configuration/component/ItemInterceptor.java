@@ -12,8 +12,6 @@
 package org.eclipse.scada.configuration.component;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
@@ -24,7 +22,6 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.ItemInterceptor#getMasterOn <em>Master On</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ItemInterceptor#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
@@ -33,24 +30,8 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface ItemInterceptor extends EObject
+public interface ItemInterceptor extends MasterAssigned
 {
-
-    /**
-     * Returns the value of the '<em><b>Master On</b></em>' reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.MasterServer}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Master On</em>' reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Master On</em>' reference list.
-     * @see org.eclipse.scada.configuration.component.ComponentPackage#getItemInterceptor_MasterOn()
-     * @model
-     * @generated
-     */
-    EList<MasterServer> getMasterOn ();
 
     /**
      * Returns the value of the '<em><b>Properties</b></em>' containment reference list.

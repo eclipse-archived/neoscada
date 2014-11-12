@@ -229,9 +229,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="SummariesConfiguration" eSuperTypes="#//Configuration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemThreshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ItemInterceptor" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemInterceptor" abstract="true" interface="true"
+      eSuperTypes="#//MasterAssigned">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
         containment="true"/>
@@ -263,10 +262,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransientValue" eSuperTypes="#//SingleValue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="MasterComponent" eSuperTypes="#//DataComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MasterComponent" eSuperTypes="#//DataComponent #//MasterAssigned"/>
   <eClassifiers xsi:type="ecore:EClass" name="BufferedValue" eSuperTypes="#//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//InputDefinition"
@@ -317,5 +313,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="DeltaValue" eSuperTypes="#//SingleValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//InputDefinition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MasterAssigned" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
+import org.eclipse.scada.configuration.component.MasterAssigned;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.modbus.ModbusBlock;
 import org.eclipse.scada.configuration.modbus.ModbusDataType;
@@ -259,6 +260,8 @@ public class ModbusSwitch<T> extends Switch<T>
                 T result = caseModbusExporterInterceptor ( modbusExporterInterceptor );
                 if ( result == null )
                     result = caseItemInterceptor ( modbusExporterInterceptor );
+                if ( result == null )
+                    result = caseMasterAssigned ( modbusExporterInterceptor );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -648,6 +651,22 @@ public class ModbusSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSettings ( Settings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Assigned</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Master Assigned</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMasterAssigned ( MasterAssigned object )
     {
         return null;
     }

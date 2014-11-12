@@ -64,6 +64,7 @@ public class ComponentTests extends TestSuite
         suite.addTestSuite ( BufferedValueTest.class );
         suite.addTestSuite ( ChangeCounterTest.class );
         suite.addTestSuite ( MovingAverageModuleTest.class );
+        suite.addTestSuite ( DeltaValueTest.class );
         return suite;
     }
 

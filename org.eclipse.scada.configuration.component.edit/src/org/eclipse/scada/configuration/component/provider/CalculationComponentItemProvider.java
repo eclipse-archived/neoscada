@@ -140,10 +140,9 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
      */
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterComponent_masterOn_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterComponent_masterOn_feature", "_UI_MasterComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.MASTER_COMPONENT__MASTER_ON, true, false, true, null, getString ( "_UI_runtimePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterAssigned_masterOn_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterAssigned_masterOn_feature", "_UI_MasterAssigned_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, true, false, true, null, null, null ) );
     }
 
     /**

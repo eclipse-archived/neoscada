@@ -2832,6 +2832,43 @@ public interface ComponentPackage extends EPackage
     int SUMMARIES_CONFIGURATION_OPERATION_COUNT = CONFIGURATION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.MasterAssigned <em>Master Assigned</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.MasterAssigned
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getMasterAssigned()
+     * @generated
+     */
+    int MASTER_ASSIGNED = 44;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_ASSIGNED__MASTER_ON = 0;
+
+    /**
+     * The number of structural features of the '<em>Master Assigned</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_ASSIGNED_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Master Assigned</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_ASSIGNED_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.ItemInterceptor <em>Item Interceptor</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2848,7 +2885,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM_INTERCEPTOR__MASTER_ON = 0;
+    int ITEM_INTERCEPTOR__MASTER_ON = MASTER_ASSIGNED__MASTER_ON;
 
     /**
      * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -2857,7 +2894,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM_INTERCEPTOR__PROPERTIES = 1;
+    int ITEM_INTERCEPTOR__PROPERTIES = MASTER_ASSIGNED_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Item Interceptor</em>' class.
@@ -2866,7 +2903,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM_INTERCEPTOR_FEATURE_COUNT = 2;
+    int ITEM_INTERCEPTOR_FEATURE_COUNT = MASTER_ASSIGNED_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Item Interceptor</em>' class.
@@ -2875,7 +2912,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ITEM_INTERCEPTOR_OPERATION_COUNT = 0;
+    int ITEM_INTERCEPTOR_OPERATION_COUNT = MASTER_ASSIGNED_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl <em>Rest Interceptor</em>}' class.
@@ -3702,7 +3739,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 44;
+    int NOTIFICATION = 45;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -4870,17 +4907,6 @@ public interface ComponentPackage extends EPackage
     EClass getItemInterceptor ();
 
     /**
-     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.component.ItemInterceptor#getMasterOn <em>Master On</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Master On</em>'.
-     * @see org.eclipse.scada.configuration.component.ItemInterceptor#getMasterOn()
-     * @see #getItemInterceptor()
-     * @generated
-     */
-    EReference getItemInterceptor_MasterOn ();
-
-    /**
      * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.ItemInterceptor#getProperties <em>Properties</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5017,17 +5043,6 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EClass getMasterComponent ();
-
-    /**
-     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.component.MasterComponent#getMasterOn <em>Master On</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the reference list '<em>Master On</em>'.
-     * @see org.eclipse.scada.configuration.component.MasterComponent#getMasterOn()
-     * @see #getMasterComponent()
-     * @generated
-     */
-    EReference getMasterComponent_MasterOn ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.BufferedValue <em>Buffered Value</em>}'.
@@ -5244,6 +5259,27 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EReference getDeltaValue_Source ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.MasterAssigned <em>Master Assigned</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Master Assigned</em>'.
+     * @see org.eclipse.scada.configuration.component.MasterAssigned
+     * @generated
+     */
+    EClass getMasterAssigned ();
+
+    /**
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.component.MasterAssigned#getMasterOn <em>Master On</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Master On</em>'.
+     * @see org.eclipse.scada.configuration.component.MasterAssigned#getMasterOn()
+     * @see #getMasterAssigned()
+     * @generated
+     */
+    EReference getMasterAssigned_MasterOn ();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
@@ -6231,14 +6267,6 @@ public interface ComponentPackage extends EPackage
         EClass ITEM_INTERCEPTOR = eINSTANCE.getItemInterceptor ();
 
         /**
-         * The meta object literal for the '<em><b>Master On</b></em>' reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ITEM_INTERCEPTOR__MASTER_ON = eINSTANCE.getItemInterceptor_MasterOn ();
-
-        /**
          * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -6351,14 +6379,6 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EClass MASTER_COMPONENT = eINSTANCE.getMasterComponent ();
-
-        /**
-         * The meta object literal for the '<em><b>Master On</b></em>' reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference MASTER_COMPONENT__MASTER_ON = eINSTANCE.getMasterComponent_MasterOn ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl <em>Buffered Value</em>}' class.
@@ -6527,6 +6547,24 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference DELTA_VALUE__SOURCE = eINSTANCE.getDeltaValue_Source ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.MasterAssigned <em>Master Assigned</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.MasterAssigned
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getMasterAssigned()
+         * @generated
+         */
+        EClass MASTER_ASSIGNED = eINSTANCE.getMasterAssigned ();
+
+        /**
+         * The meta object literal for the '<em><b>Master On</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MASTER_ASSIGNED__MASTER_ON = eINSTANCE.getMasterAssigned_MasterOn ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

@@ -29,6 +29,7 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.Level;
+import org.eclipse.scada.configuration.component.MasterAssigned;
 import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
@@ -738,12 +739,20 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                     return -1;
             }
         }
-        if ( baseClass == MasterComponent.class )
+        if ( baseClass == MasterAssigned.class )
         {
             switch ( derivedFeatureID )
             {
                 case ComponentPackage.CALCULATION_COMPONENT__MASTER_ON:
-                    return ComponentPackage.MASTER_COMPONENT__MASTER_ON;
+                    return ComponentPackage.MASTER_ASSIGNED__MASTER_ON;
+                default:
+                    return -1;
+            }
+        }
+        if ( baseClass == MasterComponent.class )
+        {
+            switch ( derivedFeatureID )
+            {
                 default:
                     return -1;
             }
@@ -783,12 +792,20 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                     return -1;
             }
         }
+        if ( baseClass == MasterAssigned.class )
+        {
+            switch ( baseFeatureID )
+            {
+                case ComponentPackage.MASTER_ASSIGNED__MASTER_ON:
+                    return ComponentPackage.CALCULATION_COMPONENT__MASTER_ON;
+                default:
+                    return -1;
+            }
+        }
         if ( baseClass == MasterComponent.class )
         {
             switch ( baseFeatureID )
             {
-                case ComponentPackage.MASTER_COMPONENT__MASTER_ON:
-                    return ComponentPackage.CALCULATION_COMPONENT__MASTER_ON;
                 default:
                     return -1;
             }

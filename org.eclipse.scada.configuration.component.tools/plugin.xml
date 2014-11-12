@@ -179,10 +179,10 @@
                   operator="and">
                <or>
                   <instanceof
-                        value="org.eclipse.scada.configuration.component.MasterComponent">
+                        value="org.eclipse.scada.configuration.component.MasterAssigned">
                   </instanceof>
                   <adapt
-                        type="org.eclipse.scada.configuration.component.MasterComponent">
+                        type="org.eclipse.scada.configuration.component.MasterAssigned">
                   </adapt></or>
             </iterate>
          </with>

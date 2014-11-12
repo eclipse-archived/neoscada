@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
+import org.eclipse.scada.configuration.component.MasterAssigned;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.modbus.ModbusBlock;
 import org.eclipse.scada.configuration.modbus.ModbusDataType;
@@ -246,6 +247,12 @@ public class ModbusAdapterFactory extends AdapterFactoryImpl
         public Adapter caseSettings ( Settings object )
         {
             return createSettingsAdapter ();
+        }
+
+        @Override
+        public Adapter caseMasterAssigned ( MasterAssigned object )
+        {
+            return createMasterAssignedAdapter ();
         }
 
         @Override
@@ -673,6 +680,21 @@ public class ModbusAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSettingsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.MasterAssigned <em>Master Assigned</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.MasterAssigned
+     * @generated
+     */
+    public Adapter createMasterAssignedAdapter ()
     {
         return null;
     }

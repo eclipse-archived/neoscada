@@ -13,25 +13,19 @@ package org.eclipse.scada.configuration.component.tools.handler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.window.Window;
 import org.eclipse.scada.configuration.component.ComponentPackage;
-import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.ExternalValue;
-import org.eclipse.scada.configuration.component.lib.Worlds;
-import org.eclipse.scada.configuration.component.tools.Activator;
 import org.eclipse.scada.configuration.component.tools.dialog.DriverSelectionDialog;
 import org.eclipse.scada.configuration.component.tools.utils.CompoundManager;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.World;
-import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
 import org.eclipse.scada.ui.utils.SelectionHelper;
 
-public class SetConnectionHandler extends AbstractSelectionHandler
+public class SetConnectionHandler extends AbstractToolHandler
 {
 
     @Override
@@ -56,7 +50,7 @@ public class SetConnectionHandler extends AbstractSelectionHandler
 
     private Driver selectDriver () throws CoreException
     {
-        final World world = findWorld ();
+        final World world = findInfrastructureWorld ();
         if ( world == null )
         {
             return null;
@@ -71,25 +65,6 @@ public class SetConnectionHandler extends AbstractSelectionHandler
         {
             return null;
         }
-    }
-
-    private World findWorld () throws CoreException
-    {
-        ComponentWorld world = null;
-        for ( final ExternalValue v : SelectionHelper.iterable ( getSelection (), ExternalValue.class ) )
-        {
-            final ComponentWorld w = Worlds.findComponentWorld ( v );
-            if ( w == null )
-            {
-                throw new CoreException ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, String.format ( "Element does not belong to a component world: %s", v ) ) );
-            }
-            if ( world != null && w != world )
-            {
-                throw new CoreException ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, String.format ( "Elements belong to different component worlds. This is not supported for now.", v ) ) );
-            }
-            world = w;
-        }
-        return world.getInfrastructure ();
     }
 
     public void setConnection ( final Driver driver )

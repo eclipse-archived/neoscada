@@ -33,11 +33,9 @@ import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.da.server.osgi.modbus.RequestType;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.modbus.ModbusBlock} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusBlock} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -46,10 +44,9 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public ModbusBlockItemProvider ( final AdapterFactory adapterFactory )
+    public ModbusBlockItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -58,13 +55,12 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -77,19 +73,18 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
             addTimeoutPropertyDescriptor ( object );
             addTypePropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addTypePropertyDescriptor ( final Object object )
+    protected void addTypePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_type_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_type_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_type_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ModbusPackage.Literals.MODBUS_BLOCK__TYPE, true, false, true, null, null, null ) );
     }
@@ -104,8 +99,8 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
     protected void addBlockTypePropertyDescriptor ( final Object object )
     {
         this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_blockType_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_blockType_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ModbusPackage.Literals.MODBUS_BLOCK__BLOCK_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) {
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_blockType_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ModbusPackage.Literals.MODBUS_BLOCK__BLOCK_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) {
             @Override
             public Collection<?> getChoiceOfValues ( final Object object )
             {
@@ -118,12 +113,11 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This adds a property descriptor for the Start Address feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addStartAddressPropertyDescriptor ( final Object object )
+    protected void addStartAddressPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_startAddress_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_startAddress_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_startAddress_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ModbusPackage.Literals.MODBUS_BLOCK__START_ADDRESS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
@@ -132,12 +126,11 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This adds a property descriptor for the Count feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addCountPropertyDescriptor ( final Object object )
+    protected void addCountPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_count_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_count_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_count_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ModbusPackage.Literals.MODBUS_BLOCK__COUNT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
@@ -146,12 +139,11 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This adds a property descriptor for the Period feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addPeriodPropertyDescriptor ( final Object object )
+    protected void addPeriodPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_period_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_period_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_period_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ModbusPackage.Literals.MODBUS_BLOCK__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
@@ -160,12 +152,11 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This adds a property descriptor for the Timeout feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addTimeoutPropertyDescriptor ( final Object object )
+    protected void addTimeoutPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_timeout_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_timeout_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_timeout_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ModbusPackage.Literals.MODBUS_BLOCK__TIMEOUT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
@@ -174,12 +165,11 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This adds a property descriptor for the Id feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addIdPropertyDescriptor ( final Object object )
+    protected void addIdPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_id_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_id_feature" ), //$NON-NLS-1$
                 getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_id_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                 ModbusPackage.Literals.MODBUS_BLOCK__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
@@ -188,13 +178,12 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addNamePropertyDescriptor ( final Object object )
+    protected void addNamePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusBlock_name_feature", "_UI_ModbusBlock_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ModbusBlock_name_feature" ), //$NON-NLS-1$
+                getString ( "_UI_ModbusBlock_name_description" ), //$NON-NLS-1$
                 ModbusPackage.Literals.MODBUS_BLOCK__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
@@ -202,11 +191,10 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * This returns ModbusBlock.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ModbusBlock" ) ); //$NON-NLS-1$
     }
@@ -214,7 +202,6 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
@@ -245,17 +232,14 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -275,16 +259,14 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -293,13 +275,12 @@ public class ModbusBlockItemProvider extends ItemProviderAdapter implements IEdi
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

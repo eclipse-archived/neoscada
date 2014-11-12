@@ -15,27 +15,22 @@ import java.util.Collections;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.window.Window;
 import org.eclipse.scada.configuration.component.ComponentPackage;
-import org.eclipse.scada.configuration.component.ComponentWorld;
-import org.eclipse.scada.configuration.component.ExternalValue;
-import org.eclipse.scada.configuration.component.MasterComponent;
-import org.eclipse.scada.configuration.component.lib.Worlds;
-import org.eclipse.scada.configuration.component.tools.Activator;
+import org.eclipse.scada.configuration.component.MasterAssigned;
+import org.eclipse.scada.configuration.component.tools.MasterMode;
 import org.eclipse.scada.configuration.component.tools.dialog.MasterSelectionDialog;
 import org.eclipse.scada.configuration.component.tools.utils.CompoundManager;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.World;
-import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
 import org.eclipse.scada.ui.utils.SelectionHelper;
 
-public class SetMasterHandler extends AbstractSelectionHandler
+public class SetMasterHandler extends AbstractToolHandler
 {
 
     @Override
@@ -53,14 +48,14 @@ public class SetMasterHandler extends AbstractSelectionHandler
 
         if ( dlg != null )
         {
-            setMaster ( dlg.getMaster (), dlg.isReplace () );
+            setMaster ( dlg.getMaster (), dlg.getMode () );
         }
         return null;
     }
 
     private MasterSelectionDialog selectMaster () throws CoreException
     {
-        final World world = findWorld ();
+        final World world = findInfrastructureWorld ();
         if ( world == null )
         {
             return null;
@@ -77,30 +72,11 @@ public class SetMasterHandler extends AbstractSelectionHandler
         }
     }
 
-    private World findWorld () throws CoreException
-    {
-        ComponentWorld world = null;
-        for ( final ExternalValue v : SelectionHelper.iterable ( getSelection (), ExternalValue.class ) )
-        {
-            final ComponentWorld w = Worlds.findComponentWorld ( v );
-            if ( w == null )
-            {
-                throw new CoreException ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, String.format ( "Element does not belong to a component world: %s", v ) ) );
-            }
-            if ( world != null && w != world )
-            {
-                throw new CoreException ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, String.format ( "Elements belong to different component worlds. This is not supported for now.", v ) ) );
-            }
-            world = w;
-        }
-        return world.getInfrastructure ();
-    }
-
-    public void setMaster ( final MasterServer master, final boolean replace )
+    public void setMaster ( final MasterServer master, final MasterMode masterMode )
     {
         final CompoundManager manager = new CompoundManager ();
 
-        for ( final MasterComponent v : SelectionHelper.iterable ( getSelection (), MasterComponent.class ) )
+        for ( final MasterAssigned v : SelectionHelper.iterable ( getSelection (), MasterAssigned.class ) )
         {
             final EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor ( v );
             if ( domain == null )
@@ -108,14 +84,17 @@ public class SetMasterHandler extends AbstractSelectionHandler
                 continue;
             }
 
-            if ( replace )
+            switch ( masterMode )
             {
-                manager.append ( domain, SetCommand.create ( domain, v, ComponentPackage.Literals.MASTER_COMPONENT__MASTER_ON, Collections.singletonList ( master ) ) );
-
-            }
-            else
-            {
-                manager.append ( domain, AddCommand.create ( domain, v, ComponentPackage.Literals.MASTER_COMPONENT__MASTER_ON, master ) );
+                case ADD:
+                    manager.append ( domain, AddCommand.create ( domain, v, ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, master ) );
+                    break;
+                case REPLACE:
+                    manager.append ( domain, SetCommand.create ( domain, v, ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, Collections.singletonList ( master ) ) );
+                    break;
+                case DELETE:
+                    manager.append ( domain, RemoveCommand.create ( domain, v, ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, master ) );
+                    break;
             }
         }
 

@@ -30,6 +30,7 @@ import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+import org.eclipse.scada.configuration.component.tools.MasterMode;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
@@ -53,7 +54,9 @@ public class MasterSelectionDialog extends TitleAreaDialog
 
     private Button replace;
 
-    private boolean replaceValue;
+    private MasterMode mode;
+
+    private Button delete;
 
     public MasterSelectionDialog ( final Shell parentShell, final World world )
     {
@@ -110,6 +113,10 @@ public class MasterSelectionDialog extends TitleAreaDialog
         this.replace.setToolTipText ( "Assign the component soley to the selected master server" );
         this.replace.setSelection ( true );
 
+        this.delete = new Button ( wrapper, SWT.RADIO );
+        this.delete.setText ( "Remove master server" );
+        this.delete.setToolTipText ( "Un-assign the component from the selected master server" );
+
         mgr.runAndCollect ( new Runnable () {
 
             @Override
@@ -122,15 +129,16 @@ public class MasterSelectionDialog extends TitleAreaDialog
         return composite;
     }
 
-    public boolean isReplace ()
+    public MasterMode getMode ()
     {
-        return this.replaceValue;
+        return this.mode;
     }
 
     protected void handleDoubleClick ()
     {
         if ( getMaster () != null )
         {
+            updateMode ();
             setReturnCode ( OK );
             close ();
         }
@@ -139,8 +147,24 @@ public class MasterSelectionDialog extends TitleAreaDialog
     @Override
     protected void okPressed ()
     {
-        this.replaceValue = this.replace.getSelection ();
+        updateMode ();
         super.okPressed ();
+    }
+
+    protected void updateMode ()
+    {
+        if ( this.replace.getSelection () )
+        {
+            this.mode = MasterMode.REPLACE;
+        }
+        else if ( this.delete.getSelection () )
+        {
+            this.mode = MasterMode.DELETE;
+        }
+        else
+        {
+            this.mode = MasterMode.ADD;
+        }
     }
 
     protected void createDataModel ( final TreeViewer viewer )

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.MasterAssigned;
 import org.eclipse.scada.configuration.component.MasterComponent;
 
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
@@ -150,6 +151,48 @@ public class MasterComponentImpl extends DataComponentImpl implements MasterComp
                 return masterOn != null && !masterOn.isEmpty ();
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
+    {
+        if ( baseClass == MasterAssigned.class )
+        {
+            switch ( derivedFeatureID )
+            {
+                case ComponentPackage.MASTER_COMPONENT__MASTER_ON:
+                    return ComponentPackage.MASTER_ASSIGNED__MASTER_ON;
+                default:
+                    return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID ( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
+    {
+        if ( baseClass == MasterAssigned.class )
+        {
+            switch ( baseFeatureID )
+            {
+                case ComponentPackage.MASTER_ASSIGNED__MASTER_ON:
+                    return ComponentPackage.MASTER_COMPONENT__MASTER_ON;
+                default:
+                    return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID ( baseFeatureID, baseClass );
     }
 
 } //MasterComponentImpl

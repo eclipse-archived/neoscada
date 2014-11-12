@@ -52,6 +52,7 @@ import org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.MarkerConfiguration;
+import org.eclipse.scada.configuration.component.MasterAssigned;
 import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.MovingAverageModule;
@@ -76,7 +77,6 @@ import org.eclipse.scada.utils.ecore.validation.ExtensibleValidationDescriptor;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class ComponentPackageImpl extends EPackageImpl implements ComponentPackage
@@ -84,7 +84,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass componentWorldEClass = null;
@@ -92,7 +91,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass levelEClass = null;
@@ -100,7 +98,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass componentEClass = null;
@@ -108,7 +105,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass dataComponentEClass = null;
@@ -116,7 +112,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass configurationEClass = null;
@@ -124,7 +119,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass constantValueEClass = null;
@@ -132,7 +126,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass markerConfigurationEClass = null;
@@ -140,7 +133,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass serviceEClass = null;
@@ -148,7 +140,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass persistentValueEClass = null;
@@ -156,7 +147,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass driverConnectionAnalyzerEClass = null;
@@ -164,7 +154,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass masterImportConnectionAnalyzerEClass = null;
@@ -172,7 +161,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass singleValueEClass = null;
@@ -180,7 +168,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass dataMapperAnalyzerEClass = null;
@@ -188,7 +175,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass dataMapperServiceEClass = null;
@@ -196,7 +182,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass mappedSourceValueEClass = null;
@@ -204,7 +189,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass calculationComponentEClass = null;
@@ -212,7 +196,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass calculationModuleEClass = null;
@@ -220,7 +203,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass inputSpecificationEClass = null;
@@ -228,7 +210,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass outputSpecificationEClass = null;
@@ -236,7 +217,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass outputDefinitionEClass = null;
@@ -244,7 +224,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass itemReferenceInputDefinitionEClass = null;
@@ -252,7 +231,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass itemReferenceOutputDefinitionEClass = null;
@@ -260,7 +238,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass inputDefinitionEClass = null;
@@ -268,7 +245,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass componentReferenceInputDefinitionEClass = null;
@@ -276,7 +252,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass formulaModuleEClass = null;
@@ -284,7 +259,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass averageModuleEClass = null;
@@ -292,7 +266,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass danglingItemReferenceEClass = null;
@@ -300,7 +273,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass scriptModuleEClass = null;
@@ -308,7 +280,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass scriptEClass = null;
@@ -316,7 +287,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass timerScriptEClass = null;
@@ -324,7 +294,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass absoluteDanglingReferenceEClass = null;
@@ -332,7 +301,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass componentDanglingReferenceEClass = null;
@@ -340,7 +308,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass externalValueEClass = null;
@@ -348,7 +315,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass summariesConfigurationEClass = null;
@@ -356,7 +322,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass itemInterceptorEClass = null;
@@ -364,7 +329,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass containerEClass = null;
@@ -372,7 +336,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass restInterceptorEClass = null;
@@ -380,7 +343,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass globalizeComponentEClass = null;
@@ -388,7 +350,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass transientValueEClass = null;
@@ -396,7 +357,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass masterComponentEClass = null;
@@ -404,7 +364,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass bufferedValueEClass = null;
@@ -412,7 +371,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass changeCounterEClass = null;
@@ -420,7 +378,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass movingAverageModuleEClass = null;
@@ -428,7 +385,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private EClass deltaValueEClass = null;
@@ -436,7 +392,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * @generated
+     */
+    private EClass masterAssignedEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     private EDataType notificationEDataType = null;
@@ -465,7 +427,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private static boolean isInited = false;
@@ -526,1759 +487,1610 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getComponentWorld ()
     {
-        return this.componentWorldEClass;
+        return componentWorldEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponentWorld_Levels ()
     {
-        return (EReference)this.componentWorldEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponentWorld_Configurations ()
     {
-        return (EReference)this.componentWorldEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponentWorld_Services ()
     {
-        return (EReference)this.componentWorldEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponentWorld_Infrastructure ()
     {
-        return (EReference)this.componentWorldEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponentWorld_DefaultCustomizationPipeline ()
     {
-        return (EReference)this.componentWorldEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponentWorld_DefaultArchiveSelector ()
     {
-        return (EReference)this.componentWorldEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getLevel ()
     {
-        return this.levelEClass;
+        return levelEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getLevel_Components ()
     {
-        return (EReference)this.levelEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)levelEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getLevel_Name ()
     {
-        return (EAttribute)this.levelEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)levelEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getLevel_Description ()
     {
-        return (EAttribute)this.levelEClass.getEStructuralFeatures ().get ( 6 );
+        return (EAttribute)levelEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getLevel_Levels ()
     {
-        return (EReference)this.levelEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)levelEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getLevel_Parent ()
     {
-        return (EReference)this.levelEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)levelEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getLevel_CustomizationPipeline ()
     {
-        return (EReference)this.levelEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)levelEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getLevel_ArchiveSelector ()
     {
-        return (EReference)this.levelEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)levelEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getComponent ()
     {
-        return this.componentEClass;
+        return componentEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponent_Level ()
     {
-        return (EReference)this.componentEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)componentEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponent_CustomizationPipeline ()
     {
-        return (EReference)this.componentEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)componentEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponent_ArchiveSelector ()
     {
-        return (EReference)this.componentEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)componentEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponent_Properties ()
     {
-        return (EReference)this.componentEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)componentEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getDataComponent ()
     {
-        return this.dataComponentEClass;
+        return dataComponentEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getDataComponent__GetMasterOn ()
     {
-        return this.dataComponentEClass.getEOperations ().get ( 0 );
+        return dataComponentEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getConfiguration ()
     {
-        return this.configurationEClass;
+        return configurationEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getConstantValue ()
     {
-        return this.constantValueEClass;
+        return constantValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getConstantValue_Value ()
     {
-        return (EAttribute)this.constantValueEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)constantValueEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getMarkerConfiguration ()
     {
-        return this.markerConfigurationEClass;
+        return markerConfigurationEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getMarkerConfiguration_Markers ()
     {
-        return (EReference)this.markerConfigurationEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)markerConfigurationEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getService ()
     {
-        return this.serviceEClass;
+        return serviceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getPersistentValue ()
     {
-        return this.persistentValueEClass;
+        return persistentValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getDriverConnectionAnalyzer ()
     {
-        return this.driverConnectionAnalyzerEClass;
+        return driverConnectionAnalyzerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getDriverConnectionAnalyzer_Driver ()
     {
-        return (EReference)this.driverConnectionAnalyzerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)driverConnectionAnalyzerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getMasterImportConnectionAnalyzer ()
     {
-        return this.masterImportConnectionAnalyzerEClass;
+        return masterImportConnectionAnalyzerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getMasterImportConnectionAnalyzer_Connection ()
     {
-        return (EReference)this.masterImportConnectionAnalyzerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)masterImportConnectionAnalyzerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getSingleValue ()
     {
-        return this.singleValueEClass;
+        return singleValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getSingleValue_Name ()
     {
-        return (EAttribute)this.singleValueEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)singleValueEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getSingleValue_DataType ()
     {
-        return (EAttribute)this.singleValueEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)singleValueEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getSingleValue_CustomizationTags ()
     {
-        return (EAttribute)this.singleValueEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)singleValueEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getDataMapperAnalyzer ()
     {
-        return this.dataMapperAnalyzerEClass;
+        return dataMapperAnalyzerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getDataMapperAnalyzer_DataMapper ()
     {
-        return (EReference)this.dataMapperAnalyzerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)dataMapperAnalyzerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getDataMapperService ()
     {
-        return this.dataMapperServiceEClass;
+        return dataMapperServiceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getDataMapperService_DataMapper ()
     {
-        return (EReference)this.dataMapperServiceEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)dataMapperServiceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getDataMapperService_MasterOn ()
     {
-        return (EReference)this.dataMapperServiceEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)dataMapperServiceEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getMappedSourceValue ()
     {
-        return this.mappedSourceValueEClass;
+        return mappedSourceValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getMappedSourceValue_Mapper ()
     {
-        return (EReference)this.mappedSourceValueEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)mappedSourceValueEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getMappedSourceValue_Input ()
     {
-        return (EReference)this.mappedSourceValueEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)mappedSourceValueEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getCalculationComponent ()
     {
-        return this.calculationComponentEClass;
+        return calculationComponentEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getCalculationComponent_Implementation ()
     {
-        return (EReference)this.calculationComponentEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)calculationComponentEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getCalculationComponent_Outputs ()
     {
-        return (EReference)this.calculationComponentEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)calculationComponentEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getCalculationComponent_Inputs ()
     {
-        return (EReference)this.calculationComponentEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)calculationComponentEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getCalculationModule ()
     {
-        return this.calculationModuleEClass;
+        return calculationModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getCalculationModule_KnownInputs ()
     {
-        return (EReference)this.calculationModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)calculationModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getCalculationModule_KnownOutputs ()
     {
-        return (EReference)this.calculationModuleEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)calculationModuleEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getInputSpecification ()
     {
-        return this.inputSpecificationEClass;
+        return inputSpecificationEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getInputSpecification_Name ()
     {
-        return (EAttribute)this.inputSpecificationEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)inputSpecificationEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getOutputSpecification ()
     {
-        return this.outputSpecificationEClass;
+        return outputSpecificationEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getOutputSpecification_Name ()
     {
-        return (EAttribute)this.outputSpecificationEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)outputSpecificationEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getOutputSpecification_DataType ()
     {
-        return (EAttribute)this.outputSpecificationEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)outputSpecificationEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getOutputDefinition ()
     {
-        return this.outputDefinitionEClass;
+        return outputDefinitionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getOutputDefinition_Name ()
     {
-        return (EAttribute)this.outputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)outputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getOutputDefinition_LocalTag ()
     {
-        return (EAttribute)this.outputDefinitionEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)outputDefinitionEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getOutputDefinition_CustomizationTags ()
     {
-        return (EAttribute)this.outputDefinitionEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)outputDefinitionEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getOutputDefinition__CreateReference ()
     {
-        return this.outputDefinitionEClass.getEOperations ().get ( 0 );
+        return outputDefinitionEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getItemReferenceInputDefinition ()
     {
-        return this.itemReferenceInputDefinitionEClass;
+        return itemReferenceInputDefinitionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getItemReferenceInputDefinition_ItemId ()
     {
-        return (EAttribute)this.itemReferenceInputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)itemReferenceInputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getItemReferenceInputDefinition__CreateReference ()
     {
-        return this.itemReferenceInputDefinitionEClass.getEOperations ().get ( 0 );
+        return itemReferenceInputDefinitionEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getItemReferenceOutputDefinition ()
     {
-        return this.itemReferenceOutputDefinitionEClass;
+        return itemReferenceOutputDefinitionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getItemReferenceOutputDefinition_ItemId ()
     {
-        return (EAttribute)this.itemReferenceOutputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)itemReferenceOutputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getItemReferenceOutputDefinition__CreateReference ()
     {
-        return this.itemReferenceOutputDefinitionEClass.getEOperations ().get ( 0 );
+        return itemReferenceOutputDefinitionEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getInputDefinition ()
     {
-        return this.inputDefinitionEClass;
+        return inputDefinitionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getInputDefinition_Name ()
     {
-        return (EAttribute)this.inputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)inputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getInputDefinition__CreateReference ()
     {
-        return this.inputDefinitionEClass.getEOperations ().get ( 0 );
+        return inputDefinitionEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getComponentReferenceInputDefinition ()
     {
-        return this.componentReferenceInputDefinitionEClass;
+        return componentReferenceInputDefinitionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponentReferenceInputDefinition_Component ()
     {
-        return (EReference)this.componentReferenceInputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)componentReferenceInputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getComponentReferenceInputDefinition_LocalTag ()
     {
-        return (EAttribute)this.componentReferenceInputDefinitionEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)componentReferenceInputDefinitionEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getComponentReferenceInputDefinition__CreateReference ()
     {
-        return this.componentReferenceInputDefinitionEClass.getEOperations ().get ( 0 );
+        return componentReferenceInputDefinitionEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getFormulaModule ()
     {
-        return this.formulaModuleEClass;
+        return formulaModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getFormulaModule_Inputs ()
     {
-        return (EReference)this.formulaModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)formulaModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getFormulaModule_Update ()
     {
-        return (EReference)this.formulaModuleEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)formulaModuleEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getFormulaModule_ScriptEngine ()
     {
-        return (EAttribute)this.formulaModuleEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)formulaModuleEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getFormulaModule_Init ()
     {
-        return (EReference)this.formulaModuleEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)formulaModuleEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getFormulaModule__GetKnownInputs ()
     {
-        return this.formulaModuleEClass.getEOperations ().get ( 0 );
+        return formulaModuleEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getFormulaModule__CustomENotify__Notification ()
     {
-        return this.formulaModuleEClass.getEOperations ().get ( 1 );
+        return formulaModuleEClass.getEOperations ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getAverageModule ()
     {
-        return this.averageModuleEClass;
+        return averageModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getAverageModule_ValidSourcesRequired ()
     {
-        return (EAttribute)this.averageModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)averageModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getDanglingItemReference ()
     {
-        return this.danglingItemReferenceEClass;
+        return danglingItemReferenceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getScriptModule ()
     {
-        return this.scriptModuleEClass;
+        return scriptModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getScriptModule_Inputs ()
     {
-        return (EReference)this.scriptModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getScriptModule_Outputs ()
     {
-        return (EReference)this.scriptModuleEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getScriptModule_ScriptEngine ()
     {
-        return (EAttribute)this.scriptModuleEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)scriptModuleEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getScriptModule_InitScript ()
     {
-        return (EReference)this.scriptModuleEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getScriptModule_UpdateScript ()
     {
-        return (EReference)this.scriptModuleEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getScriptModule_WriteCommandScript ()
     {
-        return (EReference)this.scriptModuleEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getScriptModule_TimerScript ()
     {
-        return (EReference)this.scriptModuleEClass.getEStructuralFeatures ().get ( 6 );
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getScriptModule__GetKnownInputs ()
     {
-        return this.scriptModuleEClass.getEOperations ().get ( 0 );
+        return scriptModuleEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EOperation getScriptModule__GetKnownOutputs ()
     {
-        return this.scriptModuleEClass.getEOperations ().get ( 1 );
+        return scriptModuleEClass.getEOperations ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getScript ()
     {
-        return this.scriptEClass;
+        return scriptEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getScript_Code ()
     {
-        return (EAttribute)this.scriptEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)scriptEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getTimerScript ()
     {
-        return this.timerScriptEClass;
+        return timerScriptEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getTimerScript_Period ()
     {
-        return (EAttribute)this.timerScriptEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)timerScriptEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getTimerScript_Code ()
     {
-        return (EAttribute)this.timerScriptEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)timerScriptEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getAbsoluteDanglingReference ()
     {
-        return this.absoluteDanglingReferenceEClass;
+        return absoluteDanglingReferenceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getComponentDanglingReference ()
     {
-        return this.componentDanglingReferenceEClass;
+        return componentDanglingReferenceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getComponentDanglingReference_LocalTag ()
     {
-        return (EAttribute)this.componentDanglingReferenceEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)componentDanglingReferenceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getComponentDanglingReference_Component ()
     {
-        return (EReference)this.componentDanglingReferenceEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)componentDanglingReferenceEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getExternalValue ()
     {
-        return this.externalValueEClass;
+        return externalValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getExternalValue_Connection ()
     {
-        return (EReference)this.externalValueEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)externalValueEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getExternalValue_SourceName ()
     {
-        return (EAttribute)this.externalValueEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)externalValueEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getSummariesConfiguration ()
     {
-        return this.summariesConfigurationEClass;
+        return summariesConfigurationEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getSummariesConfiguration_ItemThreshold ()
     {
-        return (EAttribute)this.summariesConfigurationEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)summariesConfigurationEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getItemInterceptor ()
     {
-        return this.itemInterceptorEClass;
+        return itemInterceptorEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getItemInterceptor_MasterOn ()
-    {
-        return (EReference)this.itemInterceptorEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getItemInterceptor_Properties ()
     {
-        return (EReference)this.itemInterceptorEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)itemInterceptorEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getContainer ()
     {
-        return this.containerEClass;
+        return containerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getContainer_ItemInterceptors ()
     {
-        return (EReference)this.containerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)containerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getContainer_Properties ()
     {
-        return (EReference)this.containerEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)containerEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getRestInterceptor ()
     {
-        return this.restInterceptorEClass;
+        return restInterceptorEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getRestInterceptor_Selector ()
     {
-        return (EReference)this.restInterceptorEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)restInterceptorEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getRestInterceptor_Definition ()
     {
-        return (EReference)this.restInterceptorEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)restInterceptorEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getGlobalizeComponent ()
     {
-        return this.globalizeComponentEClass;
+        return globalizeComponentEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getGlobalizeComponent_Components ()
     {
-        return (EReference)this.globalizeComponentEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)globalizeComponentEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getGlobalizeComponent_SourceMaster ()
     {
-        return (EReference)this.globalizeComponentEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)globalizeComponentEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getGlobalizeComponent_MasterOn ()
     {
-        return (EReference)this.globalizeComponentEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)globalizeComponentEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getTransientValue ()
     {
-        return this.transientValueEClass;
+        return transientValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getMasterComponent ()
     {
-        return this.masterComponentEClass;
+        return masterComponentEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getMasterComponent_MasterOn ()
-    {
-        return (EReference)this.masterComponentEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getBufferedValue ()
     {
-        return this.bufferedValueEClass;
+        return bufferedValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getBufferedValue_Name ()
     {
-        return (EAttribute)this.bufferedValueEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)bufferedValueEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getBufferedValue_Input ()
     {
-        return (EReference)this.bufferedValueEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)bufferedValueEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getBufferedValue_Range ()
     {
-        return (EAttribute)this.bufferedValueEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)bufferedValueEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getBufferedValue_InitialValue ()
     {
-        return (EAttribute)this.bufferedValueEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)bufferedValueEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getBufferedValue_Persistence ()
     {
-        return (EAttribute)this.bufferedValueEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)bufferedValueEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getBufferedValue_Trigger ()
     {
-        return (EAttribute)this.bufferedValueEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)bufferedValueEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getBufferedValue_TriggerOnly ()
     {
-        return (EAttribute)this.bufferedValueEClass.getEStructuralFeatures ().get ( 6 );
+        return (EAttribute)bufferedValueEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getChangeCounter ()
     {
-        return this.changeCounterEClass;
+        return changeCounterEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getChangeCounter_Buffer ()
     {
-        return (EReference)this.changeCounterEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)changeCounterEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getChangeCounter_Type ()
     {
-        return (EAttribute)this.changeCounterEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)changeCounterEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getChangeCounter_Values ()
     {
-        return (EAttribute)this.changeCounterEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)changeCounterEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getChangeCounter_OnError ()
     {
-        return (EAttribute)this.changeCounterEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)changeCounterEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getMovingAverageModule ()
     {
-        return this.movingAverageModuleEClass;
+        return movingAverageModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getMovingAverageModule_NullRange ()
     {
-        return (EAttribute)this.movingAverageModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)movingAverageModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getMovingAverageModule_Range ()
     {
-        return (EAttribute)this.movingAverageModuleEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)movingAverageModuleEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getMovingAverageModule_Trigger ()
     {
-        return (EAttribute)this.movingAverageModuleEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)movingAverageModuleEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EAttribute getMovingAverageModule_TriggerOnly ()
     {
-        return (EAttribute)this.movingAverageModuleEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)movingAverageModuleEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EClass getDeltaValue ()
     {
-        return this.deltaValueEClass;
+        return deltaValueEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EReference getDeltaValue_Source ()
     {
-        return (EReference)this.deltaValueEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)deltaValueEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * @generated
+     */
+    public EClass getMasterAssigned ()
+    {
+        return masterAssignedEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getMasterAssigned_MasterOn ()
+    {
+        return (EReference)masterAssignedEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public EDataType getNotification ()
     {
-        return this.notificationEDataType;
+        return notificationEDataType;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
@@ -2290,244 +2102,237 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package. This method is
+     * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( this.isCreated )
-        {
+        if ( isCreated )
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.componentWorldEClass = createEClass ( COMPONENT_WORLD );
-        createEReference ( this.componentWorldEClass, COMPONENT_WORLD__LEVELS );
-        createEReference ( this.componentWorldEClass, COMPONENT_WORLD__CONFIGURATIONS );
-        createEReference ( this.componentWorldEClass, COMPONENT_WORLD__SERVICES );
-        createEReference ( this.componentWorldEClass, COMPONENT_WORLD__INFRASTRUCTURE );
-        createEReference ( this.componentWorldEClass, COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE );
-        createEReference ( this.componentWorldEClass, COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR );
+        componentWorldEClass = createEClass ( COMPONENT_WORLD );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__LEVELS );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__CONFIGURATIONS );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__SERVICES );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__INFRASTRUCTURE );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR );
 
-        this.levelEClass = createEClass ( LEVEL );
-        createEReference ( this.levelEClass, LEVEL__COMPONENTS );
-        createEReference ( this.levelEClass, LEVEL__LEVELS );
-        createEReference ( this.levelEClass, LEVEL__PARENT );
-        createEReference ( this.levelEClass, LEVEL__CUSTOMIZATION_PIPELINE );
-        createEReference ( this.levelEClass, LEVEL__ARCHIVE_SELECTOR );
-        createEAttribute ( this.levelEClass, LEVEL__NAME );
-        createEAttribute ( this.levelEClass, LEVEL__DESCRIPTION );
+        levelEClass = createEClass ( LEVEL );
+        createEReference ( levelEClass, LEVEL__COMPONENTS );
+        createEReference ( levelEClass, LEVEL__LEVELS );
+        createEReference ( levelEClass, LEVEL__PARENT );
+        createEReference ( levelEClass, LEVEL__CUSTOMIZATION_PIPELINE );
+        createEReference ( levelEClass, LEVEL__ARCHIVE_SELECTOR );
+        createEAttribute ( levelEClass, LEVEL__NAME );
+        createEAttribute ( levelEClass, LEVEL__DESCRIPTION );
 
-        this.componentEClass = createEClass ( COMPONENT );
-        createEReference ( this.componentEClass, COMPONENT__LEVEL );
-        createEReference ( this.componentEClass, COMPONENT__CUSTOMIZATION_PIPELINE );
-        createEReference ( this.componentEClass, COMPONENT__ARCHIVE_SELECTOR );
-        createEReference ( this.componentEClass, COMPONENT__PROPERTIES );
+        componentEClass = createEClass ( COMPONENT );
+        createEReference ( componentEClass, COMPONENT__LEVEL );
+        createEReference ( componentEClass, COMPONENT__CUSTOMIZATION_PIPELINE );
+        createEReference ( componentEClass, COMPONENT__ARCHIVE_SELECTOR );
+        createEReference ( componentEClass, COMPONENT__PROPERTIES );
 
-        this.dataComponentEClass = createEClass ( DATA_COMPONENT );
-        createEOperation ( this.dataComponentEClass, DATA_COMPONENT___GET_MASTER_ON );
+        dataComponentEClass = createEClass ( DATA_COMPONENT );
+        createEOperation ( dataComponentEClass, DATA_COMPONENT___GET_MASTER_ON );
 
-        this.configurationEClass = createEClass ( CONFIGURATION );
+        configurationEClass = createEClass ( CONFIGURATION );
 
-        this.constantValueEClass = createEClass ( CONSTANT_VALUE );
-        createEAttribute ( this.constantValueEClass, CONSTANT_VALUE__VALUE );
+        constantValueEClass = createEClass ( CONSTANT_VALUE );
+        createEAttribute ( constantValueEClass, CONSTANT_VALUE__VALUE );
 
-        this.markerConfigurationEClass = createEClass ( MARKER_CONFIGURATION );
-        createEReference ( this.markerConfigurationEClass, MARKER_CONFIGURATION__MARKERS );
+        markerConfigurationEClass = createEClass ( MARKER_CONFIGURATION );
+        createEReference ( markerConfigurationEClass, MARKER_CONFIGURATION__MARKERS );
 
-        this.serviceEClass = createEClass ( SERVICE );
+        serviceEClass = createEClass ( SERVICE );
 
-        this.persistentValueEClass = createEClass ( PERSISTENT_VALUE );
+        persistentValueEClass = createEClass ( PERSISTENT_VALUE );
 
-        this.driverConnectionAnalyzerEClass = createEClass ( DRIVER_CONNECTION_ANALYZER );
-        createEReference ( this.driverConnectionAnalyzerEClass, DRIVER_CONNECTION_ANALYZER__DRIVER );
+        driverConnectionAnalyzerEClass = createEClass ( DRIVER_CONNECTION_ANALYZER );
+        createEReference ( driverConnectionAnalyzerEClass, DRIVER_CONNECTION_ANALYZER__DRIVER );
 
-        this.masterImportConnectionAnalyzerEClass = createEClass ( MASTER_IMPORT_CONNECTION_ANALYZER );
-        createEReference ( this.masterImportConnectionAnalyzerEClass, MASTER_IMPORT_CONNECTION_ANALYZER__CONNECTION );
+        masterImportConnectionAnalyzerEClass = createEClass ( MASTER_IMPORT_CONNECTION_ANALYZER );
+        createEReference ( masterImportConnectionAnalyzerEClass, MASTER_IMPORT_CONNECTION_ANALYZER__CONNECTION );
 
-        this.singleValueEClass = createEClass ( SINGLE_VALUE );
-        createEAttribute ( this.singleValueEClass, SINGLE_VALUE__NAME );
-        createEAttribute ( this.singleValueEClass, SINGLE_VALUE__DATA_TYPE );
-        createEAttribute ( this.singleValueEClass, SINGLE_VALUE__CUSTOMIZATION_TAGS );
+        singleValueEClass = createEClass ( SINGLE_VALUE );
+        createEAttribute ( singleValueEClass, SINGLE_VALUE__NAME );
+        createEAttribute ( singleValueEClass, SINGLE_VALUE__DATA_TYPE );
+        createEAttribute ( singleValueEClass, SINGLE_VALUE__CUSTOMIZATION_TAGS );
 
-        this.dataMapperAnalyzerEClass = createEClass ( DATA_MAPPER_ANALYZER );
-        createEReference ( this.dataMapperAnalyzerEClass, DATA_MAPPER_ANALYZER__DATA_MAPPER );
+        dataMapperAnalyzerEClass = createEClass ( DATA_MAPPER_ANALYZER );
+        createEReference ( dataMapperAnalyzerEClass, DATA_MAPPER_ANALYZER__DATA_MAPPER );
 
-        this.dataMapperServiceEClass = createEClass ( DATA_MAPPER_SERVICE );
-        createEReference ( this.dataMapperServiceEClass, DATA_MAPPER_SERVICE__DATA_MAPPER );
-        createEReference ( this.dataMapperServiceEClass, DATA_MAPPER_SERVICE__MASTER_ON );
+        dataMapperServiceEClass = createEClass ( DATA_MAPPER_SERVICE );
+        createEReference ( dataMapperServiceEClass, DATA_MAPPER_SERVICE__DATA_MAPPER );
+        createEReference ( dataMapperServiceEClass, DATA_MAPPER_SERVICE__MASTER_ON );
 
-        this.mappedSourceValueEClass = createEClass ( MAPPED_SOURCE_VALUE );
-        createEReference ( this.mappedSourceValueEClass, MAPPED_SOURCE_VALUE__MAPPER );
-        createEReference ( this.mappedSourceValueEClass, MAPPED_SOURCE_VALUE__INPUT );
+        mappedSourceValueEClass = createEClass ( MAPPED_SOURCE_VALUE );
+        createEReference ( mappedSourceValueEClass, MAPPED_SOURCE_VALUE__MAPPER );
+        createEReference ( mappedSourceValueEClass, MAPPED_SOURCE_VALUE__INPUT );
 
-        this.calculationComponentEClass = createEClass ( CALCULATION_COMPONENT );
-        createEReference ( this.calculationComponentEClass, CALCULATION_COMPONENT__IMPLEMENTATION );
-        createEReference ( this.calculationComponentEClass, CALCULATION_COMPONENT__OUTPUTS );
-        createEReference ( this.calculationComponentEClass, CALCULATION_COMPONENT__INPUTS );
+        calculationComponentEClass = createEClass ( CALCULATION_COMPONENT );
+        createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__IMPLEMENTATION );
+        createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__OUTPUTS );
+        createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__INPUTS );
 
-        this.calculationModuleEClass = createEClass ( CALCULATION_MODULE );
-        createEReference ( this.calculationModuleEClass, CALCULATION_MODULE__KNOWN_INPUTS );
-        createEReference ( this.calculationModuleEClass, CALCULATION_MODULE__KNOWN_OUTPUTS );
+        calculationModuleEClass = createEClass ( CALCULATION_MODULE );
+        createEReference ( calculationModuleEClass, CALCULATION_MODULE__KNOWN_INPUTS );
+        createEReference ( calculationModuleEClass, CALCULATION_MODULE__KNOWN_OUTPUTS );
 
-        this.inputSpecificationEClass = createEClass ( INPUT_SPECIFICATION );
-        createEAttribute ( this.inputSpecificationEClass, INPUT_SPECIFICATION__NAME );
+        inputSpecificationEClass = createEClass ( INPUT_SPECIFICATION );
+        createEAttribute ( inputSpecificationEClass, INPUT_SPECIFICATION__NAME );
 
-        this.outputSpecificationEClass = createEClass ( OUTPUT_SPECIFICATION );
-        createEAttribute ( this.outputSpecificationEClass, OUTPUT_SPECIFICATION__NAME );
-        createEAttribute ( this.outputSpecificationEClass, OUTPUT_SPECIFICATION__DATA_TYPE );
+        outputSpecificationEClass = createEClass ( OUTPUT_SPECIFICATION );
+        createEAttribute ( outputSpecificationEClass, OUTPUT_SPECIFICATION__NAME );
+        createEAttribute ( outputSpecificationEClass, OUTPUT_SPECIFICATION__DATA_TYPE );
 
-        this.outputDefinitionEClass = createEClass ( OUTPUT_DEFINITION );
-        createEAttribute ( this.outputDefinitionEClass, OUTPUT_DEFINITION__NAME );
-        createEAttribute ( this.outputDefinitionEClass, OUTPUT_DEFINITION__LOCAL_TAG );
-        createEAttribute ( this.outputDefinitionEClass, OUTPUT_DEFINITION__CUSTOMIZATION_TAGS );
-        createEOperation ( this.outputDefinitionEClass, OUTPUT_DEFINITION___CREATE_REFERENCE );
+        outputDefinitionEClass = createEClass ( OUTPUT_DEFINITION );
+        createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__NAME );
+        createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__LOCAL_TAG );
+        createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__CUSTOMIZATION_TAGS );
+        createEOperation ( outputDefinitionEClass, OUTPUT_DEFINITION___CREATE_REFERENCE );
 
-        this.itemReferenceInputDefinitionEClass = createEClass ( ITEM_REFERENCE_INPUT_DEFINITION );
-        createEAttribute ( this.itemReferenceInputDefinitionEClass, ITEM_REFERENCE_INPUT_DEFINITION__ITEM_ID );
-        createEOperation ( this.itemReferenceInputDefinitionEClass, ITEM_REFERENCE_INPUT_DEFINITION___CREATE_REFERENCE );
+        itemReferenceInputDefinitionEClass = createEClass ( ITEM_REFERENCE_INPUT_DEFINITION );
+        createEAttribute ( itemReferenceInputDefinitionEClass, ITEM_REFERENCE_INPUT_DEFINITION__ITEM_ID );
+        createEOperation ( itemReferenceInputDefinitionEClass, ITEM_REFERENCE_INPUT_DEFINITION___CREATE_REFERENCE );
 
-        this.itemReferenceOutputDefinitionEClass = createEClass ( ITEM_REFERENCE_OUTPUT_DEFINITION );
-        createEAttribute ( this.itemReferenceOutputDefinitionEClass, ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID );
-        createEOperation ( this.itemReferenceOutputDefinitionEClass, ITEM_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE );
+        itemReferenceOutputDefinitionEClass = createEClass ( ITEM_REFERENCE_OUTPUT_DEFINITION );
+        createEAttribute ( itemReferenceOutputDefinitionEClass, ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID );
+        createEOperation ( itemReferenceOutputDefinitionEClass, ITEM_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE );
 
-        this.inputDefinitionEClass = createEClass ( INPUT_DEFINITION );
-        createEAttribute ( this.inputDefinitionEClass, INPUT_DEFINITION__NAME );
-        createEOperation ( this.inputDefinitionEClass, INPUT_DEFINITION___CREATE_REFERENCE );
+        inputDefinitionEClass = createEClass ( INPUT_DEFINITION );
+        createEAttribute ( inputDefinitionEClass, INPUT_DEFINITION__NAME );
+        createEOperation ( inputDefinitionEClass, INPUT_DEFINITION___CREATE_REFERENCE );
 
-        this.componentReferenceInputDefinitionEClass = createEClass ( COMPONENT_REFERENCE_INPUT_DEFINITION );
-        createEReference ( this.componentReferenceInputDefinitionEClass, COMPONENT_REFERENCE_INPUT_DEFINITION__COMPONENT );
-        createEAttribute ( this.componentReferenceInputDefinitionEClass, COMPONENT_REFERENCE_INPUT_DEFINITION__LOCAL_TAG );
-        createEOperation ( this.componentReferenceInputDefinitionEClass, COMPONENT_REFERENCE_INPUT_DEFINITION___CREATE_REFERENCE );
+        componentReferenceInputDefinitionEClass = createEClass ( COMPONENT_REFERENCE_INPUT_DEFINITION );
+        createEReference ( componentReferenceInputDefinitionEClass, COMPONENT_REFERENCE_INPUT_DEFINITION__COMPONENT );
+        createEAttribute ( componentReferenceInputDefinitionEClass, COMPONENT_REFERENCE_INPUT_DEFINITION__LOCAL_TAG );
+        createEOperation ( componentReferenceInputDefinitionEClass, COMPONENT_REFERENCE_INPUT_DEFINITION___CREATE_REFERENCE );
 
-        this.formulaModuleEClass = createEClass ( FORMULA_MODULE );
-        createEReference ( this.formulaModuleEClass, FORMULA_MODULE__INPUTS );
-        createEReference ( this.formulaModuleEClass, FORMULA_MODULE__UPDATE );
-        createEAttribute ( this.formulaModuleEClass, FORMULA_MODULE__SCRIPT_ENGINE );
-        createEReference ( this.formulaModuleEClass, FORMULA_MODULE__INIT );
-        createEOperation ( this.formulaModuleEClass, FORMULA_MODULE___GET_KNOWN_INPUTS );
-        createEOperation ( this.formulaModuleEClass, FORMULA_MODULE___CUSTOM_ENOTIFY__NOTIFICATION );
+        formulaModuleEClass = createEClass ( FORMULA_MODULE );
+        createEReference ( formulaModuleEClass, FORMULA_MODULE__INPUTS );
+        createEReference ( formulaModuleEClass, FORMULA_MODULE__UPDATE );
+        createEAttribute ( formulaModuleEClass, FORMULA_MODULE__SCRIPT_ENGINE );
+        createEReference ( formulaModuleEClass, FORMULA_MODULE__INIT );
+        createEOperation ( formulaModuleEClass, FORMULA_MODULE___GET_KNOWN_INPUTS );
+        createEOperation ( formulaModuleEClass, FORMULA_MODULE___CUSTOM_ENOTIFY__NOTIFICATION );
 
-        this.averageModuleEClass = createEClass ( AVERAGE_MODULE );
-        createEAttribute ( this.averageModuleEClass, AVERAGE_MODULE__VALID_SOURCES_REQUIRED );
+        averageModuleEClass = createEClass ( AVERAGE_MODULE );
+        createEAttribute ( averageModuleEClass, AVERAGE_MODULE__VALID_SOURCES_REQUIRED );
 
-        this.danglingItemReferenceEClass = createEClass ( DANGLING_ITEM_REFERENCE );
+        danglingItemReferenceEClass = createEClass ( DANGLING_ITEM_REFERENCE );
 
-        this.scriptModuleEClass = createEClass ( SCRIPT_MODULE );
-        createEReference ( this.scriptModuleEClass, SCRIPT_MODULE__INPUTS );
-        createEReference ( this.scriptModuleEClass, SCRIPT_MODULE__OUTPUTS );
-        createEAttribute ( this.scriptModuleEClass, SCRIPT_MODULE__SCRIPT_ENGINE );
-        createEReference ( this.scriptModuleEClass, SCRIPT_MODULE__INIT_SCRIPT );
-        createEReference ( this.scriptModuleEClass, SCRIPT_MODULE__UPDATE_SCRIPT );
-        createEReference ( this.scriptModuleEClass, SCRIPT_MODULE__WRITE_COMMAND_SCRIPT );
-        createEReference ( this.scriptModuleEClass, SCRIPT_MODULE__TIMER_SCRIPT );
-        createEOperation ( this.scriptModuleEClass, SCRIPT_MODULE___GET_KNOWN_INPUTS );
-        createEOperation ( this.scriptModuleEClass, SCRIPT_MODULE___GET_KNOWN_OUTPUTS );
+        scriptModuleEClass = createEClass ( SCRIPT_MODULE );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__INPUTS );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__OUTPUTS );
+        createEAttribute ( scriptModuleEClass, SCRIPT_MODULE__SCRIPT_ENGINE );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__INIT_SCRIPT );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__UPDATE_SCRIPT );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__WRITE_COMMAND_SCRIPT );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__TIMER_SCRIPT );
+        createEOperation ( scriptModuleEClass, SCRIPT_MODULE___GET_KNOWN_INPUTS );
+        createEOperation ( scriptModuleEClass, SCRIPT_MODULE___GET_KNOWN_OUTPUTS );
 
-        this.scriptEClass = createEClass ( SCRIPT );
-        createEAttribute ( this.scriptEClass, SCRIPT__CODE );
+        scriptEClass = createEClass ( SCRIPT );
+        createEAttribute ( scriptEClass, SCRIPT__CODE );
 
-        this.timerScriptEClass = createEClass ( TIMER_SCRIPT );
-        createEAttribute ( this.timerScriptEClass, TIMER_SCRIPT__PERIOD );
-        createEAttribute ( this.timerScriptEClass, TIMER_SCRIPT__CODE );
+        timerScriptEClass = createEClass ( TIMER_SCRIPT );
+        createEAttribute ( timerScriptEClass, TIMER_SCRIPT__PERIOD );
+        createEAttribute ( timerScriptEClass, TIMER_SCRIPT__CODE );
 
-        this.absoluteDanglingReferenceEClass = createEClass ( ABSOLUTE_DANGLING_REFERENCE );
+        absoluteDanglingReferenceEClass = createEClass ( ABSOLUTE_DANGLING_REFERENCE );
 
-        this.componentDanglingReferenceEClass = createEClass ( COMPONENT_DANGLING_REFERENCE );
-        createEAttribute ( this.componentDanglingReferenceEClass, COMPONENT_DANGLING_REFERENCE__LOCAL_TAG );
-        createEReference ( this.componentDanglingReferenceEClass, COMPONENT_DANGLING_REFERENCE__COMPONENT );
+        componentDanglingReferenceEClass = createEClass ( COMPONENT_DANGLING_REFERENCE );
+        createEAttribute ( componentDanglingReferenceEClass, COMPONENT_DANGLING_REFERENCE__LOCAL_TAG );
+        createEReference ( componentDanglingReferenceEClass, COMPONENT_DANGLING_REFERENCE__COMPONENT );
 
-        this.externalValueEClass = createEClass ( EXTERNAL_VALUE );
-        createEReference ( this.externalValueEClass, EXTERNAL_VALUE__CONNECTION );
-        createEAttribute ( this.externalValueEClass, EXTERNAL_VALUE__SOURCE_NAME );
+        externalValueEClass = createEClass ( EXTERNAL_VALUE );
+        createEReference ( externalValueEClass, EXTERNAL_VALUE__CONNECTION );
+        createEAttribute ( externalValueEClass, EXTERNAL_VALUE__SOURCE_NAME );
 
-        this.summariesConfigurationEClass = createEClass ( SUMMARIES_CONFIGURATION );
-        createEAttribute ( this.summariesConfigurationEClass, SUMMARIES_CONFIGURATION__ITEM_THRESHOLD );
+        summariesConfigurationEClass = createEClass ( SUMMARIES_CONFIGURATION );
+        createEAttribute ( summariesConfigurationEClass, SUMMARIES_CONFIGURATION__ITEM_THRESHOLD );
 
-        this.itemInterceptorEClass = createEClass ( ITEM_INTERCEPTOR );
-        createEReference ( this.itemInterceptorEClass, ITEM_INTERCEPTOR__MASTER_ON );
-        createEReference ( this.itemInterceptorEClass, ITEM_INTERCEPTOR__PROPERTIES );
+        itemInterceptorEClass = createEClass ( ITEM_INTERCEPTOR );
+        createEReference ( itemInterceptorEClass, ITEM_INTERCEPTOR__PROPERTIES );
 
-        this.containerEClass = createEClass ( CONTAINER );
-        createEReference ( this.containerEClass, CONTAINER__ITEM_INTERCEPTORS );
-        createEReference ( this.containerEClass, CONTAINER__PROPERTIES );
+        containerEClass = createEClass ( CONTAINER );
+        createEReference ( containerEClass, CONTAINER__ITEM_INTERCEPTORS );
+        createEReference ( containerEClass, CONTAINER__PROPERTIES );
 
-        this.restInterceptorEClass = createEClass ( REST_INTERCEPTOR );
-        createEReference ( this.restInterceptorEClass, REST_INTERCEPTOR__SELECTOR );
-        createEReference ( this.restInterceptorEClass, REST_INTERCEPTOR__DEFINITION );
+        restInterceptorEClass = createEClass ( REST_INTERCEPTOR );
+        createEReference ( restInterceptorEClass, REST_INTERCEPTOR__SELECTOR );
+        createEReference ( restInterceptorEClass, REST_INTERCEPTOR__DEFINITION );
 
-        this.globalizeComponentEClass = createEClass ( GLOBALIZE_COMPONENT );
-        createEReference ( this.globalizeComponentEClass, GLOBALIZE_COMPONENT__COMPONENTS );
-        createEReference ( this.globalizeComponentEClass, GLOBALIZE_COMPONENT__SOURCE_MASTER );
-        createEReference ( this.globalizeComponentEClass, GLOBALIZE_COMPONENT__MASTER_ON );
+        globalizeComponentEClass = createEClass ( GLOBALIZE_COMPONENT );
+        createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__COMPONENTS );
+        createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__SOURCE_MASTER );
+        createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__MASTER_ON );
 
-        this.transientValueEClass = createEClass ( TRANSIENT_VALUE );
+        transientValueEClass = createEClass ( TRANSIENT_VALUE );
 
-        this.masterComponentEClass = createEClass ( MASTER_COMPONENT );
-        createEReference ( this.masterComponentEClass, MASTER_COMPONENT__MASTER_ON );
+        masterComponentEClass = createEClass ( MASTER_COMPONENT );
 
-        this.bufferedValueEClass = createEClass ( BUFFERED_VALUE );
-        createEAttribute ( this.bufferedValueEClass, BUFFERED_VALUE__NAME );
-        createEReference ( this.bufferedValueEClass, BUFFERED_VALUE__INPUT );
-        createEAttribute ( this.bufferedValueEClass, BUFFERED_VALUE__RANGE );
-        createEAttribute ( this.bufferedValueEClass, BUFFERED_VALUE__INITIAL_VALUE );
-        createEAttribute ( this.bufferedValueEClass, BUFFERED_VALUE__PERSISTENCE );
-        createEAttribute ( this.bufferedValueEClass, BUFFERED_VALUE__TRIGGER );
-        createEAttribute ( this.bufferedValueEClass, BUFFERED_VALUE__TRIGGER_ONLY );
+        bufferedValueEClass = createEClass ( BUFFERED_VALUE );
+        createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__NAME );
+        createEReference ( bufferedValueEClass, BUFFERED_VALUE__INPUT );
+        createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__RANGE );
+        createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__INITIAL_VALUE );
+        createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__PERSISTENCE );
+        createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__TRIGGER );
+        createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__TRIGGER_ONLY );
 
-        this.changeCounterEClass = createEClass ( CHANGE_COUNTER );
-        createEReference ( this.changeCounterEClass, CHANGE_COUNTER__BUFFER );
-        createEAttribute ( this.changeCounterEClass, CHANGE_COUNTER__TYPE );
-        createEAttribute ( this.changeCounterEClass, CHANGE_COUNTER__VALUES );
-        createEAttribute ( this.changeCounterEClass, CHANGE_COUNTER__ON_ERROR );
+        changeCounterEClass = createEClass ( CHANGE_COUNTER );
+        createEReference ( changeCounterEClass, CHANGE_COUNTER__BUFFER );
+        createEAttribute ( changeCounterEClass, CHANGE_COUNTER__TYPE );
+        createEAttribute ( changeCounterEClass, CHANGE_COUNTER__VALUES );
+        createEAttribute ( changeCounterEClass, CHANGE_COUNTER__ON_ERROR );
 
-        this.movingAverageModuleEClass = createEClass ( MOVING_AVERAGE_MODULE );
-        createEAttribute ( this.movingAverageModuleEClass, MOVING_AVERAGE_MODULE__NULL_RANGE );
-        createEAttribute ( this.movingAverageModuleEClass, MOVING_AVERAGE_MODULE__RANGE );
-        createEAttribute ( this.movingAverageModuleEClass, MOVING_AVERAGE_MODULE__TRIGGER );
-        createEAttribute ( this.movingAverageModuleEClass, MOVING_AVERAGE_MODULE__TRIGGER_ONLY );
+        movingAverageModuleEClass = createEClass ( MOVING_AVERAGE_MODULE );
+        createEAttribute ( movingAverageModuleEClass, MOVING_AVERAGE_MODULE__NULL_RANGE );
+        createEAttribute ( movingAverageModuleEClass, MOVING_AVERAGE_MODULE__RANGE );
+        createEAttribute ( movingAverageModuleEClass, MOVING_AVERAGE_MODULE__TRIGGER );
+        createEAttribute ( movingAverageModuleEClass, MOVING_AVERAGE_MODULE__TRIGGER_ONLY );
 
-        this.deltaValueEClass = createEClass ( DELTA_VALUE );
-        createEReference ( this.deltaValueEClass, DELTA_VALUE__SOURCE );
+        deltaValueEClass = createEClass ( DELTA_VALUE );
+        createEReference ( deltaValueEClass, DELTA_VALUE__SOURCE );
+
+        masterAssignedEClass = createEClass ( MASTER_ASSIGNED );
+        createEReference ( masterAssignedEClass, MASTER_ASSIGNED__MASTER_ON );
 
         // Create data types
-        this.notificationEDataType = createEDataType ( NOTIFICATION );
+        notificationEDataType = createEDataType ( NOTIFICATION );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model. This
+     * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( this.isInitialized )
-        {
+        if ( isInitialized )
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -2535,258 +2340,261 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        final InfrastructurePackage theInfrastructurePackage = (InfrastructurePackage)EPackage.Registry.INSTANCE.getEPackage ( InfrastructurePackage.eNS_URI );
-        final ItemPackage theItemPackage = (ItemPackage)EPackage.Registry.INSTANCE.getEPackage ( ItemPackage.eNS_URI );
-        final WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
-        final OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
+        InfrastructurePackage theInfrastructurePackage = (InfrastructurePackage)EPackage.Registry.INSTANCE.getEPackage ( InfrastructurePackage.eNS_URI );
+        ItemPackage theItemPackage = (ItemPackage)EPackage.Registry.INSTANCE.getEPackage ( ItemPackage.eNS_URI );
+        WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.componentWorldEClass.getESuperTypes ().add ( getContainer () );
-        this.levelEClass.getESuperTypes ().add ( getContainer () );
-        this.componentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        this.dataComponentEClass.getESuperTypes ().add ( getComponent () );
-        this.constantValueEClass.getESuperTypes ().add ( getSingleValue () );
-        this.markerConfigurationEClass.getESuperTypes ().add ( getConfiguration () );
-        this.persistentValueEClass.getESuperTypes ().add ( getSingleValue () );
-        this.driverConnectionAnalyzerEClass.getESuperTypes ().add ( getMasterComponent () );
-        this.masterImportConnectionAnalyzerEClass.getESuperTypes ().add ( getMasterComponent () );
-        this.singleValueEClass.getESuperTypes ().add ( getMasterComponent () );
-        this.dataMapperAnalyzerEClass.getESuperTypes ().add ( getMasterComponent () );
-        this.dataMapperServiceEClass.getESuperTypes ().add ( getService () );
-        this.mappedSourceValueEClass.getESuperTypes ().add ( getSingleValue () );
-        this.calculationComponentEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
-        this.calculationComponentEClass.getESuperTypes ().add ( getMasterComponent () );
-        this.calculationModuleEClass.getESuperTypes ().add ( getService () );
-        this.itemReferenceInputDefinitionEClass.getESuperTypes ().add ( getInputDefinition () );
-        this.itemReferenceOutputDefinitionEClass.getESuperTypes ().add ( getOutputDefinition () );
-        this.componentReferenceInputDefinitionEClass.getESuperTypes ().add ( getInputDefinition () );
-        this.formulaModuleEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
-        this.formulaModuleEClass.getESuperTypes ().add ( getCalculationModule () );
-        this.averageModuleEClass.getESuperTypes ().add ( getCalculationModule () );
-        this.danglingItemReferenceEClass.getESuperTypes ().add ( theOsgiPackage.getItem () );
-        this.scriptModuleEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
-        this.scriptModuleEClass.getESuperTypes ().add ( getCalculationModule () );
-        this.absoluteDanglingReferenceEClass.getESuperTypes ().add ( getDanglingItemReference () );
-        this.componentDanglingReferenceEClass.getESuperTypes ().add ( getDanglingItemReference () );
-        this.externalValueEClass.getESuperTypes ().add ( getSingleValue () );
-        this.summariesConfigurationEClass.getESuperTypes ().add ( getConfiguration () );
-        this.restInterceptorEClass.getESuperTypes ().add ( getItemInterceptor () );
-        this.globalizeComponentEClass.getESuperTypes ().add ( getDataComponent () );
-        this.globalizeComponentEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
-        this.transientValueEClass.getESuperTypes ().add ( getSingleValue () );
-        this.masterComponentEClass.getESuperTypes ().add ( getDataComponent () );
-        this.bufferedValueEClass.getESuperTypes ().add ( getMasterComponent () );
-        this.changeCounterEClass.getESuperTypes ().add ( getSingleValue () );
-        this.movingAverageModuleEClass.getESuperTypes ().add ( getCalculationModule () );
-        this.deltaValueEClass.getESuperTypes ().add ( getSingleValue () );
+        componentWorldEClass.getESuperTypes ().add ( this.getContainer () );
+        levelEClass.getESuperTypes ().add ( this.getContainer () );
+        componentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        dataComponentEClass.getESuperTypes ().add ( this.getComponent () );
+        constantValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        markerConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
+        persistentValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        driverConnectionAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        masterImportConnectionAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        singleValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        dataMapperAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        dataMapperServiceEClass.getESuperTypes ().add ( this.getService () );
+        mappedSourceValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        calculationComponentEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        calculationComponentEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        calculationModuleEClass.getESuperTypes ().add ( this.getService () );
+        itemReferenceInputDefinitionEClass.getESuperTypes ().add ( this.getInputDefinition () );
+        itemReferenceOutputDefinitionEClass.getESuperTypes ().add ( this.getOutputDefinition () );
+        componentReferenceInputDefinitionEClass.getESuperTypes ().add ( this.getInputDefinition () );
+        formulaModuleEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        formulaModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
+        averageModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
+        danglingItemReferenceEClass.getESuperTypes ().add ( theOsgiPackage.getItem () );
+        scriptModuleEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        scriptModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
+        absoluteDanglingReferenceEClass.getESuperTypes ().add ( this.getDanglingItemReference () );
+        componentDanglingReferenceEClass.getESuperTypes ().add ( this.getDanglingItemReference () );
+        externalValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        summariesConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
+        itemInterceptorEClass.getESuperTypes ().add ( this.getMasterAssigned () );
+        restInterceptorEClass.getESuperTypes ().add ( this.getItemInterceptor () );
+        globalizeComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
+        globalizeComponentEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        transientValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        masterComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
+        masterComponentEClass.getESuperTypes ().add ( this.getMasterAssigned () );
+        bufferedValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        changeCounterEClass.getESuperTypes ().add ( this.getSingleValue () );
+        movingAverageModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
+        deltaValueEClass.getESuperTypes ().add ( this.getSingleValue () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( this.componentWorldEClass, ComponentWorld.class, "ComponentWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getComponentWorld_Levels (), getLevel (), null, "levels", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getComponentWorld_Configurations (), getConfiguration (), null, "configurations", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getComponentWorld_Services (), getService (), null, "services", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( componentWorldEClass, ComponentWorld.class, "ComponentWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_Levels (), this.getLevel (), null, "levels", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_Configurations (), this.getConfiguration (), null, "configurations", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_Services (), this.getService (), null, "services", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getComponentWorld_Infrastructure (), theInfrastructurePackage.getWorld (), null, "infrastructure", null, 1, 1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getComponentWorld_DefaultCustomizationPipeline (), theItemPackage.getCustomizationPipeline (), null, "defaultCustomizationPipeline", null, 0, 1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getComponentWorld_DefaultArchiveSelector (), theItemPackage.getSelector (), null, "defaultArchiveSelector", null, 0, 1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getLevel_Components (), getComponent (), getComponent_Level (), "components", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getLevel_Levels (), getLevel (), getLevel_Parent (), "levels", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getLevel_Parent (), getLevel (), getLevel_Levels (), "parent", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getLevel_Components (), this.getComponent (), this.getComponent_Level (), "components", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getLevel_Levels (), this.getLevel (), this.getLevel_Parent (), "levels", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getLevel_Parent (), this.getLevel (), this.getLevel_Levels (), "parent", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getLevel_CustomizationPipeline (), theItemPackage.getCustomizationPipeline (), null, "customizationPipeline", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getLevel_ArchiveSelector (), theItemPackage.getSelector (), null, "archiveSelector", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getLevel_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getLevel_Description (), this.ecorePackage.getEString (), "description", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getLevel_Name (), ecorePackage.getEString (), "name", null, 1, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getLevel_Description (), ecorePackage.getEString (), "description", null, 0, 1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getComponent_Level (), getLevel (), getLevel_Components (), "level", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getComponent_Level (), this.getLevel (), this.getLevel_Components (), "level", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getComponent_CustomizationPipeline (), theItemPackage.getCustomizationPipeline (), null, "customizationPipeline", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getComponent_ArchiveSelector (), theItemPackage.getSelector (), null, "archiveSelector", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getComponent_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.dataComponentEClass, DataComponent.class, "DataComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( dataComponentEClass, DataComponent.class, "DataComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         initEOperation ( getDataComponent__GetMasterOn (), theInfrastructurePackage.getMasterServer (), "getMasterOn", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.configurationEClass, Configuration.class, "Configuration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( configurationEClass, Configuration.class, "Configuration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.constantValueEClass, ConstantValue.class, "ConstantValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getConstantValue_Value (), this.ecorePackage.getEString (), "value", null, 0, 1, ConstantValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( constantValueEClass, ConstantValue.class, "ConstantValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getConstantValue_Value (), ecorePackage.getEString (), "value", null, 0, 1, ConstantValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.markerConfigurationEClass, MarkerConfiguration.class, "MarkerConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( markerConfigurationEClass, MarkerConfiguration.class, "MarkerConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getMarkerConfiguration_Markers (), theOsgiPackage.getMarkerEntry (), null, "markers", null, 0, -1, MarkerConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.serviceEClass, Service.class, "Service", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( serviceEClass, Service.class, "Service", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.persistentValueEClass, PersistentValue.class, "PersistentValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( persistentValueEClass, PersistentValue.class, "PersistentValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.driverConnectionAnalyzerEClass, DriverConnectionAnalyzer.class, "DriverConnectionAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( driverConnectionAnalyzerEClass, DriverConnectionAnalyzer.class, "DriverConnectionAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getDriverConnectionAnalyzer_Driver (), theInfrastructurePackage.getDriver (), null, "driver", null, 1, 1, DriverConnectionAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.masterImportConnectionAnalyzerEClass, MasterImportConnectionAnalyzer.class, "MasterImportConnectionAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( masterImportConnectionAnalyzerEClass, MasterImportConnectionAnalyzer.class, "MasterImportConnectionAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getMasterImportConnectionAnalyzer_Connection (), theInfrastructurePackage.getMasterImport (), null, "connection", null, 1, 1, MasterImportConnectionAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.singleValueEClass, SingleValue.class, "SingleValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getSingleValue_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( singleValueEClass, SingleValue.class, "SingleValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getSingleValue_Name (), ecorePackage.getEString (), "name", null, 1, 1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSingleValue_DataType (), theOsgiPackage.getDataType (), "dataType", null, 0, 1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSingleValue_CustomizationTags (), this.ecorePackage.getEString (), "customizationTags", null, 0, -1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSingleValue_CustomizationTags (), ecorePackage.getEString (), "customizationTags", null, 0, -1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.dataMapperAnalyzerEClass, DataMapperAnalyzer.class, "DataMapperAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getDataMapperAnalyzer_DataMapper (), getDataMapperService (), null, "dataMapper", null, 1, 1, DataMapperAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( dataMapperAnalyzerEClass, DataMapperAnalyzer.class, "DataMapperAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getDataMapperAnalyzer_DataMapper (), this.getDataMapperService (), null, "dataMapper", null, 1, 1, DataMapperAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.dataMapperServiceEClass, DataMapperService.class, "DataMapperService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( dataMapperServiceEClass, DataMapperService.class, "DataMapperService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getDataMapperService_DataMapper (), theOsgiPackage.getDataMapper (), null, "dataMapper", null, 1, 1, DataMapperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDataMapperService_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, DataMapperService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.mappedSourceValueEClass, MappedSourceValue.class, "MappedSourceValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getMappedSourceValue_Mapper (), getDataMapperService (), null, "mapper", null, 1, 1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getMappedSourceValue_Input (), getInputDefinition (), null, "input", null, 1, 1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( mappedSourceValueEClass, MappedSourceValue.class, "MappedSourceValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getMappedSourceValue_Mapper (), this.getDataMapperService (), null, "mapper", null, 1, 1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMappedSourceValue_Input (), this.getInputDefinition (), null, "input", null, 1, 1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.calculationComponentEClass, CalculationComponent.class, "CalculationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getCalculationComponent_Implementation (), getCalculationModule (), null, "implementation", null, 1, 1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getCalculationComponent_Outputs (), getOutputDefinition (), null, "outputs", null, 0, -1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getCalculationComponent_Inputs (), getInputDefinition (), null, "inputs", null, 0, -1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( calculationComponentEClass, CalculationComponent.class, "CalculationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getCalculationComponent_Implementation (), this.getCalculationModule (), null, "implementation", null, 1, 1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getCalculationComponent_Outputs (), this.getOutputDefinition (), null, "outputs", null, 0, -1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getCalculationComponent_Inputs (), this.getInputDefinition (), null, "inputs", null, 0, -1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.calculationModuleEClass, CalculationModule.class, "CalculationModule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getCalculationModule_KnownInputs (), getInputSpecification (), null, "knownInputs", null, 0, -1, CalculationModule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getCalculationModule_KnownOutputs (), getOutputSpecification (), null, "knownOutputs", null, 0, -1, CalculationModule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( calculationModuleEClass, CalculationModule.class, "CalculationModule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getCalculationModule_KnownInputs (), this.getInputSpecification (), null, "knownInputs", null, 0, -1, CalculationModule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getCalculationModule_KnownOutputs (), this.getOutputSpecification (), null, "knownOutputs", null, 0, -1, CalculationModule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.inputSpecificationEClass, InputSpecification.class, "InputSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getInputSpecification_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, InputSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( inputSpecificationEClass, InputSpecification.class, "InputSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getInputSpecification_Name (), ecorePackage.getEString (), "name", null, 1, 1, InputSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.outputSpecificationEClass, OutputSpecification.class, "OutputSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getOutputSpecification_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, OutputSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( outputSpecificationEClass, OutputSpecification.class, "OutputSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getOutputSpecification_Name (), ecorePackage.getEString (), "name", null, 1, 1, OutputSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getOutputSpecification_DataType (), theOsgiPackage.getDataType (), "dataType", "VARIANT", 1, 1, OutputSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.outputDefinitionEClass, OutputDefinition.class, "OutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getOutputDefinition_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getOutputDefinition_LocalTag (), this.ecorePackage.getEString (), "localTag", null, 1, -1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getOutputDefinition_CustomizationTags (), this.ecorePackage.getEString (), "customizationTags", null, 0, -1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( outputDefinitionEClass, OutputDefinition.class, "OutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getOutputDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getOutputDefinition_LocalTag (), ecorePackage.getEString (), "localTag", null, 1, -1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getOutputDefinition_CustomizationTags (), ecorePackage.getEString (), "customizationTags", null, 0, -1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getOutputDefinition__CreateReference (), getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getOutputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.itemReferenceInputDefinitionEClass, ItemReferenceInputDefinition.class, "ItemReferenceInputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getItemReferenceInputDefinition_ItemId (), this.ecorePackage.getEString (), "itemId", null, 1, 1, ItemReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( itemReferenceInputDefinitionEClass, ItemReferenceInputDefinition.class, "ItemReferenceInputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getItemReferenceInputDefinition_ItemId (), ecorePackage.getEString (), "itemId", null, 1, 1, ItemReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getItemReferenceInputDefinition__CreateReference (), getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getItemReferenceInputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.itemReferenceOutputDefinitionEClass, ItemReferenceOutputDefinition.class, "ItemReferenceOutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getItemReferenceOutputDefinition_ItemId (), this.ecorePackage.getEString (), "itemId", null, 1, 1, ItemReferenceOutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( itemReferenceOutputDefinitionEClass, ItemReferenceOutputDefinition.class, "ItemReferenceOutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getItemReferenceOutputDefinition_ItemId (), ecorePackage.getEString (), "itemId", null, 1, 1, ItemReferenceOutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getItemReferenceOutputDefinition__CreateReference (), getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getItemReferenceOutputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.inputDefinitionEClass, InputDefinition.class, "InputDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getInputDefinition_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, InputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( inputDefinitionEClass, InputDefinition.class, "InputDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getInputDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, InputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getInputDefinition__CreateReference (), getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getInputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.componentReferenceInputDefinitionEClass, ComponentReferenceInputDefinition.class, "ComponentReferenceInputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getComponentReferenceInputDefinition_Component (), getComponent (), null, "component", null, 1, 1, ComponentReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getComponentReferenceInputDefinition_LocalTag (), this.ecorePackage.getEString (), "localTag", null, 1, -1, ComponentReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( componentReferenceInputDefinitionEClass, ComponentReferenceInputDefinition.class, "ComponentReferenceInputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getComponentReferenceInputDefinition_Component (), this.getComponent (), null, "component", null, 1, 1, ComponentReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getComponentReferenceInputDefinition_LocalTag (), ecorePackage.getEString (), "localTag", null, 1, -1, ComponentReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getComponentReferenceInputDefinition__CreateReference (), getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getComponentReferenceInputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.formulaModuleEClass, FormulaModule.class, "FormulaModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getFormulaModule_Inputs (), getInputSpecification (), null, "inputs", null, 0, -1, FormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getFormulaModule_Update (), getScript (), null, "update", null, 0, 1, FormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFormulaModule_ScriptEngine (), this.ecorePackage.getEString (), "scriptEngine", "JavaScript", 1, 1, FormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEReference ( getFormulaModule_Init (), getScript (), null, "init", null, 0, -1, FormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( formulaModuleEClass, FormulaModule.class, "FormulaModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getFormulaModule_Inputs (), this.getInputSpecification (), null, "inputs", null, 0, -1, FormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getFormulaModule_Update (), this.getScript (), null, "update", null, 0, 1, FormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFormulaModule_ScriptEngine (), ecorePackage.getEString (), "scriptEngine", "JavaScript", 1, 1, FormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getFormulaModule_Init (), this.getScript (), null, "init", null, 0, -1, FormulaModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getFormulaModule__GetKnownInputs (), getInputSpecification (), "getKnownInputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getFormulaModule__GetKnownInputs (), this.getInputSpecification (), "getKnownInputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        final EOperation op = initEOperation ( getFormulaModule__CustomENotify__Notification (), null, "customENotify", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
-        addEParameter ( op, getNotification (), "notification", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        EOperation op = initEOperation ( getFormulaModule__CustomENotify__Notification (), null, "customENotify", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        addEParameter ( op, this.getNotification (), "notification", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.averageModuleEClass, AverageModule.class, "AverageModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getAverageModule_ValidSourcesRequired (), this.ecorePackage.getEString (), "validSourcesRequired", null, 1, 1, AverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( averageModuleEClass, AverageModule.class, "AverageModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAverageModule_ValidSourcesRequired (), ecorePackage.getEString (), "validSourcesRequired", null, 1, 1, AverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.danglingItemReferenceEClass, DanglingItemReference.class, "DanglingItemReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( danglingItemReferenceEClass, DanglingItemReference.class, "DanglingItemReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.scriptModuleEClass, ScriptModule.class, "ScriptModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getScriptModule_Inputs (), getInputSpecification (), null, "inputs", null, 0, -1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getScriptModule_Outputs (), getOutputSpecification (), null, "outputs", null, 0, -1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getScriptModule_ScriptEngine (), this.ecorePackage.getEString (), "scriptEngine", "JavaScript", 1, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEReference ( getScriptModule_InitScript (), getScript (), null, "initScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getScriptModule_UpdateScript (), getScript (), null, "updateScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getScriptModule_WriteCommandScript (), getScript (), null, "writeCommandScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getScriptModule_TimerScript (), getTimerScript (), null, "timerScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( scriptModuleEClass, ScriptModule.class, "ScriptModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getScriptModule_Inputs (), this.getInputSpecification (), null, "inputs", null, 0, -1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getScriptModule_Outputs (), this.getOutputSpecification (), null, "outputs", null, 0, -1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getScriptModule_ScriptEngine (), ecorePackage.getEString (), "scriptEngine", "JavaScript", 1, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getScriptModule_InitScript (), this.getScript (), null, "initScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getScriptModule_UpdateScript (), this.getScript (), null, "updateScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getScriptModule_WriteCommandScript (), this.getScript (), null, "writeCommandScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getScriptModule_TimerScript (), this.getTimerScript (), null, "timerScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getScriptModule__GetKnownInputs (), getInputSpecification (), "getKnownInputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getScriptModule__GetKnownInputs (), this.getInputSpecification (), "getKnownInputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getScriptModule__GetKnownOutputs (), getOutputSpecification (), "getKnownOutputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getScriptModule__GetKnownOutputs (), this.getOutputSpecification (), "getKnownOutputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getScript_Code (), this.ecorePackage.getEString (), "code", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getScript_Code (), ecorePackage.getEString (), "code", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.timerScriptEClass, TimerScript.class, "TimerScript", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getTimerScript_Period (), this.ecorePackage.getELong (), "period", "0", 1, 1, TimerScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getTimerScript_Code (), this.ecorePackage.getEString (), "code", null, 1, 1, TimerScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( timerScriptEClass, TimerScript.class, "TimerScript", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getTimerScript_Period (), ecorePackage.getELong (), "period", "0", 1, 1, TimerScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getTimerScript_Code (), ecorePackage.getEString (), "code", null, 1, 1, TimerScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.absoluteDanglingReferenceEClass, AbsoluteDanglingReference.class, "AbsoluteDanglingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( absoluteDanglingReferenceEClass, AbsoluteDanglingReference.class, "AbsoluteDanglingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.componentDanglingReferenceEClass, ComponentDanglingReference.class, "ComponentDanglingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getComponentDanglingReference_LocalTag (), this.ecorePackage.getEString (), "localTag", null, 1, -1, ComponentDanglingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getComponentDanglingReference_Component (), getComponent (), null, "component", null, 1, 1, ComponentDanglingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( componentDanglingReferenceEClass, ComponentDanglingReference.class, "ComponentDanglingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getComponentDanglingReference_LocalTag (), ecorePackage.getEString (), "localTag", null, 1, -1, ComponentDanglingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentDanglingReference_Component (), this.getComponent (), null, "component", null, 1, 1, ComponentDanglingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.externalValueEClass, ExternalValue.class, "ExternalValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( externalValueEClass, ExternalValue.class, "ExternalValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExternalValue_Connection (), theInfrastructurePackage.getDriver (), null, "connection", null, 1, 1, ExternalValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getExternalValue_SourceName (), this.ecorePackage.getEString (), "sourceName", null, 1, 1, ExternalValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getExternalValue_SourceName (), ecorePackage.getEString (), "sourceName", null, 1, 1, ExternalValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.summariesConfigurationEClass, SummariesConfiguration.class, "SummariesConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getSummariesConfiguration_ItemThreshold (), this.ecorePackage.getEIntegerObject (), "itemThreshold", null, 0, 1, SummariesConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( summariesConfigurationEClass, SummariesConfiguration.class, "SummariesConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getSummariesConfiguration_ItemThreshold (), ecorePackage.getEIntegerObject (), "itemThreshold", null, 0, 1, SummariesConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.itemInterceptorEClass, ItemInterceptor.class, "ItemInterceptor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getItemInterceptor_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, ItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( itemInterceptorEClass, ItemInterceptor.class, "ItemInterceptor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getItemInterceptor_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, ItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.containerEClass, org.eclipse.scada.configuration.component.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getContainer_ItemInterceptors (), getItemInterceptor (), null, "itemInterceptors", null, 0, -1, org.eclipse.scada.configuration.component.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( containerEClass, org.eclipse.scada.configuration.component.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getContainer_ItemInterceptors (), this.getItemInterceptor (), null, "itemInterceptors", null, 0, -1, org.eclipse.scada.configuration.component.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getContainer_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, org.eclipse.scada.configuration.component.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.restInterceptorEClass, RestInterceptor.class, "RestInterceptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( restInterceptorEClass, RestInterceptor.class, "RestInterceptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getRestInterceptor_Selector (), theItemPackage.getSelector (), null, "selector", null, 0, 1, RestInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getRestInterceptor_Definition (), theInfrastructurePackage.getRestExporterModule (), null, "definition", null, 1, 1, RestInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.globalizeComponentEClass, GlobalizeComponent.class, "GlobalizeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getGlobalizeComponent_Components (), getDataComponent (), null, "components", null, 0, -1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( globalizeComponentEClass, GlobalizeComponent.class, "GlobalizeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getGlobalizeComponent_Components (), this.getDataComponent (), null, "components", null, 0, -1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getGlobalizeComponent_SourceMaster (), theInfrastructurePackage.getMasterImport (), null, "sourceMaster", null, 1, 1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getGlobalizeComponent_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, GlobalizeComponent.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.transientValueEClass, TransientValue.class, "TransientValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( transientValueEClass, TransientValue.class, "TransientValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.masterComponentEClass, MasterComponent.class, "MasterComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getMasterComponent_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, MasterComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( masterComponentEClass, MasterComponent.class, "MasterComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.bufferedValueEClass, BufferedValue.class, "BufferedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getBufferedValue_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getBufferedValue_Input (), getInputDefinition (), null, "input", null, 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getBufferedValue_Range (), this.ecorePackage.getELong (), "range", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( bufferedValueEClass, BufferedValue.class, "BufferedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getBufferedValue_Name (), ecorePackage.getEString (), "name", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getBufferedValue_Input (), this.getInputDefinition (), null, "input", null, 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getBufferedValue_Range (), ecorePackage.getELong (), "range", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getBufferedValue_InitialValue (), theOsgiPackage.getVariant (), "initialValue", null, 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getBufferedValue_Persistence (), theOsgiPackage.getPersistence (), "persistence", "NONE", 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getBufferedValue_Trigger (), this.ecorePackage.getELong (), "trigger", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getBufferedValue_TriggerOnly (), this.ecorePackage.getEBoolean (), "triggerOnly", "false", 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getBufferedValue_Trigger (), ecorePackage.getELong (), "trigger", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getBufferedValue_TriggerOnly (), ecorePackage.getEBoolean (), "triggerOnly", "false", 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.changeCounterEClass, ChangeCounter.class, "ChangeCounter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getChangeCounter_Buffer (), getBufferedValue (), null, "buffer", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( changeCounterEClass, ChangeCounter.class, "ChangeCounter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getChangeCounter_Buffer (), this.getBufferedValue (), null, "buffer", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getChangeCounter_Type (), theOsgiPackage.getChangeType (), "type", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getChangeCounter_Values (), theOsgiPackage.getVariant (), "values", null, 0, -1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getChangeCounter_OnError (), theOsgiPackage.getErrorHandling (), "onError", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.movingAverageModuleEClass, MovingAverageModule.class, "MovingAverageModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getMovingAverageModule_NullRange (), this.ecorePackage.getELong (), "nullRange", "30", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getMovingAverageModule_Range (), this.ecorePackage.getELong (), "range", "60", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getMovingAverageModule_Trigger (), this.ecorePackage.getELong (), "trigger", "1", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getMovingAverageModule_TriggerOnly (), this.ecorePackage.getEBoolean (), "triggerOnly", "false", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( movingAverageModuleEClass, MovingAverageModule.class, "MovingAverageModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getMovingAverageModule_NullRange (), ecorePackage.getELong (), "nullRange", "30", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMovingAverageModule_Range (), ecorePackage.getELong (), "range", "60", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMovingAverageModule_Trigger (), ecorePackage.getELong (), "trigger", "1", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMovingAverageModule_TriggerOnly (), ecorePackage.getEBoolean (), "triggerOnly", "false", 1, 1, MovingAverageModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.deltaValueEClass, DeltaValue.class, "DeltaValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getDeltaValue_Source (), getInputDefinition (), null, "source", null, 1, 1, DeltaValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( deltaValueEClass, DeltaValue.class, "DeltaValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getDeltaValue_Source (), this.getInputDefinition (), null, "source", null, 1, 1, DeltaValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( masterAssignedEClass, MasterAssigned.class, "MasterAssigned", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getMasterAssigned_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, MasterAssigned.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
-        initEDataType ( this.notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );
@@ -2797,16 +2605,14 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     }
 
     /**
-     * Initializes the annotations for
-     * <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+     * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected void createExtendedMetaDataAnnotations ()
     {
-        final String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
         addAnnotation ( getGlobalizeComponent_Components (), source, new String[] { "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
         } );
     }

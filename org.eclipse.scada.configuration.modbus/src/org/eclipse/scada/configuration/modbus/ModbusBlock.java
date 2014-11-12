@@ -18,26 +18,18 @@ import org.eclipse.scada.da.server.osgi.modbus.RequestType;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Block</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getId <em>Id
- * </em>}</li>
- * <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getName <em>
- * Name</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getBlockType
- * <em>Block Type</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getStartAddress
- * <em>Start Address</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getCount <em>
- * Count</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getPeriod <em>
- * Period</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getTimeout <em>
- * Timeout</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getType <em>
- * Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getBlockType <em>Block Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getStartAddress <em>Start Address</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getCount <em>Count</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getTimeout <em>Timeout</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,7 +47,6 @@ public interface ModbusBlock extends EObject
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Type</em>' reference.
      * @see #setType(TypeDefinition)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_Type()
@@ -65,14 +56,10 @@ public interface ModbusBlock extends EObject
     TypeDefinition getType ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getType
-     * <em>Type</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getType <em>Type</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Type</em>' reference.
+     * @param value the new value of the '<em>Type</em>' reference.
      * @see #getType()
      * @generated
      */
@@ -86,25 +73,19 @@ public interface ModbusBlock extends EObject
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Block Type</em>' attribute.
      * @see #setBlockType(RequestType)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_BlockType()
-     * @model dataType="org.eclipse.scada.configuration.modbus.RequestType"
-     *        required="true"
+     * @model dataType="org.eclipse.scada.configuration.modbus.RequestType" required="true"
      * @generated
      */
     RequestType getBlockType ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getBlockType
-     * <em>Block Type</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getBlockType <em>Block Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Block Type</em>' attribute.
+     * @param value the new value of the '<em>Block Type</em>' attribute.
      * @see #getBlockType()
      * @generated
      */
@@ -121,7 +102,6 @@ public interface ModbusBlock extends EObject
      * <!-- begin-model-doc -->
      * The start register.
      * <!-- end-model-doc -->
-     * 
      * @return the value of the '<em>Start Address</em>' attribute.
      * @see #setStartAddress(int)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_StartAddress()
@@ -131,14 +111,10 @@ public interface ModbusBlock extends EObject
     int getStartAddress ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getStartAddress
-     * <em>Start Address</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getStartAddress <em>Start Address</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Start Address</em>' attribute.
+     * @param value the new value of the '<em>Start Address</em>' attribute.
      * @see #getStartAddress()
      * @generated
      */
@@ -155,7 +131,6 @@ public interface ModbusBlock extends EObject
      * <!-- begin-model-doc -->
      * The number of registers to read.
      * <!-- end-model-doc -->
-     * 
      * @return the value of the '<em>Count</em>' attribute.
      * @see #setCount(int)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_Count()
@@ -165,14 +140,10 @@ public interface ModbusBlock extends EObject
     int getCount ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getCount
-     * <em>Count</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getCount <em>Count</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Count</em>' attribute.
+     * @param value the new value of the '<em>Count</em>' attribute.
      * @see #getCount()
      * @generated
      */
@@ -186,7 +157,6 @@ public interface ModbusBlock extends EObject
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Period</em>' attribute.
      * @see #setPeriod(long)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_Period()
@@ -196,14 +166,10 @@ public interface ModbusBlock extends EObject
     long getPeriod ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getPeriod
-     * <em>Period</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getPeriod <em>Period</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Period</em>' attribute.
+     * @param value the new value of the '<em>Period</em>' attribute.
      * @see #getPeriod()
      * @generated
      */
@@ -217,7 +183,6 @@ public interface ModbusBlock extends EObject
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Timeout</em>' attribute.
      * @see #setTimeout(long)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_Timeout()
@@ -227,14 +192,10 @@ public interface ModbusBlock extends EObject
     long getTimeout ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getTimeout
-     * <em>Timeout</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getTimeout <em>Timeout</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Timeout</em>' attribute.
+     * @param value the new value of the '<em>Timeout</em>' attribute.
      * @see #getTimeout()
      * @generated
      */
@@ -248,7 +209,6 @@ public interface ModbusBlock extends EObject
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Id</em>' attribute.
      * @see #setId(String)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_Id()
@@ -258,14 +218,10 @@ public interface ModbusBlock extends EObject
     String getId ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getId
-     * <em>Id</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getId <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Id</em>' attribute.
+     * @param value the new value of the '<em>Id</em>' attribute.
      * @see #getId()
      * @generated
      */
@@ -279,7 +235,6 @@ public interface ModbusBlock extends EObject
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_Name()
@@ -289,14 +244,10 @@ public interface ModbusBlock extends EObject
     String getName ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.modbus.ModbusBlock#getName
-     * <em>Name</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getName <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Name</em>' attribute.
+     * @param value the new value of the '<em>Name</em>' attribute.
      * @see #getName()
      * @generated
      */
