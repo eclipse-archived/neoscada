@@ -60,7 +60,7 @@ public class MemoryModelOscarProcessor implements OscarProcessor
         final TypeSystem ts = manager.getTypeSystem ();
         if ( ts == null )
         {
-            throw new IllegalStateException ( "Type system must not be null" );
+            throw new IllegalStateException ( String.format ( "Type system must not be null (app: %s in %s)", application.getName (), application.eContainer () ) );
         }
 
         final Set<String> typeNames = new HashSet<> ();
