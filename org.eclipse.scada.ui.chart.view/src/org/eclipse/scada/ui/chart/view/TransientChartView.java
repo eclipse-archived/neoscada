@@ -24,6 +24,12 @@ public class TransientChartView extends AbstractChartView
     {
     }
 
+    @Override
+    public Chart getConfiguration ()
+    {
+        return this.configuration;
+    }
+
     public void setConfiguration ( final Chart configuration )
     {
         if ( this.configuration == null )

@@ -29,7 +29,6 @@ import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.scada.chart.swt.ChartArea;
 import org.eclipse.scada.chart.swt.SWTGraphics;
-import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
@@ -189,6 +188,8 @@ public abstract class AbstractChartView extends ViewPart
         return (Chart)EcoreUtil.getObjectByType ( resource.getContents (), ChartPackage.Literals.CHART );
     }
 
+    public abstract Chart getConfiguration ();
+
     @Override
     public void createPartControl ( final Composite parent )
     {
@@ -225,14 +226,14 @@ public abstract class AbstractChartView extends ViewPart
             @Override
             public void selectionChanged ( final IWorkbenchPart part, final ISelection selection )
             {
-                final Object sel = SelectionHelper.first ( selection, Object.class );
+                final ChartInput sel = SelectionHelper.first ( selection, ChartInput.class );
                 if ( sel == null )
                 {
                     AbstractChartView.this.viewer.setSelection ( (ChartInput)null );
                 }
-                else if ( sel instanceof ChartInput )
+                else
                 {
-                    AbstractChartView.this.viewer.setSelection ( (ChartInput)sel );
+                    AbstractChartView.this.viewer.setSelection ( sel );
                 }
                 // else: don't select anything which we do not care about
             }
@@ -352,15 +353,4 @@ public abstract class AbstractChartView extends ViewPart
     {
         this.viewer.pageTimespan ( duration, timeUnit );
     }
-
-    public void addItem ( final Item item )
-    {
-        this.viewer.addItem ( item );
-    }
-
-    public void addItem ( final org.eclipse.scada.hd.ui.connection.data.Item item )
-    {
-        this.viewer.addItem ( item );
-    }
-
 }

@@ -17,10 +17,8 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.da.ui.connection.data.Item.Type;
+import org.eclipse.scada.ui.chart.configuration.Charts;
 import org.eclipse.scada.ui.chart.model.Chart;
-import org.eclipse.scada.ui.chart.model.ChartFactory;
-import org.eclipse.scada.ui.chart.model.Charts;
-import org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.YAxis;
 
@@ -95,12 +93,7 @@ public class OpenChartViewWithParameters extends AbstractChartHandler
             }
         }
 
-        final CompositeArchiveQualitySeries q = ChartFactory.eINSTANCE.createCompositeArchiveQualitySeries ();
-        q.setX ( x );
-        q.setY ( y );
-        q.setVisible ( true );
-        q.setThreshold ( 0.75 );
-        configuration.getInputs ().add ( q );
+        Charts.addCompositeQuality ( configuration );
 
         return configuration;
     }

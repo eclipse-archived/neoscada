@@ -15,6 +15,7 @@ import java.util.Collection;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.scada.da.ui.connection.commands.AbstractItemHandler;
 import org.eclipse.scada.da.ui.connection.data.Item;
+import org.eclipse.scada.ui.chart.configuration.Charts;
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.view.AbstractChartView;
 import org.eclipse.scada.ui.chart.view.TransientChartView;
@@ -25,7 +26,7 @@ import org.eclipse.ui.PartInitException;
 public abstract class AbstractChartHandler extends AbstractItemHandler
 {
 
-    protected void openDaChartView ( final Collection<Item> items, final Chart configuration ) throws ExecutionException
+    protected void openDaChartView ( final Collection<Item> items, Chart configuration ) throws ExecutionException
     {
         if ( items.isEmpty () )
         {
@@ -47,22 +48,25 @@ public abstract class AbstractChartHandler extends AbstractItemHandler
             throw new ExecutionException ( "Failed to open view", e );
         }
 
+        if ( configuration == null )
+        {
+            configuration = Charts.makeDefaultConfiguration ();
+        }
         if ( viewer instanceof TransientChartView )
         {
-            if ( configuration != null )
-            {
-                ( (TransientChartView)viewer ).setConfiguration ( configuration );
-            }
-
+            ( (TransientChartView)viewer ).setConfiguration ( configuration );
+        }
+        if ( viewer instanceof AbstractChartView )
+        {
+            final Chart chart = ( (AbstractChartView)viewer ).getConfiguration ();
             for ( final Item item : items )
             {
-                ( (AbstractChartView)viewer ).addItem ( item );
-
+                Charts.addItem ( chart, item );
             }
         }
     }
 
-    protected void openHdChartView ( final Collection<org.eclipse.scada.hd.ui.connection.data.Item> items, final Chart configuration ) throws ExecutionException
+    protected void openHdChartView ( final Collection<org.eclipse.scada.hd.ui.connection.data.Item> items, Chart configuration ) throws ExecutionException
     {
         if ( items.isEmpty () )
         {
@@ -84,20 +88,22 @@ public abstract class AbstractChartHandler extends AbstractItemHandler
             throw new ExecutionException ( "Failed to open view", e );
         }
 
+        if ( configuration == null )
+        {
+            configuration = Charts.makeDefaultConfiguration ();
+        }
         if ( viewer instanceof TransientChartView )
         {
-
-            if ( configuration != null )
-            {
-                ( (TransientChartView)viewer ).setConfiguration ( configuration );
-            }
-
+            ( (TransientChartView)viewer ).setConfiguration ( configuration );
+        }
+        if ( viewer instanceof AbstractChartView )
+        {
+            final Chart chart = ( (AbstractChartView)viewer ).getConfiguration ();
             for ( final org.eclipse.scada.hd.ui.connection.data.Item item : items )
             {
-                ( (AbstractChartView)viewer ).addItem ( item );
+                Charts.addItem ( chart, item );
             }
         }
-
     }
 
     protected String asSecondardId ( final org.eclipse.scada.hd.ui.connection.data.Item item )

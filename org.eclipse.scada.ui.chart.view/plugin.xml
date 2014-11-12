@@ -46,29 +46,6 @@
       </view>
    </extension>
    <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            adaptable="false"
-            id="org.eclipse.scada.ui.chart.oc1"
-            objectClass="org.eclipse.scada.da.ui.connection.data.DataItemHolder">
-         <action
-               class="org.eclipse.scada.ui.chart.view.action.OpenChartAction"
-               id="org.eclipse.scada.da.client.chart.OpenChartAction"
-               label="%action.viewAsChart.label"
-               menubarPath="additions"/>
-      </objectContribution>
-      <objectContribution
-            adaptable="false"
-            id="org.eclipse.scada.ui.chart.oc2"
-            objectClass="org.eclipse.scada.da.ui.widgets.realtime.ListEntry">
-         <action
-               class="org.eclipse.scada.ui.chart.view.action.OpenChartAction"
-               id="org.eclipse.scada.da.client.chart.OpenChartAction"
-               label="%action.viewAsChart.label"
-               menubarPath="additions"/>
-      </objectContribution>
-   </extension>
-   <extension
          point="org.eclipse.ui.commands">
       <command
             categoryId="org.eclipse.scada.ui.chart"
@@ -108,6 +85,11 @@
                optional="true">
          </commandParameter>
       </command>
+      <command
+            categoryId="org.eclipse.scada.ui.chart"
+            id="org.eclipse.scada.ui.chart.view.ViewAsChart"
+            name="View as Chart">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -136,17 +118,12 @@
             class="org.eclipse.scada.ui.chart.view.command.OpenChartViewWithParameters"
             commandId="org.eclipse.scada.ui.chart.view.commands.OpenParametersChartView">
       </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            locationURI="popup:org.eclipse.scada.core.ui.connection.ConnectionView#PopupMenu">
-         <command
-               commandId="org.eclipse.scada.ui.chart.view.commands.OpenChartView"
-               label="%command.openChartView.label"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
+      <handler
+            class="org.eclipse.scada.ui.chart.view.command.ViewAsChartHandler"
+            commandId="org.eclipse.scada.ui.chart.view.ViewAsChart">
+         <enabledWhen>
+            <with
+                  variable="selection">
                <iterate
                      ifEmpty="false"
                      operator="and">
@@ -157,8 +134,28 @@
                      <adapt
                            type="org.eclipse.scada.da.ui.connection.data.Item">
                      </adapt>
+                     <instanceof
+                           value="org.eclipse.scada.hd.ui.connection.data.Item">
+                     </instanceof>
+                     <adapt
+                           type="org.eclipse.scada.hd.ui.connection.data.Item">
+                     </adapt>
                   </or>
                </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <command
+               commandId="org.eclipse.scada.ui.chart.view.ViewAsChart"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
             </visibleWhen>
          </command>
       </menuContribution>

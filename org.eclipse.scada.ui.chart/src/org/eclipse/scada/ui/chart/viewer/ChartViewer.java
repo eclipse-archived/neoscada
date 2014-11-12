@@ -50,13 +50,9 @@ import org.eclipse.scada.chart.swt.render.CurrentTimeRuler;
 import org.eclipse.scada.chart.swt.render.TitleRenderer;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.ui.chart.AxisConverter;
-import org.eclipse.scada.ui.chart.model.ArchiveSeries;
+import org.eclipse.scada.ui.chart.configuration.Charts;
 import org.eclipse.scada.ui.chart.model.Chart;
-import org.eclipse.scada.ui.chart.model.ChartFactory;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
-import org.eclipse.scada.ui.chart.model.DataItemSeries;
-import org.eclipse.scada.ui.chart.model.IdItem;
-import org.eclipse.scada.ui.chart.model.UriItem;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.YAxis;
 import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
@@ -483,127 +479,6 @@ public class ChartViewer extends AbstractSelectionProvider
         } );
     }
 
-    public void addItem ( final org.eclipse.scada.hd.ui.connection.data.Item item )
-    {
-        if ( this.timeRulerAxisElement == null )
-        {
-            return;
-        }
-
-        YAxis y;
-        try
-        {
-            y = this.chart.getSelectedYAxis ().get ( 0 );
-        }
-        catch ( final IndexOutOfBoundsException e )
-        {
-            return;
-        }
-
-        org.eclipse.scada.ui.chart.model.Item itemRef = null;
-
-        switch ( item.getType () )
-        {
-            case ID:
-            {
-                itemRef = ChartFactory.eINSTANCE.createIdItem ();
-                itemRef.setItemId ( item.getId () );
-                ( (IdItem)itemRef ).setConnectionId ( item.getConnectionString () );
-                break;
-            }
-            case URI:
-            {
-                itemRef = ChartFactory.eINSTANCE.createUriItem ();
-                itemRef.setItemId ( item.getId () );
-                ( (UriItem)itemRef ).setConnectionUri ( item.getConnectionString () );
-                break;
-            }
-        }
-
-        if ( itemRef == null )
-        {
-            return;
-        }
-
-        final ArchiveSeries input = ChartFactory.eINSTANCE.createArchiveSeries ();
-        input.setLabel ( item.toLabel () );
-        input.setItem ( itemRef );
-        input.setX ( this.timeRulerAxisElement );
-
-        input.setY ( y );
-
-        input.getLineProperties ().setColor ( nextFreeColor () );
-
-        this.chart.getInputs ().add ( input );
-    }
-
-    public void addItem ( final Item item )
-    {
-        if ( this.timeRulerAxisElement == null )
-        {
-            return;
-        }
-
-        YAxis y;
-        try
-        {
-            y = this.chart.getSelectedYAxis ().get ( 0 );
-        }
-        catch ( final IndexOutOfBoundsException e )
-        {
-            return;
-        }
-
-        org.eclipse.scada.ui.chart.model.Item itemRef = null;
-
-        switch ( item.getType () )
-        {
-            case ID:
-            {
-                itemRef = ChartFactory.eINSTANCE.createIdItem ();
-                ( (IdItem)itemRef ).setConnectionId ( item.getId () );
-                itemRef.setItemId ( item.getId () );
-                break;
-            }
-            case URI:
-            {
-                itemRef = ChartFactory.eINSTANCE.createUriItem ();
-                ( (UriItem)itemRef ).setConnectionUri ( item.getConnectionString () );
-                itemRef.setItemId ( item.getId () );
-                break;
-            }
-        }
-
-        if ( itemRef == null )
-        {
-            return;
-        }
-
-        final DataItemSeries input = ChartFactory.eINSTANCE.createDataItemSeries ();
-        input.setLabel ( item.toLabel () );
-        input.setItem ( itemRef );
-        input.setX ( this.timeRulerAxisElement );
-        input.setY ( y );
-
-        input.getLineProperties ().setColor ( nextFreeColor () );
-
-        this.chart.getInputs ().add ( input );
-    }
-
-    private static RGB[] DEFAULT_COLORS = new RGB[] { //
-        new RGB ( 255, 0, 0 ), // red
-        new RGB ( 0, 255, 0 ), // green
-        new RGB ( 0, 255, 255 ), // blue
-        new RGB ( 255, 194, 0 ), // yellow
-        new RGB ( 255, 0, 255 ), // magenta
-        new RGB ( 0, 255, 255 ), // cyan
-    };
-
-    private RGB nextFreeColor ()
-    {
-        return DEFAULT_COLORS[this.items.size () % DEFAULT_COLORS.length];
-    }
-
     public void addInput ( final ChartInput input )
     {
         if ( this.items.size () == 1 )
@@ -772,7 +647,7 @@ public class ChartViewer extends AbstractSelectionProvider
             {
                 for ( final Item item : data )
                 {
-                    addItem ( item );
+                    Charts.addItem ( this.chart, item );
                 }
                 return;
             }
@@ -784,7 +659,7 @@ public class ChartViewer extends AbstractSelectionProvider
             {
                 for ( final org.eclipse.scada.hd.ui.connection.data.Item item : data )
                 {
-                    addItem ( item );
+                    Charts.addItem ( this.chart, item );
                 }
                 return;
             }

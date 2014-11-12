@@ -19,8 +19,8 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.StringUtils;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.scada.ui.chart.configuration.Charts;
 import org.eclipse.scada.ui.chart.model.Chart;
-import org.eclipse.scada.ui.chart.model.Charts;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
@@ -46,6 +46,12 @@ public class ChartView extends AbstractChartView
         }
 
         createView ( this.configuration );
+    }
+
+    @Override
+    public Chart getConfiguration ()
+    {
+        return this.configuration;
     }
 
     @Override
