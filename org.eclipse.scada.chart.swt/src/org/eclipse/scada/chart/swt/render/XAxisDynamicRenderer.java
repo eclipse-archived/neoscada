@@ -14,6 +14,7 @@ package org.eclipse.scada.chart.swt.render;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.eclipse.jface.resource.ResourceManager;
@@ -30,10 +31,22 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 
+import com.ibm.icu.util.Calendar;
+
 public class XAxisDynamicRenderer extends AbstractRenderer
 {
 
     private static final Point EMPTY_POINT = new Point ( 0, 0 );
+
+    private static final Date SAMPLE_DATE;
+
+    static
+    {
+        final GregorianCalendar cal = new GregorianCalendar ();
+        cal.set ( 2000, Calendar.DECEMBER, 22, 24, 22, 22 );
+        cal.set ( Calendar.MILLISECOND, 888 );
+        SAMPLE_DATE = cal.getTime ();
+    }
 
     protected final LineAttributes lineAttributes;
 
@@ -58,8 +71,6 @@ public class XAxisDynamicRenderer extends AbstractRenderer
     private final ChartRenderer chart;
 
     private boolean showLabels;
-
-    private final int markerSpacing = 0;
 
     private RGB color;
 
@@ -209,8 +220,8 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         if ( this.showLabels )
         {
             final DateFormat format = makeFormat ( this.axis.getMax () - this.axis.getMin () );
-            final Point sampleLabelSize = g.textExtent ( format.format ( new Date () ) );
-            markers = Helper.chartTimes ( this.axis.getMin (), this.axis.getMax (), chartRect.width, Math.round ( sampleLabelSize.x ) + this.markerSpacing, format );
+            final Point sampleLabelSize = g.textExtent ( format.format ( SAMPLE_DATE ) );
+            markers = Helper.chartTimes ( this.axis.getMin (), this.axis.getMax (), chartRect.width, Math.round ( sampleLabelSize.x ) + this.textPadding, format );
             for ( final Entry<Long> marker : markers )
             {
                 if ( marker.position < 0 )
