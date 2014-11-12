@@ -284,10 +284,6 @@ public class RealTimeListViewer implements RealtimeListAdapter
 
     private void fillContextMenu ( final IMenuManager manager )
     {
-        // Other plug-ins can contribute there actions here
-
-        manager.add ( this.removeAction );
-        manager.add ( new Separator () );
         manager.add ( new Separator ( IWorkbenchActionConstants.MB_ADDITIONS ) );
     }
 

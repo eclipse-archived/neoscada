@@ -190,4 +190,42 @@
       </consolePageParticipant>
    </extension>
    
+    <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.scada.da.test.views.RealTimeList">
+         <command
+               commandId="org.eclipse.ui.edit.delete"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.scada.da.test.views.RealTimeList">
+         <command
+               commandId="org.eclipse.ui.edit.delete"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+    <extension
+          point="org.eclipse.ui.handlers">
+       <handler
+             class="org.eclipse.scada.da.ui.client.test.views.realtime.DeleteHandler"
+             commandId="org.eclipse.ui.edit.delete">
+          <activeWhen>
+             <and>
+                <with
+                      variable="activePart">
+                   <instanceof
+                         value="org.eclipse.scada.da.ui.client.test.views.realtime.RealTimeList">
+                   </instanceof>
+                </with>
+             </and>
+          </activeWhen>
+       </handler>
+    </extension>
+   
+   
 </plugin>

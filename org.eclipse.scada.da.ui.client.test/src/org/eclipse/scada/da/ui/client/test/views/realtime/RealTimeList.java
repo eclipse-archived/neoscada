@@ -10,7 +10,10 @@
  *******************************************************************************/
 package org.eclipse.scada.da.ui.client.test.views.realtime;
 
+import java.util.Collection;
+
 import org.eclipse.scada.da.ui.widgets.realtime.DoubleClickShowDetailsHandler;
+import org.eclipse.scada.da.ui.widgets.realtime.ListEntry;
 import org.eclipse.scada.da.ui.widgets.realtime.RealTimeListViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
@@ -36,6 +39,16 @@ public class RealTimeList extends ViewPart
         this.viewer.createControl ( parent );
         this.viewer.contribueTo ( getViewSite () );
         this.viewer.addDoubleClickListener ( new DoubleClickShowDetailsHandler () );
+    }
+
+    public void removeEntry ( final ListEntry entry )
+    {
+        this.viewer.remove ( entry );
+    }
+
+    public void removeEntries ( final Collection<ListEntry> entries )
+    {
+        this.viewer.remove ( entries );
     }
 
     @Override
