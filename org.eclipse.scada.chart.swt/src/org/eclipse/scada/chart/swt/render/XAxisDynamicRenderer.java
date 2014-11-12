@@ -210,7 +210,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         {
             final DateFormat format = makeFormat ( this.axis.getMax () - this.axis.getMin () );
             final Point sampleLabelSize = g.textExtent ( format.format ( new Date () ) );
-            markers = Helper.chartTimes ( this.axis.getMin (), this.axis.getMax (), chartRect.width, (int)Math.round ( 1.5 * sampleLabelSize.x ) + this.markerSpacing, format );
+            markers = Helper.chartTimes ( this.axis.getMin (), this.axis.getMax (), chartRect.width, Math.round ( sampleLabelSize.x ) + this.markerSpacing, format );
             for ( final Entry<Long> marker : markers )
             {
                 if ( marker.position < 0 )
