@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - fix alignment issue 
+ *     IBH SYSTEMS GmbH - fix alignment issue
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input.composite;
 
@@ -141,6 +141,12 @@ public class MergeQualityData
                 final double q = entry.getValue () == null ? 0.0 : entry.getValue ();
 
                 logger.trace ( "merged quality [{}]: {}", idx, q );
+
+                if ( idx >= data.length )
+                {
+                    logger.debug ( "Break loop early" );
+                    break;
+                }
 
                 if ( data[idx].value == null )
                 {
