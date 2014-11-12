@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.tools.utils;
 
+import java.util.Collection;
+import java.util.Collections;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -23,7 +26,14 @@ public class CompoundHandler
     public CompoundHandler ( final EditingDomain domain )
     {
         this.domain = domain;
-        this.command = new CompoundCommand ();
+        this.command = new CompoundCommand () {
+            @Override
+            public Collection<?> getAffectedObjects ()
+            {
+                // we do this in order to prevent the "Add" command to jump "somewhere"
+                return Collections.EMPTY_LIST;
+            }
+        };
     }
 
     public void execute ()

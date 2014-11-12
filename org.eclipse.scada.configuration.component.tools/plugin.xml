@@ -26,6 +26,11 @@
             id="org.eclipse.scada.configuration.component.tools.modify"
             name="Modify">
       </category>
+      <command
+            categoryId="org.eclipse.scada.configuration.component.tools.modify"
+            id="org.eclipse.scada.configuration.component.tools.setMasterServer"
+            name="Set Master Server">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -56,6 +61,14 @@
             </reference>
          </activeWhen>
       </handler>
+       <handler
+             class="org.eclipse.scada.configuration.component.tools.handler.SetMasterHandler"
+             commandId="org.eclipse.scada.configuration.component.tools.setMasterServer">
+          <activeWhen>
+             <reference
+                   definitionId="org.eclipse.scada.configuration.component.tools.allMaster">
+             </reference></activeWhen>
+       </handler>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -102,6 +115,10 @@
                commandId="org.eclipse.scada.configuration.component.tools.setExternalName"
                style="push">
          </command>
+          <command
+                commandId="org.eclipse.scada.configuration.component.tools.setMasterServer"
+                style="push">
+          </command>
       </menuContribution>
    </extension>
    <extension
@@ -151,6 +168,23 @@
                      value="org.eclipse.scada.configuration.component.presentation.ComponentEditorID">
                </equals>
             </or>
+         </with>
+      </definition>
+      <definition
+            id="org.eclipse.scada.configuration.component.tools.allMaster">
+         <with
+               variable="selection">
+            <iterate
+                  ifEmpty="false"
+                  operator="and">
+               <or>
+                  <instanceof
+                        value="org.eclipse.scada.configuration.component.MasterComponent">
+                  </instanceof>
+                  <adapt
+                        type="org.eclipse.scada.configuration.component.MasterComponent">
+                  </adapt></or>
+            </iterate>
          </with>
       </definition>
    </extension>
