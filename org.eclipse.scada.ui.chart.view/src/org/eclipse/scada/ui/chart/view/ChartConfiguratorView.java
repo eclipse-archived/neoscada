@@ -23,6 +23,7 @@ import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -140,7 +141,14 @@ public class ChartConfiguratorView extends AbstractChartManagePart implements IV
         {
             final Chart element = chartViewer.getChartConfiguration ();
 
-            if ( element.eResource () == null || element.eResource ().getURI () == null )
+            if ( element.eResource () == null )
+            {
+                final ResourceSetImpl rs = new ResourceSetImpl ();
+                final Resource r = rs.createResource ( URI.createURI ( "urn:dummy" ) );
+                r.getContents ().add ( element );
+            }
+
+            if ( element.eResource ().getURI () == null )
             {
                 element.eResource ().setURI ( URI.createURI ( "urn:dummy" ) );
             }
