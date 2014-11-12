@@ -39,9 +39,7 @@ import org.eclipse.scada.ui.utils.status.StatusHelper;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.setup.common.impl.SerialToNetworkSetupModuleImpl#getMappings
- * <em>Mappings</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.SerialToNetworkSetupModuleImpl#getMappings <em>Mappings</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,11 +48,9 @@ import org.eclipse.scada.ui.utils.status.StatusHelper;
 public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container implements SerialToNetworkSetupModule
 {
     /**
-     * The cached value of the '{@link #getMappings() <em>Mappings</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getMappings()
      * @generated
      * @ordered
@@ -64,7 +60,6 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected SerialToNetworkSetupModuleImpl ()
@@ -75,7 +70,6 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
@@ -87,17 +81,16 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public EList<SerialToNetworkMapping> getMappings ()
     {
-        if ( this.mappings == null )
+        if ( mappings == null )
         {
-            this.mappings = new EObjectContainmentEList.Resolving<SerialToNetworkMapping> ( SerialToNetworkMapping.class, this, CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE__MAPPINGS );
+            mappings = new EObjectContainmentEList.Resolving<SerialToNetworkMapping> ( SerialToNetworkMapping.class, this, CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE__MAPPINGS );
         }
-        return this.mappings;
+        return mappings;
     }
 
     /**
@@ -123,11 +116,10 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -140,11 +132,10 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -157,12 +148,11 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -177,11 +167,10 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -195,16 +184,15 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE__MAPPINGS:
-                return this.mappings != null && !this.mappings.isEmpty ();
+                return mappings != null && !mappings.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -212,11 +200,10 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {

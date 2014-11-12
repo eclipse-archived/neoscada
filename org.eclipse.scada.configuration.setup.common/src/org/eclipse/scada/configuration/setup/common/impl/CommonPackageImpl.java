@@ -33,6 +33,7 @@ import org.eclipse.scada.utils.ecore.validation.ExtensibleValidationDescriptor;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class CommonPackageImpl extends EPackageImpl implements CommonPackage
@@ -40,6 +41,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass postgresSetupModuleEClass = null;
@@ -47,6 +49,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass serialToNetworkSetupModuleEClass = null;
@@ -54,6 +57,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass serialToNetworkMappingEClass = null;
@@ -61,6 +65,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EEnum parityEEnum = null;
@@ -89,6 +94,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -105,9 +111,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
-     * @generated NOT
+     * @generated
      */
-    public static CommonPackage init ()
+    public static CommonPackage initGen ()
     {
         if ( isInited )
         {
@@ -128,9 +134,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Initialize created meta-data
         theCommonPackage.initializePackageContents ();
 
-        // register the package validator
-        registerPackageValidator ( theCommonPackage );
-
         // Mark meta-data to indicate it can't be changed
         theCommonPackage.freeze ();
 
@@ -139,234 +142,259 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         return theCommonPackage;
     }
 
-    protected static void registerPackageValidator ( final CommonPackageImpl theCommonPackage )
+    public static CommonPackage init ()
     {
-        EValidator.Registry.INSTANCE.put ( theCommonPackage, new ExtensibleValidationDescriptor () );
+        final CommonPackage result = initGen ();
+
+        EValidator.Registry.INSTANCE.put ( result, new ExtensibleValidationDescriptor () );
+
+        return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getPostgresSetupModule ()
     {
-        return postgresSetupModuleEClass;
+        return this.postgresSetupModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getPostgresSetupModule_Database ()
     {
-        return (EReference)postgresSetupModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.postgresSetupModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getPostgresSetupModule_PostgresUser ()
     {
-        return (EAttribute)postgresSetupModuleEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.postgresSetupModuleEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getPostgresSetupModule_HostBasedAccessFile ()
     {
-        return (EAttribute)postgresSetupModuleEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)this.postgresSetupModuleEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getPostgresSetupModule_ConfigurationFile ()
     {
-        return (EAttribute)postgresSetupModuleEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)this.postgresSetupModuleEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getSerialToNetworkSetupModule ()
     {
-        return serialToNetworkSetupModuleEClass;
+        return this.serialToNetworkSetupModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getSerialToNetworkSetupModule_Mappings ()
     {
-        return (EReference)serialToNetworkSetupModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.serialToNetworkSetupModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getSerialToNetworkMapping ()
     {
-        return serialToNetworkMappingEClass;
+        return this.serialToNetworkMappingEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_Device ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_TcpPort ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_Timeout ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_BaudRate ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_Parity ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_Xonxoff ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_Rtscts ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 6 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_DataBits ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 7 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 7 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_StopBits ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 8 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 8 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_ModemControl ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 9 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 9 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSerialToNetworkMapping_Break ()
     {
-        return (EAttribute)serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 10 );
+        return (EAttribute)this.serialToNetworkMappingEClass.getEStructuralFeatures ().get ( 10 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EEnum getParity ()
     {
-        return parityEEnum;
+        return this.parityEEnum;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -378,69 +406,77 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package.  This method is
+     * Creates the meta-model objects for the package. This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( isCreated )
+        if ( this.isCreated )
+        {
             return;
-        isCreated = true;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        postgresSetupModuleEClass = createEClass ( POSTGRES_SETUP_MODULE );
-        createEReference ( postgresSetupModuleEClass, POSTGRES_SETUP_MODULE__DATABASE );
-        createEAttribute ( postgresSetupModuleEClass, POSTGRES_SETUP_MODULE__POSTGRES_USER );
-        createEAttribute ( postgresSetupModuleEClass, POSTGRES_SETUP_MODULE__HOST_BASED_ACCESS_FILE );
-        createEAttribute ( postgresSetupModuleEClass, POSTGRES_SETUP_MODULE__CONFIGURATION_FILE );
+        this.postgresSetupModuleEClass = createEClass ( POSTGRES_SETUP_MODULE );
+        createEReference ( this.postgresSetupModuleEClass, POSTGRES_SETUP_MODULE__DATABASE );
+        createEAttribute ( this.postgresSetupModuleEClass, POSTGRES_SETUP_MODULE__POSTGRES_USER );
+        createEAttribute ( this.postgresSetupModuleEClass, POSTGRES_SETUP_MODULE__HOST_BASED_ACCESS_FILE );
+        createEAttribute ( this.postgresSetupModuleEClass, POSTGRES_SETUP_MODULE__CONFIGURATION_FILE );
 
-        serialToNetworkSetupModuleEClass = createEClass ( SERIAL_TO_NETWORK_SETUP_MODULE );
-        createEReference ( serialToNetworkSetupModuleEClass, SERIAL_TO_NETWORK_SETUP_MODULE__MAPPINGS );
+        this.serialToNetworkSetupModuleEClass = createEClass ( SERIAL_TO_NETWORK_SETUP_MODULE );
+        createEReference ( this.serialToNetworkSetupModuleEClass, SERIAL_TO_NETWORK_SETUP_MODULE__MAPPINGS );
 
-        serialToNetworkMappingEClass = createEClass ( SERIAL_TO_NETWORK_MAPPING );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__DEVICE );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__TCP_PORT );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__TIMEOUT );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__BAUD_RATE );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__PARITY );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__XONXOFF );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__RTSCTS );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__DATA_BITS );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__STOP_BITS );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__MODEM_CONTROL );
-        createEAttribute ( serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__BREAK );
+        this.serialToNetworkMappingEClass = createEClass ( SERIAL_TO_NETWORK_MAPPING );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__DEVICE );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__TCP_PORT );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__TIMEOUT );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__BAUD_RATE );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__PARITY );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__XONXOFF );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__RTSCTS );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__DATA_BITS );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__STOP_BITS );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__MODEM_CONTROL );
+        createEAttribute ( this.serialToNetworkMappingEClass, SERIAL_TO_NETWORK_MAPPING__BREAK );
 
         // Create enums
-        parityEEnum = createEEnum ( PARITY );
+        this.parityEEnum = createEEnum ( PARITY );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model.  This
+     * Complete the initialization of the package and its meta-model. This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( isInitialized )
+        if ( this.isInitialized )
+        {
             return;
-        isInitialized = true;
+        }
+        this.isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -448,46 +484,46 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        SetupPackage theSetupPackage = (SetupPackage)EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI );
-        WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
-        EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage ( EcorePackage.eNS_URI );
+        final SetupPackage theSetupPackage = (SetupPackage)EPackage.Registry.INSTANCE.getEPackage ( SetupPackage.eNS_URI );
+        final WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+        final EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage ( EcorePackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        postgresSetupModuleEClass.getESuperTypes ().add ( theSetupPackage.getSetupModule () );
-        serialToNetworkSetupModuleEClass.getESuperTypes ().add ( theSetupPackage.getSetupModule () );
+        this.postgresSetupModuleEClass.getESuperTypes ().add ( theSetupPackage.getSetupModule () );
+        this.serialToNetworkSetupModuleEClass.getESuperTypes ().add ( theSetupPackage.getSetupModule () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( postgresSetupModuleEClass, PostgresSetupModule.class, "PostgresSetupModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.postgresSetupModuleEClass, PostgresSetupModule.class, "PostgresSetupModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getPostgresSetupModule_Database (), theWorldPackage.getPostgresDatabaseSettings (), null, "database", null, 1, 1, PostgresSetupModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPostgresSetupModule_PostgresUser (), theEcorePackage.getEString (), "postgresUser", null, 1, 1, PostgresSetupModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getPostgresSetupModule_HostBasedAccessFile (), ecorePackage.getEString (), "hostBasedAccessFile", null, 0, 1, PostgresSetupModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getPostgresSetupModule_ConfigurationFile (), ecorePackage.getEString (), "configurationFile", null, 0, 1, PostgresSetupModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getPostgresSetupModule_HostBasedAccessFile (), this.ecorePackage.getEString (), "hostBasedAccessFile", null, 0, 1, PostgresSetupModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getPostgresSetupModule_ConfigurationFile (), this.ecorePackage.getEString (), "configurationFile", null, 0, 1, PostgresSetupModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( serialToNetworkSetupModuleEClass, SerialToNetworkSetupModule.class, "SerialToNetworkSetupModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getSerialToNetworkSetupModule_Mappings (), this.getSerialToNetworkMapping (), null, "mappings", null, 0, -1, SerialToNetworkSetupModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.serialToNetworkSetupModuleEClass, SerialToNetworkSetupModule.class, "SerialToNetworkSetupModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getSerialToNetworkSetupModule_Mappings (), getSerialToNetworkMapping (), null, "mappings", null, 0, -1, SerialToNetworkSetupModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( serialToNetworkMappingEClass, SerialToNetworkMapping.class, "SerialToNetworkMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getSerialToNetworkMapping_Device (), ecorePackage.getEString (), "device", null, 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSerialToNetworkMapping_TcpPort (), ecorePackage.getEInt (), "tcpPort", "2000", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getSerialToNetworkMapping_Timeout (), ecorePackage.getEInt (), "timeout", "30", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getSerialToNetworkMapping_BaudRate (), ecorePackage.getEInt (), "baudRate", "9600", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getSerialToNetworkMapping_Parity (), this.getParity (), "parity", null, 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSerialToNetworkMapping_Xonxoff (), ecorePackage.getEBoolean (), "xonxoff", "false", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getSerialToNetworkMapping_Rtscts (), ecorePackage.getEBoolean (), "rtscts", "false", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getSerialToNetworkMapping_DataBits (), ecorePackage.getEShort (), "dataBits", "8", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getSerialToNetworkMapping_StopBits (), ecorePackage.getEShort (), "stopBits", "1", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getSerialToNetworkMapping_ModemControl (), ecorePackage.getEBoolean (), "modemControl", null, 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSerialToNetworkMapping_Break (), ecorePackage.getEBoolean (), "break", null, 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.serialToNetworkMappingEClass, SerialToNetworkMapping.class, "SerialToNetworkMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getSerialToNetworkMapping_Device (), this.ecorePackage.getEString (), "device", null, 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSerialToNetworkMapping_TcpPort (), this.ecorePackage.getEInt (), "tcpPort", "2000", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getSerialToNetworkMapping_Timeout (), this.ecorePackage.getEInt (), "timeout", "30", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getSerialToNetworkMapping_BaudRate (), this.ecorePackage.getEInt (), "baudRate", "9600", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getSerialToNetworkMapping_Parity (), getParity (), "parity", null, 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSerialToNetworkMapping_Xonxoff (), this.ecorePackage.getEBoolean (), "xonxoff", "false", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getSerialToNetworkMapping_Rtscts (), this.ecorePackage.getEBoolean (), "rtscts", "false", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getSerialToNetworkMapping_DataBits (), this.ecorePackage.getEShort (), "dataBits", "8", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getSerialToNetworkMapping_StopBits (), this.ecorePackage.getEShort (), "stopBits", "1", 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getSerialToNetworkMapping_ModemControl (), this.ecorePackage.getEBoolean (), "modemControl", null, 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSerialToNetworkMapping_Break (), this.ecorePackage.getEBoolean (), "break", null, 1, 1, SerialToNetworkMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
-        initEEnum ( parityEEnum, Parity.class, "Parity" ); //$NON-NLS-1$
-        addEEnumLiteral ( parityEEnum, Parity.NONE );
-        addEEnumLiteral ( parityEEnum, Parity.EVEN );
-        addEEnumLiteral ( parityEEnum, Parity.ODD );
+        initEEnum ( this.parityEEnum, Parity.class, "Parity" ); //$NON-NLS-1$
+        addEEnumLiteral ( this.parityEEnum, Parity.NONE );
+        addEEnumLiteral ( this.parityEEnum, Parity.EVEN );
+        addEEnumLiteral ( this.parityEEnum, Parity.ODD );
 
         // Create resource
         createResource ( eNS_URI );
