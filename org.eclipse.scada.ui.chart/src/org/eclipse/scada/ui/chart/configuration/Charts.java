@@ -39,7 +39,6 @@ public class Charts
 
         final XAxis x = ChartFactory.eINSTANCE.createXAxis ();
         x.setLabel ( Messages.Charts_Label_Time );
-        x.setFormat ( "%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS.%1$tL" ); //$NON-NLS-1$
         x.setMinimum ( System.currentTimeMillis () );
         x.setMaximum ( System.currentTimeMillis () + 900 * 1000 );
         configuration.getBottom ().add ( x );
