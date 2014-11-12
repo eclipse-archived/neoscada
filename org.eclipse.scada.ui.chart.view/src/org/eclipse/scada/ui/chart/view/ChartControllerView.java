@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - fix table column layout, enhancements for legends
+ *     IBH SYSTEMS GmbH - allow setting the chart configuration
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.view;
 
@@ -189,7 +190,7 @@ public class ChartControllerView extends AbstractChartManagePart
     }
 
     @Override
-    protected void setChartViewer ( final ChartViewer chartViewer )
+    public void setChartViewer ( final ChartViewer chartViewer )
     {
         // attach
         if ( chartViewer != null )

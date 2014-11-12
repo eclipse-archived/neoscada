@@ -47,6 +47,7 @@ import org.eclipse.swt.printing.PrinterData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
@@ -85,7 +86,7 @@ public abstract class AbstractChartView extends ViewPart
 
         public PrintAction ()
         {
-            super ( "Print…", AbstractUIPlugin.imageDescriptorFromPlugin ( Activator.PLUGIN_ID, "icons/print.gif" ) );
+            super ( "Print…", AbstractUIPlugin.imageDescriptorFromPlugin ( Activator.PLUGIN_ID, "icons/print.gif" ) ); //$NON-NLS-2$
             setDescription ( "Print the current chart view" );
             setToolTipText ( "Print the current chart view" );
         }
@@ -101,7 +102,7 @@ public abstract class AbstractChartView extends ViewPart
     {
         public ControllerAction ()
         {
-            super ( "Show controller", AbstractUIPlugin.imageDescriptorFromPlugin ( Activator.PLUGIN_ID, "icons/chartController.gif" ) );
+            super ( "Show controller", AbstractUIPlugin.imageDescriptorFromPlugin ( Activator.PLUGIN_ID, "icons/chartController.gif" ) ); //$NON-NLS-2$
             setDescription ( "Show the chart controller view" );
             setToolTipText ( "Show the chart controller view" );
         }
@@ -120,6 +121,33 @@ public abstract class AbstractChartView extends ViewPart
         }
     }
 
+    public class EditorAction extends Action
+    {
+        public EditorAction ()
+        {
+            super ( "Show editor", AbstractUIPlugin.imageDescriptorFromPlugin ( Activator.PLUGIN_ID, "icons/editchart.png" ) ); //$NON-NLS-2$
+            setDescription ( "Show the chart model editor view" );
+            setToolTipText ( "Show the chart model editor view" );
+        }
+
+        @Override
+        public void run ()
+        {
+            try
+            {
+                final IViewPart viewPart = getViewSite ().getWorkbenchWindow ().getActivePage ().showView ( ChartConfiguratorView.VIEW_ID );
+                if ( viewPart instanceof ChartConfiguratorView )
+                {
+                    ( (ChartConfiguratorView)viewPart ).setChartConfiguration ( getConfiguration () );
+                }
+            }
+            catch ( final PartInitException e )
+            {
+                StatusManager.getManager ().handle ( e.getStatus (), StatusManager.BLOCK );
+            }
+        }
+    }
+
     public class HelpAction extends Action
     {
         public HelpAction ()
@@ -130,6 +158,7 @@ public abstract class AbstractChartView extends ViewPart
         @Override
         public void run ()
         {
+            // PlatformUI.getWorkbench ().getHelpSystem ().displayHelp ( "org.eclipse.scada.ui.chart.view.chartView" );
             PlatformUI.getWorkbench ().getHelpSystem ().displayDynamicHelp ();
         }
     }
@@ -244,6 +273,7 @@ public abstract class AbstractChartView extends ViewPart
     {
         contributionManager.add ( new PrintAction () );
         contributionManager.add ( new ControllerAction () );
+        contributionManager.add ( new EditorAction () );
     }
 
     private void fillToolbar ( final IContributionManager contributionManager )

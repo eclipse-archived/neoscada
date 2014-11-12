@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,15 +7,16 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow setting the chart configuration
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.view;
 
+import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.selector.ChartConfigurationInputSelector;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.scada.ui.chart.model.Chart;
 
 public class ChartInputSelectorView extends AbstractChartManagePart
 {
@@ -48,7 +49,7 @@ public class ChartInputSelectorView extends AbstractChartManagePart
     }
 
     @Override
-    protected void setChartViewer ( final ChartViewer chartViewer )
+    public void setChartViewer ( final ChartViewer chartViewer )
     {
         final Chart newConfig = chartViewer.getChartConfiguration ();
 
