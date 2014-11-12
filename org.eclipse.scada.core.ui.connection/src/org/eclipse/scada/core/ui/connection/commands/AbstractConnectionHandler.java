@@ -7,48 +7,21 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - use new Adapter and Selection Helper
+ *     IBH SYSTEMS GmbH - use new Adapter and Selection Helper, cleanup
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.commands;
 
 import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
 
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.scada.core.ui.connection.data.ConnectionHolder;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
-import org.eclipse.scada.utils.core.runtime.AdapterHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 
 public abstract class AbstractConnectionHandler extends AbstractSelectionHandler
 {
-    private static final Logger logger = LoggerFactory.getLogger ( AbstractConnectionHandler.class );
-
     protected Collection<ConnectionHolder> getConnections ()
     {
-        final Collection<ConnectionHolder> result = new LinkedList<ConnectionHolder> ();
-
-        final IStructuredSelection sel = getSelection ();
-
-        if ( sel != null && !sel.isEmpty () )
-        {
-            for ( final Iterator<?> i = sel.iterator (); i.hasNext (); )
-            {
-                final Object o = i.next ();
-
-                logger.debug ( "Try to add: {}", o.getClass () ); //$NON-NLS-1$
-
-                final ConnectionHolder holder = AdapterHelper.adapt ( o, ConnectionHolder.class );
-                if ( holder != null )
-                {
-                    result.add ( holder );
-                }
-            }
-        }
-
-        return result;
+        return SelectionHelper.list ( getSelection (), ConnectionHolder.class );
     }
 
 }

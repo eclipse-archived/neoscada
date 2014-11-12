@@ -192,14 +192,6 @@
             </visibleWhen>
          </command>
          <command
-               commandId="org.eclipse.scada.core.ui.connection.command.DeleteConnection"
-               label="%command.deleteConnection.label"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-         <command
                commandId="org.eclipse.ui.newWizard"
                label="%command.newConnection.label"
                style="push">
@@ -254,6 +246,10 @@
                </iterate>
             </visibleWhen>
          </command>
+         <command
+               commandId="org.eclipse.ui.edit.delete"
+               style="push">
+         </command>
          
       </menuContribution>
    </extension>
@@ -268,11 +264,6 @@
             categoryId="org.eclipse.scada.core.ui.category"
             id="org.eclipse.scada.core.ui.connection.command.CloseConnection"
             name="%command.closeConnection.name">
-      </command>
-      <command
-            categoryId="org.eclipse.scada.core.ui.category"
-            id="org.eclipse.scada.core.ui.connection.command.DeleteConnection"
-            name="%command.deleteConnection.name">
       </command>
       <command
             description="Force close a connection for debugging purposes"
@@ -291,28 +282,25 @@
             commandId="org.eclipse.scada.core.ui.connection.command.CloseConnection">
       </handler>
       <handler
-            class="org.eclipse.scada.core.ui.connection.commands.DeleteConnection"
-            commandId="org.eclipse.scada.core.ui.connection.command.DeleteConnection">
-            
-         <enabledWhen>
-         
-            <with
-                  variable="selection">
-                  <iterate
-                        ifEmpty="false"
-                        operator="and">
-                     <test
-                           property="org.eclipse.scada.core.ui.connection.data.ConnectionHolder.stored"
-                           value="true">
-                     </test>
-                  </iterate>
-            </with>
-         </enabledWhen>
-         
-      </handler>
-      <handler
             class="org.eclipse.scada.core.ui.connection.commands.CancelConnection"
             commandId="org.eclipse.scada.core.ui.connection.cancelConnection">
+      </handler>
+      <handler
+            class="org.eclipse.scada.core.ui.connection.commands.DeleteConnection"
+            commandId="org.eclipse.ui.edit.delete">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <test
+                        property="org.eclipse.scada.core.ui.connection.data.ConnectionHolder.stored"
+                        value="true">
+                  </test>
+               </iterate>
+            </with>
+         </enabledWhen>
       </handler>
    </extension>
    <extension
