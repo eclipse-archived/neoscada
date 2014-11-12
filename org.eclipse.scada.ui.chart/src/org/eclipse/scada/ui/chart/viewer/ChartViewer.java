@@ -59,6 +59,7 @@ import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
 import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
 import org.eclipse.scada.ui.chart.viewer.profile.ProfileManager;
 import org.eclipse.scada.ui.utils.AbstractSelectionProvider;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetAdapter;
 import org.eclipse.swt.dnd.DropTargetEvent;
@@ -419,7 +420,7 @@ public class ChartViewer extends AbstractSelectionProvider
                 final ISelection selection = LocalSelectionTransfer.getTransfer ().getSelection ();
 
                 {
-                    final Collection<org.eclipse.scada.da.ui.connection.data.Item> data = org.eclipse.scada.da.ui.connection.data.ItemSelectionHelper.getSelection ( selection );
+                    final Collection<org.eclipse.scada.da.ui.connection.data.Item> data = SelectionHelper.list ( selection, org.eclipse.scada.da.ui.connection.data.Item.class );
                     if ( !data.isEmpty () )
                     {
                         event.detail = DND.DROP_COPY;
@@ -428,7 +429,8 @@ public class ChartViewer extends AbstractSelectionProvider
                 }
 
                 {
-                    final Collection<org.eclipse.scada.hd.ui.connection.data.Item> data = org.eclipse.scada.hd.ui.connection.data.ItemSelectionHelper.getSelection ( LocalSelectionTransfer.getTransfer ().getSelection () );
+                    final Collection<org.eclipse.scada.hd.ui.connection.data.Item> data = SelectionHelper.list ( selection, org.eclipse.scada.hd.ui.connection.data.Item.class );
+
                     if ( !data.isEmpty () )
                     {
                         event.detail = DND.DROP_COPY;
@@ -642,7 +644,7 @@ public class ChartViewer extends AbstractSelectionProvider
 
         final ISelection selection = LocalSelectionTransfer.getTransfer ().getSelection ();
         {
-            final Collection<org.eclipse.scada.da.ui.connection.data.Item> data = org.eclipse.scada.da.ui.connection.data.ItemSelectionHelper.getSelection ( selection );
+            final Collection<org.eclipse.scada.da.ui.connection.data.Item> data = SelectionHelper.list ( selection, org.eclipse.scada.da.ui.connection.data.Item.class );
             if ( !data.isEmpty () )
             {
                 for ( final Item item : data )
@@ -654,7 +656,7 @@ public class ChartViewer extends AbstractSelectionProvider
         }
 
         {
-            final Collection<org.eclipse.scada.hd.ui.connection.data.Item> data = org.eclipse.scada.hd.ui.connection.data.ItemSelectionHelper.getSelection ( LocalSelectionTransfer.getTransfer ().getSelection () );
+            final Collection<org.eclipse.scada.hd.ui.connection.data.Item> data = SelectionHelper.list ( selection, org.eclipse.scada.hd.ui.connection.data.Item.class );
             if ( !data.isEmpty () )
             {
                 for ( final org.eclipse.scada.hd.ui.connection.data.Item item : data )
