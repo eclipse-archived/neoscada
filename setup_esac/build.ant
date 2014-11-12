@@ -79,21 +79,9 @@
                 <arg value="var.UnpackDir" />
                 <arg value="-platform" />
                 <arg value="@{platform}" />
-				<!--
-				<arg value="-t"/>
-				<arg value="${heat.transform}"/>
-				-->
                 <arg value="-out" />
                 <arg file="setup_esac/Scan.@{platform}.wxs" />
             </exec>
-			<!--
-			<xslt
-				in="setup_esac/Scan.@{platform}.wxs"
-				out="setup_esac/Scan.@{platform}_f.wxs"
-				style="${heat.transform}"
-				>
-			</xslt>
-			-->
         </sequential>
     </macrodef>
 
@@ -118,13 +106,11 @@
                 <arg value="@{platform}" />
                 <arg value="Setup.wxs" />
                 <arg value="Files.wxs" />
-                <arg value="@{platform}.wxs" />
                 <arg value="Scan.@{platform}.wxs" />
             </exec>
             <exec executable="${wix.root}/bin/light.exe" dir="setup_esac" failifexecutionfails="true" failonerror="true">
                 <arg value="Setup.wixobj" />
                 <arg value="Files.wixobj" />
-                <arg value="@{platform}.wixobj" />
                 <arg value="Scan.@{platform}.wixobj" />
 
                 <arg value="-out" />

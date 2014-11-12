@@ -30,6 +30,8 @@
 		
 		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
 		
+		<?include $(sys.CURRENTDIR)\$(var.Platform).wxi?>
+		
 		<Feature Id="Complete"
 		         Title="$(var.ProductName)"
 		         Description="The $(var.ProductName)"
