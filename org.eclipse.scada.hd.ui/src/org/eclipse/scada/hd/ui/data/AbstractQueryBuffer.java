@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixing
  *******************************************************************************/
 package org.eclipse.scada.hd.ui.data;
 
@@ -91,7 +92,7 @@ public class AbstractQueryBuffer extends AbstractPropertyChange
     {
         return this.connection;
     }
-    */
+     */
 
     public QueryParameters getRequestParameters ()
     {
@@ -120,7 +121,7 @@ public class AbstractQueryBuffer extends AbstractPropertyChange
 
     /**
      * Return the current value information
-     * 
+     *
      * @return the current value information
      */
     public List<ValueInformation> getValueInformation ()
@@ -130,7 +131,7 @@ public class AbstractQueryBuffer extends AbstractPropertyChange
 
     /**
      * Return the current values
-     * 
+     *
      * @return the current values
      */
     public Map<String, List<Double>> getValues ()
@@ -302,7 +303,7 @@ public class AbstractQueryBuffer extends AbstractPropertyChange
     {
         logger.info ( "Request parameter change - new: {}, old: {}", new Object[] { parameters, this.requestParameters } ); //$NON-NLS-1$
 
-        if ( !this.requestParameters.equals ( parameters ) )
+        if ( isParameterChange ( parameters ) )
         {
             setRequestParameters ( parameters );
             if ( this.query != null )
@@ -314,6 +315,24 @@ public class AbstractQueryBuffer extends AbstractPropertyChange
         {
             logger.info ( "Ignore change request since there is no change" ); //$NON-NLS-1$
         }
+    }
+
+    private boolean isParameterChange ( final QueryParameters parameters )
+    {
+        if ( this.requestParameters.getStartTimestamp () != parameters.getStartTimestamp () )
+        {
+            return true;
+        }
+        if ( this.requestParameters.getEndTimestamp () != parameters.getEndTimestamp () )
+        {
+            return true;
+        }
+        if ( this.requestParameters.getNumberOfEntries () != parameters.getNumberOfEntries () )
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public synchronized void addQueryListener ( final QueryListener listener )
