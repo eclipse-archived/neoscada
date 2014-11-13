@@ -240,16 +240,7 @@ public class LegendRenderer implements Renderer
             @Override
             public void handleRemove ( final int index, final Object element )
             {
-                final Iterator<Entry> i = LegendRenderer.this.entries.iterator ();
-                while ( i.hasNext () )
-                {
-                    final Entry next = i.next ();
-                    if ( next == element )
-                    {
-                        i.remove ();
-                        next.dispose ();
-                    }
-                }
+                removeEntry ( element );
             }
 
             @Override
@@ -270,6 +261,20 @@ public class LegendRenderer implements Renderer
     protected void addEntry ( final int index, final Object element )
     {
         this.entries.add ( new Entry ( index, (SeriesInformation)element ) );
+    }
+
+    private void removeEntry ( final Object element )
+    {
+        final Iterator<Entry> i = LegendRenderer.this.entries.iterator ();
+        while ( i.hasNext () )
+        {
+            final Entry next = i.next ();
+            if ( next.getInformation () == element )
+            {
+                i.remove ();
+                next.dispose ();
+            }
+        }
     }
 
     @Override
