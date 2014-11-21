@@ -75,7 +75,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
             }
             else if ( ( (ModbusDevice)device ).getTypeSystem () != null )
             {
-                if ( manager.getTypeSystem ().getName ().equals ( ( (ModbusDevice)device ).getTypeSystem ().getName () ) )
+                if ( !manager.getTypeSystem ().getName ().equals ( ( (ModbusDevice)device ).getTypeSystem ().getName () ) )
                 {
                     throw new IllegalStateException ( "All modbus devices must share the same type system" );
                 }
