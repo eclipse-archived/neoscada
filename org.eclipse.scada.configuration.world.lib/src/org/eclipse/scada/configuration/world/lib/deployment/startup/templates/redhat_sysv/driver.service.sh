@@ -39,7 +39,7 @@ fi
 
 RETVAL=0
 instanceName="@@driverName@@"
-pidfile="/var/run/eclipsescada/driver.@@driverName@@.pid"
+pidfile="/var/run/driver.@@driverName@@.pid"
 
 start (){
     echo -n $"Starting driver instance - $instanceName: "
