@@ -79,6 +79,8 @@ public interface Factories
 
     public static final String FACTORY_DA_CHANGE_COUNTER = "org.eclipse.scada.da.datasource.changecounter"; //$NON-NLS-1$
 
+    public static final String FACTORY_DA_TOTALIZER = "org.eclipse.scada.da.datasource.totalizer"; //$NON-NLS-1$
+
     public static final String FACTORY_DA_GLOBAL_SUMMARY_SOURCE = "org.eclipse.scada.da.server.osgi.summary.attribute"; //$NON-NLS-1$
 
     public static final String FACTORY_AE_AKN_PROXY = "org.eclipse.scada.ae.server.akn.proxy"; //$NON-NLS-1$
