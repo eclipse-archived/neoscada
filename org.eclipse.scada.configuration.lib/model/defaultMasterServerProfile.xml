@@ -21,6 +21,7 @@
   <start>org.eclipse.scada.da.datasource.constant</start>
   <start>org.eclipse.scada.da.datasource.average</start>
   <start>org.eclipse.scada.da.datasource.changecounter</start>
+  <start>org.eclipse.scada.da.datasource.totalizer</start>
   <start>org.eclipse.scada.da.datasource.movingaverage</start>
   <start>org.eclipse.scada.da.mapper.osgi</start>
   <start>org.eclipse.scada.da.master.mapper</start>
