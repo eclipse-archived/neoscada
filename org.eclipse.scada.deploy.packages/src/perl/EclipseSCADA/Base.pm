@@ -101,7 +101,7 @@ sub configurationRoot () {
 
 sub pidfileRoot () {
   return $ENV{'ECLIPSE_SCADA_PIDFILE_ROOT'} if $ENV{'ECLIPSE_SCADA_PIDFILE_ROOT'};
-  return "/var/run/eclipsescada";
+  return "/var/run";
 }
 
 1;
