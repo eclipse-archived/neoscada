@@ -6,7 +6,7 @@
 #
 # processname: /usr/bin/jsvc
 # config: /etc/eclipsescada/drivers/@@driverName@@/
-# pidfile: /var/run/eclipsescada/driver.@@driverName@@.pid
+# pidfile: /var/run/driver.@@driverName@@.pid
 
 ### BEGIN INIT INFO
 # Provides: scada.driver.@@driverName@@
