@@ -87,7 +87,7 @@ public class SessionPrivilegeTracker
         {
             this.granted.remove ( privilege );
         }
-        fireChange ( Collections.unmodifiableSet ( this.granted ) );
+        fireChange ( Collections.unmodifiableSet ( new HashSet<String> ( this.granted ) ) );
     }
 
     private void fireChange ( final Set<String> granted )
