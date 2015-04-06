@@ -41,7 +41,10 @@ public class ExecutorServiceExporterImpl implements ExecutorServiceExporterMXBea
 
         try
         {
-            this.name = new ObjectName ( "org.eclipse.scada.utils.concurrent", "executorService", key );
+            // Quick Fix. Maybe we can use a hash for the key.
+        	final String escapedKey = key.replace(":", "$");
+        	
+        	this.name = new ObjectName ( "org.eclipse.scada.utils.concurrent", "executorService", escapedKey );
             this.mbs.registerMBean ( this, this.name );
             this.didRegister = true;
         }
