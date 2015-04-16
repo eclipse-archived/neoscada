@@ -40,6 +40,8 @@ public class Messages extends NLS
 
     public static String RealTimeListViewer_Col_Text_State;
 
+    public static String RealTimeListViewer_Col_Text_Timestamp;
+
     public static String RealTimeListViewer_Col_Text_Type;
 
     public static String RealTimeListViewer_Col_Text_Value;
