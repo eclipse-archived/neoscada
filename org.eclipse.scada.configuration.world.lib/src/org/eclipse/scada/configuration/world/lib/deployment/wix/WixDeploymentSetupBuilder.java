@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.world.lib.deployment.MsiHandler;
@@ -156,9 +157,21 @@ public class WixDeploymentSetupBuilder extends XMLBase
         createProduct ( doc, ele, base );
     }
 
+    public static Boolean validateProductVersion ( String version ) throws IllegalStateException
+    {
+        if ( !Pattern.matches ( "\\d+.\\d+(.\\d+)?(.\\d+)?", version ) )
+        {
+            throw new IllegalStateException ( String.format ( "Specified Version attribute's value, '%s', is not a valid version.  Legal version values should look like 'x.x.x.x' where x is an integer from 0 to 65534.", version ) );
+        }
+
+        return true;
+    }
+
     private void createProduct ( final Document doc, final Element root, final File base ) throws Exception
     {
         final Element ele = createElement ( root, "Product" ); //$NON-NLS-1$ 
+
+        validateProductVersion ( this.version );
         ele.setAttribute ( "Version", this.version ); //$NON-NLS-1$ 
         ele.setAttribute ( "Language", "1033" ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "Id", "*" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -589,8 +602,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
         cfg.description = description;
         cfg.startClass = cfg.stopClass = "org.eclipse.scada.da.server.exporter.Application"; //$NON-NLS-1$ 
         cfg.startMethod = "main"; //$NON-NLS-1$ 
-        cfg.startArguments = new String[] {
-                "[#" + fileIdConfiguration + "]" //$NON-NLS-1$ //$NON-NLS-2$
+        cfg.startArguments = new String[] { "[#" + fileIdConfiguration + "]" //$NON-NLS-1$ //$NON-NLS-2$
         };
         cfg.stopMethod = "stop"; //$NON-NLS-1$ 
         cfg.properties = cds.getProps ();
