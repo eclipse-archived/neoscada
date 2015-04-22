@@ -4,4 +4,7 @@
 	xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
 	name="H2 JDBC Extension">
 	<start>org.h2</start>
+	
+	<!-- this seems strange, but "feature" actually is a IU -->
+	<feature>org.h2</feature>
 </profile:profile>
