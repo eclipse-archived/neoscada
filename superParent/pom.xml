@@ -271,6 +271,23 @@
 				</repository>
 			</repositories>
 		</profile>
+		
+		<profile>
+			<id>maintenance</id>
+			<properties>
+				<buildType>M</buildType>
+				<buildTypeLong>milestone</buildTypeLong>
+				<ide.update.target.platform>true</ide.update.target.platform>
+			</properties>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external.wrapper</id>
+					<name>Eclipse SCADA Externals Wrapper</name>
+					<layout>p2</layout>
+					<url>${external.p2.wrapper.url}</url>
+				</repository>
+			</repositories>
+		</profile>
 
 		<profile>
 			<id>release</id>

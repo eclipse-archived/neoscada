@@ -13,6 +13,12 @@ while getopts ":r" o; do
       r)
          TYPE=release
          ;;
+      m)
+         TYPE=maintenance
+         ;;
+      s)
+         TYPE=milestone
+         ;;
       *)
          usage
          ;;
