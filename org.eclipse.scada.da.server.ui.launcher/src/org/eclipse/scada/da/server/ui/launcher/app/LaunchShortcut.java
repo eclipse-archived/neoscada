@@ -231,11 +231,13 @@ public class LaunchShortcut implements ILaunchShortcut2
         return pair;
     }
 
-    private String escapeArgValue ( final String string )
+    private static final String ESC_START = Matcher.quoteReplacement ( "$\"{" ); //$NON-NLS-1$
+
+    private static final String ESC_END = Matcher.quoteReplacement ( "}\"" ); //$NON-NLS-1$
+
+    private static String escapeArgValue ( final String string )
     {
-        final String s1 = Matcher.quoteReplacement ( "\\$\\{" ); //$NON-NLS-1$
-        final String s2 = Matcher.quoteReplacement ( "\\}" ); //$NON-NLS-1$
-        return string.replaceAll ( "\\$\\{(.*?)\\}", s1 + "$1" + s2 ); //$NON-NLS-1$ //$NON-NLS-2$
+        return string.replaceAll ( "\\$\\{(.*?)\\}", ESC_START + "$1" + ESC_END ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     private static class Bundle
