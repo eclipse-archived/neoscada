@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Gabriel Nicolas Avellaneda - add validation for MSI version
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.lib.deployment.wix;
 
@@ -157,27 +158,26 @@ public class WixDeploymentSetupBuilder extends XMLBase
         createProduct ( doc, ele, base );
     }
 
-    public static Boolean validateProductVersion ( String version ) throws IllegalStateException
+    protected static void validateProductVersion ( final String version ) throws IllegalStateException
     {
-        if ( !Pattern.matches ( "\\d+.\\d+(.\\d+)?(.\\d+)?", version ) )
+        if ( !Pattern.matches ( "\\d+.\\d+(.\\d+)?(.\\d+)?", version ) ) //$NON-NLS-1$
         {
-            throw new IllegalStateException ( String.format ( "Specified Version attribute's value, '%s', is not a valid version.  Legal version values should look like 'x.x.x.x' where x is an integer from 0 to 65534.", version ) );
+            throw new IllegalStateException ( String.format ( "Specified Version attribute's value (%s) is not a valid version. Legal version values should look like 'x.x.x.x' where x is an integer from 0 to 65534.", version ) ); //$NON-NLS-1$
         }
-
-        return true;
     }
 
     private void createProduct ( final Document doc, final Element root, final File base ) throws Exception
     {
-        final Element ele = createElement ( root, "Product" ); //$NON-NLS-1$ 
+        final Element ele = createElement ( root, "Product" ); //$NON-NLS-1$
 
         validateProductVersion ( this.version );
-        ele.setAttribute ( "Version", this.version ); //$NON-NLS-1$ 
+
+        ele.setAttribute ( "Version", this.version ); //$NON-NLS-1$
         ele.setAttribute ( "Language", "1033" ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "Id", "*" ); //$NON-NLS-1$ //$NON-NLS-2$
-        ele.setAttribute ( "Manufacturer", this.manufacturer ); //$NON-NLS-1$ 
-        ele.setAttribute ( "UpgradeCode", this.upgradeCode ); //$NON-NLS-1$ 
-        ele.setAttribute ( "Name", this.name ); //$NON-NLS-1$ 
+        ele.setAttribute ( "Manufacturer", this.manufacturer ); //$NON-NLS-1$
+        ele.setAttribute ( "UpgradeCode", this.upgradeCode ); //$NON-NLS-1$
+        ele.setAttribute ( "Name", this.name ); //$NON-NLS-1$
 
         createPackage ( ele );
         createProperties ( ele );
@@ -248,18 +248,18 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
     private void createProperties ( final Element product )
     {
-        final Element p1 = createElement ( product, "Property" ); //$NON-NLS-1$ 
+        final Element p1 = createElement ( product, "Property" ); //$NON-NLS-1$
         p1.setAttribute ( "Id", "ES_JARS" ); //$NON-NLS-1$ //$NON-NLS-2$
-        final Element cs1 = createElement ( p1, "RegistrySearch" ); //$NON-NLS-1$ 
+        final Element cs1 = createElement ( p1, "RegistrySearch" ); //$NON-NLS-1$
         cs1.setAttribute ( "Id", "search.jars" ); //$NON-NLS-1$ //$NON-NLS-2$
         cs1.setAttribute ( "Root", "HKLM" ); //$NON-NLS-1$ //$NON-NLS-2$
         cs1.setAttribute ( "Type", "raw" ); //$NON-NLS-1$ //$NON-NLS-2$
         cs1.setAttribute ( "Key", "SOFTWARE\\Eclipse SCADA Common Drivers" ); //$NON-NLS-1$ //$NON-NLS-2$
         cs1.setAttribute ( "Name", "JarPath" ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        final Element p2 = createElement ( product, "Property" ); //$NON-NLS-1$ 
+        final Element p2 = createElement ( product, "Property" ); //$NON-NLS-1$
         p2.setAttribute ( "Id", "ES_EXTRA_JARS" ); //$NON-NLS-1$ //$NON-NLS-2$
-        final Element cs2 = createElement ( p2, "RegistrySearch" ); //$NON-NLS-1$ 
+        final Element cs2 = createElement ( p2, "RegistrySearch" ); //$NON-NLS-1$
         cs2.setAttribute ( "Id", "search.extra.jars" ); //$NON-NLS-1$ //$NON-NLS-2$
         cs2.setAttribute ( "Root", "HKLM" ); //$NON-NLS-1$ //$NON-NLS-2$
         cs2.setAttribute ( "Type", "raw" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -270,19 +270,19 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
         cond = createElement ( product, "Condition" ); //$NON-NLS-1$
         cond.setAttribute ( "Message", "You need to install the Eclipse SCADA Common Driver package first (jar)" ); //$NON-NLS-1$ //$NON-NLS-2$
-        cond.appendChild ( product.getOwnerDocument ().createCDATASection ( "ES_JARS OR Installed" ) ); //$NON-NLS-1$ 
+        cond.appendChild ( product.getOwnerDocument ().createCDATASection ( "ES_JARS OR Installed" ) ); //$NON-NLS-1$
 
         cond = createElement ( product, "Condition" ); //$NON-NLS-1$
         cond.setAttribute ( "Message", "You need to install the Eclipse SCADA Common Driver package first (extra-jars)" ); //$NON-NLS-1$ //$NON-NLS-2$
-        cond.appendChild ( product.getOwnerDocument ().createCDATASection ( "ES_EXTRA_JARS OR Installed" ) ); //$NON-NLS-1$ 
+        cond.appendChild ( product.getOwnerDocument ().createCDATASection ( "ES_EXTRA_JARS OR Installed" ) ); //$NON-NLS-1$
     }
 
     private void createCommonDriverServices ( final Element product, final File base ) throws Exception
     {
-        final Element dir = createElement ( product, "DirectoryRef" ); //$NON-NLS-1$ 
+        final Element dir = createElement ( product, "DirectoryRef" ); //$NON-NLS-1$
         dir.setAttribute ( "Id", "INSTALLDIR" ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        final Element dir2 = createElement ( dir, "Directory" ); //$NON-NLS-1$ 
+        final Element dir2 = createElement ( dir, "Directory" ); //$NON-NLS-1$
         dir2.setAttribute ( "Id", "drivers" ); //$NON-NLS-1$ //$NON-NLS-2$
         dir2.setAttribute ( "Name", "drivers" ); //$NON-NLS-1$ //$NON-NLS-2$
 
@@ -330,7 +330,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
         Element file;
         file = createElement ( comp, "File" ); //$NON-NLS-1$
-        file.setAttribute ( "Id", fileId ); //$NON-NLS-1$ 
+        file.setAttribute ( "Id", fileId ); //$NON-NLS-1$
         if ( this.platform == MsiPlatform.WIN32 )
         {
             file.setAttribute ( "Source", "unpack\\commons-daemon\\prunsrv.exe" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -354,9 +354,9 @@ public class WixDeploymentSetupBuilder extends XMLBase
         {
             final Element fw = createElement ( comp, "firewall", "FirewallException", "http://schemas.microsoft.com/wix/FirewallExtension" ); //$NON-NLS-1$ //$NON-NLS-2$
             fw.setAttribute ( "Id", serviceName + "_fw" ); //$NON-NLS-1$ //$NON-NLS-2$
-            fw.setAttribute ( "Name", name ); //$NON-NLS-1$ 
+            fw.setAttribute ( "Name", name ); //$NON-NLS-1$
             fw.setAttribute ( "Scope", "any" ); //$NON-NLS-1$ //$NON-NLS-2$
-            fw.setAttribute ( "Description", description ); //$NON-NLS-1$ 
+            fw.setAttribute ( "Description", description ); //$NON-NLS-1$
             fw.setAttribute ( "Program", String.format ( "[#%s]", fileId ) ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
@@ -403,12 +403,12 @@ public class WixDeploymentSetupBuilder extends XMLBase
             // this has to always go to the 32bit registry
             reg.setAttribute ( "Key", "SOFTWARE\\Wow6432Node\\Apache Software Foundation\\Procrun 2.0\\" + serviceName ); //$NON-NLS-1$ //$NON-NLS-2$
         }
-        reg = createElement ( reg, "RegistryKey" ); //$NON-NLS-1$ 
+        reg = createElement ( reg, "RegistryKey" ); //$NON-NLS-1$
         reg.setAttribute ( "Key", "Parameters" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // java
 
-        regSub = createElement ( reg, "RegistryKey" ); //$NON-NLS-1$ 
+        regSub = createElement ( reg, "RegistryKey" ); //$NON-NLS-1$
         regSub.setAttribute ( "Key", "Java" ); //$NON-NLS-1$ //$NON-NLS-2$
         addValue ( regSub, "Jvm", "auto" ); //$NON-NLS-1$ //$NON-NLS-2$
         addValue ( regSub, "Classpath", serviceConfiguration.classpath ); //$NON-NLS-1$
@@ -437,24 +437,24 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
         regSub = createElement ( reg, "RegistryKey" ); //$NON-NLS-1$
         regSub.setAttribute ( "Key", "Start" ); //$NON-NLS-1$ //$NON-NLS-2$
-        addValue ( regSub, "Class", serviceConfiguration.startClass ); //$NON-NLS-1$ 
-        addValue ( regSub, "Method", serviceConfiguration.startMethod ); //$NON-NLS-1$ 
+        addValue ( regSub, "Class", serviceConfiguration.startClass ); //$NON-NLS-1$
+        addValue ( regSub, "Method", serviceConfiguration.startMethod ); //$NON-NLS-1$
         addValue ( regSub, "Mode", "jvm" ); //$NON-NLS-1$ //$NON-NLS-2$
-        addValues ( regSub, "Params", serviceConfiguration.startArguments ); //$NON-NLS-1$ 
+        addValues ( regSub, "Params", serviceConfiguration.startArguments ); //$NON-NLS-1$
 
         // stop
 
         regSub = createElement ( reg, "RegistryKey" ); //$NON-NLS-1$
         regSub.setAttribute ( "Key", "Stop" ); //$NON-NLS-1$ //$NON-NLS-2$
-        addValue ( regSub, "Class", serviceConfiguration.stopClass ); //$NON-NLS-1$ 
-        addValue ( regSub, "Method", serviceConfiguration.stopMethod ); //$NON-NLS-1$ 
+        addValue ( regSub, "Class", serviceConfiguration.stopClass ); //$NON-NLS-1$
+        addValue ( regSub, "Method", serviceConfiguration.stopMethod ); //$NON-NLS-1$
         addValue ( regSub, "Mode", "jvm" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         final Element si = createElement ( comp, "ServiceInstall" ); //$NON-NLS-1$
         si.setAttribute ( "Id", "ServiceInstall_" + serviceName ); //$NON-NLS-1$ //$NON-NLS-2$
-        si.setAttribute ( "DisplayName", serviceConfiguration.displayName ); //$NON-NLS-1$ 
-        si.setAttribute ( "Description", serviceConfiguration.description ); //$NON-NLS-1$ 
-        si.setAttribute ( "Name", serviceName ); //$NON-NLS-1$ 
+        si.setAttribute ( "DisplayName", serviceConfiguration.displayName ); //$NON-NLS-1$
+        si.setAttribute ( "Description", serviceConfiguration.description ); //$NON-NLS-1$
+        si.setAttribute ( "Name", serviceName ); //$NON-NLS-1$
         si.setAttribute ( "Type", "ownProcess" ); //$NON-NLS-1$ //$NON-NLS-2$
         si.setAttribute ( "Start", "auto" ); //$NON-NLS-1$ //$NON-NLS-2$
         si.setAttribute ( "ErrorControl", "normal" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -466,7 +466,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
         final Element sc = createElement ( comp, "ServiceControl" ); //$NON-NLS-1$
         sc.setAttribute ( "Id", "ServiceControl_" + serviceName );
-        sc.setAttribute ( "Name", serviceName ); //$NON-NLS-1$ 
+        sc.setAttribute ( "Name", serviceName ); //$NON-NLS-1$
         sc.setAttribute ( "Stop", "both" ); //$NON-NLS-1$ //$NON-NLS-2$
         sc.setAttribute ( "Remove", "uninstall" ); //$NON-NLS-1$ //$NON-NLS-2$
         sc.setAttribute ( "Wait", "yes" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -486,8 +486,8 @@ public class WixDeploymentSetupBuilder extends XMLBase
         final String cfgDirId = "cfg_" + serviceName; //$NON-NLS-1$
 
         final Element cfgDir = createElement ( this.caDir, "Directory" ); //$NON-NLS-1$
-        cfgDir.setAttribute ( "Id", cfgDirId ); //$NON-NLS-1$ 
-        cfgDir.setAttribute ( "Name", eas.getName () ); //$NON-NLS-1$ 
+        cfgDir.setAttribute ( "Id", cfgDirId ); //$NON-NLS-1$
+        cfgDir.setAttribute ( "Name", eas.getName () ); //$NON-NLS-1$
 
         final Element cfgDirComp = createComponent ( cfgDir, "comp_" + cfgDirId );
         cfgDirComp.setAttribute ( "Guid", UUID.nameUUIDFromBytes ( cfgDirId.getBytes () ).toString () );
@@ -530,7 +530,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
             p.setProperty ( "logback.configurationFile", String.format ( "[INSTALLDIR]\\apps\\%s\\logback.xml", eas.getName () ) ); //$NON-NLS-1$ //$NON-NLS-2$
             createLogback ( comp, eas, resourceBase );
         }
-        if ( p.containsKey ( "org.eclipse.scada.ca.file.root" ) ) //$NON-NLS-1$ 
+        if ( p.containsKey ( "org.eclipse.scada.ca.file.root" ) ) //$NON-NLS-1$
         {
             p.setProperty ( "org.eclipse.scada.ca.file.root", String.format ( "[%s]\\ca", cfgDirId ) ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -553,7 +553,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
     private void createLogback ( final Element comp, final EquinoxAppService eas, final File resourceBase ) throws Exception
     {
-        final Element file = createElement ( comp, "File" ); //$NON-NLS-1$ 
+        final Element file = createElement ( comp, "File" ); //$NON-NLS-1$
         final String serviceName = makeServiceName ( eas );
         file.setAttribute ( "Id", "logback.xml_" + serviceName ); //$NON-NLS-1$ //$NON-NLS-2$
         file.setAttribute ( "Source", String.format ( "resources\\apps\\%s\\logback.xml", eas.getName () ) ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -561,7 +561,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
         final File logback = new File ( resourceBase, "logback.xml" ); //$NON-NLS-1$
         try ( FileOutputStream out = new FileOutputStream ( logback ) )
         {
-            Resources.copy ( Resources.getResource ( MsiHandler.class, "templates/msi/app.logback.xml" ), out ); //$NON-NLS-1$ 
+            Resources.copy ( Resources.getResource ( MsiHandler.class, "templates/msi/app.logback.xml" ), out ); //$NON-NLS-1$
         }
     }
 
@@ -571,7 +571,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
         {
             for ( final Map.Entry<String, Integer> entry : Profiles.makeStartLevelMap ( profile ).entrySet () )
             {
-                writer.println ( String.format ( "%s=%s", entry.getKey (), entry.getValue () ) ); //$NON-NLS-1$ 
+                writer.println ( String.format ( "%s=%s", entry.getKey (), entry.getValue () ) ); //$NON-NLS-1$
             }
         }
     }
@@ -598,15 +598,15 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
         // create prunsrv configuration
         final ServiceConfiguration cfg = new ServiceConfiguration ();
-        cfg.displayName = "Eclipse SCADA Common Driver: " + cds.getName (); //$NON-NLS-1$ 
+        cfg.displayName = "Eclipse SCADA Common Driver: " + cds.getName (); //$NON-NLS-1$
         cfg.description = description;
-        cfg.startClass = cfg.stopClass = "org.eclipse.scada.da.server.exporter.Application"; //$NON-NLS-1$ 
-        cfg.startMethod = "main"; //$NON-NLS-1$ 
+        cfg.startClass = cfg.stopClass = "org.eclipse.scada.da.server.exporter.Application"; //$NON-NLS-1$
+        cfg.startMethod = "main"; //$NON-NLS-1$
         cfg.startArguments = new String[] { "[#" + fileIdConfiguration + "]" //$NON-NLS-1$ //$NON-NLS-2$
         };
-        cfg.stopMethod = "stop"; //$NON-NLS-1$ 
+        cfg.stopMethod = "stop"; //$NON-NLS-1$
         cfg.properties = cds.getProps ();
-        cfg.classpath = "[ES_JARS]\\*;[ES_EXTRA_JARS]\\*"; //$NON-NLS-1$ 
+        cfg.classpath = "[ES_JARS]\\*;[ES_EXTRA_JARS]\\*"; //$NON-NLS-1$
         createProcrunService ( comp, serviceName, cfg );
 
         // TODO: add firewall rule
@@ -621,7 +621,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
         createAppCleanup ( product );
 
-        final Element dir = createElement ( product, "DirectoryRef" ); //$NON-NLS-1$ 
+        final Element dir = createElement ( product, "DirectoryRef" ); //$NON-NLS-1$
         dir.setAttribute ( "Id", "apps" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         for ( final EquinoxAppService eqs : this.apps )
@@ -634,7 +634,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
     private void createAppCleanup ( final Element product )
     {
-        final Element ca = createElement ( product, "CustomAction" ); //$NON-NLS-1$ 
+        final Element ca = createElement ( product, "CustomAction" ); //$NON-NLS-1$
         ca.setAttribute ( "Id", "CleanupApps" ); //$NON-NLS-1$ //$NON-NLS-2$
         ca.setAttribute ( "Directory", "INSTALLDIR" ); //$NON-NLS-1$ //$NON-NLS-2$
         ca.setAttribute ( "Execute", "deferred" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -643,19 +643,19 @@ public class WixDeploymentSetupBuilder extends XMLBase
         ca.setAttribute ( "Impersonate", "no" ); //$NON-NLS-1$ //$NON-NLS-2$
         ca.setAttribute ( "ExeCommand", "cmd /C \"rmdir /Q /S apps\"" ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        final Element ies = createElement ( product, "InstallExecuteSequence" ); //$NON-NLS-1$ 
-        final Element c = createElement ( ies, "Custom" ); //$NON-NLS-1$ 
+        final Element ies = createElement ( product, "InstallExecuteSequence" ); //$NON-NLS-1$
+        final Element c = createElement ( ies, "Custom" ); //$NON-NLS-1$
         c.setAttribute ( "Action", "CleanupApps" ); //$NON-NLS-1$ //$NON-NLS-2$
         c.setAttribute ( "After", "RemoveFiles" ); //$NON-NLS-1$ //$NON-NLS-2$
-        c.appendChild ( product.getOwnerDocument ().createTextNode ( "REMOVE=\"ALL\"" ) ); //$NON-NLS-1$ 
+        c.appendChild ( product.getOwnerDocument ().createTextNode ( "REMOVE=\"ALL\"" ) ); //$NON-NLS-1$
     }
 
     private void addValue ( final Element reg, final String key, final String value )
     {
-        final Element ele = createElement ( reg, "RegistryValue" ); //$NON-NLS-1$ 
+        final Element ele = createElement ( reg, "RegistryValue" ); //$NON-NLS-1$
         ele.setAttribute ( "Type", "string" ); //$NON-NLS-1$ //$NON-NLS-2$
-        ele.setAttribute ( "Name", key ); //$NON-NLS-1$ 
-        ele.setAttribute ( "Value", value ); //$NON-NLS-1$ 
+        ele.setAttribute ( "Name", key ); //$NON-NLS-1$
+        ele.setAttribute ( "Value", value ); //$NON-NLS-1$
     }
 
     private void addValues ( final Element reg, final String key, final String[] values )
@@ -665,44 +665,44 @@ public class WixDeploymentSetupBuilder extends XMLBase
             return;
         }
 
-        final Element ele = createElement ( reg, "RegistryValue" ); //$NON-NLS-1$ 
+        final Element ele = createElement ( reg, "RegistryValue" ); //$NON-NLS-1$
         ele.setAttribute ( "Type", "multiString" ); //$NON-NLS-1$ //$NON-NLS-2$
-        ele.setAttribute ( "Name", key ); //$NON-NLS-1$ 
+        ele.setAttribute ( "Name", key ); //$NON-NLS-1$
 
         for ( final String value : values )
         {
-            createElementWithText ( ele, "MultiStringValue", value ); //$NON-NLS-1$ 
+            createElementWithText ( ele, "MultiStringValue", value ); //$NON-NLS-1$
         }
     }
 
     private void createFeature ( final Element product )
     {
-        final Element feat = createElement ( product, "Feature" ); //$NON-NLS-1$ 
+        final Element feat = createElement ( product, "Feature" ); //$NON-NLS-1$
         feat.setAttribute ( "Id", "Complete" ); //$NON-NLS-1$ //$NON-NLS-2$
         feat.setAttribute ( "Level", "1" ); //$NON-NLS-1$ //$NON-NLS-2$
-        feat.setAttribute ( "Title", this.name ); //$NON-NLS-1$ 
+        feat.setAttribute ( "Title", this.name ); //$NON-NLS-1$
         feat.setAttribute ( "Display", "expand" ); //$NON-NLS-1$ //$NON-NLS-2$
         feat.setAttribute ( "Description", "The complete package" ); //$NON-NLS-1$s
 
         Element entry;
 
-        entry = createElement ( feat, "ComponentGroupRef" ); //$NON-NLS-1$ 
+        entry = createElement ( feat, "ComponentGroupRef" ); //$NON-NLS-1$
         entry.setAttribute ( "Id", "ScanComponent" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         for ( final String comp : this.components )
         {
-            entry = createElement ( feat, "ComponentRef" ); //$NON-NLS-1$ 
-            entry.setAttribute ( "Id", comp ); //$NON-NLS-1$ 
+            entry = createElement ( feat, "ComponentRef" ); //$NON-NLS-1$
+            entry.setAttribute ( "Id", comp ); //$NON-NLS-1$
         }
     }
 
     private void createTargetDir ( final Element product )
     {
-        final Element dir1 = createElement ( product, "Directory" ); //$NON-NLS-1$ 
+        final Element dir1 = createElement ( product, "Directory" ); //$NON-NLS-1$
         dir1.setAttribute ( "Id", "TARGETDIR" ); //$NON-NLS-1$ //$NON-NLS-2$
         dir1.setAttribute ( "Name", "SourceDir" ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        final Element dir2 = createElement ( dir1, "Directory" ); //$NON-NLS-1$ 
+        final Element dir2 = createElement ( dir1, "Directory" ); //$NON-NLS-1$
         dir2.setAttribute ( "Name", "PFiles" ); //$NON-NLS-1$ //$NON-NLS-2$
         if ( this.platform == MsiPlatform.WIN32 )
         {
@@ -713,11 +713,11 @@ public class WixDeploymentSetupBuilder extends XMLBase
             dir2.setAttribute ( "Id", "ProgramFiles64Folder" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
-        final Element dir3 = createElement ( dir2, "Directory" ); //$NON-NLS-1$ 
+        final Element dir3 = createElement ( dir2, "Directory" ); //$NON-NLS-1$
         dir3.setAttribute ( "Id", "INSTALLDIR" ); //$NON-NLS-1$ //$NON-NLS-2$
-        dir3.setAttribute ( "Name", this.name ); //$NON-NLS-1$ 
+        dir3.setAttribute ( "Name", this.name ); //$NON-NLS-1$
 
-        this.caDir = createElement ( dir3, "Directory" ); //$NON-NLS-1$ 
+        this.caDir = createElement ( dir3, "Directory" ); //$NON-NLS-1$
         this.caDir.setAttribute ( "Id", "CA_DIR" ); //$NON-NLS-1$ //$NON-NLS-2$
         this.caDir.setAttribute ( "Name", "configuration" ); //$NON-NLS-1$ //$NON-NLS-2$
     }
@@ -730,7 +730,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
     private void createMedia ( final Element product )
     {
-        final Element ele = createElement ( product, "Media" ); //$NON-NLS-1$ 
+        final Element ele = createElement ( product, "Media" ); //$NON-NLS-1$
         ele.setAttribute ( "Id", "1" ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "Cabinet", "contents.cab" ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "EmbedCab", "yes" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -739,7 +739,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
     private void createPackage ( final Element product )
     {
-        final Element ele = createElement ( product, "Package" ); //$NON-NLS-1$ 
+        final Element ele = createElement ( product, "Package" ); //$NON-NLS-1$
         ele.setAttribute ( "InstallScope", "perMachine" ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "InstallPrivileges", "elevated" ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "InstallerVersion", "200" ); //$NON-NLS-1$ //$NON-NLS-2$
