@@ -26,7 +26,6 @@ import org.slf4j.LoggerFactory;
 
 public class BundleContextHiveFactory extends AbstractHiveFactory implements HiveFactory
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( BundleContextHiveFactory.class );
 
     private final BundleContext context;
