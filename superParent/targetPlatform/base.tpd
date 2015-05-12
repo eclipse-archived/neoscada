@@ -32,6 +32,9 @@ location "http://download.eclipse.org/releases/mars" {
 	
 	org.eclipse.gef.sdk.feature.group
 	org.eclipse.jdt.feature.group
+	
+	org.eclipse.ecf.core.feature.feature.group
+	org.eclipse.equinox.p2.core.feature.feature.group
 }
 
 location "http://download.eclipse.org/paho/" {
