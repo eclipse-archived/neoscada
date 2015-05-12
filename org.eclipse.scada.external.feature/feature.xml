@@ -18,7 +18,7 @@
    </license>
 
    <url>
-      <discovery label="Eclipse Kepler" url="http://download.eclipse.org/releases/kepler"/>
+      <discovery label="Eclipse Mars" url="http://download.eclipse.org/releases/mars"/>
    </url>
 
    <plugin
