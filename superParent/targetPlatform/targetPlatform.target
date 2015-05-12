@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1431425194">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1431430016">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
       <repository location="http://download.eclipse.org/cbi/updates/license/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.equinox.launcher.gtk.linux.ppc64le" version="1.0.300.v20150423-1351"/>
+      <unit id="org.eclipse.core.filesystem.linux.ppc64le" version="1.4.0.v20140822-1153"/>
+      <repository location="http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M7-201504301445"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.0.v20150430-1836"/>

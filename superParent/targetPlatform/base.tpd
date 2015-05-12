@@ -6,6 +6,11 @@ location "http://download.eclipse.org/cbi/updates/license/" {
 	org.eclipse.license.feature.group
 }
 
+location "http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M7-201504301445" {
+	org.eclipse.equinox.launcher.gtk.linux.ppc64le
+	org.eclipse.core.filesystem.linux.ppc64le
+}
+
 location "http://download.eclipse.org/releases/mars" {
 	org.eclipse.equinox.sdk.feature.group
 	
