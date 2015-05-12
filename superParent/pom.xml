@@ -5,7 +5,7 @@
 
 	<groupId>org.eclipse.scada.releng</groupId>
 	<artifactId>superParent</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<organization>
@@ -34,11 +34,11 @@
 				
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<tycho-version>0.20.0</tycho-version>
-		<tycho-extras-version>0.20.0</tycho-extras-version>
+		<tycho-version>0.22.0</tycho-version>
+		<tycho-extras-version>0.22.0</tycho-extras-version>
 		<build-helper-version>0.0.19</build-helper-version>
 
-		<eclipse.orbit.version>R20140525021250</eclipse.orbit.version>
+		<eclipse.orbit.version>R20150124073747</eclipse.orbit.version>
 
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
 		<buildTimestamp>${maven.build.timestamp}</buildTimestamp>
@@ -343,7 +343,7 @@
 					<plugin>
 						<groupId>org.eclipse.cbi.maven.plugins</groupId>
 						<artifactId>eclipse-jarsigner-plugin</artifactId>
-						<version>1.0.5</version>
+						<version>1.1.1</version>
 						<executions>
 							<execution>
 								<id>sign</id>
