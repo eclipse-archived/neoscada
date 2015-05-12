@@ -39,8 +39,11 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2015012407374
 
 	org.apache.commons.beanutils[1.8.0,1.8.1)
 	org.apache.commons.beanutils.source[1.8.0,1.8.1)
+	org.apache.commons.codec[1.4.0,1.4.1)
+	org.apache.commons.codec.source[1.4.0,1.4.1)
 	org.apache.commons.collections[3.2.0,3.2.1)
 	org.apache.commons.collections.source[3.2.0,3.2.1)
+	
 	org.apache.commons.dbcp[1.4.0,1.4.1)
 	org.apache.commons.dbcp.source[1.4.0,1.4.1)
 	org.apache.commons.pool[1.6.0,1.6.1)

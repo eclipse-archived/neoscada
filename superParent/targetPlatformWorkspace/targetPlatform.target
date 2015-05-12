@@ -89,5 +89,6 @@
       <unit id="org.eclipse.rap.jface.databinding" version="2.2.0.20130702-1310"/>
       <repository location="http://download.eclipse.org/rt/rap/2.2"/>
     </location>
+    <location path="${project_loc:/org.eclipse.scada.external-repo}/source" type="Directory"/>
   </locations>
 </target>
