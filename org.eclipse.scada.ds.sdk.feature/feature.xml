@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<feature id="org.eclipse.scada.ds.sdk" label="%featureName" license-feature="org.eclipse.scada.license" license-feature-version="0.1.0.qualifier" provider-name="%providerName" version="0.1.0.qualifier">
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.scada.ds.sdk"
+      label="%featureName"
+      version="0.3.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.scada.license"
+      license-feature-version="0.1.0.qualifier">
 
    <description>
       %description
@@ -13,8 +19,12 @@
       %license
    </license>
 
-   <includes id="org.eclipse.scada.ds" version="0.0.0"/>
+   <includes
+         id="org.eclipse.scada.ds"
+         version="0.0.0"/>
 
-   <includes id="org.eclipse.scada.ds.source" version="0.0.0"/>
+   <includes
+         id="org.eclipse.scada.ds.source"
+         version="0.0.0"/>
 
 </feature>

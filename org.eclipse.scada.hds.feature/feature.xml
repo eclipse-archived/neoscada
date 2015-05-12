@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><feature id="org.eclipse.scada.hds" label="%featureName" license-feature="org.eclipse.scada.license" license-feature-version="0.1.0.qualifier" provider-name="%providerName" version="0.1.0.qualifier">
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.scada.hds"
+      label="%featureName"
+      version="0.3.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.scada.license"
+      license-feature-version="0.1.0.qualifier">
 
    <description>
       %description
@@ -17,6 +24,11 @@
       <import plugin="org.slf4j.api"/>
    </requires>
 
-   <plugin download-size="0" id="org.eclipse.scada.hds" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.hds"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
