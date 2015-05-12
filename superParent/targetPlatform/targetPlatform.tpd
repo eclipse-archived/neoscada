@@ -3,4 +3,6 @@ target "Eclipse SCADA Target Platform"
 include "base.tpd"
 include "rap.tpd"
 
+environment JavaSE-1.7
+
 with source, allEnvironments
