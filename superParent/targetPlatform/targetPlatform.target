@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1431430329">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1431430786">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
@@ -10,6 +10,9 @@
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.launcher.gtk.linux.ppc64le" version="1.0.300.v20150423-1351"/>
       <unit id="org.eclipse.core.filesystem.linux.ppc64le" version="1.4.0.v20140822-1153"/>
+      <unit id="org.junit.source" version="4.12.0.v201504281640"/>
+      <unit id="javax.annotation.source" version="1.2.0.v201401042248"/>
+      <unit id="org.apache.commons.logging.source" version="1.1.1.v201101211721"/>
       <repository location="http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M7-201504301445"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">

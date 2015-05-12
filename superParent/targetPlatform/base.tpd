@@ -9,6 +9,10 @@ location "http://download.eclipse.org/cbi/updates/license/" {
 location "http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M7-201504301445" {
 	org.eclipse.equinox.launcher.gtk.linux.ppc64le
 	org.eclipse.core.filesystem.linux.ppc64le
+	
+	org.junit.source [4.12.0,4.12.1)
+	javax.annotation.source [1.2.0,1.2.1)
+	org.apache.commons.logging.source [1.1.1,1.1.2)
 }
 
 location "http://download.eclipse.org/releases/mars" {
