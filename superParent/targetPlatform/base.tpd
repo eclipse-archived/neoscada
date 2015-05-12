@@ -2,7 +2,7 @@ target "Eclipse SCADA Target Platform (Base Fragment)"
 
 with source, allEnvironments
 
-location "http://download.eclipse.org/releases/kepler" {
+location "http://download.eclipse.org/releases/mars" {
 	org.eclipse.equinox.sdk.feature.group
 	
 	org.eclipse.emf.validation.sdk.feature.group
@@ -25,7 +25,7 @@ location "http://download.eclipse.org/paho/" {
 	org.eclipse.paho.client.mqttv3
 }
 
-location "http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/" {
+location "http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository/" {
 
 /*
  * We do have CQs for specific versions. So we need to fix them.
@@ -33,61 +33,61 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2014052502125
  * we actually want is "a.b.c.*" which is "[a.b.c,a.b.c+1)".
  */
 
-	org.apache.commons.beanutils;version=[1.8.0,1.8.1)
-	org.apache.commons.beanutils.^source;version=[1.8.0,1.8.1)
-	org.apache.commons.collections;version=[3.2.0,3.2.1)
-	org.apache.commons.collections.^source;version=[3.2.0,3.2.1)
-	org.apache.commons.dbcp;version=[1.4.0,1.4.1)
-	org.apache.commons.dbcp.^source;version=[1.4.0,1.4.1)
-	org.apache.commons.pool;version=[1.6.0,1.6.1)
-	org.apache.commons.pool.^source;version=[1.6.0,1.6.1)
-	org.apache.commons.httpclient;version=[3.1.0,3.1.1)
-	org.apache.commons.httpclient.^source;version=[3.1.0,3.1.1)
-	org.apache.commons.io;version=[2.0.1,2.0.2)
-	org.apache.commons.io.^source;version=[2.0.1,2.0.2)
+	org.apache.commons.beanutils[1.8.0,1.8.1)
+	org.apache.commons.beanutils.source[1.8.0,1.8.1)
+	org.apache.commons.collections[3.2.0,3.2.1)
+	org.apache.commons.collections.source[3.2.0,3.2.1)
+	org.apache.commons.dbcp[1.4.0,1.4.1)
+	org.apache.commons.dbcp.source[1.4.0,1.4.1)
+	org.apache.commons.pool[1.6.0,1.6.1)
+	org.apache.commons.pool.source[1.6.0,1.6.1)
+	org.apache.commons.httpclient[3.1.0,3.1.1)
+	org.apache.commons.httpclient.source[3.1.0,3.1.1)
+	org.apache.commons.io[2.0.1,2.0.2)
+	org.apache.commons.io.source[2.0.1,2.0.2)
 	
-	org.apache.poi;version=[3.9.0,3.9.1)
-	org.apache.poi.^source;version=[3.9.0,3.9.1)
-	org.apache.mina.core;version=[2.0.7,2.0.8)
-	org.apache.mina.core.^source;version=[2.0.7,2.0.8)
-	org.apache.mina.filter.compression;version=[2.0.7,2.0.8)
-	org.apache.mina.filter.compression.^source;version=[2.0.7,2.0.8)
+	org.apache.poi[3.9.0,3.9.1)
+	org.apache.poi.source[3.9.0,3.9.1)
+	org.apache.mina.core[2.0.7,2.0.8)
+	org.apache.mina.core.source[2.0.7,2.0.8)
+	org.apache.mina.filter.compression[2.0.7,2.0.8)
+	org.apache.mina.filter.compression.source[2.0.7,2.0.8)
 	
-	com.google.guava;version=[15.0.0,15.0.1)
-	com.google.guava.^source;version=[15.0.0,15.0.1)
-	com.google.gson;version=[2.2.4,2.2.5)
-	com.google.gson.^source;version=[2.2.4,2.2.5)
+	com.google.guava[15.0.0,15.0.1)
+	com.google.guava.source[15.0.0,15.0.1)
+	com.google.gson[2.2.4,2.2.5)
+	com.google.gson.source[2.2.4,2.2.5)
 
-	org.junit;version=[4.11.0,4.11.1)
-	org.junit.^source;version=[4.11.0,4.11.1)
-	com.jcraft.jzlib;version=[1.1.1,1.1.2)
-	com.jcraft.jzlib.^source;version=[1.1.1,1.1.2)
+	org.junit[4.11.0,4.11.1)
+	org.junit.source[4.11.0,4.11.1)
+	com.jcraft.jzlib[1.1.1,1.1.2)
+	com.jcraft.jzlib.source[1.1.1,1.1.2)
 	
-	org.slf4j.api;version=[1.7.2,1.7.3)
-	org.slf4j.api.^source;version=[1.7.2,1.7.3)
-	org.slf4j.ext;version=[1.7.2,1.7.3)
-	org.slf4j.ext.^source;version=[1.7.2,1.7.3)
+	org.slf4j.api[1.7.2,1.7.3)
+	org.slf4j.api.source[1.7.2,1.7.3)
+	org.slf4j.ext[1.7.2,1.7.3)
+	org.slf4j.ext.source[1.7.2,1.7.3)
 	
-	ch.qos.logback.classic;version=[1.0.7,1.0.8)
-	ch.qos.logback.classic.^source;version=[1.0.7,1.0.8)
-	ch.qos.logback.core;version=[1.0.7,1.0.8)
-	ch.qos.logback.core.^source;version=[1.0.7,1.0.8)
-	ch.qos.logback.slf4j;version=[1.0.7,1.0.8)
-	ch.qos.logback.slf4j.^source;version=[1.0.7,1.0.8)
+	ch.qos.logback.classic[1.0.7,1.0.8)
+	ch.qos.logback.classic.source[1.0.7,1.0.8)
+	ch.qos.logback.core[1.0.7,1.0.8)
+	ch.qos.logback.core.source[1.0.7,1.0.8)
+	ch.qos.logback.slf4j[1.0.7,1.0.8)
+	ch.qos.logback.slf4j.source[1.0.7,1.0.8)
 	
-	javax.annotation;version=[1.1.0,1.1.1)
-	javax.annotation.^source;version=[1.1.0,1.1.1)
-	javax.inject;version=[1.0.0,1.0.1)
-	javax.inject.^source;version=[1.0.0,1.0.1)
-	javax.ws.rs;version=[1.1.1,1.1.2)
-	javax.ws.rs.^source;version=[1.1.1,1.1.2)
-	javax.mail.glassfish;version=[1.4.1,1.4.2)
-	javax.mail.glassfish.^source;version=[1.4.1,1.4.2)
-	javax.activation;version=[1.1.0,1.1.1)
-	javax.activation.^source;version=[1.1.0,1.1.1)
+	javax.annotation[1.1.0,1.1.1)
+	javax.annotation.source[1.1.0,1.1.1)
+	javax.inject[1.0.0,1.0.1)
+	javax.inject.source[1.0.0,1.0.1)
+	javax.ws.rs[1.1.1,1.1.2)
+	javax.ws.rs.source[1.1.1,1.1.2)
+	javax.mail.glassfish[1.4.1,1.4.2)
+	javax.mail.glassfish.source[1.4.1,1.4.2)
+	javax.activation[1.1.0,1.1.1)
+	javax.activation.source[1.1.0,1.1.1)
 	
-	osgi.enterprise;version=[4.2.0,4.2.1)
-	osgi.enterprise.^source;version=[4.2.0,4.2.1)
+	osgi.enterprise[4.2.0,4.2.1)
+	osgi.enterprise.source[4.2.0,4.2.1)
 }
 
 location "http://download.eclipse.org/gemini/updates/dbaccess/1.1.0" {

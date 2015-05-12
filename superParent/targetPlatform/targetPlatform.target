@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1410420888">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1431422665">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20140221-1852"/>
-      <unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.7.0.201306111341"/>
-      <unit id="org.eclipse.emf.sdk.feature.group" version="2.9.2.v20140203-1126"/>
-      <unit id="org.eclipse.ecf.core.feature.group" version="3.6.1.v20130605-1748"/>
-      <unit id="org.eclipse.ocl.all.sdk.feature.group" version="4.1.1.v20140210-1137"/>
-      <unit id="org.eclipse.platform.feature.group" version="4.3.2.v20140221-1852"/>
-      <unit id="org.eclipse.pde.feature.group" version="3.9.1.v20140221-1700"/>
-      <unit id="org.eclipse.wst.web_ui.feature.feature.group" version="3.5.2.v201401062113-7O7QG3wEMkBS3Graz0gRCYqCz-PVayJqBmOpb93L"/>
-      <unit id="org.eclipse.acceleo.feature.group" version="3.4.2.201401221203"/>
-      <unit id="org.eclipse.gef.sdk.feature.group" version="3.9.1.201308190730"/>
-      <unit id="org.eclipse.jdt.feature.group" version="3.9.2.v20140221-1700"/>
-      <repository location="http://download.eclipse.org/releases/kepler"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.0.v20150430-1836"/>
+      <unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.9.0.201505060134"/>
+      <unit id="org.eclipse.emf.sdk.feature.group" version="2.11.0.v20150504-0831"/>
+      <unit id="org.eclipse.ecf.core.feature.group" version="3.10.0.v20150506-1752"/>
+      <unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.1.0.v20150410-1135"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.5.0.v20150430-1836"/>
+      <unit id="org.eclipse.pde.feature.group" version="3.11.0.v20150430-1445"/>
+      <unit id="org.eclipse.wst.web_ui.feature.feature.group" version="3.7.0.v201504300009"/>
+      <unit id="org.eclipse.acceleo.feature.group" version="3.6.0.201505040910"/>
+      <unit id="org.eclipse.gef.sdk.feature.group" version="3.10.0.201505040206"/>
+      <unit id="org.eclipse.jdt.feature.group" version="3.11.0.v20150430-1445"/>
+      <repository location="http://download.eclipse.org/releases/mars"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.paho.client.mqttv3" version="1.0.0"/>
+      <unit id="org.eclipse.paho.client.mqttv3" version="1.0.2"/>
       <repository location="http://download.eclipse.org/paho/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -70,7 +70,7 @@
       <unit id="javax.activation.source" version="1.1.0.v201211130549"/>
       <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
       <unit id="osgi.enterprise.source" version="4.2.0.v201108120515"/>
-      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
+      <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.gemini.dbaccess.h2.feature.feature.group" version="1.1.0.RELEASE"/>

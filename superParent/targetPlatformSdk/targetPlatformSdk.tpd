@@ -7,7 +7,7 @@ include "../targetPlatform/base.tpd"
 
 with source, allEnvironments
 
-location "http://download.eclipse.org/eclipsescada/updates/nightly/0.2" {
+location "http://download.eclipse.org/eclipsescada/updates/nightly/0.3" {
 	org.eclipse.scada.external.wrapper.feature.group
 	org.eclipse.scada.external.sdk.feature.group
 	org.eclipse.scada.base.sdk.feature.group
@@ -23,7 +23,7 @@ location "http://download.eclipse.org/eclipsescada/updates/nightly/0.2" {
 
 /* we can include git in this profile to allow really using the configurator */
 
-location "http://download.eclipse.org/releases/kepler" {
+location "http://download.eclipse.org/releases/mars" {
 	org.eclipse.jgit.feature.group
 	org.eclipse.jgit.java7.feature.group
 	org.eclipse.egit.feature.group
@@ -31,6 +31,6 @@ location "http://download.eclipse.org/releases/kepler" {
 
 /* add SWT tools in order to have sleak */
 
-location "http://www.eclipse.org/swt/updates/4.3" {
+location "http://download.eclipse.org/eclipse/updates/4.5" {
 	org.eclipse.swt.tools.category
 }
