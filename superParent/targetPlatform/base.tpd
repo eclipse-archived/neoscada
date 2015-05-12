@@ -2,6 +2,10 @@ target "Eclipse SCADA Target Platform (Base Fragment)"
 
 with source, allEnvironments
 
+location "http://download.eclipse.org/cbi/updates/license/" {
+	org.eclipse.license.feature.group
+}
+
 location "http://download.eclipse.org/releases/mars" {
 	org.eclipse.equinox.sdk.feature.group
 	
