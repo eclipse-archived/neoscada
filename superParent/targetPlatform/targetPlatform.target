@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1431502421">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1431503856">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
@@ -32,6 +32,7 @@
       <unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="1.0.0.v20150506-1752"/>
       <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.10.0.v20150506-1752"/>
       <unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="3.10.0.v20150506-1752"/>
+      <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="1.0.0.v20150506-1752"/>
       <unit id="org.eclipse.equinox.p2.rcp.feature.feature.group" version="1.2.100.v20150430-1836"/>
       <repository location="http://download.eclipse.org/releases/mars"/>
     </location>
