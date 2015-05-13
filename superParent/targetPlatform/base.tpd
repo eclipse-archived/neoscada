@@ -37,6 +37,7 @@ location "http://download.eclipse.org/releases/mars" {
 	org.eclipse.equinox.p2.core.feature.feature.group
 	org.eclipse.ecf.core.ssl.feature.feature.group
 	org.eclipse.ecf.filetransfer.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group
 }
 
 location "http://download.eclipse.org/paho/" {
