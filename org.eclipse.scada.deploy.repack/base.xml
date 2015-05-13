@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.eclipse.scada.releng</groupId>
 		<artifactId>superParent</artifactId>
-		<version>0.2.0-SNAPSHOT</version>
+		<version>0.3.0-SNAPSHOT</version>
 	</parent>
 	
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
 	<artifactId>org.eclipse.scada.deploy.repack-base</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<organization>
