@@ -10,13 +10,13 @@
 	</parent>
 
 	<properties>
-		<srcDir>${eclipse.download.root}/equinox/drops/R-KeplerSR2-201402211700</srcDir>
-		<srcFile>equinox-SDK-KeplerSR2.zip</srcFile>
+		<srcDir>${eclipse.download.root}/equinox/drops/S-MarsM7-201504301445</srcDir>
+		<srcFile>equinox-SDK-MarsM7.zip</srcFile>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>
 	<artifactId>equinox-SDK</artifactId>
-	<version>4.3.2-SNAPSHOT</version>
+	<version>4.5.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<profiles>

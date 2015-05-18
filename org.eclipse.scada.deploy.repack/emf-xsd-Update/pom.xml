@@ -10,13 +10,13 @@
 	</parent>
 
 	<properties>
-		<srcDir>${eclipse.download.root}/modeling/emf/emf/downloads/drops/2.9.2/R201402031126</srcDir>
-		<srcFile>emf-xsd-Update-2.9.2.zip</srcFile>
+		<srcDir>${eclipse.download.root}/modeling/emf/emf/downloads/drops/2.11.0/S201505040831</srcDir>
+		<srcFile>emf-xsd-Update-2.11.0M7.zip</srcFile>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>
 	<artifactId>emf-xsd</artifactId>
-	<version>2.9.2-SNAPSHOT</version>
+	<version>2.11.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<profiles>
