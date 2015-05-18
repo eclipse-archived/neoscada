@@ -20,13 +20,8 @@
    </license>
 
    <requires>
-      <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
-      <import plugin="org.eclipse.osgi"/>
-      <import plugin="org.eclipse.osgi.services"/>
       <import plugin="org.apache.sshd.core" version="0.5.0" match="greaterOrEqual"/>
-      <import plugin="org.apache.mina.core"/>
-      <import plugin="org.slf4j.api"/>
-      <import plugin="com.jcraft.jzlib"/>
+      <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
    </requires>
 
    <plugin
