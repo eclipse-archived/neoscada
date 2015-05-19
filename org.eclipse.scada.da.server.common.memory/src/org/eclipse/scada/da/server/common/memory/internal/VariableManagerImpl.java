@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory.internal;
 
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -34,6 +35,8 @@ import org.eclipse.scada.da.server.common.memory.DoubleFloatAttribute;
 import org.eclipse.scada.da.server.common.memory.DoubleFloatVariable;
 import org.eclipse.scada.da.server.common.memory.DoubleIntegerAttribute;
 import org.eclipse.scada.da.server.common.memory.DoubleIntegerVariable;
+import org.eclipse.scada.da.server.common.memory.FixedLengthStringAttribute;
+import org.eclipse.scada.da.server.common.memory.FixedLengthStringVariable;
 import org.eclipse.scada.da.server.common.memory.FloatAttribute;
 import org.eclipse.scada.da.server.common.memory.FloatVariable;
 import org.eclipse.scada.da.server.common.memory.Int16Attribute;
@@ -99,7 +102,11 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
         /**
          * 64bit floating point
          */
-        DOUBLE
+        DOUBLE,
+        /**
+         * Fixed length string
+         */
+        STRING;
     }
 
     private static class TypeEntry
@@ -108,28 +115,39 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
 
         private final TYPE type;
 
-        private String typeName;
+        private final String typeName;
 
         private final int[] index;
 
-        private ByteOrder order;
+        private final ByteOrder order;
 
         private final TypeEntry[] attributes;
+
+        private final Charset charset;
+
+        private final int maxLength;
 
         public TypeEntry ( final String name, final String typeName, final int index )
         {
             this.name = name;
             this.type = TYPE.UDT;
+            this.order = null;
             this.typeName = typeName;
-            this.attributes = null;
+            this.maxLength = -1;
+            this.charset = null;
             this.index = new int[] { index };
+            this.attributes = null;
         }
 
         public TypeEntry ( final String name, final int[] index, final TypeEntry... attributes )
         {
             this.name = name;
             this.index = index.clone ();
+            this.order = null;
             this.type = TYPE.TRIBIT;
+            this.typeName = null;
+            this.maxLength = -1;
+            this.charset = null;
             this.attributes = attributes;
         }
 
@@ -137,7 +155,11 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
         {
             this.name = name;
             this.index = new int[] { index, subIndex, options };
+            this.order = null;
             this.type = TYPE.BIT;
+            this.typeName = null;
+            this.maxLength = -1;
+            this.charset = null;
             this.attributes = attributes;
         }
 
@@ -147,6 +169,21 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
             this.index = new int[] { index, options };
             this.order = order;
             this.type = type;
+            this.typeName = null;
+            this.maxLength = -1;
+            this.charset = null;
+            this.attributes = attributes;
+        }
+
+        public TypeEntry ( final String name, final int index, final int maxLength, final Charset charset, final int options, final ByteOrder order, final TypeEntry... attributes )
+        {
+            this.name = name;
+            this.index = new int[] { index, options };
+            this.order = order;
+            this.type = TYPE.STRING;
+            this.typeName = null;
+            this.maxLength = maxLength;
+            this.charset = charset;
             this.attributes = attributes;
         }
 
@@ -185,6 +222,16 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
             return this.typeName;
         }
 
+        public int getMaxLength ()
+        {
+            return this.maxLength;
+        }
+
+        public Charset getCharset ()
+        {
+            return this.charset;
+        }
+
         @Override
         public String toString ()
         {
@@ -202,6 +249,7 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
     }
 
     private static Map<String, String> typeAliasMap = new HashMap<> ();
+
     static
     {
         typeAliasMap.put ( "BYTE", TYPE.UINT8.name () );
@@ -382,6 +430,9 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                         break;
                     case TRIBIT:
                         throw new IllegalArgumentException ( String.format ( "TRIBIT variables are not supported right now" ) );
+                    case STRING:
+                        result.add ( new FixedLengthStringVariable ( entry.getName (), entry.getIndex (), entry.getOrder (), entry.getMaxLength (), entry.getCharset (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        break;
                 }
             }
             return result.toArray ( new Variable[result.size ()] );
@@ -434,6 +485,8 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                 case DOUBLE:
                     result.add ( new DoubleFloatAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getIndexes ()[1] != 0 ) );
                     break;
+                case STRING:
+                    result.add ( new FixedLengthStringAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getMaxLength (), attrEntry.getCharset (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
                 default:
                     break;
             }
@@ -506,6 +559,9 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
             case INT64:
                 result.add ( new TypeEntry ( varName, TYPE.INT64, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
+            case STRING:
+                result.add ( new TypeEntry ( varName, Integer.parseInt ( args[0] ), Integer.parseInt ( args[2] ), Charset.forName ( args[3] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
+                break;
             case UDT:
                 if ( attribute )
                 {
@@ -517,12 +573,12 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                 }
                 break;
             case TRIBIT:
-                result.add ( new TypeEntry ( varName, new int[] {//
-                Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ),// read bit
-                Integer.parseInt ( args[2] ), Integer.parseInt ( args[3] ),// write true bit
-                Integer.parseInt ( args[4] ), Integer.parseInt ( args[5] ),// write false bit
-                Integer.parseInt ( args[6] ), // invert
-                Integer.parseInt ( args[7] ), // enableTimestamp
+                result.add ( new TypeEntry ( varName, new int[] { //
+                        Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), // read bit
+                        Integer.parseInt ( args[2] ), Integer.parseInt ( args[3] ), // write true bit
+                        Integer.parseInt ( args[4] ), Integer.parseInt ( args[5] ), // write false bit
+                        Integer.parseInt ( args[6] ), // invert
+                        Integer.parseInt ( args[7] ), // enableTimestamp
                 } ) );
                 break;
             default:
