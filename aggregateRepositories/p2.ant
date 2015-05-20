@@ -187,7 +187,7 @@ Contributors:
             <arg value="file:${p2tom2.file}" /> <!-- configuration -->
             <arg value="file:${download.dir.p2}" /> <!-- source repo -->
             <!-- validation repos -->
-            <arg value="http://download.eclipse.org/releases/kepler"/>
+            <arg value="http://download.eclipse.org/releases/mars"/>
             
             <sysproperty key="path.p2temp" file="${java.io.tmpdir}/p2tom2.p2"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
