@@ -4,8 +4,8 @@
       label="%featureName"
       version="0.3.0.qualifier"
       provider-name="%providerName"
-      license-feature="org.eclipse.scada.license"
-      license-feature-version="0.1.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.0.qualifier"> 
 
    <description>
       %description
