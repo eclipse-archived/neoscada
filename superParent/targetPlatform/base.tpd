@@ -3,7 +3,7 @@ target "Eclipse SCADA Target Platform (Base Fragment)"
 with source, allEnvironments
 
 location "http://download.eclipse.org/cbi/updates/license/" {
-	org.eclipse.license.feature.group
+	org.eclipse.license.feature.group [1.0.1,1.0.2)
 }
 
 location "http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M7-201504301445" {
