@@ -31,6 +31,6 @@ location "http://download.eclipse.org/releases/mars" {
 
 /* add SWT tools in order to have sleak */
 
-location "http://download.eclipse.org/eclipse/updates/4.5" {
-	org.eclipse.swt.tools.category
+location "http://www.eclipse.org/swt/updates/4.4" {
+	org.eclipse.swt.tools.feature.feature.group
 }
