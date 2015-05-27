@@ -48,13 +48,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.core.client.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.core.client.ngp"
          download-size="0"
          install-size="0"
@@ -104,13 +97,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.da.client.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.da.client.ngp"
          download-size="0"
          install-size="0"
@@ -126,13 +112,6 @@
 
    <plugin
          id="org.eclipse.scada.ae.client.connection.service"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.ae.client.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -161,13 +140,6 @@
 
    <plugin
          id="org.eclipse.scada.hd.client.connection.service"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.hd.client.net"
          download-size="0"
          install-size="0"
          version="0.0.0"

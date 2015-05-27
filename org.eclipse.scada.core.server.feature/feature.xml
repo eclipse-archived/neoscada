@@ -48,13 +48,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.core.server.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.core.server.ngp"
          download-size="0"
          install-size="0"
@@ -348,13 +341,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.da.server.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.da.server.ngp"
          download-size="0"
          install-size="0"
@@ -363,13 +349,6 @@
 
    <plugin
          id="org.eclipse.scada.da.server.osgi"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.da.server.osgi.exporter.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -516,13 +495,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.ae.server.exporter.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.ae.server.exporter.ngp"
          download-size="0"
          install-size="0"
@@ -545,13 +517,6 @@
 
    <plugin
          id="org.eclipse.scada.ae.server.monitor.proxy"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.ae.server.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -649,13 +614,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.hd.server.exporter.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.hd.server.exporter.ngp"
          download-size="0"
          install-size="0"
@@ -664,13 +622,6 @@
 
    <plugin
          id="org.eclipse.scada.hd.server.importer.hsdb"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.hd.server.net"
          download-size="0"
          install-size="0"
          version="0.0.0"

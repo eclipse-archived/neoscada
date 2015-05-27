@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
-  <properties:groups properties:prefix="org.eclipse.scada.da.server.osgi.exporter.net">
-    <properties:properties properties:name="openscada.da.net.exportUri" properties:dataType="CUSTOM" properties:shortDescription="The default binding URI for DA services for the net protocol">
-      <properties:defaultValue>da:net://0.0.0.0:1202</properties:defaultValue>
-      <properties:customDataTypeDescription>The format is an openSCADA connection URI</properties:customDataTypeDescription>
-    </properties:properties>
-  </properties:groups>
-</properties:properties>

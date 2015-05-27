@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
-  <properties:groups properties:prefix="org.eclipse.scada.da.server.net">
-    <properties:properties properties:name="openscada.da.net.server.port" properties:shortDescription="The default port number for the DA NET">
-      <properties:defaultValue>1202</properties:defaultValue>
-    </properties:properties>
-  </properties:groups>
-</properties:properties>

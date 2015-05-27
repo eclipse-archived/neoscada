@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
-  <properties:groups properties:prefix="org.eclipse.scada.hd.client.net">
-    <properties:properties properties:name="org.eclipse.scada.hd.client.net.maxQuerySize" properties:dataType="INTEGER" properties:shortDescription="The maximum number of entries to send in a message">
-      <properties:defaultValue>4096</properties:defaultValue>
-    </properties:properties>
-  </properties:groups>
-</properties:properties>

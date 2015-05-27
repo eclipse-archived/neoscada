@@ -26,20 +26,6 @@
    </requires>
 
    <plugin
-         id="org.eclipse.scada.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.core.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.core.ngp"
          download-size="0"
          install-size="0"
@@ -103,13 +89,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.da.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.ae"
          download-size="0"
          install-size="0"
@@ -138,13 +117,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.ae.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.ae.utils"
          download-size="0"
          install-size="0"
@@ -160,13 +132,6 @@
 
    <plugin
          id="org.eclipse.scada.hd.common.ngp"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.hd.net"
          download-size="0"
          install-size="0"
          version="0.0.0"

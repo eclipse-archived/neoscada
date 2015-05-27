@@ -104,12 +104,7 @@ public class HiveExport
 
         try
         {
-            if ( ci.getDriver ().equalsIgnoreCase ( "net" ) || ci.getDriver ().equalsIgnoreCase ( "gmpp" ) )
-            {
-                logger.debug ( "Create new 'net' exporter" );
-                return new NetExport ( this.hive, ci );
-            }
-            else if ( ci.getDriver ().equalsIgnoreCase ( "ngp" ) )
+            if ( ci.getDriver ().equalsIgnoreCase ( "ngp" ) )
             {
                 logger.debug ( "Create new 'ngp' exporter" );
                 return new NgpExport ( this.hive, ci );
