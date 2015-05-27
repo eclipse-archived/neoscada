@@ -66,9 +66,7 @@ public class BitTypeItemProvider extends BaseScalarTypeItemProvider
      */
     protected void addSubIndexPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BitType_subIndex_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_BitType_subIndex_feature", "_UI_BitType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                MemoryPackage.Literals.BIT_TYPE__SUB_INDEX, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BitType_subIndex_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_BitType_subIndex_feature", "_UI_BitType_type" ), MemoryPackage.Literals.BIT_TYPE__SUB_INDEX, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -80,7 +78,7 @@ public class BitTypeItemProvider extends BaseScalarTypeItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/BitType" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/BitType" ) );
     }
 
     /**

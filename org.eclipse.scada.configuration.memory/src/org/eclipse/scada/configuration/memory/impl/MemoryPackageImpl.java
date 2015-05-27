@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.memory.Attribute;
 import org.eclipse.scada.configuration.memory.BaseScalarType;
 import org.eclipse.scada.configuration.memory.BitType;
 import org.eclipse.scada.configuration.memory.ByteOrder;
+import org.eclipse.scada.configuration.memory.FixedLengthStringType;
 import org.eclipse.scada.configuration.memory.Float32Type;
 import org.eclipse.scada.configuration.memory.Float64Type;
 import org.eclipse.scada.configuration.memory.MemoryFactory;
@@ -138,6 +139,13 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
      * @generated
      */
     private EClass signedInteger64TypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass fixedLengthStringTypeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -474,6 +482,36 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getFixedLengthStringType ()
+    {
+        return fixedLengthStringTypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFixedLengthStringType_MaxLength ()
+    {
+        return (EAttribute)fixedLengthStringTypeEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFixedLengthStringType_Charset ()
+    {
+        return (EAttribute)fixedLengthStringTypeEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getByteOrder ()
     {
@@ -730,6 +768,10 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
 
         signedInteger64TypeEClass = createEClass ( SIGNED_INTEGER64_TYPE );
 
+        fixedLengthStringTypeEClass = createEClass ( FIXED_LENGTH_STRING_TYPE );
+        createEAttribute ( fixedLengthStringTypeEClass, FIXED_LENGTH_STRING_TYPE__MAX_LENGTH );
+        createEAttribute ( fixedLengthStringTypeEClass, FIXED_LENGTH_STRING_TYPE__CHARSET );
+
         // Create enums
         byteOrderEEnum = createEEnum ( BYTE_ORDER );
     }
@@ -778,68 +820,73 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         signedInteger16TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
         signedInteger32TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
         signedInteger64TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
+        fixedLengthStringTypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getTypeDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getTypeDefinition_Variables (), this.getVariable (), null, "variables", null, 0, -1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getTypeDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getTypeDefinition_Variables (), this.getVariable (), null, "variables", null, 0, -1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( bitTypeEClass, BitType.class, "BitType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getBitType_SubIndex (), ecorePackage.getEInt (), "subIndex", null, 1, 1, BitType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( bitTypeEClass, BitType.class, "BitType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getBitType_SubIndex (), ecorePackage.getEInt (), "subIndex", null, 1, 1, BitType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( typeEClass, Type.class, "Type", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getType_Index (), ecorePackage.getEInt (), "index", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getType_Length (), ecorePackage.getEInt (), "length", null, 1, 1, Type.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( typeEClass, Type.class, "Type", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getType_Index (), ecorePackage.getEInt (), "index", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getType_Length (), ecorePackage.getEInt (), "length", null, 1, 1, Type.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED );
 
-        initEOperation ( getType__Encode (), ecorePackage.getEString (), "encode", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getType__Encode (), ecorePackage.getEString (), "encode", 1, 1, IS_UNIQUE, IS_ORDERED );
 
-        initEClass ( variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getVariable_Type (), this.getType (), null, "type", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getVariable_Name (), ecorePackage.getEString (), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getVariable_Attributes (), this.getAttribute (), null, "attributes", null, 0, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getVariable_Type (), this.getType (), null, "type", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getVariable_Name (), ecorePackage.getEString (), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getVariable_Attributes (), this.getAttribute (), null, "attributes", null, 0, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getAttribute_Name (), ecorePackage.getEString (), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getAttribute_Type (), this.getScalarType (), null, "type", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getAttribute_Name (), ecorePackage.getEString (), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEReference ( getAttribute_Type (), this.getScalarType (), null, "type", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( float32TypeEClass, Float32Type.class, "Float32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( float32TypeEClass, Float32Type.class, "Float32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( baseScalarTypeEClass, BaseScalarType.class, "BaseScalarType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( baseScalarTypeEClass, BaseScalarType.class, "BaseScalarType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( userDefinedTypeEClass, UserDefinedType.class, "UserDefinedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getUserDefinedType_Type (), this.getTypeDefinition (), null, "type", null, 1, 1, UserDefinedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( userDefinedTypeEClass, UserDefinedType.class, "UserDefinedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getUserDefinedType_Type (), this.getTypeDefinition (), null, "type", null, 1, 1, UserDefinedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         getUserDefinedType_Type ().getEKeys ().add ( this.getTypeDefinition_Name () );
 
-        initEClass ( unsignedInteger16TypeEClass, UnsignedInteger16Type.class, "UnsignedInteger16Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( unsignedInteger16TypeEClass, UnsignedInteger16Type.class, "UnsignedInteger16Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( scalarTypeEClass, ScalarType.class, "ScalarType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( scalarTypeEClass, ScalarType.class, "ScalarType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( unsignedInteger32TypeEClass, UnsignedInteger32Type.class, "UnsignedInteger32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( unsignedInteger32TypeEClass, UnsignedInteger32Type.class, "UnsignedInteger32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( unsignedInteger8TypeEClass, UnsignedInteger8Type.class, "UnsignedInteger8Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( unsignedInteger8TypeEClass, UnsignedInteger8Type.class, "UnsignedInteger8Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( typeSystemEClass, TypeSystem.class, "TypeSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getTypeSystem_Types (), this.getTypeDefinition (), null, "types", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( typeSystemEClass, TypeSystem.class, "TypeSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEReference ( getTypeSystem_Types (), this.getTypeDefinition (), null, "types", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         getTypeSystem_Types ().getEKeys ().add ( this.getTypeDefinition_Name () );
-        initEReference ( getTypeSystem_Includes (), this.getTypeSystem (), null, "includes", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getTypeSystem_Includes (), this.getTypeSystem (), null, "includes", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED );
         getTypeSystem_Includes ().getEKeys ().add ( this.getTypeSystem_Name () );
-        initEAttribute ( getTypeSystem_Name (), ecorePackage.getEString (), "name", null, 1, 1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getTypeSystem_Name (), ecorePackage.getEString (), "name", null, 1, 1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( orderedTypeEClass, OrderedType.class, "OrderedType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getOrderedType_Order (), this.getByteOrder (), "order", "BIG_ENDIAN", 1, 1, OrderedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( orderedTypeEClass, OrderedType.class, "OrderedType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getOrderedType_Order (), this.getByteOrder (), "order", "BIG_ENDIAN", 1, 1, OrderedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
-        initEClass ( float64TypeEClass, Float64Type.class, "Float64Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( float64TypeEClass, Float64Type.class, "Float64Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( signedInteger8TypeEClass, SignedInteger8Type.class, "SignedInteger8Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( signedInteger8TypeEClass, SignedInteger8Type.class, "SignedInteger8Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( signedInteger16TypeEClass, SignedInteger16Type.class, "SignedInteger16Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( signedInteger16TypeEClass, SignedInteger16Type.class, "SignedInteger16Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( signedInteger32TypeEClass, SignedInteger32Type.class, "SignedInteger32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( signedInteger32TypeEClass, SignedInteger32Type.class, "SignedInteger32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
 
-        initEClass ( signedInteger64TypeEClass, SignedInteger64Type.class, "SignedInteger64Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( signedInteger64TypeEClass, SignedInteger64Type.class, "SignedInteger64Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+
+        initEClass ( fixedLengthStringTypeEClass, FixedLengthStringType.class, "FixedLengthStringType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getFixedLengthStringType_MaxLength (), ecorePackage.getEInt (), "maxLength", null, 1, 1, FixedLengthStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEAttribute ( getFixedLengthStringType_Charset (), ecorePackage.getEString (), "charset", "UTF-8", 1, 1, FixedLengthStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize enums and add enum literals
-        initEEnum ( byteOrderEEnum, ByteOrder.class, "ByteOrder" ); //$NON-NLS-1$
+        initEEnum ( byteOrderEEnum, ByteOrder.class, "ByteOrder" );
         addEEnumLiteral ( byteOrderEEnum, ByteOrder.BIG_ENDIAN );
         addEEnumLiteral ( byteOrderEEnum, ByteOrder.LITTLE_ENDIAN );
 

@@ -66,7 +66,7 @@ public class SignedInteger32TypeItemProvider extends OrderedTypeItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SignedInteger32Type" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SignedInteger32Type" ) );
     }
 
     /**
@@ -79,7 +79,7 @@ public class SignedInteger32TypeItemProvider extends OrderedTypeItemProvider
     public String getText ( Object object )
     {
         SignedInteger32Type signedInteger32Type = (SignedInteger32Type)object;
-        return getString ( "_UI_SignedInteger32Type_type" ) + " " + signedInteger32Type.getIndex (); //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_SignedInteger32Type_type" ) + " " + signedInteger32Type.getIndex ();
     }
 
     /**

@@ -2,12 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.memory.tests;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.eclipse.scada.configuration.memory.tests;uses:="junit.framework,org.eclipse.emf.common.util,org.eclipse.scada.configuration.memory"
+Export-Package: org.eclipse.scada.configuration.memory.tests;
+  uses:="junit.framework,
+   org.eclipse.emf.common.util,
+   org.eclipse.scada.configuration.memory"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.memory;bundle-version="0.2.0";visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

@@ -32,12 +32,12 @@ import org.eclipse.scada.configuration.memory.Variable;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.VariableImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.VariableImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.VariableImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -341,7 +341,7 @@ public class VariableImpl extends MinimalEObjectImpl.Container implements Variab
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( " (name: " );
         result.append ( name );
         result.append ( ')' );
         return result.toString ();

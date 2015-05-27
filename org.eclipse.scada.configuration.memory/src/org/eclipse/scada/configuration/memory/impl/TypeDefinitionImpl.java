@@ -31,11 +31,11 @@ import org.eclipse.scada.configuration.memory.Variable;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.TypeDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.TypeDefinitionImpl#getVariables <em>Variables</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -235,7 +235,7 @@ public class TypeDefinitionImpl extends MinimalEObjectImpl.Container implements 
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( " (name: " );
         result.append ( name );
         result.append ( ')' );
         return result.toString ();

@@ -1199,6 +1199,79 @@ public interface MemoryPackage extends EPackage
     int SIGNED_INTEGER64_TYPE_OPERATION_COUNT = ORDERED_TYPE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.FixedLengthStringTypeImpl <em>Fixed Length String Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.impl.FixedLengthStringTypeImpl
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getFixedLengthStringType()
+     * @generated
+     */
+    int FIXED_LENGTH_STRING_TYPE = 19;
+
+    /**
+     * The feature id for the '<em><b>Index</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_STRING_TYPE__INDEX = BASE_SCALAR_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_STRING_TYPE__LENGTH = BASE_SCALAR_TYPE__LENGTH;
+
+    /**
+     * The feature id for the '<em><b>Max Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_STRING_TYPE__MAX_LENGTH = BASE_SCALAR_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Charset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_STRING_TYPE__CHARSET = BASE_SCALAR_TYPE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Fixed Length String Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_STRING_TYPE_FEATURE_COUNT = BASE_SCALAR_TYPE_FEATURE_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>Encode</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_STRING_TYPE___ENCODE = BASE_SCALAR_TYPE___ENCODE;
+
+    /**
+     * The number of operations of the '<em>Fixed Length String Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_STRING_TYPE_OPERATION_COUNT = BASE_SCALAR_TYPE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1206,7 +1279,7 @@ public interface MemoryPackage extends EPackage
      * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getByteOrder()
      * @generated
      */
-    int BYTE_ORDER = 19;
+    int BYTE_ORDER = 20;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.UserDefinedType <em>User Defined Type</em>}'.
@@ -1382,6 +1455,38 @@ public interface MemoryPackage extends EPackage
      * @generated
      */
     EClass getSignedInteger64Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.FixedLengthStringType <em>Fixed Length String Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Fixed Length String Type</em>'.
+     * @see org.eclipse.scada.configuration.memory.FixedLengthStringType
+     * @generated
+     */
+    EClass getFixedLengthStringType ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.memory.FixedLengthStringType#getMaxLength <em>Max Length</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Max Length</em>'.
+     * @see org.eclipse.scada.configuration.memory.FixedLengthStringType#getMaxLength()
+     * @see #getFixedLengthStringType()
+     * @generated
+     */
+    EAttribute getFixedLengthStringType_MaxLength ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.memory.FixedLengthStringType#getCharset <em>Charset</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Charset</em>'.
+     * @see org.eclipse.scada.configuration.memory.FixedLengthStringType#getCharset()
+     * @see #getFixedLengthStringType()
+     * @generated
+     */
+    EAttribute getFixedLengthStringType_Charset ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}'.
@@ -1760,6 +1865,32 @@ public interface MemoryPackage extends EPackage
          * @generated
          */
         EClass SIGNED_INTEGER64_TYPE = eINSTANCE.getSignedInteger64Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.FixedLengthStringTypeImpl <em>Fixed Length String Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.impl.FixedLengthStringTypeImpl
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getFixedLengthStringType()
+         * @generated
+         */
+        EClass FIXED_LENGTH_STRING_TYPE = eINSTANCE.getFixedLengthStringType ();
+
+        /**
+         * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIXED_LENGTH_STRING_TYPE__MAX_LENGTH = eINSTANCE.getFixedLengthStringType_MaxLength ();
+
+        /**
+         * The meta object literal for the '<em><b>Charset</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIXED_LENGTH_STRING_TYPE__CHARSET = eINSTANCE.getFixedLengthStringType_Charset ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}' enum.

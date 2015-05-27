@@ -76,9 +76,7 @@ public class VariableItemProvider extends ItemProviderAdapter implements IEditin
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Variable_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Variable_name_feature", "_UI_Variable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                MemoryPackage.Literals.VARIABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Variable_name_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Variable_name_feature", "_UI_Variable_type" ), MemoryPackage.Literals.VARIABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -124,7 +122,7 @@ public class VariableItemProvider extends ItemProviderAdapter implements IEditin
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Variable" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Variable" ) );
     }
 
     /**
@@ -137,8 +135,7 @@ public class VariableItemProvider extends ItemProviderAdapter implements IEditin
     public String getText ( Object object )
     {
         String label = ( (Variable)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_Variable_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Variable_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_Variable_type" ) : getString ( "_UI_Variable_type" ) + " " + label;
     }
 
     /**
@@ -199,6 +196,8 @@ public class VariableItemProvider extends ItemProviderAdapter implements IEditin
         newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.VARIABLE__TYPE, MemoryFactory.eINSTANCE.createSignedInteger32Type () ) );
 
         newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.VARIABLE__TYPE, MemoryFactory.eINSTANCE.createSignedInteger64Type () ) );
+
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.VARIABLE__TYPE, MemoryFactory.eINSTANCE.createFixedLengthStringType () ) );
 
         newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.VARIABLE__ATTRIBUTES, MemoryFactory.eINSTANCE.createAttribute () ) );
     }

@@ -20,8 +20,6 @@ import org.eclipse.scada.configuration.memory.SignedInteger32Type;
  * An implementation of the model object '<em><b>Signed Integer32 Type</b></em>
  * '.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -62,7 +62,7 @@ public class UnsignedInteger16TypeItemProvider extends OrderedTypeItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/UnsignedInteger16Type" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/UnsignedInteger16Type" ) );
     }
 
     /**
@@ -75,7 +75,7 @@ public class UnsignedInteger16TypeItemProvider extends OrderedTypeItemProvider
     public String getText ( Object object )
     {
         UnsignedInteger16Type unsignedInteger16Type = (UnsignedInteger16Type)object;
-        return getString ( "_UI_UnsignedInteger16Type_type" ) + " " + unsignedInteger16Type.getIndex (); //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_UnsignedInteger16Type_type" ) + " " + unsignedInteger16Type.getIndex ();
     }
 
     /**

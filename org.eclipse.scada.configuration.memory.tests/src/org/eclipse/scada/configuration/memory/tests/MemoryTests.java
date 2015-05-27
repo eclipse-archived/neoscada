@@ -41,7 +41,7 @@ public class MemoryTests extends TestSuite
      */
     public static Test suite ()
     {
-        TestSuite suite = new MemoryTests ( "memory Tests" ); //$NON-NLS-1$
+        TestSuite suite = new MemoryTests ( "memory Tests" );
         suite.addTestSuite ( BitTypeTest.class );
         suite.addTestSuite ( Float32TypeTest.class );
         suite.addTestSuite ( UserDefinedTypeTest.class );
@@ -53,6 +53,7 @@ public class MemoryTests extends TestSuite
         suite.addTestSuite ( SignedInteger16TypeTest.class );
         suite.addTestSuite ( SignedInteger32TypeTest.class );
         suite.addTestSuite ( SignedInteger64TypeTest.class );
+        suite.addTestSuite ( FixedLengthStringTypeTest.class );
         return suite;
     }
 

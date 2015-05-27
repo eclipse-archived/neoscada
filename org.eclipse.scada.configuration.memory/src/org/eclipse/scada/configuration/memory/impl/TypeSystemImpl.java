@@ -32,12 +32,12 @@ import org.eclipse.scada.configuration.memory.TypeSystem;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.TypeSystemImpl#getTypes <em>Types</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.TypeSystemImpl#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.TypeSystemImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -272,7 +272,7 @@ public class TypeSystemImpl extends MinimalEObjectImpl.Container implements Type
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( " (name: " );
         result.append ( name );
         result.append ( ')' );
         return result.toString ();

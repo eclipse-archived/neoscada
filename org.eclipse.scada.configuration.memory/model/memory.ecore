@@ -63,4 +63,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SignedInteger16Type" eSuperTypes="#//OrderedType"/>
   <eClassifiers xsi:type="ecore:EClass" name="SignedInteger32Type" eSuperTypes="#//OrderedType"/>
   <eClassifiers xsi:type="ecore:EClass" name="SignedInteger64Type" eSuperTypes="#//OrderedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FixedLengthStringType" eSuperTypes="#//BaseScalarType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charset" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="UTF-8"/>
+  </eClassifiers>
 </ecore:EPackage>

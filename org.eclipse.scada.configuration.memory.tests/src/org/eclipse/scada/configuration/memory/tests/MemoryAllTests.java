@@ -41,7 +41,7 @@ public class MemoryAllTests extends TestSuite
      */
     public static Test suite ()
     {
-        TestSuite suite = new MemoryAllTests ( "Memory Tests" ); //$NON-NLS-1$
+        TestSuite suite = new MemoryAllTests ( "Memory Tests" );
         suite.addTest ( MemoryTests.suite () );
         return suite;
     }

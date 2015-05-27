@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2015 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,22 +13,25 @@ package org.eclipse.scada.configuration.memory.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.eclipse.scada.configuration.memory.FixedLengthStringType;
 import org.eclipse.scada.configuration.memory.MemoryPackage;
-import org.eclipse.scada.configuration.memory.OrderedType;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.memory.OrderedType} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.memory.FixedLengthStringType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OrderedTypeItemProvider extends BaseScalarTypeItemProvider
+public class FixedLengthStringTypeItemProvider extends BaseScalarTypeItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -36,7 +39,7 @@ public class OrderedTypeItemProvider extends BaseScalarTypeItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public OrderedTypeItemProvider ( AdapterFactory adapterFactory )
+    public FixedLengthStringTypeItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -54,20 +57,44 @@ public class OrderedTypeItemProvider extends BaseScalarTypeItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addOrderPropertyDescriptor ( object );
+            addMaxLengthPropertyDescriptor ( object );
+            addCharsetPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Order feature.
+     * This adds a property descriptor for the Max Length feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addOrderPropertyDescriptor ( Object object )
+    protected void addMaxLengthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OrderedType_order_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_OrderedType_order_feature", "_UI_OrderedType_type" ), MemoryPackage.Literals.ORDERED_TYPE__ORDER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FixedLengthStringType_maxLength_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_FixedLengthStringType_maxLength_feature", "_UI_FixedLengthStringType_type" ), MemoryPackage.Literals.FIXED_LENGTH_STRING_TYPE__MAX_LENGTH, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Charset feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addCharsetPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FixedLengthStringType_charset_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_FixedLengthStringType_charset_feature", "_UI_FixedLengthStringType_type" ), MemoryPackage.Literals.FIXED_LENGTH_STRING_TYPE__CHARSET, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This returns FixedLengthStringType.gif.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getImage ( Object object )
+    {
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/FixedLengthStringType" ) );
     }
 
     /**
@@ -79,8 +106,8 @@ public class OrderedTypeItemProvider extends BaseScalarTypeItemProvider
     @Override
     public String getText ( Object object )
     {
-        OrderedType orderedType = (OrderedType)object;
-        return getString ( "_UI_OrderedType_type" ) + " " + orderedType.getIndex ();
+        FixedLengthStringType fixedLengthStringType = (FixedLengthStringType)object;
+        return getString ( "_UI_FixedLengthStringType_type" ) + " " + fixedLengthStringType.getIndex ();
     }
 
     /**
@@ -95,9 +122,10 @@ public class OrderedTypeItemProvider extends BaseScalarTypeItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( OrderedType.class ) )
+        switch ( notification.getFeatureID ( FixedLengthStringType.class ) )
         {
-            case MemoryPackage.ORDERED_TYPE__ORDER:
+            case MemoryPackage.FIXED_LENGTH_STRING_TYPE__MAX_LENGTH:
+            case MemoryPackage.FIXED_LENGTH_STRING_TYPE__CHARSET:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

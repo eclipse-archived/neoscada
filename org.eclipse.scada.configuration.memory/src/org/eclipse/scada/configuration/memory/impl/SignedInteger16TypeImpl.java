@@ -20,8 +20,6 @@ import org.eclipse.scada.configuration.memory.SignedInteger16Type;
  * An implementation of the model object '<em><b>Signed Integer16 Type</b></em>
  * '.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

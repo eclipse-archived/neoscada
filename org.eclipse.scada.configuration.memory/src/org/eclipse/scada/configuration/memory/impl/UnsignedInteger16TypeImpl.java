@@ -19,8 +19,6 @@ import org.eclipse.scada.configuration.memory.UnsignedInteger16Type;
  * An implementation of the model object '
  * <em><b>Unsigned Integer16 Type</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

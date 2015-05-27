@@ -455,6 +455,31 @@ public class MemoryItemProviderAdapterFactory extends MemoryAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.memory.FixedLengthStringType} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected FixedLengthStringTypeItemProvider fixedLengthStringTypeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.memory.FixedLengthStringType}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createFixedLengthStringTypeAdapter ()
+    {
+        if ( fixedLengthStringTypeItemProvider == null )
+        {
+            fixedLengthStringTypeItemProvider = new FixedLengthStringTypeItemProvider ( this );
+        }
+
+        return fixedLengthStringTypeItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -595,6 +620,8 @@ public class MemoryItemProviderAdapterFactory extends MemoryAdapterFactory imple
             signedInteger32TypeItemProvider.dispose ();
         if ( signedInteger64TypeItemProvider != null )
             signedInteger64TypeItemProvider.dispose ();
+        if ( fixedLengthStringTypeItemProvider != null )
+            fixedLengthStringTypeItemProvider.dispose ();
     }
 
 }

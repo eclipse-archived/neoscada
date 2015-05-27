@@ -56,7 +56,7 @@ public class MemorySwitch<T> extends Switch<T>
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @parameter ePackage the package in question.
+     * @param ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
@@ -314,6 +314,20 @@ public class MemorySwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case MemoryPackage.FIXED_LENGTH_STRING_TYPE:
+            {
+                FixedLengthStringType fixedLengthStringType = (FixedLengthStringType)theEObject;
+                T result = caseFixedLengthStringType ( fixedLengthStringType );
+                if ( result == null )
+                    result = caseBaseScalarType ( fixedLengthStringType );
+                if ( result == null )
+                    result = caseScalarType ( fixedLengthStringType );
+                if ( result == null )
+                    result = caseType ( fixedLengthStringType );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -523,6 +537,22 @@ public class MemorySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSignedInteger64Type ( SignedInteger64Type object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Fixed Length String Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Fixed Length String Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFixedLengthStringType ( FixedLengthStringType object )
     {
         return null;
     }

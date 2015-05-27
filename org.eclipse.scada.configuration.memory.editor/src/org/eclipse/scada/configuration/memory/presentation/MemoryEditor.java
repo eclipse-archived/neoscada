@@ -637,8 +637,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
     {
         if ( updateProblemIndication )
         {
-            BasicDiagnostic diagnostic = new BasicDiagnostic ( Diagnostic.OK, "org.eclipse.scada.configuration.memory.editor", //$NON-NLS-1$
-            0, null, new Object[] { editingDomain.getResourceSet () } );
+            BasicDiagnostic diagnostic = new BasicDiagnostic ( Diagnostic.OK, "org.eclipse.scada.configuration.memory.editor", 0, null, new Object[] { editingDomain.getResourceSet () } );
             for ( Diagnostic childDiagnostic : resourceToDiagnosticMap.values () )
             {
                 if ( childDiagnostic.getSeverity () != Diagnostic.OK )
@@ -700,8 +699,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     protected boolean handleDirtyConflict ()
     {
-        return MessageDialog.openQuestion ( getSite ().getShell (), getString ( "_UI_FileConflict_label" ), //$NON-NLS-1$
-                getString ( "_WARN_FileConflict" ) ); //$NON-NLS-1$
+        return MessageDialog.openQuestion ( getSite ().getShell (), getString ( "_UI_FileConflict_label" ), getString ( "_WARN_FileConflict" ) );
     }
 
     /**
@@ -981,8 +979,8 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     protected void createContextMenuFor ( StructuredViewer viewer )
     {
-        MenuManager contextMenu = new MenuManager ( "#PopUp" ); //$NON-NLS-1$
-        contextMenu.add ( new Separator ( "additions" ) ); //$NON-NLS-1$
+        MenuManager contextMenu = new MenuManager ( "#PopUp" );
+        contextMenu.add ( new Separator ( "additions" ) );
         contextMenu.setRemoveAllWhenShown ( true );
         contextMenu.addMenuListener ( this );
         Menu menu = contextMenu.createContextMenu ( viewer.getControl () );
@@ -1003,7 +1001,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     public void createModel ()
     {
-        URI resourceURI = EditUIUtil.getURI ( getEditorInput () );
+        URI resourceURI = EditUIUtil.getURI ( getEditorInput (), editingDomain.getResourceSet ().getURIConverter () );
         Exception exception = null;
         Resource resource = null;
         try
@@ -1035,19 +1033,16 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     public Diagnostic analyzeResourceProblems ( Resource resource, Exception exception )
     {
-        if ( !resource.getErrors ().isEmpty () || !resource.getWarnings ().isEmpty () )
+        boolean hasErrors = !resource.getErrors ().isEmpty ();
+        if ( hasErrors || !resource.getWarnings ().isEmpty () )
         {
-            BasicDiagnostic basicDiagnostic = new BasicDiagnostic ( Diagnostic.ERROR, "org.eclipse.scada.configuration.memory.editor", //$NON-NLS-1$
-            0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
-            new Object[] { exception == null ? (Object)resource : exception } );
+            BasicDiagnostic basicDiagnostic = new BasicDiagnostic ( hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING, "org.eclipse.scada.configuration.memory.editor", 0, getString ( "_UI_CreateModelError_message", resource.getURI () ), new Object[] { exception == null ? (Object)resource : exception } );
             basicDiagnostic.merge ( EcoreUtil.computeDiagnostic ( resource, true ) );
             return basicDiagnostic;
         }
         else if ( exception != null )
         {
-            return new BasicDiagnostic ( Diagnostic.ERROR, "org.eclipse.scada.configuration.memory.editor", //$NON-NLS-1$
-            0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
-            new Object[] { exception } );
+            return new BasicDiagnostic ( Diagnostic.ERROR, "org.eclipse.scada.configuration.memory.editor", 0, getString ( "_UI_CreateModelError_message", resource.getURI () ), new Object[] { exception } );
         }
         else
         {
@@ -1075,7 +1070,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
             // Create a page for the selection tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1105,13 +1100,13 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 createContextMenuFor ( selectionViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
-                setPageText ( pageIndex, getString ( "_UI_SelectionPage_label" ) ); //$NON-NLS-1$
+                setPageText ( pageIndex, getString ( "_UI_SelectionPage_label" ) );
             }
 
             // Create a page for the parent tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1136,13 +1131,13 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 createContextMenuFor ( parentViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
-                setPageText ( pageIndex, getString ( "_UI_ParentPage_label" ) ); //$NON-NLS-1$
+                setPageText ( pageIndex, getString ( "_UI_ParentPage_label" ) );
             }
 
             // This is the page for the list viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1163,13 +1158,13 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 createContextMenuFor ( listViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
-                setPageText ( pageIndex, getString ( "_UI_ListPage_label" ) ); //$NON-NLS-1$
+                setPageText ( pageIndex, getString ( "_UI_ListPage_label" ) );
             }
 
             // This is the page for the tree viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1192,13 +1187,13 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 createContextMenuFor ( treeViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
-                setPageText ( pageIndex, getString ( "_UI_TreePage_label" ) ); //$NON-NLS-1$
+                setPageText ( pageIndex, getString ( "_UI_TreePage_label" ) );
             }
 
             // This is the page for the table viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1223,27 +1218,27 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 TableColumn objectColumn = new TableColumn ( table, SWT.NONE );
                 layout.addColumnData ( new ColumnWeightData ( 3, 100, true ) );
-                objectColumn.setText ( getString ( "_UI_ObjectColumn_label" ) ); //$NON-NLS-1$
+                objectColumn.setText ( getString ( "_UI_ObjectColumn_label" ) );
                 objectColumn.setResizable ( true );
 
                 TableColumn selfColumn = new TableColumn ( table, SWT.NONE );
                 layout.addColumnData ( new ColumnWeightData ( 2, 100, true ) );
-                selfColumn.setText ( getString ( "_UI_SelfColumn_label" ) ); //$NON-NLS-1$
+                selfColumn.setText ( getString ( "_UI_SelfColumn_label" ) );
                 selfColumn.setResizable ( true );
 
-                tableViewer.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
+                tableViewer.setColumnProperties ( new String[] { "a", "b" } );
                 tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
                 tableViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
 
                 createContextMenuFor ( tableViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
-                setPageText ( pageIndex, getString ( "_UI_TablePage_label" ) ); //$NON-NLS-1$
+                setPageText ( pageIndex, getString ( "_UI_TablePage_label" ) );
             }
 
             // This is the page for the table tree viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), MemoryEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1267,22 +1262,22 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
                 tree.setLinesVisible ( true );
 
                 TreeColumn objectColumn = new TreeColumn ( tree, SWT.NONE );
-                objectColumn.setText ( getString ( "_UI_ObjectColumn_label" ) ); //$NON-NLS-1$
+                objectColumn.setText ( getString ( "_UI_ObjectColumn_label" ) );
                 objectColumn.setResizable ( true );
                 objectColumn.setWidth ( 250 );
 
                 TreeColumn selfColumn = new TreeColumn ( tree, SWT.NONE );
-                selfColumn.setText ( getString ( "_UI_SelfColumn_label" ) ); //$NON-NLS-1$
+                selfColumn.setText ( getString ( "_UI_SelfColumn_label" ) );
                 selfColumn.setResizable ( true );
                 selfColumn.setWidth ( 200 );
 
-                treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
+                treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } );
                 treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
                 treeViewerWithColumns.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
 
                 createContextMenuFor ( treeViewerWithColumns );
                 int pageIndex = addPage ( viewerPane.getControl () );
-                setPageText ( pageIndex, getString ( "_UI_TreeWithColumnsPage_label" ) ); //$NON-NLS-1$
+                setPageText ( pageIndex, getString ( "_UI_TreeWithColumnsPage_label" ) );
             }
 
             getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
@@ -1330,7 +1325,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
     {
         if ( getPageCount () <= 1 )
         {
-            setPageText ( 0, "" ); //$NON-NLS-1$
+            setPageText ( 0, "" );
             if ( getContainer () instanceof CTabFolder )
             {
                 ( (CTabFolder)getContainer () ).setTabHeight ( 1 );
@@ -1351,7 +1346,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
     {
         if ( getPageCount () > 1 )
         {
-            setPageText ( 0, getString ( "_UI_SelectionPage_label" ) ); //$NON-NLS-1$
+            setPageText ( 0, getString ( "_UI_SelectionPage_label" ) );
             if ( getContainer () instanceof CTabFolder )
             {
                 ( (CTabFolder)getContainer () ).setTabHeight ( SWT.DEFAULT );
@@ -1485,7 +1480,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     public IPropertySheetPage getPropertySheetPage ()
     {
-        PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage ( editingDomain ) {
+        PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage ( editingDomain) {
             @Override
             public void setSelectionToViewer ( List<?> selection )
             {
@@ -1827,25 +1822,25 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
                 {
                     case 0:
                     {
-                        statusLineManager.setMessage ( getString ( "_UI_NoObjectSelected" ) ); //$NON-NLS-1$
+                        statusLineManager.setMessage ( getString ( "_UI_NoObjectSelected" ) );
                         break;
                     }
                     case 1:
                     {
                         String text = new AdapterFactoryItemDelegator ( adapterFactory ).getText ( collection.iterator ().next () );
-                        statusLineManager.setMessage ( getString ( "_UI_SingleObjectSelected", text ) ); //$NON-NLS-1$
+                        statusLineManager.setMessage ( getString ( "_UI_SingleObjectSelected", text ) );
                         break;
                     }
                     default:
                     {
-                        statusLineManager.setMessage ( getString ( "_UI_MultiObjectSelected", Integer.toString ( collection.size () ) ) ); //$NON-NLS-1$
+                        statusLineManager.setMessage ( getString ( "_UI_MultiObjectSelected", Integer.toString ( collection.size () ) ) );
                         break;
                     }
                 }
             }
             else
             {
-                statusLineManager.setMessage ( "" ); //$NON-NLS-1$
+                statusLineManager.setMessage ( "" );
             }
         }
     }

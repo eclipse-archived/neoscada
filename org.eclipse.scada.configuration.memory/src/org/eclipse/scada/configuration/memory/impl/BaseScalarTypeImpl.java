@@ -26,11 +26,11 @@ import org.eclipse.scada.configuration.memory.MemoryPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getIndex <em>Index</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getLength <em>Length</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -236,7 +236,7 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (index: " ); //$NON-NLS-1$
+        result.append ( " (index: " );
         result.append ( index );
         result.append ( ')' );
         return result.toString ();

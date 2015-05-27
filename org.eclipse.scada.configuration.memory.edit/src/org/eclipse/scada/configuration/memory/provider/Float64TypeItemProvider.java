@@ -66,7 +66,7 @@ public class Float64TypeItemProvider extends BaseScalarTypeItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Float64Type" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Float64Type" ) );
     }
 
     /**
@@ -79,7 +79,7 @@ public class Float64TypeItemProvider extends BaseScalarTypeItemProvider
     public String getText ( Object object )
     {
         Float64Type float64Type = (Float64Type)object;
-        return getString ( "_UI_Float64Type_type" ) + " " + float64Type.getIndex (); //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_Float64Type_type" ) + " " + float64Type.getIndex ();
     }
 
     /**

@@ -1,13 +1,14 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2015 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.memory.presentation;
 
 import java.util.ArrayList;
@@ -81,14 +82,13 @@ public class MemoryActionBarContributor extends EditingDomainActionBarContributo
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IAction showPropertiesViewAction = new Action ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" ) ) //$NON-NLS-1$
-    {
+    protected IAction showPropertiesViewAction = new Action ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" )) {
         @Override
         public void run ()
         {
             try
             {
-                getPage ().showView ( "org.eclipse.ui.views.PropertySheet" ); //$NON-NLS-1$
+                getPage ().showView ( "org.eclipse.ui.views.PropertySheet" );
             }
             catch ( PartInitException exception )
             {
@@ -104,8 +104,7 @@ public class MemoryActionBarContributor extends EditingDomainActionBarContributo
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IAction refreshViewerAction = new Action ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" ) ) //$NON-NLS-1$
-    {
+    protected IAction refreshViewerAction = new Action ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" )) {
         @Override
         public boolean isEnabled ()
         {
@@ -120,7 +119,7 @@ public class MemoryActionBarContributor extends EditingDomainActionBarContributo
                 Viewer viewer = ( (IViewerProvider)activeEditorPart ).getViewer ();
                 if ( viewer != null )
                 {
-                    viewer.refresh ();
+                    viewer.refresh ( );
                 }
             }
         }
@@ -199,8 +198,8 @@ public class MemoryActionBarContributor extends EditingDomainActionBarContributo
     @Override
     public void contributeToToolBar ( IToolBarManager toolBarManager )
     {
-        toolBarManager.add ( new Separator ( "memory-settings" ) ); //$NON-NLS-1$
-        toolBarManager.add ( new Separator ( "memory-additions" ) ); //$NON-NLS-1$
+        toolBarManager.add ( new Separator ( "memory-settings" ) );
+        toolBarManager.add ( new Separator ( "memory-additions" ) );
     }
 
     /**
@@ -215,22 +214,22 @@ public class MemoryActionBarContributor extends EditingDomainActionBarContributo
     {
         super.contributeToMenu ( menuManager );
 
-        IMenuManager submenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_MemoryEditor_menu" ), "org.eclipse.scada.configuration.memoryMenuID" ); //$NON-NLS-1$ //$NON-NLS-2$
-        menuManager.insertAfter ( "additions", submenuManager ); //$NON-NLS-1$
-        submenuManager.add ( new Separator ( "settings" ) ); //$NON-NLS-1$
-        submenuManager.add ( new Separator ( "actions" ) ); //$NON-NLS-1$
-        submenuManager.add ( new Separator ( "additions" ) ); //$NON-NLS-1$
-        submenuManager.add ( new Separator ( "additions-end" ) ); //$NON-NLS-1$
+        IMenuManager submenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_MemoryEditor_menu" ), "org.eclipse.scada.configuration.memoryMenuID" );
+        menuManager.insertAfter ( "additions", submenuManager );
+        submenuManager.add ( new Separator ( "settings" ) );
+        submenuManager.add ( new Separator ( "actions" ) );
+        submenuManager.add ( new Separator ( "additions" ) );
+        submenuManager.add ( new Separator ( "additions-end" ) );
 
         // Prepare for CreateChild item addition or removal.
         //
-        createChildMenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_CreateChild_menu_item" ) ); //$NON-NLS-1$
-        submenuManager.insertBefore ( "additions", createChildMenuManager ); //$NON-NLS-1$
+        createChildMenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_CreateChild_menu_item" ) );
+        submenuManager.insertBefore ( "additions", createChildMenuManager );
 
         // Prepare for CreateSibling item addition or removal.
         //
-        createSiblingMenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_CreateSibling_menu_item" ) ); //$NON-NLS-1$
-        submenuManager.insertBefore ( "additions", createSiblingMenuManager ); //$NON-NLS-1$
+        createSiblingMenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_CreateSibling_menu_item" ) );
+        submenuManager.insertBefore ( "additions", createSiblingMenuManager );
 
         // Force an update because Eclipse hides empty menus now.
         //
@@ -458,7 +457,7 @@ public class MemoryActionBarContributor extends EditingDomainActionBarContributo
             for ( Iterator<IAction> actions = createActions.iterator (); actions.hasNext (); )
             {
                 IAction action = actions.next ();
-                StringTokenizer st = new StringTokenizer ( action.getText (), "|" ); //$NON-NLS-1$
+                StringTokenizer st = new StringTokenizer ( action.getText (), "|" );
                 if ( st.countTokens () == 2 )
                 {
                     String text = st.nextToken ().trim ();
@@ -547,15 +546,15 @@ public class MemoryActionBarContributor extends EditingDomainActionBarContributo
         super.menuAboutToShow ( menuManager );
         MenuManager submenuManager = null;
 
-        submenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_CreateChild_menu_item" ) ); //$NON-NLS-1$
+        submenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_CreateChild_menu_item" ) );
         populateManager ( submenuManager, createChildSubmenuActions, null );
         populateManager ( submenuManager, createChildActions, null );
-        menuManager.insertBefore ( "edit", submenuManager ); //$NON-NLS-1$
+        menuManager.insertBefore ( "edit", submenuManager );
 
-        submenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_CreateSibling_menu_item" ) ); //$NON-NLS-1$
+        submenuManager = new MenuManager ( MemoryEditorPlugin.INSTANCE.getString ( "_UI_CreateSibling_menu_item" ) );
         populateManager ( submenuManager, createSiblingSubmenuActions, null );
         populateManager ( submenuManager, createSiblingActions, null );
-        menuManager.insertBefore ( "edit", submenuManager ); //$NON-NLS-1$
+        menuManager.insertBefore ( "edit", submenuManager );
     }
 
     /**
@@ -567,11 +566,11 @@ public class MemoryActionBarContributor extends EditingDomainActionBarContributo
     @Override
     protected void addGlobalActions ( IMenuManager menuManager )
     {
-        menuManager.insertAfter ( "additions-end", new Separator ( "ui-actions" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        menuManager.insertAfter ( "ui-actions", showPropertiesViewAction ); //$NON-NLS-1$
+        menuManager.insertAfter ( "additions-end", new Separator ( "ui-actions" ) );
+        menuManager.insertAfter ( "ui-actions", showPropertiesViewAction );
 
         refreshViewerAction.setEnabled ( refreshViewerAction.isEnabled () );
-        menuManager.insertAfter ( "ui-actions", refreshViewerAction ); //$NON-NLS-1$
+        menuManager.insertAfter ( "ui-actions", refreshViewerAction );
 
         super.addGlobalActions ( menuManager );
     }

@@ -22,10 +22,10 @@ import org.eclipse.scada.configuration.memory.MemoryPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.BitTypeImpl#getSubIndex <em>Sub Index</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -181,7 +181,7 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (subIndex: " ); //$NON-NLS-1$
+        result.append ( " (subIndex: " );
         result.append ( subIndex );
         result.append ( ')' );
         return result.toString ();

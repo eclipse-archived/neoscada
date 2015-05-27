@@ -66,7 +66,7 @@ public class SignedInteger16TypeItemProvider extends OrderedTypeItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SignedInteger16Type" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SignedInteger16Type" ) );
     }
 
     /**
@@ -79,7 +79,7 @@ public class SignedInteger16TypeItemProvider extends OrderedTypeItemProvider
     public String getText ( Object object )
     {
         SignedInteger16Type signedInteger16Type = (SignedInteger16Type)object;
-        return getString ( "_UI_SignedInteger16Type_type" ) + " " + signedInteger16Type.getIndex (); //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_SignedInteger16Type_type" ) + " " + signedInteger16Type.getIndex ();
     }
 
     /**

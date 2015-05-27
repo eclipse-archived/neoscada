@@ -66,7 +66,7 @@ public class SignedInteger8TypeItemProvider extends BaseScalarTypeItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SignedInteger8Type" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SignedInteger8Type" ) );
     }
 
     /**
@@ -79,7 +79,7 @@ public class SignedInteger8TypeItemProvider extends BaseScalarTypeItemProvider
     public String getText ( Object object )
     {
         SignedInteger8Type signedInteger8Type = (SignedInteger8Type)object;
-        return getString ( "_UI_SignedInteger8Type_type" ) + " " + signedInteger8Type.getIndex (); //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_SignedInteger8Type_type" ) + " " + signedInteger8Type.getIndex ();
     }
 
     /**

@@ -100,8 +100,10 @@ public class MemoryFactoryImpl extends EFactoryImpl implements MemoryFactory
                 return createSignedInteger32Type ();
             case MemoryPackage.SIGNED_INTEGER64_TYPE:
                 return createSignedInteger64Type ();
+            case MemoryPackage.FIXED_LENGTH_STRING_TYPE:
+                return createFixedLengthStringType ();
             default:
-                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -118,7 +120,7 @@ public class MemoryFactoryImpl extends EFactoryImpl implements MemoryFactory
             case MemoryPackage.BYTE_ORDER:
                 return createByteOrderFromString ( eDataType, initialValue );
             default:
-                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -135,7 +137,7 @@ public class MemoryFactoryImpl extends EFactoryImpl implements MemoryFactory
             case MemoryPackage.BYTE_ORDER:
                 return convertByteOrderToString ( eDataType, instanceValue );
             default:
-                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
         }
     }
 
@@ -265,11 +267,22 @@ public class MemoryFactoryImpl extends EFactoryImpl implements MemoryFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    public FixedLengthStringType createFixedLengthStringType ()
+    {
+        FixedLengthStringTypeImpl fixedLengthStringType = new FixedLengthStringTypeImpl ();
+        return fixedLengthStringType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ByteOrder createByteOrderFromString ( EDataType eDataType, String initialValue )
     {
         ByteOrder result = ByteOrder.get ( initialValue );
         if ( result == null )
-            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
         return result;
     }
 

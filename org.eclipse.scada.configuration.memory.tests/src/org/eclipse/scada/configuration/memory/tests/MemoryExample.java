@@ -58,10 +58,10 @@ public class MemoryExample
         //
         if ( args.length == 0 )
         {
-            System.out.println ( "Enter a list of file paths or URIs that have content like this:" ); //$NON-NLS-1$
+            System.out.println ( "Enter a list of file paths or URIs that have content like this:" );
             try
             {
-                Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.mtd" ) ); //$NON-NLS-1$
+                Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.mtd" ) );
                 TypeDefinition root = MemoryFactory.eINSTANCE.createTypeDefinition ();
                 resource.getContents ().add ( root );
                 resource.save ( System.out, null );
@@ -89,7 +89,7 @@ public class MemoryExample
                     // Demand load resource for this file.
                     //
                     Resource resource = resourceSet.getResource ( uri, true );
-                    System.out.println ( "Loaded " + uri ); //$NON-NLS-1$
+                    System.out.println ( "Loaded " + uri );
 
                     // Validate the contents of the loaded resource.
                     //
@@ -98,13 +98,13 @@ public class MemoryExample
                         Diagnostic diagnostic = Diagnostician.INSTANCE.validate ( eObject );
                         if ( diagnostic.getSeverity () != Diagnostic.OK )
                         {
-                            printDiagnostic ( diagnostic, "" ); //$NON-NLS-1$
+                            printDiagnostic ( diagnostic, "" );
                         }
                     }
                 }
                 catch ( RuntimeException exception )
                 {
-                    System.out.println ( "Problem loading " + uri ); //$NON-NLS-1$
+                    System.out.println ( "Problem loading " + uri );
                     exception.printStackTrace ();
                 }
             }
@@ -125,7 +125,7 @@ public class MemoryExample
         System.out.println ( diagnostic.getMessage () );
         for ( Diagnostic child : diagnostic.getChildren () )
         {
-            printDiagnostic ( child, indent + "  " ); //$NON-NLS-1$
+            printDiagnostic ( child, indent + "  " );
         }
     }
 

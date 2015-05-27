@@ -27,10 +27,10 @@ import org.eclipse.scada.configuration.memory.OrderedType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.memory.impl.OrderedTypeImpl#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -178,7 +178,7 @@ public abstract class OrderedTypeImpl extends BaseScalarTypeImpl implements Orde
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (order: " ); //$NON-NLS-1$
+        result.append ( " (order: " );
         result.append ( order );
         result.append ( ')' );
         return result.toString ();

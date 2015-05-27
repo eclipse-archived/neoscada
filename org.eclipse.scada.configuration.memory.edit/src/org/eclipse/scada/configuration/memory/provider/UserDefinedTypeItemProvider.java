@@ -76,9 +76,7 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
      */
     protected void addTypePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_UserDefinedType_type_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_UserDefinedType_type_feature", "_UI_UserDefinedType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                MemoryPackage.Literals.USER_DEFINED_TYPE__TYPE, true, false, true, null, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_UserDefinedType_type_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_UserDefinedType_type_feature", "_UI_UserDefinedType_type" ), MemoryPackage.Literals.USER_DEFINED_TYPE__TYPE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -89,9 +87,7 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
      */
     protected void addIndexPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Type_index_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Type_index_feature", "_UI_Type_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                MemoryPackage.Literals.TYPE__INDEX, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Type_index_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Type_index_feature", "_UI_Type_type" ), MemoryPackage.Literals.TYPE__INDEX, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -102,9 +98,7 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
      */
     protected void addLengthPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Type_length_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Type_length_feature", "_UI_Type_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                MemoryPackage.Literals.TYPE__LENGTH, false, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Type_length_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Type_length_feature", "_UI_Type_type" ), MemoryPackage.Literals.TYPE__LENGTH, false, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -116,7 +110,7 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/UserDefinedType" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/UserDefinedType" ) );
     }
 
     /**

@@ -18,10 +18,10 @@ package org.eclipse.scada.configuration.memory;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.memory.OrderedType#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.memory.MemoryPackage#getOrderedType()
  * @model abstract="true"

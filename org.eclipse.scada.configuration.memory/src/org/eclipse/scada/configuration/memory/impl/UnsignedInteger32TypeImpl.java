@@ -19,8 +19,6 @@ import org.eclipse.scada.configuration.memory.UnsignedInteger32Type;
  * An implementation of the model object '
  * <em><b>Unsigned Integer32 Type</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

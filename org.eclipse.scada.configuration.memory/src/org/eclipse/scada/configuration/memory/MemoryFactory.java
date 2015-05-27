@@ -130,6 +130,15 @@ public interface MemoryFactory extends EFactory
     SignedInteger64Type createSignedInteger64Type ();
 
     /**
+     * Returns a new object of class '<em>Fixed Length String Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Fixed Length String Type</em>'.
+     * @generated
+     */
+    FixedLengthStringType createFixedLengthStringType ();
+
+    /**
      * Returns a new object of class '<em>Bit Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

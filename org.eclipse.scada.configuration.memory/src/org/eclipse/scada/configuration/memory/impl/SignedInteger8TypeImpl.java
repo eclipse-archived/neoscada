@@ -19,8 +19,6 @@ import org.eclipse.scada.configuration.memory.SignedInteger8Type;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Signed Integer8 Type</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

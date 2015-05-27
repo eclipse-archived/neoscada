@@ -62,7 +62,7 @@ public class UnsignedInteger8TypeItemProvider extends BaseScalarTypeItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/UnsignedInteger8Type" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/UnsignedInteger8Type" ) );
     }
 
     /**
@@ -75,7 +75,7 @@ public class UnsignedInteger8TypeItemProvider extends BaseScalarTypeItemProvider
     public String getText ( Object object )
     {
         UnsignedInteger8Type unsignedInteger8Type = (UnsignedInteger8Type)object;
-        return getString ( "_UI_UnsignedInteger8Type_type" ) + " " + unsignedInteger8Type.getIndex (); //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_UnsignedInteger8Type_type" ) + " " + unsignedInteger8Type.getIndex ();
     }
 
     /**
