@@ -30,12 +30,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.scada.core.ConnectionInformation;
+import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.server.exporter.DocumentRoot;
 import org.eclipse.scada.da.server.exporter.Export;
 import org.eclipse.scada.da.server.exporter.ExportType;
 import org.eclipse.scada.da.server.exporter.ExporterPackage;
 import org.eclipse.scada.da.server.exporter.HiveType;
-import org.eclipse.scada.da.server.exporter.NetExport;
 import org.eclipse.scada.da.server.exporter.NgpExport;
 import org.eclipse.scada.da.server.exporter.util.ExporterResourceFactoryImpl;
 import org.eclipse.scada.da.server.ui.HivesPlugin;
@@ -43,7 +43,6 @@ import org.eclipse.scada.da.server.ui.HostedServer;
 import org.eclipse.scada.da.server.ui.ServerDescriptor;
 import org.eclipse.scada.da.server.ui.ServerHost;
 import org.eclipse.scada.da.server.ui.util.ServerDescriptorImpl;
-import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 
 public class ServerHostImpl implements ServerHost
@@ -104,7 +103,7 @@ public class ServerHostImpl implements ServerHost
                 for ( final ServerDescriptorImpl server : toDispose )
                 {
                     // the removeServer method not be called since cleared the servers list
-                    // before in order to prevent CME 
+                    // before in order to prevent CME
                     HivesPlugin.unregisterServer ( server );
                     server.dispose ();
                 }
@@ -200,10 +199,6 @@ public class ServerHostImpl implements ServerHost
         if ( "ngp".equals ( driver ) ) //$NON-NLS-1$
         {
             return new NgpExport ( hive, ci );
-        }
-        if ( "net".equals ( driver ) ) //$NON-NLS-1$
-        {
-            return new NetExport ( hive, ci );
         }
 
         throw new IllegalArgumentException ( String.format ( "Illegal protocol used '%s' (only 'net' and 'ngp' are allowed)", driver ) );
