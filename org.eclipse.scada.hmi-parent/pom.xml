@@ -83,7 +83,6 @@
 
 		<module>../org.eclipse.scada.ae.ui</module>
 		<module>../org.eclipse.scada.ae.ui.connection</module>
-		<module>../org.eclipse.scada.ae.ui.connection.creator.net</module>
 		<module>../org.eclipse.scada.ae.ui.connection.creator.ngp</module>
 		<module>../org.eclipse.scada.ae.ui.testing</module>
 		<module>../org.eclipse.scada.ae.ui.views</module>
@@ -108,7 +107,6 @@
 		<module>../org.eclipse.scada.da.ui.client.test</module>
 		<module>../org.eclipse.scada.da.ui.common</module>
 		<module>../org.eclipse.scada.da.ui.connection</module>
-		<module>../org.eclipse.scada.da.ui.connection.creator.net</module>
 		<module>../org.eclipse.scada.da.ui.connection.creator.ngp</module>
 		<module>../org.eclipse.scada.da.ui.connection.creator.sfp</module>
 		<module>../org.eclipse.scada.da.ui.styles</module>
@@ -116,7 +114,6 @@
 		<module>../org.eclipse.scada.da.ui.widgets</module>
 		<module>../org.eclipse.scada.hd.ui</module>
 		<module>../org.eclipse.scada.hd.ui.connection</module>
-		<module>../org.eclipse.scada.hd.ui.connection.creator.net</module>
 		<module>../org.eclipse.scada.hd.ui.connection.creator.ngp</module>
 		<module>../org.eclipse.scada.hd.ui.printing</module>
 		<module>../org.eclipse.scada.hmi</module>

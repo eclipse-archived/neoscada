@@ -193,13 +193,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.ae.ui.connection.creator.net"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.ae.ui.connection.creator.ngp"
          download-size="0"
          install-size="0"
@@ -313,13 +306,6 @@
 
    <plugin
          id="org.eclipse.scada.da.ui.connection"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.da.ui.connection.creator.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -469,13 +455,6 @@
 
    <plugin
          id="org.eclipse.scada.hd.ui.connection"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.hd.ui.connection.creator.net"
          download-size="0"
          install-size="0"
          version="0.0.0"
