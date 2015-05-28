@@ -131,12 +131,14 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
         {
             ctx.add ( Severity.ERROR, new Object[] { device, ModbusPackage.Literals.MODBUS_DEVICE__INTER_FRAME_DELAY }, "InterFrameDelay must not be set for TCP devices." );
         }
+
         for ( final ModbusSlave slave : device.getSlaves () )
         {
-            if ( slave.getUnitAddress () == 0x00 || slave.getUnitAddress () == 0xFF )
+            if ( device.getProtocolType () == ProtocolType.RTU && ( slave.getUnitAddress () == 0x00 || slave.getUnitAddress () == 0xFF ) )
             {
                 ctx.add ( Severity.ERROR, new Object[] { slave, ModbusPackage.Literals.MODBUS_SLAVE__UNIT_ADDRESS }, "Unit address {0} is invalid. Must be greater than 0x00 and less than 0xFF.", slave.getUnitAddress () );
             }
+
             for ( final ModbusBlock block : slave.getBlocks () )
             {
                 if ( block.getCount () <= 0 )

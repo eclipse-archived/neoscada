@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_KU3-UFrCEeSkTeb3qMPpdQ" selectedViews="_cvW8oFrCEeSkTeb3qMPpdQ" version="8.1.1">
-  <models xmi:type="ecore:EPackage" href="modbus.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.memory/model/memory.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2003/XMLType#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.script/model/script.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.security/model/sec.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.globalization/model/globalize.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.da.server.exec/model/configuration.ecore#/"/>
-  <models xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.item/model/item.ecore#/"/>
-  <models xmi:type="notation:Diagram" href="modbus.ecorediag#_vkOB0BP0EeOOU6PNVQrq1A"/>
-  <models xmi:type="genmodel:GenModel" href="modbus.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.da.server.exec/model/exec.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.configuration.globalization/model/globalize.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.configuration.item/model/item.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.configuration.memory/model/memory.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.configuration.script/model/script.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.configuration.security/model/sec.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.genmodel#/"/>
-  <models xmi:type="genmodel:GenModel" href="platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel#/"/>
-  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_cvW8oFrCEeSkTeb3qMPpdQ" initialized="true">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_KU3-UFrCEeSkTeb3qMPpdQ" selectedViews="_cvW8oFrCEeSkTeb3qMPpdQ" version="11.0.0.201503202000">
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.modbus/model/modbus.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.memory/model/memory.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2003/XMLType</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.script/model/script.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.security/model/sec.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.globalization/model/globalize.ecore</semanticResources>
+  <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.da.server.exec/model/configuration.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.item/model/item.ecore</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.modbus/model/modbus.ecorediag</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.modbus/model/modbus.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.component/model/component.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.da.server.exec/model/exec.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.globalization/model/globalize.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.item/model/item.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.memory/model/memory.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.script/model/script.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.security/model/sec.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.scada.configuration.world/model/configuration.genmodel</semanticResources>
+  <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_cvW8oFrCEeSkTeb3qMPpdQ">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_cxUrgFrCEeSkTeb3qMPpdQ" name="modbus class diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_cxUrhlrCEeSkTeb3qMPpdQ" source="GMF_DIAGRAMS">
         <data xmi:type="notation:Diagram" xmi:id="_cxUrh1rCEeSkTeb3qMPpdQ" type="Sirius" element="_cxUrgFrCEeSkTeb3qMPpdQ" measurementUnit="Pixel">
@@ -33,24 +33,31 @@
             <children xmi:type="notation:Node" xmi:id="_ePItUFrCEeSkTeb3qMPpdQ" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_ePJUYFrCEeSkTeb3qMPpdQ" type="7004">
               <children xmi:type="notation:Node" xmi:id="_ePJ7cFrCEeSkTeb3qMPpdQ" type="3010" element="_ePAKcFrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIIAUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_ePJ7cVrCEeSkTeb3qMPpdQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_qWsVAFrCEeSkTeb3qMPpdQ" type="3010" element="_qV_KYFrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIIQUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_qWsVAVrCEeSkTeb3qMPpdQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_ePJ7clrCEeSkTeb3qMPpdQ" type="3010" element="_ePBYkFrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIIgUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_ePJ7c1rCEeSkTeb3qMPpdQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_ePKigFrCEeSkTeb3qMPpdQ" type="3010" element="_ePBYmVrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIIwUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_ePKigVrCEeSkTeb3qMPpdQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_ePKiglrCEeSkTeb3qMPpdQ" type="3010" element="_ePB_qFrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIJAUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_ePKig1rCEeSkTeb3qMPpdQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_ePKihFrCEeSkTeb3qMPpdQ" type="3010" element="_ePCmsFrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIJQUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_ePKihVrCEeSkTeb3qMPpdQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_ePKihlrCEeSkTeb3qMPpdQ" type="3010" element="_ePCmuVrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIJgUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_ePKih1rCEeSkTeb3qMPpdQ"/>
               </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_ePJUYVrCEeSkTeb3qMPpdQ"/>
@@ -63,12 +70,15 @@
             <children xmi:type="notation:Node" xmi:id="_gyYGIFrCEeSkTeb3qMPpdQ" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="_gyYGIVrCEeSkTeb3qMPpdQ" type="7004">
               <children xmi:type="notation:Node" xmi:id="_gyYtMFrCEeSkTeb3qMPpdQ" type="3010" element="_gyQxYFrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIJwUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_gyYtMVrCEeSkTeb3qMPpdQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_gyYtMlrCEeSkTeb3qMPpdQ" type="3010" element="_gyR_hFrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIKAUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_gyYtM1rCEeSkTeb3qMPpdQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_gyYtNFrCEeSkTeb3qMPpdQ" type="3010" element="_gySmlVrCEeSkTeb3qMPpdQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_DJxIKQUcEeW7L-COKj0UNA"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_gyYtNVrCEeSkTeb3qMPpdQ"/>
               </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_gyYGIlrCEeSkTeb3qMPpdQ"/>
@@ -103,47 +113,7 @@
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_vWJRllrCEeSkTeb3qMPpdQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_vWJ4plrCEeSkTeb3qMPpdQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_vWKfslrCEeSkTeb3qMPpdQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_vWKfulrCEeSkTeb3qMPpdQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_vWLGxlrCEeSkTeb3qMPpdQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_vWLt0lrCEeSkTeb3qMPpdQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_vWLt2lrCEeSkTeb3qMPpdQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_vWMU4lrCEeSkTeb3qMPpdQ" labelFormat="bold" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_vWM78lrCEeSkTeb3qMPpdQ" sourceArrow="FillDiamond" sizeComputationExpression="1" routingStyle="manhattan">
+          <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_vWM78lrCEeSkTeb3qMPpdQ" sourceArrow="FillDiamond" routingStyle="manhattan">
             <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_vWM781rCEeSkTeb3qMPpdQ" showIcon="false" labelExpression="service:render">
               <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -152,92 +122,6 @@
               <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             </endLabelStyleDescription>
           </computedStyleDescriptions>
-          <cache xmi:type="diagram:DiagramElementMapping2ModelElement" xmi:id="_ePAxglrCEeSkTeb3qMPpdQ">
-            <key xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWIqgFrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/id"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWIqgVrCEeSkTeb3qMPpdQ" key="_ePAKcFrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWIqg1rCEeSkTeb3qMPpdQ" value="_vWIqglrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusBlock"/>
-                </value>
-              </value>
-            </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWJRlFrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/blockType"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWJRlVrCEeSkTeb3qMPpdQ" key="_ePBYkFrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWJRl1rCEeSkTeb3qMPpdQ" value="_vWJRllrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusBlock"/>
-                </value>
-              </value>
-            </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWJ4pFrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/startAddress"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWJ4pVrCEeSkTeb3qMPpdQ" key="_ePBYmVrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWJ4p1rCEeSkTeb3qMPpdQ" value="_vWJ4plrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusBlock"/>
-                </value>
-              </value>
-            </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWKfsFrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/count"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWKfsVrCEeSkTeb3qMPpdQ" key="_ePB_qFrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWKfs1rCEeSkTeb3qMPpdQ" value="_vWKfslrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusBlock"/>
-                </value>
-              </value>
-            </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWKfuFrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/period"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWKfuVrCEeSkTeb3qMPpdQ" key="_ePCmsFrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWKfu1rCEeSkTeb3qMPpdQ" value="_vWKfulrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusBlock"/>
-                </value>
-              </value>
-            </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWLGxFrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/timeout"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWLGxVrCEeSkTeb3qMPpdQ" key="_ePCmuVrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWLGx1rCEeSkTeb3qMPpdQ" value="_vWLGxlrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusBlock"/>
-                </value>
-              </value>
-            </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWLt0FrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/unitAddress"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWLt0VrCEeSkTeb3qMPpdQ" key="_gyQxYFrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWLt01rCEeSkTeb3qMPpdQ" value="_vWLt0lrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusSlave"/>
-                </value>
-              </value>
-            </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWLt2FrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/id"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWLt2VrCEeSkTeb3qMPpdQ" key="_gyR_hFrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWLt21rCEeSkTeb3qMPpdQ" value="_vWLt2lrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusSlave"/>
-                </value>
-              </value>
-            </value>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWMU4FrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/dataOrder"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWMU4VrCEeSkTeb3qMPpdQ" key="_gySmlVrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWMU41rCEeSkTeb3qMPpdQ" value="_vWMU4lrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EClass" href="modbus.ecore#//ModbusSlave"/>
-                </value>
-              </value>
-            </value>
-          </cache>
-          <cache xmi:type="diagram:DiagramElementMapping2ModelElement" xmi:id="_gyVp4FrCEeSkTeb3qMPpdQ">
-            <key xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
-            <value xmi:type="diagram:ModelElement2ViewVariable" xmi:id="_vWM78FrCEeSkTeb3qMPpdQ">
-              <key xmi:type="ecore:EReference" href="modbus.ecore#//ModbusSlave/blocks"/>
-              <value xmi:type="diagram:ViewVariable2ContainerVariable" xmi:id="_vWM78VrCEeSkTeb3qMPpdQ" key="_gyUbwFrCEeSkTeb3qMPpdQ">
-                <value xmi:type="diagram:ContainerVariable2StyleDescription" xmi:id="_vWM79VrCEeSkTeb3qMPpdQ" value="_vWM78lrCEeSkTeb3qMPpdQ">
-                  <key xmi:type="ecore:EPackage" href="modbus.ecore#/"/>
-                </value>
-              </value>
-            </value>
-          </cache>
         </data>
       </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_eOLEAFrCEeSkTeb3qMPpdQ" name="ModbusBlock" tooltipText="" incomingEdges="_gyUbwFrCEeSkTeb3qMPpdQ" width="12" height="10">
@@ -246,83 +130,52 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_sSn2MFrCEeSkTeb3qMPpdQ" backgroundStyle="Liquid">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_sSn2MVrCEeSkTeb3qMPpdQ"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_sSn2MFrCEeSkTeb3qMPpdQ" backgroundStyle="Liquid" foregroundColor="255,252,216">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_sSn2MlrCEeSkTeb3qMPpdQ"/>
-          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sSn2M1rCEeSkTeb3qMPpdQ" red="255" green="255" blue="255"/>
-          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_sSn2NFrCEeSkTeb3qMPpdQ" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePAKcFrCEeSkTeb3qMPpdQ" name="id : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/id"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/id"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWJRkFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWJRkVrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWJRklrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWJRk1rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWJRkFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_qV_KYFrCEeSkTeb3qMPpdQ" name="name : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/name"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/name"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_sSprYFrCEeSkTeb3qMPpdQ" labelAlignment="LEFT">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_sSprYVrCEeSkTeb3qMPpdQ"/>
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_sSprYlrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_sSprY1rCEeSkTeb3qMPpdQ"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePBYkFrCEeSkTeb3qMPpdQ" name="blockType : RequestType" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/blockType"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/blockType"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWJ4oFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWJRllrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWJ4oVrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWJ4olrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWJ4o1rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWJ4oFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePBYmVrCEeSkTeb3qMPpdQ" name="startAddress : EInt = 0" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePBYmVrCEeSkTeb3qMPpdQ" name="startAddress : EInt = " tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/startAddress"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/startAddress"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWJ4qFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWJ4plrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWJ4qVrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWJ4qlrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWJ4q1rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWJ4qFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePB_qFrCEeSkTeb3qMPpdQ" name="count : EInt = 0" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePB_qFrCEeSkTeb3qMPpdQ" name="count : EInt = " tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/count"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/count"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWKftFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWKfslrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWKftVrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWKftlrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWKft1rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWKftFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePCmsFrCEeSkTeb3qMPpdQ" name="period : ELong = 0" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePCmsFrCEeSkTeb3qMPpdQ" name="period : ELong = " tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/period"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/period"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWLGwFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWKfulrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWLGwVrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWLGwlrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWLGw1rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWLGwFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePCmuVrCEeSkTeb3qMPpdQ" name="timeout : ELong = 0" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ePCmuVrCEeSkTeb3qMPpdQ" name="timeout : ELong = " tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/timeout"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusBlock/timeout"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWLGyFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWLGxlrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWLGyVrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWLGylrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWLGy1rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWLGyFrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
       </ownedDiagramElements>
@@ -332,56 +185,35 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_gyLR0FrCEeSkTeb3qMPpdQ" backgroundStyle="Liquid">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_gyLR0VrCEeSkTeb3qMPpdQ"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_gyLR0FrCEeSkTeb3qMPpdQ" backgroundStyle="Liquid" foregroundColor="255,252,216">
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_gyLR0lrCEeSkTeb3qMPpdQ"/>
-          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_gyLR01rCEeSkTeb3qMPpdQ" red="255" green="255" blue="255"/>
-          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_gyLR1FrCEeSkTeb3qMPpdQ" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gyQxYFrCEeSkTeb3qMPpdQ" name="unitAddress : Byte = 0" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gyQxYFrCEeSkTeb3qMPpdQ" name="Invalid feature as name" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/unitAddress"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/unitAddress"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWLt1FrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWLt0lrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWLt1VrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWLt1lrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWLt11rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWLt1FrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gyR_hFrCEeSkTeb3qMPpdQ" name="id : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/id"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/id"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWLt3FrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWLt2lrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWLt3VrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWLt3lrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWLt31rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWLt3FrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gySmlVrCEeSkTeb3qMPpdQ" name="dataOrder : ByteOrder = BIG_ENDIAN" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gySmlVrCEeSkTeb3qMPpdQ" name="Invalid feature as name" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/dataOrder"/>
           <semanticElements xmi:type="ecore:EAttribute" href="modbus.ecore#//ModbusSlave/dataOrder"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWMU5FrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWMU4lrCEeSkTeb3qMPpdQ">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWMU5VrCEeSkTeb3qMPpdQ"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_vWMU5lrCEeSkTeb3qMPpdQ"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_vWMU51rCEeSkTeb3qMPpdQ"/>
-          </ownedStyle>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_vWMU5FrCEeSkTeb3qMPpdQ" labelFormat="bold" labelAlignment="LEFT" description="_vWIqglrCEeSkTeb3qMPpdQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_gyUbwFrCEeSkTeb3qMPpdQ" name="[0..*] blocks" sourceNode="_gyKqwFrCEeSkTeb3qMPpdQ" targetNode="_eOLEAFrCEeSkTeb3qMPpdQ">
         <target xmi:type="ecore:EReference" href="modbus.ecore#//ModbusSlave/blocks"/>
         <semanticElements xmi:type="ecore:EReference" href="modbus.ecore#//ModbusSlave/blocks"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_vWM79lrCEeSkTeb3qMPpdQ" description="_vWM78lrCEeSkTeb3qMPpdQ" sourceArrow="FillDiamond" routingStyle="manhattan">
-          <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_vWM791rCEeSkTeb3qMPpdQ"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_vWM7-FrCEeSkTeb3qMPpdQ" showIcon="false">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWM7-VrCEeSkTeb3qMPpdQ"/>
-          </centerLabelStyle>
-          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_vWM7-lrCEeSkTeb3qMPpdQ" labelSize="6" showIcon="false">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_vWM7-1rCEeSkTeb3qMPpdQ" red="39" green="76" blue="114"/>
-          </endLabelStyle>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_vWM79lrCEeSkTeb3qMPpdQ" description="_vWM78lrCEeSkTeb3qMPpdQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_vWM7-FrCEeSkTeb3qMPpdQ" showIcon="false"/>
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_vWM7-lrCEeSkTeb3qMPpdQ" labelSize="6" showIcon="false" labelColor="39,76,114"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
@@ -409,13 +241,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cxcASFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJsPoAUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJsPoQUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cxcAQVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cxcAQlrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cxcAQ1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cxcARFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -443,13 +276,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cxlKOFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtdwAUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtdwQUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cxlKMVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.memory/model/memory.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.memory/model/memory.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cxlKMlrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cxlKM1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cxlKNFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -477,13 +311,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cxo0mFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtdwgUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtdwwUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cxo0kVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cxo0klrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cxo0k1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cxo0lFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -511,13 +346,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cxttGFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtdxAUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtdxQUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cxttEVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cxttElrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cxttE1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cxttFFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -545,13 +381,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cx1B2FrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtdxgUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtdxwUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cx1B0VrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/profile"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/profile"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cx1B0lrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cx1B01rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cx1B1FrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -579,13 +416,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cx7IclrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtdyAUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtdyQUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cx6hYVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//deployment"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//deployment"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cx6hYlrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cx6hY1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cx6hZFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -613,13 +451,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cyB2IlrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtdygUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtdywUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cyBPEVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//setup"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//setup"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cyBPElrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cyBPE1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cyBPFFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -647,13 +486,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cyH8yFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtdzAUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtdzQUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cyH8wVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cyH8wlrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cyH8w1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cyH8xFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -681,13 +521,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cyPRiFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtdzgUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtdzwUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cyPRgVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.script/model/script.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.script/model/script.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cyPRglrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cyPRg1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cyPRhFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -715,13 +556,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cyUKCFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtd0AUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJtd0QUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cyUKAVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.security/model/sec.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.security/model/sec.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cyUKAlrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cyUKA1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cyUKBFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -749,13 +591,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cya3slrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJtd0gUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJuE0AUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cyaQoVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.globalization/model/globalize.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.globalization/model/globalize.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cyaQolrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cyaQo1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cyaQpFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -783,13 +626,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cyiziFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJuE0QUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJuE0gUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cyizgVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cyizglrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cyizg1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cyizhFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -817,13 +661,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cyvn0lrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJuE0wUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJuE1AUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cyvAwVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.da.server.exec/model/configuration.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.da.server.exec/model/configuration.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cyvAwlrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cyvAw1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cyvAxFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
@@ -851,13 +696,14 @@
           <styles xmi:type="notation:DiagramStyle" xmi:id="_cy28mFrCEeSkTeb3qMPpdQ"/>
         </data>
       </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_DJuE1QUcEeW7L-COKj0UNA" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_DJuE1gUcEeW7L-COKj0UNA"/>
+      </ownedAnnotationEntries>
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cy28kVrCEeSkTeb3qMPpdQ" width="-1" height="-1">
         <target xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.item/model/item.ecore#/"/>
         <semanticElements xmi:type="ecore:EPackage" href="platform:/resource/org.eclipse.scada.configuration.item/model/item.ecore#/"/>
         <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cy28klrCEeSkTeb3qMPpdQ" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_cy28k1rCEeSkTeb3qMPpdQ"/>
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_cy28lFrCEeSkTeb3qMPpdQ"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
       </ownedDiagramElements>
