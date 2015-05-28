@@ -134,9 +134,9 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
 
         for ( final ModbusSlave slave : device.getSlaves () )
         {
-            if ( device.getProtocolType () == ProtocolType.RTU && ( slave.getUnitAddress () == 0x00 || slave.getUnitAddress () == 0xFF ) )
+            if ( device.getProtocolType () == ProtocolType.RTU && ( slave.getUnitAddress () == 0x00 || slave.getUnitAddress () > 247 ) )
             {
-                ctx.add ( Severity.ERROR, new Object[] { slave, ModbusPackage.Literals.MODBUS_SLAVE__UNIT_ADDRESS }, "Unit address {0} is invalid. Must be greater than 0x00 and less than 0xFF.", slave.getUnitAddress () );
+                ctx.add ( Severity.ERROR, new Object[] { slave, ModbusPackage.Literals.MODBUS_SLAVE__UNIT_ADDRESS }, "Unit address {0} is invalid. Must be greater than 0 (zero) and less than 248.", slave.getUnitAddress () );
             }
 
             for ( final ModbusBlock block : slave.getBlocks () )
