@@ -3,6 +3,7 @@
 
 <product name="Eclipse SCADA P2 Director" uid="org.eclipse.scada.deploy.p2director" id="org.eclipse.equinox.p2.director.product" version="4.5.0" useFeatures="false" includeLaunchers="false">
 
+
    <configIni use="default">
    </configIni>
 
@@ -13,12 +14,14 @@
 
    <windowImages/>
 
+
    <launcher name="p2director">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
+
 
    <vm>
    </vm>
@@ -163,6 +166,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.simpleconfigurator.manipulator"/>
       <plugin id="org.eclipse.equinox.util"/>
       <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.compatibility.state" fragment="true"/>
       <plugin id="org.eclipse.osgi.services"/>
       <plugin id="org.sat4j.core"/>
       <plugin id="org.sat4j.pb"/>
@@ -174,5 +178,12 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="3" />
    </configurations>
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
 
 </product>
