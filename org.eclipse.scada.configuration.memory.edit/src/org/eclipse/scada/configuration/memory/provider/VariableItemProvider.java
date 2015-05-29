@@ -199,6 +199,8 @@ public class VariableItemProvider extends ItemProviderAdapter implements IEditin
 
         newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.VARIABLE__TYPE, MemoryFactory.eINSTANCE.createFixedLengthStringType () ) );
 
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.VARIABLE__TYPE, MemoryFactory.eINSTANCE.createFixedLengthBlobType () ) );
+
         newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.VARIABLE__ATTRIBUTES, MemoryFactory.eINSTANCE.createAttribute () ) );
     }
 

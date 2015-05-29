@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.memory.Attribute;
 import org.eclipse.scada.configuration.memory.BaseScalarType;
 import org.eclipse.scada.configuration.memory.BitType;
 import org.eclipse.scada.configuration.memory.ByteOrder;
+import org.eclipse.scada.configuration.memory.FixedLengthBlobType;
 import org.eclipse.scada.configuration.memory.FixedLengthStringType;
 import org.eclipse.scada.configuration.memory.Float32Type;
 import org.eclipse.scada.configuration.memory.Float64Type;
@@ -146,6 +147,13 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
      * @generated
      */
     private EClass fixedLengthStringTypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass fixedLengthBlobTypeEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -512,6 +520,26 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getFixedLengthBlobType ()
+    {
+        return fixedLengthBlobTypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getFixedLengthBlobType_MaxLength ()
+    {
+        return (EAttribute)fixedLengthBlobTypeEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getByteOrder ()
     {
@@ -772,6 +800,9 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         createEAttribute ( fixedLengthStringTypeEClass, FIXED_LENGTH_STRING_TYPE__MAX_LENGTH );
         createEAttribute ( fixedLengthStringTypeEClass, FIXED_LENGTH_STRING_TYPE__CHARSET );
 
+        fixedLengthBlobTypeEClass = createEClass ( FIXED_LENGTH_BLOB_TYPE );
+        createEAttribute ( fixedLengthBlobTypeEClass, FIXED_LENGTH_BLOB_TYPE__MAX_LENGTH );
+
         // Create enums
         byteOrderEEnum = createEEnum ( BYTE_ORDER );
     }
@@ -821,6 +852,7 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         signedInteger32TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
         signedInteger64TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
         fixedLengthStringTypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        fixedLengthBlobTypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
@@ -884,6 +916,9 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         initEClass ( fixedLengthStringTypeEClass, FixedLengthStringType.class, "FixedLengthStringType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
         initEAttribute ( getFixedLengthStringType_MaxLength (), ecorePackage.getEInt (), "maxLength", null, 1, 1, FixedLengthStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
         initEAttribute ( getFixedLengthStringType_Charset (), ecorePackage.getEString (), "charset", "UTF-8", 1, 1, FixedLengthStringType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+
+        initEClass ( fixedLengthBlobTypeEClass, FixedLengthBlobType.class, "FixedLengthBlobType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEAttribute ( getFixedLengthBlobType_MaxLength (), ecorePackage.getEInt (), "maxLength", null, 1, 1, FixedLengthBlobType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
 
         // Initialize enums and add enum literals
         initEEnum ( byteOrderEEnum, ByteOrder.class, "ByteOrder" );

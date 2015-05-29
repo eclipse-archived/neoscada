@@ -328,6 +328,20 @@ public class MemorySwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case MemoryPackage.FIXED_LENGTH_BLOB_TYPE:
+            {
+                FixedLengthBlobType fixedLengthBlobType = (FixedLengthBlobType)theEObject;
+                T result = caseFixedLengthBlobType ( fixedLengthBlobType );
+                if ( result == null )
+                    result = caseBaseScalarType ( fixedLengthBlobType );
+                if ( result == null )
+                    result = caseScalarType ( fixedLengthBlobType );
+                if ( result == null )
+                    result = caseType ( fixedLengthBlobType );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -553,6 +567,22 @@ public class MemorySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseFixedLengthStringType ( FixedLengthStringType object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Fixed Length Blob Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Fixed Length Blob Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFixedLengthBlobType ( FixedLengthBlobType object )
     {
         return null;
     }

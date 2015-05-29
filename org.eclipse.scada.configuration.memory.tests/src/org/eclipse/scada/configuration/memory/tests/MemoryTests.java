@@ -54,6 +54,7 @@ public class MemoryTests extends TestSuite
         suite.addTestSuite ( SignedInteger32TypeTest.class );
         suite.addTestSuite ( SignedInteger64TypeTest.class );
         suite.addTestSuite ( FixedLengthStringTypeTest.class );
+        suite.addTestSuite ( FixedLengthBlobTypeTest.class );
         return suite;
     }
 

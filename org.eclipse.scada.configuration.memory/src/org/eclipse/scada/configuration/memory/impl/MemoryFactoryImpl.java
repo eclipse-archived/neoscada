@@ -102,6 +102,8 @@ public class MemoryFactoryImpl extends EFactoryImpl implements MemoryFactory
                 return createSignedInteger64Type ();
             case MemoryPackage.FIXED_LENGTH_STRING_TYPE:
                 return createFixedLengthStringType ();
+            case MemoryPackage.FIXED_LENGTH_BLOB_TYPE:
+                return createFixedLengthBlobType ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
         }
@@ -271,6 +273,17 @@ public class MemoryFactoryImpl extends EFactoryImpl implements MemoryFactory
     {
         FixedLengthStringTypeImpl fixedLengthStringType = new FixedLengthStringTypeImpl ();
         return fixedLengthStringType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public FixedLengthBlobType createFixedLengthBlobType ()
+    {
+        FixedLengthBlobTypeImpl fixedLengthBlobType = new FixedLengthBlobTypeImpl ();
+        return fixedLengthBlobType;
     }
 
     /**

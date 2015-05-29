@@ -60,5 +60,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memory.ecore#//FixedLengthStringType/maxLength"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memory.ecore#//FixedLengthStringType/charset"/>
     </genClasses>
+    <genClasses ecoreClass="memory.ecore#//FixedLengthBlobType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memory.ecore#//FixedLengthBlobType/maxLength"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

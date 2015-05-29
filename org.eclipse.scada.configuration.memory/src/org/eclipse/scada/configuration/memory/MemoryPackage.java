@@ -1272,6 +1272,70 @@ public interface MemoryPackage extends EPackage
     int FIXED_LENGTH_STRING_TYPE_OPERATION_COUNT = BASE_SCALAR_TYPE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.FixedLengthBlobTypeImpl <em>Fixed Length Blob Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.impl.FixedLengthBlobTypeImpl
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getFixedLengthBlobType()
+     * @generated
+     */
+    int FIXED_LENGTH_BLOB_TYPE = 20;
+
+    /**
+     * The feature id for the '<em><b>Index</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_BLOB_TYPE__INDEX = BASE_SCALAR_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_BLOB_TYPE__LENGTH = BASE_SCALAR_TYPE__LENGTH;
+
+    /**
+     * The feature id for the '<em><b>Max Length</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_BLOB_TYPE__MAX_LENGTH = BASE_SCALAR_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Fixed Length Blob Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_BLOB_TYPE_FEATURE_COUNT = BASE_SCALAR_TYPE_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Encode</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_BLOB_TYPE___ENCODE = BASE_SCALAR_TYPE___ENCODE;
+
+    /**
+     * The number of operations of the '<em>Fixed Length Blob Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIXED_LENGTH_BLOB_TYPE_OPERATION_COUNT = BASE_SCALAR_TYPE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1279,7 +1343,7 @@ public interface MemoryPackage extends EPackage
      * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getByteOrder()
      * @generated
      */
-    int BYTE_ORDER = 20;
+    int BYTE_ORDER = 21;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.UserDefinedType <em>User Defined Type</em>}'.
@@ -1487,6 +1551,27 @@ public interface MemoryPackage extends EPackage
      * @generated
      */
     EAttribute getFixedLengthStringType_Charset ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.FixedLengthBlobType <em>Fixed Length Blob Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Fixed Length Blob Type</em>'.
+     * @see org.eclipse.scada.configuration.memory.FixedLengthBlobType
+     * @generated
+     */
+    EClass getFixedLengthBlobType ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.memory.FixedLengthBlobType#getMaxLength <em>Max Length</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Max Length</em>'.
+     * @see org.eclipse.scada.configuration.memory.FixedLengthBlobType#getMaxLength()
+     * @see #getFixedLengthBlobType()
+     * @generated
+     */
+    EAttribute getFixedLengthBlobType_MaxLength ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}'.
@@ -1891,6 +1976,24 @@ public interface MemoryPackage extends EPackage
          * @generated
          */
         EAttribute FIXED_LENGTH_STRING_TYPE__CHARSET = eINSTANCE.getFixedLengthStringType_Charset ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.FixedLengthBlobTypeImpl <em>Fixed Length Blob Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.impl.FixedLengthBlobTypeImpl
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getFixedLengthBlobType()
+         * @generated
+         */
+        EClass FIXED_LENGTH_BLOB_TYPE = eINSTANCE.getFixedLengthBlobType ();
+
+        /**
+         * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIXED_LENGTH_BLOB_TYPE__MAX_LENGTH = eINSTANCE.getFixedLengthBlobType_MaxLength ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}' enum.

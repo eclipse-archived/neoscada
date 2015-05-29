@@ -194,6 +194,8 @@ public class AttributeItemProvider extends ItemProviderAdapter implements IEditi
         newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createSignedInteger64Type () ) );
 
         newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createFixedLengthStringType () ) );
+
+        newChildDescriptors.add ( createChildParameter ( MemoryPackage.Literals.ATTRIBUTE__TYPE, MemoryFactory.eINSTANCE.createFixedLengthBlobType () ) );
     }
 
     /**

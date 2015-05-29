@@ -69,4 +69,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="charset" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="UTF-8"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FixedLengthBlobType" eSuperTypes="#//BaseScalarType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
 </ecore:EPackage>

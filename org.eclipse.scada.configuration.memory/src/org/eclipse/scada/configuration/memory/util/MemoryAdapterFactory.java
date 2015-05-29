@@ -198,6 +198,12 @@ public class MemoryAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseFixedLengthBlobType ( FixedLengthBlobType object )
+        {
+            return createFixedLengthBlobTypeAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -424,6 +430,21 @@ public class MemoryAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createFixedLengthStringTypeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.memory.FixedLengthBlobType <em>Fixed Length Blob Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.memory.FixedLengthBlobType
+     * @generated
+     */
+    public Adapter createFixedLengthBlobTypeAdapter ()
     {
         return null;
     }

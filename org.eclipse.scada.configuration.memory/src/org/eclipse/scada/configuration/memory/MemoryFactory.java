@@ -139,6 +139,15 @@ public interface MemoryFactory extends EFactory
     FixedLengthStringType createFixedLengthStringType ();
 
     /**
+     * Returns a new object of class '<em>Fixed Length Blob Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Fixed Length Blob Type</em>'.
+     * @generated
+     */
+    FixedLengthBlobType createFixedLengthBlobType ();
+
+    /**
      * Returns a new object of class '<em>Bit Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
