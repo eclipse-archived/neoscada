@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - refactor for generic memory devices
+ *     IBH SYSTEMS GmbH - added string and blob type
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory.internal;
 
@@ -35,6 +36,8 @@ import org.eclipse.scada.da.server.common.memory.DoubleFloatAttribute;
 import org.eclipse.scada.da.server.common.memory.DoubleFloatVariable;
 import org.eclipse.scada.da.server.common.memory.DoubleIntegerAttribute;
 import org.eclipse.scada.da.server.common.memory.DoubleIntegerVariable;
+import org.eclipse.scada.da.server.common.memory.FixedLengthBlobAttribute;
+import org.eclipse.scada.da.server.common.memory.FixedLengthBlobVariable;
 import org.eclipse.scada.da.server.common.memory.FixedLengthStringAttribute;
 import org.eclipse.scada.da.server.common.memory.FixedLengthStringVariable;
 import org.eclipse.scada.da.server.common.memory.FloatAttribute;
@@ -106,7 +109,11 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
         /**
          * Fixed length string
          */
-        STRING;
+        STRING,
+        /**
+         * A hex encoded BLOB
+         */
+        BLOB;
     }
 
     private static class TypeEntry
@@ -180,7 +187,7 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
             this.name = name;
             this.index = new int[] { index, options };
             this.order = order;
-            this.type = TYPE.STRING;
+            this.type = charset != null ? TYPE.STRING : TYPE.BLOB;
             this.typeName = null;
             this.maxLength = maxLength;
             this.charset = charset;
@@ -433,6 +440,9 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                     case STRING:
                         result.add ( new FixedLengthStringVariable ( entry.getName (), entry.getIndex (), entry.getOrder (), entry.getMaxLength (), entry.getCharset (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
+                    case BLOB:
+                        result.add ( new FixedLengthBlobVariable ( entry.getName (), entry.getIndex (), entry.getOrder (), entry.getMaxLength (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        break;
                 }
             }
             return result.toArray ( new Variable[result.size ()] );
@@ -487,6 +497,10 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                     break;
                 case STRING:
                     result.add ( new FixedLengthStringAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getMaxLength (), attrEntry.getCharset (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
+                    break;
+                case BLOB:
+                    result.add ( new FixedLengthBlobAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getMaxLength (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
+                    break;
                 default:
                     break;
             }
@@ -561,6 +575,9 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                 break;
             case STRING:
                 result.add ( new TypeEntry ( varName, Integer.parseInt ( args[0] ), Integer.parseInt ( args[2] ), Charset.forName ( args[3] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
+                break;
+            case BLOB:
+                result.add ( new TypeEntry ( varName, Integer.parseInt ( args[0] ), Integer.parseInt ( args[2] ), null, Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case UDT:
                 if ( attribute )
