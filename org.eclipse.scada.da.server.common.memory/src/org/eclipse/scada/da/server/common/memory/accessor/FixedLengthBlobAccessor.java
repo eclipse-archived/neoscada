@@ -36,9 +36,11 @@ public class FixedLengthBlobAccessor implements Accessor<String>
     }
 
     @Override
-    public void put ( final IoBuffer data, final String value )
+    public void put ( final IoBuffer data, String value )
     {
-        data.put ( BaseEncoding.base16 ().decode ( value.toUpperCase () ) );
+        value = value.replaceAll ( "\\s", "" );
+        value = value.toUpperCase ();
+        data.put ( BaseEncoding.base16 ().decode ( value ) );
     }
 
 }
