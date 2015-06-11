@@ -132,7 +132,7 @@
          id="ch.qos.logback.slf4j"
          download-size="0"
          install-size="0"
-         version="1.0.7.v20121108-1250"
+         version="1.0.7.v201505121915"
          fragment="true"
          unpack="false"/>
 
