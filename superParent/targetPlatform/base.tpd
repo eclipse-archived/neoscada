@@ -17,7 +17,7 @@ location "http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5RC4-201
 	org.apache.commons.logging.source [1.1.1,1.1.2)
 }
 
-location "http://download.eclipse.org/releases/mars" {
+location "http://download.eclipse.org/releases/staging/" {
 	org.eclipse.equinox.sdk.feature.group
 	
 	org.eclipse.emf.validation.sdk.feature.group
