@@ -6,14 +6,12 @@ location "http://download.eclipse.org/cbi/updates/license/" {
 	org.eclipse.license.feature.group [1.0.1,1.0.2)
 }
 
-location "http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M7-201504301445" {
+location "http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5RC4-201506032000" {
 	org.eclipse.equinox.launcher.gtk.linux.ppc64le
 	org.eclipse.core.filesystem.linux.ppc64le
 	org.eclipse.swt.gtk.linux.ppc64le
 	org.eclipse.equinox.executable_root.gtk.linux.ppc64le
 	
-	org.junit.source [4.12.0,4.12.1)
-	javax.annotation.source [1.2.0,1.2.1)
 	org.apache.commons.logging.source [1.1.1,1.1.2)
 }
 
@@ -85,8 +83,8 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2015051921075
 	com.google.gson[2.2.4,2.2.5)
 	com.google.gson.source[2.2.4,2.2.5)
 
-	org.junit[4.11.0,4.11.1)
-	org.junit.source[4.11.0,4.11.1)
+	org.junit[4.12.0,4.12.1)
+	org.junit.source [4.12.0,4.12.1)
 	com.jcraft.jzlib[1.1.1,1.1.2)
 	com.jcraft.jzlib.source[1.1.1,1.1.2)
 	
@@ -102,8 +100,8 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2015051921075
 	ch.qos.logback.slf4j[1.0.7,1.0.8)
 	ch.qos.logback.slf4j.source[1.0.7,1.0.8)
 	
-	javax.annotation[1.1.0,1.1.1)
-	javax.annotation.source[1.1.0,1.1.1)
+	javax.annotation [1.2.0,1.2.1)
+	javax.annotation.source [1.2.0,1.2.1)
 	javax.inject[1.0.0,1.0.1)
 	javax.inject.source[1.0.0,1.0.1)
 	javax.ws.rs[1.1.1,1.1.2)

@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1434015579">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1434015794">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
       <repository location="http://download.eclipse.org/cbi/updates/license/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.equinox.launcher.gtk.linux.ppc64le" version="1.0.300.v20150423-1351"/>
+      <unit id="org.eclipse.equinox.launcher.gtk.linux.ppc64le" version="1.0.300.v20150602-1417"/>
       <unit id="org.eclipse.core.filesystem.linux.ppc64le" version="1.4.0.v20140822-1153"/>
-      <unit id="org.eclipse.swt.gtk.linux.ppc64le" version="3.104.0.v20150430-1253"/>
-      <unit id="org.eclipse.equinox.executable_root.gtk.linux.ppc64le" version="3.6.200.v20150430-1829"/>
-      <unit id="org.junit.source" version="4.12.0.v201504281640"/>
-      <unit id="javax.annotation.source" version="1.2.0.v201401042248"/>
+      <unit id="org.eclipse.swt.gtk.linux.ppc64le" version="3.104.0.v20150528-0211"/>
+      <unit id="org.eclipse.equinox.executable_root.gtk.linux.ppc64le" version="3.6.200.v20150602-1417"/>
       <unit id="org.apache.commons.logging.source" version="1.1.1.v201101211721"/>
-      <repository location="http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5M7-201504301445"/>
+      <repository location="http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5RC4-201506032000"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.0.v20150527-1706"/>
@@ -68,8 +66,8 @@
       <unit id="com.google.guava.source" version="15.0.0.v201403281430"/>
       <unit id="com.google.gson" version="2.2.4.v201311231704"/>
       <unit id="com.google.gson.source" version="2.2.4.v201311231704"/>
-      <unit id="org.junit" version="4.11.0.v201303080030"/>
-      <unit id="org.junit.source" version="4.11.0.v201303080030"/>
+      <unit id="org.junit" version="4.12.0.v201504281640"/>
+      <unit id="org.junit.source" version="4.12.0.v201504281640"/>
       <unit id="com.jcraft.jzlib" version="1.1.1.v201205102305"/>
       <unit id="com.jcraft.jzlib.source" version="1.1.1.v201205102305"/>
       <unit id="org.slf4j.api" version="1.7.2.v20121108-1250"/>
@@ -82,8 +80,8 @@
       <unit id="ch.qos.logback.core.source" version="1.0.7.v20121108-1250"/>
       <unit id="ch.qos.logback.slf4j" version="1.0.7.v201505121915"/>
       <unit id="ch.qos.logback.slf4j.source" version="1.0.7.v201505121915"/>
-      <unit id="javax.annotation" version="1.1.0.v201209060031"/>
-      <unit id="javax.annotation.source" version="1.1.0.v201209060031"/>
+      <unit id="javax.annotation" version="1.2.0.v201401042248"/>
+      <unit id="javax.annotation.source" version="1.2.0.v201401042248"/>
       <unit id="javax.inject" version="1.0.0.v20091030"/>
       <unit id="javax.inject.source" version="1.0.0.v20091030"/>
       <unit id="javax.ws.rs" version="1.1.1.v20130318-1750"/>
