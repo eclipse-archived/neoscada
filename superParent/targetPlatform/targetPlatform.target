@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1434016137">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1435225002">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
@@ -9,7 +9,7 @@
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.commons.logging.source" version="1.1.1.v201101211721"/>
-      <repository location="http://download.eclipse.org/eclipse/updates/4.5milestones/S-4.5RC4-201506032000"/>
+      <repository location="http://download.eclipse.org/eclipse/updates/4.5"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.0.v20150602-1417"/>
@@ -31,7 +31,7 @@
       <unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="3.10.0.v20150512-1727"/>
       <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="1.0.0.v20150512-1727"/>
       <unit id="org.eclipse.equinox.p2.rcp.feature.feature.group" version="1.2.100.v20150527-1706"/>
-      <repository location="http://download.eclipse.org/releases/staging/"/>
+      <repository location="http://download.eclipse.org/releases/mars"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.paho.client.mqttv3" version="1.0.2"/>
