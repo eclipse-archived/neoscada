@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - fix bug 433409, fix bug 437536
+ *     IBH SYSTEMS GmbH - fix bug 433409, fix bug 437536, add init properties
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.script;
 
@@ -270,11 +270,16 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
         final ScriptEngine engine = Scripts.createEngine ( engineName, ScriptDataSource.class.getClassLoader () );
         this.scriptContext = new SimpleScriptContext ();
 
+        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "initProperties." ).entrySet () )
+        {
+            this.scriptContext.setAttribute ( entry.getKey (), entry.getKey (), ScriptContext.ENGINE_SCOPE );
+        }
+
         // trigger init script
         final String initScript = cfg.getString ( "init" );
         if ( initScript != null )
         {
-            new ScriptExecutor ( engine, initScript, ScriptDataSource.class.getClassLoader () ).execute ( this.scriptContext );
+            performScript ( new ScriptExecutor ( engine, initScript, ScriptDataSource.class.getClassLoader () ), this.scriptContext );
         }
 
         this.updateCommand = makeScript ( engine, cfg.getString ( "updateCommand" ) );
@@ -306,7 +311,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
     @Override
     protected synchronized void handleChange ( final Map<String, DataSourceHandler> sources )
     {
-        // calcuate
+        // calculate
         // gather all data
         final Map<String, DataItemValue> values = new HashMap<String, DataItemValue> ();
         for ( final Map.Entry<String, DataSourceHandler> entry : sources.entrySet () )

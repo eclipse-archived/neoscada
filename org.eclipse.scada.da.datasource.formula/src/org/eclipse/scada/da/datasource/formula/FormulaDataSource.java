@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - fix bug 433409
+ *     IBH SYSTEMS GmbH - fix bug 433409, add init properties
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.formula;
 
@@ -61,7 +61,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * A datasource that calculates based on input and/or output formula
- * 
+ *
  * @author Jens Reimann
  */
 public class FormulaDataSource extends AbstractMultiSourceDataSource
@@ -148,7 +148,7 @@ public class FormulaDataSource extends AbstractMultiSourceDataSource
         }
     }
 
-    private final class WriteFuture extends AbstractFuture<WriteResult> implements Runnable
+    private final class WriteFuture extends AbstractFuture<WriteResult>implements Runnable
     {
         private final Variant value;
 
@@ -340,6 +340,11 @@ public class FormulaDataSource extends AbstractMultiSourceDataSource
         }
 
         this.scriptContext = new SimpleScriptContext ();
+
+        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "initProperties." ).entrySet () )
+        {
+            this.scriptContext.setAttribute ( entry.getKey (), entry.getKey (), ScriptContext.ENGINE_SCOPE );
+        }
 
         this.scriptEngine = this.manager.getEngineByName ( engine );
         if ( this.scriptEngine == null )
