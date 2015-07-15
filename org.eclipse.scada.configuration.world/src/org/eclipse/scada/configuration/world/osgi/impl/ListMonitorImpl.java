@@ -32,6 +32,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ListMonitorImpl#getMessage <em>Message</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ListMonitorImpl#getMessageAttribute <em>Message Attribute</em>}</li>
@@ -41,7 +42,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ListMonitorImpl#getDemotePrefix <em>Demote Prefix</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ListMonitorImpl#getEntries <em>Entries</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

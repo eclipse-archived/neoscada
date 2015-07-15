@@ -1090,13 +1090,22 @@ public interface OsgiPackage extends EPackage
     int SCRIPT_ITEM__WRITE_COMMAND_SCRIPT = ITEM_FEATURE_COUNT + 6;
 
     /**
+     * The feature id for the '<em><b>Init Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_ITEM__INIT_PROPERTIES = ITEM_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Script Item</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 7;
+    int SCRIPT_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 8;
 
     /**
      * The number of operations of the '<em>Script Item</em>' class.
@@ -3655,13 +3664,22 @@ public interface OsgiPackage extends EPackage
     int FORMULA_ITEM__INBOUND = ITEM_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Init Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FORMULA_ITEM__INIT_PROPERTIES = ITEM_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Formula Item</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FORMULA_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 4;
+    int FORMULA_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 5;
 
     /**
      * The number of operations of the '<em>Formula Item</em>' class.
@@ -8320,6 +8338,17 @@ public interface OsgiPackage extends EPackage
     EReference getScriptItem_WriteCommandScript ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getInitProperties <em>Init Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Init Properties</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ScriptItem#getInitProperties()
+     * @see #getScriptItem()
+     * @generated
+     */
+    EReference getScriptItem_InitProperties ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.ImportItem <em>Import Item</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9382,6 +9411,17 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EReference getFormulaItem_Inbound ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.osgi.FormulaItem#getInitProperties <em>Init Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Init Properties</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.FormulaItem#getInitProperties()
+     * @see #getFormulaItem()
+     * @generated
+     */
+    EReference getFormulaItem_InitProperties ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.FormulaItemOutbound <em>Formula Item Outbound</em>}'.
@@ -12007,6 +12047,14 @@ public interface OsgiPackage extends EPackage
         EReference SCRIPT_ITEM__WRITE_COMMAND_SCRIPT = eINSTANCE.getScriptItem_WriteCommandScript ();
 
         /**
+         * The meta object literal for the '<em><b>Init Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SCRIPT_ITEM__INIT_PROPERTIES = eINSTANCE.getScriptItem_InitProperties ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ImportItemImpl <em>Import Item</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12877,6 +12925,14 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EReference FORMULA_ITEM__INBOUND = eINSTANCE.getFormulaItem_Inbound ();
+
+        /**
+         * The meta object literal for the '<em><b>Init Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference FORMULA_ITEM__INIT_PROPERTIES = eINSTANCE.getFormulaItem_InitProperties ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemOutboundImpl <em>Formula Item Outbound</em>}' class.

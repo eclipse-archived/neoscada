@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.ApplicationNode#getApplications <em>Applications</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.ApplicationNode#getServices <em>Services</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getApplicationNode()
  * @model

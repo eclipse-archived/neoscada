@@ -18,10 +18,10 @@ package org.eclipse.scada.configuration.world.deployment;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism#getLicense <em>License</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getRedhatDeploymentMechanism()
  * @model

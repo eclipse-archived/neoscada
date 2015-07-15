@@ -20,13 +20,13 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.PullEvents#getJobInterval <em>Job Interval</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.PullEvents#getCustomSelectSql <em>Custom Select Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.PullEvents#getCustomDeleteSql <em>Custom Delete Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.PullEvents#getDatabase <em>Database</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getPullEvents()
  * @model

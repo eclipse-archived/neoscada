@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.ComponentDanglingReference#getLocalTag <em>Local Tag</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ComponentDanglingReference#getComponent <em>Component</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getComponentDanglingReference()
  * @model

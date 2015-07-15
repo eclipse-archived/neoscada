@@ -78,8 +78,8 @@ public class BundleStartLevelItemProvider extends ItemProviderAdapter implements
     protected void addLevelPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BundleStartLevel_level_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_BundleStartLevel_level_feature", "_UI_BundleStartLevel_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.BUNDLE_START_LEVEL__LEVEL, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_BundleStartLevel_level_feature", "_UI_BundleStartLevel_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.BUNDLE_START_LEVEL__LEVEL, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -91,8 +91,8 @@ public class BundleStartLevelItemProvider extends ItemProviderAdapter implements
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_BundleStartLevel_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_BundleStartLevel_name_feature", "_UI_BundleStartLevel_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.BUNDLE_START_LEVEL__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_BundleStartLevel_name_feature", "_UI_BundleStartLevel_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.BUNDLE_START_LEVEL__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

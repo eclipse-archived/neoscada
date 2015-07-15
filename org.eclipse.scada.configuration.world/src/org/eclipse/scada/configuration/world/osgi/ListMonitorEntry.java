@@ -21,12 +21,12 @@ import org.eclipse.scada.core.Variant;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getRequireAck <em>Require Ack</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getSeverity <em>Severity</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getListMonitorEntry()
  * @model

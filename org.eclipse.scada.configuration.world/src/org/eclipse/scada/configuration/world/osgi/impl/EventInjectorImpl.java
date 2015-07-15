@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorImpl#getDatabase <em>Database</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorImpl#getLoopDelay <em>Loop Delay</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorImpl#getReplicationSchema <em>Replication Schema</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorImpl#isDeleteFailed <em>Delete Failed</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

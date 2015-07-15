@@ -84,8 +84,8 @@ public class SetupModuleContainerItemProvider extends ItemProviderAdapter implem
     protected void addIdPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SetupModuleContainer_id_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SetupModuleContainer_id_feature", "_UI_SetupModuleContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                SetupPackage.Literals.SETUP_MODULE_CONTAINER__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SetupModuleContainer_id_feature", "_UI_SetupModuleContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        SetupPackage.Literals.SETUP_MODULE_CONTAINER__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

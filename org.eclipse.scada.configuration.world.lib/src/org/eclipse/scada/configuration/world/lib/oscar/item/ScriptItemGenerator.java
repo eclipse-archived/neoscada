@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,8 @@ package org.eclipse.scada.configuration.world.lib.oscar.item;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.scada.configuration.lib.Properties;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.lib.oscar.Factories;
 import org.eclipse.scada.configuration.world.lib.oscar.Helper;
 import org.eclipse.scada.configuration.world.lib.oscar.MasterHandlerPriorities;
@@ -40,7 +42,7 @@ public class ScriptItemGenerator extends ItemGenerator
     @Override
     protected String makeSourceId ()
     {
-        return makeId ( "script" );
+        return makeId ( "script" ); //$NON-NLS-1$
     }
 
     private void addScriptSource ()
@@ -80,6 +82,13 @@ public class ScriptItemGenerator extends ItemGenerator
             if ( this.item.getTimer ().getScript () != null )
             {
                 Helper.addOptional ( data, "timerCommand", this.item.getTimer ().getScript ().getCode () ); //$NON-NLS-1$
+            }
+        }
+        for ( final PropertyEntry entry : this.item.getInitProperties () )
+        {
+            if ( !Properties.isEmpty ( entry ) )
+            {
+                data.put ( "initProperty." + entry.getKey (), entry.getValue () ); //$NON-NLS-1$
             }
         }
 

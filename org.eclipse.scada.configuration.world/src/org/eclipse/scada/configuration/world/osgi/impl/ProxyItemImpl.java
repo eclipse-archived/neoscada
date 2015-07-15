@@ -25,10 +25,10 @@ import org.eclipse.scada.configuration.world.osgi.ProxyItem;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ProxyItemImpl#getItems <em>Items</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

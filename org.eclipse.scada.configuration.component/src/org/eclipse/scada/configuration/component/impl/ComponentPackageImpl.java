@@ -1028,6 +1028,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getCalculationComponent_InitProperties ()
+    {
+        return (EReference)calculationComponentEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getCalculationModule ()
     {
@@ -2184,6 +2194,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__IMPLEMENTATION );
         createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__OUTPUTS );
         createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__INPUTS );
+        createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__INIT_PROPERTIES );
 
         calculationModuleEClass = createEClass ( CALCULATION_MODULE );
         createEReference ( calculationModuleEClass, CALCULATION_MODULE__KNOWN_INPUTS );
@@ -2457,6 +2468,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getCalculationComponent_Implementation (), this.getCalculationModule (), null, "implementation", null, 1, 1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getCalculationComponent_Outputs (), this.getOutputDefinition (), null, "outputs", null, 0, -1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getCalculationComponent_Inputs (), this.getInputDefinition (), null, "inputs", null, 0, -1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getCalculationComponent_InitProperties (), theWorldPackage.getPropertyEntry (), null, "initProperties", null, 0, -1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( calculationModuleEClass, CalculationModule.class, "CalculationModule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getCalculationModule_KnownInputs (), this.getInputSpecification (), null, "knownInputs", null, 0, -1, CalculationModule.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

@@ -72,9 +72,9 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
     protected void addBufferPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_buffer_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_buffer_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.CHANGE_COUNTER__BUFFER, true, false, true, null, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_buffer_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.CHANGE_COUNTER__BUFFER, true, false, true, null, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -86,9 +86,9 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
     protected void addTypePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_type_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_type_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.CHANGE_COUNTER__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_type_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.CHANGE_COUNTER__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -100,9 +100,9 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
     protected void addValuesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_values_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_values_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.CHANGE_COUNTER__VALUES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_values_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.CHANGE_COUNTER__VALUES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -114,9 +114,9 @@ public class ChangeCounterItemProvider extends SingleValueItemProvider
     protected void addOnErrorPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeCounter_onError_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_onError_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.CHANGE_COUNTER__ON_ERROR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeCounter_onError_feature", "_UI_ChangeCounter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.CHANGE_COUNTER__ON_ERROR, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**

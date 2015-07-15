@@ -25,6 +25,7 @@ import org.eclipse.scada.configuration.world.osgi.PullEvents;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.PullEventsImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.PullEventsImpl#getName <em>Name</em>}</li>
@@ -33,7 +34,6 @@ import org.eclipse.scada.configuration.world.osgi.PullEvents;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.PullEventsImpl#getCustomDeleteSql <em>Custom Delete Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.PullEventsImpl#getDatabase <em>Database</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

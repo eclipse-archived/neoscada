@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Markers#getMarkerGroups <em>Marker Groups</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkers()
  * @model

@@ -24,12 +24,12 @@ import org.eclipse.scada.configuration.world.osgi.ValueMapper;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueMapperImpl#getSourceAttribute <em>Source Attribute</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueMapperImpl#getTargetAttribute <em>Target Attribute</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueMapperImpl#getDataMapper <em>Data Mapper</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getInstallationUnits <em>Installation Units</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getJvmArguments <em>Jvm Arguments</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

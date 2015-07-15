@@ -28,8 +28,6 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * An implementation of the model object '<em><b>Default Master Server</b></em>
  * '.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

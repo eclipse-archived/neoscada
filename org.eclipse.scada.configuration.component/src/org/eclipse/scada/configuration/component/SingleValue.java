@@ -20,12 +20,12 @@ import org.eclipse.scada.configuration.world.osgi.DataType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#getCustomizationTags <em>Customization Tags</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getSingleValue()
  * @model abstract="true"

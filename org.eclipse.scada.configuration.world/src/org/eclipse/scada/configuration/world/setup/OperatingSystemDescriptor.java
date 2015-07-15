@@ -24,13 +24,13 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.setup.SetupPackage#getOperatingSystemDescriptor()
  * @model

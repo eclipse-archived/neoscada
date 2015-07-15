@@ -22,12 +22,12 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getStartBundles <em>Start Bundles</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getInstallBundles <em>Install Bundles</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ProfileConfiguration#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getProfileConfiguration()
  * @model

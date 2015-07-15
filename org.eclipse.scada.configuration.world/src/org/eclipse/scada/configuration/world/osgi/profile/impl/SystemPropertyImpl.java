@@ -23,12 +23,12 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.SystemPropertyImpl#getKey <em>Key</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.SystemPropertyImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.SystemPropertyImpl#isEval <em>Eval</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

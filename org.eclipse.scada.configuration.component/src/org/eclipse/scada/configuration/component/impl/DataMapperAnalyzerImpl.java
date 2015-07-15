@@ -24,10 +24,10 @@ import org.eclipse.scada.configuration.component.DataMapperService;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.DataMapperAnalyzerImpl#getDataMapper <em>Data Mapper</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

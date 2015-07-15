@@ -24,11 +24,11 @@ import org.eclipse.emf.validation.IValidationContext;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.SetupModuleContainer#getModules <em>Modules</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.SetupModuleContainer#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.setup.SetupPackage#getSetupModuleContainer()
  * @model

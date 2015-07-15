@@ -32,13 +32,13 @@ import org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl#getNullRange <em>Null Range</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl#getRange <em>Range</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl#isTriggerOnly <em>Trigger Only</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

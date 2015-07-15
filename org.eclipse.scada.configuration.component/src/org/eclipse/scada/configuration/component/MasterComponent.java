@@ -11,7 +11,6 @@
  */
 package org.eclipse.scada.configuration.component;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Master Component</b></em>'.

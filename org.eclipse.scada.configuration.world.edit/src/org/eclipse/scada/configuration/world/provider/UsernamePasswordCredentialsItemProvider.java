@@ -78,8 +78,8 @@ public class UsernamePasswordCredentialsItemProvider extends ItemProviderAdapter
     protected void addUsernamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_UsernamePasswordCredentials_username_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_UsernamePasswordCredentials_username_feature", "_UI_UsernamePasswordCredentials_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                WorldPackage.Literals.USERNAME_PASSWORD_CREDENTIALS__USERNAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_UsernamePasswordCredentials_username_feature", "_UI_UsernamePasswordCredentials_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        WorldPackage.Literals.USERNAME_PASSWORD_CREDENTIALS__USERNAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -91,8 +91,8 @@ public class UsernamePasswordCredentialsItemProvider extends ItemProviderAdapter
     protected void addPasswordPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_UsernamePasswordCredentials_password_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_UsernamePasswordCredentials_password_feature", "_UI_UsernamePasswordCredentials_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                WorldPackage.Literals.USERNAME_PASSWORD_CREDENTIALS__PASSWORD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_UsernamePasswordCredentials_password_feature", "_UI_UsernamePasswordCredentials_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        WorldPackage.Literals.USERNAME_PASSWORD_CREDENTIALS__PASSWORD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

@@ -28,6 +28,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemInformationImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemInformationImpl#getUnit <em>Unit</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemInformationImpl#getSystem <em>System</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemInformationImpl#getDataType <em>Data Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

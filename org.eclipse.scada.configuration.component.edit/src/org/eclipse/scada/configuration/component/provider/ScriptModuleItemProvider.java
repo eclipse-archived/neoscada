@@ -85,9 +85,9 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
     protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -99,9 +99,9 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -113,9 +113,9 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
     protected void addScriptEnginePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptModule_scriptEngine_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptModule_scriptEngine_feature", "_UI_ScriptModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.SCRIPT_MODULE__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptModule_scriptEngine_feature", "_UI_ScriptModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.SCRIPT_MODULE__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -127,9 +127,9 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
     protected void addInitScriptPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptModule_initScript_feature" ), //$NON-NLS-1$
-                getString ( "_UI_ScriptModule_initScript_description" ), //$NON-NLS-1$
-                ComponentPackage.Literals.SCRIPT_MODULE__INIT_SCRIPT, false, true, false, null, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_ScriptModule_initScript_description" ), //$NON-NLS-1$
+        ComponentPackage.Literals.SCRIPT_MODULE__INIT_SCRIPT, false, true, false, null, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -141,9 +141,9 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
     protected void addUpdateScriptPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptModule_updateScript_feature" ), //$NON-NLS-1$
-                getString ( "_UI_ScriptModule_updateScript_description" ), //$NON-NLS-1$
-                ComponentPackage.Literals.SCRIPT_MODULE__UPDATE_SCRIPT, false, true, false, null, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_ScriptModule_updateScript_description" ), //$NON-NLS-1$
+        ComponentPackage.Literals.SCRIPT_MODULE__UPDATE_SCRIPT, false, true, false, null, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -155,9 +155,9 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
     protected void addWriteCommandScriptPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptModule_writeCommandScript_feature" ), //$NON-NLS-1$
-                getString ( "_UI_ScriptModule_writeCommandScript_description" ), //$NON-NLS-1$
-                ComponentPackage.Literals.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, false, true, false, null, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_ScriptModule_writeCommandScript_description" ), //$NON-NLS-1$
+        ComponentPackage.Literals.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, false, true, false, null, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -169,9 +169,9 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
     protected void addTimerScriptPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptModule_timerScript_feature" ), //$NON-NLS-1$
-                getString ( "_UI_ScriptModule_timerScript_description" ), //$NON-NLS-1$
-                ComponentPackage.Literals.SCRIPT_MODULE__TIMER_SCRIPT, false, true, false, null, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_ScriptModule_timerScript_description" ), //$NON-NLS-1$
+        ComponentPackage.Literals.SCRIPT_MODULE__TIMER_SCRIPT, false, true, false, null, getString ( "_UI_scriptPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -325,7 +325,7 @@ public class ScriptModuleItemProvider extends ItemProviderAdapter implements IEd
         if ( qualify )
         {
             return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
-                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+            new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
         }
         return super.getCreateChildText ( owner, feature, child, selection );
     }

@@ -78,8 +78,8 @@ public class ItemReferenceItemProvider extends ItemProviderAdapter implements IE
     protected void addItemPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemReference_item_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReference_item_feature", "_UI_ItemReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ITEM_REFERENCE__ITEM, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReference_item_feature", "_UI_ItemReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ITEM_REFERENCE__ITEM, true, false, true, null, null, null ) );
     }
 
     /**
@@ -91,8 +91,8 @@ public class ItemReferenceItemProvider extends ItemProviderAdapter implements IE
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemReference_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReference_name_feature", "_UI_ItemReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ITEM_REFERENCE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReference_name_feature", "_UI_ItemReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ITEM_REFERENCE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
+
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -49,6 +50,7 @@ import org.eclipse.ui.PartInitException;
  * This is the action bar contributor for the Component model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ComponentActionBarContributor extends EditingDomainActionBarContributor implements ISelectionChangedListener
@@ -57,6 +59,7 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * This keeps track of the active editor.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected IEditorPart activeEditorPart;
@@ -65,6 +68,7 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * This keeps track of the current selection provider.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ISelectionProvider selectionProvider;
@@ -73,10 +77,10 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * This action opens the Properties view.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected IAction showPropertiesViewAction = new Action ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" ) ) //$NON-NLS-1$
-    {
+    protected IAction showPropertiesViewAction = new Action ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" )) {
         @Override
         public void run ()
         {
@@ -84,7 +88,7 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
             {
                 getPage ().showView ( "org.eclipse.ui.views.PropertySheet" ); //$NON-NLS-1$
             }
-            catch ( PartInitException exception )
+            catch ( final PartInitException exception )
             {
                 ComponentEditorPlugin.INSTANCE.log ( exception );
             }
@@ -96,76 +100,92 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * implements {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected IAction refreshViewerAction = new Action ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" ) ) //$NON-NLS-1$
-    {
+    protected IAction refreshViewerAction = new Action ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" )) {
         @Override
         public boolean isEnabled ()
         {
-            return activeEditorPart instanceof IViewerProvider;
+            return ComponentActionBarContributor.this.activeEditorPart instanceof IViewerProvider;
         }
 
         @Override
         public void run ()
         {
-            if ( activeEditorPart instanceof IViewerProvider )
+            if ( ComponentActionBarContributor.this.activeEditorPart instanceof IViewerProvider )
             {
-                Viewer viewer = ( (IViewerProvider)activeEditorPart ).getViewer ();
+                final Viewer viewer = ( (IViewerProvider)ComponentActionBarContributor.this.activeEditorPart ).getViewer ();
                 if ( viewer != null )
                 {
-                    viewer.refresh ();
+                    viewer.refresh ( );
                 }
             }
         }
     };
 
     /**
-     * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
+     * This will contain one
+     * {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to
+     * each descriptor
      * generated for the current selection by the item provider.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected Collection<IAction> createChildActions;
 
     /**
-     * This will contain a map of {@link org.eclipse.emf.edit.ui.action.CreateChildAction}s, keyed by sub-menu text.
+     * This will contain a map of
+     * {@link org.eclipse.emf.edit.ui.action.CreateChildAction}s, keyed by
+     * sub-menu text.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected Map<String, Collection<IAction>> createChildSubmenuActions;
 
     /**
-     * This is the menu manager into which menu contribution items should be added for CreateChild actions.
+     * This is the menu manager into which menu contribution items should be
+     * added for CreateChild actions.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected IMenuManager createChildMenuManager;
 
     /**
-     * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding to each descriptor
+     * This will contain one
+     * {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding
+     * to each descriptor
      * generated for the current selection by the item provider.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected Collection<IAction> createSiblingActions;
 
     /**
-     * This will contain a map of {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction}s, keyed by submenu text.
+     * This will contain a map of
+     * {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction}s, keyed by
+     * submenu text.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected Map<String, Collection<IAction>> createSiblingSubmenuActions;
 
     /**
-     * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
+     * This is the menu manager into which menu contribution items should be
+     * added for CreateSibling actions.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected IMenuManager createSiblingMenuManager;
@@ -174,42 +194,46 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * This creates an instance of the contributor.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ComponentActionBarContributor ()
     {
         super ( ADDITIONS_LAST_STYLE );
-        loadResourceAction = new LoadResourceAction ();
-        validateAction = new ValidateAction ();
-        controlAction = new ControlAction ();
+        this.loadResourceAction = new LoadResourceAction ();
+        this.validateAction = new ValidateAction ();
+        this.controlAction = new ControlAction ();
     }
 
     /**
      * This adds Separators for editor additions to the tool bar.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void contributeToToolBar ( IToolBarManager toolBarManager )
+    public void contributeToToolBar ( final IToolBarManager toolBarManager )
     {
         toolBarManager.add ( new Separator ( "component-settings" ) ); //$NON-NLS-1$
         toolBarManager.add ( new Separator ( "component-additions" ) ); //$NON-NLS-1$
     }
 
     /**
-     * This adds to the menu bar a menu and some separators for editor additions,
+     * This adds to the menu bar a menu and some separators for editor
+     * additions,
      * as well as the sub-menus for object creation items.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void contributeToMenu ( IMenuManager menuManager )
+    public void contributeToMenu ( final IMenuManager menuManager )
     {
         super.contributeToMenu ( menuManager );
 
-        IMenuManager submenuManager = new MenuManager ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_ComponentEditor_menu" ), "org.eclipse.scada.configuration.componentMenuID" ); //$NON-NLS-1$ //$NON-NLS-2$
+        final IMenuManager submenuManager = new MenuManager ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_ComponentEditor_menu" ), "org.eclipse.scada.configuration.componentMenuID" ); //$NON-NLS-1$ //$NON-NLS-2$
         menuManager.insertAfter ( "additions", submenuManager ); //$NON-NLS-1$
         submenuManager.add ( new Separator ( "settings" ) ); //$NON-NLS-1$
         submenuManager.add ( new Separator ( "actions" ) ); //$NON-NLS-1$
@@ -218,18 +242,19 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
 
         // Prepare for CreateChild item addition or removal.
         //
-        createChildMenuManager = new MenuManager ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_CreateChild_menu_item" ) ); //$NON-NLS-1$
-        submenuManager.insertBefore ( "additions", createChildMenuManager ); //$NON-NLS-1$
+        this.createChildMenuManager = new MenuManager ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_CreateChild_menu_item" ) ); //$NON-NLS-1$
+        submenuManager.insertBefore ( "additions", this.createChildMenuManager ); //$NON-NLS-1$
 
         // Prepare for CreateSibling item addition or removal.
         //
-        createSiblingMenuManager = new MenuManager ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_CreateSibling_menu_item" ) ); //$NON-NLS-1$
-        submenuManager.insertBefore ( "additions", createSiblingMenuManager ); //$NON-NLS-1$
+        this.createSiblingMenuManager = new MenuManager ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_CreateSibling_menu_item" ) ); //$NON-NLS-1$
+        submenuManager.insertBefore ( "additions", this.createSiblingMenuManager ); //$NON-NLS-1$
 
         // Force an update because Eclipse hides empty menus now.
         //
         submenuManager.addMenuListener ( new IMenuListener () {
-            public void menuAboutToShow ( IMenuManager menuManager )
+            @Override
+            public void menuAboutToShow ( final IMenuManager menuManager )
             {
                 menuManager.updateAll ( true );
             }
@@ -239,62 +264,69 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
     }
 
     /**
-     * When the active editor changes, this remembers the change and registers with it as a selection provider.
+     * When the active editor changes, this remembers the change and registers
+     * with it as a selection provider.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setActiveEditor ( IEditorPart part )
+    public void setActiveEditor ( final IEditorPart part )
     {
         super.setActiveEditor ( part );
-        activeEditorPart = part;
+        this.activeEditorPart = part;
 
         // Switch to the new selection provider.
         //
-        if ( selectionProvider != null )
+        if ( this.selectionProvider != null )
         {
-            selectionProvider.removeSelectionChangedListener ( this );
+            this.selectionProvider.removeSelectionChangedListener ( this );
         }
         if ( part == null )
         {
-            selectionProvider = null;
+            this.selectionProvider = null;
         }
         else
         {
-            selectionProvider = part.getSite ().getSelectionProvider ();
-            selectionProvider.addSelectionChangedListener ( this );
+            this.selectionProvider = part.getSite ().getSelectionProvider ();
+            this.selectionProvider.addSelectionChangedListener ( this );
 
             // Fake a selection changed event to update the menus.
             //
-            if ( selectionProvider.getSelection () != null )
+            if ( this.selectionProvider.getSelection () != null )
             {
-                selectionChanged ( new SelectionChangedEvent ( selectionProvider, selectionProvider.getSelection () ) );
+                selectionChanged ( new SelectionChangedEvent ( this.selectionProvider, this.selectionProvider.getSelection () ) );
             }
         }
     }
 
     /**
-     * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener},
-     * handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings
-     * that can be added to the selected object and updating the menus accordingly.
+     * This implements
+     * {@link org.eclipse.jface.viewers.ISelectionChangedListener},
+     * handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by
+     * querying for the children and siblings
+     * that can be added to the selected object and updating the menus
+     * accordingly.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void selectionChanged ( SelectionChangedEvent event )
+    @Override
+    public void selectionChanged ( final SelectionChangedEvent event )
     {
         // Remove any menu items for old selection.
         //
-        if ( createChildMenuManager != null )
+        if ( this.createChildMenuManager != null )
         {
-            depopulateManager ( createChildMenuManager, createChildSubmenuActions );
-            depopulateManager ( createChildMenuManager, createChildActions );
+            depopulateManager ( this.createChildMenuManager, this.createChildSubmenuActions );
+            depopulateManager ( this.createChildMenuManager, this.createChildActions );
         }
-        if ( createSiblingMenuManager != null )
+        if ( this.createSiblingMenuManager != null )
         {
-            depopulateManager ( createSiblingMenuManager, createSiblingSubmenuActions );
-            depopulateManager ( createSiblingMenuManager, createSiblingActions );
+            depopulateManager ( this.createSiblingMenuManager, this.createSiblingSubmenuActions );
+            depopulateManager ( this.createSiblingMenuManager, this.createSiblingActions );
         }
 
         // Query the new selection for appropriate new child/sibling descriptors
@@ -302,12 +334,12 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
         Collection<?> newChildDescriptors = null;
         Collection<?> newSiblingDescriptors = null;
 
-        ISelection selection = event.getSelection ();
+        final ISelection selection = event.getSelection ();
         if ( selection instanceof IStructuredSelection && ( (IStructuredSelection)selection ).size () == 1 )
         {
-            Object object = ( (IStructuredSelection)selection ).getFirstElement ();
+            final Object object = ( (IStructuredSelection)selection ).getFirstElement ();
 
-            EditingDomain domain = ( (IEditingDomainProvider)activeEditorPart ).getEditingDomain ();
+            final EditingDomain domain = ( (IEditingDomainProvider)this.activeEditorPart ).getEditingDomain ();
 
             newChildDescriptors = domain.getNewChildDescriptors ( object, null );
             newSiblingDescriptors = domain.getNewChildDescriptors ( null, object );
@@ -315,79 +347,89 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
 
         // Generate actions for selection; populate and redraw the menus.
         //
-        createChildActions = generateCreateChildActions ( newChildDescriptors, selection );
-        createChildSubmenuActions = extractSubmenuActions ( createChildActions );
-        createSiblingActions = generateCreateSiblingActions ( newSiblingDescriptors, selection );
-        createSiblingSubmenuActions = extractSubmenuActions ( createSiblingActions );
+        this.createChildActions = generateCreateChildActions ( newChildDescriptors, selection );
+        this.createChildSubmenuActions = extractSubmenuActions ( this.createChildActions );
+        this.createSiblingActions = generateCreateSiblingActions ( newSiblingDescriptors, selection );
+        this.createSiblingSubmenuActions = extractSubmenuActions ( this.createSiblingActions );
 
-        if ( createChildMenuManager != null )
+        if ( this.createChildMenuManager != null )
         {
-            populateManager ( createChildMenuManager, createChildSubmenuActions, null );
-            populateManager ( createChildMenuManager, createChildActions, null );
-            createChildMenuManager.update ( true );
+            populateManager ( this.createChildMenuManager, this.createChildSubmenuActions, null );
+            populateManager ( this.createChildMenuManager, this.createChildActions, null );
+            this.createChildMenuManager.update ( true );
         }
-        if ( createSiblingMenuManager != null )
+        if ( this.createSiblingMenuManager != null )
         {
-            populateManager ( createSiblingMenuManager, createSiblingSubmenuActions, null );
-            populateManager ( createSiblingMenuManager, createSiblingActions, null );
-            createSiblingMenuManager.update ( true );
+            populateManager ( this.createSiblingMenuManager, this.createSiblingSubmenuActions, null );
+            populateManager ( this.createSiblingMenuManager, this.createSiblingActions, null );
+            this.createSiblingMenuManager.update ( true );
         }
     }
 
     /**
-     * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in <code>descriptors</code>,
+     * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction}
+     * for each object in <code>descriptors</code>,
      * and returns the collection of these actions.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected Collection<IAction> generateCreateChildActions ( Collection<?> descriptors, ISelection selection )
+    protected Collection<IAction> generateCreateChildActions ( final Collection<?> descriptors, final ISelection selection )
     {
-        Collection<IAction> actions = new ArrayList<IAction> ();
+        final Collection<IAction> actions = new ArrayList<IAction> ();
         if ( descriptors != null )
         {
-            for ( Object descriptor : descriptors )
+            for ( final Object descriptor : descriptors )
             {
-                actions.add ( new CreateChildAction ( activeEditorPart, selection, descriptor ) );
+                actions.add ( new CreateChildAction ( this.activeEditorPart, selection, descriptor ) );
             }
         }
         return actions;
     }
 
     /**
-     * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in <code>descriptors</code>,
+     * This generates a
+     * {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each
+     * object in <code>descriptors</code>,
      * and returns the collection of these actions.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected Collection<IAction> generateCreateSiblingActions ( Collection<?> descriptors, ISelection selection )
+    protected Collection<IAction> generateCreateSiblingActions ( final Collection<?> descriptors, final ISelection selection )
     {
-        Collection<IAction> actions = new ArrayList<IAction> ();
+        final Collection<IAction> actions = new ArrayList<IAction> ();
         if ( descriptors != null )
         {
-            for ( Object descriptor : descriptors )
+            for ( final Object descriptor : descriptors )
             {
-                actions.add ( new CreateSiblingAction ( activeEditorPart, selection, descriptor ) );
+                actions.add ( new CreateSiblingAction ( this.activeEditorPart, selection, descriptor ) );
             }
         }
         return actions;
     }
 
     /**
-     * This populates the specified <code>manager</code> with {@link org.eclipse.jface.action.ActionContributionItem}s
-     * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
-     * by inserting them before the specified contribution item <code>contributionID</code>.
-     * If <code>contributionID</code> is <code>null</code>, they are simply added.
+     * This populates the specified <code>manager</code> with
+     * {@link org.eclipse.jface.action.ActionContributionItem}s
+     * based on the {@link org.eclipse.jface.action.IAction}s contained in the
+     * <code>actions</code> collection,
+     * by inserting them before the specified contribution item
+     * <code>contributionID</code>.
+     * If <code>contributionID</code> is <code>null</code>, they are simply
+     * added.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void populateManager ( IContributionManager manager, Collection<? extends IAction> actions, String contributionID )
+    protected void populateManager ( final IContributionManager manager, final Collection<? extends IAction> actions, final String contributionID )
     {
         if ( actions != null )
         {
-            for ( IAction action : actions )
+            for ( final IAction action : actions )
             {
                 if ( contributionID != null )
                 {
@@ -402,17 +444,20 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
     }
 
     /**
-     * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
-     * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
+     * This removes from the specified <code>manager</code> all
+     * {@link org.eclipse.jface.action.ActionContributionItem}s
+     * based on the {@link org.eclipse.jface.action.IAction}s contained in the
+     * <code>actions</code> collection.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void depopulateManager ( IContributionManager manager, Collection<? extends IAction> actions )
+    protected void depopulateManager ( final IContributionManager manager, final Collection<? extends IAction> actions )
     {
         if ( actions != null )
         {
-            IContributionItem[] items = manager.getItems ();
+            final IContributionItem[] items = manager.getItems ();
             for ( int i = 0; i < items.length; i++ )
             {
                 // Look into SubContributionItems
@@ -427,7 +472,7 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
                 //
                 if ( contributionItem instanceof ActionContributionItem )
                 {
-                    IAction action = ( (ActionContributionItem)contributionItem ).getAction ();
+                    final IAction action = ( (ActionContributionItem)contributionItem ).getAction ();
                     if ( actions.contains ( action ) )
                     {
                         manager.remove ( contributionItem );
@@ -438,24 +483,26 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
     }
 
     /**
-     * This extracts those actions in the <code>submenuActions</code> collection whose text is qualified and returns
+     * This extracts those actions in the <code>submenuActions</code> collection
+     * whose text is qualified and returns
      * a map of these actions, keyed by submenu text.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected Map<String, Collection<IAction>> extractSubmenuActions ( Collection<IAction> createActions )
+    protected Map<String, Collection<IAction>> extractSubmenuActions ( final Collection<IAction> createActions )
     {
-        Map<String, Collection<IAction>> createSubmenuActions = new LinkedHashMap<String, Collection<IAction>> ();
+        final Map<String, Collection<IAction>> createSubmenuActions = new LinkedHashMap<String, Collection<IAction>> ();
         if ( createActions != null )
         {
-            for ( Iterator<IAction> actions = createActions.iterator (); actions.hasNext (); )
+            for ( final Iterator<IAction> actions = createActions.iterator (); actions.hasNext (); )
             {
-                IAction action = actions.next ();
-                StringTokenizer st = new StringTokenizer ( action.getText (), "|" ); //$NON-NLS-1$
+                final IAction action = actions.next ();
+                final StringTokenizer st = new StringTokenizer ( action.getText (), "|" ); //$NON-NLS-1$
                 if ( st.countTokens () == 2 )
                 {
-                    String text = st.nextToken ().trim ();
+                    final String text = st.nextToken ().trim ();
                     Collection<IAction> submenuActions = createSubmenuActions.get ( text );
                     if ( submenuActions == null )
                     {
@@ -471,22 +518,27 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
     }
 
     /**
-     * This populates the specified <code>manager</code> with {@link org.eclipse.jface.action.MenuManager}s containing
-     * {@link org.eclipse.jface.action.ActionContributionItem}s based on the {@link org.eclipse.jface.action.IAction}s
-     * contained in the <code>submenuActions</code> collection, by inserting them before the specified contribution
+     * This populates the specified <code>manager</code> with
+     * {@link org.eclipse.jface.action.MenuManager}s containing
+     * {@link org.eclipse.jface.action.ActionContributionItem}s based on the
+     * {@link org.eclipse.jface.action.IAction}s
+     * contained in the <code>submenuActions</code> collection, by inserting
+     * them before the specified contribution
      * item <code>contributionID</code>.
-     * If <code>contributionID</code> is <code>null</code>, they are simply added.
+     * If <code>contributionID</code> is <code>null</code>, they are simply
+     * added.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void populateManager ( IContributionManager manager, Map<String, Collection<IAction>> submenuActions, String contributionID )
+    protected void populateManager ( final IContributionManager manager, final Map<String, Collection<IAction>> submenuActions, final String contributionID )
     {
         if ( submenuActions != null )
         {
-            for ( Map.Entry<String, Collection<IAction>> entry : submenuActions.entrySet () )
+            for ( final Map.Entry<String, Collection<IAction>> entry : submenuActions.entrySet () )
             {
-                MenuManager submenuManager = new MenuManager ( entry.getKey () );
+                final MenuManager submenuManager = new MenuManager ( entry.getKey () );
                 if ( contributionID != null )
                 {
                     manager.insertBefore ( contributionID, submenuManager );
@@ -501,24 +553,27 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
     }
 
     /**
-     * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.MenuManager}s and their
-     * {@link org.eclipse.jface.action.ActionContributionItem}s based on the {@link org.eclipse.jface.action.IAction}s
+     * This removes from the specified <code>manager</code> all
+     * {@link org.eclipse.jface.action.MenuManager}s and their
+     * {@link org.eclipse.jface.action.ActionContributionItem}s based on the
+     * {@link org.eclipse.jface.action.IAction}s
      * contained in the <code>submenuActions</code> map.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void depopulateManager ( IContributionManager manager, Map<String, Collection<IAction>> submenuActions )
+    protected void depopulateManager ( final IContributionManager manager, final Map<String, Collection<IAction>> submenuActions )
     {
         if ( submenuActions != null )
         {
-            IContributionItem[] items = manager.getItems ();
+            final IContributionItem[] items = manager.getItems ();
             for ( int i = 0; i < items.length; i++ )
             {
-                IContributionItem contributionItem = items[i];
+                final IContributionItem contributionItem = items[i];
                 if ( contributionItem instanceof MenuManager )
                 {
-                    MenuManager submenuManager = (MenuManager)contributionItem;
+                    final MenuManager submenuManager = (MenuManager)contributionItem;
                     if ( submenuActions.containsKey ( submenuManager.getMenuText () ) )
                     {
                         depopulateManager ( submenuManager, submenuActions.get ( contributionItem ) );
@@ -533,22 +588,23 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * This populates the pop-up menu before it appears.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void menuAboutToShow ( IMenuManager menuManager )
+    public void menuAboutToShow ( final IMenuManager menuManager )
     {
         super.menuAboutToShow ( menuManager );
         MenuManager submenuManager = null;
 
         submenuManager = new MenuManager ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_CreateChild_menu_item" ) ); //$NON-NLS-1$
-        populateManager ( submenuManager, createChildSubmenuActions, null );
-        populateManager ( submenuManager, createChildActions, null );
+        populateManager ( submenuManager, this.createChildSubmenuActions, null );
+        populateManager ( submenuManager, this.createChildActions, null );
         menuManager.insertBefore ( "edit", submenuManager ); //$NON-NLS-1$
 
         submenuManager = new MenuManager ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_CreateSibling_menu_item" ) ); //$NON-NLS-1$
-        populateManager ( submenuManager, createSiblingSubmenuActions, null );
-        populateManager ( submenuManager, createSiblingActions, null );
+        populateManager ( submenuManager, this.createSiblingSubmenuActions, null );
+        populateManager ( submenuManager, this.createSiblingActions, null );
         menuManager.insertBefore ( "edit", submenuManager ); //$NON-NLS-1$
     }
 
@@ -556,24 +612,27 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * This inserts global actions before the "additions-end" separator.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void addGlobalActions ( IMenuManager menuManager )
+    protected void addGlobalActions ( final IMenuManager menuManager )
     {
         menuManager.insertAfter ( "additions-end", new Separator ( "ui-actions" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-        menuManager.insertAfter ( "ui-actions", showPropertiesViewAction ); //$NON-NLS-1$
+        menuManager.insertAfter ( "ui-actions", this.showPropertiesViewAction ); //$NON-NLS-1$
 
-        refreshViewerAction.setEnabled ( refreshViewerAction.isEnabled () );
-        menuManager.insertAfter ( "ui-actions", refreshViewerAction ); //$NON-NLS-1$
+        this.refreshViewerAction.setEnabled ( this.refreshViewerAction.isEnabled () );
+        menuManager.insertAfter ( "ui-actions", this.refreshViewerAction ); //$NON-NLS-1$
 
         super.addGlobalActions ( menuManager );
     }
 
     /**
-     * This ensures that a delete action will clean up all references to deleted objects.
+     * This ensures that a delete action will clean up all references to deleted
+     * objects.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override

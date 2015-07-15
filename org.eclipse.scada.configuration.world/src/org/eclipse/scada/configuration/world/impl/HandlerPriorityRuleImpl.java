@@ -25,6 +25,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.HandlerPriorityRuleImpl#getOrder <em>Order</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.HandlerPriorityRuleImpl#getFactoryId <em>Factory Id</em>}</li>
@@ -32,7 +33,6 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.impl.HandlerPriorityRuleImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.HandlerPriorityRuleImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

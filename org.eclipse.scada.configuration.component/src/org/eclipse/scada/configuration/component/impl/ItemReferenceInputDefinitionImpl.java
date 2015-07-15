@@ -27,10 +27,10 @@ import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ItemReferenceInputDefinitionImpl#getItemId <em>Item Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

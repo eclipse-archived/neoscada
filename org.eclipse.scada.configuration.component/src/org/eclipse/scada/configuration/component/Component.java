@@ -23,13 +23,13 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.Component#getLevel <em>Level</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Component#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Component#getArchiveSelector <em>Archive Selector</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Component#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getComponent()
  * @model abstract="true"

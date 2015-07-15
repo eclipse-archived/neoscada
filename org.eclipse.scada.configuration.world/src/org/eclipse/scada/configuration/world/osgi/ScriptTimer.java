@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptTimer#getScript <em>Script</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptTimer#getPeriod <em>Period</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptTimer()
  * @model

@@ -22,12 +22,12 @@ package org.eclipse.scada.configuration.world.deployment;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#getFromHostName <em>From Host Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#getToHostName <em>To Host Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#isIgnoreCase <em>Ignore Case</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getSimpleNodeMappingEntry()
  * @model

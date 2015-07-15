@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,9 +18,9 @@ import org.eclipse.scada.configuration.component.lib.ItemInterceptorHandler;
 public class InterceptorAdapterFactory implements IAdapterFactory
 {
 
-    @SuppressWarnings ( "rawtypes" )
+    @SuppressWarnings ( { "unchecked" } )
     @Override
-    public Object getAdapter ( final Object adaptableObject, final Class adapterType )
+    public <T> T getAdapter ( final Object adaptableObject, final Class<T> adapterType )
     {
         if ( !ItemInterceptorHandler.class.equals ( adapterType ) )
         {
@@ -28,14 +28,13 @@ public class InterceptorAdapterFactory implements IAdapterFactory
         }
         if ( adaptableObject instanceof RestInterceptor )
         {
-            return new RestItemInterceptorHandler ();
+            return (T)new RestItemInterceptorHandler ();
         }
         return null;
     }
 
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Class[] getAdapterList ()
+    public Class<?>[] getAdapterList ()
     {
         return new Class<?>[] { ItemInterceptorHandler.class };
     }

@@ -33,12 +33,12 @@ import org.eclipse.scada.configuration.world.osgi.RestExporter;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl#getItems <em>Items</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl#getHiveProperties <em>Hive Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl#getContextId <em>Context Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

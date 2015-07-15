@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getUsername <em>Username</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getPassword <em>Password</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getServerName <em>Server Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getPortNumber <em>Port Number</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getAbstractGenericDatabaseSettings()
  * @model abstract="true"

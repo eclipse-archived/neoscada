@@ -82,8 +82,8 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter im
     protected void addSchemaPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractEventStorageJdbc_schema_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_schema_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__SCHEMA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_schema_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__SCHEMA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -95,8 +95,8 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter im
     protected void addInstanceNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractEventStorageJdbc_instanceName_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_instanceName_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__INSTANCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_instanceName_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__INSTANCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -108,8 +108,8 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter im
     protected void addEnableReplicationPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractEventStorageJdbc_enableReplication_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_enableReplication_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__ENABLE_REPLICATION, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_enableReplication_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__ENABLE_REPLICATION, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -121,8 +121,8 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter im
     protected void addArchiveDaysPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractEventStorageJdbc_archiveDays_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_archiveDays_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__ARCHIVE_DAYS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_archiveDays_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__ARCHIVE_DAYS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -134,8 +134,8 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter im
     protected void addCleanupPeriodSecondsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractEventStorageJdbc_cleanupPeriodSeconds_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_cleanupPeriodSeconds_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_cleanupPeriodSeconds_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -147,8 +147,8 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter im
     protected void addDatabasePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractEventStorageJdbc_database_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_database_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__DATABASE, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_database_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__DATABASE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -160,8 +160,8 @@ public class AbstractEventStorageJdbcItemProvider extends ItemProviderAdapter im
     protected void addReplicationDataFormatPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractEventStorageJdbc_replicationDataFormat_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_replicationDataFormat_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractEventStorageJdbc_replicationDataFormat_feature", "_UI_AbstractEventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ABSTRACT_EVENT_STORAGE_JDBC__REPLICATION_DATA_FORMAT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

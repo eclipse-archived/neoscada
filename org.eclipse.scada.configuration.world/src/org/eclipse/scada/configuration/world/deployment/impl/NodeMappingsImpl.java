@@ -19,8 +19,6 @@ import org.eclipse.scada.configuration.world.deployment.NodeMappings;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Node Mappings</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

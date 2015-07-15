@@ -23,13 +23,13 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventPoolImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventPoolImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventPoolImpl#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventPoolImpl#getSize <em>Size</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

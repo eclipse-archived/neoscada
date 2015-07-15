@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.Documentable#getShortDescription <em>Short Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getDocumentable()
  * @model interface="true" abstract="true"

@@ -31,11 +31,11 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.SubProfileImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.SubProfileImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -26,8 +26,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * An implementation of the model object '
  * <em><b>Alarms Events Connection</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

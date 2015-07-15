@@ -18,10 +18,10 @@ package org.eclipse.scada.configuration.world;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.NamedDocumentable#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getNamedDocumentable()
  * @model interface="true" abstract="true"

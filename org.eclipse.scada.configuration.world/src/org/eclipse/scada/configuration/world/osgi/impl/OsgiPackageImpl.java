@@ -1763,6 +1763,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getScriptItem_InitProperties ()
+    {
+        return (EReference)scriptItemEClass.getEStructuralFeatures ().get ( 7 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getImportItem ()
     {
@@ -2855,6 +2865,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EReference getFormulaItem_Inbound ()
     {
         return (EReference)formulaItemEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getFormulaItem_InitProperties ()
+    {
+        return (EReference)formulaItemEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
@@ -5036,6 +5056,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEAttribute ( scriptItemEClass, SCRIPT_ITEM__SCRIPT_ENGINE );
         createEReference ( scriptItemEClass, SCRIPT_ITEM__COMMANDS );
         createEReference ( scriptItemEClass, SCRIPT_ITEM__WRITE_COMMAND_SCRIPT );
+        createEReference ( scriptItemEClass, SCRIPT_ITEM__INIT_PROPERTIES );
 
         importItemEClass = createEClass ( IMPORT_ITEM );
         createEReference ( importItemEClass, IMPORT_ITEM__EXPORT );
@@ -5173,6 +5194,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEReference ( formulaItemEClass, FORMULA_ITEM__INIT_SCRIPTS );
         createEReference ( formulaItemEClass, FORMULA_ITEM__OUTBOUND );
         createEReference ( formulaItemEClass, FORMULA_ITEM__INBOUND );
+        createEReference ( formulaItemEClass, FORMULA_ITEM__INIT_PROPERTIES );
 
         formulaItemOutboundEClass = createEClass ( FORMULA_ITEM_OUTBOUND );
         createEReference ( formulaItemOutboundEClass, FORMULA_ITEM_OUTBOUND__OUTPUT );
@@ -5651,6 +5673,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEAttribute ( getScriptItem_ScriptEngine (), ecorePackage.getEString (), "scriptEngine", "JavaScript", 1, 1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getScriptItem_Commands (), this.getItemReference (), null, "commands", null, 0, -1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getScriptItem_WriteCommandScript (), this.getCodeFragment (), null, "writeCommandScript", null, 0, 1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getScriptItem_InitProperties (), theWorldPackage.getPropertyEntry (), null, "initProperties", null, 0, -1, ScriptItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( importItemEClass, ImportItem.class, "ImportItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getImportItem_Export (), this.getItemExport (), null, "export", null, 1, 1, ImportItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -5788,6 +5811,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEReference ( getFormulaItem_InitScripts (), this.getCodeFragment (), null, "initScripts", null, 0, -1, FormulaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getFormulaItem_Outbound (), this.getFormulaItemOutbound (), null, "outbound", null, 0, 1, FormulaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getFormulaItem_Inbound (), this.getFormulaItemInbound (), null, "inbound", null, 0, 1, FormulaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getFormulaItem_InitProperties (), theWorldPackage.getPropertyEntry (), null, "initProperties", null, 0, -1, FormulaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( formulaItemOutboundEClass, FormulaItemOutbound.class, "FormulaItemOutbound", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getFormulaItemOutbound_Output (), this.getTypedItemReference (), null, "output", null, 1, 1, FormulaItemOutbound.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

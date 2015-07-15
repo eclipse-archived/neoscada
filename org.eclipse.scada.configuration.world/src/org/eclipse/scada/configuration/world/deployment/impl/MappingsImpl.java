@@ -38,11 +38,11 @@ import org.eclipse.scada.configuration.world.deployment.Mappings;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MappingsImpl#getEntries <em>Entries</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MappingsImpl#getFallbackMode <em>Fallback Mode</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

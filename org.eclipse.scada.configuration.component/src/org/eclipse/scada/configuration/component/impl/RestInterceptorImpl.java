@@ -38,13 +38,13 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getMasterOn <em>Master On</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getDefinition <em>Definition</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

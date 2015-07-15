@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.DefaultEquinoxApplicationImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.DefaultEquinoxApplicationImpl#getName <em>Name</em>}</li>
@@ -46,7 +47,6 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.DefaultEquinoxApplicationImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.DefaultEquinoxApplicationImpl#getProfile <em>Profile</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

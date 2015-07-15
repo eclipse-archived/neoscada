@@ -18,10 +18,10 @@ package org.eclipse.scada.configuration.world.osgi;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventInjectorPostgres#getLimit <em>Limit</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEventInjectorPostgres()
  * @model

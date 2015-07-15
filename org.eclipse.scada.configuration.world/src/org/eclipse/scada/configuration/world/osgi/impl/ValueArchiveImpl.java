@@ -28,12 +28,12 @@ import org.eclipse.scada.configuration.world.osgi.ValueArchive;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveImpl#getItems <em>Items</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -85,8 +85,8 @@ public class ProfileItemProvider extends ItemProviderAdapter implements IEditing
     protected void addNotesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Profile_notes_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_notes_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.PROFILE__NOTES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_notes_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.PROFILE__NOTES, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -98,8 +98,8 @@ public class ProfileItemProvider extends ItemProviderAdapter implements IEditing
     protected void addIncludesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Profile_includes_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_includes_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.PROFILE__INCLUDES, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_includes_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.PROFILE__INCLUDES, true, false, true, null, null, null ) );
     }
 
     /**
@@ -111,8 +111,8 @@ public class ProfileItemProvider extends ItemProviderAdapter implements IEditing
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Profile_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_name_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.PROFILE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_name_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.PROFILE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -124,8 +124,8 @@ public class ProfileItemProvider extends ItemProviderAdapter implements IEditing
     protected void addDescriptionPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Profile_description_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_description_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.PROFILE__DESCRIPTION, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_description_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.PROFILE__DESCRIPTION, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -137,8 +137,8 @@ public class ProfileItemProvider extends ItemProviderAdapter implements IEditing
     protected void addArgumentsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Profile_arguments_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_arguments_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.PROFILE__ARGUMENTS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_arguments_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.PROFILE__ARGUMENTS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -150,8 +150,8 @@ public class ProfileItemProvider extends ItemProviderAdapter implements IEditing
     protected void addInstallationUnitsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Profile_installationUnits_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_installationUnits_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.PROFILE__INSTALLATION_UNITS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_installationUnits_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.PROFILE__INSTALLATION_UNITS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -163,8 +163,8 @@ public class ProfileItemProvider extends ItemProviderAdapter implements IEditing
     protected void addJvmArgumentsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Profile_jvmArguments_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_jvmArguments_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.PROFILE__JVM_ARGUMENTS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_jvmArguments_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.PROFILE__JVM_ARGUMENTS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

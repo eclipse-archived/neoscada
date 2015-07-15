@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getInstallationUnits <em>Installation Units</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getJvmArguments <em>Jvm Arguments</em>}</li>
@@ -33,7 +34,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getArguments <em>Arguments</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getProfile()
  * @model extendedMetaData="name='profile'"

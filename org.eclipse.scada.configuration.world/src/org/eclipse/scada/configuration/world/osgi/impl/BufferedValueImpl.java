@@ -30,6 +30,7 @@ import org.eclipse.scada.core.Variant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.BufferedValueImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.BufferedValueImpl#getName <em>Name</em>}</li>
@@ -40,7 +41,6 @@ import org.eclipse.scada.core.Variant;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.BufferedValueImpl#getTriggerOnly <em>Trigger Only</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.BufferedValueImpl#getPersistence <em>Persistence</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

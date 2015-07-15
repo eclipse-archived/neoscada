@@ -31,6 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.PasswordType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.JdbcUserServiceImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.JdbcUserServiceImpl#getName <em>Name</em>}</li>
@@ -44,7 +45,6 @@ import org.eclipse.scada.configuration.world.osgi.PasswordType;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.JdbcUserServiceImpl#getPasswordColumnName <em>Password Column Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.JdbcUserServiceImpl#getPasswordType <em>Password Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

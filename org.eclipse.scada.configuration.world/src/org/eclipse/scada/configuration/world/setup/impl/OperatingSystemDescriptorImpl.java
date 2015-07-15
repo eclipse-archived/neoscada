@@ -38,13 +38,13 @@ import org.eclipse.scada.configuration.world.setup.SetupPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.OperatingSystemDescriptorImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.OperatingSystemDescriptorImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.OperatingSystemDescriptorImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.OperatingSystemDescriptorImpl#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

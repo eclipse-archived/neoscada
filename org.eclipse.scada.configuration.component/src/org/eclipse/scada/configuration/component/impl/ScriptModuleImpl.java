@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.component.TimerScript;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getName <em>Name</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.scada.configuration.component.TimerScript;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getWriteCommandScript <em>Write Command Script</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getTimerScript <em>Timer Script</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

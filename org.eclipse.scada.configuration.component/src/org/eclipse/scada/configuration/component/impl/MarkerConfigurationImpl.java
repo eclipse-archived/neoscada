@@ -28,10 +28,10 @@ import org.eclipse.scada.configuration.world.osgi.MarkerEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MarkerConfigurationImpl#getMarkers <em>Markers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

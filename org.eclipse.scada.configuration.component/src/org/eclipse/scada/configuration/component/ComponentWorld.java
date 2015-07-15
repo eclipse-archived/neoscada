@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.item.Selector;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.ComponentWorld#getLevels <em>Levels</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ComponentWorld#getConfigurations <em>Configurations</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.scada.configuration.item.Selector;
  *   <li>{@link org.eclipse.scada.configuration.component.ComponentWorld#getDefaultCustomizationPipeline <em>Default Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ComponentWorld#getDefaultArchiveSelector <em>Default Archive Selector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getComponentWorld()
  * @model

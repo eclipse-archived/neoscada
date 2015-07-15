@@ -22,11 +22,11 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ExternalEventMonitor#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ExternalEventMonitor#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getExternalEventMonitor()
  * @model

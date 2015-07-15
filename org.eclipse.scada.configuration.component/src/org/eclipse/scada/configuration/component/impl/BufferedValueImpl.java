@@ -28,6 +28,7 @@ import org.eclipse.scada.core.Variant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getInput <em>Input</em>}</li>
@@ -37,7 +38,6 @@ import org.eclipse.scada.core.Variant;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#isTriggerOnly <em>Trigger Only</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

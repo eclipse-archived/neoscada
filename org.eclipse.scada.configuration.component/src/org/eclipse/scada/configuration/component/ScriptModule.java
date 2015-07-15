@@ -20,6 +20,7 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getInputs <em>Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getOutputs <em>Outputs</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getWriteCommandScript <em>Write Command Script</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getTimerScript <em>Timer Script</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule()
  * @model

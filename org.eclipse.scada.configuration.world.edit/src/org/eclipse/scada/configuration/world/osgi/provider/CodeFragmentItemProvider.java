@@ -77,8 +77,8 @@ public class CodeFragmentItemProvider extends ItemProviderAdapter implements IEd
     protected void addCodePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CodeFragment_code_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_CodeFragment_code_feature", "_UI_CodeFragment_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.CODE_FRAGMENT__CODE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_CodeFragment_code_feature", "_UI_CodeFragment_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.CODE_FRAGMENT__CODE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

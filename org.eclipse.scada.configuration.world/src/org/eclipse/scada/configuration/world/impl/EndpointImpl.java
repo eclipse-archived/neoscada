@@ -28,6 +28,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getName <em>Name</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getPortNumber <em>Port Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getBoundService <em>Bound Service</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

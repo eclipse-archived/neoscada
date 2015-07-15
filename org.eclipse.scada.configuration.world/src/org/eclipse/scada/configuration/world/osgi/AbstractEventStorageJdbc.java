@@ -19,6 +19,7 @@ import org.eclipse.scada.configuration.world.DatabaseSettings;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getSchema <em>Schema</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getInstanceName <em>Instance Name</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.scada.configuration.world.DatabaseSettings;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDatabase <em>Database</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getReplicationDataFormat <em>Replication Data Format</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAbstractEventStorageJdbc()
  * @model abstract="true"

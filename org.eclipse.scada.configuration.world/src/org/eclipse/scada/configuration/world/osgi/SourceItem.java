@@ -17,11 +17,11 @@ package org.eclipse.scada.configuration.world.osgi;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.SourceItem#getConnection <em>Connection</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.SourceItem#getSourceName <em>Source Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getSourceItem()
  * @model

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2015 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
     modelDirectory="/org.eclipse.scada.configuration.component/src" creationIcons="false"
     creationSubmenus="true" modelPluginID="org.eclipse.scada.configuration.component"
     modelName="Component" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.9" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
+    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.11" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
     operationReflection="true" importOrganizing="true" decoration="Manual">
   <foreignModel>component.ecore</foreignModel>
   <genPackages prefix="Component" basePackage="org.eclipse.scada.configuration" resource="XMI"
@@ -163,7 +163,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//SummariesConfiguration/itemThreshold"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//ItemInterceptor">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ItemInterceptor/masterOn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ItemInterceptor/properties"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//Container">
@@ -184,10 +183,7 @@
           ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/masterOn"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//TransientValue"/>
-    <genClasses ecoreClass="component.ecore#//MasterComponent">
-      <genFeatures notify="false" createChild="false" propertyCategory="runtime" propertySortChoices="true"
-          ecoreFeature="ecore:EReference component.ecore#//MasterComponent/masterOn"/>
-    </genClasses>
+    <genClasses ecoreClass="component.ecore#//MasterComponent"/>
     <genClasses ecoreClass="component.ecore#//BufferedValue">
       <genFeatures createChild="false" propertyCategory="naming" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/name"/>
       <genFeatures property="None" children="true" createChild="true" propertyCategory="data"
@@ -214,6 +210,12 @@
     <genClasses ecoreClass="component.ecore#//DeltaValue">
       <genFeatures property="None" children="true" createChild="true" propertyCategory="data"
           propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DeltaValue/source"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//MasterAssigned">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterAssigned/masterOn"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//ScriptBasedModule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ScriptBasedModule/initProperties"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

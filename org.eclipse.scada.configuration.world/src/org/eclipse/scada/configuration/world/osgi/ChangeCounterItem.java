@@ -21,13 +21,13 @@ import org.eclipse.scada.core.Variant;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getBuffer <em>Buffer</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getOnError <em>On Error</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getValues <em>Values</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getChangeCounterItem()
  * @model

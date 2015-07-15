@@ -36,11 +36,11 @@ import org.eclipse.scada.configuration.world.setup.SetupPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.SetupDefinitionsImpl#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.SetupDefinitionsImpl#getOperationSystemDefinitions <em>Operation System Definitions</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

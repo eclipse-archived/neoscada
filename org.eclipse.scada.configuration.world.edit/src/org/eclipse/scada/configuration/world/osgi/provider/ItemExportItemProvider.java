@@ -78,8 +78,8 @@ public class ItemExportItemProvider extends ItemProviderAdapter implements IEdit
     protected void addItemPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemExport_item_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemExport_item_feature", "_UI_ItemExport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ITEM_EXPORT__ITEM, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemExport_item_feature", "_UI_ItemExport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ITEM_EXPORT__ITEM, true, false, true, null, null, null ) );
     }
 
     /**
@@ -91,8 +91,8 @@ public class ItemExportItemProvider extends ItemProviderAdapter implements IEdit
     protected void addExportNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemExport_exportName_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemExport_exportName_feature", "_UI_ItemExport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.ITEM_EXPORT__EXPORT_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemExport_exportName_feature", "_UI_ItemExport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ITEM_EXPORT__EXPORT_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

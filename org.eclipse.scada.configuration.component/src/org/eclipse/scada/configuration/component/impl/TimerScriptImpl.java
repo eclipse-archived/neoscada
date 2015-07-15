@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.component.TimerScript;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.TimerScriptImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.TimerScriptImpl#getCode <em>Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

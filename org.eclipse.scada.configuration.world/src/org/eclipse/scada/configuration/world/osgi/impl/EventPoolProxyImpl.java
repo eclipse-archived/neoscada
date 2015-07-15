@@ -28,6 +28,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventPoolProxyImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventPoolProxyImpl#getName <em>Name</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventPoolProxyImpl#getRemote <em>Remote</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventPoolProxyImpl#getSize <em>Size</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -85,9 +85,9 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -99,9 +99,9 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -113,9 +113,9 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     protected void addCustomizationPipelinePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Component_customizationPipeline_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Component_customizationPipeline_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.COMPONENT__CUSTOMIZATION_PIPELINE, true, false, true, null, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Component_customizationPipeline_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.COMPONENT__CUSTOMIZATION_PIPELINE, true, false, true, null, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -127,9 +127,9 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     protected void addArchiveSelectorPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Component_archiveSelector_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_Component_archiveSelector_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.COMPONENT__ARCHIVE_SELECTOR, true, false, true, null, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Component_archiveSelector_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.COMPONENT__ARCHIVE_SELECTOR, true, false, true, null, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -141,8 +141,8 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterAssigned_masterOn_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterAssigned_masterOn_feature", "_UI_MasterAssigned_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterAssigned_masterOn_feature", "_UI_MasterAssigned_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, true, false, true, null, null, null ) );
     }
 
     /**
@@ -154,8 +154,8 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     protected void addImplementationPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_CalculationComponent_implementation_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_CalculationComponent_implementation_feature", "_UI_CalculationComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.CALCULATION_COMPONENT__IMPLEMENTATION, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_CalculationComponent_implementation_feature", "_UI_CalculationComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.CALCULATION_COMPONENT__IMPLEMENTATION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -175,6 +175,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
             childrenFeatures.add ( ComponentPackage.Literals.COMPONENT__PROPERTIES );
             childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_COMPONENT__OUTPUTS );
             childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS );
+            childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_COMPONENT__INIT_PROPERTIES );
         }
         return childrenFeatures;
     }
@@ -252,6 +253,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
             case ComponentPackage.CALCULATION_COMPONENT__PROPERTIES:
             case ComponentPackage.CALCULATION_COMPONENT__OUTPUTS:
             case ComponentPackage.CALCULATION_COMPONENT__INPUTS:
+            case ComponentPackage.CALCULATION_COMPONENT__INIT_PROPERTIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -279,6 +281,30 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
         newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS, ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
 
         newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS, ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
+
+        newChildDescriptors.add ( createChildParameter ( ComponentPackage.Literals.CALCULATION_COMPONENT__INIT_PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
+    }
+
+    /**
+     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getCreateChildText ( Object owner, Object feature, Object child, Collection<?> selection )
+    {
+        Object childFeature = feature;
+        Object childObject = child;
+
+        boolean qualify = childFeature == ComponentPackage.Literals.COMPONENT__PROPERTIES || childFeature == ComponentPackage.Literals.CALCULATION_COMPONENT__INIT_PROPERTIES;
+
+        if ( qualify )
+        {
+            return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
+            new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+        }
+        return super.getCreateChildText ( owner, feature, child, selection );
     }
 
     /**

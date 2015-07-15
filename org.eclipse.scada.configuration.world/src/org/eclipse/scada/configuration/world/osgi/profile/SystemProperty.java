@@ -19,12 +19,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.SystemProperty#getKey <em>Key</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.SystemProperty#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.SystemProperty#isEval <em>Eval</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getSystemProperty()
  * @model extendedMetaData="kind='simple'"

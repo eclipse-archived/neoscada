@@ -27,13 +27,13 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl#getVersion <em>Version</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

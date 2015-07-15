@@ -17,12 +17,12 @@ package org.eclipse.scada.configuration.world;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.Endpoint#getNode <em>Node</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.Endpoint#getPortNumber <em>Port Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.Endpoint#getBoundService <em>Bound Service</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getEndpoint()
  * @model

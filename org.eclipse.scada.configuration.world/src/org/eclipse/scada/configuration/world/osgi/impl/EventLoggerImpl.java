@@ -22,13 +22,13 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventLoggerImpl#isLogAttributesChange <em>Log Attributes Change</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventLoggerImpl#isLogValueChange <em>Log Value Change</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventLoggerImpl#isLogSubscriptionChange <em>Log Subscription Change</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventLoggerImpl#isLogWrites <em>Log Writes</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

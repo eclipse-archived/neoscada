@@ -18,6 +18,7 @@ package org.eclipse.scada.configuration.world.deployment;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getUpgradeCode <em>Upgrade Code</em>}</li>
@@ -29,7 +30,6 @@ package org.eclipse.scada.configuration.world.deployment;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableUserInterface <em>Enable User Interface</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getLicenseFile <em>License File</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getMsiDeploymentMechanism()
  * @model

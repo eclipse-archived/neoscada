@@ -21,13 +21,13 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.FormulaModule#getInputs <em>Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.FormulaModule#getUpdate <em>Update</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.FormulaModule#getScriptEngine <em>Script Engine</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.FormulaModule#getInit <em>Init</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getFormulaModule()
  * @model

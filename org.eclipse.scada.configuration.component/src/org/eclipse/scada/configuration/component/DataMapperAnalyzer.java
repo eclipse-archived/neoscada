@@ -17,10 +17,10 @@ package org.eclipse.scada.configuration.component;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.DataMapperAnalyzer#getDataMapper <em>Data Mapper</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getDataMapperAnalyzer()
  * @model

@@ -39,11 +39,11 @@ import org.eclipse.scada.configuration.world.setup.SetupPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.SetupModuleContainerImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.SetupModuleContainerImpl#getId <em>Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

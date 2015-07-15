@@ -28,12 +28,12 @@ import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl#getFromHostName <em>From Host Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl#getToHostName <em>To Host Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl#isIgnoreCase <em>Ignore Case</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -17,12 +17,12 @@ package org.eclipse.scada.configuration.world.osgi;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ValueMapper#getSourceAttribute <em>Source Attribute</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ValueMapper#getTargetAttribute <em>Target Attribute</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ValueMapper#getDataMapper <em>Data Mapper</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getValueMapper()
  * @model

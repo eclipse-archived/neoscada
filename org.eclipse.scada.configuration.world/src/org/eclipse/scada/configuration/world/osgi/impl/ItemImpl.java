@@ -32,12 +32,12 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemImpl#getInformation <em>Information</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemImpl#getItemFeatures <em>Item Features</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

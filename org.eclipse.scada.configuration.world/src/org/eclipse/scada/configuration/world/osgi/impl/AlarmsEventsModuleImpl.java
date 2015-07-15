@@ -32,13 +32,13 @@ import org.eclipse.scada.configuration.world.osgi.PullEvents;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AlarmsEventsModuleImpl#getMonitorPoolProxies <em>Monitor Pool Proxies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AlarmsEventsModuleImpl#getEventPoolProxies <em>Event Pool Proxies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AlarmsEventsModuleImpl#getAknProxies <em>Akn Proxies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AlarmsEventsModuleImpl#getPullEvents <em>Pull Events</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

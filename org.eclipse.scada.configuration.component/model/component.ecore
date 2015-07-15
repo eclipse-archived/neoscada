@@ -91,6 +91,9 @@
         eType="#//OutputDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
         eType="#//InputDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initProperties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CalculationModule" abstract="true" eSuperTypes="#//Service">
     <eStructuralFeatures xsi:type="ecore:EReference" name="knownInputs" upperBound="-1"

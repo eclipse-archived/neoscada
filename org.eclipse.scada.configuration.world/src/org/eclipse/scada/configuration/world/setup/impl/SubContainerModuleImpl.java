@@ -37,10 +37,10 @@ import org.eclipse.scada.configuration.world.setup.SubContainerModule;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.impl.SubContainerModuleImpl#getContainer <em>Container</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

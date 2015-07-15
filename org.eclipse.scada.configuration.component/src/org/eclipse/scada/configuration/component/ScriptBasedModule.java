@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
+ * Copyright (c) 2015 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,40 +12,41 @@
 package org.eclipse.scada.configuration.component;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Item Interceptor</b></em>'.
+ * A representation of the model object '<em><b>Script Based Module</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.ItemInterceptor#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ScriptBasedModule#getInitProperties <em>Init Properties</em>}</li>
  * </ul>
  *
- * @see org.eclipse.scada.configuration.component.ComponentPackage#getItemInterceptor()
- * @model interface="true" abstract="true"
+ * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptBasedModule()
+ * @model abstract="true"
  * @generated
  */
-public interface ItemInterceptor extends MasterAssigned
+public interface ScriptBasedModule extends CalculationModule
 {
-
     /**
-     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+     * Returns the value of the '<em><b>Init Properties</b></em>' reference list.
      * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
+     * If the meaning of the '<em>Init Properties</em>' reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Properties</em>' containment reference list.
-     * @see org.eclipse.scada.configuration.component.ComponentPackage#getItemInterceptor_Properties()
-     * @model containment="true" resolveProxies="true"
+     * @return the value of the '<em>Init Properties</em>' reference list.
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptBasedModule_InitProperties()
+     * @model
      * @generated
      */
-    EList<PropertyEntry> getProperties ();
-} // ItemInterceptor
+    EList<PropertyEntry> getInitProperties ();
+
+} // ScriptBasedModule

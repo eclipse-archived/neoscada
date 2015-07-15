@@ -18,10 +18,10 @@ package org.eclipse.scada.configuration.component;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.DeltaValue#getSource <em>Source</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getDeltaValue()
  * @model

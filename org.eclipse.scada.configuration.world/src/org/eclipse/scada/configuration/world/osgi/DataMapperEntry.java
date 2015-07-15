@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.DataMapperEntry#getKey <em>Key</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.DataMapperEntry#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getDataMapperEntry()
  * @model

@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.item.Selector;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getComponents <em>Components</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getLevels <em>Levels</em>}</li>
@@ -30,7 +31,6 @@ import org.eclipse.scada.configuration.item.Selector;
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getLevel()
  * @model

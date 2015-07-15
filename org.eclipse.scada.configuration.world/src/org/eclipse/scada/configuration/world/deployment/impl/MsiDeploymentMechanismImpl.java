@@ -31,6 +31,7 @@ import org.eclipse.scada.configuration.world.deployment.P2Platform;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#getUpgradeCode <em>Upgrade Code</em>}</li>
@@ -42,7 +43,6 @@ import org.eclipse.scada.configuration.world.deployment.P2Platform;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#isEnableUserInterface <em>Enable User Interface</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#getLicenseFile <em>License File</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

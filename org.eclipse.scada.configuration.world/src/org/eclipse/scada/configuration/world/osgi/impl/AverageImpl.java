@@ -28,13 +28,13 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AverageImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AverageImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AverageImpl#getItems <em>Items</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AverageImpl#getSourcesRequired <em>Sources Required</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -24,10 +24,10 @@ import org.eclipse.scada.configuration.infrastructure.MasterImport;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MasterImportConnectionAnalyzerImpl#getConnection <em>Connection</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

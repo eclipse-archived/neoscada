@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.LevelMonitorImpl#getPreset <em>Preset</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.LevelMonitorImpl#isCap <em>Cap</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.LevelMonitorImpl#isRequireAck <em>Require Ack</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.LevelMonitorImpl#getMonitorType <em>Monitor Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

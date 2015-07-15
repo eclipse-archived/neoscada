@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.Mappings#getEntries <em>Entries</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.Mappings#getFallbackMode <em>Fallback Mode</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getMappings()
  * @model

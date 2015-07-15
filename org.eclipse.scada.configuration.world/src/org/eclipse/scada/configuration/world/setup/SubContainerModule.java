@@ -18,10 +18,10 @@ package org.eclipse.scada.configuration.world.setup;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.SubContainerModule#getContainer <em>Container</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.setup.SetupPackage#getSubContainerModule()
  * @model

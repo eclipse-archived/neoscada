@@ -31,10 +31,10 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MasterComponentImpl#getMasterOn <em>Master On</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

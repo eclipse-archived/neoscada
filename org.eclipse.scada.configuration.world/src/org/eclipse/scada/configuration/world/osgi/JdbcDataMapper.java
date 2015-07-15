@@ -20,12 +20,12 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.JdbcDataMapper#getJdbcDriver <em>Jdbc Driver</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.JdbcDataMapper#getSql <em>Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.JdbcDataMapper#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getJdbcDataMapper()
  * @model

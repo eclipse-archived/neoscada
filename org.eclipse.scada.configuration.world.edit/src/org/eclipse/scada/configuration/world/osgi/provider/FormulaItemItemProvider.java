@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.osgi.FormulaItem;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
@@ -70,8 +71,8 @@ public class FormulaItemItemProvider extends ItemItemProvider
     protected void addScriptEnginePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaItem_scriptEngine_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItem_scriptEngine_feature", "_UI_FormulaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.FORMULA_ITEM__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItem_scriptEngine_feature", "_UI_FormulaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.FORMULA_ITEM__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -83,8 +84,8 @@ public class FormulaItemItemProvider extends ItemItemProvider
     protected void addInboundPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaItem_inbound_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItem_inbound_feature", "_UI_FormulaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.FORMULA_ITEM__INBOUND, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItem_inbound_feature", "_UI_FormulaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.FORMULA_ITEM__INBOUND, true, false, true, null, null, null ) );
     }
 
     /**
@@ -103,6 +104,7 @@ public class FormulaItemItemProvider extends ItemItemProvider
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( OsgiPackage.Literals.FORMULA_ITEM__INIT_SCRIPTS );
             childrenFeatures.add ( OsgiPackage.Literals.FORMULA_ITEM__OUTBOUND );
+            childrenFeatures.add ( OsgiPackage.Literals.FORMULA_ITEM__INIT_PROPERTIES );
         }
         return childrenFeatures;
     }
@@ -177,6 +179,7 @@ public class FormulaItemItemProvider extends ItemItemProvider
                 return;
             case OsgiPackage.FORMULA_ITEM__INIT_SCRIPTS:
             case OsgiPackage.FORMULA_ITEM__OUTBOUND:
+            case OsgiPackage.FORMULA_ITEM__INIT_PROPERTIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -198,6 +201,8 @@ public class FormulaItemItemProvider extends ItemItemProvider
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.FORMULA_ITEM__INIT_SCRIPTS, OsgiFactory.eINSTANCE.createCodeFragment () ) );
 
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.FORMULA_ITEM__OUTBOUND, OsgiFactory.eINSTANCE.createFormulaItemOutbound () ) );
+
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.FORMULA_ITEM__INIT_PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
 }

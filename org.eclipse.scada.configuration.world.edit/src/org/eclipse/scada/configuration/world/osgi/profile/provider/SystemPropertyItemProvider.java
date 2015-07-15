@@ -79,8 +79,8 @@ public class SystemPropertyItemProvider extends ItemProviderAdapter implements I
     protected void addKeyPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SystemProperty_key_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SystemProperty_key_feature", "_UI_SystemProperty_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.SYSTEM_PROPERTY__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SystemProperty_key_feature", "_UI_SystemProperty_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.SYSTEM_PROPERTY__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -92,8 +92,8 @@ public class SystemPropertyItemProvider extends ItemProviderAdapter implements I
     protected void addValuePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SystemProperty_value_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SystemProperty_value_feature", "_UI_SystemProperty_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.SYSTEM_PROPERTY__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SystemProperty_value_feature", "_UI_SystemProperty_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.SYSTEM_PROPERTY__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -105,8 +105,8 @@ public class SystemPropertyItemProvider extends ItemProviderAdapter implements I
     protected void addEvalPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SystemProperty_eval_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SystemProperty_eval_feature", "_UI_SystemProperty_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.SYSTEM_PROPERTY__EVAL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SystemProperty_eval_feature", "_UI_SystemProperty_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.SYSTEM_PROPERTY__EVAL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**

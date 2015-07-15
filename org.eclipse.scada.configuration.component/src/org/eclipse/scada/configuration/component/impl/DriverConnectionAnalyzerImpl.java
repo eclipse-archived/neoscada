@@ -24,10 +24,10 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.DriverConnectionAnalyzerImpl#getDriver <em>Driver</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

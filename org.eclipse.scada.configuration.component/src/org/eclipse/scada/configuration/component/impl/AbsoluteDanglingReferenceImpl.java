@@ -18,8 +18,6 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Absolute Dangling Reference</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

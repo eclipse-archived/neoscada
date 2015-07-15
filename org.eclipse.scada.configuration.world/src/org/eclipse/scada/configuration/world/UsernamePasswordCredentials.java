@@ -17,11 +17,11 @@ package org.eclipse.scada.configuration.world;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.UsernamePasswordCredentials#getUsername <em>Username</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.UsernamePasswordCredentials#getPassword <em>Password</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getUsernamePasswordCredentials()
  * @model

@@ -34,6 +34,7 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getLevel <em>Level</em>}</li>
@@ -41,7 +42,6 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getArchiveSelector <em>Archive Selector</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

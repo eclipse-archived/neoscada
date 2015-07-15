@@ -47,6 +47,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MasterServerImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MasterServerImpl#getName <em>Name</em>}</li>
@@ -68,7 +69,6 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MasterServerImpl#getMovingAverages <em>Moving Averages</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MasterServerImpl#getBufferedValues <em>Buffered Values</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

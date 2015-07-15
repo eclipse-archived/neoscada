@@ -24,10 +24,10 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.CustomMasterServerImpl#getProfile <em>Profile</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

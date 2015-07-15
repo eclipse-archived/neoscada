@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.component;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,12 +21,13 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.CalculationComponent#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.CalculationComponent#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.CalculationComponent#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.CalculationComponent#getInitProperties <em>Init Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getCalculationComponent()
  * @model
@@ -90,5 +92,21 @@ public interface CalculationComponent extends NamedDocumentable, MasterComponent
      * @generated
      */
     EList<InputDefinition> getInputs ();
+
+    /**
+     * Returns the value of the '<em><b>Init Properties</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Init Properties</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Init Properties</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getCalculationComponent_InitProperties()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<PropertyEntry> getInitProperties ();
 
 } // CalculationComponent

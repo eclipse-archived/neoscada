@@ -20,12 +20,12 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.Node#getHostName <em>Host Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.Node#getEndpoints <em>Endpoints</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.Node#getDeployments <em>Deployments</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getNode()
  * @model abstract="true"

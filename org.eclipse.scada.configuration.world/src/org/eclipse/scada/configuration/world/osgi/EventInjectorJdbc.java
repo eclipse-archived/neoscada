@@ -18,12 +18,12 @@ package org.eclipse.scada.configuration.world.osgi;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getSelectSql <em>Select Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getDeleteSql <em>Delete Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getExistsSql <em>Exists Sql</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEventInjectorJdbc()
  * @model

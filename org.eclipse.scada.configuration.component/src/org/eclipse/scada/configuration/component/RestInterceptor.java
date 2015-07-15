@@ -21,11 +21,11 @@ import org.eclipse.scada.configuration.item.Selector;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.RestInterceptor#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.RestInterceptor#getDefinition <em>Definition</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getRestInterceptor()
  * @model

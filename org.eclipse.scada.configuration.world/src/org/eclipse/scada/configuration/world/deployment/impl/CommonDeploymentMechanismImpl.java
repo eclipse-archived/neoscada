@@ -37,6 +37,7 @@ import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getChanges <em>Changes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getMaintainer <em>Maintainer</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getSetup <em>Setup</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getAdditionalSetupModules <em>Additional Setup Modules</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

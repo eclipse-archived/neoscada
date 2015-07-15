@@ -30,11 +30,11 @@ import org.eclipse.scada.configuration.component.DanglingItemReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentReferenceInputDefinitionImpl#getComponent <em>Component</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentReferenceInputDefinitionImpl#getLocalTag <em>Local Tag</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

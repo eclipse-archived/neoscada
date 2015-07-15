@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -96,6 +96,30 @@ public final class Properties
         {
             properties.put ( key, value );
         }
+    }
+
+    /**
+     * Test if either the key or the value is empty of null
+     *
+     * @param entry
+     *            the entry to test
+     * @return <code>true</code> if either key or value are empty or null
+     */
+    public static boolean isEmpty ( final PropertyEntry entry )
+    {
+        if ( entry == null )
+        {
+            return true;
+        }
+        if ( entry.getKey () == null || entry.getKey ().isEmpty () )
+        {
+            return true;
+        }
+        if ( entry.getValue () == null || entry.getValue ().isEmpty () )
+        {
+            return true;
+        }
+        return false;
     }
 
 }

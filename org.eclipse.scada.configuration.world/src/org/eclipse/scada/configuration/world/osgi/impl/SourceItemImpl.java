@@ -24,11 +24,11 @@ import org.eclipse.scada.configuration.world.osgi.SourceItem;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.SourceItemImpl#getConnection <em>Connection</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.SourceItemImpl#getSourceName <em>Source Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

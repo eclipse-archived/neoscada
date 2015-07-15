@@ -21,11 +21,11 @@ import org.eclipse.scada.configuration.world.osgi.DataMapper;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.DataMapperService#getDataMapper <em>Data Mapper</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.DataMapperService#getMasterOn <em>Master On</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getDataMapperService()
  * @model

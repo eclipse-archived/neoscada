@@ -29,12 +29,12 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.GenericDatabaseSettingsImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.GenericDatabaseSettingsImpl#getDriverName <em>Driver Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.GenericDatabaseSettingsImpl#getBundles <em>Bundles</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

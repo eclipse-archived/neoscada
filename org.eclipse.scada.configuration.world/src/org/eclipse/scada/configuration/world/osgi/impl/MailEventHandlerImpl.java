@@ -32,6 +32,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MailEventHandlerImpl#getSessionProperties <em>Session Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MailEventHandlerImpl#getFrom <em>From</em>}</li>
@@ -40,7 +41,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MailEventHandlerImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MailEventHandlerImpl#getQueueId <em>Queue Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

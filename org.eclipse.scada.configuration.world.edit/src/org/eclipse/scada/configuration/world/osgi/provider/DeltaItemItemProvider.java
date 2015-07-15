@@ -69,8 +69,8 @@ public class DeltaItemItemProvider extends ItemItemProvider
     protected void addSourcePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DeltaItem_source_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_DeltaItem_source_feature", "_UI_DeltaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.DELTA_ITEM__SOURCE, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_DeltaItem_source_feature", "_UI_DeltaItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.DELTA_ITEM__SOURCE, true, false, true, null, null, null ) );
     }
 
     /**

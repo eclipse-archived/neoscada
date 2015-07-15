@@ -21,13 +21,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry#getVersion <em>Version</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getChangeEntry()
  * @model

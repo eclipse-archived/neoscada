@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.P2Platform#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.P2Platform#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getP2Platform()
  * @model

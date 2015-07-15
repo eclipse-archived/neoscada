@@ -20,6 +20,7 @@ import org.eclipse.scada.configuration.world.DatabaseSettings;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventInjector#getDatabase <em>Database</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventInjector#getLoopDelay <em>Loop Delay</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.scada.configuration.world.DatabaseSettings;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventInjector#getReplicationSchema <em>Replication Schema</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventInjector#isDeleteFailed <em>Delete Failed</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEventInjector()
  * @model abstract="true"

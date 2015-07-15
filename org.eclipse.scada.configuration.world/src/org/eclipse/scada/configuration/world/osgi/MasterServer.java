@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getSummaryGroups <em>Summary Groups</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getItems <em>Items</em>}</li>
@@ -33,7 +34,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getMovingAverages <em>Moving Averages</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getBufferedValues <em>Buffered Values</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMasterServer()
  * @model abstract="true"

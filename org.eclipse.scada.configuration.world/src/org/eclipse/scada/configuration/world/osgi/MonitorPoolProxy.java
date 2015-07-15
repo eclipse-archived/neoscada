@@ -20,11 +20,11 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MonitorPoolProxy#getLocal <em>Local</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MonitorPoolProxy#getRemote <em>Remote</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMonitorPoolProxy()
  * @model

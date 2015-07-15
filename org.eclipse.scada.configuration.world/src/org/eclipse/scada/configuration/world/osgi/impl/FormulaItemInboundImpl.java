@@ -31,11 +31,11 @@ import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemInboundImpl#getInputs <em>Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemInboundImpl#getInputFormula <em>Input Formula</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

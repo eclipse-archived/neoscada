@@ -22,10 +22,10 @@ import org.eclipse.scada.configuration.world.osgi.StaticExternalEventFilter;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.StaticExternalEventFilterImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

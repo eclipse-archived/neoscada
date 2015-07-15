@@ -43,6 +43,7 @@ import org.eclipse.scada.configuration.item.Selector;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getLevels <em>Levels</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getConfigurations <em>Configurations</em>}</li>
@@ -51,7 +52,6 @@ import org.eclipse.scada.configuration.item.Selector;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getDefaultCustomizationPipeline <em>Default Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getDefaultArchiveSelector <em>Default Archive Selector</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

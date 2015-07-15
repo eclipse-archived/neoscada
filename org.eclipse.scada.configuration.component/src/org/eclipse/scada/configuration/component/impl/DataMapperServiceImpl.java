@@ -31,11 +31,11 @@ import org.eclipse.scada.configuration.world.osgi.DataMapper;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.DataMapperServiceImpl#getDataMapper <em>Data Mapper</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.DataMapperServiceImpl#getMasterOn <em>Master On</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

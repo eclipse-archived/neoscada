@@ -20,10 +20,10 @@ import org.eclipse.scada.configuration.world.osgi.MarkerEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.MarkerConfiguration#getMarkers <em>Markers</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getMarkerConfiguration()
  * @model

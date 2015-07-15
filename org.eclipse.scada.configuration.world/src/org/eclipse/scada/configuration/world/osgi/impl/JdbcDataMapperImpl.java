@@ -29,12 +29,12 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.JdbcDataMapperImpl#getJdbcDriver <em>Jdbc Driver</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.JdbcDataMapperImpl#getSql <em>Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.JdbcDataMapperImpl#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

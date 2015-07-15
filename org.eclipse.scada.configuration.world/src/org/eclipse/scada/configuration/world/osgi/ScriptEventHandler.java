@@ -20,10 +20,10 @@ import org.eclipse.scada.configuration.script.JavaScript;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptEventHandler#getScript <em>Script</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptEventHandler()
  * @model

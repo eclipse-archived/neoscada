@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -47,8 +47,17 @@ public abstract class CalculationComponentGenerator<Impl extends CalculationModu
     {
         if ( this.implementationClazz.isAssignableFrom ( this.calculationComponent.getImplementation ().getClass () ) )
         {
+            if ( !this.calculationComponent.getInitProperties ().isEmpty () && !supportsInitProperties () )
+            {
+                throw new IllegalStateException ( String.format ( "Component %s does not support init properties", this.implementationClazz.getSimpleName () ) );
+            }
             createItems ( itemCreator, this.implementationClazz.cast ( this.calculationComponent.getImplementation () ) );
         }
+    }
+
+    public boolean supportsInitProperties ()
+    {
+        return false;
     }
 
     protected String makeId ()

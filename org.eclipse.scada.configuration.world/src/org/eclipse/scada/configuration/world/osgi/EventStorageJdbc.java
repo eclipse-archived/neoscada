@@ -17,11 +17,11 @@ package org.eclipse.scada.configuration.world.osgi;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getMaxFieldLength <em>Max Field Length</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getQueryFetchSize <em>Query Fetch Size</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEventStorageJdbc()
  * @model

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.osgi.CodeFragment;
 import org.eclipse.scada.configuration.world.osgi.ItemReference;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
@@ -32,6 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.ScriptTimer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptItemImpl#getInputs <em>Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptItemImpl#getInitScript <em>Init Script</em>}</li>
@@ -40,8 +42,8 @@ import org.eclipse.scada.configuration.world.osgi.ScriptTimer;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptItemImpl#getScriptEngine <em>Script Engine</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptItemImpl#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptItemImpl#getWriteCommandScript <em>Write Command Script</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptItemImpl#getInitProperties <em>Init Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -126,6 +128,16 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * @ordered
      */
     protected CodeFragment writeCommandScript;
+
+    /**
+     * The cached value of the '{@link #getInitProperties() <em>Init Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInitProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> initProperties;
 
     /**
      * <!-- begin-user-doc -->
@@ -524,6 +536,20 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getInitProperties ()
+    {
+        if ( initProperties == null )
+        {
+            initProperties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, OsgiPackage.SCRIPT_ITEM__INIT_PROPERTIES );
+        }
+        return initProperties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -541,6 +567,8 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
                 return ( (InternalEList<?>)getCommands () ).basicRemove ( otherEnd, msgs );
             case OsgiPackage.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT:
                 return basicSetWriteCommandScript ( null, msgs );
+            case OsgiPackage.SCRIPT_ITEM__INIT_PROPERTIES:
+                return ( (InternalEList<?>)getInitProperties () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -577,6 +605,8 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
                 if ( resolve )
                     return getWriteCommandScript ();
                 return basicGetWriteCommandScript ();
+            case OsgiPackage.SCRIPT_ITEM__INIT_PROPERTIES:
+                return getInitProperties ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -615,6 +645,10 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
             case OsgiPackage.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT:
                 setWriteCommandScript ( (CodeFragment)newValue );
                 return;
+            case OsgiPackage.SCRIPT_ITEM__INIT_PROPERTIES:
+                getInitProperties ().clear ();
+                getInitProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -650,6 +684,9 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
             case OsgiPackage.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT:
                 setWriteCommandScript ( (CodeFragment)null );
                 return;
+            case OsgiPackage.SCRIPT_ITEM__INIT_PROPERTIES:
+                getInitProperties ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -678,6 +715,8 @@ public class ScriptItemImpl extends ItemImpl implements ScriptItem
                 return commands != null && !commands.isEmpty ();
             case OsgiPackage.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT:
                 return writeCommandScript != null;
+            case OsgiPackage.SCRIPT_ITEM__INIT_PROPERTIES:
+                return initProperties != null && !initProperties.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

@@ -35,11 +35,11 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ContainerImpl#getItemInterceptors <em>Item Interceptors</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ContainerImpl#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

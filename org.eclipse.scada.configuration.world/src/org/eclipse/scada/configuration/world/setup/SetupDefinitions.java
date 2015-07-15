@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.SetupDefinitions#getContainers <em>Containers</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.setup.SetupDefinitions#getOperationSystemDefinitions <em>Operation System Definitions</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.setup.SetupPackage#getSetupDefinitions()
  * @model

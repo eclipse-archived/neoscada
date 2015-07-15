@@ -28,10 +28,10 @@ import org.eclipse.scada.configuration.world.osgi.SimpleDataMapper;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.SimpleDataMapperImpl#getEntries <em>Entries</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

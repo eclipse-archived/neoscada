@@ -19,10 +19,10 @@ import org.eclipse.scada.da.exec.configuration.RootType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.ExecDriver#getRoot <em>Root</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getExecDriver()
  * @model

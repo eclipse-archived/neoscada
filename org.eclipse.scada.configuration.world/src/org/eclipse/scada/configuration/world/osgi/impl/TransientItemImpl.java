@@ -19,8 +19,6 @@ import org.eclipse.scada.configuration.world.osgi.TransientItem;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Transient Item</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

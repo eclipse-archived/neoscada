@@ -23,10 +23,10 @@ import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanis
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.RedhatDeploymentMechanismImpl#getLicense <em>License</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

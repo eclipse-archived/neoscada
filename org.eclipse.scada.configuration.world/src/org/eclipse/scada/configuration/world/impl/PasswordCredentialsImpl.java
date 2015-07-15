@@ -23,10 +23,10 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.PasswordCredentialsImpl#getPassword <em>Password</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

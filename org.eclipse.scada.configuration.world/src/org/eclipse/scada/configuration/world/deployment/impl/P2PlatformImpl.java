@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.world.deployment.P2Platform;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.P2PlatformImpl#getRepositories <em>Repositories</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.P2PlatformImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

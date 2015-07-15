@@ -19,8 +19,6 @@ import org.eclipse.scada.configuration.component.Configuration;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Configuration</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

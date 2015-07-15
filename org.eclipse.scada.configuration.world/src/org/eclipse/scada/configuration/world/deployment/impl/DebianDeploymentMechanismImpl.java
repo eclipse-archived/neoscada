@@ -18,8 +18,6 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Debian Deployment Mechanism</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

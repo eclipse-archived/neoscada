@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentDanglingReferenceImpl#getLocalTag <em>Local Tag</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentDanglingReferenceImpl#getComponent <em>Component</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

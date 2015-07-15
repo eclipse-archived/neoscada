@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.SummaryGroup#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.SummaryGroup#getSubGroups <em>Sub Groups</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.SummaryGroup#getItems <em>Items</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getSummaryGroup()
  * @model

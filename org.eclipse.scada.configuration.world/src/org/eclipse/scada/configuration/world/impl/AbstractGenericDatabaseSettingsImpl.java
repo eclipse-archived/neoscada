@@ -39,6 +39,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getUsername <em>Username</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getServerName <em>Server Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getPortNumber <em>Port Number</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

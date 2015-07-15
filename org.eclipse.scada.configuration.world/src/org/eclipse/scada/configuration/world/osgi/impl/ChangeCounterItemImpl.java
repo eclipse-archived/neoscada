@@ -32,13 +32,13 @@ import org.eclipse.scada.core.Variant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ChangeCounterItemImpl#getBuffer <em>Buffer</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ChangeCounterItemImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ChangeCounterItemImpl#getOnError <em>On Error</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ChangeCounterItemImpl#getValues <em>Values</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

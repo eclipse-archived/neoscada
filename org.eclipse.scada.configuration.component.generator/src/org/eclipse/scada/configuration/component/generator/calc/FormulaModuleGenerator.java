@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.generator.calc;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.component.CalculationComponent;
 import org.eclipse.scada.configuration.component.FormulaModule;
 import org.eclipse.scada.configuration.component.InputDefinition;
@@ -32,14 +33,9 @@ import org.eclipse.scada.configuration.world.osgi.FormulaItem;
 import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class FormulaModuleGenerator extends CalculationComponentGenerator<FormulaModule>
 {
-
-    final static Logger logger = LoggerFactory.getLogger ( FormulaModuleGenerator.class );
-
     private final Map<MasterServer, FormulaItem> danglingMap = new HashMap<> ();
 
     public FormulaModuleGenerator ( final CalculationComponent calculationComponent )
@@ -58,6 +54,11 @@ public class FormulaModuleGenerator extends CalculationComponentGenerator<Formul
     {
         final OutputDefinition output = Calculations.findSingleByName ( this.calculationComponent.getOutputs (), "output" );
         final OutputSpecification outputSpec = Calculations.findSpecification ( implementation, output );
+
+        if ( outputSpec == null )
+        {
+            throw new IllegalStateException ( String.format ( "Output specification '%s' not found on module '%s'", output.getName (), implementation.getName () ) );
+        }
 
         // create the item
         final CreationRequest<FormulaItem> c = createFormulaItem ( creator );
@@ -91,6 +92,8 @@ public class FormulaModuleGenerator extends CalculationComponentGenerator<Formul
             item.getInbound ().setInputFormula ( implementation.getUpdate ().getCode () );
         }
 
+        item.getInitProperties ().addAll ( EcoreUtil.copyAll ( this.calculationComponent.getInitProperties () ) );
+
         // FIXME: add write command
 
         for ( final InputDefinition input : this.calculationComponent.getInputs () )
@@ -102,6 +105,12 @@ public class FormulaModuleGenerator extends CalculationComponentGenerator<Formul
 
             item.getInbound ().getInputs ().add ( typedRef );
         }
+    }
+
+    @Override
+    public boolean supportsInitProperties ()
+    {
+        return true;
     }
 
     @Override

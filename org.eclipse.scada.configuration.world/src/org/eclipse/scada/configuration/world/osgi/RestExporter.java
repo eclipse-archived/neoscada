@@ -21,12 +21,12 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getItems <em>Items</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getHiveProperties <em>Hive Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getContextId <em>Context Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getRestExporter()
  * @model

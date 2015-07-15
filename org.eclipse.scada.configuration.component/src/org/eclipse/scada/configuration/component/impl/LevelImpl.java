@@ -32,6 +32,7 @@ import org.eclipse.scada.configuration.item.Selector;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getLevels <em>Levels</em>}</li>
@@ -41,7 +42,6 @@ import org.eclipse.scada.configuration.item.Selector;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -27,6 +27,7 @@ import org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl#getSchema <em>Schema</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl#getInstanceName <em>Instance Name</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl#getDatabase <em>Database</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl#getReplicationDataFormat <em>Replication Data Format</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

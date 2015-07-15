@@ -19,11 +19,11 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.ExternalValue#getConnection <em>Connection</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ExternalValue#getSourceName <em>Source Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getExternalValue()
  * @model

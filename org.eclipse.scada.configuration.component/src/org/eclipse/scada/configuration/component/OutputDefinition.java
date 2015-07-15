@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.OutputDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.OutputDefinition#getLocalTag <em>Local Tag</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.OutputDefinition#getCustomizationTags <em>Customization Tags</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getOutputDefinition()
  * @model

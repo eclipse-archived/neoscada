@@ -305,6 +305,8 @@
           eType="#//osgi/ItemReference" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="writeCommandScript" eType="#//osgi/CodeFragment"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initProperties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ImportItem" eSuperTypes="#//osgi/Item">
       <eStructuralFeatures xsi:type="ecore:EReference" name="export" lowerBound="1"
@@ -524,6 +526,8 @@
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="inbound" eType="#//osgi/FormulaItemInbound"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initProperties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FormulaItemOutbound">
       <eStructuralFeatures xsi:type="ecore:EReference" name="output" lowerBound="1"

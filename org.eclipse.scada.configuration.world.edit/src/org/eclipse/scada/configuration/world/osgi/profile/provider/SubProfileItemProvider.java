@@ -79,8 +79,8 @@ public class SubProfileItemProvider extends ItemProviderAdapter implements IEdit
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SubProfile_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SubProfile_name_feature", "_UI_SubProfile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ProfilePackage.Literals.SUB_PROFILE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SubProfile_name_feature", "_UI_SubProfile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ProfilePackage.Literals.SUB_PROFILE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

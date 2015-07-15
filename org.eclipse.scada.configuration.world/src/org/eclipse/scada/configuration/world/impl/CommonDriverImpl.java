@@ -31,13 +31,13 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.CommonDriverImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.CommonDriverImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.CommonDriverImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.CommonDriverImpl#getEndpoints <em>Endpoints</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

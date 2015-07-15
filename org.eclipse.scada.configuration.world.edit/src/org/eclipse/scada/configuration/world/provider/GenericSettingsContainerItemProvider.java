@@ -78,8 +78,8 @@ public class GenericSettingsContainerItemProvider extends ItemProviderAdapter im
     protected void addSettingsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_GenericSettingsContainer_settings_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_GenericSettingsContainer_settings_feature", "_UI_GenericSettingsContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                WorldPackage.Literals.GENERIC_SETTINGS_CONTAINER__SETTINGS, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_GenericSettingsContainer_settings_feature", "_UI_GenericSettingsContainer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        WorldPackage.Literals.GENERIC_SETTINGS_CONTAINER__SETTINGS, true, false, true, null, null, null ) );
     }
 
     /**

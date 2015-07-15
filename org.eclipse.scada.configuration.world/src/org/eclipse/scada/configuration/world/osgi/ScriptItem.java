@@ -11,6 +11,7 @@
 package org.eclipse.scada.configuration.world.osgi;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getInputs <em>Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getInitScript <em>Init Script</em>}</li>
@@ -27,8 +29,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getScriptEngine <em>Script Engine</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getCommands <em>Commands</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getWriteCommandScript <em>Write Command Script</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getInitProperties <em>Init Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem()
  * @model
@@ -198,5 +200,21 @@ public interface ScriptItem extends Item
      * @generated
      */
     void setWriteCommandScript ( CodeFragment value );
+
+    /**
+     * Returns the value of the '<em><b>Init Properties</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Init Properties</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Init Properties</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_InitProperties()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<PropertyEntry> getInitProperties ();
 
 } // ScriptItem

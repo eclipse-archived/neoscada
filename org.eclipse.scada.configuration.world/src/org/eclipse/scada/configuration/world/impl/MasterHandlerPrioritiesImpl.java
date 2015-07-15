@@ -31,12 +31,12 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.MasterHandlerPrioritiesImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.MasterHandlerPrioritiesImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.MasterHandlerPrioritiesImpl#getRules <em>Rules</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

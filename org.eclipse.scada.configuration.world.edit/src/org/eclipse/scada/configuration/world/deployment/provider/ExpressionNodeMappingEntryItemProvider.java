@@ -79,8 +79,8 @@ public class ExpressionNodeMappingEntryItemProvider extends ItemProviderAdapter 
     protected void addPatternPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExpressionNodeMappingEntry_pattern_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ExpressionNodeMappingEntry_pattern_feature", "_UI_ExpressionNodeMappingEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                DeploymentPackage.Literals.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ExpressionNodeMappingEntry_pattern_feature", "_UI_ExpressionNodeMappingEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        DeploymentPackage.Literals.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -92,8 +92,8 @@ public class ExpressionNodeMappingEntryItemProvider extends ItemProviderAdapter 
     protected void addReplacementPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExpressionNodeMappingEntry_replacement_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ExpressionNodeMappingEntry_replacement_feature", "_UI_ExpressionNodeMappingEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                DeploymentPackage.Literals.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ExpressionNodeMappingEntry_replacement_feature", "_UI_ExpressionNodeMappingEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        DeploymentPackage.Literals.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

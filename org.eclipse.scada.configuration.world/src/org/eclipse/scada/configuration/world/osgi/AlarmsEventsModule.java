@@ -19,13 +19,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule#getMonitorPoolProxies <em>Monitor Pool Proxies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule#getEventPoolProxies <em>Event Pool Proxies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule#getAknProxies <em>Akn Proxies</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule#getPullEvents <em>Pull Events</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAlarmsEventsModule()
  * @model

@@ -30,10 +30,10 @@ import org.eclipse.scada.configuration.world.osgi.DataType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.AverageModuleImpl#getValidSourcesRequired <em>Valid Sources Required</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

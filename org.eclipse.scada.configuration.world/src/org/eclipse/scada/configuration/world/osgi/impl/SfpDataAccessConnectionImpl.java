@@ -20,8 +20,6 @@ import org.eclipse.scada.configuration.world.osgi.SfpDataAccessConnection;
  * An implementation of the model object '
  * <em><b>Sfp Data Access Connection</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

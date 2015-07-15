@@ -39,6 +39,7 @@ import org.eclipse.scada.configuration.component.Service;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.FormulaModuleImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.FormulaModuleImpl#getName <em>Name</em>}</li>
@@ -49,7 +50,6 @@ import org.eclipse.scada.configuration.component.Service;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.FormulaModuleImpl#getScriptEngine <em>Script Engine</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.FormulaModuleImpl#getInit <em>Init</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

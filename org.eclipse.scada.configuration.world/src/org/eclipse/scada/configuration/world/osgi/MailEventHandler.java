@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MailEventHandler#getSessionProperties <em>Session Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MailEventHandler#getFrom <em>From</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MailEventHandler#getPassword <em>Password</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MailEventHandler#getQueueId <em>Queue Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMailEventHandler()
  * @model

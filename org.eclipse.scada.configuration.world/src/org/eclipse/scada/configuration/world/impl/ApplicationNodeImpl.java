@@ -29,11 +29,11 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.ApplicationNodeImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.ApplicationNodeImpl#getServices <em>Services</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

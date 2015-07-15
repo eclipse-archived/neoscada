@@ -71,7 +71,7 @@ public class SourceItemItemProvider extends ItemItemProvider
     {
         this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SourceItem_connection_feature" ), //$NON-NLS-1$
         getString ( "_UI_PropertyDescriptor_description", "_UI_SourceItem_connection_feature", "_UI_SourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.SOURCE_ITEM__CONNECTION, true, false, true, null, null, null ) {
+        OsgiPackage.Literals.SOURCE_ITEM__CONNECTION, true, false, true, null, null, null) {
             @Override
             protected java.util.Collection<?> getComboBoxObjects ( final Object object )
             {
@@ -98,8 +98,8 @@ public class SourceItemItemProvider extends ItemItemProvider
     protected void addSourceNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SourceItem_sourceName_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SourceItem_sourceName_feature", "_UI_SourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.SOURCE_ITEM__SOURCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SourceItem_sourceName_feature", "_UI_SourceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.SOURCE_ITEM__SOURCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

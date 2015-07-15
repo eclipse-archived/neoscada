@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.world.osgi.TelnetConsole;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.TelnetConsoleImpl#getHost <em>Host</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.TelnetConsoleImpl#getPort <em>Port</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

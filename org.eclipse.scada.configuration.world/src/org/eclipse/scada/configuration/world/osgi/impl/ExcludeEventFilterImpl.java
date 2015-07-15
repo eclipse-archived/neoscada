@@ -20,8 +20,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Exclude Event Filter</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

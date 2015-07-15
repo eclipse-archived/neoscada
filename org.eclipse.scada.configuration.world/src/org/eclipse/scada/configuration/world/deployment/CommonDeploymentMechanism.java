@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getChanges <em>Changes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getMaintainer <em>Maintainer</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getSetup <em>Setup</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalSetupModules <em>Additional Setup Modules</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getCommonDeploymentMechanism()
  * @model abstract="true"

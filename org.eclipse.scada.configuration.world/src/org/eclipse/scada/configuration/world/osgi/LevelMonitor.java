@@ -19,6 +19,7 @@ import org.eclipse.scada.ae.data.Severity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.LevelMonitor#getPreset <em>Preset</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.LevelMonitor#isCap <em>Cap</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.scada.ae.data.Severity;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.LevelMonitor#isRequireAck <em>Require Ack</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.LevelMonitor#getMonitorType <em>Monitor Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getLevelMonitor()
  * @model

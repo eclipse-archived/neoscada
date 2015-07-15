@@ -26,12 +26,12 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorJdbcImpl#getSelectSql <em>Select Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorJdbcImpl#getDeleteSql <em>Delete Sql</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorJdbcImpl#getExistsSql <em>Exists Sql</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

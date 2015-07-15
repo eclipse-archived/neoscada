@@ -24,10 +24,10 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.MasterAssigned#getMasterOn <em>Master On</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getMasterAssigned()
  * @model interface="true" abstract="true"

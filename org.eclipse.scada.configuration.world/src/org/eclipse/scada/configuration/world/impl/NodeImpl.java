@@ -33,6 +33,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.NodeImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.NodeImpl#getName <em>Name</em>}</li>
@@ -40,7 +41,6 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *   <li>{@link org.eclipse.scada.configuration.world.impl.NodeImpl#getEndpoints <em>Endpoints</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.NodeImpl#getDeployments <em>Deployments</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -26,8 +26,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * An implementation of the model object '<em><b>Data Access Connection</b></em>
  * '.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -23,11 +23,11 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.Container#getItemInterceptors <em>Item Interceptors</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Container#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getContainer()
  * @model abstract="true"

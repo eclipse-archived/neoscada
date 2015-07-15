@@ -22,6 +22,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getConnections <em>Connections</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getExporter <em>Exporter</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getSecurityConfiguration <em>Security Configuration</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getModules <em>Modules</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEquinoxApplication()
  * @model interface="true" abstract="true"

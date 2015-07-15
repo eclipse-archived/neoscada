@@ -22,10 +22,10 @@ import org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.WeakReferenceDataSourceItemImpl#getDataSourceId <em>Data Source Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

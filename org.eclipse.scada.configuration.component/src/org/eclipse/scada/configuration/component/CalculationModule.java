@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.CalculationModule#getKnownInputs <em>Known Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.CalculationModule#getKnownOutputs <em>Known Outputs</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getCalculationModule()
  * @model abstract="true"

@@ -69,9 +69,9 @@ public class SingleValueItemProvider extends MasterComponentItemProvider
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SingleValue_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SingleValue_name_feature", "_UI_SingleValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.SINGLE_VALUE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SingleValue_name_feature", "_UI_SingleValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.SINGLE_VALUE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -83,9 +83,9 @@ public class SingleValueItemProvider extends MasterComponentItemProvider
     protected void addDataTypePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SingleValue_dataType_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SingleValue_dataType_feature", "_UI_SingleValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.SINGLE_VALUE__DATA_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SingleValue_dataType_feature", "_UI_SingleValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.SINGLE_VALUE__DATA_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -97,9 +97,9 @@ public class SingleValueItemProvider extends MasterComponentItemProvider
     protected void addCustomizationTagsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SingleValue_customizationTags_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SingleValue_customizationTags_feature", "_UI_SingleValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.SINGLE_VALUE__CUSTOMIZATION_TAGS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SingleValue_customizationTags_feature", "_UI_SingleValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.SINGLE_VALUE__CUSTOMIZATION_TAGS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**

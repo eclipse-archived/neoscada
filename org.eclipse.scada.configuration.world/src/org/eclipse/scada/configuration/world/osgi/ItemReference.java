@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemReference#getItem <em>Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemReference#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getItemReference()
  * @model

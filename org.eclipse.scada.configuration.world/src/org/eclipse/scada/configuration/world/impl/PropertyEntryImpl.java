@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.PropertyEntryImpl#getKey <em>Key</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.PropertyEntryImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

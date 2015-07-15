@@ -31,13 +31,13 @@ import org.eclipse.scada.core.Variant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl#getBuffer <em>Buffer</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl#getValues <em>Values</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl#getOnError <em>On Error</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

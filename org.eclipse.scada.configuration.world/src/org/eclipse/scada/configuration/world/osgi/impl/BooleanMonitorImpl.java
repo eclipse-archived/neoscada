@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.BooleanMonitorImpl#isReferenceValue <em>Reference Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.BooleanMonitorImpl#isActive <em>Active</em>}</li>
@@ -32,7 +33,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.BooleanMonitorImpl#isSuppressEvents <em>Suppress Events</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.BooleanMonitorImpl#isRequireAck <em>Require Ack</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

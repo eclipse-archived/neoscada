@@ -86,8 +86,8 @@ public class EventInjectorItemProvider extends ItemProviderAdapter implements IE
     protected void addDatabasePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjector_database_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_database_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.EVENT_INJECTOR__DATABASE, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_database_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.EVENT_INJECTOR__DATABASE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -99,8 +99,8 @@ public class EventInjectorItemProvider extends ItemProviderAdapter implements IE
     protected void addLoopDelayPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjector_loopDelay_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_loopDelay_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.EVENT_INJECTOR__LOOP_DELAY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_loopDelay_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.EVENT_INJECTOR__LOOP_DELAY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -112,8 +112,8 @@ public class EventInjectorItemProvider extends ItemProviderAdapter implements IE
     protected void addInstanceNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjector_instanceName_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_instanceName_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.EVENT_INJECTOR__INSTANCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_instanceName_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.EVENT_INJECTOR__INSTANCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -125,8 +125,8 @@ public class EventInjectorItemProvider extends ItemProviderAdapter implements IE
     protected void addSchemaPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjector_schema_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_schema_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.EVENT_INJECTOR__SCHEMA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_schema_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.EVENT_INJECTOR__SCHEMA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -138,8 +138,8 @@ public class EventInjectorItemProvider extends ItemProviderAdapter implements IE
     protected void addReplicationSchemaPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjector_replicationSchema_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_replicationSchema_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.EVENT_INJECTOR__REPLICATION_SCHEMA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_replicationSchema_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.EVENT_INJECTOR__REPLICATION_SCHEMA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -151,8 +151,8 @@ public class EventInjectorItemProvider extends ItemProviderAdapter implements IE
     protected void addDeleteFailedPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjector_deleteFailed_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_deleteFailed_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.EVENT_INJECTOR__DELETE_FAILED, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_deleteFailed_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.EVENT_INJECTOR__DELETE_FAILED, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**

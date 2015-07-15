@@ -19,10 +19,10 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getDriver <em>Driver</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getDriverConnectionAnalyzer()
  * @model

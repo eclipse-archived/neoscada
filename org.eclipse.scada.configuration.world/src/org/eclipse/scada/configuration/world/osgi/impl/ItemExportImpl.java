@@ -25,11 +25,11 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemExportImpl#getItem <em>Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemExportImpl#getExportName <em>Export Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -21,6 +21,7 @@ import org.eclipse.scada.core.Variant;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}</li>
@@ -30,7 +31,6 @@ import org.eclipse.scada.core.Variant;
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#isTriggerOnly <em>Trigger Only</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getBufferedValue()
  * @model

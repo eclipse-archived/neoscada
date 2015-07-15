@@ -37,12 +37,12 @@ import org.eclipse.scada.configuration.world.osgi.ProfileConfiguration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ProfileConfigurationImpl#getStartBundles <em>Start Bundles</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ProfileConfigurationImpl#getInstallBundles <em>Install Bundles</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ProfileConfigurationImpl#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -24,10 +24,10 @@ import org.eclipse.scada.configuration.world.osgi.SummaryItem;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.SummaryItemImpl#getGroup <em>Group</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

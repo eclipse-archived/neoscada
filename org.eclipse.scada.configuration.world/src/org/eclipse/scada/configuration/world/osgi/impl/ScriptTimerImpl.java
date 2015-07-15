@@ -26,11 +26,11 @@ import org.eclipse.scada.configuration.world.osgi.ScriptTimer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptTimerImpl#getScript <em>Script</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptTimerImpl#getPeriod <em>Period</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

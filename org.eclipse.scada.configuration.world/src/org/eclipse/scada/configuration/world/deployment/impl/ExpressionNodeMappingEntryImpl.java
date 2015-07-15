@@ -30,11 +30,11 @@ import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEnt
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getReplacement <em>Replacement</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

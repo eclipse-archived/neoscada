@@ -27,12 +27,12 @@ import org.eclipse.scada.configuration.world.osgi.DataType;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.SingleValueImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.SingleValueImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.SingleValueImpl#getCustomizationTags <em>Customization Tags</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

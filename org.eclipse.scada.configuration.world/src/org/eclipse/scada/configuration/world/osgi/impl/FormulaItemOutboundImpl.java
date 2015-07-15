@@ -26,12 +26,12 @@ import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemOutboundImpl#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemOutboundImpl#getOutputFormula <em>Output Formula</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemOutboundImpl#getWriteValueVariableName <em>Write Value Variable Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

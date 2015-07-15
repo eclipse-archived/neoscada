@@ -21,6 +21,7 @@ import org.eclipse.scada.core.Variant;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.BufferedValue#getItem <em>Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.BufferedValue#getInitialValue <em>Initial Value</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.scada.core.Variant;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.BufferedValue#getTriggerOnly <em>Trigger Only</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.BufferedValue#getPersistence <em>Persistence</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getBufferedValue()
  * @model

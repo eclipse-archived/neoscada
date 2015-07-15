@@ -22,10 +22,10 @@ import org.eclipse.scada.configuration.component.SummariesConfiguration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.SummariesConfigurationImpl#getItemThreshold <em>Item Threshold</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

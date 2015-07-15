@@ -18,13 +18,13 @@ package org.eclipse.scada.configuration.component;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.MovingAverageModule#getNullRange <em>Null Range</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.MovingAverageModule#getRange <em>Range</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.MovingAverageModule#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.MovingAverageModule#isTriggerOnly <em>Trigger Only</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getMovingAverageModule()
  * @model

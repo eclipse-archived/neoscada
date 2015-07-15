@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getUnit <em>Unit</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getSystem <em>System</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getDataType <em>Data Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getItemInformation()
  * @model

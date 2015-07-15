@@ -494,7 +494,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
                                     {
                                         if ( ( delta.getFlags () & IResourceDelta.MARKERS ) != 0 )
                                         {
-                                            DiagnosticDecorator.DiagnosticAdapter.update ( resource, markerHelper.getMarkerDiagnostics ( resource, (IFile)delta.getResource () ) );
+                                            DiagnosticDecorator.DiagnosticAdapter.update ( resource, markerHelper.getMarkerDiagnostics ( resource, (IFile)delta.getResource (), false ) );
                                         }
                                         if ( ( delta.getFlags () & IResourceDelta.CONTENT ) != 0 )
                                         {
@@ -722,7 +722,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
     protected boolean handleDirtyConflict ()
     {
         return MessageDialog.openQuestion ( getSite ().getShell (), getString ( "_UI_FileConflict_label" ), //$NON-NLS-1$
-                getString ( "_WARN_FileConflict" ) ); //$NON-NLS-1$
+        getString ( "_WARN_FileConflict" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -1034,7 +1034,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
      */
     public void createModel ()
     {
-        URI resourceURI = EditUIUtil.getURI ( getEditorInput () );
+        URI resourceURI = EditUIUtil.getURI ( getEditorInput (), editingDomain.getResourceSet ().getURIConverter () );
         Exception exception = null;
         Resource resource = null;
         try
@@ -1066,9 +1066,10 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
      */
     public Diagnostic analyzeResourceProblems ( Resource resource, Exception exception )
     {
-        if ( !resource.getErrors ().isEmpty () || !resource.getWarnings ().isEmpty () )
+        boolean hasErrors = !resource.getErrors ().isEmpty ();
+        if ( hasErrors || !resource.getWarnings ().isEmpty () )
         {
-            BasicDiagnostic basicDiagnostic = new BasicDiagnostic ( Diagnostic.ERROR, "org.eclipse.scada.configuration.world.editor", //$NON-NLS-1$
+            BasicDiagnostic basicDiagnostic = new BasicDiagnostic ( hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING, "org.eclipse.scada.configuration.world.editor", //$NON-NLS-1$
             0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
             new Object[] { exception == null ? (Object)resource : exception } );
             basicDiagnostic.merge ( EcoreUtil.computeDiagnostic ( resource, true ) );
@@ -1106,7 +1107,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
             // Create a page for the selection tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1143,7 +1144,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
             // Create a page for the parent tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1174,7 +1175,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
             // This is the page for the list viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1201,7 +1202,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
             // This is the page for the tree viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1231,7 +1232,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
             // This is the page for the table viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1278,7 +1279,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
             // This is the page for the table tree viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this ) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), WorldEditor.this) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1524,7 +1525,7 @@ public class WorldEditor extends MultiPageEditorPart implements IEditingDomainPr
      */
     public IPropertySheetPage getPropertySheetPage ()
     {
-        PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage ( editingDomain, ExtendedPropertySheetPage.Decoration.MANUAL ) {
+        PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage ( editingDomain, ExtendedPropertySheetPage.Decoration.MANUAL) {
             @Override
             public void setSelectionToViewer ( List<?> selection )
             {

@@ -27,10 +27,10 @@ import org.eclipse.scada.configuration.world.osgi.ScriptEventHandler;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScriptEventHandlerImpl#getScript <em>Script</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

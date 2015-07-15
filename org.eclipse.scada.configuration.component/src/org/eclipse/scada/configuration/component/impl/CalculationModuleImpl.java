@@ -24,11 +24,11 @@ import org.eclipse.scada.configuration.component.OutputSpecification;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationModuleImpl#getKnownInputs <em>Known Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationModuleImpl#getKnownOutputs <em>Known Outputs</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

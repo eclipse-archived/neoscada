@@ -32,12 +32,12 @@ import org.eclipse.scada.configuration.world.osgi.SummaryGroup;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.SummaryGroupImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.SummaryGroupImpl#getSubGroups <em>Sub Groups</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.SummaryGroupImpl#getItems <em>Items</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

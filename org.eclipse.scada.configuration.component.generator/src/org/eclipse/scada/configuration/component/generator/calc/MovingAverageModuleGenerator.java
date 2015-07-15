@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -31,14 +31,9 @@ import org.eclipse.scada.configuration.world.osgi.MovingAverageItem;
 import org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.utils.str.StringHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MovingAverageModuleGenerator extends CalculationComponentGenerator<MovingAverageModule>
 {
-
-    final static Logger logger = LoggerFactory.getLogger ( MovingAverageModuleGenerator.class );
-
     private final Map<MasterServer, MovingAverage> danglingMap = new HashMap<> ();
 
     private final Map<MasterServer, MovingAverage> map = new HashMap<> ();

@@ -24,11 +24,11 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ExternalValueImpl#getConnection <em>Connection</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ExternalValueImpl#getSourceName <em>Source Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

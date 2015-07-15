@@ -17,12 +17,12 @@ package org.eclipse.scada.configuration.world.osgi;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Scale#isActive <em>Active</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Scale#getFactor <em>Factor</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Scale#getOffset <em>Offset</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScale()
  * @model

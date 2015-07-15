@@ -67,8 +67,8 @@ public class EventStoragePostgresItemProvider extends AbstractEventStorageJdbcIt
     protected void addBatchSizePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventStoragePostgres_batchSize_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EventStoragePostgres_batchSize_feature", "_UI_EventStoragePostgres_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.EVENT_STORAGE_POSTGRES__BATCH_SIZE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EventStoragePostgres_batchSize_feature", "_UI_EventStoragePostgres_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.EVENT_STORAGE_POSTGRES__BATCH_SIZE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

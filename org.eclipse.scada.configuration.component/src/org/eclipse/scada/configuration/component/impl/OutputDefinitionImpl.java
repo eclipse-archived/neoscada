@@ -29,12 +29,12 @@ import org.eclipse.scada.configuration.component.OutputDefinition;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.OutputDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.OutputDefinitionImpl#getLocalTag <em>Local Tag</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.OutputDefinitionImpl#getCustomizationTags <em>Customization Tags</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -22,13 +22,13 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getEndpointLabel <em>Endpoint Label</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getCredentials <em>Credentials</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getTimeout <em>Timeout</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getConnection()
  * @model abstract="true"

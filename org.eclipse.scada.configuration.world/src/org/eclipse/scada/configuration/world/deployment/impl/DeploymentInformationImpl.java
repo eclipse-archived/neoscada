@@ -29,10 +29,10 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.DeploymentInformationImpl#getAuthors <em>Authors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

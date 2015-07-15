@@ -17,13 +17,13 @@ package org.eclipse.scada.configuration.world.osgi;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventLogger#isLogAttributesChange <em>Log Attributes Change</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventLogger#isLogValueChange <em>Log Value Change</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventLogger#isLogSubscriptionChange <em>Log Subscription Change</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventLogger#isLogWrites <em>Log Writes</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEventLogger()
  * @model

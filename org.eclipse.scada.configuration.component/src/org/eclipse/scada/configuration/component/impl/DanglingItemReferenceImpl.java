@@ -19,8 +19,6 @@ import org.eclipse.scada.configuration.world.osgi.impl.ItemImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Dangling Item Reference</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

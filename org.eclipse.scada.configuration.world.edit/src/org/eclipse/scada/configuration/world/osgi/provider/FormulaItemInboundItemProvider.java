@@ -79,8 +79,8 @@ public class FormulaItemInboundItemProvider extends ItemProviderAdapter implemen
     protected void addInputFormulaPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaItemInbound_inputFormula_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItemInbound_inputFormula_feature", "_UI_FormulaItemInbound_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.FORMULA_ITEM_INBOUND__INPUT_FORMULA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItemInbound_inputFormula_feature", "_UI_FormulaItemInbound_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.FORMULA_ITEM_INBOUND__INPUT_FORMULA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

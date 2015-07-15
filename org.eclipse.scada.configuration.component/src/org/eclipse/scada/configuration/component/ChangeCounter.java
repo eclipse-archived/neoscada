@@ -23,13 +23,13 @@ import org.eclipse.scada.core.Variant;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.ChangeCounter#getBuffer <em>Buffer</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ChangeCounter#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ChangeCounter#getValues <em>Values</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ChangeCounter#getOnError <em>On Error</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getChangeCounter()
  * @model

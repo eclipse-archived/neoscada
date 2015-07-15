@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.osgi.CodeFragment;
 import org.eclipse.scada.configuration.world.osgi.FormulaItem;
 import org.eclipse.scada.configuration.world.osgi.FormulaItemInbound;
@@ -32,13 +33,14 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemImpl#getScriptEngine <em>Script Engine</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemImpl#getInitScripts <em>Init Scripts</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemImpl#getOutbound <em>Outbound</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemImpl#getInbound <em>Inbound</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.FormulaItemImpl#getInitProperties <em>Init Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -93,6 +95,16 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * @ordered
      */
     protected FormulaItemInbound inbound;
+
+    /**
+     * The cached value of the '{@link #getInitProperties() <em>Init Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInitProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> initProperties;
 
     /**
      * <!-- begin-user-doc -->
@@ -317,6 +329,20 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getInitProperties ()
+    {
+        if ( initProperties == null )
+        {
+            initProperties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, OsgiPackage.FORMULA_ITEM__INIT_PROPERTIES );
+        }
+        return initProperties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -328,6 +354,8 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
                 return basicSetOutbound ( null, msgs );
             case OsgiPackage.FORMULA_ITEM__INBOUND:
                 return basicSetInbound ( null, msgs );
+            case OsgiPackage.FORMULA_ITEM__INIT_PROPERTIES:
+                return ( (InternalEList<?>)getInitProperties () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -354,6 +382,8 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
                 if ( resolve )
                     return getInbound ();
                 return basicGetInbound ();
+            case OsgiPackage.FORMULA_ITEM__INIT_PROPERTIES:
+                return getInitProperties ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -382,6 +412,10 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
             case OsgiPackage.FORMULA_ITEM__INBOUND:
                 setInbound ( (FormulaItemInbound)newValue );
                 return;
+            case OsgiPackage.FORMULA_ITEM__INIT_PROPERTIES:
+                getInitProperties ().clear ();
+                getInitProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -408,6 +442,9 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
             case OsgiPackage.FORMULA_ITEM__INBOUND:
                 setInbound ( (FormulaItemInbound)null );
                 return;
+            case OsgiPackage.FORMULA_ITEM__INIT_PROPERTIES:
+                getInitProperties ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -430,6 +467,8 @@ public class FormulaItemImpl extends ItemImpl implements FormulaItem
                 return outbound != null;
             case OsgiPackage.FORMULA_ITEM__INBOUND:
                 return inbound != null;
+            case OsgiPackage.FORMULA_ITEM__INIT_PROPERTIES:
+                return initProperties != null && !initProperties.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

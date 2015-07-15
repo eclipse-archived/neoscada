@@ -32,11 +32,11 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.WorldImpl#getNodes <em>Nodes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.WorldImpl#getOptions <em>Options</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

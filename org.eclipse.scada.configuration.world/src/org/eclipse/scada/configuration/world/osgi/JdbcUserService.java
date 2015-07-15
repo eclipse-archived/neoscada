@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.JdbcUserService#getJdbcPropeties <em>Jdbc Propeties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.JdbcUserService#getJdbcDriver <em>Jdbc Driver</em>}</li>
@@ -32,7 +33,6 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.JdbcUserService#getPasswordColumnName <em>Password Column Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.JdbcUserService#getPasswordType <em>Password Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getJdbcUserService()
  * @model

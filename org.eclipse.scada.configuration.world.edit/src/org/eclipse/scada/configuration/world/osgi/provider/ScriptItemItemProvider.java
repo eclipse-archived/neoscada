@@ -19,6 +19,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.ScriptItem;
@@ -71,8 +72,8 @@ public class ScriptItemItemProvider extends ItemItemProvider
     protected void addInitScriptPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_initScript_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_initScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.SCRIPT_ITEM__INIT_SCRIPT, true, false, false, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_initScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.SCRIPT_ITEM__INIT_SCRIPT, true, false, false, null, null, null ) );
     }
 
     /**
@@ -84,8 +85,8 @@ public class ScriptItemItemProvider extends ItemItemProvider
     protected void addUpdateScriptPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_updateScript_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_updateScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.SCRIPT_ITEM__UPDATE_SCRIPT, true, false, false, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_updateScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.SCRIPT_ITEM__UPDATE_SCRIPT, true, false, false, null, null, null ) );
     }
 
     /**
@@ -97,8 +98,8 @@ public class ScriptItemItemProvider extends ItemItemProvider
     protected void addScriptEnginePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_scriptEngine_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_scriptEngine_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.SCRIPT_ITEM__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_scriptEngine_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.SCRIPT_ITEM__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -119,6 +120,7 @@ public class ScriptItemItemProvider extends ItemItemProvider
             childrenFeatures.add ( OsgiPackage.Literals.SCRIPT_ITEM__TIMER );
             childrenFeatures.add ( OsgiPackage.Literals.SCRIPT_ITEM__COMMANDS );
             childrenFeatures.add ( OsgiPackage.Literals.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT );
+            childrenFeatures.add ( OsgiPackage.Literals.SCRIPT_ITEM__INIT_PROPERTIES );
         }
         return childrenFeatures;
     }
@@ -197,6 +199,7 @@ public class ScriptItemItemProvider extends ItemItemProvider
             case OsgiPackage.SCRIPT_ITEM__TIMER:
             case OsgiPackage.SCRIPT_ITEM__COMMANDS:
             case OsgiPackage.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT:
+            case OsgiPackage.SCRIPT_ITEM__INIT_PROPERTIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -226,6 +229,8 @@ public class ScriptItemItemProvider extends ItemItemProvider
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__COMMANDS, OsgiFactory.eINSTANCE.createTypedItemReference () ) );
 
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__WRITE_COMMAND_SCRIPT, OsgiFactory.eINSTANCE.createCodeFragment () ) );
+
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.SCRIPT_ITEM__INIT_PROPERTIES, WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**
@@ -245,7 +250,7 @@ public class ScriptItemItemProvider extends ItemItemProvider
         if ( qualify )
         {
             return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
-                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+            new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
         }
         return super.getCreateChildText ( owner, feature, child, selection );
     }

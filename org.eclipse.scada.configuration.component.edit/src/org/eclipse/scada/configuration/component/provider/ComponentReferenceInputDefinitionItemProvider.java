@@ -77,7 +77,7 @@ public class ComponentReferenceInputDefinitionItemProvider extends InputDefiniti
      */
     protected void addComponentPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentReferenceInputDefinition_component_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_component_feature", "_UI_ComponentReferenceInputDefinition_type" ), ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__COMPONENT, true, false, true, null, null, null ) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentReferenceInputDefinition_component_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_component_feature", "_UI_ComponentReferenceInputDefinition_type" ), ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__COMPONENT, true, false, true, null, null, null) {
 
             @Override
             public CellEditor createPropertyEditor ( final Composite composite, final Object object )
@@ -129,8 +129,8 @@ public class ComponentReferenceInputDefinitionItemProvider extends InputDefiniti
     protected void addLocalTagPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentReferenceInputDefinition_localTag_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_localTag_feature", "_UI_ComponentReferenceInputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__LOCAL_TAG, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_localTag_feature", "_UI_ComponentReferenceInputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__LOCAL_TAG, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

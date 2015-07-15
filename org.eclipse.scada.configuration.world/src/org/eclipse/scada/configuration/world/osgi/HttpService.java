@@ -20,10 +20,10 @@ import org.eclipse.scada.configuration.world.Endpoint;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.HttpService#getEndpoint <em>Endpoint</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getHttpService()
  * @model annotation="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup groupId='http.service'"

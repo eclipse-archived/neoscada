@@ -18,8 +18,6 @@ import org.eclipse.scada.configuration.component.PersistentValue;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Persistent Value</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

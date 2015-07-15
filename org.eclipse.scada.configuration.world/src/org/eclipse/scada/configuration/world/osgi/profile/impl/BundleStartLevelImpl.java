@@ -23,11 +23,11 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.BundleStartLevelImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.BundleStartLevelImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

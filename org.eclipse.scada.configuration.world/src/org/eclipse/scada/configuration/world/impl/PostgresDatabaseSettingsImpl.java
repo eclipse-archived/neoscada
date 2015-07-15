@@ -25,8 +25,6 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * An implementation of the model object '
  * <em><b>Postgres Database Settings</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

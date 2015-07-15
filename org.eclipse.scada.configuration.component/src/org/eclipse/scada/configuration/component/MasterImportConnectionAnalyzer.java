@@ -19,10 +19,10 @@ import org.eclipse.scada.configuration.infrastructure.MasterImport;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer#getConnection <em>Connection</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getMasterImportConnectionAnalyzer()
  * @model

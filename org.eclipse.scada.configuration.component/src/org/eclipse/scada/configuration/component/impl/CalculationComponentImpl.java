@@ -43,6 +43,7 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getName <em>Name</em>}</li>
@@ -54,8 +55,8 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getInitProperties <em>Init Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -170,6 +171,16 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
      * @ordered
      */
     protected EList<InputDefinition> inputs;
+
+    /**
+     * The cached value of the '{@link #getInitProperties() <em>Init Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInitProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> initProperties;
 
     /**
      * <!-- begin-user-doc -->
@@ -487,6 +498,20 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getInitProperties ()
+    {
+        if ( initProperties == null )
+        {
+            initProperties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, ComponentPackage.CALCULATION_COMPONENT__INIT_PROPERTIES );
+        }
+        return initProperties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -518,6 +543,8 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                 return ( (InternalEList<?>)getOutputs () ).basicRemove ( otherEnd, msgs );
             case ComponentPackage.CALCULATION_COMPONENT__INPUTS:
                 return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
+            case ComponentPackage.CALCULATION_COMPONENT__INIT_PROPERTIES:
+                return ( (InternalEList<?>)getInitProperties () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -576,6 +603,8 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                 return getOutputs ();
             case ComponentPackage.CALCULATION_COMPONENT__INPUTS:
                 return getInputs ();
+            case ComponentPackage.CALCULATION_COMPONENT__INIT_PROPERTIES:
+                return getInitProperties ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -625,6 +654,10 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                 getInputs ().clear ();
                 getInputs ().addAll ( (Collection<? extends InputDefinition>)newValue );
                 return;
+            case ComponentPackage.CALCULATION_COMPONENT__INIT_PROPERTIES:
+                getInitProperties ().clear ();
+                getInitProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -669,6 +702,9 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
             case ComponentPackage.CALCULATION_COMPONENT__INPUTS:
                 getInputs ().clear ();
                 return;
+            case ComponentPackage.CALCULATION_COMPONENT__INIT_PROPERTIES:
+                getInitProperties ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -703,6 +739,8 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                 return outputs != null && !outputs.isEmpty ();
             case ComponentPackage.CALCULATION_COMPONENT__INPUTS:
                 return inputs != null && !inputs.isEmpty ();
+            case ComponentPackage.CALCULATION_COMPONENT__INIT_PROPERTIES:
+                return initProperties != null && !initProperties.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

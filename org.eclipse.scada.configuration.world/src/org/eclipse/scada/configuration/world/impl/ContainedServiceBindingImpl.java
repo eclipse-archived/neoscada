@@ -30,10 +30,10 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.ContainedServiceBindingImpl#getService <em>Service</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -17,10 +17,10 @@ package org.eclipse.scada.configuration.world;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.PasswordCredentials#getPassword <em>Password</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getPasswordCredentials()
  * @model

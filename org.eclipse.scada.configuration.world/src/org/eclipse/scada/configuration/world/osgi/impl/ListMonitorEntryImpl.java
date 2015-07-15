@@ -25,12 +25,12 @@ import org.eclipse.scada.core.Variant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ListMonitorEntryImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ListMonitorEntryImpl#getRequireAck <em>Require Ack</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ListMonitorEntryImpl#getSeverity <em>Severity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

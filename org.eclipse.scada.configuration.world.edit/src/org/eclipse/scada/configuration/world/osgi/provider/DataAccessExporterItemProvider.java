@@ -68,8 +68,8 @@ public class DataAccessExporterItemProvider extends ExporterItemProvider
     protected void addExportsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DataAccessExporter_exports_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_DataAccessExporter_exports_feature", "_UI_DataAccessExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                OsgiPackage.Literals.DATA_ACCESS_EXPORTER__EXPORTS, true, false, false, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_DataAccessExporter_exports_feature", "_UI_DataAccessExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.DATA_ACCESS_EXPORTER__EXPORTS, true, false, false, null, null, null ) );
     }
 
     /**

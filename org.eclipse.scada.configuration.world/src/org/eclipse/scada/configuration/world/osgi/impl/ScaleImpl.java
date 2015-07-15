@@ -22,12 +22,12 @@ import org.eclipse.scada.configuration.world.osgi.Scale;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScaleImpl#isActive <em>Active</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScaleImpl#getFactor <em>Factor</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ScaleImpl#getOffset <em>Offset</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

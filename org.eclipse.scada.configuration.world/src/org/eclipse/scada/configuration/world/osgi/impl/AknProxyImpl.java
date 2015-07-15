@@ -27,13 +27,13 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AknProxyImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AknProxyImpl#getConnection <em>Connection</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AknProxyImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.AknProxyImpl#isAuthorative <em>Authorative</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

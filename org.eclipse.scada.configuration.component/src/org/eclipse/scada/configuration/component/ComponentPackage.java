@@ -1617,13 +1617,22 @@ public interface ComponentPackage extends EPackage
     int CALCULATION_COMPONENT__INPUTS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 7;
 
     /**
+     * The feature id for the '<em><b>Init Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CALCULATION_COMPONENT__INIT_PROPERTIES = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Calculation Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CALCULATION_COMPONENT_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 8;
+    int CALCULATION_COMPONENT_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 9;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -4264,6 +4273,17 @@ public interface ComponentPackage extends EPackage
     EReference getCalculationComponent_Inputs ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.CalculationComponent#getInitProperties <em>Init Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Init Properties</em>'.
+     * @see org.eclipse.scada.configuration.component.CalculationComponent#getInitProperties()
+     * @see #getCalculationComponent()
+     * @generated
+     */
+    EReference getCalculationComponent_InitProperties ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.CalculationModule <em>Calculation Module</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5739,6 +5759,14 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference CALCULATION_COMPONENT__INPUTS = eINSTANCE.getCalculationComponent_Inputs ();
+
+        /**
+         * The meta object literal for the '<em><b>Init Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CALCULATION_COMPONENT__INIT_PROPERTIES = eINSTANCE.getCalculationComponent_InitProperties ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.CalculationModuleImpl <em>Calculation Module</em>}' class.

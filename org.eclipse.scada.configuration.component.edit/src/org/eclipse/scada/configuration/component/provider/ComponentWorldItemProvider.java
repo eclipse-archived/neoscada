@@ -71,8 +71,8 @@ public class ComponentWorldItemProvider extends ContainerItemProvider
     protected void addInfrastructurePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentWorld_infrastructure_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_infrastructure_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.COMPONENT_WORLD__INFRASTRUCTURE, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_infrastructure_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.COMPONENT_WORLD__INFRASTRUCTURE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -84,8 +84,8 @@ public class ComponentWorldItemProvider extends ContainerItemProvider
     protected void addDefaultCustomizationPipelinePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentWorld_defaultCustomizationPipeline_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_defaultCustomizationPipeline_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_defaultCustomizationPipeline_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -97,8 +97,8 @@ public class ComponentWorldItemProvider extends ContainerItemProvider
     protected void addDefaultArchiveSelectorPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentWorld_defaultArchiveSelector_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_defaultArchiveSelector_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ComponentPackage.Literals.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_defaultArchiveSelector_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR, true, false, true, null, null, null ) );
     }
 
     /**
