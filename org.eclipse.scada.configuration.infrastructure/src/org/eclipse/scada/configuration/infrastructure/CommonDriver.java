@@ -23,11 +23,11 @@ import org.eclipse.scada.configuration.world.PasswordCredentials;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.CommonDriver#getPassword <em>Password</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.CommonDriver#getPortNumber <em>Port Number</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getCommonDriver()
  * @model

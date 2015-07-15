@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2015 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
     modelDirectory="/org.eclipse.scada.configuration.infrastructure/src" creationIcons="false"
     creationSubmenus="true" modelPluginID="org.eclipse.scada.configuration.infrastructure"
     modelName="Infrastructure" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.9" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script"
+    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.11" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script"
     operationReflection="true" importOrganizing="true" decoration="Manual">
   <foreignModel>infrastructure.ecore</foreignModel>
   <genPackages prefix="Infrastructure" basePackage="org.eclipse.scada.configuration"
@@ -162,6 +162,17 @@
     <genClasses ecoreClass="infrastructure.ecore#//EventInjectorSyslog">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EventInjectorSyslog/bindAddress"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EventInjectorSyslog/port"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//JMXSettings">
+      <genFeatures createChild="false" propertyCategory="Oracle" propertyDescription="A specific port to use for JMX. Overrides the instance based port number."
+          ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/port"/>
+      <genFeatures createChild="false" propertyCategory="Oracle" propertyDescription="An offset to the instance number for generating a JMX port number"
+          ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/instancePortOffset"/>
+      <genFeatures createChild="false" propertyCategory="Oracle" ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/localOnly"/>
+      <genFeatures createChild="false" propertyCategory="Oracle" ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/authenticated"/>
+      <genFeatures createChild="false" propertyCategory="Oracle" ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/ssl"/>
+      <genFeatures createChild="false" propertyCategory="Common" propertyDescription="Assign the nodes hostname as JMX server hostname"
+          ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/assignNodeHostname"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

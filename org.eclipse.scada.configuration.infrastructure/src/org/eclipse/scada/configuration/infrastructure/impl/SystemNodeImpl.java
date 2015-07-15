@@ -35,6 +35,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemNodeImpl#getDeployment <em>Deployment</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemNodeImpl#getDrivers <em>Drivers</em>}</li>
@@ -44,7 +45,6 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemNodeImpl#getServices <em>Services</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemNodeImpl#getValueSlaves <em>Value Slaves</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

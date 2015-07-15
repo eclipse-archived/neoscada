@@ -34,6 +34,7 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getInstanceNumber <em>Instance Number</em>}</li>
@@ -43,7 +44,6 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getSecurityConfiguration <em>Security Configuration</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getModules <em>Modules</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

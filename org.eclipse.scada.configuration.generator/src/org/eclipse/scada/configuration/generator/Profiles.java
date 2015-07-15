@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -83,14 +83,7 @@ public final class Profiles
 
     public static void addSystemProperty ( final Profile profile, final String key, final Object value )
     {
-        for ( final Iterator<SystemProperty> i = profile.getProperty ().iterator (); i.hasNext (); )
-        {
-            final SystemProperty p = i.next ();
-            if ( p.getKey ().equals ( key ) )
-            {
-                i.remove ();
-            }
-        }
+        removeSystemProperty ( profile, key );
 
         // now add
 
@@ -106,6 +99,18 @@ public final class Profiles
             prop.setValue ( null );
         }
         profile.getProperty ().add ( prop );
+    }
+
+    public static void removeSystemProperty ( final Profile profile, final String key )
+    {
+        for ( final Iterator<SystemProperty> i = profile.getProperty ().iterator (); i.hasNext (); )
+        {
+            final SystemProperty p = i.next ();
+            if ( p.getKey ().equals ( key ) )
+            {
+                i.remove ();
+            }
+        }
     }
 
     public static void addProgramArugment ( final Profile profile, final String argument )

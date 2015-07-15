@@ -20,11 +20,11 @@ import org.eclipse.scada.configuration.world.PasswordCredentials;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.AbstractCommonDriver#getPortNumber <em>Port Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.AbstractCommonDriver#getPassword <em>Password</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getAbstractCommonDriver()
  * @model abstract="true"

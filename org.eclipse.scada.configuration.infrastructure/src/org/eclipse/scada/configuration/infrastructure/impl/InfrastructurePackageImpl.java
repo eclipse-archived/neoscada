@@ -39,6 +39,7 @@ import org.eclipse.scada.configuration.infrastructure.GenericVMSettings;
 import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.infrastructure.JMXSettings;
 import org.eclipse.scada.configuration.infrastructure.JdbcUserService;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
@@ -308,6 +309,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass eventInjectorSyslogEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass jmxSettingsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1664,6 +1672,76 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getJMXSettings ()
+    {
+        return jmxSettingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getJMXSettings_Port ()
+    {
+        return (EAttribute)jmxSettingsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getJMXSettings_InstancePortOffset ()
+    {
+        return (EAttribute)jmxSettingsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getJMXSettings_LocalOnly ()
+    {
+        return (EAttribute)jmxSettingsEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getJMXSettings_Authenticated ()
+    {
+        return (EAttribute)jmxSettingsEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getJMXSettings_Ssl ()
+    {
+        return (EAttribute)jmxSettingsEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getJMXSettings_AssignNodeHostname ()
+    {
+        return (EAttribute)jmxSettingsEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getSlaveStorageLayout ()
     {
@@ -1851,6 +1929,14 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEAttribute ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__BIND_ADDRESS );
         createEAttribute ( eventInjectorSyslogEClass, EVENT_INJECTOR_SYSLOG__PORT );
 
+        jmxSettingsEClass = createEClass ( JMX_SETTINGS );
+        createEAttribute ( jmxSettingsEClass, JMX_SETTINGS__PORT );
+        createEAttribute ( jmxSettingsEClass, JMX_SETTINGS__INSTANCE_PORT_OFFSET );
+        createEAttribute ( jmxSettingsEClass, JMX_SETTINGS__LOCAL_ONLY );
+        createEAttribute ( jmxSettingsEClass, JMX_SETTINGS__AUTHENTICATED );
+        createEAttribute ( jmxSettingsEClass, JMX_SETTINGS__SSL );
+        createEAttribute ( jmxSettingsEClass, JMX_SETTINGS__ASSIGN_NODE_HOSTNAME );
+
         // Create enums
         slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
     }
@@ -1920,6 +2006,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         abstractCommonDriverEClass.getESuperTypes ().add ( this.getDriver () );
         eventInjectorHttpEClass.getESuperTypes ().add ( this.getModule () );
         eventInjectorSyslogEClass.getESuperTypes ().add ( this.getModule () );
+        jmxSettingsEClass.getESuperTypes ().add ( this.getModule () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -2070,6 +2157,14 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEClass ( eventInjectorSyslogEClass, EventInjectorSyslog.class, "EventInjectorSyslog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getEventInjectorSyslog_BindAddress (), ecorePackage.getEString (), "bindAddress", null, 0, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getEventInjectorSyslog_Port (), ecorePackage.getEInt (), "port", "20514", 1, 1, EventInjectorSyslog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( jmxSettingsEClass, JMXSettings.class, "JMXSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getJMXSettings_Port (), theEcorePackage.getEIntegerObject (), "port", null, 0, 1, JMXSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getJMXSettings_InstancePortOffset (), theEcorePackage.getEIntegerObject (), "instancePortOffset", null, 0, 1, JMXSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getJMXSettings_LocalOnly (), theEcorePackage.getEBooleanObject (), "localOnly", null, 0, 1, JMXSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getJMXSettings_Authenticated (), theEcorePackage.getEBooleanObject (), "authenticated", null, 0, 1, JMXSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getJMXSettings_Ssl (), theEcorePackage.getEBooleanObject (), "ssl", null, 0, 1, JMXSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getJMXSettings_AssignNodeHostname (), theEcorePackage.getEBoolean (), "assignNodeHostname", "false", 0, 1, JMXSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize enums and add enum literals
         initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$

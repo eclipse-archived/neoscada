@@ -247,6 +247,15 @@ public interface InfrastructureFactory extends EFactory
     EventInjectorSyslog createEventInjectorSyslog ();
 
     /**
+     * Returns a new object of class '<em>JMX Settings</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>JMX Settings</em>'.
+     * @generated
+     */
+    JMXSettings createJMXSettings ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

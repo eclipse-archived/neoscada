@@ -18,10 +18,10 @@ package org.eclipse.scada.configuration.infrastructure;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.RestExporterModule#getContextId <em>Context Id</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getRestExporterModule()
  * @model

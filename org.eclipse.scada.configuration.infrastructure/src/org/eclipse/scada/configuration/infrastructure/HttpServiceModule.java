@@ -18,10 +18,10 @@ package org.eclipse.scada.configuration.infrastructure;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule#getPort <em>Port</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getHttpServiceModule()
  * @model

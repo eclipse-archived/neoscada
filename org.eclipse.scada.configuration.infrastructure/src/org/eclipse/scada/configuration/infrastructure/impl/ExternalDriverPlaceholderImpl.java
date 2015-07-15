@@ -28,12 +28,12 @@ import org.eclipse.scada.configuration.world.Endpoint;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverPlaceholderImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverPlaceholderImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverPlaceholderImpl#getEndpoints <em>Endpoints</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

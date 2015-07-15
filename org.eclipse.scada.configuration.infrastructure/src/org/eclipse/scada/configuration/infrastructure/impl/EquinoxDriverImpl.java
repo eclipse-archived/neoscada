@@ -28,13 +28,13 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getInstanceNumber <em>Instance Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getUserService <em>User Service</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getSecurityConfiguration <em>Security Configuration</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getAccessCredentials <em>Access Credentials</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

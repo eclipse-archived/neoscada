@@ -30,11 +30,11 @@ import org.eclipse.scada.configuration.world.Settings;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl#getConfigurations <em>Configurations</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl#getSettings <em>Settings</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

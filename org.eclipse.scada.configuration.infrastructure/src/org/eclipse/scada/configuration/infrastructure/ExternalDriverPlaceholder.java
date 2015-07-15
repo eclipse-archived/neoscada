@@ -22,10 +22,10 @@ import org.eclipse.scada.configuration.world.Endpoint;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder#getEndpoints <em>Endpoints</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getExternalDriverPlaceholder()
  * @model

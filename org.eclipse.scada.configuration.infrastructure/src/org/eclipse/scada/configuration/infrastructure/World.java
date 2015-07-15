@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.World#getNodes <em>Nodes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.World#getOptions <em>Options</em>}</li>
@@ -43,7 +44,6 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.World#getDefaultDriverAccessCredentials <em>Default Driver Access Credentials</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.World#getConfigurations <em>Configurations</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getWorld()
  * @model

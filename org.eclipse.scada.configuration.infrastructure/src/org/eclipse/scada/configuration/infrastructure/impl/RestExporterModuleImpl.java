@@ -27,10 +27,10 @@ import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.RestExporterModuleImpl#getContextId <em>Context Id</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

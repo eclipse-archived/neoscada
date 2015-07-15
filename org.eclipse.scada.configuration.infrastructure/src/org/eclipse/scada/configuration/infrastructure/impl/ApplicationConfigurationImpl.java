@@ -39,13 +39,13 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl#getConfigurations <em>Configurations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

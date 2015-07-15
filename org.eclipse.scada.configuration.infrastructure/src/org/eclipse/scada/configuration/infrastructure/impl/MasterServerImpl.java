@@ -34,13 +34,13 @@ import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterServerImpl#getAuthoratives <em>Authoratives</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterServerImpl#getImportMaster <em>Import Master</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterServerImpl#getDriver <em>Driver</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterServerImpl#getArchiveTo <em>Archive To</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -26,11 +26,11 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EventInjectorSyslogImpl#getBindAddress <em>Bind Address</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EventInjectorSyslogImpl#getPort <em>Port</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

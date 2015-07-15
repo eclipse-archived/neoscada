@@ -19,10 +19,10 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.Device#getNode <em>Node</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getDevice()
  * @model abstract="true"

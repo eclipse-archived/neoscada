@@ -28,10 +28,10 @@ import org.eclipse.scada.configuration.infrastructure.WebAdminConsole;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WebAdminConsoleImpl#getHttpService <em>Http Service</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

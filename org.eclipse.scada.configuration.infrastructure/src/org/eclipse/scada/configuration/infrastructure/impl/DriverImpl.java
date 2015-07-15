@@ -27,12 +27,12 @@ import org.eclipse.scada.configuration.infrastructure.SystemNode;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DriverImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DriverImpl#getNode <em>Node</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DriverImpl#getProtocolTypeTag <em>Protocol Type Tag</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

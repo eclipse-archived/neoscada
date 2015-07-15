@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getInstanceNumber <em>Instance Number</em>}</li>
@@ -32,7 +33,6 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getSecurityConfiguration <em>Security Configuration</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getModules <em>Modules</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication()
  * @model abstract="true"

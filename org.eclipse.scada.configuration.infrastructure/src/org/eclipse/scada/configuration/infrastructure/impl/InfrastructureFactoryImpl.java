@@ -139,6 +139,8 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
                 return createEventInjectorHttp ();
             case InfrastructurePackage.EVENT_INJECTOR_SYSLOG:
                 return createEventInjectorSyslog ();
+            case InfrastructurePackage.JMX_SETTINGS:
+                return createJMXSettings ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -470,6 +472,17 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     {
         EventInjectorSyslogImpl eventInjectorSyslog = new EventInjectorSyslogImpl ();
         return eventInjectorSyslog;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public JMXSettings createJMXSettings ()
+    {
+        JMXSettingsImpl jmxSettings = new JMXSettingsImpl ();
+        return jmxSettings;
     }
 
     /**

@@ -30,10 +30,10 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.GenericVMSettingsImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

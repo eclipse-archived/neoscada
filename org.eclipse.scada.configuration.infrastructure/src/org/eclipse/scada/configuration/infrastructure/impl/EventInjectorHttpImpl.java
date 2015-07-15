@@ -29,10 +29,10 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EventInjectorHttpImpl#getHttpService <em>Http Service</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

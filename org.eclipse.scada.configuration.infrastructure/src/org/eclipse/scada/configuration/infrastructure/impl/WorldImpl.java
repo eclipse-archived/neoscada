@@ -38,6 +38,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WorldImpl#getNodes <em>Nodes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WorldImpl#getOptions <em>Options</em>}</li>
@@ -51,7 +52,6 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WorldImpl#getDefaultDriverAccessCredentials <em>Default Driver Access Credentials</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WorldImpl#getConfigurations <em>Configurations</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -20,13 +20,13 @@ import org.eclipse.scada.configuration.globalization.Authorative;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getAuthoratives <em>Authoratives</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getImportMaster <em>Import Master</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getDriver <em>Driver</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getArchiveTo <em>Archive To</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getMasterServer()
  * @model

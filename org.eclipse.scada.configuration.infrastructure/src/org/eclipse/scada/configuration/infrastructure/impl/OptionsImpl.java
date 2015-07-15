@@ -33,6 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.MonitorPool;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.OptionsImpl#getBaseDaNgpPort <em>Base Da Ngp Port</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.OptionsImpl#getBaseAeNgpPort <em>Base Ae Ngp Port</em>}</li>
@@ -42,7 +43,6 @@ import org.eclipse.scada.configuration.world.osgi.MonitorPool;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.OptionsImpl#getEventPools <em>Event Pools</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.OptionsImpl#getDefaultUserService <em>Default User Service</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

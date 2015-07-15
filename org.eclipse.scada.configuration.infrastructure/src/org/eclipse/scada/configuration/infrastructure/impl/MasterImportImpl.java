@@ -28,13 +28,13 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getImportedMaster <em>Imported Master</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getCredentials <em>Credentials</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getMaster <em>Master</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

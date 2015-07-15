@@ -83,8 +83,8 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxApplication_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_name_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                InfrastructurePackage.Literals.EQUINOX_APPLICATION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_name_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        InfrastructurePackage.Literals.EQUINOX_APPLICATION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -96,8 +96,8 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
     protected void addInstanceNumberPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxApplication_instanceNumber_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_instanceNumber_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                InfrastructurePackage.Literals.EQUINOX_APPLICATION__INSTANCE_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_instanceNumber_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        InfrastructurePackage.Literals.EQUINOX_APPLICATION__INSTANCE_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -109,8 +109,8 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
     protected void addConfigurationPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxApplication_configuration_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_configuration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                InfrastructurePackage.Literals.EQUINOX_APPLICATION__CONFIGURATION, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_configuration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        InfrastructurePackage.Literals.EQUINOX_APPLICATION__CONFIGURATION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -122,8 +122,8 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
     protected void addLocalCredentialsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxApplication_localCredentials_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_localCredentials_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                InfrastructurePackage.Literals.EQUINOX_APPLICATION__LOCAL_CREDENTIALS, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_localCredentials_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        InfrastructurePackage.Literals.EQUINOX_APPLICATION__LOCAL_CREDENTIALS, true, false, true, null, null, null ) );
     }
 
     /**
@@ -135,8 +135,8 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
     protected void addSecurityConfigurationPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxApplication_securityConfiguration_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_securityConfiguration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                InfrastructurePackage.Literals.EQUINOX_APPLICATION__SECURITY_CONFIGURATION, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_securityConfiguration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        InfrastructurePackage.Literals.EQUINOX_APPLICATION__SECURITY_CONFIGURATION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -275,6 +275,8 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__MODULES, InfrastructureFactory.eINSTANCE.createEventInjectorHttp () ) );
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__MODULES, InfrastructureFactory.eINSTANCE.createEventInjectorSyslog () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__MODULES, InfrastructureFactory.eINSTANCE.createJMXSettings () ) );
     }
 
     /**

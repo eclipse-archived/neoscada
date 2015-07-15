@@ -72,8 +72,8 @@ public class MasterServerItemProvider extends EquinoxApplicationItemProvider
     protected void addDriverPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterServer_driver_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterServer_driver_feature", "_UI_MasterServer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                InfrastructurePackage.Literals.MASTER_SERVER__DRIVER, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterServer_driver_feature", "_UI_MasterServer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        InfrastructurePackage.Literals.MASTER_SERVER__DRIVER, true, false, true, null, null, null ) );
     }
 
     /**
@@ -85,8 +85,8 @@ public class MasterServerItemProvider extends EquinoxApplicationItemProvider
     protected void addArchiveToPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterServer_archiveTo_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterServer_archiveTo_feature", "_UI_MasterServer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                InfrastructurePackage.Literals.MASTER_SERVER__ARCHIVE_TO, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterServer_archiveTo_feature", "_UI_MasterServer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        InfrastructurePackage.Literals.MASTER_SERVER__ARCHIVE_TO, true, false, true, null, null, null ) );
     }
 
     /**

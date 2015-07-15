@@ -2351,6 +2351,88 @@ public interface InfrastructurePackage extends EPackage
     int EVENT_INJECTOR_SYSLOG_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.JMXSettingsImpl <em>JMX Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.JMXSettingsImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getJMXSettings()
+     * @generated
+     */
+    int JMX_SETTINGS = 34;
+
+    /**
+     * The feature id for the '<em><b>Port</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JMX_SETTINGS__PORT = MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Instance Port Offset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JMX_SETTINGS__INSTANCE_PORT_OFFSET = MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Local Only</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JMX_SETTINGS__LOCAL_ONLY = MODULE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Authenticated</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JMX_SETTINGS__AUTHENTICATED = MODULE_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Ssl</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JMX_SETTINGS__SSL = MODULE_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Assign Node Hostname</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JMX_SETTINGS__ASSIGN_NODE_HOSTNAME = MODULE_FEATURE_COUNT + 5;
+
+    /**
+     * The number of structural features of the '<em>JMX Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JMX_SETTINGS_FEATURE_COUNT = MODULE_FEATURE_COUNT + 6;
+
+    /**
+     * The number of operations of the '<em>JMX Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JMX_SETTINGS_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2358,7 +2440,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSlaveStorageLayout()
      * @generated
      */
-    int SLAVE_STORAGE_LAYOUT = 34;
+    int SLAVE_STORAGE_LAYOUT = 35;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
@@ -3592,6 +3674,82 @@ public interface InfrastructurePackage extends EPackage
     EAttribute getEventInjectorSyslog_Port ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.JMXSettings <em>JMX Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>JMX Settings</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.JMXSettings
+     * @generated
+     */
+    EClass getJMXSettings ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.JMXSettings#getPort <em>Port</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Port</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.JMXSettings#getPort()
+     * @see #getJMXSettings()
+     * @generated
+     */
+    EAttribute getJMXSettings_Port ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.JMXSettings#getInstancePortOffset <em>Instance Port Offset</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Instance Port Offset</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.JMXSettings#getInstancePortOffset()
+     * @see #getJMXSettings()
+     * @generated
+     */
+    EAttribute getJMXSettings_InstancePortOffset ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.JMXSettings#getLocalOnly <em>Local Only</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Local Only</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.JMXSettings#getLocalOnly()
+     * @see #getJMXSettings()
+     * @generated
+     */
+    EAttribute getJMXSettings_LocalOnly ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.JMXSettings#getAuthenticated <em>Authenticated</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Authenticated</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.JMXSettings#getAuthenticated()
+     * @see #getJMXSettings()
+     * @generated
+     */
+    EAttribute getJMXSettings_Authenticated ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.JMXSettings#getSsl <em>Ssl</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ssl</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.JMXSettings#getSsl()
+     * @see #getJMXSettings()
+     * @generated
+     */
+    EAttribute getJMXSettings_Ssl ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.JMXSettings#isAssignNodeHostname <em>Assign Node Hostname</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Assign Node Hostname</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.JMXSettings#isAssignNodeHostname()
+     * @see #getJMXSettings()
+     * @generated
+     */
+    EAttribute getJMXSettings_AssignNodeHostname ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4612,6 +4770,64 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EAttribute EVENT_INJECTOR_SYSLOG__PORT = eINSTANCE.getEventInjectorSyslog_Port ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.JMXSettingsImpl <em>JMX Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.JMXSettingsImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getJMXSettings()
+         * @generated
+         */
+        EClass JMX_SETTINGS = eINSTANCE.getJMXSettings ();
+
+        /**
+         * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute JMX_SETTINGS__PORT = eINSTANCE.getJMXSettings_Port ();
+
+        /**
+         * The meta object literal for the '<em><b>Instance Port Offset</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute JMX_SETTINGS__INSTANCE_PORT_OFFSET = eINSTANCE.getJMXSettings_InstancePortOffset ();
+
+        /**
+         * The meta object literal for the '<em><b>Local Only</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute JMX_SETTINGS__LOCAL_ONLY = eINSTANCE.getJMXSettings_LocalOnly ();
+
+        /**
+         * The meta object literal for the '<em><b>Authenticated</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute JMX_SETTINGS__AUTHENTICATED = eINSTANCE.getJMXSettings_Authenticated ();
+
+        /**
+         * The meta object literal for the '<em><b>Ssl</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute JMX_SETTINGS__SSL = eINSTANCE.getJMXSettings_Ssl ();
+
+        /**
+         * The meta object literal for the '<em><b>Assign Node Hostname</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute JMX_SETTINGS__ASSIGN_NODE_HOSTNAME = eINSTANCE.getJMXSettings_AssignNodeHostname ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.

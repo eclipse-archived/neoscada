@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration#getModules <em>Modules</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration#getConfigurations <em>Configurations</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getApplicationConfiguration()
  * @model

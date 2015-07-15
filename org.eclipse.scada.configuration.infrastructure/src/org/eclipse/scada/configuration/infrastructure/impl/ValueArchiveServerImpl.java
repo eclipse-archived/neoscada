@@ -18,8 +18,6 @@ import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Value Archive Server</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

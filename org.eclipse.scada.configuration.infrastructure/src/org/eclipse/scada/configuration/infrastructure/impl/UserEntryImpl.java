@@ -27,12 +27,12 @@ import org.eclipse.scada.configuration.infrastructure.UserEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.UserEntryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.UserEntryImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.UserEntryImpl#getRoles <em>Roles</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -22,12 +22,12 @@ import org.eclipse.scada.configuration.security.Configuration;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxBase#getInstanceNumber <em>Instance Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxBase#getUserService <em>User Service</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxBase#getSecurityConfiguration <em>Security Configuration</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxBase()
  * @model interface="true" abstract="true"

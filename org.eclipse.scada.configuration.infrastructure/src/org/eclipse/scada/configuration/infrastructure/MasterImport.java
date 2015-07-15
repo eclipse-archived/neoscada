@@ -20,13 +20,13 @@ import org.eclipse.scada.configuration.world.Credentials;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getImportedMaster <em>Imported Master</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getCredentials <em>Credentials</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getMaster <em>Master</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getMasterImport()
  * @model

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,14 +15,16 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
+import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
-import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
+import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
 
 /**
  * This is the central singleton for the Infrastructure editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public final class InfrastructureEditorPlugin extends EMFPlugin
@@ -31,6 +33,7 @@ public final class InfrastructureEditorPlugin extends EMFPlugin
      * Keep track of the singleton.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final InfrastructureEditorPlugin INSTANCE = new InfrastructureEditorPlugin ();
@@ -39,6 +42,7 @@ public final class InfrastructureEditorPlugin extends EMFPlugin
      * Keep track of the singleton.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private static Implementation plugin;
@@ -47,17 +51,19 @@ public final class InfrastructureEditorPlugin extends EMFPlugin
      * Create the instance.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public InfrastructureEditorPlugin ()
     {
-        super ( new ResourceLocator[] { ExecEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, } );
+        super ( new ResourceLocator[] { ExecEditPlugin.INSTANCE, GlobalizeEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, } );
     }
 
     /**
      * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the singleton instance.
      * @generated
      */
@@ -71,6 +77,7 @@ public final class InfrastructureEditorPlugin extends EMFPlugin
      * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the singleton instance.
      * @generated
      */
@@ -83,6 +90,7 @@ public final class InfrastructureEditorPlugin extends EMFPlugin
      * The actual implementation of the Eclipse <b>Plugin</b>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static class Implementation extends EclipseUIPlugin
@@ -91,6 +99,7 @@ public final class InfrastructureEditorPlugin extends EMFPlugin
          * Creates an instance.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         public Implementation ()

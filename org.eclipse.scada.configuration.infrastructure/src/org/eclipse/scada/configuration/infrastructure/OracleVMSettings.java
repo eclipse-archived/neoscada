@@ -18,11 +18,11 @@ package org.eclipse.scada.configuration.infrastructure;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getInitialHeapSize <em>Initial Heap Size</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getMaximumHeapSize <em>Maximum Heap Size</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOracleVMSettings()
  * @model annotation="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup groupId='oracle.vm.settings'"

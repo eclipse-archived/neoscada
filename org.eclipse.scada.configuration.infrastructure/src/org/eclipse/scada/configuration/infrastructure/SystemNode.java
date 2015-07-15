@@ -26,6 +26,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getDeployment <em>Deployment</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getDrivers <em>Drivers</em>}</li>
@@ -35,7 +36,6 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getServices <em>Services</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getValueSlaves <em>Value Slaves</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getSystemNode()
  * @model

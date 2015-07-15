@@ -25,11 +25,11 @@ import org.eclipse.scada.configuration.world.PasswordCredentials;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.CommonDriverImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.CommonDriverImpl#getPortNumber <em>Port Number</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

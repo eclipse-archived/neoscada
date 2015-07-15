@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.infrastructure.OracleVMSettings;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.OracleVMSettingsImpl#getInitialHeapSize <em>Initial Heap Size</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.OracleVMSettingsImpl#getMaximumHeapSize <em>Maximum Heap Size</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

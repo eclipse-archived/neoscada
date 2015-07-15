@@ -25,11 +25,11 @@ import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ValueArchiveSlaveImpl#getStoragePath <em>Storage Path</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ValueArchiveSlaveImpl#getStorageLayout <em>Storage Layout</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

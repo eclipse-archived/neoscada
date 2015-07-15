@@ -25,10 +25,10 @@ import org.eclipse.scada.configuration.infrastructure.JdbcUserService;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.JdbcUserServiceImpl#getImplementation <em>Implementation</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

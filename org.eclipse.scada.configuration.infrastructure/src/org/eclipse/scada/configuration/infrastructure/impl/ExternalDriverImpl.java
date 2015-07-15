@@ -25,12 +25,12 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverImpl#getPortNumber <em>Port Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverImpl#getAccessCredentials <em>Access Credentials</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverImpl#isBinding <em>Binding</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

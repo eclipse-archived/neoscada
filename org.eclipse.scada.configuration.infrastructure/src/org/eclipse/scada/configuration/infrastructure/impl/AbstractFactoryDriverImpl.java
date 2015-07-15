@@ -28,11 +28,11 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractFactoryDriverImpl#getDriverTypeId <em>Driver Type Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractFactoryDriverImpl#getDevices <em>Devices</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

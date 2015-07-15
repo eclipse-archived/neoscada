@@ -31,13 +31,13 @@ import org.eclipse.scada.configuration.infrastructure.Node;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.NodeImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.NodeImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.NodeImpl#getHostName <em>Host Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.NodeImpl#getDevices <em>Devices</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

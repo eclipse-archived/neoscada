@@ -30,10 +30,10 @@ import org.eclipse.scada.configuration.infrastructure.UserEntry;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemPropertyUserServiceImpl#getUsers <em>Users</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -32,12 +32,12 @@ import org.eclipse.scada.configuration.infrastructure.Node;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl#getNode <em>Node</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
