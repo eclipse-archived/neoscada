@@ -1,44 +1,66 @@
 /**
- * Copyright (c) 2014 IBH SYSTEMS GmbH.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.infrastructure.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
+import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.UserService;
-
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.world.Credentials;
+import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Equinox Driver</b></em>'.
+ * An implementation of the model object '
+ * <em><b>Abstract Equinox Driver</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getInstanceNumber <em>Instance Number</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getUserService <em>User Service</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getSecurityConfiguration <em>Security Configuration</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getAccessCredentials <em>Access Credentials</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getInstanceNumber
+ * <em>Instance Number</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getUserService
+ * <em>User Service</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getSecurityConfiguration
+ * <em>Security Configuration</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getModules
+ * <em>Modules</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getConfiguration
+ * <em>Configuration</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getConfigurations
+ * <em>Configurations</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractEquinoxDriverImpl#getAccessCredentials
+ * <em>Access Credentials</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,19 +68,23 @@ import org.eclipse.scada.configuration.world.Credentials;
 public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements AbstractEquinoxDriver
 {
     /**
-     * The default value of the '{@link #getInstanceNumber() <em>Instance Number</em>}' attribute.
+     * The default value of the '{@link #getInstanceNumber()
+     * <em>Instance Number</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getInstanceNumber()
      * @generated
      * @ordered
      */
-    protected static final int INSTANCE_NUMBER_EDEFAULT = 0;
+    protected static final int INSTANCE_NUMBER_EDEFAULT = -1;
 
     /**
-     * The cached value of the '{@link #getInstanceNumber() <em>Instance Number</em>}' attribute.
+     * The cached value of the '{@link #getInstanceNumber()
+     * <em>Instance Number</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getInstanceNumber()
      * @generated
      * @ordered
@@ -66,9 +92,11 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     protected int instanceNumber = INSTANCE_NUMBER_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getUserService() <em>User Service</em>}' containment reference.
+     * The cached value of the '{@link #getUserService() <em>User Service</em>}'
+     * containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getUserService()
      * @generated
      * @ordered
@@ -76,9 +104,11 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     protected UserService userService;
 
     /**
-     * The cached value of the '{@link #getSecurityConfiguration() <em>Security Configuration</em>}' reference.
+     * The cached value of the '{@link #getSecurityConfiguration()
+     * <em>Security Configuration</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getSecurityConfiguration()
      * @generated
      * @ordered
@@ -86,9 +116,47 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     protected Configuration securityConfiguration;
 
     /**
-     * The cached value of the '{@link #getAccessCredentials() <em>Access Credentials</em>}' containment reference.
+     * The cached value of the '{@link #getModules() <em>Modules</em>}'
+     * containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @see #getModules()
+     * @generated
+     * @ordered
+     */
+    protected EList<Module> modules;
+
+    /**
+     * The cached value of the '{@link #getConfiguration()
+     * <em>Configuration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @see #getConfiguration()
+     * @generated
+     * @ordered
+     */
+    protected ApplicationConfiguration configuration;
+
+    /**
+     * The cached value of the '{@link #getConfigurations()
+     * <em>Configurations</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @see #getConfigurations()
+     * @generated
+     * @ordered
+     */
+    protected EList<IndependentConfiguration> configurations;
+
+    /**
+     * The cached value of the '{@link #getAccessCredentials()
+     * <em>Access Credentials</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @see #getAccessCredentials()
      * @generated
      * @ordered
@@ -98,6 +166,7 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected AbstractEquinoxDriverImpl ()
@@ -108,6 +177,7 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -119,100 +189,205 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public Configuration getSecurityConfiguration ()
     {
-        if ( securityConfiguration != null && securityConfiguration.eIsProxy () )
+        if ( this.securityConfiguration != null && this.securityConfiguration.eIsProxy () )
         {
-            InternalEObject oldSecurityConfiguration = (InternalEObject)securityConfiguration;
-            securityConfiguration = (Configuration)eResolveProxy ( oldSecurityConfiguration );
-            if ( securityConfiguration != oldSecurityConfiguration )
+            final InternalEObject oldSecurityConfiguration = (InternalEObject)this.securityConfiguration;
+            this.securityConfiguration = (Configuration)eResolveProxy ( oldSecurityConfiguration );
+            if ( this.securityConfiguration != oldSecurityConfiguration )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, securityConfiguration ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
+                }
             }
         }
-        return securityConfiguration;
+        return this.securityConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Configuration basicGetSecurityConfiguration ()
     {
-        return securityConfiguration;
+        return this.securityConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void setSecurityConfiguration ( Configuration newSecurityConfiguration )
+    @Override
+    public void setSecurityConfiguration ( final Configuration newSecurityConfiguration )
     {
-        Configuration oldSecurityConfiguration = securityConfiguration;
-        securityConfiguration = newSecurityConfiguration;
+        final Configuration oldSecurityConfiguration = this.securityConfiguration;
+        this.securityConfiguration = newSecurityConfiguration;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, securityConfiguration ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
+    public EList<Module> getModules ()
+    {
+        if ( this.modules == null )
+        {
+            this.modules = new EObjectContainmentEList.Resolving<Module> ( Module.class, this, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES );
+        }
+        return this.modules;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public ApplicationConfiguration getConfiguration ()
+    {
+        if ( this.configuration != null && this.configuration.eIsProxy () )
+        {
+            final InternalEObject oldConfiguration = (InternalEObject)this.configuration;
+            this.configuration = (ApplicationConfiguration)eResolveProxy ( oldConfiguration );
+            if ( this.configuration != oldConfiguration )
+            {
+                if ( eNotificationRequired () )
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATION, oldConfiguration, this.configuration ) );
+                }
+            }
+        }
+        return this.configuration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public ApplicationConfiguration basicGetConfiguration ()
+    {
+        return this.configuration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void setConfiguration ( final ApplicationConfiguration newConfiguration )
+    {
+        final ApplicationConfiguration oldConfiguration = this.configuration;
+        this.configuration = newConfiguration;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATION, oldConfiguration, this.configuration ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public EList<IndependentConfiguration> getConfigurations ()
+    {
+        if ( this.configurations == null )
+        {
+            this.configurations = new EObjectContainmentEList.Resolving<IndependentConfiguration> ( IndependentConfiguration.class, this, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS );
+        }
+        return this.configurations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
     public Credentials getAccessCredentials ()
     {
-        if ( accessCredentials != null && accessCredentials.eIsProxy () )
+        if ( this.accessCredentials != null && this.accessCredentials.eIsProxy () )
         {
-            InternalEObject oldAccessCredentials = (InternalEObject)accessCredentials;
-            accessCredentials = (Credentials)eResolveProxy ( oldAccessCredentials );
-            if ( accessCredentials != oldAccessCredentials )
+            final InternalEObject oldAccessCredentials = (InternalEObject)this.accessCredentials;
+            this.accessCredentials = (Credentials)eResolveProxy ( oldAccessCredentials );
+            if ( this.accessCredentials != oldAccessCredentials )
             {
-                InternalEObject newAccessCredentials = (InternalEObject)accessCredentials;
+                final InternalEObject newAccessCredentials = (InternalEObject)this.accessCredentials;
                 NotificationChain msgs = oldAccessCredentials.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, null, null );
                 if ( newAccessCredentials.eInternalContainer () == null )
                 {
                     msgs = newAccessCredentials.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, null, msgs );
                 }
                 if ( msgs != null )
+                {
                     msgs.dispatch ();
+                }
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, oldAccessCredentials, accessCredentials ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, oldAccessCredentials, this.accessCredentials ) );
+                }
             }
         }
-        return accessCredentials;
+        return this.accessCredentials;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Credentials basicGetAccessCredentials ()
     {
-        return accessCredentials;
+        return this.accessCredentials;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public NotificationChain basicSetAccessCredentials ( Credentials newAccessCredentials, NotificationChain msgs )
+    public NotificationChain basicSetAccessCredentials ( final Credentials newAccessCredentials, NotificationChain msgs )
     {
-        Credentials oldAccessCredentials = accessCredentials;
-        accessCredentials = newAccessCredentials;
+        final Credentials oldAccessCredentials = this.accessCredentials;
+        this.accessCredentials = newAccessCredentials;
         if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, oldAccessCredentials, newAccessCredentials );
+            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, oldAccessCredentials, newAccessCredentials );
             if ( msgs == null )
+            {
                 msgs = notification;
+            }
             else
+            {
                 msgs.add ( notification );
+            }
         }
         return msgs;
     }
@@ -220,79 +395,101 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void setAccessCredentials ( Credentials newAccessCredentials )
+    @Override
+    public void setAccessCredentials ( final Credentials newAccessCredentials )
     {
-        if ( newAccessCredentials != accessCredentials )
+        if ( newAccessCredentials != this.accessCredentials )
         {
             NotificationChain msgs = null;
-            if ( accessCredentials != null )
-                msgs = ( (InternalEObject)accessCredentials ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, null, msgs );
+            if ( this.accessCredentials != null )
+            {
+                msgs = ( (InternalEObject)this.accessCredentials ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, null, msgs );
+            }
             if ( newAccessCredentials != null )
+            {
                 msgs = ( (InternalEObject)newAccessCredentials ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, null, msgs );
+            }
             msgs = basicSetAccessCredentials ( newAccessCredentials, msgs );
             if ( msgs != null )
+            {
                 msgs.dispatch ();
+            }
         }
         else if ( eNotificationRequired () )
+        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, newAccessCredentials, newAccessCredentials ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public UserService getUserService ()
     {
-        if ( userService != null && userService.eIsProxy () )
+        if ( this.userService != null && this.userService.eIsProxy () )
         {
-            InternalEObject oldUserService = (InternalEObject)userService;
-            userService = (UserService)eResolveProxy ( oldUserService );
-            if ( userService != oldUserService )
+            final InternalEObject oldUserService = (InternalEObject)this.userService;
+            this.userService = (UserService)eResolveProxy ( oldUserService );
+            if ( this.userService != oldUserService )
             {
-                InternalEObject newUserService = (InternalEObject)userService;
+                final InternalEObject newUserService = (InternalEObject)this.userService;
                 NotificationChain msgs = oldUserService.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, null, null );
                 if ( newUserService.eInternalContainer () == null )
                 {
                     msgs = newUserService.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, null, msgs );
                 }
                 if ( msgs != null )
+                {
                     msgs.dispatch ();
+                }
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, oldUserService, userService ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, oldUserService, this.userService ) );
+                }
             }
         }
-        return userService;
+        return this.userService;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public UserService basicGetUserService ()
     {
-        return userService;
+        return this.userService;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public NotificationChain basicSetUserService ( UserService newUserService, NotificationChain msgs )
+    public NotificationChain basicSetUserService ( final UserService newUserService, NotificationChain msgs )
     {
-        UserService oldUserService = userService;
-        userService = newUserService;
+        final UserService oldUserService = this.userService;
+        this.userService = newUserService;
         if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, oldUserService, newUserService );
+            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, oldUserService, newUserService );
             if ( msgs == null )
+            {
                 msgs = notification;
+            }
             else
+            {
                 msgs.add ( notification );
+            }
         }
         return msgs;
     }
@@ -300,60 +497,81 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setUserService ( UserService newUserService )
-    {
-        if ( newUserService != userService )
-        {
-            NotificationChain msgs = null;
-            if ( userService != null )
-                msgs = ( (InternalEObject)userService ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, null, msgs );
-            if ( newUserService != null )
-                msgs = ( (InternalEObject)newUserService ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, null, msgs );
-            msgs = basicSetUserService ( newUserService, msgs );
-            if ( msgs != null )
-                msgs.dispatch ();
-        }
-        else if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, newUserService, newUserService ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public int getInstanceNumber ()
-    {
-        return instanceNumber;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setInstanceNumber ( int newInstanceNumber )
-    {
-        int oldInstanceNumber = instanceNumber;
-        instanceNumber = newInstanceNumber;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__INSTANCE_NUMBER, oldInstanceNumber, instanceNumber ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public void setUserService ( final UserService newUserService )
+    {
+        if ( newUserService != this.userService )
+        {
+            NotificationChain msgs = null;
+            if ( this.userService != null )
+            {
+                msgs = ( (InternalEObject)this.userService ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, null, msgs );
+            }
+            if ( newUserService != null )
+            {
+                msgs = ( (InternalEObject)newUserService ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, null, msgs );
+            }
+            msgs = basicSetUserService ( newUserService, msgs );
+            if ( msgs != null )
+            {
+                msgs.dispatch ();
+            }
+        }
+        else if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE, newUserService, newUserService ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public int getInstanceNumber ()
+    {
+        return this.instanceNumber;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void setInstanceNumber ( final int newInstanceNumber )
+    {
+        final int oldInstanceNumber = this.instanceNumber;
+        this.instanceNumber = newInstanceNumber;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__INSTANCE_NUMBER, oldInstanceNumber, this.instanceNumber ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
     {
         switch ( featureID )
         {
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE:
                 return basicSetUserService ( null, msgs );
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES:
+                return ( (InternalEList<?>)getModules () ).basicRemove ( otherEnd, msgs );
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS:
+                return ( (InternalEList<?>)getConfigurations () ).basicRemove ( otherEnd, msgs );
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS:
                 return basicSetAccessCredentials ( null, msgs );
         }
@@ -363,10 +581,11 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -374,15 +593,31 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
                 return getInstanceNumber ();
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE:
                 if ( resolve )
+                {
                     return getUserService ();
+                }
                 return basicGetUserService ();
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION:
                 if ( resolve )
+                {
                     return getSecurityConfiguration ();
+                }
                 return basicGetSecurityConfiguration ();
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES:
+                return getModules ();
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATION:
+                if ( resolve )
+                {
+                    return getConfiguration ();
+                }
+                return basicGetConfiguration ();
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS:
+                return getConfigurations ();
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS:
                 if ( resolve )
+                {
                     return getAccessCredentials ();
+                }
                 return basicGetAccessCredentials ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -391,10 +626,12 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -407,6 +644,17 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION:
                 setSecurityConfiguration ( (Configuration)newValue );
                 return;
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES:
+                getModules ().clear ();
+                getModules ().addAll ( (Collection<? extends Module>)newValue );
+                return;
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATION:
+                setConfiguration ( (ApplicationConfiguration)newValue );
+                return;
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS:
+                getConfigurations ().clear ();
+                getConfigurations ().addAll ( (Collection<? extends IndependentConfiguration>)newValue );
+                return;
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS:
                 setAccessCredentials ( (Credentials)newValue );
                 return;
@@ -417,10 +665,11 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -433,6 +682,15 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION:
                 setSecurityConfiguration ( (Configuration)null );
                 return;
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES:
+                getModules ().clear ();
+                return;
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATION:
+                setConfiguration ( (ApplicationConfiguration)null );
+                return;
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS:
+                getConfigurations ().clear ();
+                return;
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS:
                 setAccessCredentials ( (Credentials)null );
                 return;
@@ -443,21 +701,28 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__INSTANCE_NUMBER:
-                return instanceNumber != INSTANCE_NUMBER_EDEFAULT;
+                return this.instanceNumber != INSTANCE_NUMBER_EDEFAULT;
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE:
-                return userService != null;
+                return this.userService != null;
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION:
-                return securityConfiguration != null;
+                return this.securityConfiguration != null;
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES:
+                return this.modules != null && !this.modules.isEmpty ();
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATION:
+                return this.configuration != null;
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS:
+                return this.configurations != null && !this.configurations.isEmpty ();
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS:
-                return accessCredentials != null;
+                return this.accessCredentials != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -465,10 +730,11 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
+    public int eBaseStructuralFeatureID ( final int derivedFeatureID, final Class<?> baseClass )
     {
         if ( baseClass == EquinoxBase.class )
         {
@@ -480,6 +746,12 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
                     return InfrastructurePackage.EQUINOX_BASE__USER_SERVICE;
                 case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION:
                     return InfrastructurePackage.EQUINOX_BASE__SECURITY_CONFIGURATION;
+                case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES:
+                    return InfrastructurePackage.EQUINOX_BASE__MODULES;
+                case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATION:
+                    return InfrastructurePackage.EQUINOX_BASE__CONFIGURATION;
+                case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS:
+                    return InfrastructurePackage.EQUINOX_BASE__CONFIGURATIONS;
                 default:
                     return -1;
             }
@@ -490,10 +762,11 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
+    public int eDerivedStructuralFeatureID ( final int baseFeatureID, final Class<?> baseClass )
     {
         if ( baseClass == EquinoxBase.class )
         {
@@ -505,6 +778,12 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
                     return InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE;
                 case InfrastructurePackage.EQUINOX_BASE__SECURITY_CONFIGURATION:
                     return InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION;
+                case InfrastructurePackage.EQUINOX_BASE__MODULES:
+                    return InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES;
+                case InfrastructurePackage.EQUINOX_BASE__CONFIGURATION:
+                    return InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATION;
+                case InfrastructurePackage.EQUINOX_BASE__CONFIGURATIONS:
+                    return InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS;
                 default:
                     return -1;
             }
@@ -515,17 +794,20 @@ public abstract class AbstractEquinoxDriverImpl extends DriverImpl implements Ab
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (instanceNumber: " ); //$NON-NLS-1$
-        result.append ( instanceNumber );
+        result.append ( this.instanceNumber );
         result.append ( ')' );
         return result.toString ();
     }

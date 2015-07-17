@@ -47,6 +47,10 @@
                class="org.eclipse.scada.configuration.infrastructure.validation.DriverValidator"
                filterClass="org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver">
          </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.EquinoxBaseValidator"
+               filterClass="org.eclipse.scada.configuration.infrastructure.EquinoxBase">
+         </validator>
       </validationContext>
    </extension>
 

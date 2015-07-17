@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -38,7 +38,7 @@ public class NameLabelProvider extends ObservableMapStyledCellLabelProvider
 
     public NameLabelProvider ( final Display display, final IObservableSet elements )
     {
-        super ( EMFProperties.value ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__NAME ).observeDetail ( PojoProperties.value ( "master" ).observeDetail ( elements ) ) );
+        super ( EMFProperties.value ( InfrastructurePackage.Literals.NAMED_APPLICATION__NAME ).observeDetail ( PojoProperties.value ( "master" ).observeDetail ( elements ) ) );
         this.resourceManager = new LocalResourceManager ( JFaceResources.getResources ( display ) );
         this.adapterFactory = new ComposedAdapterFactory ( ComposedAdapterFactory.Descriptor.Registry.INSTANCE );
     }

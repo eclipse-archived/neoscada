@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage
  * @generated
  */
@@ -26,6 +27,7 @@ public interface InfrastructureFactory extends EFactory
      * The singleton instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     InfrastructureFactory eINSTANCE = org.eclipse.scada.configuration.infrastructure.impl.InfrastructureFactoryImpl.init ();
@@ -34,6 +36,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>World</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>World</em>'.
      * @generated
      */
@@ -43,6 +46,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Master Server</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Master Server</em>'.
      * @generated
      */
@@ -52,6 +56,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Master Import</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Master Import</em>'.
      * @generated
      */
@@ -61,6 +66,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Options</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Options</em>'.
      * @generated
      */
@@ -70,6 +76,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Common Driver</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Common Driver</em>'.
      * @generated
      */
@@ -79,6 +86,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>External Node</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>External Node</em>'.
      * @generated
      */
@@ -88,6 +96,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>System Node</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>System Node</em>'.
      * @generated
      */
@@ -97,6 +106,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>System Property User Service</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>System Property User Service</em>'.
      * @generated
      */
@@ -106,6 +116,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>User Entry</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>User Entry</em>'.
      * @generated
      */
@@ -115,6 +126,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Jdbc User Service</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Jdbc User Service</em>'.
      * @generated
      */
@@ -124,6 +136,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Value Archive Server</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Value Archive Server</em>'.
      * @generated
      */
@@ -133,6 +146,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Equinox Driver</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Equinox Driver</em>'.
      * @generated
      */
@@ -142,6 +156,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>External Driver</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>External Driver</em>'.
      * @generated
      */
@@ -151,6 +166,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>External Driver Placeholder</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>External Driver Placeholder</em>'.
      * @generated
      */
@@ -160,6 +176,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Application Configuration</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Application Configuration</em>'.
      * @generated
      */
@@ -169,6 +186,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Configurations</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Configurations</em>'.
      * @generated
      */
@@ -178,6 +196,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Http Service Module</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Http Service Module</em>'.
      * @generated
      */
@@ -187,6 +206,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Rest Exporter Module</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Rest Exporter Module</em>'.
      * @generated
      */
@@ -196,6 +216,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Value Archive Slave</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Value Archive Slave</em>'.
      * @generated
      */
@@ -205,6 +226,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Web Admin Console</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Web Admin Console</em>'.
      * @generated
      */
@@ -214,6 +236,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Oracle VM Settings</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Oracle VM Settings</em>'.
      * @generated
      */
@@ -223,6 +246,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Generic VM Settings</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Generic VM Settings</em>'.
      * @generated
      */
@@ -232,6 +256,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Event Injector Http</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Event Injector Http</em>'.
      * @generated
      */
@@ -241,6 +266,7 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>Event Injector Syslog</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>Event Injector Syslog</em>'.
      * @generated
      */
@@ -250,15 +276,39 @@ public interface InfrastructureFactory extends EFactory
      * Returns a new object of class '<em>JMX Settings</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return a new object of class '<em>JMX Settings</em>'.
      * @generated
      */
     JMXSettings createJMXSettings ();
 
     /**
+     * Returns a new object of class '<em>Configuration Admin File Backend</em>
+     * '.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return a new object of class '<em>Configuration Admin File Backend</em>
+     *         '.
+     * @generated
+     */
+    ConfigurationAdminFileBackend createConfigurationAdminFileBackend ();
+
+    /**
+     * Returns a new object of class '<em>DS File Backend</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return a new object of class '<em>DS File Backend</em>'.
+     * @generated
+     */
+    DSFileBackend createDSFileBackend ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the package supported by this factory.
      * @generated
      */

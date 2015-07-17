@@ -1,38 +1,40 @@
 /**
- * Copyright (c) 2014 IBH SYSTEMS GmbH.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.infrastructure.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.scada.configuration.infrastructure.AbstractCommonDriver;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Common Driver</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Common Driver</b></em>
+ * '.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractCommonDriverImpl#getPortNumber <em>Port Number</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractCommonDriverImpl#getPassword <em>Password</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractCommonDriverImpl#getPortNumber
+ * <em>Port Number</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.infrastructure.impl.AbstractCommonDriverImpl#getPassword
+ * <em>Password</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,9 +42,11 @@ import org.eclipse.scada.configuration.world.PasswordCredentials;
 public abstract class AbstractCommonDriverImpl extends DriverImpl implements AbstractCommonDriver
 {
     /**
-     * The default value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
+     * The default value of the '{@link #getPortNumber() <em>Port Number</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPortNumber()
      * @generated
      * @ordered
@@ -50,9 +54,11 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     protected static final short PORT_NUMBER_EDEFAULT = 0;
 
     /**
-     * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
+     * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPortNumber()
      * @generated
      * @ordered
@@ -60,9 +66,11 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     protected short portNumber = PORT_NUMBER_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getPassword() <em>Password</em>}' containment reference.
+     * The cached value of the '{@link #getPassword() <em>Password</em>}'
+     * containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPassword()
      * @generated
      * @ordered
@@ -72,6 +80,7 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected AbstractCommonDriverImpl ()
@@ -82,6 +91,7 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -93,80 +103,98 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public short getPortNumber ()
     {
-        return portNumber;
+        return this.portNumber;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void setPortNumber ( short newPortNumber )
+    @Override
+    public void setPortNumber ( final short newPortNumber )
     {
-        short oldPortNumber = portNumber;
-        portNumber = newPortNumber;
+        final short oldPortNumber = this.portNumber;
+        this.portNumber = newPortNumber;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PORT_NUMBER, oldPortNumber, portNumber ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PORT_NUMBER, oldPortNumber, this.portNumber ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public PasswordCredentials getPassword ()
     {
-        if ( password != null && password.eIsProxy () )
+        if ( this.password != null && this.password.eIsProxy () )
         {
-            InternalEObject oldPassword = (InternalEObject)password;
-            password = (PasswordCredentials)eResolveProxy ( oldPassword );
-            if ( password != oldPassword )
+            final InternalEObject oldPassword = (InternalEObject)this.password;
+            this.password = (PasswordCredentials)eResolveProxy ( oldPassword );
+            if ( this.password != oldPassword )
             {
-                InternalEObject newPassword = (InternalEObject)password;
+                final InternalEObject newPassword = (InternalEObject)this.password;
                 NotificationChain msgs = oldPassword.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, null, null );
                 if ( newPassword.eInternalContainer () == null )
                 {
                     msgs = newPassword.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, null, msgs );
                 }
                 if ( msgs != null )
+                {
                     msgs.dispatch ();
+                }
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, oldPassword, password ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, oldPassword, this.password ) );
+                }
             }
         }
-        return password;
+        return this.password;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public PasswordCredentials basicGetPassword ()
     {
-        return password;
+        return this.password;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public NotificationChain basicSetPassword ( PasswordCredentials newPassword, NotificationChain msgs )
+    public NotificationChain basicSetPassword ( final PasswordCredentials newPassword, NotificationChain msgs )
     {
-        PasswordCredentials oldPassword = password;
-        password = newPassword;
+        final PasswordCredentials oldPassword = this.password;
+        this.password = newPassword;
         if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, oldPassword, newPassword );
+            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, oldPassword, newPassword );
             if ( msgs == null )
+            {
                 msgs = notification;
+            }
             else
+            {
                 msgs.add ( notification );
+            }
         }
         return msgs;
     }
@@ -174,32 +202,43 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void setPassword ( PasswordCredentials newPassword )
+    @Override
+    public void setPassword ( final PasswordCredentials newPassword )
     {
-        if ( newPassword != password )
+        if ( newPassword != this.password )
         {
             NotificationChain msgs = null;
-            if ( password != null )
-                msgs = ( (InternalEObject)password ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, null, msgs );
+            if ( this.password != null )
+            {
+                msgs = ( (InternalEObject)this.password ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, null, msgs );
+            }
             if ( newPassword != null )
+            {
                 msgs = ( (InternalEObject)newPassword ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, null, msgs );
+            }
             msgs = basicSetPassword ( newPassword, msgs );
             if ( msgs != null )
+            {
                 msgs.dispatch ();
+            }
         }
         else if ( eNotificationRequired () )
+        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD, newPassword, newPassword ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -212,10 +251,11 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -223,7 +263,9 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
                 return getPortNumber ();
             case InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD:
                 if ( resolve )
+                {
                     return getPassword ();
+                }
                 return basicGetPassword ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -232,10 +274,11 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -252,10 +295,11 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -272,17 +316,18 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PORT_NUMBER:
-                return portNumber != PORT_NUMBER_EDEFAULT;
+                return this.portNumber != PORT_NUMBER_EDEFAULT;
             case InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD:
-                return password != null;
+                return this.password != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -290,17 +335,20 @@ public abstract class AbstractCommonDriverImpl extends DriverImpl implements Abs
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (portNumber: " ); //$NON-NLS-1$
-        result.append ( portNumber );
+        result.append ( this.portNumber );
         result.append ( ')' );
         return result.toString ();
     }

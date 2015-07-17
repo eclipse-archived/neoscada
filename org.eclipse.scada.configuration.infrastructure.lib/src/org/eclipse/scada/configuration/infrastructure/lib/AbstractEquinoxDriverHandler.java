@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -51,6 +51,8 @@ public abstract class AbstractEquinoxDriverHandler<T extends org.eclipse.scada.c
         caExporter.setName ( "caExporter" ); //$NON-NLS-1$
         result.getExporter ().add ( caExporter );
         caExporter.getEndpoints ().add ( Endpoints.registerEndpoint ( nodes.get ( driver.getNode () ), world.getOptions ().getBaseCaNgpPort () + driver.getInstanceNumber (), Endpoints.reference ( caExporter ), "CA Exporter: " + driver.getName () ) );
+
+        result.getModules ().addAll ( WorldGenerator.makeModules ( world, driver, result ) );
 
         return result;
     }

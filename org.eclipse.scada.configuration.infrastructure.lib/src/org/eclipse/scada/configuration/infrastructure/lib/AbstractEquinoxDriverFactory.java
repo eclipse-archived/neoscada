@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -79,6 +79,8 @@ public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclips
         Worlds.addUserService ( result, eDriver );
 
         result.setSecurityConfiguration ( Worlds.findSecurityConfiguration ( eDriver ) );
+
+        result.getModules ().addAll ( WorldGenerator.makeModules ( world, eDriver, result ) );
 
         configureDriver ( driver, result, nodes );
 

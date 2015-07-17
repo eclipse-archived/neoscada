@@ -13,7 +13,7 @@ package org.eclipse.scada.configuration.infrastructure.lib.internal;
 import java.util.Collection;
 
 import org.eclipse.scada.configuration.generator.Profiles;
-import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
+import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
 import org.eclipse.scada.configuration.infrastructure.JMXSettings;
 import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler;
@@ -26,7 +26,7 @@ public class JMXSettingsModuleHandler implements ModuleHandler
 {
 
     @Override
-    public void process ( final Module module, final Collection<ApplicationModule> modules, final EquinoxApplication app, final org.eclipse.scada.configuration.world.osgi.EquinoxApplication implApp )
+    public void process ( final Module module, final Collection<ApplicationModule> modules, final EquinoxBase app, final org.eclipse.scada.configuration.world.osgi.EquinoxApplication implApp )
     {
         final JMXSettings s = (JMXSettings)module;
 
@@ -49,7 +49,7 @@ public class JMXSettingsModuleHandler implements ModuleHandler
         }
     }
 
-    private Integer makePort ( final JMXSettings s, final EquinoxApplication app )
+    private Integer makePort ( final JMXSettings s, final EquinoxBase app )
     {
         if ( s.getPort () != null )
         {

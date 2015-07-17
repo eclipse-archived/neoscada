@@ -226,6 +226,10 @@ public class ApplicationConfigurationItemProvider extends ItemProviderAdapter im
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createJMXSettings () ) );
 
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createConfigurationAdminFileBackend () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES, InfrastructureFactory.eINSTANCE.createDSFileBackend () ) );
+
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );

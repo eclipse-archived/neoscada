@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -209,7 +209,7 @@ public class WorldGenerator
                 master.setSecurityConfiguration ( findSecurityConfiguration ( infraMaster ) );
 
                 // add user service
-                Worlds.addUserService ( master, null, this.options );
+                Worlds.addUserService ( master, infraMaster.getUserService (), this.options );
 
                 // create pools
                 master.getMonitorPools ().addAll ( EcoreUtil.copyAll ( this.options.getMonitorPools () ) );
@@ -228,7 +228,7 @@ public class WorldGenerator
                 selfConnection.setEndpoint ( ep );
                 master.getConnections ().add ( selfConnection );
 
-                master.getModules ().addAll ( makeModules ( infraMaster, master ) );
+                master.getModules ().addAll ( makeModules ( this.infrastructure, infraMaster, master ) );
 
                 conMap.put ( infraMaster, selfConnection );
             }
@@ -251,12 +251,12 @@ public class WorldGenerator
                 archive.setSecurityConfiguration ( findSecurityConfiguration ( infraArchive ) );
 
                 // add user service
-                Worlds.addUserService ( archive, null, this.options );
+                Worlds.addUserService ( archive, infraArchive.getUserService (), this.options );
 
                 createExporter ( OsgiPackage.Literals.HISTORICAL_DATA_EXPORTER, node, archive, this.infrastructure.getOptions ().getBaseHdNgpPort () + in );
                 createExporter ( OsgiPackage.Literals.CONFIGURATION_ADMINISTRATOR_EXPORTER, node, archive, this.infrastructure.getOptions ().getBaseCaNgpPort () + in );
 
-                archive.getModules ().addAll ( makeModules ( infraArchive, archive ) );
+                archive.getModules ().addAll ( makeModules ( this.infrastructure, infraArchive, archive ) );
 
                 final Profile profile = Profiles.createOrGetCustomizationProfile ( archive );
                 for ( final Map.Entry<org.eclipse.scada.configuration.infrastructure.MasterServer, DataAccessConnection> entry : conMap.entrySet () )
@@ -300,7 +300,7 @@ public class WorldGenerator
                 app.setSecurityConfiguration ( this.infrastructure.getDefaultSecurityConfiguration () );
 
                 // add user service
-                Worlds.addUserService ( app, null, this.options );
+                Worlds.addUserService ( app, slave.getUserService (), this.options );
 
                 createExporter ( OsgiPackage.Literals.HISTORICAL_DATA_EXPORTER, node, app, this.infrastructure.getOptions ().getBaseHdNgpPort () + in );
                 createExporter ( OsgiPackage.Literals.CONFIGURATION_ADMINISTRATOR_EXPORTER, node, app, this.infrastructure.getOptions ().getBaseCaNgpPort () + in );
@@ -328,7 +328,7 @@ public class WorldGenerator
                     Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", UsernamePasswordCredentials.class.cast ( credentials ).getPassword () );
                 }
 
-                app.getModules ().addAll ( makeModules ( slave, app ) );
+                app.getModules ().addAll ( makeModules ( this.infrastructure, slave, app ) );
             }
 
         }
@@ -379,13 +379,13 @@ public class WorldGenerator
         }
     }
 
-    private Collection<ApplicationModule> makeModules ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app, final EquinoxApplication implApp )
+    public static Collection<ApplicationModule> makeModules ( final org.eclipse.scada.configuration.infrastructure.World world, final org.eclipse.scada.configuration.infrastructure.EquinoxBase app, final EquinoxApplication implApp )
     {
         final Collection<ApplicationModule> result = new LinkedList<> ();
 
         // process application configurations
 
-        result.addAll ( EcoreUtil.copyAll ( this.infrastructure.getApplicationConfigurations () ) );
+        result.addAll ( EcoreUtil.copyAll ( world.getApplicationConfigurations () ) );
 
         ExclusiveGroups.removeGroups ( result, app.getConfigurations () );
         result.addAll ( EcoreUtil.copyAll ( app.getConfigurations () ) );
@@ -419,7 +419,7 @@ public class WorldGenerator
         return result; // we don't copy here, since the module handlers might have created actual objects
     }
 
-    protected void processModules ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app, final EquinoxApplication implApp, final Collection<ApplicationModule> result, final Collection<Module> modules )
+    protected static void processModules ( final org.eclipse.scada.configuration.infrastructure.EquinoxBase app, final EquinoxApplication implApp, final Collection<ApplicationModule> result, final Collection<Module> modules )
     {
         for ( final Module m : modules )
         {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -128,12 +128,12 @@ public final class Worlds
 
         if ( world.getDefaultDriverAccessCredentials () != null )
         {
-            return world.getDefaultDriverAccessCredentials();
+            return world.getDefaultDriverAccessCredentials ();
         }
 
-        if ( world.getDefaultCredentials() != null )
+        if ( world.getDefaultCredentials () != null )
         {
-            return world.getDefaultCredentials();
+            return world.getDefaultCredentials ();
         }
 
         if ( driver instanceof CommonDriver || driver instanceof AbstractCommonDriver )
@@ -272,10 +272,10 @@ public final class Worlds
         return null;
     }
 
-    public static void addUserService ( final EquinoxApplication application, final EquinoxBase driver )
+    public static void addUserService ( final EquinoxApplication application, final EquinoxBase base )
     {
-        final World world = Containers.findContainer ( driver, World.class );
-        addUserService ( application, findUserService ( driver ), world.getOptions () );
+        final World world = Containers.findContainer ( base, World.class );
+        addUserService ( application, findUserService ( base ), world.getOptions () );
     }
 
     public static void addUserService ( final EquinoxApplication application, UserService userService, final Options options )

@@ -29,10 +29,10 @@ package org.eclipse.scada.configuration.infrastructure;
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getJMXSettings()
- * @model
+ * @model annotation="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup groupId='jmx.settings'"
  * @generated
  */
-public interface JMXSettings extends Module
+public interface JMXSettings extends JavaModule
 {
     /**
      * Returns the value of the '<em><b>Port</b></em>' attribute.

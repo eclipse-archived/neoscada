@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,7 +13,7 @@ package org.eclipse.scada.configuration.infrastructure.lib.internal;
 import java.util.Collection;
 
 import org.eclipse.scada.configuration.generator.Profiles;
-import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
+import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
 import org.eclipse.scada.configuration.infrastructure.GenericVMSettings;
 import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler;
@@ -24,7 +24,7 @@ public class GenericVMSettingsModuleHandler implements ModuleHandler
 {
 
     @Override
-    public void process ( final Module module, final Collection<ApplicationModule> modules, final EquinoxApplication app, final org.eclipse.scada.configuration.world.osgi.EquinoxApplication implApp )
+    public void process ( final Module module, final Collection<ApplicationModule> modules, final EquinoxBase app, final org.eclipse.scada.configuration.world.osgi.EquinoxApplication implApp )
     {
         final GenericVMSettings s = (GenericVMSettings)module;
 

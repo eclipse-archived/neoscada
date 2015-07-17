@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,7 +13,7 @@ package org.eclipse.scada.configuration.ui.component;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.DisplayRealm;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
 import org.eclipse.scada.ui.utils.SelectionHelper;
@@ -34,7 +34,7 @@ public class ShowComponentSpy extends AbstractSelectionHandler
 
         try
         {
-            final IObservableSet input = Helper.createObversableInput ( SWTObservables.getRealm ( getShell ().getDisplay () ), component );
+            final IObservableSet input = Helper.createObversableInput ( DisplayRealm.getRealm ( getShell ().getDisplay () ), component );
             new ComponentOutputDialog ( getShell (), input ).open ();
         }
         catch ( final Exception e )

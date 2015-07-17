@@ -24,6 +24,7 @@ import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.world.WorldFactory;
+import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver} object.
@@ -59,6 +60,7 @@ public class AbstractEquinoxDriverItemProvider extends DriverItemProvider
 
             addInstanceNumberPropertyDescriptor ( object );
             addSecurityConfigurationPropertyDescriptor ( object );
+            addConfigurationPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -74,6 +76,19 @@ public class AbstractEquinoxDriverItemProvider extends DriverItemProvider
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxBase_securityConfiguration_feature" ), //$NON-NLS-1$
         getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxBase_securityConfiguration_feature", "_UI_EquinoxBase_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         InfrastructurePackage.Literals.EQUINOX_BASE__SECURITY_CONFIGURATION, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Configuration feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addConfigurationPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxBase_configuration_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxBase_configuration_feature", "_UI_EquinoxBase_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -104,6 +119,8 @@ public class AbstractEquinoxDriverItemProvider extends DriverItemProvider
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( InfrastructurePackage.Literals.EQUINOX_BASE__USER_SERVICE );
+            childrenFeatures.add ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES );
+            childrenFeatures.add ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS );
             childrenFeatures.add ( InfrastructurePackage.Literals.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS );
         }
         return childrenFeatures;
@@ -166,6 +183,8 @@ public class AbstractEquinoxDriverItemProvider extends DriverItemProvider
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE:
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__MODULES:
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__CONFIGURATIONS:
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
@@ -188,6 +207,40 @@ public class AbstractEquinoxDriverItemProvider extends DriverItemProvider
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__USER_SERVICE, InfrastructureFactory.eINSTANCE.createSystemPropertyUserService () ) );
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__USER_SERVICE, InfrastructureFactory.eINSTANCE.createJdbcUserService () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createHttpServiceModule () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createRestExporterModule () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createWebAdminConsole () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createOracleVMSettings () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createGenericVMSettings () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createEventInjectorHttp () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createEventInjectorSyslog () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createJMXSettings () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createConfigurationAdminFileBackend () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createDSFileBackend () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createTelnetConsole () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventInjectorPostgres () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventInjectorJdbc () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createProfileConfiguration () ) );
+
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventInjectorManager () ) );
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS, WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 

@@ -11,6 +11,8 @@
 package org.eclipse.scada.configuration.infrastructure.lib;
 
 import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.scada.configuration.infrastructure.ConfigurationAdminFileBackend;
+import org.eclipse.scada.configuration.infrastructure.DSFileBackend;
 import org.eclipse.scada.configuration.infrastructure.EventInjectorHttp;
 import org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog;
 import org.eclipse.scada.configuration.infrastructure.GenericVMSettings;
@@ -19,6 +21,8 @@ import org.eclipse.scada.configuration.infrastructure.JMXSettings;
 import org.eclipse.scada.configuration.infrastructure.OracleVMSettings;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.WebAdminConsole;
+import org.eclipse.scada.configuration.infrastructure.lib.internal.CAFileModuleHandler;
+import org.eclipse.scada.configuration.infrastructure.lib.internal.DSFileModuleHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.EventInjectorHttpHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.EventInjectorSyslogHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.GenericVMSettingsModuleHandler;
@@ -30,8 +34,6 @@ import org.eclipse.scada.configuration.infrastructure.lib.internal.WebAdminConso
 
 public class AdapterFactoryImpl implements IAdapterFactory
 {
-
-    @SuppressWarnings ( "unchecked" )
     @Override
     public <T> T getAdapter ( final Object adaptableObject, final Class<T> adapterType )
     {
@@ -42,35 +44,43 @@ public class AdapterFactoryImpl implements IAdapterFactory
 
         if ( adaptableObject instanceof HttpServiceModule )
         {
-            return (T)new HttpServiceModuleHandler ();
+            return adapterType.cast ( new HttpServiceModuleHandler () );
         }
         else if ( adaptableObject instanceof RestExporterModule )
         {
-            return (T)new RestExporterModuleHandler ();
+            return adapterType.cast ( new RestExporterModuleHandler () );
         }
         else if ( adaptableObject instanceof WebAdminConsole )
         {
-            return (T)new WebAdminConsoleHandler ();
+            return adapterType.cast ( new WebAdminConsoleHandler () );
         }
         else if ( adaptableObject instanceof EventInjectorHttp )
         {
-            return (T)new EventInjectorHttpHandler ();
+            return adapterType.cast ( new EventInjectorHttpHandler () );
         }
         else if ( adaptableObject instanceof EventInjectorSyslog )
         {
-            return (T)new EventInjectorSyslogHandler ();
+            return adapterType.cast ( new EventInjectorSyslogHandler () );
         }
         else if ( adaptableObject instanceof OracleVMSettings )
         {
-            return (T)new OracleVMSettingsModuleHandler ();
+            return adapterType.cast ( new OracleVMSettingsModuleHandler () );
         }
         else if ( adaptableObject instanceof GenericVMSettings )
         {
-            return (T)new GenericVMSettingsModuleHandler ();
+            return adapterType.cast ( new GenericVMSettingsModuleHandler () );
         }
         else if ( adaptableObject instanceof JMXSettings )
         {
-            return (T)new JMXSettingsModuleHandler ();
+            return adapterType.cast ( new JMXSettingsModuleHandler () );
+        }
+        else if ( adaptableObject instanceof ConfigurationAdminFileBackend )
+        {
+            return adapterType.cast ( new CAFileModuleHandler () );
+        }
+        else if ( adaptableObject instanceof DSFileBackend )
+        {
+            return adapterType.cast ( new DSFileModuleHandler () );
         }
         return null;
     }
