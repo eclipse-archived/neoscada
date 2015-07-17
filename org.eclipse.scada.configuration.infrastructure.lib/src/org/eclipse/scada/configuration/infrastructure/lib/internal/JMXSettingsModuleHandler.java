@@ -32,6 +32,7 @@ public class JMXSettingsModuleHandler implements ModuleHandler
 
         final Profile p = Profiles.createOrGetCustomizationProfile ( implApp );
 
+        // the next line will enable JMX remote
         Profiles.addSystemProperty ( p, "com.sun.management.jmxremote", "" );
 
         final Integer port = makePort ( s, app );
