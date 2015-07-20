@@ -27,11 +27,11 @@
 						<configuration>
 							<sourceDirectory>${sourceDirectory}</sourceDirectory>
 							<outputDirectory>${outputDirectory}</outputDirectory>
-							<description>The Eclipse SCADA repository</description>
+							<description>The Eclipse NeoSCADA repository</description>
 							<distributionName>default</distributionName>
 							<distributionLabel>The default distribution for this release</distributionLabel>
 							<componentLabel>The main component</componentLabel>
-							<origin>Eclipse SCADA Project</origin>
+							<origin>Eclipse NeoSCADA Project</origin>
 							<architectures>
 								<architecture>i386</architecture>
 								<architecture>amd64</architecture>

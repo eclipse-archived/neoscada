@@ -26,7 +26,7 @@ buildTypeLabel=buildTypeLong.title()
 
 compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArtifactRepository version="1.0.0"?>
 
-<repository name="Eclipse SCADA %(version)s %(buildTypeLabel)s Builds" type="org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository" version="1.0.0">
+<repository name="Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds" type="org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository" version="1.0.0">
   <properties size="3">
     <property name="p2.timestamp" value="%(timestamp)s"/>
     <property name="p2.compressed" value="false"/>
@@ -40,7 +40,7 @@ compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArt
 
 compositeContent_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeMetadataRepository version="1.0.0"?>
 
-<repository name="Eclipse SCADA %(version)s %(buildTypeLabel)s Builds" type="org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository" version="1.0.0">
+<repository name="Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds" type="org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository" version="1.0.0">
   <properties size="3">
     <property name="p2.timestamp" value="%(timestamp)s"/>
     <property name="p2.compressed" value="false"/>
@@ -51,7 +51,7 @@ compositeContent_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeMetad
   </children>
 </repository>"""
 
-composition_properties = """composite.name=Eclipse SCADA %(version)s %(buildTypeLabel)s Builds"""
+composition_properties = """composite.name=Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds"""
 
 p2_index = """ version = 1
  metadata.repository.factory.order = compositeContent.xml,\!
@@ -60,14 +60,14 @@ p2_index = """ version = 1
 index_html = """<!DOCTYPE html>
 <html>
 <head>
-  <title>Eclipse SCADA Update Site (Eclipse SCADA %(version)s %(buildTypeLabel)s Builds)</title>
+  <title>Eclipse NeoSCADA Update Site (Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds)</title>
 </head>
 
 <body style="font-family:sans-serif, Arial; font-size:small;">
 
-<h1>Eclipse SCADA Update Site (Eclipse SCADA %(version)s %(buildTypeLabel)s Builds)</h1>
+<h1>Eclipse NeoSCADA Update Site (Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds)</h1>
 
-<p>For information about Eclipse SCADA, see their <a href="http://www.eclipse.org/eclipsescada">homepage</a> or 
+<p>For information about Eclipse NeoSCADA, see their <a href="http://www.eclipse.org/eclipsescada">homepage</a> or 
   <a href="http://wiki.eclipse.org/EclipseSCADA">wiki</a>.</p>
 
 <p>For information about installing or updating Eclipse software, see the

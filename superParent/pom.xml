@@ -9,18 +9,18 @@
 	<packaging>pom</packaging>
 	
 	<organization>
-		<name>Eclipse SCADA Project</name>
+		<name>Eclipse NeoSCADA Project</name>
 	</organization>
 
 	<distributionManagement>
 		<repository>
 			<id>repo.eclipse.org</id>
-			<name>Eclipse SCADA Repository - Releases</name>
+			<name>Eclipse NeoSCADA Repository - Releases</name>
 			<url>https://repo.eclipse.org/content/repositories/eclipsescada-releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>repo.eclipse.org</id>
-			<name>Eclipse SCADA Repository - Snapshots</name>
+			<name>Eclipse NeoSCADA Repository - Snapshots</name>
 			<url>https://repo.eclipse.org/content/repositories/eclipsescada-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -51,7 +51,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>repo.eclipse.scada.org</id>
-			<name>Eclipse SCADA Repository</name>
+			<name>Eclipse NeoSCADA Repository</name>
 			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
 			<releases>
 				<enabled>true</enabled>
@@ -248,7 +248,7 @@
 			<repositories>
 				<repository>
 					<id>eclipse.scada.external.wrapper</id>
-					<name>Eclipse SCADA Externals Wrapper</name>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
 					<layout>p2</layout>
 					<url>${external.p2.wrapper.url}</url>
 				</repository>
@@ -265,7 +265,7 @@
 			<repositories>
 				<repository>
 					<id>eclipse.scada.external.wrapper</id>
-					<name>Eclipse SCADA Externals Wrapper</name>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
 					<layout>p2</layout>
 					<url>${external.p2.wrapper.url}</url>
 				</repository>
@@ -282,7 +282,7 @@
 			<repositories>
 				<repository>
 					<id>eclipse.scada.external.wrapper</id>
-					<name>Eclipse SCADA Externals Wrapper</name>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
 					<layout>p2</layout>
 					<url>${external.p2.wrapper.url}</url>
 				</repository>
@@ -299,7 +299,7 @@
 			<repositories>
 				<repository>
 					<id>eclipse.scada.external.wrapper</id>
-					<name>Eclipse SCADA Externals Wrapper</name>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
 					<layout>p2</layout>
 					<url>${external.p2.wrapper.url}</url>
 				</repository>

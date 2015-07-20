@@ -1,4 +1,4 @@
-target "Eclipse SCADA Target Platform (RAP Fragment)"
+target "Eclipse NeoSCADA Target Platform (RAP Fragment)"
 
 with source, allEnvironments
 

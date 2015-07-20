@@ -21,7 +21,7 @@ function die {
 }
 
 if [ -z "$ECLIPSE_COMMITTER" ]; then
-	die "You must set ECLIPSE_COMMITTER to your Eclipse SCADA committer name (e.g. adent)"
+	die "You must set ECLIPSE_COMMITTER to your Eclipse NeoSCADA committer name (e.g. adent)"
 fi
 
 function cloneRepository {

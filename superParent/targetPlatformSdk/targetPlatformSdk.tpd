@@ -1,4 +1,4 @@
-target "Eclipse SCADA Target Platform (SDK)"
+target "Eclipse NeoSCADA Target Platform (SDK)"
 
 /*
  * Don't include RAP since this would break an IDE setup

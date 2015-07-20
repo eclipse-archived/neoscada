@@ -60,7 +60,7 @@ public class Application
             updates.mkdirs ();
         }
 
-        final String label = "Eclipse SCADA";
+        final String label = "Eclipse NeoSCADA";
 
         final CompositeBuilder builder = new CompositeBuilder ( label );
         final MetaDataMerger merger = new MetaDataMerger ( label, true );

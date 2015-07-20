@@ -16,7 +16,7 @@
 	<repositories>
 		<repository>
 			<id>repo.eclipse.scada.org</id>
-			<name>Eclipse SCADA Repository</name>
+			<name>Eclipse NeoSCADA Repository</name>
 			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
 			<releases>
 				<enabled>true</enabled>
@@ -30,7 +30,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>repo.eclipse.scada.org</id>
-			<name>Eclipse SCADA Repository</name>
+			<name>Eclipse NeoSCADA Repository</name>
 			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
 			<releases>
 				<enabled>true</enabled>
@@ -73,7 +73,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<doctitle>Eclipse SCADA ${project.version}</doctitle>
+					<doctitle>Eclipse NeoSCADA ${project.version}</doctitle>
 					<excludePackageNames>org.apache:org.eclipse.scada.ide:org.eclipse.scada.configuration</excludePackageNames>
 					<finalName>org.eclipse.scada</finalName>
 				</configuration>

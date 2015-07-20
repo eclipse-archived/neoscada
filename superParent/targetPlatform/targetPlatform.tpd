@@ -1,4 +1,4 @@
-target "Eclipse SCADA Target Platform"
+target "Eclipse NeoSCADA Target Platform"
 
 include "base.tpd"
 include "rap.tpd"

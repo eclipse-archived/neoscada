@@ -27,14 +27,14 @@ buildTypeLabel=buildTypeLong.title()
 index_html = """<!DOCTYPE html>
 <html>
 <head>
-  <title>Eclipse SCADA Update Site (Eclipse SCADA %(version)s %(buildTypeLabel)s Builds)</title>
+  <title>Eclipse NeoSCADA Update Site (Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds)</title>
 </head>
 
 <body style="font-family:sans-serif, Arial; font-size:small;">
 
-<h1>Eclipse SCADA Update Site (Eclipse SCADA %(version)s %(buildTypeLabel)s Builds)</h1>
+<h1>Eclipse NeoSCADA Update Site (Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds)</h1>
 
-<p>For information about Eclipse SCADA, see their <a href="http://www.eclipse.org/eclipsescada">homepage</a> or 
+<p>For information about Eclipse NeoSCADA, see their <a href="http://www.eclipse.org/eclipsescada">homepage</a> or 
   <a href="http://wiki.eclipse.org/EclipseSCADA">wiki</a>.</p>
 
 <p>For information about installing or updating Eclipse software, see the
