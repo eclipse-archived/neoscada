@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,6 +30,13 @@ public interface ItemResource
             final String contextId,
             @PathParam ( "itemId" )
             final String itemId );
+    
+    
+    @GET
+    @Path ( "/{contextId}/items" )
+    public Map<String, DataItemValue> readAll (
+            @PathParam ( "contextId" )
+            final String contextId );
 
     @POST
     @Path ( "/{contextId}/item/value/{itemId}" )
@@ -38,7 +45,7 @@ public interface ItemResource
             final String contextId,
             @PathParam ( "itemId" )
             final String itemId,
-            Variant value
+            final Variant value
             );
 
     @POST
@@ -48,6 +55,6 @@ public interface ItemResource
             final String contextId,
             @PathParam ( "itemId" )
             final String itemId,
-            Map<String, Variant> attributes
+            final Map<String, Variant> attributes
             );
 }

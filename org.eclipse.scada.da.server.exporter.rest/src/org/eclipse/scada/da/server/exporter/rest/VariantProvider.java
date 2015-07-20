@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,7 +37,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.io.CharStreams;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 @Provider
@@ -48,19 +47,18 @@ public class VariantProvider implements MessageBodyWriter<Variant>, MessageBodyR
     private final static Logger logger = LoggerFactory.getLogger ( VariantProvider.class );
 
     private static final MediaType[] SUPPORTED_TYPES_ARRAY = { //
-    MediaType.APPLICATION_JSON_TYPE, // 
-    MediaType.TEXT_PLAIN_TYPE // 
+            MediaType.APPLICATION_JSON_TYPE, //
+            MediaType.TEXT_PLAIN_TYPE //
     };
 
-    private final Gson gson;
+    private final GsonBuilder builder;
 
     public VariantProvider ()
     {
         logger.debug ( "Created instance" );
-        final GsonBuilder builder = new GsonBuilder ();
-        builder.registerTypeAdapter ( Variant.class, new VariantJsonSerializer () );
-        builder.registerTypeAdapter ( Variant.class, new VariantJsonDeserializer () );
-        this.gson = builder.create ();
+        this.builder = new GsonBuilder ();
+        this.builder.registerTypeAdapter ( Variant.class, new VariantJsonSerializer () );
+        this.builder.registerTypeAdapter ( Variant.class, new VariantJsonDeserializer () );
     }
 
     @Override
@@ -85,7 +83,7 @@ public class VariantProvider implements MessageBodyWriter<Variant>, MessageBodyR
         if ( MediaType.APPLICATION_JSON_TYPE.isCompatible ( mediaType ) )
         {
             final PrintWriter writer = new PrintWriter ( entityStream );
-            writer.print ( this.gson.toJson ( t ) );
+            writer.print ( this.builder.create ().toJson ( t ) );
             writer.flush ();
         }
         else if ( MediaType.TEXT_PLAIN_TYPE.isCompatible ( mediaType ) )
@@ -154,6 +152,6 @@ public class VariantProvider implements MessageBodyWriter<Variant>, MessageBodyR
         }
         final InputStreamReader reader = new InputStreamReader ( entityStream, Charset.forName ( charsetName ) );
 
-        return this.gson.fromJson ( reader, Variant.class );
+        return this.builder.create ().fromJson ( reader, Variant.class );
     }
 }

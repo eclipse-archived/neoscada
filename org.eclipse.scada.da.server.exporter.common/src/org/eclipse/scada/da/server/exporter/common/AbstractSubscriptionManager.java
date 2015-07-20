@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,6 +16,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
@@ -397,6 +399,16 @@ public abstract class AbstractSubscriptionManager
         }
 
         return new HashMap<> ( this.cache );
+    }
+
+    public synchronized SortedMap<String, DataItemValue> getSortedCacheCopy ()
+    {
+        if ( !this.started )
+        {
+            return new TreeMap<> ();
+        }
+
+        return new TreeMap<> ( this.cache );
     }
 
     public synchronized DataItemValue getCacheValue ( final String itemId )

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.exporter.rest.internal;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -50,20 +51,44 @@ public class ItemResourceImpl implements ItemResource
 
         if ( context == null )
         {
-            logger.trace ( "Context not found" );
+            logger.trace ( "Context '{}' not found", contextId );
             throw new WebApplicationException ( Status.NOT_FOUND );
         }
 
         final DataItemValue value = context.getValue ( itemId );
         if ( value == null )
         {
-            logger.trace ( "Item not found" );
+            logger.trace ( "Item '{}' not found", itemId );
             throw new WebApplicationException ( Status.NOT_FOUND );
         }
 
         logger.trace ( "Result: {}", value );
 
         return value;
+    }
+
+    @Override
+    public Map<String, DataItemValue> readAll ( final String contextId )
+    {
+        logger.trace ( "Reading all - contextId: {}", contextId );
+
+        final DataContext context = this.provider.getContext ( contextId );
+
+        if ( context == null )
+        {
+            logger.trace ( "Context '{}' not found", contextId );
+            throw new WebApplicationException ( Status.NOT_FOUND );
+        }
+
+        Map<String, DataItemValue> values = context.getAllValues ();
+        if ( values == null )
+        {
+            values = Collections.emptyMap ();
+        }
+
+        logger.trace ( "Result: {}", values );
+
+        return values;
     }
 
     @Override
