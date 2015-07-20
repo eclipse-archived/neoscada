@@ -12,6 +12,7 @@ package org.eclipse.scada.da.server.exporter.rest.internal;
 
 import java.util.Map;
 import java.util.Properties;
+import java.util.SortedMap;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
@@ -44,9 +45,9 @@ public class DataContext
         return this.subscriptionManager.getCacheValue ( itemId );
     }
 
-    public Map<String, DataItemValue> getAllValues ()
+    public SortedMap<String, DataItemValue> getAllValues ()
     {
-        return this.subscriptionManager.getCacheCopy ();
+        return this.subscriptionManager.getSortedCacheCopy ();
     }
 
     public NotifyFuture<WriteResult> writeValue ( final String itemId, final Variant value )

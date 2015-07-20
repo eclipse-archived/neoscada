@@ -16,6 +16,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.client.DataItemValue;
@@ -25,36 +27,30 @@ public interface ItemResource
 {
     @GET
     @Path ( "/{contextId}/item/{itemId}" )
-    public DataItemValue read (
-            @PathParam ( "contextId" )
-            final String contextId,
-            @PathParam ( "itemId" )
-            final String itemId );
-    
-    
+    public DataItemValue read ( @PathParam ( "contextId" )
+    final String contextId, @PathParam ( "itemId" )
+    final String itemId);
+
     @GET
     @Path ( "/{contextId}/items" )
-    public Map<String, DataItemValue> readAll (
-            @PathParam ( "contextId" )
-            final String contextId );
+    public Map<String, DataItemValue> readAll ( @PathParam ( "contextId" )
+    final String contextId);
+
+    @GET
+    @Path ( "/{contextId}/items" )
+    @Produces ( "text/csv" )
+    public Response readAllCsv ( @PathParam ( "contextId" )
+    final String contextId);
 
     @POST
     @Path ( "/{contextId}/item/value/{itemId}" )
-    public WriteResult write (
-            @PathParam ( "contextId" )
-            final String contextId,
-            @PathParam ( "itemId" )
-            final String itemId,
-            final Variant value
-            );
+    public WriteResult write ( @PathParam ( "contextId" )
+    final String contextId, @PathParam ( "itemId" )
+    final String itemId, final Variant value);
 
     @POST
     @Path ( "/{contextId}/item/attributes/{itemId}" )
-    public Map<String, WriteResult> writeAttribute (
-            @PathParam ( "contextId" )
-            final String contextId,
-            @PathParam ( "itemId" )
-            final String itemId,
-            final Map<String, Variant> attributes
-            );
+    public Map<String, WriteResult> writeAttribute ( @PathParam ( "contextId" )
+    final String contextId, @PathParam ( "itemId" )
+    final String itemId, final Map<String, Variant> attributes);
 }
