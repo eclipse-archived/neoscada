@@ -70,7 +70,7 @@ Contributors:
          ================================= -->
     <target name="provision.b3">
         <mkdir dir="temp/b3" />
-        <java classname="org.eclipse.equinox.launcher.Main" fork="true" dir="temp/director/director">
+        <java classname="org.eclipse.equinox.launcher.Main" fork="true" dir="temp/director/director" failonerror="true">
             <classpath>
                 <fileset dir="temp/director/director/plugins/">
                     <include name="org.eclipse.equinox.launcher_*.jar" />
