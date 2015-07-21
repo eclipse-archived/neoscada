@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,31 +20,30 @@ import org.eclipse.scada.configuration.world.osgi.ScriptEventHandler;
 public class AdapterFactoryImpl implements IAdapterFactory
 {
 
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter ( final Object adaptableObject, final Class adapterType )
+    public <T> T getAdapter ( final Object adaptableObject, final Class<T> adapterType )
     {
         if ( adapterType.equals ( EventHandlerProcessor.class ) )
         {
             if ( adaptableObject instanceof DefaultStorageHandler )
             {
-                return new DefaultStorageHandlerProcessor ();
+                return adapterType.cast ( new DefaultStorageHandlerProcessor () );
             }
             else if ( adaptableObject instanceof MailEventHandler )
             {
-                return new MailHandlerProcessor ();
+                return adapterType.cast ( new MailHandlerProcessor () );
             }
             else if ( adaptableObject instanceof IncludeEventFilter )
             {
-                return new IncludeFilterHandlerProcessor ();
+                return adapterType.cast ( new IncludeFilterHandlerProcessor () );
             }
             else if ( adaptableObject instanceof ExcludeEventFilter )
             {
-                return new ExcludeFilterHandlerProcessor ();
+                return adapterType.cast ( new ExcludeFilterHandlerProcessor () );
             }
             else if ( adaptableObject instanceof ScriptEventHandler )
             {
-                return new ScriptHandlerProcessor ();
+                return adapterType.cast ( new ScriptHandlerProcessor () );
             }
         }
 

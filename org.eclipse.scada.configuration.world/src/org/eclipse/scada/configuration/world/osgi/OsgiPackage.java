@@ -790,13 +790,22 @@ public interface OsgiPackage extends EPackage
     int ITEM_INFORMATION__DATA_TYPE = 4;
 
     /**
+     * The feature id for the '<em><b>Io Directions</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_INFORMATION__IO_DIRECTIONS = 5;
+
+    /**
      * The number of structural features of the '<em>Item Information</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM_INFORMATION_FEATURE_COUNT = 5;
+    int ITEM_INFORMATION_FEATURE_COUNT = 6;
 
     /**
      * The number of operations of the '<em>Item Information</em>' class.
@@ -7636,6 +7645,16 @@ public interface OsgiPackage extends EPackage
     int CHANGE_TYPE = 113;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.IODirection <em>IO Direction</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.IODirection
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getIODirection()
+     * @generated
+     */
+    int IO_DIRECTION = 114;
+
+    /**
      * The meta object id for the '<em>Severity</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7643,7 +7662,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 114;
+    int SEVERITY = 115;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -7653,7 +7672,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 115;
+    int VARIANT = 116;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -8097,6 +8116,17 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EAttribute getItemInformation_DataType ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getIoDirections <em>Io Directions</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Io Directions</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ItemInformation#getIoDirections()
+     * @see #getItemInformation()
+     * @generated
+     */
+    EAttribute getItemInformation_IoDirections ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.LevelMonitor <em>Level Monitor</em>}'.
@@ -11454,6 +11484,16 @@ public interface OsgiPackage extends EPackage
     EEnum getChangeType ();
 
     /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.IODirection <em>IO Direction</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>IO Direction</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.IODirection
+     * @generated
+     */
+    EEnum getIODirection ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.scada.ae.data.Severity <em>Severity</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11863,6 +11903,14 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EAttribute ITEM_INFORMATION__DATA_TYPE = eINSTANCE.getItemInformation_DataType ();
+
+        /**
+         * The meta object literal for the '<em><b>Io Directions</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM_INFORMATION__IO_DIRECTIONS = eINSTANCE.getItemInformation_IoDirections ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.LevelMonitorImpl <em>Level Monitor</em>}' class.
@@ -14593,6 +14641,16 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EEnum CHANGE_TYPE = eINSTANCE.getChangeType ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.IODirection <em>IO Direction</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.IODirection
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getIODirection()
+         * @generated
+         */
+        EEnum IO_DIRECTION = eINSTANCE.getIODirection ();
 
         /**
          * The meta object literal for the '<em>Severity</em>' data type.

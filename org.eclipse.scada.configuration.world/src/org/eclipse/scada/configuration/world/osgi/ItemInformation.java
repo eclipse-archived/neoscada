@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getHierarchy <em>Hierarchy</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getSystem <em>System</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.ItemInformation#getIoDirections <em>Io Directions</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getItemInformation()
@@ -158,5 +159,23 @@ public interface ItemInformation extends EObject
      * @generated
      */
     void setDataType ( DataType value );
+
+    /**
+     * Returns the value of the '<em><b>Io Directions</b></em>' attribute list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.IODirection}.
+     * The literals are from the enumeration {@link org.eclipse.scada.configuration.world.osgi.IODirection}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Io Directions</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Io Directions</em>' attribute list.
+     * @see org.eclipse.scada.configuration.world.osgi.IODirection
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getItemInformation_IoDirections()
+     * @model
+     * @generated
+     */
+    EList<IODirection> getIoDirections ();
 
 } // ItemInformation

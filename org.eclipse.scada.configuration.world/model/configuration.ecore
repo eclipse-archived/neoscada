@@ -263,6 +263,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" lowerBound="1"
           eType="#//osgi/DataType" defaultValueLiteral="VARIANT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ioDirections" upperBound="-1"
+          eType="#//osgi/IODirection"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LevelMonitor" eSuperTypes="#//osgi/ItemFeatureEntry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="preset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
@@ -975,6 +977,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="DeltaItem" eSuperTypes="#//osgi/Item">
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
           eType="#//osgi/Item"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="IODirection">
+      <eLiterals name="INPUT"/>
+      <eLiterals name="OUTPUT" value="1"/>
     </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">

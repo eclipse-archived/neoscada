@@ -18,7 +18,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.scada.configuration.world.osgi.DataType;
+import org.eclipse.scada.configuration.world.osgi.IODirection;
 import org.eclipse.scada.configuration.world.osgi.ItemInformation;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
@@ -35,6 +37,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemInformationImpl#getHierarchy <em>Hierarchy</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemInformationImpl#getSystem <em>System</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemInformationImpl#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ItemInformationImpl#getIoDirections <em>Io Directions</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,6 +133,16 @@ public class ItemInformationImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected DataType dataType = DATA_TYPE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getIoDirections() <em>Io Directions</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getIoDirections()
+     * @generated
+     * @ordered
+     */
+    protected EList<IODirection> ioDirections;
 
     /**
      * <!-- begin-user-doc -->
@@ -263,6 +276,20 @@ public class ItemInformationImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<IODirection> getIoDirections ()
+    {
+        if ( ioDirections == null )
+        {
+            ioDirections = new EDataTypeUniqueEList<IODirection> ( IODirection.class, this, OsgiPackage.ITEM_INFORMATION__IO_DIRECTIONS );
+        }
+        return ioDirections;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -278,6 +305,8 @@ public class ItemInformationImpl extends MinimalEObjectImpl.Container implements
                 return getSystem ();
             case OsgiPackage.ITEM_INFORMATION__DATA_TYPE:
                 return getDataType ();
+            case OsgiPackage.ITEM_INFORMATION__IO_DIRECTIONS:
+                return getIoDirections ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -309,6 +338,10 @@ public class ItemInformationImpl extends MinimalEObjectImpl.Container implements
             case OsgiPackage.ITEM_INFORMATION__DATA_TYPE:
                 setDataType ( (DataType)newValue );
                 return;
+            case OsgiPackage.ITEM_INFORMATION__IO_DIRECTIONS:
+                getIoDirections ().clear ();
+                getIoDirections ().addAll ( (Collection<? extends IODirection>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -338,6 +371,9 @@ public class ItemInformationImpl extends MinimalEObjectImpl.Container implements
             case OsgiPackage.ITEM_INFORMATION__DATA_TYPE:
                 setDataType ( DATA_TYPE_EDEFAULT );
                 return;
+            case OsgiPackage.ITEM_INFORMATION__IO_DIRECTIONS:
+                getIoDirections ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -362,6 +398,8 @@ public class ItemInformationImpl extends MinimalEObjectImpl.Container implements
                 return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals ( system );
             case OsgiPackage.ITEM_INFORMATION__DATA_TYPE:
                 return dataType != DATA_TYPE_EDEFAULT;
+            case OsgiPackage.ITEM_INFORMATION__IO_DIRECTIONS:
+                return ioDirections != null && !ioDirections.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -388,6 +426,8 @@ public class ItemInformationImpl extends MinimalEObjectImpl.Container implements
         result.append ( system );
         result.append ( ", dataType: " ); //$NON-NLS-1$
         result.append ( dataType );
+        result.append ( ", ioDirections: " ); //$NON-NLS-1$
+        result.append ( ioDirections );
         result.append ( ')' );
         return result.toString ();
     }

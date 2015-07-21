@@ -85,6 +85,7 @@ import org.eclipse.scada.configuration.world.osgi.FormulaItemOutbound;
 import org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem;
 import org.eclipse.scada.configuration.world.osgi.HistoricalDataExporter;
 import org.eclipse.scada.configuration.world.osgi.HttpService;
+import org.eclipse.scada.configuration.world.osgi.IODirection;
 import org.eclipse.scada.configuration.world.osgi.ImportItem;
 import org.eclipse.scada.configuration.world.osgi.IncludeEventFilter;
 import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
@@ -960,6 +961,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EEnum ioDirectionEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EDataType severityEDataType = null;
 
     /**
@@ -1514,6 +1522,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EAttribute getItemInformation_DataType ()
     {
         return (EAttribute)itemInformationEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getItemInformation_IoDirections ()
+    {
+        return (EAttribute)itemInformationEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
@@ -4921,6 +4939,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EEnum getIODirection ()
+    {
+        return ioDirectionEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EDataType getSeverity ()
     {
@@ -5031,6 +5059,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEAttribute ( itemInformationEClass, ITEM_INFORMATION__HIERARCHY );
         createEAttribute ( itemInformationEClass, ITEM_INFORMATION__SYSTEM );
         createEAttribute ( itemInformationEClass, ITEM_INFORMATION__DATA_TYPE );
+        createEAttribute ( itemInformationEClass, ITEM_INFORMATION__IO_DIRECTIONS );
 
         levelMonitorEClass = createEClass ( LEVEL_MONITOR );
         createEAttribute ( levelMonitorEClass, LEVEL_MONITOR__PRESET );
@@ -5445,6 +5474,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         persistenceEEnum = createEEnum ( PERSISTENCE );
         errorHandlingEEnum = createEEnum ( ERROR_HANDLING );
         changeTypeEEnum = createEEnum ( CHANGE_TYPE );
+        ioDirectionEEnum = createEEnum ( IO_DIRECTION );
 
         // Create data types
         severityEDataType = createEDataType ( SEVERITY );
@@ -5648,6 +5678,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEAttribute ( getItemInformation_Hierarchy (), ecorePackage.getEString (), "hierarchy", null, 0, -1, ItemInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getItemInformation_System (), ecorePackage.getEString (), "system", null, 0, 1, ItemInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getItemInformation_DataType (), this.getDataType (), "dataType", "VARIANT", 1, 1, ItemInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getItemInformation_IoDirections (), this.getIODirection (), "ioDirections", null, 0, -1, ItemInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( levelMonitorEClass, LevelMonitor.class, "LevelMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getLevelMonitor_Preset (), ecorePackage.getEDoubleObject (), "preset", null, 0, 1, LevelMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -6117,6 +6148,10 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         addEEnumLiteral ( changeTypeEEnum, ChangeType.DELTA );
         addEEnumLiteral ( changeTypeEEnum, ChangeType.SET );
         addEEnumLiteral ( changeTypeEEnum, ChangeType.DIRECTION );
+
+        initEEnum ( ioDirectionEEnum, IODirection.class, "IODirection" ); //$NON-NLS-1$
+        addEEnumLiteral ( ioDirectionEEnum, IODirection.INPUT );
+        addEEnumLiteral ( ioDirectionEEnum, IODirection.OUTPUT );
 
         // Initialize data types
         initEDataType ( severityEDataType, Severity.class, "Severity", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

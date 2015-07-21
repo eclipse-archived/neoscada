@@ -282,6 +282,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createErrorHandlingFromString ( eDataType, initialValue );
             case OsgiPackage.CHANGE_TYPE:
                 return createChangeTypeFromString ( eDataType, initialValue );
+            case OsgiPackage.IO_DIRECTION:
+                return createIODirectionFromString ( eDataType, initialValue );
             case OsgiPackage.SEVERITY:
                 return createSeverityFromString ( eDataType, initialValue );
             case OsgiPackage.VARIANT:
@@ -319,6 +321,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return convertErrorHandlingToString ( eDataType, instanceValue );
             case OsgiPackage.CHANGE_TYPE:
                 return convertChangeTypeToString ( eDataType, instanceValue );
+            case OsgiPackage.IO_DIRECTION:
+                return convertIODirectionToString ( eDataType, instanceValue );
             case OsgiPackage.SEVERITY:
                 return convertSeverityToString ( eDataType, instanceValue );
             case OsgiPackage.VARIANT:
@@ -1499,6 +1503,29 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * @generated
      */
     public String convertChangeTypeToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public IODirection createIODirectionFromString ( EDataType eDataType, String initialValue )
+    {
+        IODirection result = IODirection.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertIODirectionToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }

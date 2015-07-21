@@ -34,6 +34,8 @@ public interface CreationRequest<T extends Item>
 
     public CreationRequest<T> information ( String description, String unit, String system );
 
+    public CreationRequest<T> direction ( boolean readable, boolean writeable );
+
     public CreationRequest<T> request ( CustomizationRequest request );
 
     public CreationRequest<T> incrementGlobalizationLevel ();

@@ -68,6 +68,7 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements 
             addHierarchyPropertyDescriptor ( object );
             addSystemPropertyDescriptor ( object );
             addDataTypePropertyDescriptor ( object );
+            addIoDirectionsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -138,6 +139,19 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements 
     }
 
     /**
+     * This adds a property descriptor for the Io Directions feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addIoDirectionsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemInformation_ioDirections_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInformation_ioDirections_feature", "_UI_ItemInformation_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.ITEM_INFORMATION__IO_DIRECTIONS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
      * This returns ItemInformation.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -193,6 +207,7 @@ public class ItemInformationItemProvider extends ItemProviderAdapter implements 
             case OsgiPackage.ITEM_INFORMATION__HIERARCHY:
             case OsgiPackage.ITEM_INFORMATION__SYSTEM:
             case OsgiPackage.ITEM_INFORMATION__DATA_TYPE:
+            case OsgiPackage.ITEM_INFORMATION__IO_DIRECTIONS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

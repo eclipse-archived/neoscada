@@ -20,6 +20,7 @@ import java.util.Set;
 
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.world.osgi.DataType;
+import org.eclipse.scada.configuration.world.osgi.IODirection;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.ItemInformation;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
@@ -47,6 +48,8 @@ public abstract class AbstractCreationRequest<T extends Item> implements Creatio
 
         this.itemInformation = OsgiFactory.eINSTANCE.createItemInformation ();
         this.itemInformation.getHierarchy ().addAll ( this.hierarchy );
+
+        this.itemInformation.getIoDirections ().addAll ( IODirection.VALUES );
     }
 
     @Override
@@ -154,6 +157,21 @@ public abstract class AbstractCreationRequest<T extends Item> implements Creatio
             this.itemInformation.setDataType ( request.getItem ().getInformation ().getDataType () );
             this.itemInformation.setDescription ( request.getItem ().getInformation ().getDescription () );
             this.itemInformation.setSystem ( request.getItem ().getInformation ().getSystem () );
+        }
+        return this;
+    }
+
+    @Override
+    public CreationRequest<T> direction ( final boolean input, final boolean output )
+    {
+        this.itemInformation.getIoDirections ().clear ();
+        if ( input )
+        {
+            this.itemInformation.getIoDirections ().add ( IODirection.INPUT );
+        }
+        if ( output )
+        {
+            this.itemInformation.getIoDirections ().add ( IODirection.OUTPUT );
         }
         return this;
     }
