@@ -25,8 +25,8 @@ import org.eclipse.scada.core.data.SubscriptionState;
 import org.eclipse.scada.core.server.OperationParameters;
 import org.eclipse.scada.core.server.OperationParametersHelper;
 import org.eclipse.scada.da.client.DataItemValue;
-import org.eclipse.scada.da.client.ItemUpdateListener;
 import org.eclipse.scada.da.client.DataItemValue.Builder;
+import org.eclipse.scada.da.client.ItemUpdateListener;
 import org.eclipse.scada.da.connection.provider.ConnectionService;
 import org.eclipse.scada.da.core.WriteAttributeResults;
 import org.eclipse.scada.da.core.WriteResult;
@@ -40,7 +40,6 @@ import org.slf4j.LoggerFactory;
 
 public class DataItemSourceImpl extends AbstractDataSource implements ItemUpdateListener
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( DataItemSourceImpl.class );
 
     private String itemId;
@@ -213,6 +212,8 @@ public class DataItemSourceImpl extends AbstractDataSource implements ItemUpdate
         final DataItemValue.Builder newValue = new DataItemValue.Builder ( sourceValue );
         newValue.setSubscriptionState ( state );
         newValue.setSubscriptionError ( error );
+
+        // FIXME: mask out all source data if item switches to DISCONNECT to GRANTED
 
         injectAttributes ( newValue );
 

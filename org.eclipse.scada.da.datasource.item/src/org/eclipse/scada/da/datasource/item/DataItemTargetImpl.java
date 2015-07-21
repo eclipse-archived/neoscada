@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - implement "write-only" mode
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.item;
 
@@ -24,15 +25,16 @@ import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.core.DataItemInformation;
 import org.eclipse.scada.da.core.WriteAttributeResults;
 import org.eclipse.scada.da.core.WriteResult;
+import org.eclipse.scada.da.data.IODirection;
 import org.eclipse.scada.da.datasource.DataSource;
 import org.eclipse.scada.da.datasource.DataSourceListener;
 import org.eclipse.scada.da.datasource.SingleDataSourceTracker;
 import org.eclipse.scada.da.datasource.SingleDataSourceTracker.ServiceListener;
+import org.eclipse.scada.da.server.common.DataItemBase;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
-import org.eclipse.scada.da.server.common.DataItemBase;
 import org.osgi.framework.InvalidSyntaxException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,9 +49,16 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
 
     private DataSource dataSource;
 
+    /*
+     * Information if this is a <q>write-only</q> item
+     */
+    private final boolean writeOnly;
+
     public DataItemTargetImpl ( final ObjectPoolTracker<DataSource> poolTracker, final DataItemInformation information, final String dataSourceId ) throws InvalidSyntaxException
     {
         super ( information );
+
+        this.writeOnly = information.getIODirection ().size () == 1 && information.getIODirection ().contains ( IODirection.OUTPUT );
 
         this.tracker = new SingleDataSourceTracker ( poolTracker, dataSourceId, new ServiceListener () {
 
@@ -65,6 +74,11 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
     @Override
     protected synchronized Map<String, Variant> getCacheAttributes ()
     {
+        if ( this.writeOnly )
+        {
+            return Collections.emptyMap ();
+        }
+
         final DataItemValue value = this.currentValue;
 
         if ( value != null )
@@ -80,6 +94,11 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
     @Override
     protected synchronized Variant getCacheValue ()
     {
+        if ( this.writeOnly )
+        {
+            return Variant.NULL;
+        }
+
         final DataItemValue value = this.currentValue;
 
         if ( value != null )
@@ -104,13 +123,21 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
         this.dataSource = dataSource;
         if ( this.dataSource != null )
         {
-            this.dataSource.addListener ( this );
+            if ( !this.writeOnly )
+            {
+                this.dataSource.addListener ( this );
+            }
+            else
+            {
+                stateChanged ( null );
+            }
         }
+
     }
 
     private synchronized void disconnectDatasource ()
     {
-        if ( this.dataSource != null )
+        if ( this.dataSource != null && !this.writeOnly )
         {
             this.dataSource.removeListener ( this );
             this.dataSource = null;
@@ -122,13 +149,27 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
     @Override
     public synchronized Map<String, Variant> getAttributes ()
     {
-        return Collections.unmodifiableMap ( this.currentValue.getAttributes () );
+        if ( !this.writeOnly )
+        {
+            return Collections.unmodifiableMap ( this.currentValue.getAttributes () );
+        }
+        else
+        {
+            return Collections.emptyMap ();
+        }
     }
 
     @Override
     public synchronized NotifyFuture<Variant> readValue () throws InvalidOperationException
     {
-        return new InstantFuture<Variant> ( this.currentValue.getValue () );
+        if ( !this.writeOnly )
+        {
+            return new InstantFuture<> ( this.currentValue.getValue () );
+        }
+        else
+        {
+            return new InstantFuture<Variant> ( Variant.NULL );
+        }
     }
 
     @Override
@@ -140,7 +181,7 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
         }
         else
         {
-            return new InstantErrorFuture<WriteAttributeResults> ( new OperationException ( "Disconnected data source" ) );
+            return new InstantErrorFuture<> ( new OperationException ( "Disconnected data source" ) );
         }
     }
 
@@ -153,7 +194,7 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
         }
         else
         {
-            return new InstantErrorFuture<WriteResult> ( new OperationException ( "Disconnected data source" ) );
+            return new InstantErrorFuture<> ( new OperationException ( "Disconnected data source" ) );
         }
     }
 
@@ -173,7 +214,7 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
         if ( value == null )
         {
             this.currentValue = value;
-            notifyData ( Variant.NULL, new HashMap<String, Variant> ( 1 ), true );
+            notifyData ( Variant.NULL, Collections.<String, Variant> emptyMap (), true );
         }
         else
         {
@@ -182,8 +223,8 @@ public class DataItemTargetImpl extends DataItemBase implements DataSourceListen
                 this.currentValue = DataItemValue.DISCONNECTED;
             }
 
-            final Map<String, Variant> target = new HashMap<String, Variant> ( this.currentValue.getAttributes () );
-            final Map<String, Variant> diff = new HashMap<String, Variant> ();
+            final Map<String, Variant> target = new HashMap<> ( this.currentValue.getAttributes () );
+            final Map<String, Variant> diff = new HashMap<> ();
 
             AttributesHelper.set ( target, value.getAttributes (), diff );
 
