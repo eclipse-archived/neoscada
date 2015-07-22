@@ -55,14 +55,14 @@
          <attribute name="packageUri" type="string" use="required">
             <annotation>
                <documentation>
-                  
+                  The URI of the package where this validation context is active.
                </documentation>
             </annotation>
          </attribute>
          <attribute name="contextId" type="string" use="required">
             <annotation>
                <documentation>
-                  
+                  The id of this context.
                </documentation>
                <appinfo>
                   <meta.attribute kind="identifier"/>
@@ -73,6 +73,21 @@
    </element>
 
    <element name="validator">
+      <annotation>
+         <documentation>
+            &lt;p&gt;
+A validator implementation.
+&lt;/p&gt;
+
+&lt;p&gt;
+The &lt;tt&gt;filterClass&lt;/tt&gt; attribute and elements will all be evaluated. If the inspected object can be casted to the &lt;tt&gt;filterClass&lt;/tt&gt;, then the validator will be triggered.
+&lt;/p&gt;
+
+&lt;p&gt;
+The filter class must be resolvable by the bundle specifing the validator extension.
+&lt;/p&gt;
+         </documentation>
+      </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="filterClass"/>
@@ -80,7 +95,7 @@
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
-                  The validator which validates the target object
+                  The class of the validator which validates the target object
                </documentation>
                <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.scada.utils.ecore.validation.Validator"/>
@@ -90,7 +105,7 @@
          <attribute name="filterClass" type="string">
             <annotation>
                <documentation>
-                  
+                  The class the target must implemention in order to trigger this validator.
                </documentation>
                <appinfo>
                   <meta.attribute kind="java"/>
