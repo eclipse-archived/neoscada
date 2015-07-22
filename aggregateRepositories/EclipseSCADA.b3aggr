@@ -54,7 +54,7 @@
         <features name="org.eclipse.scada.deploy.console.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
       </repositories>
     </contributions>
-    <validationRepositories enabled="false" location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140114142710/repository/"/>
+    <validationRepositories enabled="false" location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/"/>
     <validationRepositories location="http://download.eclipse.org/releases/mars"/>
   </validationSets>
   <configurations operatingSystem="linux" windowSystem="gtk"/>
