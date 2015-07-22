@@ -20,12 +20,12 @@ import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.ca.common.factory.AbstractServiceConfigurationFactory;
 import org.eclipse.scada.da.data.IODirection;
 import org.eclipse.scada.da.datasource.DataSource;
+import org.eclipse.scada.da.server.common.DataItem;
+import org.eclipse.scada.da.server.common.DataItemInformationBase;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
-import org.eclipse.scada.da.server.common.DataItem;
-import org.eclipse.scada.da.server.common.DataItemInformationBase;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.InvalidSyntaxException;
@@ -99,7 +99,7 @@ public class DataItemTargetFactoryImpl extends AbstractServiceConfigurationFacto
         if ( io != null )
         {
             ioDirection = EnumSet.noneOf ( IODirection.class );
-            for ( final String tok : io.split ( "," ) )
+            for ( final String tok : io.split ( "[,\\s]+" ) )
             {
                 ioDirection.add ( IODirection.valueOf ( tok ) );
             }
