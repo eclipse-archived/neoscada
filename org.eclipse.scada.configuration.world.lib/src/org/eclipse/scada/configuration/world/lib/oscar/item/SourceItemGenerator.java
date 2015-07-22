@@ -65,7 +65,7 @@ public class SourceItemGenerator extends ItemGenerator
             dirs.add ( dir.name () );
         }
         Collections.sort ( dirs ); // always generate the same order
-        data.put ( "io.directions", StringHelper.join ( dirs, ", " ) );
+        data.put ( "io.directions", StringHelper.join ( dirs, "," ) );
 
         if ( description != null )
         {
