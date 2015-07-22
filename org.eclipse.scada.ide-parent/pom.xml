@@ -138,11 +138,11 @@
 		<module>../org.eclipse.scada.configuration.ui.component</module>
 		<module>../org.eclipse.scada.configuration.ui.project</module>
 		<module>../org.eclipse.scada.configuration.utils</module>
-		<module>../org.eclipse.scada.configuration.validation</module>
 		<module>../org.eclipse.scada.configuration.world</module>
 		<module>../org.eclipse.scada.configuration.world.edit</module>
 		<module>../org.eclipse.scada.configuration.world.editor</module>
 		<module>../org.eclipse.scada.configuration.world.lib</module>
+		<module>../org.eclipse.scada.configuration.world.validation</module>
 
 		<module>../org.eclipse.scada.configuration.script</module>
 		<module>../org.eclipse.scada.configuration.script.edit</module>

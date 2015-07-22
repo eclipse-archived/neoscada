@@ -83,8 +83,8 @@ public class PostgresSetupModuleItemProvider extends ItemProviderAdapter impleme
     protected void addDatabasePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PostgresSetupModule_database_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_PostgresSetupModule_database_feature", "_UI_PostgresSetupModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.POSTGRES_SETUP_MODULE__DATABASE, true, false, true, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_PostgresSetupModule_database_feature", "_UI_PostgresSetupModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.POSTGRES_SETUP_MODULE__DATABASE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -96,8 +96,8 @@ public class PostgresSetupModuleItemProvider extends ItemProviderAdapter impleme
     protected void addPostgresUserPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PostgresSetupModule_postgresUser_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_PostgresSetupModule_postgresUser_feature", "_UI_PostgresSetupModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.POSTGRES_SETUP_MODULE__POSTGRES_USER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_PostgresSetupModule_postgresUser_feature", "_UI_PostgresSetupModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.POSTGRES_SETUP_MODULE__POSTGRES_USER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -109,8 +109,8 @@ public class PostgresSetupModuleItemProvider extends ItemProviderAdapter impleme
     protected void addHostBasedAccessFilePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PostgresSetupModule_hostBasedAccessFile_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_PostgresSetupModule_hostBasedAccessFile_feature", "_UI_PostgresSetupModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.POSTGRES_SETUP_MODULE__HOST_BASED_ACCESS_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_PostgresSetupModule_hostBasedAccessFile_feature", "_UI_PostgresSetupModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.POSTGRES_SETUP_MODULE__HOST_BASED_ACCESS_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -122,8 +122,8 @@ public class PostgresSetupModuleItemProvider extends ItemProviderAdapter impleme
     protected void addConfigurationFilePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PostgresSetupModule_configurationFile_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_PostgresSetupModule_configurationFile_feature", "_UI_PostgresSetupModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.POSTGRES_SETUP_MODULE__CONFIGURATION_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_PostgresSetupModule_configurationFile_feature", "_UI_PostgresSetupModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.POSTGRES_SETUP_MODULE__CONFIGURATION_FILE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

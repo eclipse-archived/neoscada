@@ -1,9 +1,0 @@
-import 'platform:/plugin/org.eclipse.scada.configuration.component/model/component.ecore'
-
-package component
-
-context CalculationComponent
-inv CalculationComponent_need_master: not self.masterOn->isEmpty()
-inv CalculationComponent_need_impl: self.implementation <> null
-
-endpackage

@@ -4,19 +4,18 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.world.setup.tests;
 
-import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
-
 import org.eclipse.scada.configuration.world.setup.SetupFactory;
 import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
+
+import junit.framework.TestCase;
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +24,7 @@ import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext) <em>Validate Operating System</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext) <em>Validate Operating System</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -109,13 +108,13 @@ public class SetupModuleContainerTest extends TestCase
     }
 
     /**
-     * Tests the '{@link org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext) <em>Validate Operating System</em>}' operation.
+     * Tests the '{@link org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext) <em>Validate Operating System</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext)
+     * @see org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext)
      * @generated
      */
-    public void testValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext ()
+    public void testValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT

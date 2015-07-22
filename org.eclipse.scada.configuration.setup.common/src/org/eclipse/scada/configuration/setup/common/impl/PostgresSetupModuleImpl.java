@@ -13,19 +13,18 @@ package org.eclipse.scada.configuration.setup.common.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.scada.configuration.setup.common.CommonPackage;
 import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
 import org.eclipse.scada.configuration.setup.common.PostgresValidator;
 import org.eclipse.scada.configuration.world.PostgresDatabaseSettings;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,22 +33,32 @@ import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.PostgresSetupModuleImpl#getDatabase <em>Database</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.PostgresSetupModuleImpl#getPostgresUser <em>Postgres User</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.PostgresSetupModuleImpl#getHostBasedAccessFile <em>Host Based Access File</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.PostgresSetupModuleImpl#getConfigurationFile <em>Configuration File</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>
+ * {@link org.eclipse.scada.configuration.setup.common.impl.PostgresSetupModuleImpl#getDatabase
+ * <em>Database</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.setup.common.impl.PostgresSetupModuleImpl#getPostgresUser
+ * <em>Postgres User</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.setup.common.impl.PostgresSetupModuleImpl#getHostBasedAccessFile
+ * <em>Host Based Access File</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.setup.common.impl.PostgresSetupModuleImpl#getConfigurationFile
+ * <em>Configuration File</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implements PostgresSetupModule
 {
     /**
-     * The cached value of the '{@link #getDatabase() <em>Database</em>}' reference.
+     * The cached value of the '{@link #getDatabase() <em>Database</em>}'
+     * reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getDatabase()
      * @generated
      * @ordered
@@ -57,9 +66,11 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     protected PostgresDatabaseSettings database;
 
     /**
-     * The default value of the '{@link #getPostgresUser() <em>Postgres User</em>}' attribute.
+     * The default value of the '{@link #getPostgresUser()
+     * <em>Postgres User</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPostgresUser()
      * @generated
      * @ordered
@@ -67,9 +78,11 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     protected static final String POSTGRES_USER_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPostgresUser() <em>Postgres User</em>}' attribute.
+     * The cached value of the '{@link #getPostgresUser() <em>Postgres User</em>
+     * }' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPostgresUser()
      * @generated
      * @ordered
@@ -77,9 +90,11 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     protected String postgresUser = POSTGRES_USER_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getHostBasedAccessFile() <em>Host Based Access File</em>}' attribute.
+     * The default value of the '{@link #getHostBasedAccessFile()
+     * <em>Host Based Access File</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getHostBasedAccessFile()
      * @generated
      * @ordered
@@ -87,9 +102,11 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     protected static final String HOST_BASED_ACCESS_FILE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getHostBasedAccessFile() <em>Host Based Access File</em>}' attribute.
+     * The cached value of the '{@link #getHostBasedAccessFile()
+     * <em>Host Based Access File</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getHostBasedAccessFile()
      * @generated
      * @ordered
@@ -97,9 +114,11 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     protected String hostBasedAccessFile = HOST_BASED_ACCESS_FILE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getConfigurationFile() <em>Configuration File</em>}' attribute.
+     * The default value of the '{@link #getConfigurationFile()
+     * <em>Configuration File</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getConfigurationFile()
      * @generated
      * @ordered
@@ -107,9 +126,11 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     protected static final String CONFIGURATION_FILE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getConfigurationFile() <em>Configuration File</em>}' attribute.
+     * The cached value of the '{@link #getConfigurationFile()
+     * <em>Configuration File</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getConfigurationFile()
      * @generated
      * @ordered
@@ -119,6 +140,7 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected PostgresSetupModuleImpl ()
@@ -129,6 +151,7 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -140,121 +163,140 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public PostgresDatabaseSettings getDatabase ()
     {
-        if ( database != null && database.eIsProxy () )
+        if ( this.database != null && this.database.eIsProxy () )
         {
-            InternalEObject oldDatabase = (InternalEObject)database;
-            database = (PostgresDatabaseSettings)eResolveProxy ( oldDatabase );
-            if ( database != oldDatabase )
+            final InternalEObject oldDatabase = (InternalEObject)this.database;
+            this.database = (PostgresDatabaseSettings)eResolveProxy ( oldDatabase );
+            if ( this.database != oldDatabase )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, CommonPackage.POSTGRES_SETUP_MODULE__DATABASE, oldDatabase, database ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, CommonPackage.POSTGRES_SETUP_MODULE__DATABASE, oldDatabase, this.database ) );
+                }
             }
         }
-        return database;
+        return this.database;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public PostgresDatabaseSettings basicGetDatabase ()
     {
-        return database;
+        return this.database;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setDatabase ( PostgresDatabaseSettings newDatabase )
+    public void setDatabase ( final PostgresDatabaseSettings newDatabase )
     {
-        PostgresDatabaseSettings oldDatabase = database;
-        database = newDatabase;
+        final PostgresDatabaseSettings oldDatabase = this.database;
+        this.database = newDatabase;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.POSTGRES_SETUP_MODULE__DATABASE, oldDatabase, database ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.POSTGRES_SETUP_MODULE__DATABASE, oldDatabase, this.database ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getPostgresUser ()
     {
-        return postgresUser;
+        return this.postgresUser;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setPostgresUser ( String newPostgresUser )
+    public void setPostgresUser ( final String newPostgresUser )
     {
-        String oldPostgresUser = postgresUser;
-        postgresUser = newPostgresUser;
+        final String oldPostgresUser = this.postgresUser;
+        this.postgresUser = newPostgresUser;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.POSTGRES_SETUP_MODULE__POSTGRES_USER, oldPostgresUser, postgresUser ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.POSTGRES_SETUP_MODULE__POSTGRES_USER, oldPostgresUser, this.postgresUser ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getHostBasedAccessFile ()
     {
-        return hostBasedAccessFile;
+        return this.hostBasedAccessFile;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setHostBasedAccessFile ( String newHostBasedAccessFile )
+    public void setHostBasedAccessFile ( final String newHostBasedAccessFile )
     {
-        String oldHostBasedAccessFile = hostBasedAccessFile;
-        hostBasedAccessFile = newHostBasedAccessFile;
+        final String oldHostBasedAccessFile = this.hostBasedAccessFile;
+        this.hostBasedAccessFile = newHostBasedAccessFile;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.POSTGRES_SETUP_MODULE__HOST_BASED_ACCESS_FILE, oldHostBasedAccessFile, hostBasedAccessFile ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.POSTGRES_SETUP_MODULE__HOST_BASED_ACCESS_FILE, oldHostBasedAccessFile, this.hostBasedAccessFile ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getConfigurationFile ()
     {
-        return configurationFile;
+        return this.configurationFile;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setConfigurationFile ( String newConfigurationFile )
+    public void setConfigurationFile ( final String newConfigurationFile )
     {
-        String oldConfigurationFile = configurationFile;
-        configurationFile = newConfigurationFile;
+        final String oldConfigurationFile = this.configurationFile;
+        this.configurationFile = newConfigurationFile;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.POSTGRES_SETUP_MODULE__CONFIGURATION_FILE, oldConfigurationFile, configurationFile ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.POSTGRES_SETUP_MODULE__CONFIGURATION_FILE, oldConfigurationFile, this.configurationFile ) );
+        }
     }
 
     /**
@@ -264,24 +306,27 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
      * @generated NOT
      */
     @Override
-    public IStatus validateOperatingSystem ( final OperatingSystemDescriptor descriptor, final IValidationContext ctx )
+    public void validateOperatingSystem ( final OperatingSystemDescriptor descriptor, final ValidationContext ctx )
     {
-        return new PostgresValidator ( this, descriptor, ctx ).validate ();
+        new PostgresValidator ( this, descriptor, ctx ).validate ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
             case CommonPackage.POSTGRES_SETUP_MODULE__DATABASE:
                 if ( resolve )
+                {
                     return getDatabase ();
+                }
                 return basicGetDatabase ();
             case CommonPackage.POSTGRES_SETUP_MODULE__POSTGRES_USER:
                 return getPostgresUser ();
@@ -296,10 +341,11 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -322,10 +368,11 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -348,21 +395,22 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case CommonPackage.POSTGRES_SETUP_MODULE__DATABASE:
-                return database != null;
+                return this.database != null;
             case CommonPackage.POSTGRES_SETUP_MODULE__POSTGRES_USER:
-                return POSTGRES_USER_EDEFAULT == null ? postgresUser != null : !POSTGRES_USER_EDEFAULT.equals ( postgresUser );
+                return POSTGRES_USER_EDEFAULT == null ? this.postgresUser != null : !POSTGRES_USER_EDEFAULT.equals ( this.postgresUser );
             case CommonPackage.POSTGRES_SETUP_MODULE__HOST_BASED_ACCESS_FILE:
-                return HOST_BASED_ACCESS_FILE_EDEFAULT == null ? hostBasedAccessFile != null : !HOST_BASED_ACCESS_FILE_EDEFAULT.equals ( hostBasedAccessFile );
+                return HOST_BASED_ACCESS_FILE_EDEFAULT == null ? this.hostBasedAccessFile != null : !HOST_BASED_ACCESS_FILE_EDEFAULT.equals ( this.hostBasedAccessFile );
             case CommonPackage.POSTGRES_SETUP_MODULE__CONFIGURATION_FILE:
-                return CONFIGURATION_FILE_EDEFAULT == null ? configurationFile != null : !CONFIGURATION_FILE_EDEFAULT.equals ( configurationFile );
+                return CONFIGURATION_FILE_EDEFAULT == null ? this.configurationFile != null : !CONFIGURATION_FILE_EDEFAULT.equals ( this.configurationFile );
         }
         return super.eIsSet ( featureID );
     }
@@ -370,15 +418,17 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
-            case CommonPackage.POSTGRES_SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT:
-                return validateOperatingSystem ( (OperatingSystemDescriptor)arguments.get ( 0 ), (IValidationContext)arguments.get ( 1 ) );
+            case CommonPackage.POSTGRES_SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT:
+                validateOperatingSystem ( (OperatingSystemDescriptor)arguments.get ( 0 ), (ValidationContext)arguments.get ( 1 ) );
+                return null;
         }
         return super.eInvoke ( operationID, arguments );
     }
@@ -386,21 +436,24 @@ public class PostgresSetupModuleImpl extends MinimalEObjectImpl.Container implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (postgresUser: " ); //$NON-NLS-1$
-        result.append ( postgresUser );
+        result.append ( this.postgresUser );
         result.append ( ", hostBasedAccessFile: " ); //$NON-NLS-1$
-        result.append ( hostBasedAccessFile );
+        result.append ( this.hostBasedAccessFile );
         result.append ( ", configurationFile: " ); //$NON-NLS-1$
-        result.append ( configurationFile );
+        result.append ( this.configurationFile );
         result.append ( ')' );
         return result.toString ();
     }

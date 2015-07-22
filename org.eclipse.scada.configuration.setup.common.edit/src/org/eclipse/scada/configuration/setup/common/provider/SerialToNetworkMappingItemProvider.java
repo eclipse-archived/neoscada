@@ -90,9 +90,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addDevicePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_device_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_device_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__DEVICE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_device_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__DEVICE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -104,9 +104,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addTcpPortPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_tcpPort_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_tcpPort_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__TCP_PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_tcpPort_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__TCP_PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_basePropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -118,9 +118,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addTimeoutPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_timeout_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_timeout_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__TIMEOUT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_timeout_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__TIMEOUT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -132,9 +132,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addBaudRatePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_baudRate_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_baudRate_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__BAUD_RATE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_baudRate_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__BAUD_RATE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -146,9 +146,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addParityPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_parity_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_parity_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__PARITY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_parity_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__PARITY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -160,9 +160,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addXonxoffPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_xonxoff_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_xonxoff_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__XONXOFF, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_controlPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_xonxoff_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__XONXOFF, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_controlPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -174,9 +174,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addRtsctsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_rtscts_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_rtscts_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__RTSCTS, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_controlPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_rtscts_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__RTSCTS, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_controlPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -188,9 +188,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addDataBitsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_dataBits_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_dataBits_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__DATA_BITS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_dataBits_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__DATA_BITS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -202,9 +202,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addStopBitsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_stopBits_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_stopBits_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__STOP_BITS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_stopBits_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__STOP_BITS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_comPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -216,9 +216,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addModemControlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_modemControl_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_modemControl_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__MODEM_CONTROL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_controlPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_modemControl_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__MODEM_CONTROL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_controlPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -230,9 +230,9 @@ public class SerialToNetworkMappingItemProvider extends ItemProviderAdapter impl
     protected void addBreakPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SerialToNetworkMapping_break_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_break_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__BREAK, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_controlPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_SerialToNetworkMapping_break_feature", "_UI_SerialToNetworkMapping_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.SERIAL_TO_NETWORK_MAPPING__BREAK, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_controlPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**

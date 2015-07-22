@@ -14,8 +14,6 @@ package org.eclipse.scada.configuration.setup.common.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -23,13 +21,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.scada.configuration.setup.common.CommonPackage;
 import org.eclipse.scada.configuration.setup.common.SerialToNetwork;
 import org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping;
 import org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
-import org.eclipse.scada.ui.utils.status.StatusHelper;
+import org.eclipse.scada.utils.ExceptionHelper;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,19 +36,23 @@ import org.eclipse.scada.ui.utils.status.StatusHelper;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.SerialToNetworkSetupModuleImpl#getMappings <em>Mappings</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>
+ * {@link org.eclipse.scada.configuration.setup.common.impl.SerialToNetworkSetupModuleImpl#getMappings
+ * <em>Mappings</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container implements SerialToNetworkSetupModule
 {
     /**
-     * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
+     * The cached value of the '{@link #getMappings() <em>Mappings</em>}'
+     * containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getMappings()
      * @generated
      * @ordered
@@ -60,6 +62,7 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected SerialToNetworkSetupModuleImpl ()
@@ -70,6 +73,7 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -81,16 +85,17 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EList<SerialToNetworkMapping> getMappings ()
     {
-        if ( mappings == null )
+        if ( this.mappings == null )
         {
-            mappings = new EObjectContainmentEList.Resolving<SerialToNetworkMapping> ( SerialToNetworkMapping.class, this, CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE__MAPPINGS );
+            this.mappings = new EObjectContainmentEList.Resolving<SerialToNetworkMapping> ( SerialToNetworkMapping.class, this, CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE__MAPPINGS );
         }
-        return mappings;
+        return this.mappings;
     }
 
     /**
@@ -100,7 +105,7 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
      * @generated NOT
      */
     @Override
-    public IStatus validateOperatingSystem ( final OperatingSystemDescriptor descriptor, final IValidationContext context )
+    public void validateOperatingSystem ( final OperatingSystemDescriptor descriptor, final ValidationContext context )
     {
         try
         {
@@ -108,18 +113,18 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
         }
         catch ( final Exception e )
         {
-            return StatusHelper.convertStatus ( "org.eclipse.scada.configuration.setup.common", e );
+            context.add ( ExceptionHelper.getMessage ( e ) );
         }
-        return Status.OK_STATUS;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -132,10 +137,11 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -148,11 +154,12 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -167,10 +174,11 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -184,15 +192,16 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE__MAPPINGS:
-                return mappings != null && !mappings.isEmpty ();
+                return this.mappings != null && !this.mappings.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -200,15 +209,17 @@ public class SerialToNetworkSetupModuleImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
-            case CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT:
-                return validateOperatingSystem ( (OperatingSystemDescriptor)arguments.get ( 0 ), (IValidationContext)arguments.get ( 1 ) );
+            case CommonPackage.SERIAL_TO_NETWORK_SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT:
+                validateOperatingSystem ( (OperatingSystemDescriptor)arguments.get ( 0 ), (ValidationContext)arguments.get ( 1 ) );
+                return null;
         }
         return super.eInvoke ( operationID, arguments );
     }

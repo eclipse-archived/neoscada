@@ -28,6 +28,7 @@ import org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.SerialToNetworkMappingImpl#getDevice <em>Device</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.SerialToNetworkMappingImpl#getTcpPort <em>Tcp Port</em>}</li>
@@ -41,7 +42,6 @@ import org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping;
  *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.SerialToNetworkMappingImpl#isModemControl <em>Modem Control</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.setup.common.impl.SerialToNetworkMappingImpl#isBreak <em>Break</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

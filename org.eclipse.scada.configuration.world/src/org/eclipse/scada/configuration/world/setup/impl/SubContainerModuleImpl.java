@@ -12,24 +12,19 @@
 package org.eclipse.scada.configuration.world.setup.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-import java.util.LinkedList;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 import org.eclipse.scada.configuration.world.setup.SetupModule;
 import org.eclipse.scada.configuration.world.setup.SetupModuleContainer;
 import org.eclipse.scada.configuration.world.setup.SetupPackage;
 import org.eclipse.scada.configuration.world.setup.SubContainerModule;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -129,30 +124,16 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
      * @generated NOT
      */
     @Override
-    public IStatus validateOperatingSystem ( final OperatingSystemDescriptor descriptor, final IValidationContext ctx )
+    public void validateOperatingSystem ( final OperatingSystemDescriptor descriptor, final ValidationContext ctx )
     {
         if ( this.container == null )
         {
-            return ConstraintStatus.createStatus ( ctx, this, null, "A sub container module must reference a setup container" );
+            ctx.add ( "A sub container module must reference a setup container" );
         }
 
-        final Collection<IStatus> result = new LinkedList<> ();
         for ( final SetupModule module : this.container.getModules () )
         {
-            final IStatus s = module.validateOperatingSystem ( descriptor, ctx );
-            if ( s != null && !s.isOK () )
-            {
-                result.add ( s );
-            }
-        }
-
-        if ( result.isEmpty () )
-        {
-            return Status.OK_STATUS;
-        }
-        else
-        {
-            return ConstraintStatus.createMultiStatus ( ctx, result );
+            module.validateOperatingSystem ( descriptor, ctx );
         }
     }
 
@@ -234,8 +215,9 @@ public class SubContainerModuleImpl extends MinimalEObjectImpl.Container impleme
     {
         switch ( operationID )
         {
-            case SetupPackage.SUB_CONTAINER_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT:
-                return validateOperatingSystem ( (OperatingSystemDescriptor)arguments.get ( 0 ), (IValidationContext)arguments.get ( 1 ) );
+            case SetupPackage.SUB_CONTAINER_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT:
+                validateOperatingSystem ( (OperatingSystemDescriptor)arguments.get ( 0 ), (ValidationContext)arguments.get ( 1 ) );
+                return null;
         }
         return super.eInvoke ( operationID, arguments );
     }

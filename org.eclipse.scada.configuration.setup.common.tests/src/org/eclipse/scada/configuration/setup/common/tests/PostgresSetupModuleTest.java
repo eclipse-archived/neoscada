@@ -24,12 +24,9 @@ import org.eclipse.scada.configuration.setup.common.PostgresSetupModule;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext)
- * <em>Validate Operating System</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext) <em>Validate Operating System</em>}</li>
  * </ul>
  * </p>
- * 
  * @generated
  */
 public class PostgresSetupModuleTest extends TestCase
@@ -39,7 +36,6 @@ public class PostgresSetupModuleTest extends TestCase
      * The fixture for this Postgres Setup Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected PostgresSetupModule fixture = null;
@@ -47,10 +43,9 @@ public class PostgresSetupModuleTest extends TestCase
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( PostgresSetupModuleTest.class );
     }
@@ -59,10 +54,9 @@ public class PostgresSetupModuleTest extends TestCase
      * Constructs a new Postgres Setup Module test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public PostgresSetupModuleTest ( final String name )
+    public PostgresSetupModuleTest ( String name )
     {
         super ( name );
     }
@@ -71,10 +65,9 @@ public class PostgresSetupModuleTest extends TestCase
      * Sets the fixture for this Postgres Setup Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void setFixture ( final PostgresSetupModule fixture )
+    protected void setFixture ( PostgresSetupModule fixture )
     {
         this.fixture = fixture;
     }
@@ -83,18 +76,16 @@ public class PostgresSetupModuleTest extends TestCase
      * Returns the fixture for this Postgres Setup Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected PostgresSetupModule getFixture ()
     {
-        return this.fixture;
+        return fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -107,7 +98,6 @@ public class PostgresSetupModuleTest extends TestCase
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */
@@ -115,6 +105,20 @@ public class PostgresSetupModuleTest extends TestCase
     protected void tearDown () throws Exception
     {
         setFixture ( null );
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext) <em>Validate Operating System</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext)
+     * @generated
+     */
+    public void testValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
     /**

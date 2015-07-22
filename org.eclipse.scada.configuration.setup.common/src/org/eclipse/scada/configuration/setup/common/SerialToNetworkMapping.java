@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping#getDevice <em>Device</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping#getTcpPort <em>Tcp Port</em>}</li>
@@ -33,7 +34,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping#isModemControl <em>Modem Control</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping#isBreak <em>Break</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.setup.common.CommonPackage#getSerialToNetworkMapping()
  * @model

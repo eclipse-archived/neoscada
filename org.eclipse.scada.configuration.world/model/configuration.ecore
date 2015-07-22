@@ -151,6 +151,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PostgresDatabaseSettings" eSuperTypes="#//AbstractGenericDatabaseSettings"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ValidationContext" instanceClassName="org.eclipse.scada.utils.ecore.validation.ValidationContext"
+      serializable="false"/>
   <eSubpackages name="osgi" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi"
       nsPrefix="osgi">
     <eClassifiers xsi:type="ecore:EEnum" name="AverageReferenceType">
@@ -1246,9 +1248,9 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SetupModuleContainer">
-      <eOperations name="validateOperatingSystem" eType="#//setup/Status">
+      <eOperations name="validateOperatingSystem">
         <eParameters name="descriptor" eType="#//setup/OperatingSystemDescriptor"/>
-        <eParameters name="context" eType="#//setup/ValidationContext"/>
+        <eParameters name="context" eType="#//ValidationContext"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
           eType="#//setup/SetupModule" containment="true"/>
@@ -1256,9 +1258,9 @@
           iD="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SetupModule" abstract="true" interface="true">
-      <eOperations name="validateOperatingSystem" eType="#//setup/Status">
+      <eOperations name="validateOperatingSystem">
         <eParameters name="descriptor" eType="#//setup/OperatingSystemDescriptor"/>
-        <eParameters name="context" eType="#//setup/ValidationContext"/>
+        <eParameters name="context" eType="#//ValidationContext"/>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SubContainerModule" eSuperTypes="#//setup/SetupModule">
@@ -1270,8 +1272,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="operationSystemDefinitions"
           upperBound="-1" eType="#//setup/OperatingSystemDescriptor" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="ValidationContext" instanceClassName="org.eclipse.emf.validation.IValidationContext"
-        serializable="false"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Status" instanceClassName="org.eclipse.core.runtime.IStatus"
         serializable="false"/>
   </eSubpackages>

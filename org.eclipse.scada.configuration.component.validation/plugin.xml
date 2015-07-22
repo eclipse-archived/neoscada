@@ -10,6 +10,14 @@
                class="org.eclipse.scada.configuration.component.validation.MovingAverageValidator"
                filterClass="org.eclipse.scada.configuration.component.MovingAverageModule">
          </validator>
+         <validator
+               class="org.eclipse.scada.configuration.component.validation.CalculationComponentValidator"
+               filterClass="org.eclipse.scada.configuration.component.CalculationComponent">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.component.validation.MasterAssignedValidator"
+               filterClass="org.eclipse.scada.configuration.component.MasterAssigned">
+         </validator>
       </validationContext>
    </extension>
 

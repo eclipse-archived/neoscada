@@ -176,7 +176,7 @@ public interface SetupPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SETUP_MODULE_CONTAINER___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT = 0;
+    int SETUP_MODULE_CONTAINER___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT = 0;
 
     /**
      * The number of operations of the '<em>Module Container</em>' class.
@@ -213,7 +213,7 @@ public interface SetupPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT = 0;
+    int SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT = 0;
 
     /**
      * The number of operations of the '<em>Module</em>' class.
@@ -259,7 +259,7 @@ public interface SetupPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SUB_CONTAINER_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT = SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT;
+    int SUB_CONTAINER_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT = SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT;
 
     /**
      * The number of operations of the '<em>Sub Container Module</em>' class.
@@ -317,16 +317,6 @@ public interface SetupPackage extends EPackage
     int SETUP_DEFINITIONS_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '<em>Validation Context</em>' data type.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.emf.validation.IValidationContext
-     * @see org.eclipse.scada.configuration.world.setup.impl.SetupPackageImpl#getValidationContext()
-     * @generated
-     */
-    int VALIDATION_CONTEXT = 5;
-
-    /**
      * The meta object id for the '<em>Status</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -334,7 +324,7 @@ public interface SetupPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.setup.impl.SetupPackageImpl#getStatus()
      * @generated
      */
-    int STATUS = 6;
+    int STATUS = 5;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor <em>Operating System Descriptor</em>}'.
@@ -423,14 +413,14 @@ public interface SetupPackage extends EPackage
     EAttribute getSetupModuleContainer_Id ();
 
     /**
-     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext) <em>Validate Operating System</em>}' operation.
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext) <em>Validate Operating System</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the '<em>Validate Operating System</em>' operation.
-     * @see org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext)
+     * @see org.eclipse.scada.configuration.world.setup.SetupModuleContainer#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext)
      * @generated
      */
-    EOperation getSetupModuleContainer__ValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext ();
+    EOperation getSetupModuleContainer__ValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.setup.SetupModule <em>Module</em>}'.
@@ -443,14 +433,14 @@ public interface SetupPackage extends EPackage
     EClass getSetupModule ();
 
     /**
-     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext) <em>Validate Operating System</em>}' operation.
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext) <em>Validate Operating System</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the '<em>Validate Operating System</em>' operation.
-     * @see org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext)
+     * @see org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext)
      * @generated
      */
-    EOperation getSetupModule__ValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext ();
+    EOperation getSetupModule__ValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.setup.SubContainerModule <em>Sub Container Module</em>}'.
@@ -504,17 +494,6 @@ public interface SetupPackage extends EPackage
      * @generated
      */
     EReference getSetupDefinitions_OperationSystemDefinitions ();
-
-    /**
-     * Returns the meta object for data type '{@link org.eclipse.emf.validation.IValidationContext <em>Validation Context</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for data type '<em>Validation Context</em>'.
-     * @see org.eclipse.emf.validation.IValidationContext
-     * @model instanceClass="org.eclipse.emf.validation.IValidationContext" serializeable="false"
-     * @generated
-     */
-    EDataType getValidationContext ();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.core.runtime.IStatus <em>Status</em>}'.
@@ -625,7 +604,7 @@ public interface SetupPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation SETUP_MODULE_CONTAINER___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT = eINSTANCE.getSetupModuleContainer__ValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext ();
+        EOperation SETUP_MODULE_CONTAINER___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT = eINSTANCE.getSetupModuleContainer__ValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.setup.SetupModule <em>Module</em>}' class.
@@ -643,7 +622,7 @@ public interface SetupPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT = eINSTANCE.getSetupModule__ValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext ();
+        EOperation SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT = eINSTANCE.getSetupModule__ValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.setup.impl.SubContainerModuleImpl <em>Sub Container Module</em>}' class.
@@ -688,16 +667,6 @@ public interface SetupPackage extends EPackage
          * @generated
          */
         EReference SETUP_DEFINITIONS__OPERATION_SYSTEM_DEFINITIONS = eINSTANCE.getSetupDefinitions_OperationSystemDefinitions ();
-
-        /**
-         * The meta object literal for the '<em>Validation Context</em>' data type.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.eclipse.emf.validation.IValidationContext
-         * @see org.eclipse.scada.configuration.world.setup.impl.SetupPackageImpl#getValidationContext()
-         * @generated
-         */
-        EDataType VALIDATION_CONTEXT = eINSTANCE.getValidationContext ();
 
         /**
          * The meta object literal for the '<em>Status</em>' data type.

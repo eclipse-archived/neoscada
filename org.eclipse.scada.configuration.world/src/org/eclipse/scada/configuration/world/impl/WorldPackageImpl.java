@@ -60,6 +60,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.impl.ProfilePackageImp
 import org.eclipse.scada.configuration.world.setup.SetupPackage;
 import org.eclipse.scada.configuration.world.setup.impl.SetupPackageImpl;
 import org.eclipse.scada.da.exec.configuration.ConfigurationPackage;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -271,6 +272,13 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * @generated
      */
     private EDataType patternEDataType = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType validationContextEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -1177,6 +1185,16 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EDataType getValidationContext ()
+    {
+        return validationContextEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public WorldFactory getWorldFactory ()
     {
@@ -1310,6 +1328,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
 
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
+        validationContextEDataType = createEDataType ( VALIDATION_CONTEXT );
     }
 
     /**
@@ -1490,6 +1509,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEDataType ( validationContextEDataType, ValidationContext.class, "ValidationContext", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

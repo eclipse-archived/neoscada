@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.utils.ecore.validation.handler">
+      <validationContext
+            contextId="org.eclipse.scada.configuration.world.deployment"
+            packageUri="http://eclipse.org/SCADA/Configuration/World/Deployment">
+         <validator
+               class="org.eclipse.scada.configuration.world.validation.ChangeEntryValidator"
+               filterClass="org.eclipse.scada.configuration.world.deployment.ChangeEntry">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.world.validation.CommonDeploymentMechanismValidator"
+               filterClass="org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism">
+         </validator>
+      </validationContext>
+      <validationContext
+            contextId="org.eclipse.scada.configuration.world.osgi"
+            packageUri="http://eclipse.org/SCADA/Configuration/World/OSGi">
+         <validator
+               class="org.eclipse.scada.configuration.world.validation.TelnetConsoleValidator"
+               filterClass="org.eclipse.scada.configuration.world.osgi.TelnetConsole">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.world.validation.EventPoolValidator"
+               filterClass="org.eclipse.scada.configuration.world.osgi.EventPool">
+         </validator>
+      </validationContext>
+   </extension>
+
+</plugin>

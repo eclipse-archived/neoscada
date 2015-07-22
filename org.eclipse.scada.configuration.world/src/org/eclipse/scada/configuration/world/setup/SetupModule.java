@@ -11,9 +11,8 @@
  */
 package org.eclipse.scada.configuration.world.setup;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.validation.IValidationContext;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,8 +30,8 @@ public interface SetupModule extends EObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model dataType="org.eclipse.scada.configuration.world.setup.Status" contextDataType="org.eclipse.scada.configuration.world.setup.ValidationContext"
+     * @model contextDataType="org.eclipse.scada.configuration.world.ValidationContext"
      * @generated
      */
-    IStatus validateOperatingSystem ( OperatingSystemDescriptor descriptor, IValidationContext context );
+    void validateOperatingSystem ( OperatingSystemDescriptor descriptor, ValidationContext context );
 } // SetupModule

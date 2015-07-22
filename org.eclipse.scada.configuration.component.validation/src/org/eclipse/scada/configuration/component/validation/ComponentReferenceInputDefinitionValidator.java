@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,18 +8,12 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.validation.component;
+package org.eclipse.scada.configuration.component.validation;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.validation.AbstractModelConstraint;
-import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.DataComponent;
@@ -28,39 +22,19 @@ import org.eclipse.scada.configuration.component.lib.create.CaptureItemCreator.I
 import org.eclipse.scada.configuration.component.lib.create.ItemSource;
 import org.eclipse.scada.configuration.component.lib.create.ItemSources;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
+import org.eclipse.scada.utils.ecore.validation.TypedValidator;
+import org.eclipse.scada.utils.ecore.validation.ValidationContext;
 
-public class ComponentReferenceValidation extends AbstractModelConstraint
+public class ComponentReferenceInputDefinitionValidator extends TypedValidator<ComponentReferenceInputDefinition>
 {
 
-    @Override
-    public IStatus validate ( final IValidationContext ctx )
+    public ComponentReferenceInputDefinitionValidator ()
     {
-        if ( ! ( ctx.getTarget () instanceof ComponentReferenceInputDefinition ) )
-        {
-            return ctx.createSuccessStatus ();
-        }
-
-        final ComponentReferenceInputDefinition ref = (ComponentReferenceInputDefinition)ctx.getTarget ();
-
-        final List<IStatus> result = new LinkedList<> ();
-
-        validate ( ref, ctx, result );
-
-        if ( result.isEmpty () )
-        {
-            return ctx.createSuccessStatus ();
-        }
-        else if ( result.size () == 1 )
-        {
-            return result.get ( 0 );
-        }
-        else
-        {
-            return ConstraintStatus.createMultiStatus ( ctx, result );
-        }
+        super ( ComponentReferenceInputDefinition.class );
     }
 
-    private void validate ( final ComponentReferenceInputDefinition ref, final IValidationContext ctx, final List<IStatus> result )
+    @Override
+    protected void validate ( final ComponentReferenceInputDefinition ref, final ValidationContext ctx )
     {
         if ( ! ( ref.eContainer () instanceof DataComponent ) )
         {
@@ -80,16 +54,13 @@ public class ComponentReferenceValidation extends AbstractModelConstraint
             // master server of data component we validate
             if ( !refComp.getMasterOn ().contains ( m ) )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( ref ), IStatus.ERROR, 1,
-                        "\"{0}\" of data component \"{1}\" references to a component \"{2}\" that is not available on the master server \"'{3}\".",
-                        ref, dc, refComp, m
-                        ) );
+                ctx.add ( "\"{0}\" of data component \"{1}\" references to a component \"{2}\" that is not available on the master server \"'{3}\".", ref, dc, refComp, m );
             }
         }
 
         for ( final MasterServer m : dc.getMasterOn () )
         {
-            validateRef ( m, ref, ctx, result );
+            validateRef ( m, ref, ctx );
         }
     }
 
@@ -102,14 +73,15 @@ public class ComponentReferenceValidation extends AbstractModelConstraint
         return result;
     }
 
-    private void validateRef ( final MasterServer m, final ComponentReferenceInputDefinition ref, final IValidationContext ctx, final List<IStatus> result )
+    private void validateRef ( final MasterServer m, final ComponentReferenceInputDefinition ref, final ValidationContext ctx )
     {
         final Map<List<String>, ItemCreation> itemResult = createItems ( ref.getComponent () );
 
         final ItemCreation refItem = itemResult.get ( ref.getLocalTag () );
         if ( refItem == null )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( ref ), IStatus.ERROR, 2, "The reference points to an invalid item (LocalTags: {0}) on the component: {1}", ref.getLocalTag (), ref.getComponent () ) );
+            ctx.add ( "The reference points to an invalid item (LocalTags: {0}) on the component: {1}", ref.getLocalTag (), ref.getComponent () );
         }
     }
+
 }

@@ -1887,6 +1887,16 @@ public interface WorldPackage extends EPackage
     int PATTERN = 28;
 
     /**
+     * The meta object id for the '<em>Validation Context</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.utils.ecore.validation.ValidationContext
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getValidationContext()
+     * @generated
+     */
+    int VALIDATION_CONTEXT = 29;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.World <em>World</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2699,6 +2709,17 @@ public interface WorldPackage extends EPackage
     EDataType getPattern ();
 
     /**
+     * Returns the meta object for data type '{@link org.eclipse.scada.utils.ecore.validation.ValidationContext <em>Validation Context</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Validation Context</em>'.
+     * @see org.eclipse.scada.utils.ecore.validation.ValidationContext
+     * @model instanceClass="org.eclipse.scada.utils.ecore.validation.ValidationContext" serializeable="false"
+     * @generated
+     */
+    EDataType getValidationContext ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3395,6 +3416,16 @@ public interface WorldPackage extends EPackage
          * @generated
          */
         EDataType PATTERN = eINSTANCE.getPattern ();
+
+        /**
+         * The meta object literal for the '<em>Validation Context</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.utils.ecore.validation.ValidationContext
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getValidationContext()
+         * @generated
+         */
+        EDataType VALIDATION_CONTEXT = eINSTANCE.getValidationContext ();
 
     }
 

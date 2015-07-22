@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.validation.IValidationContext;
 import org.eclipse.scada.configuration.script.ScriptPackage;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -82,13 +81,6 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
      * @generated
      */
     private EClass setupDefinitionsEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EDataType validationContextEDataType = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -265,7 +257,7 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getSetupModuleContainer__ValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext ()
+    public EOperation getSetupModuleContainer__ValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ()
     {
         return setupModuleContainerEClass.getEOperations ().get ( 0 );
     }
@@ -285,7 +277,7 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getSetupModule__ValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext ()
+    public EOperation getSetupModule__ValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ()
     {
         return setupModuleEClass.getEOperations ().get ( 0 );
     }
@@ -345,16 +337,6 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EDataType getValidationContext ()
-    {
-        return validationContextEDataType;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EDataType getStatus ()
     {
         return statusEDataType;
@@ -400,10 +382,10 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
         setupModuleContainerEClass = createEClass ( SETUP_MODULE_CONTAINER );
         createEReference ( setupModuleContainerEClass, SETUP_MODULE_CONTAINER__MODULES );
         createEAttribute ( setupModuleContainerEClass, SETUP_MODULE_CONTAINER__ID );
-        createEOperation ( setupModuleContainerEClass, SETUP_MODULE_CONTAINER___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT );
+        createEOperation ( setupModuleContainerEClass, SETUP_MODULE_CONTAINER___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT );
 
         setupModuleEClass = createEClass ( SETUP_MODULE );
-        createEOperation ( setupModuleEClass, SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_IVALIDATIONCONTEXT );
+        createEOperation ( setupModuleEClass, SETUP_MODULE___VALIDATE_OPERATING_SYSTEM__OPERATINGSYSTEMDESCRIPTOR_VALIDATIONCONTEXT );
 
         subContainerModuleEClass = createEClass ( SUB_CONTAINER_MODULE );
         createEReference ( subContainerModuleEClass, SUB_CONTAINER_MODULE__CONTAINER );
@@ -413,7 +395,6 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
         createEReference ( setupDefinitionsEClass, SETUP_DEFINITIONS__OPERATION_SYSTEM_DEFINITIONS );
 
         // Create data types
-        validationContextEDataType = createEDataType ( VALIDATION_CONTEXT );
         statusEDataType = createEDataType ( STATUS );
     }
 
@@ -463,15 +444,15 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
         initEReference ( getSetupModuleContainer_Modules (), this.getSetupModule (), null, "modules", null, 0, -1, SetupModuleContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSetupModuleContainer_Id (), ecorePackage.getEString (), "id", null, 1, 1, SetupModuleContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        EOperation op = initEOperation ( getSetupModuleContainer__ValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext (), this.getStatus (), "validateOperatingSystem", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        EOperation op = initEOperation ( getSetupModuleContainer__ValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext (), null, "validateOperatingSystem", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
         addEParameter ( op, this.getOperatingSystemDescriptor (), "descriptor", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
-        addEParameter ( op, this.getValidationContext (), "context", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        addEParameter ( op, theWorldPackage.getValidationContext (), "context", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( setupModuleEClass, SetupModule.class, "SetupModule", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        op = initEOperation ( getSetupModule__ValidateOperatingSystem__OperatingSystemDescriptor_IValidationContext (), this.getStatus (), "validateOperatingSystem", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        op = initEOperation ( getSetupModule__ValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext (), null, "validateOperatingSystem", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
         addEParameter ( op, this.getOperatingSystemDescriptor (), "descriptor", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
-        addEParameter ( op, this.getValidationContext (), "context", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        addEParameter ( op, theWorldPackage.getValidationContext (), "context", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( subContainerModuleEClass, SubContainerModule.class, "SubContainerModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getSubContainerModule_Container (), this.getSetupModuleContainer (), null, "container", null, 0, 1, SubContainerModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -481,7 +462,6 @@ public class SetupPackageImpl extends EPackageImpl implements SetupPackage
         initEReference ( getSetupDefinitions_OperationSystemDefinitions (), this.getOperatingSystemDescriptor (), null, "operationSystemDefinitions", null, 0, -1, SetupDefinitions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
-        initEDataType ( validationContextEDataType, IValidationContext.class, "ValidationContext", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEDataType ( statusEDataType, IStatus.class, "Status", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
     }
 

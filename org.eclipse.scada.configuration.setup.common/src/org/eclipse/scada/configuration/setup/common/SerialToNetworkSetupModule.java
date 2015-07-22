@@ -22,10 +22,10 @@ import org.eclipse.scada.configuration.world.setup.SetupModule;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule#getMappings <em>Mappings</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.setup.common.CommonPackage#getSerialToNetworkSetupModule()
  * @model

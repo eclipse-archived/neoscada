@@ -25,12 +25,9 @@ import org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule;
  * <p>
  * The following operations are tested:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.emf.validation.IValidationContext)
- * <em>Validate Operating System</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext) <em>Validate Operating System</em>}</li>
  * </ul>
  * </p>
- * 
  * @generated
  */
 public class SerialToNetworkSetupModuleTest extends TestCase
@@ -40,7 +37,6 @@ public class SerialToNetworkSetupModuleTest extends TestCase
      * The fixture for this Serial To Network Setup Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected SerialToNetworkSetupModule fixture = null;
@@ -48,23 +44,20 @@ public class SerialToNetworkSetupModuleTest extends TestCase
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( SerialToNetworkSetupModuleTest.class );
     }
 
     /**
-     * Constructs a new Serial To Network Setup Module test case with the given
-     * name.
+     * Constructs a new Serial To Network Setup Module test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public SerialToNetworkSetupModuleTest ( final String name )
+    public SerialToNetworkSetupModuleTest ( String name )
     {
         super ( name );
     }
@@ -73,10 +66,9 @@ public class SerialToNetworkSetupModuleTest extends TestCase
      * Sets the fixture for this Serial To Network Setup Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void setFixture ( final SerialToNetworkSetupModule fixture )
+    protected void setFixture ( SerialToNetworkSetupModule fixture )
     {
         this.fixture = fixture;
     }
@@ -85,18 +77,16 @@ public class SerialToNetworkSetupModuleTest extends TestCase
      * Returns the fixture for this Serial To Network Setup Module test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected SerialToNetworkSetupModule getFixture ()
     {
-        return this.fixture;
+        return fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -109,7 +99,6 @@ public class SerialToNetworkSetupModuleTest extends TestCase
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */
@@ -117,6 +106,20 @@ public class SerialToNetworkSetupModuleTest extends TestCase
     protected void tearDown () throws Exception
     {
         setFixture ( null );
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext) <em>Validate Operating System</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.setup.SetupModule#validateOperatingSystem(org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor, org.eclipse.scada.utils.ecore.validation.ValidationContext)
+     * @generated
+     */
+    public void testValidateOperatingSystem__OperatingSystemDescriptor_ValidationContext ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
     /**

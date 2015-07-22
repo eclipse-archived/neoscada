@@ -111,4 +111,5 @@ Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.validation,
  org.eclipse.emf.validation.model,
  org.eclipse.scada.ae.data;version="0.1.0",
- org.eclipse.scada.core;version="0.1.0"
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.utils.ecore.validation;version="0.2.0"
