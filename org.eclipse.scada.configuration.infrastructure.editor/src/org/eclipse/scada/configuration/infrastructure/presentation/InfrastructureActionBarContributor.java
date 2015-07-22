@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
+import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -50,7 +51,7 @@ import org.eclipse.ui.PartInitException;
  * This is the action bar contributor for the Infrastructure model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class InfrastructureActionBarContributor extends EditingDomainActionBarContributor implements ISelectionChangedListener
@@ -59,7 +60,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * This keeps track of the active editor.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IEditorPart activeEditorPart;
@@ -68,7 +69,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * This keeps track of the current selection provider.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ISelectionProvider selectionProvider;
@@ -77,7 +78,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * This action opens the Properties view.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IAction showPropertiesViewAction = new Action ( InfrastructureEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" )) {
@@ -100,7 +101,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * implements {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IAction refreshViewerAction = new Action ( InfrastructureEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" )) {
@@ -131,7 +132,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * generated for the current selection by the item provider.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<IAction> createChildActions;
@@ -142,7 +143,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * sub-menu text.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Map<String, Collection<IAction>> createChildSubmenuActions;
@@ -152,7 +153,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * added for CreateChild actions.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IMenuManager createChildMenuManager;
@@ -164,7 +165,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * generated for the current selection by the item provider.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<IAction> createSiblingActions;
@@ -175,7 +176,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * submenu text.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Map<String, Collection<IAction>> createSiblingSubmenuActions;
@@ -185,7 +186,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * added for CreateSibling actions.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IMenuManager createSiblingMenuManager;
@@ -194,7 +195,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * This creates an instance of the contributor.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureActionBarContributor ()
@@ -202,6 +203,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
         super ( ADDITIONS_LAST_STYLE );
         this.loadResourceAction = new LoadResourceAction ();
         this.validateAction = new ValidateAction ();
+        this.liveValidationAction = new DiagnosticDecorator.LiveValidator.LiveValidationAction ( InfrastructureEditorPlugin.getPlugin ().getDialogSettings () );
         this.controlAction = new ControlAction ();
     }
 
@@ -209,7 +211,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * This adds Separators for editor additions to the tool bar.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -225,7 +227,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * as well as the sub-menus for object creation items.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -268,7 +270,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * with it as a selection provider.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -310,7 +312,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * accordingly.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -372,7 +374,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * and returns the collection of these actions.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<IAction> generateCreateChildActions ( final Collection<?> descriptors, final ISelection selection )
@@ -395,7 +397,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * and returns the collection of these actions.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<IAction> generateCreateSiblingActions ( final Collection<?> descriptors, final ISelection selection )
@@ -422,7 +424,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * added.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void populateManager ( final IContributionManager manager, final Collection<? extends IAction> actions, final String contributionID )
@@ -450,7 +452,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * <code>actions</code> collection.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void depopulateManager ( final IContributionManager manager, final Collection<? extends IAction> actions )
@@ -488,7 +490,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * a map of these actions, keyed by submenu text.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Map<String, Collection<IAction>> extractSubmenuActions ( final Collection<IAction> createActions )
@@ -529,7 +531,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * added.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void populateManager ( final IContributionManager manager, final Map<String, Collection<IAction>> submenuActions, final String contributionID )
@@ -560,7 +562,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * contained in the <code>submenuActions</code> map.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void depopulateManager ( final IContributionManager manager, final Map<String, Collection<IAction>> submenuActions )
@@ -588,7 +590,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * This populates the pop-up menu before it appears.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -612,7 +614,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * This inserts global actions before the "additions-end" separator.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -632,7 +634,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * objects.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -32,6 +32,7 @@ import org.eclipse.scada.configuration.component.ComponentDanglingReference;
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition;
 import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.ConstantValue;
@@ -395,6 +396,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * @generated
      */
     private EClass masterAssignedEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass componentReferenceOutputDefinitionEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1028,6 +1036,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getCalculationComponent_InitProperties ()
     {
         return (EReference)calculationComponentEClass.getEStructuralFeatures ().get ( 3 );
@@ -2072,6 +2081,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getMasterAssigned ()
     {
         return masterAssignedEClass;
@@ -2082,9 +2092,43 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getMasterAssigned_MasterOn ()
     {
         return (EReference)masterAssignedEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EClass getComponentReferenceOutputDefinition ()
+    {
+        return componentReferenceOutputDefinitionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EReference getComponentReferenceOutputDefinition_Component ()
+    {
+        return (EReference)componentReferenceOutputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public EOperation getComponentReferenceOutputDefinition__CreateReference ()
+    {
+        return componentReferenceOutputDefinitionEClass.getEOperations ().get ( 0 );
     }
 
     /**
@@ -2321,6 +2365,10 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         masterAssignedEClass = createEClass ( MASTER_ASSIGNED );
         createEReference ( masterAssignedEClass, MASTER_ASSIGNED__MASTER_ON );
 
+        componentReferenceOutputDefinitionEClass = createEClass ( COMPONENT_REFERENCE_OUTPUT_DEFINITION );
+        createEReference ( componentReferenceOutputDefinitionEClass, COMPONENT_REFERENCE_OUTPUT_DEFINITION__COMPONENT );
+        createEOperation ( componentReferenceOutputDefinitionEClass, COMPONENT_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE );
+
         // Create data types
         notificationEDataType = createEDataType ( NOTIFICATION );
     }
@@ -2401,6 +2449,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         changeCounterEClass.getESuperTypes ().add ( this.getSingleValue () );
         movingAverageModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
         deltaValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        componentReferenceOutputDefinitionEClass.getESuperTypes ().add ( this.getOutputDefinition () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentWorldEClass, ComponentWorld.class, "ComponentWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -2604,6 +2653,11 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         initEClass ( masterAssignedEClass, MasterAssigned.class, "MasterAssigned", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getMasterAssigned_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, MasterAssigned.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( componentReferenceOutputDefinitionEClass, ComponentReferenceOutputDefinition.class, "ComponentReferenceOutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getComponentReferenceOutputDefinition_Component (), this.getComponent (), null, "component", null, 1, 1, ComponentReferenceOutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getComponentReferenceOutputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

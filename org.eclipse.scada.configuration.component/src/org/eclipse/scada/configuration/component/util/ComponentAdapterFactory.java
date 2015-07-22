@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.component.*;
 import org.eclipse.scada.configuration.component.AbsoluteDanglingReference;
 import org.eclipse.scada.configuration.component.AverageModule;
 import org.eclipse.scada.configuration.component.BufferedValue;
@@ -25,6 +24,7 @@ import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.ComponentDanglingReference;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition;
 import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.ConstantValue;
@@ -33,6 +33,7 @@ import org.eclipse.scada.configuration.component.DanglingItemReference;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
 import org.eclipse.scada.configuration.component.DataMapperService;
+import org.eclipse.scada.configuration.component.DeltaValue;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
@@ -41,11 +42,14 @@ import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.InputSpecification;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.MarkerConfiguration;
+import org.eclipse.scada.configuration.component.MasterAssigned;
 import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
+import org.eclipse.scada.configuration.component.MovingAverageModule;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
 import org.eclipse.scada.configuration.component.PersistentValue;
@@ -55,6 +59,7 @@ import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.Service;
 import org.eclipse.scada.configuration.component.SingleValue;
 import org.eclipse.scada.configuration.component.SummariesConfiguration;
+import org.eclipse.scada.configuration.component.TimerScript;
 import org.eclipse.scada.configuration.component.TransientValue;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
@@ -391,6 +396,12 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
         public Adapter caseMasterAssigned ( MasterAssigned object )
         {
             return createMasterAssignedAdapter ();
+        }
+
+        @Override
+        public Adapter caseComponentReferenceOutputDefinition ( ComponentReferenceOutputDefinition object )
+        {
+            return createComponentReferenceOutputDefinitionAdapter ();
         }
 
         @Override
@@ -792,8 +803,10 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition <em>Item Reference Output Definition</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition
@@ -926,8 +939,10 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.TimerScript <em>Timer Script</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.component.TimerScript
@@ -1145,8 +1160,10 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.MovingAverageModule <em>Moving Average Module</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.component.MovingAverageModule
@@ -1160,8 +1177,10 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.DeltaValue <em>Delta Value</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.component.DeltaValue
@@ -1175,14 +1194,33 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.MasterAssigned <em>Master Assigned</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.component.MasterAssigned
      * @generated
      */
     public Adapter createMasterAssignedAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition <em>Reference Output Definition</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition
+     * @generated
+     */
+    public Adapter createComponentReferenceOutputDefinitionAdapter ()
     {
         return null;
     }

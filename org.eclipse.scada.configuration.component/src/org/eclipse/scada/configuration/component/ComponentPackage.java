@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -3741,6 +3741,79 @@ public interface ComponentPackage extends EPackage
     int DELTA_VALUE_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ComponentReferenceOutputDefinitionImpl <em>Reference Output Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.ComponentReferenceOutputDefinitionImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getComponentReferenceOutputDefinition()
+     * @generated
+     */
+    int COMPONENT_REFERENCE_OUTPUT_DEFINITION = 45;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT_REFERENCE_OUTPUT_DEFINITION__NAME = OUTPUT_DEFINITION__NAME;
+
+    /**
+     * The feature id for the '<em><b>Local Tag</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT_REFERENCE_OUTPUT_DEFINITION__LOCAL_TAG = OUTPUT_DEFINITION__LOCAL_TAG;
+
+    /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT_REFERENCE_OUTPUT_DEFINITION__CUSTOMIZATION_TAGS = OUTPUT_DEFINITION__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Component</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT_REFERENCE_OUTPUT_DEFINITION__COMPONENT = OUTPUT_DEFINITION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Reference Output Definition</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT_REFERENCE_OUTPUT_DEFINITION_FEATURE_COUNT = OUTPUT_DEFINITION_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Create Reference</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE = OUTPUT_DEFINITION_OPERATION_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Reference Output Definition</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT_REFERENCE_OUTPUT_DEFINITION_OPERATION_COUNT = OUTPUT_DEFINITION_OPERATION_COUNT + 1;
+
+    /**
      * The meta object id for the '<em>Notification</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3748,7 +3821,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 45;
+    int NOTIFICATION = 46;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -5302,6 +5375,37 @@ public interface ComponentPackage extends EPackage
     EReference getMasterAssigned_MasterOn ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition <em>Reference Output Definition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Reference Output Definition</em>'.
+     * @see org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition
+     * @generated
+     */
+    EClass getComponentReferenceOutputDefinition ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition#getComponent <em>Component</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Component</em>'.
+     * @see org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition#getComponent()
+     * @see #getComponentReferenceOutputDefinition()
+     * @generated
+     */
+    EReference getComponentReferenceOutputDefinition_Component ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition#createReference() <em>Create Reference</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Create Reference</em>' operation.
+     * @see org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition#createReference()
+     * @generated
+     */
+    EOperation getComponentReferenceOutputDefinition__CreateReference ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6593,6 +6697,32 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference MASTER_ASSIGNED__MASTER_ON = eINSTANCE.getMasterAssigned_MasterOn ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ComponentReferenceOutputDefinitionImpl <em>Reference Output Definition</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.ComponentReferenceOutputDefinitionImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getComponentReferenceOutputDefinition()
+         * @generated
+         */
+        EClass COMPONENT_REFERENCE_OUTPUT_DEFINITION = eINSTANCE.getComponentReferenceOutputDefinition ();
+
+        /**
+         * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference COMPONENT_REFERENCE_OUTPUT_DEFINITION__COMPONENT = eINSTANCE.getComponentReferenceOutputDefinition_Component ();
+
+        /**
+         * The meta object literal for the '<em><b>Create Reference</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation COMPONENT_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE = eINSTANCE.getComponentReferenceOutputDefinition__CreateReference ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

@@ -6,7 +6,7 @@
     modelName="Component" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
     complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.11" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
-    operationReflection="true" importOrganizing="true" decoration="Manual">
+    operationReflection="true" importOrganizing="true" decoration="Live">
   <foreignModel>component.ecore</foreignModel>
   <genPackages prefix="Component" basePackage="org.eclipse.scada.configuration" resource="XMI"
       disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
@@ -73,9 +73,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//MappedSourceValue/input"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//CalculationComponent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/implementation"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="core" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/implementation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/outputs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/initProperties"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//CalculationModule">
       <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
@@ -212,10 +214,12 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DeltaValue/source"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//MasterAssigned">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterAssigned/masterOn"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="core" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//MasterAssigned/masterOn"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="component.ecore#//ScriptBasedModule">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ScriptBasedModule/initProperties"/>
+    <genClasses ecoreClass="component.ecore#//ComponentReferenceOutputDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentReferenceOutputDefinition/component"/>
+      <genOperations ecoreOperation="component.ecore#//ComponentReferenceOutputDefinition/createReference"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,27 +16,34 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.scada.configuration.component.*;
 import org.eclipse.scada.configuration.component.AbsoluteDanglingReference;
 import org.eclipse.scada.configuration.component.AverageModule;
+import org.eclipse.scada.configuration.component.BufferedValue;
 import org.eclipse.scada.configuration.component.CalculationComponent;
+import org.eclipse.scada.configuration.component.ChangeCounter;
 import org.eclipse.scada.configuration.component.ComponentDanglingReference;
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.ConstantValue;
 import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
 import org.eclipse.scada.configuration.component.DataMapperService;
+import org.eclipse.scada.configuration.component.DeltaValue;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.InputSpecification;
 import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.MarkerConfiguration;
+import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
+import org.eclipse.scada.configuration.component.MovingAverageModule;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
 import org.eclipse.scada.configuration.component.PersistentValue;
@@ -44,6 +51,8 @@ import org.eclipse.scada.configuration.component.RestInterceptor;
 import org.eclipse.scada.configuration.component.Script;
 import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.SummariesConfiguration;
+import org.eclipse.scada.configuration.component.TimerScript;
+import org.eclipse.scada.configuration.component.TransientValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -165,6 +174,8 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
                 return createMovingAverageModule ();
             case ComponentPackage.DELTA_VALUE:
                 return createDeltaValue ();
+            case ComponentPackage.COMPONENT_REFERENCE_OUTPUT_DEFINITION:
+                return createComponentReferenceOutputDefinition ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -205,6 +216,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ComponentWorld createComponentWorld ()
     {
         ComponentWorldImpl componentWorld = new ComponentWorldImpl ();
@@ -216,6 +228,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Level createLevel ()
     {
         LevelImpl level = new LevelImpl ();
@@ -227,6 +240,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ConstantValue createConstantValue ()
     {
         ConstantValueImpl constantValue = new ConstantValueImpl ();
@@ -238,6 +252,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public MarkerConfiguration createMarkerConfiguration ()
     {
         MarkerConfigurationImpl markerConfiguration = new MarkerConfigurationImpl ();
@@ -249,6 +264,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public PersistentValue createPersistentValue ()
     {
         PersistentValueImpl persistentValue = new PersistentValueImpl ();
@@ -260,6 +276,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DriverConnectionAnalyzer createDriverConnectionAnalyzer ()
     {
         DriverConnectionAnalyzerImpl driverConnectionAnalyzer = new DriverConnectionAnalyzerImpl ();
@@ -271,6 +288,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public MasterImportConnectionAnalyzer createMasterImportConnectionAnalyzer ()
     {
         MasterImportConnectionAnalyzerImpl masterImportConnectionAnalyzer = new MasterImportConnectionAnalyzerImpl ();
@@ -282,6 +300,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DataMapperAnalyzer createDataMapperAnalyzer ()
     {
         DataMapperAnalyzerImpl dataMapperAnalyzer = new DataMapperAnalyzerImpl ();
@@ -293,6 +312,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DataMapperService createDataMapperService ()
     {
         DataMapperServiceImpl dataMapperService = new DataMapperServiceImpl ();
@@ -304,6 +324,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public MappedSourceValue createMappedSourceValue ()
     {
         MappedSourceValueImpl mappedSourceValue = new MappedSourceValueImpl ();
@@ -315,6 +336,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public CalculationComponent createCalculationComponent ()
     {
         CalculationComponentImpl calculationComponent = new CalculationComponentImpl ();
@@ -326,6 +348,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public InputSpecification createInputSpecification ()
     {
         InputSpecificationImpl inputSpecification = new InputSpecificationImpl ();
@@ -337,6 +360,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public OutputSpecification createOutputSpecification ()
     {
         OutputSpecificationImpl outputSpecification = new OutputSpecificationImpl ();
@@ -348,6 +372,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public OutputDefinition createOutputDefinition ()
     {
         OutputDefinitionImpl outputDefinition = new OutputDefinitionImpl ();
@@ -359,6 +384,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ItemReferenceInputDefinition createItemReferenceInputDefinition ()
     {
         ItemReferenceInputDefinitionImpl itemReferenceInputDefinition = new ItemReferenceInputDefinitionImpl ();
@@ -370,6 +396,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ItemReferenceOutputDefinition createItemReferenceOutputDefinition ()
     {
         ItemReferenceOutputDefinitionImpl itemReferenceOutputDefinition = new ItemReferenceOutputDefinitionImpl ();
@@ -381,6 +408,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ComponentReferenceInputDefinition createComponentReferenceInputDefinition ()
     {
         ComponentReferenceInputDefinitionImpl componentReferenceInputDefinition = new ComponentReferenceInputDefinitionImpl ();
@@ -392,6 +420,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public FormulaModule createFormulaModule ()
     {
         FormulaModuleImpl formulaModule = new FormulaModuleImpl ();
@@ -403,6 +432,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public AverageModule createAverageModule ()
     {
         AverageModuleImpl averageModule = new AverageModuleImpl ();
@@ -414,6 +444,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ScriptModule createScriptModule ()
     {
         ScriptModuleImpl scriptModule = new ScriptModuleImpl ();
@@ -425,6 +456,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Script createScript ()
     {
         ScriptImpl script = new ScriptImpl ();
@@ -436,6 +468,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public TimerScript createTimerScript ()
     {
         TimerScriptImpl timerScript = new TimerScriptImpl ();
@@ -447,6 +480,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public AbsoluteDanglingReference createAbsoluteDanglingReference ()
     {
         AbsoluteDanglingReferenceImpl absoluteDanglingReference = new AbsoluteDanglingReferenceImpl ();
@@ -458,6 +492,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ComponentDanglingReference createComponentDanglingReference ()
     {
         ComponentDanglingReferenceImpl componentDanglingReference = new ComponentDanglingReferenceImpl ();
@@ -469,6 +504,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ExternalValue createExternalValue ()
     {
         ExternalValueImpl externalValue = new ExternalValueImpl ();
@@ -480,6 +516,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public SummariesConfiguration createSummariesConfiguration ()
     {
         SummariesConfigurationImpl summariesConfiguration = new SummariesConfigurationImpl ();
@@ -491,6 +528,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public RestInterceptor createRestInterceptor ()
     {
         RestInterceptorImpl restInterceptor = new RestInterceptorImpl ();
@@ -502,6 +540,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public GlobalizeComponent createGlobalizeComponent ()
     {
         GlobalizeComponentImpl globalizeComponent = new GlobalizeComponentImpl ();
@@ -513,6 +552,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public TransientValue createTransientValue ()
     {
         TransientValueImpl transientValue = new TransientValueImpl ();
@@ -524,6 +564,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public MasterComponent createMasterComponent ()
     {
         MasterComponentImpl masterComponent = new MasterComponentImpl ();
@@ -535,6 +576,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public BufferedValue createBufferedValue ()
     {
         BufferedValueImpl bufferedValue = new BufferedValueImpl ();
@@ -546,6 +588,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ChangeCounter createChangeCounter ()
     {
         ChangeCounterImpl changeCounter = new ChangeCounterImpl ();
@@ -557,6 +600,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public MovingAverageModule createMovingAverageModule ()
     {
         MovingAverageModuleImpl movingAverageModule = new MovingAverageModuleImpl ();
@@ -568,6 +612,7 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DeltaValue createDeltaValue ()
     {
         DeltaValueImpl deltaValue = new DeltaValueImpl ();
@@ -579,6 +624,19 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public ComponentReferenceOutputDefinition createComponentReferenceOutputDefinition ()
+    {
+        ComponentReferenceOutputDefinitionImpl componentReferenceOutputDefinition = new ComponentReferenceOutputDefinitionImpl ();
+        return componentReferenceOutputDefinition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public ComponentPackage getComponentPackage ()
     {
         return (ComponentPackage)getEPackage ();

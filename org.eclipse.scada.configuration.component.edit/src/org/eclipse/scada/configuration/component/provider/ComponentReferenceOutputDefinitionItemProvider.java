@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
+ * Copyright (c) 2015 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,20 +13,23 @@ package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import org.eclipse.scada.configuration.component.ComponentPackage;
-import org.eclipse.scada.configuration.component.MasterComponent;
+import org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.MasterComponent} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MasterComponentItemProvider extends DataComponentItemProvider
+public class ComponentReferenceOutputDefinitionItemProvider extends OutputDefinitionItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -34,7 +37,7 @@ public class MasterComponentItemProvider extends DataComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public MasterComponentItemProvider ( AdapterFactory adapterFactory )
+    public ComponentReferenceOutputDefinitionItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -52,27 +55,26 @@ public class MasterComponentItemProvider extends DataComponentItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addMasterOnPropertyDescriptor ( object );
+            addComponentPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Master On feature.
+     * This adds a property descriptor for the Component feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addMasterOnPropertyDescriptor ( Object object )
+    protected void addComponentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterAssigned_masterOn_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterAssigned_masterOn_feature", "_UI_MasterAssigned_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, true, false, true, null, getString ( "_UI_corePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentReferenceOutputDefinition_component_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceOutputDefinition_component_feature", "_UI_ComponentReferenceOutputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        ComponentPackage.Literals.COMPONENT_REFERENCE_OUTPUT_DEFINITION__COMPONENT, true, false, true, null, null, null ) );
     }
 
     /**
-     * This returns MasterComponent.gif.
+     * This returns ComponentReferenceOutputDefinition.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -80,7 +82,7 @@ public class MasterComponentItemProvider extends DataComponentItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/MasterComponent" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ComponentReferenceOutputDefinition" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -103,9 +105,9 @@ public class MasterComponentItemProvider extends DataComponentItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (MasterComponent)object ).getShortDescription ();
-        return label == null || label.length () == 0 ? getString ( "_UI_MasterComponent_type" ) : //$NON-NLS-1$
-        getString ( "_UI_MasterComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (ComponentReferenceOutputDefinition)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_ComponentReferenceOutputDefinition_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ComponentReferenceOutputDefinition_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

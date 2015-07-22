@@ -1139,7 +1139,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                 selectionViewer = (TreeViewer)viewerPane.getViewer ();
                 selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
 
-                selectionViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), selectionViewer ) ) );
+                selectionViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, selectionViewer, ComponentEditorPlugin.getPlugin ().getDialogSettings () ) ) );
                 selectionViewer.setInput ( editingDomain.getResourceSet () );
                 selectionViewer.setSelection ( new StructuredSelection ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
                 viewerPane.setTitle ( editingDomain.getResourceSet () );
@@ -1230,7 +1230,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                 viewerPane.createControl ( getContainer () );
                 treeViewer = (TreeViewer)viewerPane.getViewer ();
                 treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                treeViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), treeViewer ) ) );
+                treeViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, treeViewer ) ) );
 
                 new AdapterFactoryTreeEditor ( treeViewer.getTree (), adapterFactory );
                 new ColumnViewerInformationControlToolTipSupport ( treeViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, treeViewer ) );
@@ -1278,7 +1278,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
 
                 tableViewer.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
                 tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                tableViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), tableViewer ) ) );
+                tableViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, tableViewer, ComponentEditorPlugin.getPlugin ().getDialogSettings () ) ) );
 
                 new ColumnViewerInformationControlToolTipSupport ( tableViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, tableViewer ) );
 
@@ -1325,7 +1325,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
 
                 treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
                 treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                treeViewerWithColumns.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), treeViewerWithColumns ) ) );
+                treeViewerWithColumns.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, treeViewerWithColumns, ComponentEditorPlugin.getPlugin ().getDialogSettings () ) ) );
 
                 new ColumnViewerInformationControlToolTipSupport ( treeViewerWithColumns, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, treeViewerWithColumns ) );
 
@@ -1479,7 +1479,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     // Set up the tree viewer.
                     //
                     contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                    contentOutlineViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), contentOutlineViewer ) ) );
+                    contentOutlineViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain, contentOutlineViewer, ComponentEditorPlugin.getPlugin ().getDialogSettings () ) ) );
                     contentOutlineViewer.setInput ( editingDomain.getResourceSet () );
 
                     new ColumnViewerInformationControlToolTipSupport ( contentOutlineViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, contentOutlineViewer ) );

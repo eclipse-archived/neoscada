@@ -1212,7 +1212,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
                 this.selectionViewer = (TreeViewer)viewerPane.getViewer ();
                 this.selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
 
-                this.selectionViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ), new DiagnosticDecorator ( this.editingDomain.getResourceSet (), this.selectionViewer ) ) );
+                this.selectionViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ), new DiagnosticDecorator ( this.editingDomain, this.selectionViewer, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () ) ) );
                 this.selectionViewer.setInput ( this.editingDomain.getResourceSet () );
                 this.selectionViewer.setSelection ( new StructuredSelection ( this.editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
                 viewerPane.setTitle ( this.editingDomain.getResourceSet () );
@@ -1303,7 +1303,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
                 viewerPane.createControl ( getContainer () );
                 this.treeViewer = (TreeViewer)viewerPane.getViewer ();
                 this.treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
-                this.treeViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ), new DiagnosticDecorator ( this.editingDomain.getResourceSet (), this.treeViewer ) ) );
+                this.treeViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ), new DiagnosticDecorator ( this.editingDomain, this.treeViewer ) ) );
 
                 new AdapterFactoryTreeEditor ( this.treeViewer.getTree (), this.adapterFactory );
                 new ColumnViewerInformationControlToolTipSupport ( this.treeViewer, new DiagnosticDecorator.EditingDomainLocationListener ( this.editingDomain, this.treeViewer ) );
@@ -1351,7 +1351,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
 
                 this.tableViewer.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
                 this.tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
-                this.tableViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ), new DiagnosticDecorator ( this.editingDomain.getResourceSet (), this.tableViewer ) ) );
+                this.tableViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ), new DiagnosticDecorator ( this.editingDomain, this.tableViewer, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () ) ) );
 
                 new ColumnViewerInformationControlToolTipSupport ( this.tableViewer, new DiagnosticDecorator.EditingDomainLocationListener ( this.editingDomain, this.tableViewer ) );
 
@@ -1398,7 +1398,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
 
                 this.treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
                 this.treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
-                this.treeViewerWithColumns.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ), new DiagnosticDecorator ( this.editingDomain.getResourceSet (), this.treeViewerWithColumns ) ) );
+                this.treeViewerWithColumns.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ), new DiagnosticDecorator ( this.editingDomain, this.treeViewerWithColumns, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () ) ) );
 
                 new ColumnViewerInformationControlToolTipSupport ( this.treeViewerWithColumns, new DiagnosticDecorator.EditingDomainLocationListener ( this.editingDomain, this.treeViewerWithColumns ) );
 
@@ -1559,7 +1559,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
                     // Set up the tree viewer.
                     //
                     InfrastructureEditor.this.contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( InfrastructureEditor.this.adapterFactory ) );
-                    InfrastructureEditor.this.contentOutlineViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( InfrastructureEditor.this.adapterFactory ), new DiagnosticDecorator ( InfrastructureEditor.this.editingDomain.getResourceSet (), InfrastructureEditor.this.contentOutlineViewer ) ) );
+                    InfrastructureEditor.this.contentOutlineViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( InfrastructureEditor.this.adapterFactory ), new DiagnosticDecorator ( InfrastructureEditor.this.editingDomain, InfrastructureEditor.this.contentOutlineViewer, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () ) ) );
                     InfrastructureEditor.this.contentOutlineViewer.setInput ( InfrastructureEditor.this.editingDomain.getResourceSet () );
 
                     new ColumnViewerInformationControlToolTipSupport ( InfrastructureEditor.this.contentOutlineViewer, new DiagnosticDecorator.EditingDomainLocationListener ( InfrastructureEditor.this.editingDomain, InfrastructureEditor.this.contentOutlineViewer ) );

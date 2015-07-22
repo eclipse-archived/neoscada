@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
+import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -80,7 +81,7 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * 
      * @generated
      */
-    protected IAction showPropertiesViewAction = new Action ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" )) {
+    protected IAction showPropertiesViewAction = new Action ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" )) {//$NON-NLS-1$
         @Override
         public void run ()
         {
@@ -103,7 +104,7 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
      * 
      * @generated
      */
-    protected IAction refreshViewerAction = new Action ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" )) {
+    protected IAction refreshViewerAction = new Action ( ComponentEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" )) {//$NON-NLS-1$
         @Override
         public boolean isEnabled ()
         {
@@ -202,6 +203,7 @@ public class ComponentActionBarContributor extends EditingDomainActionBarContrib
         super ( ADDITIONS_LAST_STYLE );
         this.loadResourceAction = new LoadResourceAction ();
         this.validateAction = new ValidateAction ();
+        this.liveValidationAction = new DiagnosticDecorator.LiveValidator.LiveValidationAction ( ComponentEditorPlugin.getPlugin ().getDialogSettings () );
         this.controlAction = new ControlAction ();
     }
 

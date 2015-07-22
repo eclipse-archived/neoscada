@@ -6,7 +6,7 @@
     modelName="Infrastructure" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
     complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.11" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script"
-    operationReflection="true" importOrganizing="true" decoration="Manual">
+    operationReflection="true" importOrganizing="true" decoration="Live">
   <foreignModel>infrastructure.ecore</foreignModel>
   <genPackages prefix="Infrastructure" basePackage="org.eclipse.scada.configuration"
       resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
@@ -55,14 +55,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Options/defaultUserService"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//EquinoxApplication">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EquinoxApplication/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EquinoxApplication/instanceNumber"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/configurations"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/configuration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/localCredentials"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/securityConfiguration"/>
-      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
-          ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/modules"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//CommonDriver">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//CommonDriver/password"/>
@@ -108,7 +101,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ExternalDriver/binding"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//Driver">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Driver/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Driver/node"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Driver/protocolTypeTag"/>
     </genClasses>
@@ -151,6 +143,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EquinoxBase/instanceNumber"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/userService"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/securityConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/modules"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/configuration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/configurations"/>
     </genClasses>
     <genClasses image="false" ecoreClass="infrastructure.ecore#//AbstractCommonDriver">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//AbstractCommonDriver/portNumber"/>
@@ -173,6 +168,17 @@
       <genFeatures createChild="false" propertyCategory="Oracle" ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/ssl"/>
       <genFeatures createChild="false" propertyCategory="Common" propertyDescription="Assign the nodes hostname as JMX server hostname"
           ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/assignNodeHostname"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//NamedApplication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//NamedApplication/name"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ConfigurationAdminFileBackend">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ConfigurationAdminFileBackend/path"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//EquinoxModule"/>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//JavaModule"/>
+    <genClasses ecoreClass="infrastructure.ecore#//DSFileBackend">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//DSFileBackend/path"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
