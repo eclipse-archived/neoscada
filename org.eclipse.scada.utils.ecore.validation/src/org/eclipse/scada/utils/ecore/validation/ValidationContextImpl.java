@@ -93,7 +93,7 @@ public class ValidationContextImpl implements ValidationContext
     @Override
     public void add ( final String message, final Object... arguments )
     {
-        add ( (EStructuralFeature)null, Severity.ERROR, null, message, arguments );
+        add ( (EStructuralFeature)null, Severity.ERROR, message, arguments );
     }
 
     @Override
