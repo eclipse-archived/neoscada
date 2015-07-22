@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.component.SingleValue;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.ScaledValue#getSourceItem <em>Source Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.ScaledValue#getInputMinimum <em>Input Minimum</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.scada.configuration.component.SingleValue;
  *   <li>{@link org.eclipse.scada.configuration.component.common.ScaledValue#getOutputMaximum <em>Output Maximum</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.ScaledValue#isValidateRange <em>Validate Range</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.common.CommonPackage#getScaledValue()
  * @model

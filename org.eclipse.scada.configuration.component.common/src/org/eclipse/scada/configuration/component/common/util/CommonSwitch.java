@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.DataComponent;
 
+import org.eclipse.scada.configuration.component.MasterAssigned;
 import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.SingleValue;
 import org.eclipse.scada.configuration.component.common.*;
@@ -65,7 +66,7 @@ public class CommonSwitch<T> extends Switch<T>
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @parameter ePackage the package in question.
+     * @param ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
@@ -96,6 +97,8 @@ public class CommonSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( heartbeatGenerator );
                 if ( result == null )
+                    result = caseMasterAssigned ( heartbeatGenerator );
+                if ( result == null )
                     result = caseComponent ( heartbeatGenerator );
                 if ( result == null )
                     result = caseDocumentable ( heartbeatGenerator );
@@ -114,6 +117,8 @@ public class CommonSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( toggleHeartbeatGenerator );
                 if ( result == null )
+                    result = caseMasterAssigned ( toggleHeartbeatGenerator );
+                if ( result == null )
                     result = caseComponent ( toggleHeartbeatGenerator );
                 if ( result == null )
                     result = caseDocumentable ( toggleHeartbeatGenerator );
@@ -129,6 +134,8 @@ public class CommonSwitch<T> extends Switch<T>
                     result = caseMasterComponent ( heartbeatDetector );
                 if ( result == null )
                     result = caseDataComponent ( heartbeatDetector );
+                if ( result == null )
+                    result = caseMasterAssigned ( heartbeatDetector );
                 if ( result == null )
                     result = caseComponent ( heartbeatDetector );
                 if ( result == null )
@@ -148,6 +155,8 @@ public class CommonSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( changeHeartbeatDetector );
                 if ( result == null )
+                    result = caseMasterAssigned ( changeHeartbeatDetector );
+                if ( result == null )
                     result = caseComponent ( changeHeartbeatDetector );
                 if ( result == null )
                     result = caseDocumentable ( changeHeartbeatDetector );
@@ -164,6 +173,8 @@ public class CommonSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseDataComponent ( timerAction );
                 if ( result == null )
+                    result = caseMasterAssigned ( timerAction );
+                if ( result == null )
                     result = caseComponent ( timerAction );
                 if ( result == null )
                     result = caseDocumentable ( timerAction );
@@ -179,6 +190,8 @@ public class CommonSwitch<T> extends Switch<T>
                     result = caseMasterComponent ( currentTimeComponent );
                 if ( result == null )
                     result = caseDataComponent ( currentTimeComponent );
+                if ( result == null )
+                    result = caseMasterAssigned ( currentTimeComponent );
                 if ( result == null )
                     result = caseComponent ( currentTimeComponent );
                 if ( result == null )
@@ -197,6 +210,8 @@ public class CommonSwitch<T> extends Switch<T>
                     result = caseMasterComponent ( scaledValue );
                 if ( result == null )
                     result = caseDataComponent ( scaledValue );
+                if ( result == null )
+                    result = caseMasterAssigned ( scaledValue );
                 if ( result == null )
                     result = caseComponent ( scaledValue );
                 if ( result == null )
@@ -366,6 +381,22 @@ public class CommonSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDataComponent ( DataComponent object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Assigned</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Master Assigned</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMasterAssigned ( MasterAssigned object )
     {
         return null;
     }

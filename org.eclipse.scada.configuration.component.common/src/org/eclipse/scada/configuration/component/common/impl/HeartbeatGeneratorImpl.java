@@ -27,12 +27,12 @@ import org.eclipse.scada.configuration.component.impl.MasterComponentImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.HeartbeatGeneratorImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.HeartbeatGeneratorImpl#getTargetItem <em>Target Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.HeartbeatGeneratorImpl#getActiveInput <em>Active Input</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

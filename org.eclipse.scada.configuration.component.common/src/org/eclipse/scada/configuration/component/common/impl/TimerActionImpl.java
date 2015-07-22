@@ -34,13 +34,13 @@ import org.eclipse.scada.core.Variant;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.TimerActionImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.TimerActionImpl#getTargetItem <em>Target Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.TimerActionImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.TimerActionImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

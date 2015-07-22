@@ -20,8 +20,6 @@ import org.eclipse.scada.configuration.component.impl.MasterComponentImpl;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Heartbeat Detector</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

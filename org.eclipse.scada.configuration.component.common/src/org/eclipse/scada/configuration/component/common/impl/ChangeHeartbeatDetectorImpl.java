@@ -29,12 +29,12 @@ import org.eclipse.scada.configuration.component.common.CommonPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ChangeHeartbeatDetectorImpl#getTimeout <em>Timeout</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ChangeHeartbeatDetectorImpl#getCheckPeriod <em>Check Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ChangeHeartbeatDetectorImpl#getSourceItem <em>Source Item</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

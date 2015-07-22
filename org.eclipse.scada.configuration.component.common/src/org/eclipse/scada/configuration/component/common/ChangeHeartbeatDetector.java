@@ -20,12 +20,12 @@ import org.eclipse.scada.configuration.component.InputDefinition;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getTimeout <em>Timeout</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getCheckPeriod <em>Check Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getSourceItem <em>Source Item</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.common.CommonPackage#getChangeHeartbeatDetector()
  * @model

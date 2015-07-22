@@ -28,11 +28,9 @@ import org.eclipse.scada.configuration.component.provider.SingleValueItemProvide
 import org.eclipse.scada.configuration.ecore.ui.ItemPropertyDescriptor2;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.component.common.ScaledValue} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.common.ScaledValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class ScaledValueItemProvider extends SingleValueItemProvider
@@ -41,10 +39,9 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public ScaledValueItemProvider ( final AdapterFactory adapterFactory )
+    public ScaledValueItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -53,13 +50,12 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -69,7 +65,7 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
             addOutputMaximumPropertyDescriptor ( object );
             addValidateRangePropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
@@ -81,9 +77,9 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      */
     protected void addInputMinimumPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMinimum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMinimum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__INPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMinimum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMinimum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__INPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null) {
             @Override
-            public int getSortKey ()
+            public int getSortKey ( )
             {
                 return 100;
             }
@@ -99,9 +95,9 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      */
     protected void addInputMaximumPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMaximum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMaximum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__INPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_inputMaximum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_inputMaximum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__INPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null) {
             @Override
-            public int getSortKey ()
+            public int getSortKey ( )
             {
                 return 200;
             }
@@ -117,9 +113,9 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      */
     protected void addOutputMinimumPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMinimum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMinimum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__OUTPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMinimum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMinimum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__OUTPUT_MINIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null) {
             @Override
-            public int getSortKey ()
+            public int getSortKey ( )
             {
                 return 300;
             }
@@ -135,9 +131,9 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      */
     protected void addOutputMaximumPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMaximum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMaximum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__OUTPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_outputMaximum_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ScaledValue_outputMaximum_feature", "_UI_ScaledValue_type" ), CommonPackage.Literals.SCALED_VALUE__OUTPUT_MAXIMUM, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null) {
             @Override
-            public int getSortKey ()
+            public int getSortKey ( )
             {
                 return 400;
             }
@@ -153,9 +149,9 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      */
     protected void addValidateRangePropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_validateRange_feature" ), getString ( "_UI_ScaledValue_validateRange_description" ), CommonPackage.Literals.SCALED_VALUE__VALIDATE_RANGE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null ) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScaledValue_validateRange_feature" ), getString ( "_UI_ScaledValue_validateRange_description" ), CommonPackage.Literals.SCALED_VALUE__VALIDATE_RANGE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_rangePropertyCategory" ), null) {
             @Override
-            public int getSortKey ()
+            public int getSortKey ( )
             {
                 return 500;
             }
@@ -163,36 +159,31 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to
-     * deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand},
-     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in
-     * {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( final Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if ( this.childrenFeatures == null )
+        if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            this.childrenFeatures.add ( CommonPackage.Literals.SCALED_VALUE__SOURCE_ITEM );
+            childrenFeatures.add ( CommonPackage.Literals.SCALED_VALUE__SOURCE_ITEM );
         }
-        return this.childrenFeatures;
+        return childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -216,7 +207,6 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
@@ -229,29 +219,25 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        final String label = ( (ScaledValue)object ).getName ();
+        String label = ( (ScaledValue)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_ScaledValue_type" ) : //$NON-NLS-1$
         getString ( "_UI_ScaledValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -272,16 +258,14 @@ public class ScaledValueItemProvider extends SingleValueItemProvider
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 

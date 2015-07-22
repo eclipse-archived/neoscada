@@ -71,9 +71,9 @@ public class ChangeHeartbeatDetectorItemProvider extends HeartbeatDetectorItemPr
     protected void addTimeoutPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeHeartbeatDetector_timeout_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_timeout_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__TIMEOUT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_timeout_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__TIMEOUT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -85,9 +85,9 @@ public class ChangeHeartbeatDetectorItemProvider extends HeartbeatDetectorItemPr
     protected void addCheckPeriodPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ChangeHeartbeatDetector_checkPeriod_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_checkPeriod_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_checkPeriod_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**

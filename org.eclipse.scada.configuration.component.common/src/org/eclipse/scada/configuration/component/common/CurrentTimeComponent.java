@@ -21,12 +21,12 @@ import org.eclipse.scada.configuration.component.MasterComponent;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getUpdatePeriod <em>Update Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getDateFormat <em>Date Format</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.common.CommonPackage#getCurrentTimeComponent()
  * @model

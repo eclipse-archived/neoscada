@@ -23,13 +23,13 @@ import org.eclipse.scada.core.Variant;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.TimerAction#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.TimerAction#getTargetItem <em>Target Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.TimerAction#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.TimerAction#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.common.CommonPackage#getTimerAction()
  * @model

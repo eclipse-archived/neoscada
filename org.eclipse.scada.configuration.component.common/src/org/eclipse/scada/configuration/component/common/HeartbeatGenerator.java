@@ -21,12 +21,12 @@ import org.eclipse.scada.configuration.component.MasterComponent;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.HeartbeatGenerator#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.HeartbeatGenerator#getTargetItem <em>Target Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.HeartbeatGenerator#getActiveInput <em>Active Input</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.component.common.CommonPackage#getHeartbeatGenerator()
  * @model abstract="true"

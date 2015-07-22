@@ -48,15 +48,11 @@ public class CommonExample
 
         // Register the appropriate resource factory to handle all file extensions.
         //
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put
-                ( Resource.Factory.Registry.DEFAULT_EXTENSION,
-                        new CommonResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( Resource.Factory.Registry.DEFAULT_EXTENSION, new CommonResourceFactoryImpl () );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( CommonPackage.eNS_URI,
-                        CommonPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( CommonPackage.eNS_URI, CommonPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

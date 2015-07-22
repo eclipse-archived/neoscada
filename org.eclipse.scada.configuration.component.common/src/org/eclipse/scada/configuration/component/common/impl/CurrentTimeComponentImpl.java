@@ -29,12 +29,12 @@ import org.eclipse.scada.configuration.component.impl.MasterComponentImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.CurrentTimeComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.CurrentTimeComponentImpl#getUpdatePeriod <em>Update Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.CurrentTimeComponentImpl#getDateFormat <em>Date Format</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

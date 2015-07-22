@@ -321,4 +321,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentReferenceOutputDefinition"
+      eSuperTypes="#//OutputDefinition">
+    <eOperations name="createReference" lowerBound="1" eType="#//DanglingItemReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="final org.eclipse.scada.configuration.component.AbsoluteDanglingReference danglingRef = org.eclipse.scada.configuration.component.ComponentFactory.eINSTANCE.createAbsoluteDanglingReference ();&#xA;danglingRef.setName ( getItemId () );&#xA;return danglingRef;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
 </ecore:EPackage>

@@ -32,6 +32,7 @@ import org.eclipse.scada.configuration.component.impl.SingleValueImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl#getSourceItem <em>Source Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl#getInputMinimum <em>Input Minimum</em>}</li>
@@ -40,7 +41,6 @@ import org.eclipse.scada.configuration.component.impl.SingleValueImpl;
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl#getOutputMaximum <em>Output Maximum</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.ScaledValueImpl#isValidateRange <em>Validate Range</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

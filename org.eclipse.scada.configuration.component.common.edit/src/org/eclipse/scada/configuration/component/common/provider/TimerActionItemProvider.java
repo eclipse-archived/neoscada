@@ -73,8 +73,8 @@ public class TimerActionItemProvider extends MasterComponentItemProvider
     protected void addPeriodPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TimerAction_period_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_period_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.TIMER_ACTION__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_period_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.TIMER_ACTION__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -86,8 +86,8 @@ public class TimerActionItemProvider extends MasterComponentItemProvider
     protected void addValuePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TimerAction_value_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_value_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.TIMER_ACTION__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_value_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.TIMER_ACTION__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -99,8 +99,8 @@ public class TimerActionItemProvider extends MasterComponentItemProvider
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TimerAction_name_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_name_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.TIMER_ACTION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_name_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.TIMER_ACTION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

@@ -73,9 +73,9 @@ public class HeartbeatGeneratorItemProvider extends MasterComponentItemProvider
     protected void addPeriodPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HeartbeatGenerator_period_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_period_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.HEARTBEAT_GENERATOR__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
-                null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_period_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.HEARTBEAT_GENERATOR__PERIOD, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
+        null ) );
     }
 
     /**
@@ -87,8 +87,8 @@ public class HeartbeatGeneratorItemProvider extends MasterComponentItemProvider
     protected void addTargetItemPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HeartbeatGenerator_targetItem_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_targetItem_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM, false, false, false, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_targetItem_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM, false, false, false, null, null, null ) );
     }
 
     /**
@@ -100,8 +100,8 @@ public class HeartbeatGeneratorItemProvider extends MasterComponentItemProvider
     protected void addActiveInputPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_HeartbeatGenerator_activeInput_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_activeInput_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT, false, false, false, null, null, null ) );
+        getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_activeInput_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT, false, false, false, null, null, null ) );
     }
 
     /**
@@ -238,7 +238,7 @@ public class HeartbeatGeneratorItemProvider extends MasterComponentItemProvider
         if ( qualify )
         {
             return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
-                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+            new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
         }
         return super.getCreateChildText ( owner, feature, child, selection );
     }
