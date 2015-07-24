@@ -142,11 +142,9 @@
 		<module>../org.eclipse.scada.configuration.world.edit</module>
 		<module>../org.eclipse.scada.configuration.world.editor</module>
 		<module>../org.eclipse.scada.configuration.world.lib</module>
-		<module>../org.eclipse.scada.configuration.world.validation</module>
 
 		<module>../org.eclipse.scada.configuration.script</module>
 		<module>../org.eclipse.scada.configuration.script.edit</module>
-		
 		
 		<module>../org.eclipse.scada.configuration.memory.manager.lib</module>
 		<module>../org.eclipse.scada.configuration.recipe</module>
