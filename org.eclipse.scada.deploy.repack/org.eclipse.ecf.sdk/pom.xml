@@ -10,8 +10,8 @@
 	</parent>
 
 	<properties>
-		<srcDir>${eclipse.download.root}/rt/ecf/3.9.3</srcDir>
-		<srcFile>org.eclipse.ecf.sdk_3.9.3.v20150306-2024.zip</srcFile>
+		<srcDir>${eclipse.download.root}/rt/ecf/3.10.0</srcDir>
+		<srcFile>org.eclipse.ecf.sdk_3.10.0.v20150512-1727.zip</srcFile>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>

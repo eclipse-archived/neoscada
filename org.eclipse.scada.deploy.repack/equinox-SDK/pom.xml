@@ -10,8 +10,8 @@
 	</parent>
 
 	<properties>
-		<srcDir>${eclipse.download.root}/equinox/drops/S-MarsM7-201504301445</srcDir>
-		<srcFile>equinox-SDK-MarsM7.zip</srcFile>
+		<srcDir>${eclipse.download.root}/equinox/drops/R-Mars-201506032000</srcDir>
+		<srcFile>equinox-SDK-Mars.zip</srcFile>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>
