@@ -154,6 +154,7 @@
 					<jgit.ignore>
 						pom.xml
 						CHANGES.txt
+						/target/
 					</jgit.ignore>
 					<format>'v'yyyyMMdd-HHmm</format>
 					<sourceReferences>
