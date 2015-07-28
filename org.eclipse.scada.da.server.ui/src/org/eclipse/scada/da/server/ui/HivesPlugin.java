@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,7 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.ui;
 
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.DisplayRealm;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.scada.da.server.ui.internal.ServerHostImpl;
 import org.eclipse.scada.da.server.ui.internal.ServerManagerImpl;
@@ -58,8 +58,8 @@ public class HivesPlugin extends AbstractUIPlugin
     public void start ( final BundleContext context ) throws Exception
     {
         super.start ( context );
-        this.serverManager = new ServerManagerImpl ( SWTObservables.getRealm ( Display.getDefault () ) );
-        this.serverHost = new ServerHostImpl ( SWTObservables.getRealm ( Display.getDefault () ) );
+        this.serverManager = new ServerManagerImpl ( DisplayRealm.getRealm ( Display.getDefault () ) );
+        this.serverHost = new ServerHostImpl ( DisplayRealm.getRealm ( Display.getDefault () ) );
         plugin = this;
     }
 
@@ -87,7 +87,7 @@ public class HivesPlugin extends AbstractUIPlugin
 
     /**
      * Returns the shared instance
-     * 
+     *
      * @return the shared instance
      */
     public static HivesPlugin getDefault ()
