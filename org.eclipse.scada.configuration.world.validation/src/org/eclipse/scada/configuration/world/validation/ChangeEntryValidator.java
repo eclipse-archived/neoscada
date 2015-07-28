@@ -27,12 +27,14 @@ public class ChangeEntryValidator extends TypedValidator<ChangeEntry>
     @Override
     protected void validate ( final ChangeEntry target, final ValidationContext context )
     {
-        if ( target.getDescription () != null )
+        if ( target.getDescription () == null || target.getDescription ().length () < MIN_DESC_LENGTH )
         {
-            if ( target.getDescription ().length () < MIN_DESC_LENGTH )
-            {
-                context.add ( DeploymentPackage.Literals.CHANGE_ENTRY__DESCRIPTION, "The description must have a minimum length of {0} characters", MIN_DESC_LENGTH );
-            }
+            context.add ( DeploymentPackage.Literals.CHANGE_ENTRY__DESCRIPTION, "The description must have a minimum length of {0} characters", MIN_DESC_LENGTH );
+        }
+
+        if ( target.getVersion () == null || target.getVersion ().isEmpty () )
+        {
+            context.add ( DeploymentPackage.Literals.CHANGE_ENTRY__VERSION, "The version must not be empty" );
         }
     }
 }
