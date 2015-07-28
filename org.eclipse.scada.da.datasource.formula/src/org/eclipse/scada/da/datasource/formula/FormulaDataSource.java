@@ -341,7 +341,7 @@ public class FormulaDataSource extends AbstractMultiSourceDataSource
 
         this.scriptContext = new SimpleScriptContext ();
 
-        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "initProperties." ).entrySet () )
+        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "initProperty." ).entrySet () )
         {
             this.scriptContext.setAttribute ( entry.getKey (), entry.getKey (), ScriptContext.ENGINE_SCOPE );
         }

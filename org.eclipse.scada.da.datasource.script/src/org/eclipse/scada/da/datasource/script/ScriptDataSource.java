@@ -270,9 +270,11 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
         final ScriptEngine engine = Scripts.createEngine ( engineName, ScriptDataSource.class.getClassLoader () );
         this.scriptContext = new SimpleScriptContext ();
 
-        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "initProperties." ).entrySet () )
+        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "initProperty." ).entrySet () )
         {
+            logger.debug ( "Init parameter - '{}' - '{}'", entry.getKey (), entry.getValue () );
             this.scriptContext.setAttribute ( entry.getKey (), entry.getKey (), ScriptContext.ENGINE_SCOPE );
+
         }
 
         // trigger init script
