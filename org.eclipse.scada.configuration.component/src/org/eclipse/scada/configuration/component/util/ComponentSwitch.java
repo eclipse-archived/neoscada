@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.scada.configuration.component.*;
 import org.eclipse.scada.configuration.component.AbsoluteDanglingReference;
 import org.eclipse.scada.configuration.component.AverageModule;
 import org.eclipse.scada.configuration.component.BufferedValue;
@@ -181,6 +182,8 @@ public class ComponentSwitch<T> extends Switch<T>
             {
                 ConstantValue constantValue = (ConstantValue)theEObject;
                 T result = caseConstantValue ( constantValue );
+                if ( result == null )
+                    result = caseReadOnlySingleValue ( constantValue );
                 if ( result == null )
                     result = caseSingleValue ( constantValue );
                 if ( result == null )
@@ -658,6 +661,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 ChangeCounter changeCounter = (ChangeCounter)theEObject;
                 T result = caseChangeCounter ( changeCounter );
                 if ( result == null )
+                    result = caseReadOnlySingleValue ( changeCounter );
+                if ( result == null )
                     result = caseSingleValue ( changeCounter );
                 if ( result == null )
                     result = caseMasterComponent ( changeCounter );
@@ -690,6 +695,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 DeltaValue deltaValue = (DeltaValue)theEObject;
                 T result = caseDeltaValue ( deltaValue );
                 if ( result == null )
+                    result = caseReadOnlySingleValue ( deltaValue );
+                if ( result == null )
                     result = caseSingleValue ( deltaValue );
                 if ( result == null )
                     result = caseMasterComponent ( deltaValue );
@@ -719,6 +726,26 @@ public class ComponentSwitch<T> extends Switch<T>
                 T result = caseComponentReferenceOutputDefinition ( componentReferenceOutputDefinition );
                 if ( result == null )
                     result = caseOutputDefinition ( componentReferenceOutputDefinition );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.READ_ONLY_SINGLE_VALUE:
+            {
+                ReadOnlySingleValue readOnlySingleValue = (ReadOnlySingleValue)theEObject;
+                T result = caseReadOnlySingleValue ( readOnlySingleValue );
+                if ( result == null )
+                    result = caseSingleValue ( readOnlySingleValue );
+                if ( result == null )
+                    result = caseMasterComponent ( readOnlySingleValue );
+                if ( result == null )
+                    result = caseDataComponent ( readOnlySingleValue );
+                if ( result == null )
+                    result = caseMasterAssigned ( readOnlySingleValue );
+                if ( result == null )
+                    result = caseComponent ( readOnlySingleValue );
+                if ( result == null )
+                    result = caseDocumentable ( readOnlySingleValue );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -1460,6 +1487,22 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseComponentReferenceOutputDefinition ( ComponentReferenceOutputDefinition object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Read Only Single Value</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Read Only Single Value</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseReadOnlySingleValue ( ReadOnlySingleValue object )
     {
         return null;
     }

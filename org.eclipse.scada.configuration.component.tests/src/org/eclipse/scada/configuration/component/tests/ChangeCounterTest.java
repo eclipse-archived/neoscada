@@ -22,7 +22,7 @@ import org.eclipse.scada.configuration.component.ComponentFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChangeCounterTest extends SingleValueTest
+public class ChangeCounterTest extends ReadOnlySingleValueTest
 {
 
     /**

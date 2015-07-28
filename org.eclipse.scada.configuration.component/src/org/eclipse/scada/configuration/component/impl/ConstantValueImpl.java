@@ -29,7 +29,7 @@ import org.eclipse.scada.configuration.component.ConstantValue;
  *
  * @generated
  */
-public class ConstantValueImpl extends SingleValueImpl implements ConstantValue
+public class ConstantValueImpl extends ReadOnlySingleValueImpl implements ConstantValue
 {
     /**
      * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

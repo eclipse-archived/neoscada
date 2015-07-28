@@ -27,7 +27,7 @@ package org.eclipse.scada.configuration.component;
  * @model
  * @generated
  */
-public interface DeltaValue extends SingleValue
+public interface DeltaValue extends ReadOnlySingleValue
 {
     /**
      * Returns the value of the '<em><b>Source</b></em>' containment reference.

@@ -55,6 +55,8 @@ public class ExternalValueItemProvider extends SingleValueItemProvider
 
             addConnectionPropertyDescriptor ( object );
             addSourceNamePropertyDescriptor ( object );
+            addReadablePropertyDescriptor ( object );
+            addWritablePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -84,6 +86,34 @@ public class ExternalValueItemProvider extends SingleValueItemProvider
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalValue_sourceName_feature" ), //$NON-NLS-1$
         getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalValue_sourceName_feature", "_UI_ExternalValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         ComponentPackage.Literals.EXTERNAL_VALUE__SOURCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_externalPropertyCategory" ), //$NON-NLS-1$
+        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Readable feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReadablePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalValue_readable_feature" ), //$NON-NLS-1$
+        getString ( "_UI_ExternalValue_readable_description" ), //$NON-NLS-1$
+        ComponentPackage.Literals.EXTERNAL_VALUE__READABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Writable feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addWritablePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalValue_writable_feature" ), //$NON-NLS-1$
+        getString ( "_UI_ExternalValue_writable_description" ), //$NON-NLS-1$
+        ComponentPackage.Literals.EXTERNAL_VALUE__WRITABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
         null ) );
     }
 
@@ -139,6 +169,8 @@ public class ExternalValueItemProvider extends SingleValueItemProvider
         switch ( notification.getFeatureID ( ExternalValue.class ) )
         {
             case ComponentPackage.EXTERNAL_VALUE__SOURCE_NAME:
+            case ComponentPackage.EXTERNAL_VALUE__READABLE:
+            case ComponentPackage.EXTERNAL_VALUE__WRITABLE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

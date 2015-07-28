@@ -21,7 +21,7 @@ import org.eclipse.scada.configuration.component.ConstantValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConstantValueTest extends SingleValueTest
+public class ConstantValueTest extends ReadOnlySingleValueTest
 {
 
     /**

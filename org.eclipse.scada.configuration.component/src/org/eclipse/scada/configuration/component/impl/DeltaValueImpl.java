@@ -36,7 +36,7 @@ import org.eclipse.scada.configuration.component.InputDefinition;
  *
  * @generated
  */
-public class DeltaValueImpl extends SingleValueImpl implements DeltaValue
+public class DeltaValueImpl extends ReadOnlySingleValueImpl implements DeltaValue
 {
     /**
      * The cached value of the '{@link #getSource() <em>Source</em>}' containment reference.

@@ -1,33 +1,33 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2015 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.configuration.component.ComponentPackage;
-import org.eclipse.scada.configuration.component.ConstantValue;
+
+import org.eclipse.scada.configuration.component.ReadOnlySingleValue;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ConstantValue} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ReadOnlySingleValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConstantValueItemProvider extends ReadOnlySingleValueItemProvider
+public class ReadOnlySingleValueItemProvider extends SingleValueItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -35,7 +35,7 @@ public class ConstantValueItemProvider extends ReadOnlySingleValueItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ConstantValueItemProvider ( AdapterFactory adapterFactory )
+    public ReadOnlySingleValueItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -53,34 +53,8 @@ public class ConstantValueItemProvider extends ReadOnlySingleValueItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addValuePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Value feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addValuePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ConstantValue_value_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ConstantValue_value_feature", "_UI_ConstantValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.CONSTANT_VALUE__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
-    }
-
-    /**
-     * This returns ConstantValue.gif.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object getImage ( Object object )
-    {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ConstantValue" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -103,9 +77,9 @@ public class ConstantValueItemProvider extends ReadOnlySingleValueItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (ConstantValue)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_ConstantValue_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ConstantValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (ReadOnlySingleValue)object ).getName ();
+        return label == null || label.length () == 0 ? getString ( "_UI_ReadOnlySingleValue_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ReadOnlySingleValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -119,13 +93,6 @@ public class ConstantValueItemProvider extends ReadOnlySingleValueItemProvider
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
-
-        switch ( notification.getFeatureID ( ConstantValue.class ) )
-        {
-            case ComponentPackage.CONSTANT_VALUE__VALUE:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-        }
         super.notifyChanged ( notification );
     }
 

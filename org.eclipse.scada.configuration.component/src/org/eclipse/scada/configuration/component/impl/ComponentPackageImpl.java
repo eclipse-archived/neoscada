@@ -61,6 +61,7 @@ import org.eclipse.scada.configuration.component.MovingAverageModule;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
 import org.eclipse.scada.configuration.component.PersistentValue;
+import org.eclipse.scada.configuration.component.ReadOnlySingleValue;
 import org.eclipse.scada.configuration.component.RestInterceptor;
 import org.eclipse.scada.configuration.component.Script;
 import org.eclipse.scada.configuration.component.ScriptModule;
@@ -404,6 +405,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * @generated
      */
     private EClass componentReferenceOutputDefinitionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass readOnlySingleValueEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -904,9 +912,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSingleValue_Readable ()
+    public EOperation getSingleValue__IsReadable ()
     {
-        return (EAttribute)singleValueEClass.getEStructuralFeatures ().get ( 3 );
+        return singleValueEClass.getEOperations ().get ( 0 );
     }
 
     /**
@@ -914,9 +922,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSingleValue_Writable ()
+    public EOperation getSingleValue__IsWritable ()
     {
-        return (EAttribute)singleValueEClass.getEStructuralFeatures ().get ( 4 );
+        return singleValueEClass.getEOperations ().get ( 1 );
     }
 
     /**
@@ -1705,6 +1713,26 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getExternalValue_Readable ()
+    {
+        return (EAttribute)externalValueEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExternalValue_Writable ()
+    {
+        return (EAttribute)externalValueEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getSummariesConfiguration ()
     {
@@ -2156,6 +2184,26 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getReadOnlySingleValue ()
+    {
+        return readOnlySingleValueEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getReadOnlySingleValue__IsWritable ()
+    {
+        return readOnlySingleValueEClass.getEOperations ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EDataType getNotification ()
     {
@@ -2242,8 +2290,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEAttribute ( singleValueEClass, SINGLE_VALUE__NAME );
         createEAttribute ( singleValueEClass, SINGLE_VALUE__DATA_TYPE );
         createEAttribute ( singleValueEClass, SINGLE_VALUE__CUSTOMIZATION_TAGS );
-        createEAttribute ( singleValueEClass, SINGLE_VALUE__READABLE );
-        createEAttribute ( singleValueEClass, SINGLE_VALUE__WRITABLE );
+        createEOperation ( singleValueEClass, SINGLE_VALUE___IS_READABLE );
+        createEOperation ( singleValueEClass, SINGLE_VALUE___IS_WRITABLE );
 
         dataMapperAnalyzerEClass = createEClass ( DATA_MAPPER_ANALYZER );
         createEReference ( dataMapperAnalyzerEClass, DATA_MAPPER_ANALYZER__DATA_MAPPER );
@@ -2336,6 +2384,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         externalValueEClass = createEClass ( EXTERNAL_VALUE );
         createEReference ( externalValueEClass, EXTERNAL_VALUE__CONNECTION );
         createEAttribute ( externalValueEClass, EXTERNAL_VALUE__SOURCE_NAME );
+        createEAttribute ( externalValueEClass, EXTERNAL_VALUE__READABLE );
+        createEAttribute ( externalValueEClass, EXTERNAL_VALUE__WRITABLE );
 
         summariesConfigurationEClass = createEClass ( SUMMARIES_CONFIGURATION );
         createEAttribute ( summariesConfigurationEClass, SUMMARIES_CONFIGURATION__ITEM_THRESHOLD );
@@ -2391,6 +2441,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( componentReferenceOutputDefinitionEClass, COMPONENT_REFERENCE_OUTPUT_DEFINITION__COMPONENT );
         createEOperation ( componentReferenceOutputDefinitionEClass, COMPONENT_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE );
 
+        readOnlySingleValueEClass = createEClass ( READ_ONLY_SINGLE_VALUE );
+        createEOperation ( readOnlySingleValueEClass, READ_ONLY_SINGLE_VALUE___IS_WRITABLE );
+
         // Create data types
         notificationEDataType = createEDataType ( NOTIFICATION );
     }
@@ -2436,7 +2489,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         levelEClass.getESuperTypes ().add ( this.getContainer () );
         componentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
         dataComponentEClass.getESuperTypes ().add ( this.getComponent () );
-        constantValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        constantValueEClass.getESuperTypes ().add ( this.getReadOnlySingleValue () );
         markerConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
         persistentValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         driverConnectionAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
@@ -2469,10 +2522,11 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         masterComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
         masterComponentEClass.getESuperTypes ().add ( this.getMasterAssigned () );
         bufferedValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
-        changeCounterEClass.getESuperTypes ().add ( this.getSingleValue () );
+        changeCounterEClass.getESuperTypes ().add ( this.getReadOnlySingleValue () );
         movingAverageModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
-        deltaValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        deltaValueEClass.getESuperTypes ().add ( this.getReadOnlySingleValue () );
         componentReferenceOutputDefinitionEClass.getESuperTypes ().add ( this.getOutputDefinition () );
+        readOnlySingleValueEClass.getESuperTypes ().add ( this.getSingleValue () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentWorldEClass, ComponentWorld.class, "ComponentWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -2524,8 +2578,10 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEAttribute ( getSingleValue_Name (), ecorePackage.getEString (), "name", null, 1, 1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSingleValue_DataType (), theOsgiPackage.getDataType (), "dataType", null, 0, 1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSingleValue_CustomizationTags (), ecorePackage.getEString (), "customizationTags", null, 0, -1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSingleValue_Readable (), theEcorePackage.getEBoolean (), "readable", "true", 1, 1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getSingleValue_Writable (), theEcorePackage.getEBoolean (), "writable", "true", 1, 1, SingleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEOperation ( getSingleValue__IsReadable (), theEcorePackage.getEBoolean (), "isReadable", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getSingleValue__IsWritable (), theEcorePackage.getEBoolean (), "isWritable", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( dataMapperAnalyzerEClass, DataMapperAnalyzer.class, "DataMapperAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getDataMapperAnalyzer_DataMapper (), this.getDataMapperService (), null, "dataMapper", null, 1, 1, DataMapperAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -2628,6 +2684,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( externalValueEClass, ExternalValue.class, "ExternalValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExternalValue_Connection (), theInfrastructurePackage.getDriver (), null, "connection", null, 1, 1, ExternalValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getExternalValue_SourceName (), ecorePackage.getEString (), "sourceName", null, 1, 1, ExternalValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getExternalValue_Readable (), theEcorePackage.getEBoolean (), "readable", "true", 1, 1, ExternalValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getExternalValue_Writable (), theEcorePackage.getEBoolean (), "writable", "true", 1, 1, ExternalValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( summariesConfigurationEClass, SummariesConfiguration.class, "SummariesConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getSummariesConfiguration_ItemThreshold (), ecorePackage.getEIntegerObject (), "itemThreshold", null, 0, 1, SummariesConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -2683,6 +2741,10 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getComponentReferenceOutputDefinition_Component (), this.getComponent (), null, "component", null, 1, 1, ComponentReferenceOutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEOperation ( getComponentReferenceOutputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( readOnlySingleValueEClass, ReadOnlySingleValue.class, "ReadOnlySingleValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEOperation ( getReadOnlySingleValue__IsWritable (), theEcorePackage.getEBoolean (), "isWritable", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

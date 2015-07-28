@@ -22,7 +22,7 @@ import org.eclipse.scada.configuration.component.DeltaValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeltaValueTest extends SingleValueTest
+public class DeltaValueTest extends ReadOnlySingleValueTest
 {
 
     /**

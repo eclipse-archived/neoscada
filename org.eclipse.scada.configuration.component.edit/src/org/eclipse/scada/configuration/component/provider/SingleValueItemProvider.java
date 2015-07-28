@@ -56,8 +56,6 @@ public class SingleValueItemProvider extends MasterComponentItemProvider
             addNamePropertyDescriptor ( object );
             addDataTypePropertyDescriptor ( object );
             addCustomizationTagsPropertyDescriptor ( object );
-            addReadablePropertyDescriptor ( object );
-            addWritablePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -105,34 +103,6 @@ public class SingleValueItemProvider extends MasterComponentItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Readable feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addReadablePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SingleValue_readable_feature" ), //$NON-NLS-1$
-        getString ( "_UI_SingleValue_readable_description" ), //$NON-NLS-1$
-        ComponentPackage.Literals.SINGLE_VALUE__READABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Writable feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addWritablePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SingleValue_writable_feature" ), //$NON-NLS-1$
-        getString ( "_UI_SingleValue_writable_description" ), //$NON-NLS-1$
-        ComponentPackage.Literals.SINGLE_VALUE__WRITABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
-    }
-
-    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -174,8 +144,6 @@ public class SingleValueItemProvider extends MasterComponentItemProvider
             case ComponentPackage.SINGLE_VALUE__NAME:
             case ComponentPackage.SINGLE_VALUE__DATA_TYPE:
             case ComponentPackage.SINGLE_VALUE__CUSTOMIZATION_TAGS:
-            case ComponentPackage.SINGLE_VALUE__READABLE:
-            case ComponentPackage.SINGLE_VALUE__WRITABLE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

@@ -16,6 +16,13 @@ import org.eclipse.scada.configuration.component.SingleValue;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Single Value</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#isReadable() <em>Is Readable</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#isWritable() <em>Is Writable</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class SingleValueTest extends MasterComponentTest
@@ -42,6 +49,34 @@ public abstract class SingleValueTest extends MasterComponentTest
     protected SingleValue getFixture ()
     {
         return (SingleValue)fixture;
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.component.SingleValue#isReadable() <em>Is Readable</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.SingleValue#isReadable()
+     * @generated
+     */
+    public void testIsReadable ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.component.SingleValue#isWritable() <em>Is Writable</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.SingleValue#isWritable()
+     * @generated
+     */
+    public void testIsWritable ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //SingleValueTest

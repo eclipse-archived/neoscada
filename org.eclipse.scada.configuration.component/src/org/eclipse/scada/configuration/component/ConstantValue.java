@@ -26,7 +26,7 @@ package org.eclipse.scada.configuration.component;
  * @model
  * @generated
  */
-public interface ConstantValue extends SingleValue
+public interface ConstantValue extends ReadOnlySingleValue
 {
     /**
      * Returns the value of the '<em><b>Value</b></em>' attribute.

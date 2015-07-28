@@ -41,7 +41,7 @@ import org.eclipse.scada.core.Variant;
  *
  * @generated
  */
-public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
+public class ChangeCounterImpl extends ReadOnlySingleValueImpl implements ChangeCounter
 {
     /**
      * The cached value of the '{@link #getBuffer() <em>Buffer</em>}' reference.

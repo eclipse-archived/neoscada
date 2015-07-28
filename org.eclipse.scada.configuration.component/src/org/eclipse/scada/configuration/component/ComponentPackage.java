@@ -698,31 +698,13 @@ public interface ComponentPackage extends EPackage
     int SINGLE_VALUE__CUSTOMIZATION_TAGS = MASTER_COMPONENT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Readable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SINGLE_VALUE__READABLE = MASTER_COMPONENT_FEATURE_COUNT + 3;
-
-    /**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SINGLE_VALUE__WRITABLE = MASTER_COMPONENT_FEATURE_COUNT + 4;
-
-    /**
      * The number of structural features of the '<em>Single Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SINGLE_VALUE_FEATURE_COUNT = MASTER_COMPONENT_FEATURE_COUNT + 5;
+    int SINGLE_VALUE_FEATURE_COUNT = MASTER_COMPONENT_FEATURE_COUNT + 3;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -734,13 +716,167 @@ public interface ComponentPackage extends EPackage
     int SINGLE_VALUE___GET_MASTER_ON = MASTER_COMPONENT___GET_MASTER_ON;
 
     /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_VALUE___IS_READABLE = MASTER_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_VALUE___IS_WRITABLE = MASTER_COMPONENT_OPERATION_COUNT + 1;
+
+    /**
      * The number of operations of the '<em>Single Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SINGLE_VALUE_OPERATION_COUNT = MASTER_COMPONENT_OPERATION_COUNT + 0;
+    int SINGLE_VALUE_OPERATION_COUNT = MASTER_COMPONENT_OPERATION_COUNT + 2;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ReadOnlySingleValueImpl <em>Read Only Single Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.ReadOnlySingleValueImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getReadOnlySingleValue()
+     * @generated
+     */
+    int READ_ONLY_SINGLE_VALUE = 46;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__SHORT_DESCRIPTION = SINGLE_VALUE__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__LEVEL = SINGLE_VALUE__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__CUSTOMIZATION_PIPELINE = SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__MASTER_ON = SINGLE_VALUE__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__NAME = SINGLE_VALUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__DATA_TYPE = SINGLE_VALUE__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The number of structural features of the '<em>Read Only Single Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE___IS_READABLE = SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE___IS_WRITABLE = SINGLE_VALUE_OPERATION_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Read Only Single Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READ_ONLY_SINGLE_VALUE_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ConstantValueImpl <em>Constant Value</em>}' class.
@@ -759,7 +895,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__SHORT_DESCRIPTION = SINGLE_VALUE__SHORT_DESCRIPTION;
+    int CONSTANT_VALUE__SHORT_DESCRIPTION = READ_ONLY_SINGLE_VALUE__SHORT_DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
@@ -768,7 +904,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__LEVEL = SINGLE_VALUE__LEVEL;
+    int CONSTANT_VALUE__LEVEL = READ_ONLY_SINGLE_VALUE__LEVEL;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -777,7 +913,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__CUSTOMIZATION_PIPELINE = SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
+    int CONSTANT_VALUE__CUSTOMIZATION_PIPELINE = READ_ONLY_SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -786,7 +922,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+    int CONSTANT_VALUE__ARCHIVE_SELECTOR = READ_ONLY_SINGLE_VALUE__ARCHIVE_SELECTOR;
 
     /**
      * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -795,7 +931,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
+    int CONSTANT_VALUE__PROPERTIES = READ_ONLY_SINGLE_VALUE__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -804,7 +940,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__MASTER_ON = SINGLE_VALUE__MASTER_ON;
+    int CONSTANT_VALUE__MASTER_ON = READ_ONLY_SINGLE_VALUE__MASTER_ON;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -813,7 +949,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__NAME = SINGLE_VALUE__NAME;
+    int CONSTANT_VALUE__NAME = READ_ONLY_SINGLE_VALUE__NAME;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -822,7 +958,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__DATA_TYPE = SINGLE_VALUE__DATA_TYPE;
+    int CONSTANT_VALUE__DATA_TYPE = READ_ONLY_SINGLE_VALUE__DATA_TYPE;
 
     /**
      * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
@@ -831,25 +967,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
-
-    /**
-     * The feature id for the '<em><b>Readable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CONSTANT_VALUE__READABLE = SINGLE_VALUE__READABLE;
-
-    /**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CONSTANT_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
+    int CONSTANT_VALUE__CUSTOMIZATION_TAGS = READ_ONLY_SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -858,7 +976,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE__VALUE = SINGLE_VALUE_FEATURE_COUNT + 0;
+    int CONSTANT_VALUE__VALUE = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Constant Value</em>' class.
@@ -867,7 +985,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 1;
+    int CONSTANT_VALUE_FEATURE_COUNT = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 1;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -876,7 +994,25 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+    int CONSTANT_VALUE___GET_MASTER_ON = READ_ONLY_SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTANT_VALUE___IS_READABLE = READ_ONLY_SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTANT_VALUE___IS_WRITABLE = READ_ONLY_SINGLE_VALUE___IS_WRITABLE;
 
     /**
      * The number of operations of the '<em>Constant Value</em>' class.
@@ -885,7 +1021,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CONSTANT_VALUE_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
+    int CONSTANT_VALUE_OPERATION_COUNT = READ_ONLY_SINGLE_VALUE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.MarkerConfigurationImpl <em>Marker Configuration</em>}' class.
@@ -1044,24 +1180,6 @@ public interface ComponentPackage extends EPackage
     int PERSISTENT_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
-     * The feature id for the '<em><b>Readable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PERSISTENT_VALUE__READABLE = SINGLE_VALUE__READABLE;
-
-    /**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PERSISTENT_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
-
-    /**
      * The number of structural features of the '<em>Persistent Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1078,6 +1196,24 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int PERSISTENT_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERSISTENT_VALUE___IS_READABLE = SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERSISTENT_VALUE___IS_WRITABLE = SINGLE_VALUE___IS_WRITABLE;
 
     /**
      * The number of operations of the '<em>Persistent Value</em>' class.
@@ -1526,24 +1662,6 @@ public interface ComponentPackage extends EPackage
     int MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
-     * The feature id for the '<em><b>Readable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAPPED_SOURCE_VALUE__READABLE = SINGLE_VALUE__READABLE;
-
-    /**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAPPED_SOURCE_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
-
-    /**
      * The feature id for the '<em><b>Mapper</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1578,6 +1696,24 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int MAPPED_SOURCE_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPED_SOURCE_VALUE___IS_READABLE = SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPED_SOURCE_VALUE___IS_WRITABLE = SINGLE_VALUE___IS_WRITABLE;
 
     /**
      * The number of operations of the '<em>Mapped Source Value</em>' class.
@@ -2831,24 +2967,6 @@ public interface ComponentPackage extends EPackage
     int EXTERNAL_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
-     * The feature id for the '<em><b>Readable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EXTERNAL_VALUE__READABLE = SINGLE_VALUE__READABLE;
-
-    /**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EXTERNAL_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
-
-    /**
      * The feature id for the '<em><b>Connection</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2867,13 +2985,31 @@ public interface ComponentPackage extends EPackage
     int EXTERNAL_VALUE__SOURCE_NAME = SINGLE_VALUE_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_VALUE__READABLE = SINGLE_VALUE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_VALUE__WRITABLE = SINGLE_VALUE_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>External Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXTERNAL_VALUE_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 2;
+    int EXTERNAL_VALUE_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 4;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -2883,6 +3019,24 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int EXTERNAL_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_VALUE___IS_READABLE = SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_VALUE___IS_WRITABLE = SINGLE_VALUE___IS_WRITABLE;
 
     /**
      * The number of operations of the '<em>External Value</em>' class.
@@ -3287,24 +3441,6 @@ public interface ComponentPackage extends EPackage
     int TRANSIENT_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
-     * The feature id for the '<em><b>Readable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TRANSIENT_VALUE__READABLE = SINGLE_VALUE__READABLE;
-
-    /**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int TRANSIENT_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
-
-    /**
      * The number of structural features of the '<em>Transient Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3321,6 +3457,24 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int TRANSIENT_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE___IS_READABLE = SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE___IS_WRITABLE = SINGLE_VALUE___IS_WRITABLE;
 
     /**
      * The number of operations of the '<em>Transient Value</em>' class.
@@ -3502,7 +3656,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__SHORT_DESCRIPTION = SINGLE_VALUE__SHORT_DESCRIPTION;
+    int CHANGE_COUNTER__SHORT_DESCRIPTION = READ_ONLY_SINGLE_VALUE__SHORT_DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
@@ -3511,7 +3665,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__LEVEL = SINGLE_VALUE__LEVEL;
+    int CHANGE_COUNTER__LEVEL = READ_ONLY_SINGLE_VALUE__LEVEL;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -3520,7 +3674,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__CUSTOMIZATION_PIPELINE = SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
+    int CHANGE_COUNTER__CUSTOMIZATION_PIPELINE = READ_ONLY_SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -3529,7 +3683,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+    int CHANGE_COUNTER__ARCHIVE_SELECTOR = READ_ONLY_SINGLE_VALUE__ARCHIVE_SELECTOR;
 
     /**
      * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -3538,7 +3692,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__PROPERTIES = SINGLE_VALUE__PROPERTIES;
+    int CHANGE_COUNTER__PROPERTIES = READ_ONLY_SINGLE_VALUE__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -3547,7 +3701,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__MASTER_ON = SINGLE_VALUE__MASTER_ON;
+    int CHANGE_COUNTER__MASTER_ON = READ_ONLY_SINGLE_VALUE__MASTER_ON;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3556,7 +3710,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__NAME = SINGLE_VALUE__NAME;
+    int CHANGE_COUNTER__NAME = READ_ONLY_SINGLE_VALUE__NAME;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -3565,7 +3719,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__DATA_TYPE = SINGLE_VALUE__DATA_TYPE;
+    int CHANGE_COUNTER__DATA_TYPE = READ_ONLY_SINGLE_VALUE__DATA_TYPE;
 
     /**
      * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
@@ -3574,25 +3728,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
-
-    /**
-     * The feature id for the '<em><b>Readable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHANGE_COUNTER__READABLE = SINGLE_VALUE__READABLE;
-
-    /**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int CHANGE_COUNTER__WRITABLE = SINGLE_VALUE__WRITABLE;
+    int CHANGE_COUNTER__CUSTOMIZATION_TAGS = READ_ONLY_SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
      * The feature id for the '<em><b>Buffer</b></em>' reference.
@@ -3601,7 +3737,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__BUFFER = SINGLE_VALUE_FEATURE_COUNT + 0;
+    int CHANGE_COUNTER__BUFFER = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -3610,7 +3746,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__TYPE = SINGLE_VALUE_FEATURE_COUNT + 1;
+    int CHANGE_COUNTER__TYPE = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -3619,7 +3755,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__VALUES = SINGLE_VALUE_FEATURE_COUNT + 2;
+    int CHANGE_COUNTER__VALUES = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>On Error</b></em>' attribute.
@@ -3628,7 +3764,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER__ON_ERROR = SINGLE_VALUE_FEATURE_COUNT + 3;
+    int CHANGE_COUNTER__ON_ERROR = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Change Counter</em>' class.
@@ -3637,7 +3773,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 4;
+    int CHANGE_COUNTER_FEATURE_COUNT = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 4;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -3646,7 +3782,25 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+    int CHANGE_COUNTER___GET_MASTER_ON = READ_ONLY_SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER___IS_READABLE = READ_ONLY_SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER___IS_WRITABLE = READ_ONLY_SINGLE_VALUE___IS_WRITABLE;
 
     /**
      * The number of operations of the '<em>Change Counter</em>' class.
@@ -3655,7 +3809,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
+    int CHANGE_COUNTER_OPERATION_COUNT = READ_ONLY_SINGLE_VALUE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.MovingAverageModuleImpl <em>Moving Average Module</em>}' class.
@@ -3756,7 +3910,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__SHORT_DESCRIPTION = SINGLE_VALUE__SHORT_DESCRIPTION;
+    int DELTA_VALUE__SHORT_DESCRIPTION = READ_ONLY_SINGLE_VALUE__SHORT_DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
@@ -3765,7 +3919,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__LEVEL = SINGLE_VALUE__LEVEL;
+    int DELTA_VALUE__LEVEL = READ_ONLY_SINGLE_VALUE__LEVEL;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -3774,7 +3928,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__CUSTOMIZATION_PIPELINE = SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
+    int DELTA_VALUE__CUSTOMIZATION_PIPELINE = READ_ONLY_SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -3783,7 +3937,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+    int DELTA_VALUE__ARCHIVE_SELECTOR = READ_ONLY_SINGLE_VALUE__ARCHIVE_SELECTOR;
 
     /**
      * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -3792,7 +3946,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
+    int DELTA_VALUE__PROPERTIES = READ_ONLY_SINGLE_VALUE__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -3801,7 +3955,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__MASTER_ON = SINGLE_VALUE__MASTER_ON;
+    int DELTA_VALUE__MASTER_ON = READ_ONLY_SINGLE_VALUE__MASTER_ON;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3810,7 +3964,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__NAME = SINGLE_VALUE__NAME;
+    int DELTA_VALUE__NAME = READ_ONLY_SINGLE_VALUE__NAME;
 
     /**
      * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -3819,7 +3973,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__DATA_TYPE = SINGLE_VALUE__DATA_TYPE;
+    int DELTA_VALUE__DATA_TYPE = READ_ONLY_SINGLE_VALUE__DATA_TYPE;
 
     /**
      * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
@@ -3828,25 +3982,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
-
-    /**
-     * The feature id for the '<em><b>Readable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DELTA_VALUE__READABLE = SINGLE_VALUE__READABLE;
-
-    /**
-     * The feature id for the '<em><b>Writable</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DELTA_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
+    int DELTA_VALUE__CUSTOMIZATION_TAGS = READ_ONLY_SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
      * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -3855,7 +3991,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE__SOURCE = SINGLE_VALUE_FEATURE_COUNT + 0;
+    int DELTA_VALUE__SOURCE = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Delta Value</em>' class.
@@ -3864,7 +4000,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 1;
+    int DELTA_VALUE_FEATURE_COUNT = READ_ONLY_SINGLE_VALUE_FEATURE_COUNT + 1;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -3873,7 +4009,25 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+    int DELTA_VALUE___GET_MASTER_ON = READ_ONLY_SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE___IS_READABLE = READ_ONLY_SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE___IS_WRITABLE = READ_ONLY_SINGLE_VALUE___IS_WRITABLE;
 
     /**
      * The number of operations of the '<em>Delta Value</em>' class.
@@ -3882,7 +4036,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DELTA_VALUE_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
+    int DELTA_VALUE_OPERATION_COUNT = READ_ONLY_SINGLE_VALUE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ComponentReferenceOutputDefinitionImpl <em>Reference Output Definition</em>}' class.
@@ -3965,7 +4119,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 46;
+    int NOTIFICATION = 47;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -4362,26 +4516,24 @@ public interface ComponentPackage extends EPackage
     EAttribute getSingleValue_CustomizationTags ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.SingleValue#isReadable <em>Readable</em>}'.
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.SingleValue#isReadable() <em>Is Readable</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Readable</em>'.
+     * @return the meta object for the '<em>Is Readable</em>' operation.
      * @see org.eclipse.scada.configuration.component.SingleValue#isReadable()
-     * @see #getSingleValue()
      * @generated
      */
-    EAttribute getSingleValue_Readable ();
+    EOperation getSingleValue__IsReadable ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.SingleValue#isWritable <em>Writable</em>}'.
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.SingleValue#isWritable() <em>Is Writable</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Writable</em>'.
+     * @return the meta object for the '<em>Is Writable</em>' operation.
      * @see org.eclipse.scada.configuration.component.SingleValue#isWritable()
-     * @see #getSingleValue()
      * @generated
      */
-    EAttribute getSingleValue_Writable ();
+    EOperation getSingleValue__IsWritable ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.DataMapperAnalyzer <em>Data Mapper Analyzer</em>}'.
@@ -5135,6 +5287,28 @@ public interface ComponentPackage extends EPackage
     EAttribute getExternalValue_SourceName ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.ExternalValue#isReadable <em>Readable</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Readable</em>'.
+     * @see org.eclipse.scada.configuration.component.ExternalValue#isReadable()
+     * @see #getExternalValue()
+     * @generated
+     */
+    EAttribute getExternalValue_Readable ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.ExternalValue#isWritable <em>Writable</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Writable</em>'.
+     * @see org.eclipse.scada.configuration.component.ExternalValue#isWritable()
+     * @see #getExternalValue()
+     * @generated
+     */
+    EAttribute getExternalValue_Writable ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.SummariesConfiguration <em>Summaries Configuration</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5572,6 +5746,26 @@ public interface ComponentPackage extends EPackage
     EOperation getComponentReferenceOutputDefinition__CreateReference ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ReadOnlySingleValue <em>Read Only Single Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Read Only Single Value</em>'.
+     * @see org.eclipse.scada.configuration.component.ReadOnlySingleValue
+     * @generated
+     */
+    EClass getReadOnlySingleValue ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.ReadOnlySingleValue#isWritable() <em>Is Writable</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Is Writable</em>' operation.
+     * @see org.eclipse.scada.configuration.component.ReadOnlySingleValue#isWritable()
+     * @generated
+     */
+    EOperation getReadOnlySingleValue__IsWritable ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5927,20 +6121,20 @@ public interface ComponentPackage extends EPackage
         EAttribute SINGLE_VALUE__CUSTOMIZATION_TAGS = eINSTANCE.getSingleValue_CustomizationTags ();
 
         /**
-         * The meta object literal for the '<em><b>Readable</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Is Readable</b></em>' operation.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SINGLE_VALUE__READABLE = eINSTANCE.getSingleValue_Readable ();
+        EOperation SINGLE_VALUE___IS_READABLE = eINSTANCE.getSingleValue__IsReadable ();
 
         /**
-         * The meta object literal for the '<em><b>Writable</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Is Writable</b></em>' operation.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute SINGLE_VALUE__WRITABLE = eINSTANCE.getSingleValue_Writable ();
+        EOperation SINGLE_VALUE___IS_WRITABLE = eINSTANCE.getSingleValue__IsWritable ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.DataMapperAnalyzerImpl <em>Data Mapper Analyzer</em>}' class.
@@ -6553,6 +6747,22 @@ public interface ComponentPackage extends EPackage
         EAttribute EXTERNAL_VALUE__SOURCE_NAME = eINSTANCE.getExternalValue_SourceName ();
 
         /**
+         * The meta object literal for the '<em><b>Readable</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_VALUE__READABLE = eINSTANCE.getExternalValue_Readable ();
+
+        /**
+         * The meta object literal for the '<em><b>Writable</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_VALUE__WRITABLE = eINSTANCE.getExternalValue_Writable ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.SummariesConfigurationImpl <em>Summaries Configuration</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -6905,6 +7115,24 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EOperation COMPONENT_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE = eINSTANCE.getComponentReferenceOutputDefinition__CreateReference ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ReadOnlySingleValueImpl <em>Read Only Single Value</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.ReadOnlySingleValueImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getReadOnlySingleValue()
+         * @generated
+         */
+        EClass READ_ONLY_SINGLE_VALUE = eINSTANCE.getReadOnlySingleValue ();
+
+        /**
+         * The meta object literal for the '<em><b>Is Writable</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation READ_ONLY_SINGLE_VALUE___IS_WRITABLE = eINSTANCE.getReadOnlySingleValue__IsWritable ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

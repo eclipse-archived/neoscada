@@ -28,7 +28,7 @@ import org.eclipse.scada.configuration.component.DeltaValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeltaValueItemProvider extends SingleValueItemProvider
+public class DeltaValueItemProvider extends ReadOnlySingleValueItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.

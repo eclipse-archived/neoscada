@@ -28,6 +28,8 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ExternalValueImpl#getConnection <em>Connection</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ExternalValueImpl#getSourceName <em>Source Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ExternalValueImpl#isReadable <em>Readable</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ExternalValueImpl#isWritable <em>Writable</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +65,46 @@ public class ExternalValueImpl extends SingleValueImpl implements ExternalValue
      * @ordered
      */
     protected String sourceName = SOURCE_NAME_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isReadable() <em>Readable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isReadable()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean READABLE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isReadable() <em>Readable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isReadable()
+     * @generated
+     * @ordered
+     */
+    protected boolean readable = READABLE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isWritable() <em>Writable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isWritable()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean WRITABLE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isWritable() <em>Writable</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isWritable()
+     * @generated
+     * @ordered
+     */
+    protected boolean writable = WRITABLE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -156,6 +198,52 @@ public class ExternalValueImpl extends SingleValueImpl implements ExternalValue
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isReadable ()
+    {
+        return readable;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setReadable ( boolean newReadable )
+    {
+        boolean oldReadable = readable;
+        readable = newReadable;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.EXTERNAL_VALUE__READABLE, oldReadable, readable ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isWritable ()
+    {
+        return writable;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setWritable ( boolean newWritable )
+    {
+        boolean oldWritable = writable;
+        writable = newWritable;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.EXTERNAL_VALUE__WRITABLE, oldWritable, writable ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -167,6 +255,10 @@ public class ExternalValueImpl extends SingleValueImpl implements ExternalValue
                 return basicGetConnection ();
             case ComponentPackage.EXTERNAL_VALUE__SOURCE_NAME:
                 return getSourceName ();
+            case ComponentPackage.EXTERNAL_VALUE__READABLE:
+                return isReadable ();
+            case ComponentPackage.EXTERNAL_VALUE__WRITABLE:
+                return isWritable ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -186,6 +278,12 @@ public class ExternalValueImpl extends SingleValueImpl implements ExternalValue
                 return;
             case ComponentPackage.EXTERNAL_VALUE__SOURCE_NAME:
                 setSourceName ( (String)newValue );
+                return;
+            case ComponentPackage.EXTERNAL_VALUE__READABLE:
+                setReadable ( (Boolean)newValue );
+                return;
+            case ComponentPackage.EXTERNAL_VALUE__WRITABLE:
+                setWritable ( (Boolean)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -207,6 +305,12 @@ public class ExternalValueImpl extends SingleValueImpl implements ExternalValue
             case ComponentPackage.EXTERNAL_VALUE__SOURCE_NAME:
                 setSourceName ( SOURCE_NAME_EDEFAULT );
                 return;
+            case ComponentPackage.EXTERNAL_VALUE__READABLE:
+                setReadable ( READABLE_EDEFAULT );
+                return;
+            case ComponentPackage.EXTERNAL_VALUE__WRITABLE:
+                setWritable ( WRITABLE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -225,6 +329,10 @@ public class ExternalValueImpl extends SingleValueImpl implements ExternalValue
                 return connection != null;
             case ComponentPackage.EXTERNAL_VALUE__SOURCE_NAME:
                 return SOURCE_NAME_EDEFAULT == null ? sourceName != null : !SOURCE_NAME_EDEFAULT.equals ( sourceName );
+            case ComponentPackage.EXTERNAL_VALUE__READABLE:
+                return readable != READABLE_EDEFAULT;
+            case ComponentPackage.EXTERNAL_VALUE__WRITABLE:
+                return writable != WRITABLE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -243,6 +351,10 @@ public class ExternalValueImpl extends SingleValueImpl implements ExternalValue
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (sourceName: " ); //$NON-NLS-1$
         result.append ( sourceName );
+        result.append ( ", readable: " ); //$NON-NLS-1$
+        result.append ( readable );
+        result.append ( ", writable: " ); //$NON-NLS-1$
+        result.append ( writable );
         result.append ( ')' );
         return result.toString ();
     }

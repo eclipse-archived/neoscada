@@ -25,8 +25,6 @@ import org.eclipse.scada.configuration.world.osgi.DataType;
  *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#getCustomizationTags <em>Customization Tags</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#isReadable <em>Readable</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.SingleValue#isWritable <em>Writable</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getSingleValue()
@@ -108,57 +106,29 @@ public interface SingleValue extends MasterComponent
     EList<String> getCustomizationTags ();
 
     /**
-     * Returns the value of the '<em><b>Readable</b></em>' attribute.
-     * The default value is <code>"true"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Readable</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Readable</em>' attribute.
-     * @see #setReadable(boolean)
-     * @see org.eclipse.scada.configuration.component.ComponentPackage#getSingleValue_Readable()
-     * @model default="true" required="true"
+     * @model kind="operation" required="true"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return true;'"
      * @generated
      */
     boolean isReadable ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.component.SingleValue#isReadable <em>Readable</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Readable</em>' attribute.
-     * @see #isReadable()
-     * @generated
-     */
-    void setReadable ( boolean value );
-
-    /**
-     * Returns the value of the '<em><b>Writable</b></em>' attribute.
-     * The default value is <code>"true"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Writable</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Writable</em>' attribute.
-     * @see #setWritable(boolean)
-     * @see org.eclipse.scada.configuration.component.ComponentPackage#getSingleValue_Writable()
-     * @model default="true" required="true"
+     * @model kind="operation" required="true"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return true;'"
      * @generated
      */
     boolean isWritable ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.component.SingleValue#isWritable <em>Writable</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Writable</em>' attribute.
-     * @see #isWritable()
-     * @generated
-     */
-    void setWritable ( boolean value );
 
 } // SingleValue

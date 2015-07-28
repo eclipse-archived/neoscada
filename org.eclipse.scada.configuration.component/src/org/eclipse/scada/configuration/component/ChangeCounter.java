@@ -35,7 +35,7 @@ import org.eclipse.scada.core.Variant;
  * @model
  * @generated
  */
-public interface ChangeCounter extends SingleValue
+public interface ChangeCounter extends ReadOnlySingleValue
 {
     /**
      * Returns the value of the '<em><b>Buffer</b></em>' reference.

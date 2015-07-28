@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -32,8 +33,6 @@ import org.eclipse.scada.configuration.world.osgi.DataType;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.SingleValueImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.SingleValueImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.SingleValueImpl#getCustomizationTags <em>Customization Tags</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.SingleValueImpl#isReadable <em>Readable</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.SingleValueImpl#isWritable <em>Writable</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,46 +88,6 @@ public abstract class SingleValueImpl extends MasterComponentImpl implements Sin
      * @ordered
      */
     protected EList<String> customizationTags;
-
-    /**
-     * The default value of the '{@link #isReadable() <em>Readable</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isReadable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean READABLE_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isReadable() <em>Readable</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isReadable()
-     * @generated
-     * @ordered
-     */
-    protected boolean readable = READABLE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #isWritable() <em>Writable</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isWritable()
-     * @generated
-     * @ordered
-     */
-    protected static final boolean WRITABLE_EDEFAULT = true;
-
-    /**
-     * The cached value of the '{@link #isWritable() <em>Writable</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isWritable()
-     * @generated
-     * @ordered
-     */
-    protected boolean writable = WRITABLE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -218,20 +177,7 @@ public abstract class SingleValueImpl extends MasterComponentImpl implements Sin
      */
     public boolean isReadable ()
     {
-        return readable;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setReadable ( boolean newReadable )
-    {
-        boolean oldReadable = readable;
-        readable = newReadable;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SINGLE_VALUE__READABLE, oldReadable, readable ) );
+        return true;
     }
 
     /**
@@ -241,20 +187,7 @@ public abstract class SingleValueImpl extends MasterComponentImpl implements Sin
      */
     public boolean isWritable ()
     {
-        return writable;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setWritable ( boolean newWritable )
-    {
-        boolean oldWritable = writable;
-        writable = newWritable;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SINGLE_VALUE__WRITABLE, oldWritable, writable ) );
+        return true;
     }
 
     /**
@@ -273,10 +206,6 @@ public abstract class SingleValueImpl extends MasterComponentImpl implements Sin
                 return getDataType ();
             case ComponentPackage.SINGLE_VALUE__CUSTOMIZATION_TAGS:
                 return getCustomizationTags ();
-            case ComponentPackage.SINGLE_VALUE__READABLE:
-                return isReadable ();
-            case ComponentPackage.SINGLE_VALUE__WRITABLE:
-                return isWritable ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -302,12 +231,6 @@ public abstract class SingleValueImpl extends MasterComponentImpl implements Sin
                 getCustomizationTags ().clear ();
                 getCustomizationTags ().addAll ( (Collection<? extends String>)newValue );
                 return;
-            case ComponentPackage.SINGLE_VALUE__READABLE:
-                setReadable ( (Boolean)newValue );
-                return;
-            case ComponentPackage.SINGLE_VALUE__WRITABLE:
-                setWritable ( (Boolean)newValue );
-                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -331,12 +254,6 @@ public abstract class SingleValueImpl extends MasterComponentImpl implements Sin
             case ComponentPackage.SINGLE_VALUE__CUSTOMIZATION_TAGS:
                 getCustomizationTags ().clear ();
                 return;
-            case ComponentPackage.SINGLE_VALUE__READABLE:
-                setReadable ( READABLE_EDEFAULT );
-                return;
-            case ComponentPackage.SINGLE_VALUE__WRITABLE:
-                setWritable ( WRITABLE_EDEFAULT );
-                return;
         }
         super.eUnset ( featureID );
     }
@@ -357,12 +274,26 @@ public abstract class SingleValueImpl extends MasterComponentImpl implements Sin
                 return dataType != DATA_TYPE_EDEFAULT;
             case ComponentPackage.SINGLE_VALUE__CUSTOMIZATION_TAGS:
                 return customizationTags != null && !customizationTags.isEmpty ();
-            case ComponentPackage.SINGLE_VALUE__READABLE:
-                return readable != READABLE_EDEFAULT;
-            case ComponentPackage.SINGLE_VALUE__WRITABLE:
-                return writable != WRITABLE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    {
+        switch ( operationID )
+        {
+            case ComponentPackage.SINGLE_VALUE___IS_READABLE:
+                return isReadable ();
+            case ComponentPackage.SINGLE_VALUE___IS_WRITABLE:
+                return isWritable ();
+        }
+        return super.eInvoke ( operationID, arguments );
     }
 
     /**
@@ -383,10 +314,6 @@ public abstract class SingleValueImpl extends MasterComponentImpl implements Sin
         result.append ( dataType );
         result.append ( ", customizationTags: " ); //$NON-NLS-1$
         result.append ( customizationTags );
-        result.append ( ", readable: " ); //$NON-NLS-1$
-        result.append ( readable );
-        result.append ( ", writable: " ); //$NON-NLS-1$
-        result.append ( writable );
         result.append ( ')' );
         return result.toString ();
     }

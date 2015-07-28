@@ -29,7 +29,7 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChangeCounterItemProvider extends SingleValueItemProvider
+public class ChangeCounterItemProvider extends ReadOnlySingleValueItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.

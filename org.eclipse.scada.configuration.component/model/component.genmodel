@@ -60,10 +60,8 @@
       <genFeatures createChild="false" propertyCategory="naming" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/name"/>
       <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/dataType"/>
       <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/customizationTags"/>
-      <genFeatures createChild="false" propertyCategory="customization" propertyDescription="Whether this item readable"
-          ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/readable"/>
-      <genFeatures createChild="false" propertyCategory="customization" propertyDescription="Whether this item is writable"
-          ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/writable"/>
+      <genOperations ecoreOperation="component.ecore#//SingleValue/isReadable"/>
+      <genOperations ecoreOperation="component.ecore#//SingleValue/isWritable"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//DataMapperAnalyzer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DataMapperAnalyzer/dataMapper"/>
@@ -164,6 +162,10 @@
       <genFeatures notify="false" createChild="false" propertyCategory="external"
           propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ExternalValue/connection"/>
       <genFeatures createChild="false" propertyCategory="external" ecoreFeature="ecore:EAttribute component.ecore#//ExternalValue/sourceName"/>
+      <genFeatures createChild="false" propertyCategory="customization" propertyDescription="Whether the item is readable"
+          ecoreFeature="ecore:EAttribute component.ecore#//ExternalValue/readable"/>
+      <genFeatures createChild="false" propertyCategory="customization" propertyDescription="Whether the item is writable"
+          ecoreFeature="ecore:EAttribute component.ecore#//ExternalValue/writable"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//SummariesConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//SummariesConfiguration/itemThreshold"/>
@@ -224,6 +226,9 @@
     <genClasses ecoreClass="component.ecore#//ComponentReferenceOutputDefinition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentReferenceOutputDefinition/component"/>
       <genOperations ecoreOperation="component.ecore#//ComponentReferenceOutputDefinition/createReference"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//ReadOnlySingleValue">
+      <genOperations ecoreOperation="component.ecore#//ReadOnlySingleValue/isWritable"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
