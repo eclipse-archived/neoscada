@@ -194,6 +194,8 @@ public class ItemResourceImpl implements ItemResource
 
             writer.print ( nl );
         }
+
+        writer.flush ();
     }
 
     private static String escapedCsv ( final String key )
