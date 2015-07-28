@@ -60,6 +60,10 @@
       <genFeatures createChild="false" propertyCategory="naming" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/name"/>
       <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/dataType"/>
       <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/customizationTags"/>
+      <genFeatures createChild="false" propertyCategory="customization" propertyDescription="Whether this item readable"
+          ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/readable"/>
+      <genFeatures createChild="false" propertyCategory="customization" propertyDescription="Whether this item is writable"
+          ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/writable"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//DataMapperAnalyzer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DataMapperAnalyzer/dataMapper"/>

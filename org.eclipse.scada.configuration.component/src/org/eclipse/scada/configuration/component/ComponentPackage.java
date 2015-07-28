@@ -698,13 +698,31 @@ public interface ComponentPackage extends EPackage
     int SINGLE_VALUE__CUSTOMIZATION_TAGS = MASTER_COMPONENT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_VALUE__READABLE = MASTER_COMPONENT_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_VALUE__WRITABLE = MASTER_COMPONENT_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Single Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SINGLE_VALUE_FEATURE_COUNT = MASTER_COMPONENT_FEATURE_COUNT + 3;
+    int SINGLE_VALUE_FEATURE_COUNT = MASTER_COMPONENT_FEATURE_COUNT + 5;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -814,6 +832,24 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int CONSTANT_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTANT_VALUE__READABLE = SINGLE_VALUE__READABLE;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTANT_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1006,6 +1042,24 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int PERSISTENT_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERSISTENT_VALUE__READABLE = SINGLE_VALUE__READABLE;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERSISTENT_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
 
     /**
      * The number of structural features of the '<em>Persistent Value</em>' class.
@@ -1470,6 +1524,24 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPED_SOURCE_VALUE__READABLE = SINGLE_VALUE__READABLE;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPED_SOURCE_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
 
     /**
      * The feature id for the '<em><b>Mapper</b></em>' reference.
@@ -2759,6 +2831,24 @@ public interface ComponentPackage extends EPackage
     int EXTERNAL_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_VALUE__READABLE = SINGLE_VALUE__READABLE;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
+
+    /**
      * The feature id for the '<em><b>Connection</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3197,6 +3287,24 @@ public interface ComponentPackage extends EPackage
     int TRANSIENT_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__READABLE = SINGLE_VALUE__READABLE;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
+
+    /**
      * The number of structural features of the '<em>Transient Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3469,6 +3577,24 @@ public interface ComponentPackage extends EPackage
     int CHANGE_COUNTER__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__READABLE = SINGLE_VALUE__READABLE;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__WRITABLE = SINGLE_VALUE__WRITABLE;
+
+    /**
      * The feature id for the '<em><b>Buffer</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3703,6 +3829,24 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int DELTA_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Readable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__READABLE = SINGLE_VALUE__READABLE;
+
+    /**
+     * The feature id for the '<em><b>Writable</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DELTA_VALUE__WRITABLE = SINGLE_VALUE__WRITABLE;
 
     /**
      * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -4216,6 +4360,28 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EAttribute getSingleValue_CustomizationTags ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.SingleValue#isReadable <em>Readable</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Readable</em>'.
+     * @see org.eclipse.scada.configuration.component.SingleValue#isReadable()
+     * @see #getSingleValue()
+     * @generated
+     */
+    EAttribute getSingleValue_Readable ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.SingleValue#isWritable <em>Writable</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Writable</em>'.
+     * @see org.eclipse.scada.configuration.component.SingleValue#isWritable()
+     * @see #getSingleValue()
+     * @generated
+     */
+    EAttribute getSingleValue_Writable ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.DataMapperAnalyzer <em>Data Mapper Analyzer</em>}'.
@@ -5759,6 +5925,22 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EAttribute SINGLE_VALUE__CUSTOMIZATION_TAGS = eINSTANCE.getSingleValue_CustomizationTags ();
+
+        /**
+         * The meta object literal for the '<em><b>Readable</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SINGLE_VALUE__READABLE = eINSTANCE.getSingleValue_Readable ();
+
+        /**
+         * The meta object literal for the '<em><b>Writable</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SINGLE_VALUE__WRITABLE = eINSTANCE.getSingleValue_Writable ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.DataMapperAnalyzerImpl <em>Data Mapper Analyzer</em>}' class.

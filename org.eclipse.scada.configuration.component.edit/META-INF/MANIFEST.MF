@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.edit;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.component.provider.ComponentEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.configuration.component.provider;version="0.2.0";
+Export-Package: org.eclipse.scada.configuration.component.provider;version="0.3.0";
   uses:="org.eclipse.emf.edit.command,
    org.eclipse.scada.configuration.world.osgi,
    org.eclipse.emf.common.util,
