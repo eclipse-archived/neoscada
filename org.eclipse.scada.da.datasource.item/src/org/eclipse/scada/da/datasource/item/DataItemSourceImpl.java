@@ -213,8 +213,6 @@ public class DataItemSourceImpl extends AbstractDataSource implements ItemUpdate
         newValue.setSubscriptionState ( state );
         newValue.setSubscriptionError ( error );
 
-        // FIXME: mask out all source data if item switches to DISCONNECT to GRANTED
-
         injectAttributes ( newValue );
 
         return newValue;
