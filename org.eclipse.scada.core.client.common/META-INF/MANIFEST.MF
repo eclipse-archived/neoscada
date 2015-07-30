@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Common Core Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.client.common
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.core.client.common;version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -19,7 +19,7 @@ Import-Package: javax.net.ssl,
  org.eclipse.scada.core.client;version="0.1.0",
  org.eclipse.scada.protocol.common;version="0.1.0",
  org.eclipse.scada.sec.callback;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.3.0",
  org.eclipse.scada.utils.concurrent.task;version="0.1.0",
  org.eclipse.scada.utils.stats;version="0.1.0",
  org.slf4j;version="1.5.0"

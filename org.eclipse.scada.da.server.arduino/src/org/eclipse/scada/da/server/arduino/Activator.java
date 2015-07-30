@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,13 +13,12 @@ package org.eclipse.scada.da.server.arduino;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
 import org.eclipse.scada.da.server.arduino.factory.ConfigurationFactoryImpl;
 import org.eclipse.scada.da.server.common.DataItem;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.osgi.framework.BundleActivator;
@@ -60,7 +59,7 @@ public class Activator implements BundleActivator
 
         this.itemPoolHandle = ObjectPoolHelper.registerObjectPool ( context, this.itemPool, DataItem.class );
 
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( context.getBundle ().getSymbolicName () );
 
         this.service = new ConfigurationFactoryImpl ( context, this.itemPool, this.executor );
 

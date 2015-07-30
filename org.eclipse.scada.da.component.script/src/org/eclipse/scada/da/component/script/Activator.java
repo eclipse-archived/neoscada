@@ -13,14 +13,13 @@ package org.eclipse.scada.da.component.script;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.da.server.common.DataItem;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
-import org.eclipse.scada.da.server.common.DataItem;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -55,7 +54,7 @@ public class Activator implements BundleActivator
     {
         Activator.context = bundleContext;
 
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( bundleContext.getBundle ().getSymbolicName () ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( bundleContext.getBundle ().getSymbolicName () );
 
         this.objectPool = new ObjectPoolImpl<DataItem> ();
 

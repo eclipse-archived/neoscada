@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.da.server.common
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Vendor: %providerName
 Export-Package: org.eclipse.scada.da.server.browser.common;version="0.1.0";uses:="org.eclipse.scada.da.core.browser,org.eclipse.scada.da.server.common,org.eclipse.scada.da.core",
  org.eclipse.scada.da.server.browser.common.query;version="0.1.0";uses:="org.eclipse.scada.da.server.common,org.eclipse.scada.da.server.browser.common",
@@ -72,7 +72,7 @@ Import-Package: javax.management;resolution:=optional,
  org.eclipse.scada.sec;version="0.1.0",
  org.eclipse.scada.sec.callback;version="0.1.0",
  org.eclipse.scada.utils.collection;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.3.0",
  org.eclipse.scada.utils.lang;version="0.1.0",
  org.eclipse.scada.utils.lifecycle;version="0.1.0",
  org.eclipse.scada.utils.statuscodes;version="0.1.0",

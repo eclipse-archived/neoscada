@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Arduino DA Server (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.arduino
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.arduino.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -21,6 +21,6 @@ Import-Package: org.apache.mina.core.service;version="2.0.2",
  org.eclipse.scada.da.server.common.impl;version="0.1.0",
  org.eclipse.scada.protocol.arduino;version="0.2.0",
  org.eclipse.scada.sec;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.3.0",
  org.eclipse.scada.utils.osgi.pool;version="0.1.0",
  org.osgi.framework;version="1.6.0"

@@ -14,11 +14,10 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.da.server.component.ComponentFactory;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -34,7 +33,7 @@ public class Activator implements BundleActivator
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
-        this.executor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "org.eclipse.scada.da.server.component.linux" ) ); //$NON-NLS-1$
+        this.executor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( context.getBundle ().getSymbolicName () );
 
         addFactory ( context, new CpuInfoComponentFactory ( this.executor ) );
     }

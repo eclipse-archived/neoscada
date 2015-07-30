@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,18 +7,18 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use exported executor
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.ds;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
 import org.eclipse.scada.ds.DataNodeTracker;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -36,9 +36,10 @@ public class Activator implements BundleActivator
      * (non-Javadoc)
      * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
      */
+    @Override
     public void start ( final BundleContext context ) throws Exception
     {
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( context.getBundle ().getSymbolicName () );
 
         this.dataNodeTracker = new DataNodeTracker ( context );
 
@@ -58,6 +59,7 @@ public class Activator implements BundleActivator
      * (non-Javadoc)
      * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
      */
+    @Override
     public void stop ( final BundleContext context ) throws Exception
     {
         this.factory.dispose ();

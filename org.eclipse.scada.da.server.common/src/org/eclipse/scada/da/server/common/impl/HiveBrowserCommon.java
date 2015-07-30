@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - use exported executors
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.impl;
 
@@ -17,7 +18,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.core.InvalidSessionException;
 import org.eclipse.scada.core.server.common.session.AbstractSessionImpl;
@@ -28,6 +28,7 @@ import org.eclipse.scada.da.core.server.browser.HiveBrowser;
 import org.eclipse.scada.da.core.server.browser.NoSuchFolderException;
 import org.eclipse.scada.da.server.browser.common.Folder;
 import org.eclipse.scada.da.server.browser.common.FolderListener;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.concurrent.FutureTask;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
@@ -52,7 +53,7 @@ public abstract class HiveBrowserCommon implements HiveBrowser, FolderListener, 
 
     public void start ()
     {
-        this.operationService = Executors.newFixedThreadPool ( 1 );
+        this.operationService = ExportedExecutorService.newSingleThreadExportedExecutor ( this.hive.getHiveId () + "/Browser" );
     }
 
     public void stop ()

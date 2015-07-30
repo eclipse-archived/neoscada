@@ -14,13 +14,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.mina.core.session.IoSession;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -140,7 +139,7 @@ public class JobManager
         @Override
         public void handleTimeout ()
         {
-            // TODO: no-op for now 
+            // TODO: no-op for now
         }
 
         @Override
@@ -158,7 +157,7 @@ public class JobManager
 
     public JobManager ( final String threadName )
     {
-        this.executor = this.createdExector = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( threadName ) );
+        this.executor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( threadName );
     }
 
     public JobManager ( final ScheduledExecutorService executor )
@@ -295,7 +294,7 @@ public class JobManager
 
     /**
      * Get the next read job
-     * 
+     *
      * @return the next read job or <code>null</code> if no blocks need to be
      *         refreshed
      */
@@ -350,7 +349,7 @@ public class JobManager
 
     /**
      * Get the next job from the write queue if there is any
-     * 
+     *
      * @return the next write job or <code>null</code> if there is none
      */
     private Job getNextWriteJob ()

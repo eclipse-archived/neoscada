@@ -10,13 +10,12 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.impl.stats;
 
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.scada.da.server.browser.common.FolderCommon;
 import org.eclipse.scada.da.server.common.impl.HiveCommon;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 
 public class HiveCommonStatisticsGenerator extends HiveStatisticsGenerator
 {
@@ -68,7 +67,7 @@ public class HiveCommonStatisticsGenerator extends HiveStatisticsGenerator
         registerOutput ( "valueEvents", this.valueEventsOutput, "Number of value events" );
         registerOutput ( "attributeEvents", this.attributeEventsOutput, "Number of attribute events" );
 
-        this.timer = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "HiveStatsTimer" ) );
+        this.timer = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( hive.getHiveId () + "/HiveStatsTimer" );
         this.timer.scheduleAtFixedRate ( new Runnable () {
 
             @Override

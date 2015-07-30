@@ -24,7 +24,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -38,6 +37,7 @@ import org.eclipse.scada.ae.server.storage.StoreListener;
 import org.eclipse.scada.ae.server.storage.postgres.JdbcDao;
 import org.eclipse.scada.ae.server.storage.postgres.NodeIdProvider;
 import org.eclipse.scada.utils.collection.BoundedPriorityQueueSet;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.filter.Filter;
 import org.eclipse.scada.utils.filter.FilterParseException;
 import org.eclipse.scada.utils.filter.FilterParser;
@@ -86,7 +86,7 @@ public class JdbcStorage extends BaseStorage
             }
         } );
         this.scheduler = scheduler;
-        this.dbExecutor = Executors.newSingleThreadExecutor ();
+        this.dbExecutor = ExportedExecutorService.newSingleThreadExportedExecutor ( "AE.JdbcStorage" );
     }
 
     public void start ()
@@ -95,13 +95,13 @@ public class JdbcStorage extends BaseStorage
             @Override
             public void run ()
             {
-                if ( storeQueue.size () > 0 )
+                if ( JdbcStorage.this.storeQueue.size () > 0 )
                 {
                     try
                     {
                         processStoreQueue ( getBatchSize () );
                     }
-                    catch ( Exception e )
+                    catch ( final Exception e )
                     {
                         logger.error ( "call to processStoreQueue failed", e );
                     }
@@ -146,7 +146,7 @@ public class JdbcStorage extends BaseStorage
         final Event eventToStore = createEvent ( event );
         if ( getBatchSize () > 1 )
         {
-            storeQueue.offer ( new StoreTask ( listener, eventToStore, true ) );
+            this.storeQueue.offer ( new StoreTask ( listener, eventToStore, true ) );
         }
         else
         {
@@ -169,7 +169,7 @@ public class JdbcStorage extends BaseStorage
                         public Void performTask ( final ConnectionContext connectionContext ) throws Exception
                         {
                             connectionContext.setAutoCommit ( false );
-                            for ( StoreTask task : batch )
+                            for ( final StoreTask task : batch )
                             {
                                 JdbcStorage.this.jdbcDao.store ( connectionContext, task.getEventToStore () );
                                 if ( isReplication () )
@@ -181,7 +181,7 @@ public class JdbcStorage extends BaseStorage
                             return null;
                         }
                     } );
-                    for ( StoreTask task : batch )
+                    for ( final StoreTask task : batch )
                     {
                         if ( task.getListener () != null )
                         {
@@ -198,7 +198,7 @@ public class JdbcStorage extends BaseStorage
                 }
                 catch ( final Exception e )
                 {
-                    for ( StoreTask task : batch )
+                    for ( final StoreTask task : batch )
                     {
                         if ( task.isStoreInErrorQueue () )
                         {
@@ -266,13 +266,13 @@ public class JdbcStorage extends BaseStorage
         final List<StoreTask> batch = new ArrayList<StoreTask> ( size );
         for ( int i = 0; i < size; i++ )
         {
-            StoreTask task = storeQueue.poll ();
+            final StoreTask task = this.storeQueue.poll ();
             if ( task != null )
             {
                 batch.add ( task );
             }
         }
-        Future<Void> future = doStore ( batch );
+        final Future<Void> future = doStore ( batch );
         future.get ();
     }
 

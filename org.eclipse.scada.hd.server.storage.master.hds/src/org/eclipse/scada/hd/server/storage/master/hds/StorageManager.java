@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - make the storage base
+ *     IBH SYSTEMS GmbH - make the storage base, use exported executor
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.master.hds;
 
@@ -17,7 +17,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -28,7 +27,6 @@ import org.eclipse.scada.hd.server.storage.hds.StorageConfiguration;
 import org.eclipse.scada.hd.server.storage.hds.StorageHelper;
 import org.eclipse.scada.hd.server.storage.hds.StorageInformation;
 import org.eclipse.scada.hds.DataFilePool;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.utils.str.StringReplacer;
 import org.osgi.framework.BundleContext;
@@ -49,7 +47,7 @@ public class StorageManager extends AbstractStorageManager
 
     private final ScheduledExecutorService updateExecutor;
 
-    private final ScheduledExportedExecutorService eventExecutor;
+    private final ScheduledExecutorService eventExecutor;
 
     public StorageManager ( final BundleContext context, final DataFilePool pool )
     {
@@ -58,8 +56,8 @@ public class StorageManager extends AbstractStorageManager
         this.context = context;
         this.pool = pool;
 
-        this.updateExecutor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "HDSUpdate" ) );
-        this.eventExecutor = new ScheduledExportedExecutorService ( "org.eclipse.scada.hd.server.storage.master.hds.events", 1 );
+        this.updateExecutor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "HDSUpdate" );
+        this.eventExecutor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "org.eclipse.scada.hd.server.storage.master.hds.events" );
 
         initialize ();
     }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013,2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,7 +14,6 @@ import java.net.InetSocketAddress;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -32,7 +31,7 @@ import org.eclipse.scada.da.server.common.AttributeMode;
 import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
 import org.eclipse.scada.da.server.common.osgi.factory.DataItemFactory;
 import org.eclipse.scada.utils.ExceptionHelper;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -144,7 +143,7 @@ public abstract class AbstractConnectionDevice
 
     public AbstractConnectionDevice ( final BundleContext context, final String id, final NioProcessor processor, final String threadPrefix, final String itemPrefix )
     {
-        this ( context, id, processor, Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( threadPrefix + "/" + id ) ), itemPrefix );
+        this ( context, id, processor, ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( threadPrefix + "/" + id ), itemPrefix );
         this.createdExecutor = this.executor;
     }
 
@@ -208,7 +207,7 @@ public abstract class AbstractConnectionDevice
     {
         this.host = properties.get ( "host" );
         this.port = Short.valueOf ( properties.get ( "port" ) );
-        this.connectTimeout = getTimeout ( properties, "connectTimeout", 5000/*ms*/);
+        this.connectTimeout = getTimeout ( properties, "connectTimeout", 5000/*ms*/ );
         this.name = properties.get ( "name" );
         this.enabled = parseEnabled ( properties );
 

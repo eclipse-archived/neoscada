@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,18 +7,18 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use exported executor
  *******************************************************************************/
 package org.eclipse.scada.ae.server.common.event.pool.internal;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ae.event.EventManager;
 import org.eclipse.scada.ae.server.common.event.EventQuery;
 import org.eclipse.scada.ae.server.storage.Storage;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.osgi.FilterUtil;
 import org.eclipse.scada.utils.osgi.SingleServiceListener;
 import org.eclipse.scada.utils.osgi.SingleServiceTracker;
@@ -64,7 +64,7 @@ public class EventPoolManager
         this.filter = filter;
         this.size = size;
 
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( "EventPoolManager/" + id ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( "EventPoolManager/" + id );
 
         this.eventManagerTracker = new SingleServiceTracker<Object> ( this.context, FilterUtil.createClassFilter ( EventManager.class.getName () ), new SingleServiceListener<Object> () {
 

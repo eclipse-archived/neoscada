@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - refactor for generic memory devices
- *     IBH SYSTEMS GmbH - added string and blob type
+ *     IBH SYSTEMS GmbH - added string and blob type, use exported executor
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory.internal;
 
@@ -22,7 +22,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationFactory;
 import org.eclipse.scada.da.server.common.DataItem;
@@ -58,7 +57,7 @@ import org.eclipse.scada.da.server.common.memory.VariableManager;
 import org.eclipse.scada.da.server.common.memory.WordAttribute;
 import org.eclipse.scada.da.server.common.memory.WordVariable;
 import org.eclipse.scada.sec.UserInformation;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -276,7 +275,7 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
 
     public VariableManagerImpl ( final Executor executor, final ManageableObjectPool<DataItem> itemPool )
     {
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( "VariableManager" ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( "VariableManager" );
         this.itemPool = itemPool;
     }
 

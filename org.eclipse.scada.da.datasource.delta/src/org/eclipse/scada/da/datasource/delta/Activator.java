@@ -13,12 +13,11 @@ package org.eclipse.scada.da.datasource.delta;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
 import org.eclipse.scada.da.datasource.DataSource;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -43,7 +42,7 @@ public class Activator implements BundleActivator
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( context.getBundle ().getSymbolicName () );
 
         this.dataSourceTracker = new ObjectPoolTracker<DataSource> ( context, DataSource.class );
         this.dataSourceTracker.open ();

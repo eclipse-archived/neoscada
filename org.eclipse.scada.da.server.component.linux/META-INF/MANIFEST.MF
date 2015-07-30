@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Linux Sys Info Components
 Bundle-SymbolicName: org.eclipse.scada.da.server.component.linux
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.base.extractor.convert;version="0.2.0",
@@ -20,7 +20,7 @@ Import-Package: org.eclipse.scada.base.extractor.convert;version="0.2.0",
  org.eclipse.scada.da.server.common.item.factory;version="0.1.0",
  org.eclipse.scada.da.server.component;version="0.2.0",
  org.eclipse.scada.da.server.component.parser;version="0.2.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.3.0",
  org.osgi.framework;version="1.7.0"
 Bundle-Activator: org.eclipse.scada.da.server.component.linux.Activator
 Bundle-ActivationPolicy: lazy

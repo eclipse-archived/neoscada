@@ -9,7 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - clean up subscription manager, change shutdown handling
- *     IBH SYSTEMS GmbH - add context information
+ *     IBH SYSTEMS GmbH - add context information, use exported executors
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.impl;
 
@@ -24,7 +24,6 @@ import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
@@ -64,14 +63,15 @@ import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.utils.collection.MapBuilder;
 import org.eclipse.scada.utils.concurrent.CallingFuture;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A common base for implementing Hive instances <h1>Lifecycle</h1>
+ * A common base for implementing Hive instances
+ * <h1>Lifecycle</h1>
  * <p>
  * Hives are created using the constructor. There is no defined destructor.
  * However there are start and stop methods that may create and free resources.
@@ -90,7 +90,7 @@ import org.slf4j.LoggerFactory;
  * }
  * </code>
  */
-public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> implements Hive
+public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>implements Hive
 {
     private final static Logger logger = LoggerFactory.getLogger ( HiveCommon.class );
 
@@ -184,7 +184,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
             return;
         }
 
-        this.operationService = Executors.newFixedThreadPool ( 1, new NamedThreadFactory ( "HiveCommon/" + getHiveId () ) );
+        this.operationService = ExportedExecutorService.newSingleThreadExportedExecutor ( "HiveCommon/" + getHiveId () );
         this.itemSubscriptionManager = new ListenableSubscriptionManager<String> ( this.operationService, this.subscriptionValidator );
 
         if ( this.autoEnableStats && this.rootFolder instanceof FolderCommon )
@@ -418,7 +418,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
         final NotifyFuture<UserInformation> loginFuture = loginUser ( properties, contextInformation, callbackHandler );
 
-        return new CallingFuture<UserInformation, Session> ( loginFuture ) {
+        return new CallingFuture<UserInformation, Session> ( loginFuture) {
 
             @Override
             public Session call ( final Future<UserInformation> future ) throws Exception
@@ -744,7 +744,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     {
         final SessionCommon sessionCommon = validateSession ( session );
 
-        return new AuthorizedOperation<WriteAttributeResults, AbstractSessionImpl> ( this.authorizationProvider, sessionCommon, DATA_ITEM_OBJECT_TYPE, itemId, "WRITE_ATTRIBUTES", makeSetAttributesContext ( attributes ), operationParameters, sessionCommon.wrapCallbackHandler ( callbackHandler ), DEFAULT_RESULT ) {
+        return new AuthorizedOperation<WriteAttributeResults, AbstractSessionImpl> ( this.authorizationProvider, sessionCommon, DATA_ITEM_OBJECT_TYPE, itemId, "WRITE_ATTRIBUTES", makeSetAttributesContext ( attributes ), operationParameters, sessionCommon.wrapCallbackHandler ( callbackHandler ), DEFAULT_RESULT) {
 
             @Override
             protected NotifyFuture<WriteAttributeResults> granted ( final org.eclipse.scada.core.server.OperationParameters effectiveOperationParameters )
@@ -803,7 +803,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     {
         final SessionCommon sessionCommon = validateSession ( session );
 
-        return new AuthorizedOperation<WriteResult, AbstractSessionImpl> ( this.authorizationProvider, sessionCommon, DATA_ITEM_OBJECT_TYPE, itemId, "WRITE", makeWriteValueContext ( value ), operationParameters, sessionCommon.wrapCallbackHandler ( callbackHandler ), DEFAULT_RESULT ) {
+        return new AuthorizedOperation<WriteResult, AbstractSessionImpl> ( this.authorizationProvider, sessionCommon, DATA_ITEM_OBJECT_TYPE, itemId, "WRITE", makeWriteValueContext ( value ), operationParameters, sessionCommon.wrapCallbackHandler ( callbackHandler ), DEFAULT_RESULT) {
 
             @Override
             protected NotifyFuture<WriteResult> granted ( final org.eclipse.scada.core.server.OperationParameters effectiveOperationParameters )
@@ -867,10 +867,10 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
             {
                 return this.browser;
             }
-            this.browser = new HiveBrowserCommon ( this ) {
+            this.browser = new HiveBrowserCommon ( this) {
 
                 @Override
-                public Folder getRootFolder ()
+                public Folder getRootFolder ( )
                 {
                     return HiveCommon.this.rootFolder;
                 }

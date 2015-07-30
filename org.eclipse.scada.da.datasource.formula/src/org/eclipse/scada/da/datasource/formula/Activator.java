@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,17 +7,17 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use exported executor
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.formula;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -36,7 +36,7 @@ public class Activator implements BundleActivator
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
-        this.executor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
+        this.executor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( context.getBundle ().getSymbolicName () );
 
         this.factory = new FormulaSourceFactory ( context, this.executor );
 

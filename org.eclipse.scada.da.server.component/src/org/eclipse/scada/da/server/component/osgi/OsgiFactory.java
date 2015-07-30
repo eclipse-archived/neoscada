@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,12 +13,11 @@ package org.eclipse.scada.da.server.component.osgi;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.da.server.component.ComponentFactory;
 import org.eclipse.scada.da.server.component.ComponentHandle;
 import org.eclipse.scada.da.server.component.ComponentHost;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
@@ -66,7 +65,7 @@ public class OsgiFactory
     {
         this.componentHost = componentHost;
         this.context = context;
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( "org.eclipse.scada.da.server.component.osgi" ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( context.getBundle ().getSymbolicName () );
         this.tracker = new ServiceTracker<ComponentFactory, ComponentFactory> ( context, ComponentFactory.class, this.customizer );
         this.tracker.open ();
     }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2015 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,17 +8,17 @@
  * Contributors:
  *     Jens Reimann - initial API and implementation
  *     Jürgen Rose - additional work
+ *     IBH SYSTEMS GmbH - use exported scheduler
  *******************************************************************************/
 package org.eclipse.scada.ae.server.storage.postgres.internal;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Properties;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.ae.server.storage.Storage;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.utils.osgi.SingleServiceListener;
 import org.eclipse.scada.utils.osgi.SingleServiceTracker;
 import org.eclipse.scada.utils.osgi.jdbc.DataSourceHelper;
@@ -112,7 +112,7 @@ public class Activator implements BundleActivator
     private void activate ( final DataSourceFactory dataSourceFactory ) throws Exception
     {
         logger.debug ( "Activate storage" );
-        this.scheduler = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "org.eclipse.scada.ae.server.storage.postgresql/ScheduledExecutor" ) );
+        this.scheduler = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "org.eclipse.scada.ae.server.storage.postgresql/ScheduledExecutor" );
 
         final Properties dbProperties = DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX );
 

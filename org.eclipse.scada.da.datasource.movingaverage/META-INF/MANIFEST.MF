@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Datasource for Moving Average (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.movingaverage
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.movingaverage.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

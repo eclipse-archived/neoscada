@@ -14,15 +14,14 @@ package org.eclipse.scada.da.server.common.memory;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
-import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
-import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.common.memory.internal.VariableManagerImpl;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
+import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
+import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
@@ -57,7 +56,7 @@ public class Activator implements BundleActivator
 
         this.itemPoolHandle = ObjectPoolHelper.registerObjectPool ( context, this.itemPool, DataItem.class );
 
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( context.getBundle ().getSymbolicName () );
 
         {
             this.variableManager = new VariableManagerImpl ( this.executor, this.itemPool );

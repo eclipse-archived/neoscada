@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,9 +14,9 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.mina.core.service.IoProcessor;
 import org.apache.mina.core.service.SimpleIoProcessorPool;
@@ -28,9 +28,11 @@ import org.eclipse.scada.da.server.exporter.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.common.StaticHiveSource;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceDefinition;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceType;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 
 public class StaticModbusExport extends ModbusExport
 {
+    private static final AtomicLong COUNTER = new AtomicLong ();
 
     public static class Builder
     {
@@ -174,7 +176,8 @@ public class StaticModbusExport extends ModbusExport
         }
 
         /**
-         * Build a new modbus export instance based on the current builder state <br/>
+         * Build a new modbus export instance based on the current builder state
+         * <br/>
          * <em>Note:</em> The call is responsible for disposing the created
          * instance using {@link ModbusExport#dispose()}.
          *
@@ -185,11 +188,11 @@ public class StaticModbusExport extends ModbusExport
             final ScheduledExecutorService executor;
             if ( this.threadFactory == null )
             {
-                executor = Executors.newScheduledThreadPool ( 1 );
+                executor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "StaticModubusExporter/" + COUNTER.incrementAndGet () );
             }
             else
             {
-                executor = Executors.newScheduledThreadPool ( 1, this.threadFactory );
+                executor = new ScheduledExportedExecutorService ( "StaticModubusExporter/" + COUNTER.incrementAndGet (), 1, this.threadFactory );
             }
 
             boolean disposeProcessor;

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,7 +12,6 @@ package org.eclipse.scada.ae.server.injector.internal;
 
 import java.util.Hashtable;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ae.event.EventProcessor;
 import org.eclipse.scada.ae.monitor.MonitorService;
@@ -20,7 +19,7 @@ import org.eclipse.scada.ae.server.common.akn.AknHandler;
 import org.eclipse.scada.ae.server.injector.monitor.EventMonitorFactory;
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.osgi.framework.BundleActivator;
@@ -53,7 +52,7 @@ public class Activator implements BundleActivator
         this.monitorServicePool = new ObjectPoolImpl<MonitorService> ();
         this.monitorServicePoolHandler = ObjectPoolHelper.registerObjectPool ( context, this.monitorServicePool, MonitorService.class );
 
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( context.getBundle ().getSymbolicName () + "/" + context.getBundle ().getBundleId () );
 
         // register factory
         this.factory = new EventMonitorFactory ( context, this.executor, this.monitorServicePool, this.eventProcessor );

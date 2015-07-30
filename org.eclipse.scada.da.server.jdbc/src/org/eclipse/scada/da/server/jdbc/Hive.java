@@ -21,7 +21,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.emf.common.util.URI;
@@ -46,7 +45,7 @@ import org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType;
 import org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType;
 import org.eclipse.scada.da.server.jdbc.configuration.UpdateType;
 import org.eclipse.scada.da.server.jdbc.configuration.util.ConfigurationResourceFactoryImpl;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.jdbc.DataSourceFactory;
 import org.slf4j.Logger;
@@ -118,7 +117,7 @@ public class Hive extends HiveCommon
     {
         super.performStart ();
 
-        this.timer = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "JdbcHiveTimer", true ) );
+        this.timer = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "JdbcHiveTimer" );
 
         configure ();
         register ();

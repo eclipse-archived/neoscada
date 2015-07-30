@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2015 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,17 +7,17 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - use exported executors
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.concurrent.Executors;
 
 import org.apache.mina.transport.socket.nio.NioProcessor;
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -26,7 +26,6 @@ import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator
 {
-
     private MasterFactory masterFactory;
 
     private SlaveFactory slaveFactory;
@@ -39,12 +38,15 @@ public class Activator implements BundleActivator
 
     private NioProcessor processor;
 
+    private ExportedExecutorService nioExecutor;
+
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
-        this.executor = new ScheduledExportedExecutorService ( "org.eclipse.scada.da.server.osgi.modbus", 1 );
+        this.executor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "org.eclipse.scada.da.server.osgi.modbus" );
+        this.nioExecutor = ExportedExecutorService.newSingleThreadExportedExecutor ( "org.eclipse.scada.da.server.osgi.modbus.NioProcessor" );
 
-        this.processor = new NioProcessor ( Executors.newSingleThreadExecutor ( new NamedThreadFactory ( "org.eclipse.scada.da.server.osgi.modbus.NioProcessor" ) ) );
+        this.processor = new NioProcessor ( this.nioExecutor );
 
         this.masterFactory = new MasterFactory ( context, this.executor, this.processor );
         this.slaveFactory = new SlaveFactory ( context, this.masterFactory, this.executor );
@@ -78,7 +80,7 @@ public class Activator implements BundleActivator
         this.processor.dispose ();
 
         this.executor.shutdown ();
-
+        this.nioExecutor.shutdown ();
     }
 
 }

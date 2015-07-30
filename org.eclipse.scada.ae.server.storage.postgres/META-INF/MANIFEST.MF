@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Postgres AE storage module (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.storage.postgres
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.storage.postgres.internal.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.ae.server.storage.postgres;version="0.2.0"
@@ -13,7 +13,7 @@ Import-Package: com.google.common.collect;version="10.0.0",
  org.eclipse.scada.ae.server.storage;version="0.1.0",
  org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.utils.collection;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.3.0",
  org.eclipse.scada.utils.filter;version="0.1.0",
  org.eclipse.scada.utils.interner;version="0.1.0",
  org.eclipse.scada.utils.osgi;version="0.1.0",

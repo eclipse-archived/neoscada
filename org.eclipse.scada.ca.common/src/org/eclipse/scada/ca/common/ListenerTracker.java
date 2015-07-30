@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,16 +7,16 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use exported executor
  *******************************************************************************/
 package org.eclipse.scada.ca.common;
 
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationAdministratorListener;
 import org.eclipse.scada.ca.ConfigurationEvent;
 import org.eclipse.scada.ca.FactoryEvent;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.osgi.framework.BundleContext;
 import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
@@ -33,7 +33,7 @@ public class ListenerTracker
 
     public ListenerTracker ( final BundleContext context )
     {
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( "org.eclipse.scada.ca.common.ListenerTracker" ) );
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( "org.eclipse.scada.ca.common.ListenerTracker" );
         this.listenerTracker = new ServiceTracker<ConfigurationAdministratorListener, ConfigurationAdministratorListener> ( context, ConfigurationAdministratorListener.class, null );
     }
 

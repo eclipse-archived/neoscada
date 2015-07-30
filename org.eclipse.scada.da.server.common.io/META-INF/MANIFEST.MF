@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Common IO functionality for drivers (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.common.io
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.da.server.common.io;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -15,6 +15,6 @@ Import-Package: org.apache.mina.core.future;version="2.0.2",
  org.eclipse.scada.da.server.common.chain;version="0.1.0",
  org.eclipse.scada.da.server.common.osgi.factory;version="0.1.0",
  org.eclipse.scada.utils;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.3.0",
  org.osgi.framework,
  org.slf4j;version="1.7.2"
