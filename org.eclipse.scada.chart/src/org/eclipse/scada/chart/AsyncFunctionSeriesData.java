@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,13 +7,14 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - add logging
+ *     IBH SYSTEMS GmbH - add logging, exported executor
  *******************************************************************************/
 package org.eclipse.scada.chart;
 
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
 
+import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,11 +30,13 @@ public abstract class AsyncFunctionSeriesData extends AbstractFunctionSeriesData
 
     private final int sleep;
 
+    private static final AtomicLong COUNTER = new AtomicLong ();
+
     public AsyncFunctionSeriesData ( final Realm realm, final XAxis xAxis, final YAxis yAxis, final int sleep )
     {
         super ( realm, xAxis, yAxis );
         this.sleep = sleep;
-        this.executor = Executors.newSingleThreadExecutor ();
+        this.executor = ExportedExecutorService.newSingleThreadExportedExecutor ( "AsyncFunctionSeriesData/" + COUNTER.incrementAndGet () );
 
         this.data = new WritableSeriesData ();
         setRequest ( new Request ( xAxis.getMin (), xAxis.getMax (), 1 ) ); // initial load
