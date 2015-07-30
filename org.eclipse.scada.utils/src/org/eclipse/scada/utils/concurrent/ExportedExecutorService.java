@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - added default builder method
  *******************************************************************************/
 package org.eclipse.scada.utils.concurrent;
 
@@ -26,6 +27,11 @@ public class ExportedExecutorService implements ExecutorService
     private final ExecutorService executor;
 
     private final ExecutorServiceExporterImpl executorExporter;
+
+    public static ExportedExecutorService newSingleThreadExportedExecutor ( final String name )
+    {
+        return new ExportedExecutorService ( name, 1, 1, Long.MAX_VALUE, TimeUnit.MILLISECONDS );
+    }
 
     public ExportedExecutorService ( final String name, final int corePoolSize, final int maximumPoolSize, final long keepAliveTime, final TimeUnit unit )
     {
