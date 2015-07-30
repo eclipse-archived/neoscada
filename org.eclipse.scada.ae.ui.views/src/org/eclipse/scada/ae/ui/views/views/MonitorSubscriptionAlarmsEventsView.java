@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - clear warnings
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.views;
 
@@ -25,7 +26,7 @@ import org.eclipse.core.databinding.observable.map.IMapChangeListener;
 import org.eclipse.core.databinding.observable.map.MapChangeEvent;
 import org.eclipse.core.databinding.observable.map.WritableMap;
 import org.eclipse.core.databinding.observable.set.WritableSet;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.DisplayRealm;
 import org.eclipse.scada.ae.client.MonitorListener;
 import org.eclipse.scada.ae.data.MonitorStatusInformation;
 import org.eclipse.scada.ae.ui.views.model.DecoratedMonitor;
@@ -53,7 +54,7 @@ public abstract class MonitorSubscriptionAlarmsEventsView extends AbstractAlarms
         {
             return this.monitors.getRealm ();
         }
-        return SWTObservables.getRealm ( getSite ().getShell ().getDisplay () );
+        return DisplayRealm.getRealm ( getSite ().getShell ().getDisplay () );
     }
 
     public void setMonitorsId ( final String monitorsId )
@@ -191,7 +192,7 @@ public abstract class MonitorSubscriptionAlarmsEventsView extends AbstractAlarms
                     }
                 }
                 this.monitorsMap.putAll ( missing );
-                // 2. update data                    
+                // 2. update data
                 for ( final MonitorStatusInformation monitorStatusInformation : addedOrUpdated )
                 {
                     if ( !missing.keySet ().contains ( monitorStatusInformation.getId () ) )
@@ -220,8 +221,8 @@ public abstract class MonitorSubscriptionAlarmsEventsView extends AbstractAlarms
     {
         super.createPartControl ( parent );
 
-        this.monitorsMap = new WritableMap ( SWTObservables.getRealm ( parent.getDisplay () ) );
-        this.monitors = new WritableSet ( SWTObservables.getRealm ( parent.getDisplay () ) );
+        this.monitorsMap = new WritableMap ( DisplayRealm.getRealm ( parent.getDisplay () ) );
+        this.monitors = new WritableSet ( DisplayRealm.getRealm ( parent.getDisplay () ) );
         this.monitorsMap.addMapChangeListener ( new IMapChangeListener () {
             @Override
             public void handleMapChange ( final MapChangeEvent event )

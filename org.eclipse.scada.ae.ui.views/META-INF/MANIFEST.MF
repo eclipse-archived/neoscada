@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.scada.ae.ui.views;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.ui.views.Activator
 Bundle-Vendor: %Bundle-Vendor
 Export-Package: org.eclipse.scada.ae.ui.views.contributions;version="0.2.0",
@@ -11,7 +11,7 @@ Export-Package: org.eclipse.scada.ae.ui.views.contributions;version="0.2.0",
  org.eclipse.scada.ae.ui.views.model;version="0.2.0"
 Require-Bundle: org.eclipse.ui;bundle-version="3.6.0",
  org.eclipse.core.runtime;bundle-version="3.6.0",
- org.eclipse.jface.databinding;bundle-version="1.3.0",
+ org.eclipse.jface.databinding;bundle-version="1.7.0",
  org.eclipse.core.databinding;bundle-version="1.2.0",
  org.eclipse.core.databinding.beans;bundle-version="1.2.0",
  org.eclipse.core.databinding.property;bundle-version="1.2.0",
@@ -48,7 +48,7 @@ Import-Package: com.google.common.base;version="15.0.0",
  org.eclipse.scada.ui.utils.status;version="0.1.0",
  org.eclipse.scada.utils.beans;version="0.1.0",
  org.eclipse.scada.utils.collection;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.3.0",
  org.eclipse.scada.utils.core.runtime;version="0.2.0",
  org.eclipse.scada.utils.filter;version="0.1.0",
  org.eclipse.scada.utils.lang;version="0.1.0",

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,11 +11,10 @@
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt;
 
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.jface.resource.ImageRegistry;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.vi.details.swt.impl.visibility.VisibilityTester;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -54,7 +53,7 @@ public class Activator extends AbstractUIPlugin
         VisibilityTester.INSTANCE = new VisibilityTester ();
 
         plugin = this;
-        this.executor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "org.eclipse.scada.vi.details.swt/Image loader" ) );
+        this.executor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "org.eclipse.scada.vi.details.swt/Image loader" );
     }
 
     @Override

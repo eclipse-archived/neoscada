@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - clear warnings
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.model;
 
@@ -68,13 +69,12 @@ public class DecoratedMonitor extends AbstractPropertyChange implements Serializ
         return "DecoratedMonitor [id=" + this.id + ", monitor=" + this.monitor + "]"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
     }
 
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter ( final Class adapter )
+    public <T> T getAdapter ( final Class<T> adapter )
     {
         if ( adapter == AckInformation.class )
         {
-            return new AckInformation ( this.monitor.getId (), this.monitor.getLastFailTimestamp (), this.monitor.getStatus () );
+            return adapter.cast ( new AckInformation ( this.monitor.getId (), this.monitor.getLastFailTimestamp (), this.monitor.getStatus () ) );
         }
         return null;
     }

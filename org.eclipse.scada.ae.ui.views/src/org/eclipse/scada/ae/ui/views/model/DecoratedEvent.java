@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - clear warnings
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.model;
 
@@ -144,16 +145,15 @@ public class DecoratedEvent extends AbstractPropertyChange implements Serializab
     }
 
     @Override
-    @SuppressWarnings ( "rawtypes" )
-    public Object getAdapter ( final Class adapter )
+    public <T> T getAdapter ( final Class<T> adapter )
     {
         if ( adapter == Event.class )
         {
-            return this.event;
+            return adapter.cast ( this.event );
         }
         else if ( adapter == AckInformation.class && this.monitor != null )
         {
-            return new AckInformation ( this.monitor.getId (), this.event.getSourceTimestamp (), this.monitor.getStatus () );
+            return adapter.cast ( new AckInformation ( this.monitor.getId (), this.event.getSourceTimestamp (), this.monitor.getStatus () ) );
         }
         return null;
     }

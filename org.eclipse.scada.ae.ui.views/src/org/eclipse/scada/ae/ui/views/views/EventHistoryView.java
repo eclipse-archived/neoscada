@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use exported executor
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.views;
 
@@ -14,7 +15,6 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -25,7 +25,7 @@ import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.DisplayRealm;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.Query;
@@ -39,6 +39,7 @@ import org.eclipse.scada.ae.ui.views.config.EventHistoryViewConfiguration;
 import org.eclipse.scada.ae.ui.views.dialog.EventHistorySearchDialog;
 import org.eclipse.scada.ae.ui.views.dialog.SearchType;
 import org.eclipse.scada.ae.ui.views.model.DecoratedEvent;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.utils.lang.Pair;
 import org.eclipse.scada.utils.str.StringHelper;
 import org.eclipse.swt.SWT;
@@ -100,7 +101,7 @@ public class EventHistoryView extends AbstractAlarmsEventsView
     public void createPartControl ( final Composite parent )
     {
         super.createPartControl ( parent );
-        this.scheduler = Executors.newSingleThreadScheduledExecutor ();
+        this.scheduler = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( ID + "/" + getViewSite ().getSecondaryId () );
 
         // resume Action
         this.resumeAction = new CustomizableAction ();
@@ -156,7 +157,7 @@ public class EventHistoryView extends AbstractAlarmsEventsView
 
         // label which contains no of retrieved events
 
-        this.events = new WritableSet ( SWTObservables.getRealm ( parent.getDisplay () ) );
+        this.events = new WritableSet ( DisplayRealm.getRealm ( parent.getDisplay () ) );
 
         // load configuration first, since we need the additional columns later
         loadConfiguration ();
@@ -223,7 +224,7 @@ public class EventHistoryView extends AbstractAlarmsEventsView
         {
             return this.events.getRealm ();
         }
-        return SWTObservables.getRealm ( getSite ().getShell ().getDisplay () );
+        return DisplayRealm.getRealm ( getSite ().getShell ().getDisplay () );
     }
 
     @Override
@@ -427,7 +428,7 @@ public class EventHistoryView extends AbstractAlarmsEventsView
 
         if ( this.currentFilter != null )
         {
-            labels.add ( String.format ( Messages.EventHistoryView_Label_Format_Filter, this.currentFilter.second.replace ( "&", "&&" ) ) ); //$NON-NLS-2$ 
+            labels.add ( String.format ( Messages.EventHistoryView_Label_Format_Filter, this.currentFilter.second.replace ( "&", "&&" ) ) ); //$NON-NLS-2$
         }
         if ( this.queryState.get () == QueryState.LOADING )
         {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - clear warning, use exported executor
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.views;
 
@@ -20,7 +21,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
@@ -31,7 +31,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.DisplayRealm;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.Event.Fields;
@@ -50,7 +50,7 @@ import org.eclipse.scada.ae.ui.views.model.MonitorData;
 import org.eclipse.scada.ae.ui.views.preferences.PreferenceConstants;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.data.SubscriptionState;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.utils.lang.Pair;
 import org.eclipse.scada.utils.str.StringHelper;
 import org.eclipse.swt.SWT;
@@ -140,7 +140,7 @@ public class EventPoolView extends MonitorSubscriptionAlarmsEventsView
     public void createPartControl ( final Composite parent )
     {
         super.createPartControl ( parent );
-        this.scheduler = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "shortenEventPool" ) ); //$NON-NLS-1$
+        this.scheduler = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "shortenEventPool" ); //$NON-NLS-1$
         final int shortenEverySeconds = Activator.getDefault ().getPreferenceStore ().getInt ( PreferenceConstants.CUT_LIST_ALL_SECONDS_KEY );
         this.scheduler.scheduleAtFixedRate ( new Runnable () {
             @Override
@@ -156,7 +156,7 @@ public class EventPoolView extends MonitorSubscriptionAlarmsEventsView
                 } );
             }
         }, shortenEverySeconds, shortenEverySeconds, TimeUnit.SECONDS );
-        this.pool = new WritableSet ( SWTObservables.getRealm ( parent.getDisplay () ) );
+        this.pool = new WritableSet ( DisplayRealm.getRealm ( parent.getDisplay () ) );
         this.pool.addChangeListener ( new IChangeListener () {
             @Override
             public void handleChange ( final ChangeEvent event )
@@ -680,7 +680,7 @@ public class EventPoolView extends MonitorSubscriptionAlarmsEventsView
         final Pair<SearchType, String> filter = this.eventsTable.getFilter ();
         if ( filter != null && filter.second != null && !filter.second.isEmpty () )
         {
-            labels.add ( String.format ( Messages.EventPoolView_Label_Format_Filter, filter.second ).replace ( "&", "&&" ) ); //$NON-NLS-2$ 
+            labels.add ( String.format ( Messages.EventPoolView_Label_Format_Filter, filter.second ).replace ( "&", "&&" ) ); //$NON-NLS-2$
         }
 
         return StringHelper.join ( labels, Messages.EventPoolView_Sep );
