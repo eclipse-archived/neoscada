@@ -19,6 +19,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
@@ -47,6 +48,12 @@ public class ScheduledExportedExecutorService implements ScheduledExecutorServic
     public ScheduledExportedExecutorService ( final String name, final int corePoolSize )
     {
         this.executor = new ScheduledThreadPoolExecutor ( corePoolSize, new NamedThreadFactory ( name ) );
+        this.executorExporter = new ExecutorServiceExporterImpl ( this.executor, name );
+    }
+
+    public ScheduledExportedExecutorService ( final String name, final int corePoolSize, final ThreadFactory threadFactory )
+    {
+        this.executor = new ScheduledThreadPoolExecutor ( corePoolSize, threadFactory );
         this.executorExporter = new ExecutorServiceExporterImpl ( this.executor, name );
     }
 
