@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,9 +16,9 @@ import java.net.SocketAddress;
 import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder;
@@ -47,12 +47,15 @@ import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteMultiDataResponse;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataResponse;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SlaveHost
 {
     private final static Logger logger = LoggerFactory.getLogger ( SlaveHost.class );
+
+    private static final AtomicLong COUNTER = new AtomicLong ();
 
     private final SimpleIoProcessorPool<NioSession> processor;
 
@@ -108,7 +111,8 @@ public class SlaveHost
      *            optional protocol options
      * @param socketAddresses
      *            a list of socket addresses to bind to.
-     *            <em>Note:<em> these socket addresses must be addresses of local interfaces, not remote addresses.
+     *            <em>Note:<em> these socket addresses must be addresses of
+     *            local interfaces, not remote addresses.
      */
     public SlaveHost ( final ProtocolOptions options, final SlaveHostCustomizer slaveHostCustomizer, final SocketAddress... socketAddresses ) throws IOException
     {
@@ -183,7 +187,7 @@ public class SlaveHost
 
     private void setup ( final IoService service, final SlaveHostCustomizer slaveHostCustomizer )
     {
-        this.executor = Executors.newSingleThreadScheduledExecutor ();
+        this.executor = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "SlaveHost/" + COUNTER.incrementAndGet () );
 
         switch ( this.options.getMode () )
         {
@@ -193,7 +197,7 @@ public class SlaveHost
                 final ModbusRtuDecoder decoder = new ModbusRtuDecoder ( this.executor, this.options.getInterFrameDelay (), TimeUnit.MILLISECONDS );
                 service.getFilterChain ().addLast ( "modbusPdu", new ModbusRtuProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
             }
-            break;
+                break;
 
             case TCP:
             {
@@ -201,7 +205,7 @@ public class SlaveHost
                 final ModbusTcpDecoder decoder = new ModbusTcpDecoder ();
                 service.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
             }
-            break;
+                break;
         }
 
         service.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$

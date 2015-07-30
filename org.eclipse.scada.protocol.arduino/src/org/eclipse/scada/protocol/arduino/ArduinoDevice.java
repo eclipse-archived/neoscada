@@ -12,7 +12,6 @@ package org.eclipse.scada.protocol.arduino;
 
 import java.net.InetSocketAddress;
 import java.util.Calendar;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +25,7 @@ import org.eclipse.scada.protocol.arduino.messages.CommonMessage;
 import org.eclipse.scada.protocol.arduino.messages.ConfigurationMessage;
 import org.eclipse.scada.protocol.arduino.messages.DataMessage;
 import org.eclipse.scada.protocol.arduino.messages.WriteRequestMessage;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -104,7 +103,7 @@ public class ArduinoDevice extends IoHandlerAdapter
 
         this.started = true;
 
-        this.executorService = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "ArduninoDevice/" + this.address ) );
+        this.executorService = ScheduledExportedExecutorService.newSingleThreadExportedScheduledExecutor ( "ArduninoDevice/" + this.address );
 
         this.connector = new NioDatagramConnector ();
 
