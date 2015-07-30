@@ -29,7 +29,7 @@
 		<buildType>N</buildType>
 		<buildTypeLong>nightly</buildTypeLong>
 				
-		<release>0.2</release>
+		<release>0.3</release>
 		<eclipse.scada.version>${project.version}</eclipse.scada.version>
 				
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
