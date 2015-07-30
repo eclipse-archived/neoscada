@@ -12,15 +12,13 @@
 package org.eclipse.scada.utils;
 
 import org.eclipse.scada.utils.concurrent.ListeningFutureTest;
-import org.eclipse.scada.utils.exec.AsyncOperationTest;
-import org.eclipse.scada.utils.exec.SyncOperationTest;
 import org.eclipse.scada.utils.script.ScriptExecutorTest;
 import org.eclipse.scada.utils.str.EncoderTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith ( Suite.class )
-@Suite.SuiteClasses ( { ListeningFutureTest.class, AsyncOperationTest.class, EncoderTest.class, SyncOperationTest.class, ScriptExecutorTest.class } )
+@Suite.SuiteClasses ( { ListeningFutureTest.class, EncoderTest.class, ScriptExecutorTest.class } )
 public class TestSuite
 {
 }
