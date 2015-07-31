@@ -10,6 +10,9 @@ showfactories
 factories
 show
 listfactory
+mergeFile
+diffFile
+export
 </property>
    <service>
       <provide interface="org.eclipse.scada.ca.console.Console"/>

@@ -108,6 +108,7 @@
 		<module>../org.eclipse.scada.ca.server.ngp</module>
 		<module>../org.eclipse.scada.ca.server.osgi</module>
 		<module>../org.eclipse.scada.ca.servlet</module>
+		<module>../org.eclipse.scada.ca.updater</module>
 		<module>../org.eclipse.scada.da.client</module>
 		<module>../org.eclipse.scada.da.client.connection.service</module>
 		<module>../org.eclipse.scada.da.client.ngp</module>

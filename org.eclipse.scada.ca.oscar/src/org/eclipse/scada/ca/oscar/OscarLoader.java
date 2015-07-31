@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add Reader based loader
  *******************************************************************************/
 package org.eclipse.scada.ca.oscar;
 
@@ -16,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Map;
 import java.util.Set;
 import java.util.zip.ZipEntry;
@@ -125,8 +127,12 @@ public class OscarLoader
 
     public static Map<String, Map<String, Map<String, String>>> loadJsonData ( final InputStream stream ) throws Exception
     {
+        return loadJsonData ( new BufferedReader ( new InputStreamReader ( stream, "UTF-8" ) ) ); //$NON-NLS-1$
+    }
+
+    public static Map<String, Map<String, Map<String, String>>> loadJsonData ( final Reader reader )
+    {
         final Gson g = new GsonBuilder ().create ();
-        final BufferedReader reader = new BufferedReader ( new InputStreamReader ( stream, "UTF-8" ) ); //$NON-NLS-1$
         return g.fromJson ( reader, new TypeToken<Map<String, Map<String, Map<String, String>>>> () {}.getType () );
     }
 
