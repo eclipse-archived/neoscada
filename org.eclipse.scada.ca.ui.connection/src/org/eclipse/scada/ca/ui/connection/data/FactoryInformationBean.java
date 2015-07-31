@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - new adapter signature
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.connection.data;
 
@@ -21,6 +22,7 @@ import org.eclipse.scada.ca.connection.provider.ConnectionService;
 import org.eclipse.scada.ca.data.ConfigurationInformation;
 import org.eclipse.scada.ca.data.FactoryInformation;
 import org.eclipse.scada.ca.ui.connection.Activator;
+import org.eclipse.scada.ca.ui.data.FactoryEditorSourceInformation;
 import org.eclipse.scada.core.client.Connection;
 import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.client.ConnectionStateListener;
@@ -29,7 +31,6 @@ import org.eclipse.scada.utils.beans.AbstractPropertyChange;
 import org.eclipse.scada.utils.concurrent.FutureListener;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.scada.ca.ui.data.FactoryEditorSourceInformation;
 
 public class FactoryInformationBean extends AbstractPropertyChange implements ConnectionStateListener, IAdaptable
 {
@@ -166,13 +167,12 @@ public class FactoryInformationBean extends AbstractPropertyChange implements Co
         }
     }
 
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter ( final Class adapter )
+    public <T> T getAdapter ( final Class<T> adapter )
     {
         if ( adapter == FactoryEditorSourceInformation.class )
         {
-            return new FactoryEditorSourceInformation ( this.service, this.factoryInformation.getId () );
+            return adapter.cast ( new FactoryEditorSourceInformation ( this.service, this.factoryInformation.getId () ) );
         }
         return null;
     }

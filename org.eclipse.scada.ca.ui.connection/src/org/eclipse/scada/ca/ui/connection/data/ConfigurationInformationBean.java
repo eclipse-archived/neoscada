@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - new adapter signature
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.connection.data;
 
@@ -38,13 +39,12 @@ public class ConfigurationInformationBean implements IAdaptable
         return this.configurationInformation;
     }
 
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter ( final Class adapter )
+    public <T> T getAdapter ( final Class<T> adapter )
     {
         if ( adapter == ConfigurationEditorSourceInformation.class )
         {
-            return new ConfigurationEditorSourceInformation ( this.service.getConnection ().getConnectionInformation ().toString (), this.configurationInformation.getFactoryId (), this.configurationInformation.getId () );
+            return adapter.cast ( new ConfigurationEditorSourceInformation ( this.service.getConnection ().getConnectionInformation ().toString (), this.configurationInformation.getFactoryId (), this.configurationInformation.getId () ) );
         }
         return null;
     }

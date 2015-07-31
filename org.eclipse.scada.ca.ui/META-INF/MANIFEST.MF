@@ -5,14 +5,14 @@ Bundle-SymbolicName: org.eclipse.scada.ca.ui;singleton:=true
 Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.ui.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.ca.ui.data;version="0.1.0",
- org.eclipse.scada.ca.ui.jobs;version="0.1.0",
- org.eclipse.scada.ca.ui.util;version="0.1.0"
+Export-Package: org.eclipse.scada.ca.ui.data;version="0.3.0",
+ org.eclipse.scada.ca.ui.jobs;version="0.3.0",
+ org.eclipse.scada.ca.ui.util;version="0.3.0"
 Require-Bundle: org.eclipse.ui;bundle-version="3.5.0",
- org.eclipse.core.runtime;bundle-version="3.5.0"
+ org.eclipse.core.runtime;bundle-version="3.11.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: com.google.gson;version="1.4.0",
- org.eclipse.scada.ca;version="0.1.0",
+ org.eclipse.scada.ca;version="0.3.0",
  org.eclipse.scada.ca.client;version="0.1.0",
  org.eclipse.scada.ca.connection.provider;version="0.1.0",
  org.eclipse.scada.ca.data;version="0.1.0",
