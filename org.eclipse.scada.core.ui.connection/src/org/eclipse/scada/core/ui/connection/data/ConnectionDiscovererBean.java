@@ -94,17 +94,16 @@ public class ConnectionDiscovererBean implements IAdaptable, ConnectionDiscovery
     }
 
     @Override
-    @SuppressWarnings ( "rawtypes" )
-    public Object getAdapter ( final Class adapter )
+    public <T> T getAdapter ( final Class<T> adapter )
     {
         logger.info ( "Get adaper: {}", adapter );
         if ( adapter == ConnectionDiscoverer.class )
         {
-            return this.discoverer;
+            return adapter.cast ( this.discoverer );
         }
         if ( adapter == ConnectionStore.class && this.discoverer instanceof ConnectionStore )
         {
-            return this.discoverer;
+            return adapter.cast ( this.discoverer );
         }
         if ( this.discoverer instanceof IAdaptable )
         {

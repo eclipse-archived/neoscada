@@ -19,8 +19,7 @@ public class ConnectionDiscovererAdapterFactory implements IAdapterFactory
 {
 
     @Override
-    @SuppressWarnings ( "rawtypes" )
-    public Object getAdapter ( final Object adaptableObject, final Class adapterType )
+    public <T> T getAdapter ( final Object adaptableObject, final Class<T> adapterType )
     {
         if ( adaptableObject instanceof IAdaptable )
         {
@@ -30,8 +29,7 @@ public class ConnectionDiscovererAdapterFactory implements IAdapterFactory
     }
 
     @Override
-    @SuppressWarnings ( "rawtypes" )
-    public Class[] getAdapterList ()
+    public Class<?>[] getAdapterList ()
     {
         return new Class[] { ConnectionStore.class, ConnectionDiscoverer.class };
     }

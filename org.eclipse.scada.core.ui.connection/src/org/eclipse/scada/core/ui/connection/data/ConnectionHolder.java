@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - cleanup
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.data;
 
@@ -16,13 +17,13 @@ import org.eclipse.scada.core.client.Connection;
 import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.client.ConnectionStateListener;
 import org.eclipse.scada.core.connection.provider.ConnectionService;
+import org.eclipse.scada.core.ui.connection.Activator;
+import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
+import org.eclipse.scada.core.ui.connection.data.ConnectionManager.Entry;
 import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.utils.beans.AbstractPropertyChange;
 import org.eclipse.ui.views.properties.IPropertySource;
-import org.eclipse.scada.core.ui.connection.Activator;
-import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
-import org.eclipse.scada.core.ui.connection.data.ConnectionManager.Entry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -165,18 +166,17 @@ public class ConnectionHolder extends AbstractPropertyChange implements Connecti
     }
 
     @Override
-    @SuppressWarnings ( "rawtypes" )
-    public Object getAdapter ( final Class adapter )
+    public <T> T getAdapter ( final Class<T> adapter )
     {
         logger.debug ( "Adapting: {}", adapter );
 
         if ( adapter == ConnectionService.class )
         {
-            return this.connectionService;
+            return adapter.cast ( this.connectionService );
         }
         else if ( adapter == IPropertySource.class )
         {
-            return new PropertySourceWrapper ( this );
+            return adapter.cast ( new PropertySourceWrapper ( this ) );
         }
         return null;
     }

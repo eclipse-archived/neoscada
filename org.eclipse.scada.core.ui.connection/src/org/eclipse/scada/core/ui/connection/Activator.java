@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - also provide a set for stores
+ *     IBH SYSTEMS GmbH - also provide a set for stores, cleanup
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection;
 
@@ -22,7 +22,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.DisplayRealm;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.scada.core.ui.connection.data.ConnectionDiscovererAdapterFactory;
 import org.eclipse.scada.core.ui.connection.data.ConnectionDiscovererBean;
@@ -82,7 +82,7 @@ public class Activator extends AbstractUIPlugin
         super.start ( context );
         plugin = this;
 
-        this.treeRoot = new WritableSet ( SWTObservables.getRealm ( getWorkbench ().getDisplay () ) );
+        this.treeRoot = new WritableSet ( DisplayRealm.getRealm ( getWorkbench ().getDisplay () ) );
         this.treeRootManager = new ConnectionTreeManager ( this.treeRoot );
 
         this.connectionManager = new ConnectionManager ( context );
@@ -170,8 +170,8 @@ public class Activator extends AbstractUIPlugin
 
     private void createDiscoverers ()
     {
-        final WritableSet resultDiscoverers = new WritableSet ( SWTObservables.getRealm ( getWorkbench ().getDisplay () ) );
-        final WritableSet resultStores = new WritableSet ( SWTObservables.getRealm ( getWorkbench ().getDisplay () ) );
+        final WritableSet resultDiscoverers = new WritableSet ( DisplayRealm.getRealm ( getWorkbench ().getDisplay () ) );
+        final WritableSet resultStores = new WritableSet ( DisplayRealm.getRealm ( getWorkbench ().getDisplay () ) );
 
         for ( final IConfigurationElement ele : Platform.getExtensionRegistry ().getConfigurationElementsFor ( EXTP_CONNECTON_DISCOVERER ) )
         {
