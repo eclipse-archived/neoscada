@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.scada.ca.ui.exporter;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.ui.exporter.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui,
@@ -22,6 +22,7 @@ Import-Package: org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.ca.connection.provider;version="0.1.0",
  org.eclipse.scada.ca.data;version="0.1.0",
  org.eclipse.scada.ca.oscar;version="0.1.0",
+ org.eclipse.scada.ca.utils;version="0.3.0",
  org.eclipse.scada.core.client;version="0.1.0",
  org.eclipse.scada.core.connection.provider;version="0.1.0",
  org.eclipse.scada.utils.core.runtime;version="0.2.0",

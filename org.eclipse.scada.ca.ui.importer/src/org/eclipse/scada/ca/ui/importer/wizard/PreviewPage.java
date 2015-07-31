@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,9 +7,11 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - add equals check
+ *     IBH SYSTEMS GmbH - add equals check, relocate diff module
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.importer.wizard;
+
+import static org.eclipse.scada.ui.utils.progress.ProgressAdapter.wrap;
 
 import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
@@ -30,7 +32,7 @@ import org.eclipse.jface.viewers.TreeViewerColumn;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.scada.ca.data.DiffEntry;
 import org.eclipse.scada.ca.ui.importer.Activator;
-import org.eclipse.scada.ca.ui.util.DiffController;
+import org.eclipse.scada.ca.utils.DiffController;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -120,7 +122,7 @@ public class PreviewPage extends WizardPage
                     @Override
                     public void run ( final IProgressMonitor monitor ) throws InvocationTargetException, InterruptedException
                     {
-                        setMergeResult ( PreviewPage.this.mergeController.merge ( monitor ) );
+                        setMergeResult ( PreviewPage.this.mergeController.merge ( wrap ( monitor ) ) );
                     }
                 } );
             }

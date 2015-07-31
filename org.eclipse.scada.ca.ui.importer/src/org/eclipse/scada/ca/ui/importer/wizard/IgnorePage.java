@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2011 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - relocate diff helper
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.importer.wizard;
 
@@ -15,6 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -23,7 +25,7 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.wizard.WizardPage;
-import org.eclipse.scada.ca.ui.util.DiffController;
+import org.eclipse.scada.ca.utils.DiffController;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -57,6 +59,7 @@ public class IgnorePage extends WizardPage
         this.mergeController = mergeController;
     }
 
+    @Override
     public void createControl ( final Composite parent )
     {
         final Composite wrapper = new Composite ( parent, SWT.NONE );
@@ -108,19 +111,23 @@ public class IgnorePage extends WizardPage
 
         this.fieldsViewer.setContentProvider ( new ITreeContentProvider () {
 
+            @Override
             public void inputChanged ( final Viewer viewer, final Object oldInput, final Object newInput )
             {
             }
 
+            @Override
             public void dispose ()
             {
             }
 
+            @Override
             public Object[] getElements ( final Object inputElement )
             {
                 return getChildren ( inputElement );
             }
 
+            @Override
             public boolean hasChildren ( final Object element )
             {
                 final Object[] childs = getChildren ( element );
@@ -131,11 +138,13 @@ public class IgnorePage extends WizardPage
                 return childs.length > 0;
             }
 
+            @Override
             public Object getParent ( final Object element )
             {
                 return null;
             }
 
+            @Override
             @SuppressWarnings ( "unchecked" )
             public Object[] getChildren ( final Object parentElement )
             {
@@ -162,7 +171,7 @@ public class IgnorePage extends WizardPage
                 return String.format ( "%s", element ); //$NON-NLS-1$
             }
         } );
-        this.fieldsViewer.setAutoExpandLevel ( TreeViewer.ALL_LEVELS );
+        this.fieldsViewer.setAutoExpandLevel ( AbstractTreeViewer.ALL_LEVELS );
 
         return this.fieldsViewer.getControl ();
     }
@@ -177,6 +186,7 @@ public class IgnorePage extends WizardPage
         this.factoriesViewer.setComparator ( new ViewerComparator () );
         this.factoriesViewer.setContentProvider ( new ArrayContentProvider () );
         this.factoriesViewer.getControl ().addListener ( SWT.Selection, new Listener () {
+            @Override
             public void handleEvent ( final Event event )
             {
                 IgnorePage.this.mergeController.setIgnoreFactories ( gatherIgnoredFactories () );

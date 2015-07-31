@@ -29,7 +29,7 @@ import org.eclipse.scada.ca.data.FactoryInformation;
 import org.eclipse.scada.ca.oscar.OscarLoader;
 import org.eclipse.scada.ca.ui.importer.Activator;
 import org.eclipse.scada.ca.ui.util.ConfigurationHelper;
-import org.eclipse.scada.ca.ui.util.DiffController;
+import org.eclipse.scada.ca.utils.DiffController;
 import org.eclipse.scada.utils.ExceptionHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;

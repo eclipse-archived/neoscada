@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - relocate diff helper
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.exporter.wizard;
 
@@ -102,7 +103,7 @@ public class ExportWizard extends Wizard implements IExportWizard
         final Collection<FactoryInformation> data = ConfigurationHelper.loadData ( monitor, this.connection.getConnection () );
 
         // write to OSCAR
-        final OscarWriter writer = new OscarWriter ( ConfigurationHelper.convert ( data ), null );
+        final OscarWriter writer = new OscarWriter ( org.eclipse.scada.ca.utils.ConfigurationHelper.convert ( data ), null );
         writer.write ( file );
     }
 

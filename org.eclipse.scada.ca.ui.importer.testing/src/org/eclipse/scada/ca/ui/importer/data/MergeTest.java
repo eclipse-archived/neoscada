@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - relocate diff helper
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.importer.data;
 
@@ -15,11 +16,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.scada.ca.data.DiffEntry;
+import org.eclipse.scada.ca.utils.DiffController;
 import org.junit.Before;
 import org.junit.Test;
-import org.eclipse.scada.ca.ui.util.DiffController;
 
 public class MergeTest
 {
@@ -59,7 +59,7 @@ public class MergeTest
         this.mergeController.setLocalData ( localData );
         this.mergeController.setRemoteData ( remoteData );
 
-        final Collection<DiffEntry> result = this.mergeController.merge ( new NullProgressMonitor () );
+        final Collection<DiffEntry> result = this.mergeController.merge ( null );
         System.out.println ( result );
     }
 }

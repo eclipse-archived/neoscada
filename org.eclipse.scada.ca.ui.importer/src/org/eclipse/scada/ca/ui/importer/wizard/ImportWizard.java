@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,8 +8,11 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - relocate diff helper
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.importer.wizard;
+
+import static org.eclipse.scada.ui.utils.progress.ProgressAdapter.wrap;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -27,7 +30,7 @@ import org.eclipse.scada.ca.connection.provider.ConnectionService;
 import org.eclipse.scada.ca.data.DiffEntry;
 import org.eclipse.scada.ca.ui.importer.Activator;
 import org.eclipse.scada.ca.ui.importer.preferences.PreferenceConstants;
-import org.eclipse.scada.ca.ui.util.DiffController;
+import org.eclipse.scada.ca.utils.DiffController;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
@@ -101,7 +104,7 @@ public class ImportWizard extends Wizard implements IImportWizard
         final SubMonitor monitor = SubMonitor.convert ( parentMonitor, 100 );
         monitor.setTaskName ( Messages.ImportWizard_TaskName );
 
-        final Collection<DiffEntry> result = this.mergeController.merge ( monitor.newChild ( 10 ) );
+        final Collection<DiffEntry> result = this.mergeController.merge ( wrap ( monitor.newChild ( 10 ) ) );
         if ( result.isEmpty () )
         {
             monitor.done ();

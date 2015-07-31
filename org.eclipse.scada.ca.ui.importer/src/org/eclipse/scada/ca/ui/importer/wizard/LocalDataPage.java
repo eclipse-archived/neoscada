@@ -26,7 +26,7 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.scada.ca.connection.provider.ConnectionService;
 import org.eclipse.scada.ca.oscar.OscarLoader;
 import org.eclipse.scada.ca.ui.importer.Activator;
-import org.eclipse.scada.ca.ui.util.DiffController;
+import org.eclipse.scada.ca.utils.DiffController;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
