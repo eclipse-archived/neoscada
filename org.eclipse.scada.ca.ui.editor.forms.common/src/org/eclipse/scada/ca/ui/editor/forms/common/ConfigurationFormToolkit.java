@@ -20,7 +20,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ToolBarManager;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.IViewerObservableList;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.databinding.viewers.ObservableValueEditingSupport;
@@ -39,7 +39,9 @@ import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.jface.window.Window;
+import org.eclipse.scada.ca.ui.editor.EditorHelper;
 import org.eclipse.scada.ca.ui.editor.forms.common.internal.Activator;
+import org.eclipse.scada.ca.ui.editor.input.ConfigurationEditorInput;
 import org.eclipse.scada.ui.databinding.observable.KeyPrefixMapObservable;
 import org.eclipse.scada.ui.databinding.observable.ObservableMapContentProvider;
 import org.eclipse.scada.ui.databinding.observable.StringSplitListObservable;
@@ -62,8 +64,6 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-import org.eclipse.scada.ca.ui.editor.EditorHelper;
-import org.eclipse.scada.ca.ui.editor.input.ConfigurationEditorInput;
 
 public class ConfigurationFormToolkit
 {
@@ -157,7 +157,7 @@ public class ConfigurationFormToolkit
         text.setToolTipText ( textMessage );
 
         final IObservableValue value = Observables.observeMapEntry ( input.getDataMap (), attributeName, valueType );
-        this.dbc.bindValue ( SWTObservables.observeText ( text, SWT.Modify ), value );
+        this.dbc.bindValue ( WidgetProperties.text ( SWT.Modify ).observe ( text ), value );
 
         final Hyperlink link = this.toolkit.createHyperlink ( parent, "link", SWT.NONE );
         link.setLayoutData ( new GridData ( GridData.FILL, GridData.BEGINNING, false, false ) );
@@ -205,12 +205,12 @@ public class ConfigurationFormToolkit
         if ( valueType != null && valueType != String.class )
         {
             final WritableValue conversionValue = new WritableValue ( null, valueType );
-            this.dbc.bindValue ( SWTObservables.observeText ( text, SWT.Modify ), conversionValue );
+            this.dbc.bindValue ( WidgetProperties.text ( SWT.Modify ).observe ( text ), conversionValue );
             this.dbc.bindValue ( conversionValue, value );
         }
         else
         {
-            this.dbc.bindValue ( SWTObservables.observeText ( text, SWT.Modify ), value );
+            this.dbc.bindValue ( WidgetProperties.text ( SWT.Modify ).observe ( text ), value );
         }
     }
 
@@ -240,7 +240,7 @@ public class ConfigurationFormToolkit
         combo.setLayoutData ( gd );
 
         final IObservableValue value = Observables.observeMapEntry ( data, attributeName, valueType );
-        this.dbc.bindValue ( SWTObservables.observeText ( combo ), value );
+        this.dbc.bindValue ( WidgetProperties.text ().observe ( combo ), value );
     }
 
     public void createStandardCheckbox ( final Composite parent, final String attributeName, final String label, final IObservableMap data, final Object valueType )
@@ -251,7 +251,7 @@ public class ConfigurationFormToolkit
             gd.horizontalSpan = 3;
             button.setLayoutData ( gd );
             final IObservableValue value = Observables.observeMapEntry ( data, attributeName, valueType );
-            this.dbc.bindValue ( SWTObservables.observeSelection ( button ), value );
+            this.dbc.bindValue ( WidgetProperties.selection ().observe ( button ), value );
         }
     }
 
@@ -453,7 +453,7 @@ public class ConfigurationFormToolkit
         @Override
         protected IObservableValue doCreateCellEditorObservable ( final CellEditor cellEditor )
         {
-            return SWTObservables.observeText ( cellEditor.getControl (), SWT.Modify );
+            return WidgetProperties.text ( SWT.Modify ).observe ( cellEditor.getControl () );
         }
 
         @Override
