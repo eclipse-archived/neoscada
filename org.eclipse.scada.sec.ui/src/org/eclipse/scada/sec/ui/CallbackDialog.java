@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2015 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,13 +7,14 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - clear warning
  *******************************************************************************/
 package org.eclipse.scada.sec.ui;
 
 import java.util.List;
 
 import org.eclipse.core.databinding.DataBindingContext;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.DisplayRealm;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
@@ -65,7 +66,7 @@ public class CallbackDialog extends TitleAreaDialog
 
     private Composite createComposite ( final Composite wrapper )
     {
-        this.dbc = new DataBindingContext ( SWTObservables.getRealm ( wrapper.getDisplay () ) );
+        this.dbc = new DataBindingContext ( DisplayRealm.getRealm ( wrapper.getDisplay () ) );
 
         wrapper.addDisposeListener ( new DisposeListener () {
 

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Security UI (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.ui;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.sec.ui.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.sec.ui;version="0.1.0"
@@ -10,7 +10,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.databinding;bundle-version="1.4.1",
  org.eclipse.core.databinding.beans;bundle-version="1.2.200",
- org.eclipse.jface.databinding;bundle-version="1.6.0"
+ org.eclipse.jface.databinding;bundle-version="1.6.0",
+ org.eclipse.core.databinding.property;bundle-version="1.5.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.sec;version="0.1.0",
  org.eclipse.scada.sec.callback;version="0.1.0",
