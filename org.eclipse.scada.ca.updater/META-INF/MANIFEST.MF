@@ -11,5 +11,10 @@ Import-Package: org.eclipse.scada.ca;version="0.2.0",
  org.eclipse.scada.ca.utils;version="0.3.0",
  org.eclipse.scada.sec;version="0.1.0",
  org.eclipse.scada.utils.concurrent;version="0.3.0",
- org.eclipse.scada.utils.progress;version="0.3.0"
+ org.eclipse.scada.utils.osgi;version="0.1.0",
+ org.eclipse.scada.utils.progress;version="0.3.0",
+ org.osgi.framework;version="1.8.0",
+ org.slf4j;version="1.7.2"
 Export-Package: org.eclipse.scada.ca.updater;version="0.3.0";uses:="org.eclipse.scada.ca,org.eclipse.scada.utils.concurrent"
+Bundle-Activator: org.eclipse.scada.ca.updater.internal.Activator
+Bundle-ActivationPolicy: lazy
