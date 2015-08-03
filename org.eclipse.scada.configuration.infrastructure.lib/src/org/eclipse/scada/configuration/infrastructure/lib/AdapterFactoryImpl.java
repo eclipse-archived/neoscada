@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.infrastructure.lib;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.scada.configuration.infrastructure.ConfigurationAdminFileBackend;
+import org.eclipse.scada.configuration.infrastructure.ConfigurationAdminSettings;
 import org.eclipse.scada.configuration.infrastructure.DSFileBackend;
 import org.eclipse.scada.configuration.infrastructure.EventInjectorHttp;
 import org.eclipse.scada.configuration.infrastructure.EventInjectorSyslog;
@@ -22,6 +23,7 @@ import org.eclipse.scada.configuration.infrastructure.OracleVMSettings;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.WebAdminConsole;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.CAFileModuleHandler;
+import org.eclipse.scada.configuration.infrastructure.lib.internal.CASettingsModuleHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.DSFileModuleHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.EventInjectorHttpHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.EventInjectorSyslogHandler;
@@ -77,6 +79,10 @@ public class AdapterFactoryImpl implements IAdapterFactory
         else if ( adaptableObject instanceof ConfigurationAdminFileBackend )
         {
             return adapterType.cast ( new CAFileModuleHandler () );
+        }
+        else if ( adaptableObject instanceof ConfigurationAdminSettings )
+        {
+            return adapterType.cast ( new CASettingsModuleHandler () );
         }
         else if ( adaptableObject instanceof DSFileBackend )
         {

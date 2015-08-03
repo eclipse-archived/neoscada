@@ -228,6 +228,8 @@ public class AbstractEquinoxDriverItemProvider extends DriverItemProvider
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createDSFileBackend () ) );
 
+        newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__MODULES, InfrastructureFactory.eINSTANCE.createConfigurationAdminSettings () ) );
+
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
 
         newChildDescriptors.add ( createChildParameter ( InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATIONS, OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );

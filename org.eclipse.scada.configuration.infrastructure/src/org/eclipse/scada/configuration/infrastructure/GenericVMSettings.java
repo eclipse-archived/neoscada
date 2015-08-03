@@ -17,13 +17,12 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Generic VM Settings</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.GenericVMSettings#getArguments
- * <em>Arguments</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.GenericVMSettings#getArguments <em>Arguments</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getGenericVMSettings()
@@ -41,7 +40,6 @@ public interface GenericVMSettings extends JavaModule
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Arguments</em>' attribute list.
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getGenericVMSettings_Arguments()
      * @model

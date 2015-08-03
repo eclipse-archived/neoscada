@@ -16,13 +16,12 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Equinox Application</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials
- * <em>Local Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials <em>Local Credentials</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication()
@@ -39,7 +38,6 @@ public interface EquinoxApplication extends EquinoxBase
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Local Credentials</em>' reference.
      * @see #setLocalCredentials(Credentials)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_LocalCredentials()
@@ -49,14 +47,10 @@ public interface EquinoxApplication extends EquinoxBase
     Credentials getLocalCredentials ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials
-     * <em>Local Credentials</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials <em>Local Credentials</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Local Credentials</em>' reference.
+     * @param value the new value of the '<em>Local Credentials</em>' reference.
      * @see #getLocalCredentials()
      * @generated
      */

@@ -331,6 +331,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConfigurationAdminFileBackend" eSuperTypes="#//EquinoxModule">
+    <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
+      <details key="scada.ca.backend" value=""/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="${user.home}/.eclipse.scada/ca.#{name}"/>
   </eClassifiers>
@@ -339,7 +342,24 @@
   <eClassifiers xsi:type="ecore:EClass" name="JavaModule" abstract="true" interface="true"
       eSuperTypes="#//Module"/>
   <eClassifiers xsi:type="ecore:EClass" name="DSFileBackend" eSuperTypes="#//EquinoxModule">
+    <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
+      <details key="scada.ds.backend" value=""/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="${user.home}/.eclipse.scada/ds.#{name}"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConfigurationAdminSettings" eSuperTypes="#//EquinoxModule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="automaticMerge" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Set to &quot;true&quot; if configurations should be merged automatically into the running system."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="settleTimeout" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELongObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of milliseconds to wait until changes have been settled."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

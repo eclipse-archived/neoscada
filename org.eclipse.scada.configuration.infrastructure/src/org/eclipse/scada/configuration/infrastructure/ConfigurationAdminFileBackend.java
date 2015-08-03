@@ -24,7 +24,7 @@ package org.eclipse.scada.configuration.infrastructure;
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getConfigurationAdminFileBackend()
- * @model
+ * @model annotation="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup scada.ca.backend=''"
  * @generated
  */
 public interface ConfigurationAdminFileBackend extends EquinoxModule

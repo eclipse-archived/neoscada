@@ -15,13 +15,12 @@ package org.eclipse.scada.configuration.infrastructure;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Web Admin Console</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole#getHttpService
- * <em>Http Service</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole#getHttpService <em>Http Service</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getWebAdminConsole()
@@ -39,7 +38,6 @@ public interface WebAdminConsole extends EquinoxModule
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Http Service</em>' reference.
      * @see #setHttpService(HttpServiceModule)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getWebAdminConsole_HttpService()
@@ -49,14 +47,10 @@ public interface WebAdminConsole extends EquinoxModule
     HttpServiceModule getHttpService ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole#getHttpService
-     * <em>Http Service</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole#getHttpService <em>Http Service</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Http Service</em>' reference.
+     * @param value the new value of the '<em>Http Service</em>' reference.
      * @see #getHttpService()
      * @generated
      */

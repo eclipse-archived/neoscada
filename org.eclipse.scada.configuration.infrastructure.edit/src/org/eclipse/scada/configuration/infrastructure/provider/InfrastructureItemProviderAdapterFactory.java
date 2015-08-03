@@ -771,6 +771,31 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.ConfigurationAdminSettings} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ConfigurationAdminSettingsItemProvider configurationAdminSettingsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.ConfigurationAdminSettings}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createConfigurationAdminSettingsAdapter ()
+    {
+        if ( configurationAdminSettingsItemProvider == null )
+        {
+            configurationAdminSettingsItemProvider = new ConfigurationAdminSettingsItemProvider ( this );
+        }
+
+        return configurationAdminSettingsItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

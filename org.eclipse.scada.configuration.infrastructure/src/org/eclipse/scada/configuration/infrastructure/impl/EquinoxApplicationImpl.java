@@ -38,30 +38,14 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getInstanceNumber
- * <em>Instance Number</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getUserService
- * <em>User Service</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getSecurityConfiguration
- * <em>Security Configuration</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getModules
- * <em>Modules</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getConfiguration
- * <em>Configuration</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getConfigurations
- * <em>Configurations</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getLocalCredentials
- * <em>Local Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getInstanceNumber <em>Instance Number</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getUserService <em>User Service</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getSecurityConfiguration <em>Security Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getLocalCredentials <em>Local Credentials</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,7 +56,6 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -83,7 +66,6 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -91,11 +73,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getInstanceNumber()
-     * <em>Instance Number</em>}' attribute.
+     * The default value of the '{@link #getInstanceNumber() <em>Instance Number</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getInstanceNumber()
      * @generated
      * @ordered
@@ -103,11 +83,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected static final int INSTANCE_NUMBER_EDEFAULT = -1;
 
     /**
-     * The cached value of the '{@link #getInstanceNumber()
-     * <em>Instance Number</em>}' attribute.
+     * The cached value of the '{@link #getInstanceNumber() <em>Instance Number</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getInstanceNumber()
      * @generated
      * @ordered
@@ -115,11 +93,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected int instanceNumber = INSTANCE_NUMBER_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getUserService() <em>User Service</em>}'
-     * containment reference.
+     * The cached value of the '{@link #getUserService() <em>User Service</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getUserService()
      * @generated
      * @ordered
@@ -127,11 +103,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected UserService userService;
 
     /**
-     * The cached value of the '{@link #getSecurityConfiguration()
-     * <em>Security Configuration</em>}' reference.
+     * The cached value of the '{@link #getSecurityConfiguration() <em>Security Configuration</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getSecurityConfiguration()
      * @generated
      * @ordered
@@ -139,11 +113,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected Configuration securityConfiguration;
 
     /**
-     * The cached value of the '{@link #getModules() <em>Modules</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getModules()
      * @generated
      * @ordered
@@ -151,11 +123,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected EList<Module> modules;
 
     /**
-     * The cached value of the '{@link #getConfiguration()
-     * <em>Configuration</em>}' reference.
+     * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getConfiguration()
      * @generated
      * @ordered
@@ -163,11 +133,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected ApplicationConfiguration configuration;
 
     /**
-     * The cached value of the '{@link #getConfigurations()
-     * <em>Configurations</em>}' containment reference list.
+     * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getConfigurations()
      * @generated
      * @ordered
@@ -175,11 +143,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     protected EList<IndependentConfiguration> configurations;
 
     /**
-     * The cached value of the '{@link #getLocalCredentials()
-     * <em>Local Credentials</em>}' reference.
+     * The cached value of the '{@link #getLocalCredentials() <em>Local Credentials</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getLocalCredentials()
      * @generated
      * @ordered
@@ -189,7 +155,6 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected EquinoxApplicationImpl ()
@@ -200,7 +165,6 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -212,127 +176,108 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setName ( final String newName )
+    public void setName ( String newName )
     {
-        final String oldName = this.name;
-        this.name = newName;
+        String oldName = name;
+        name = newName;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__NAME, oldName, this.name ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__NAME, oldName, name ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public int getInstanceNumber ()
     {
-        return this.instanceNumber;
+        return instanceNumber;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setInstanceNumber ( final int newInstanceNumber )
+    public void setInstanceNumber ( int newInstanceNumber )
     {
-        final int oldInstanceNumber = this.instanceNumber;
-        this.instanceNumber = newInstanceNumber;
+        int oldInstanceNumber = instanceNumber;
+        instanceNumber = newInstanceNumber;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__INSTANCE_NUMBER, oldInstanceNumber, this.instanceNumber ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__INSTANCE_NUMBER, oldInstanceNumber, instanceNumber ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public UserService getUserService ()
     {
-        if ( this.userService != null && this.userService.eIsProxy () )
+        if ( userService != null && userService.eIsProxy () )
         {
-            final InternalEObject oldUserService = (InternalEObject)this.userService;
-            this.userService = (UserService)eResolveProxy ( oldUserService );
-            if ( this.userService != oldUserService )
+            InternalEObject oldUserService = (InternalEObject)userService;
+            userService = (UserService)eResolveProxy ( oldUserService );
+            if ( userService != oldUserService )
             {
-                final InternalEObject newUserService = (InternalEObject)this.userService;
+                InternalEObject newUserService = (InternalEObject)userService;
                 NotificationChain msgs = oldUserService.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, null, null );
                 if ( newUserService.eInternalContainer () == null )
                 {
                     msgs = newUserService.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, null, msgs );
                 }
                 if ( msgs != null )
-                {
                     msgs.dispatch ();
-                }
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, oldUserService, this.userService ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, oldUserService, userService ) );
             }
         }
-        return this.userService;
+        return userService;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public UserService basicGetUserService ()
     {
-        return this.userService;
+        return userService;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NotificationChain basicSetUserService ( final UserService newUserService, NotificationChain msgs )
+    public NotificationChain basicSetUserService ( UserService newUserService, NotificationChain msgs )
     {
-        final UserService oldUserService = this.userService;
-        this.userService = newUserService;
+        UserService oldUserService = userService;
+        userService = newUserService;
         if ( eNotificationRequired () )
         {
-            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, oldUserService, newUserService );
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, oldUserService, newUserService );
             if ( msgs == null )
-            {
                 msgs = notification;
-            }
             else
-            {
                 msgs.add ( notification );
-            }
         }
         return msgs;
     }
@@ -340,231 +285,198 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setUserService ( final UserService newUserService )
+    public void setUserService ( UserService newUserService )
     {
-        if ( newUserService != this.userService )
+        if ( newUserService != userService )
         {
             NotificationChain msgs = null;
-            if ( this.userService != null )
-            {
-                msgs = ( (InternalEObject)this.userService ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, null, msgs );
-            }
+            if ( userService != null )
+                msgs = ( (InternalEObject)userService ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, null, msgs );
             if ( newUserService != null )
-            {
                 msgs = ( (InternalEObject)newUserService ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, null, msgs );
-            }
             msgs = basicSetUserService ( newUserService, msgs );
             if ( msgs != null )
-            {
                 msgs.dispatch ();
-            }
         }
         else if ( eNotificationRequired () )
-        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE, newUserService, newUserService ) );
-        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<IndependentConfiguration> getConfigurations ()
     {
-        if ( this.configurations == null )
+        if ( configurations == null )
         {
-            this.configurations = new EObjectContainmentEList.Resolving<IndependentConfiguration> ( IndependentConfiguration.class, this, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS );
+            configurations = new EObjectContainmentEList.Resolving<IndependentConfiguration> ( IndependentConfiguration.class, this, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS );
         }
-        return this.configurations;
+        return configurations;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ApplicationConfiguration getConfiguration ()
     {
-        if ( this.configuration != null && this.configuration.eIsProxy () )
+        if ( configuration != null && configuration.eIsProxy () )
         {
-            final InternalEObject oldConfiguration = (InternalEObject)this.configuration;
-            this.configuration = (ApplicationConfiguration)eResolveProxy ( oldConfiguration );
-            if ( this.configuration != oldConfiguration )
+            InternalEObject oldConfiguration = (InternalEObject)configuration;
+            configuration = (ApplicationConfiguration)eResolveProxy ( oldConfiguration );
+            if ( configuration != oldConfiguration )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION, oldConfiguration, this.configuration ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION, oldConfiguration, configuration ) );
             }
         }
-        return this.configuration;
+        return configuration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ApplicationConfiguration basicGetConfiguration ()
     {
-        return this.configuration;
+        return configuration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setConfiguration ( final ApplicationConfiguration newConfiguration )
+    public void setConfiguration ( ApplicationConfiguration newConfiguration )
     {
-        final ApplicationConfiguration oldConfiguration = this.configuration;
-        this.configuration = newConfiguration;
+        ApplicationConfiguration oldConfiguration = configuration;
+        configuration = newConfiguration;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION, oldConfiguration, this.configuration ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION, oldConfiguration, configuration ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Credentials getLocalCredentials ()
     {
-        if ( this.localCredentials != null && this.localCredentials.eIsProxy () )
+        if ( localCredentials != null && localCredentials.eIsProxy () )
         {
-            final InternalEObject oldLocalCredentials = (InternalEObject)this.localCredentials;
-            this.localCredentials = (Credentials)eResolveProxy ( oldLocalCredentials );
-            if ( this.localCredentials != oldLocalCredentials )
+            InternalEObject oldLocalCredentials = (InternalEObject)localCredentials;
+            localCredentials = (Credentials)eResolveProxy ( oldLocalCredentials );
+            if ( localCredentials != oldLocalCredentials )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS, oldLocalCredentials, this.localCredentials ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS, oldLocalCredentials, localCredentials ) );
             }
         }
-        return this.localCredentials;
+        return localCredentials;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Credentials basicGetLocalCredentials ()
     {
-        return this.localCredentials;
+        return localCredentials;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setLocalCredentials ( final Credentials newLocalCredentials )
+    public void setLocalCredentials ( Credentials newLocalCredentials )
     {
-        final Credentials oldLocalCredentials = this.localCredentials;
-        this.localCredentials = newLocalCredentials;
+        Credentials oldLocalCredentials = localCredentials;
+        localCredentials = newLocalCredentials;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS, oldLocalCredentials, this.localCredentials ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS, oldLocalCredentials, localCredentials ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Configuration getSecurityConfiguration ()
     {
-        if ( this.securityConfiguration != null && this.securityConfiguration.eIsProxy () )
+        if ( securityConfiguration != null && securityConfiguration.eIsProxy () )
         {
-            final InternalEObject oldSecurityConfiguration = (InternalEObject)this.securityConfiguration;
-            this.securityConfiguration = (Configuration)eResolveProxy ( oldSecurityConfiguration );
-            if ( this.securityConfiguration != oldSecurityConfiguration )
+            InternalEObject oldSecurityConfiguration = (InternalEObject)securityConfiguration;
+            securityConfiguration = (Configuration)eResolveProxy ( oldSecurityConfiguration );
+            if ( securityConfiguration != oldSecurityConfiguration )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION, oldSecurityConfiguration, securityConfiguration ) );
             }
         }
-        return this.securityConfiguration;
+        return securityConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Configuration basicGetSecurityConfiguration ()
     {
-        return this.securityConfiguration;
+        return securityConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setSecurityConfiguration ( final Configuration newSecurityConfiguration )
+    public void setSecurityConfiguration ( Configuration newSecurityConfiguration )
     {
-        final Configuration oldSecurityConfiguration = this.securityConfiguration;
-        this.securityConfiguration = newSecurityConfiguration;
+        Configuration oldSecurityConfiguration = securityConfiguration;
+        securityConfiguration = newSecurityConfiguration;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION, oldSecurityConfiguration, securityConfiguration ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Module> getModules ()
     {
-        if ( this.modules == null )
+        if ( modules == null )
         {
-            this.modules = new EObjectContainmentEList.Resolving<Module> ( Module.class, this, InfrastructurePackage.EQUINOX_APPLICATION__MODULES );
+            modules = new EObjectContainmentEList.Resolving<Module> ( Module.class, this, InfrastructurePackage.EQUINOX_APPLICATION__MODULES );
         }
-        return this.modules;
+        return modules;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -581,11 +493,10 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -595,31 +506,23 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
                 return getInstanceNumber ();
             case InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE:
                 if ( resolve )
-                {
                     return getUserService ();
-                }
                 return basicGetUserService ();
             case InfrastructurePackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION:
                 if ( resolve )
-                {
                     return getSecurityConfiguration ();
-                }
                 return basicGetSecurityConfiguration ();
             case InfrastructurePackage.EQUINOX_APPLICATION__MODULES:
                 return getModules ();
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
                 if ( resolve )
-                {
                     return getConfiguration ();
-                }
                 return basicGetConfiguration ();
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS:
                 return getConfigurations ();
             case InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS:
                 if ( resolve )
-                {
                     return getLocalCredentials ();
-                }
                 return basicGetLocalCredentials ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -628,12 +531,11 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -670,11 +572,10 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -709,30 +610,29 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case InfrastructurePackage.EQUINOX_APPLICATION__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case InfrastructurePackage.EQUINOX_APPLICATION__INSTANCE_NUMBER:
-                return this.instanceNumber != INSTANCE_NUMBER_EDEFAULT;
+                return instanceNumber != INSTANCE_NUMBER_EDEFAULT;
             case InfrastructurePackage.EQUINOX_APPLICATION__USER_SERVICE:
-                return this.userService != null;
+                return userService != null;
             case InfrastructurePackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION:
-                return this.securityConfiguration != null;
+                return securityConfiguration != null;
             case InfrastructurePackage.EQUINOX_APPLICATION__MODULES:
-                return this.modules != null && !this.modules.isEmpty ();
+                return modules != null && !modules.isEmpty ();
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
-                return this.configuration != null;
+                return configuration != null;
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS:
-                return this.configurations != null && !this.configurations.isEmpty ();
+                return configurations != null && !configurations.isEmpty ();
             case InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS:
-                return this.localCredentials != null;
+                return localCredentials != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -740,22 +640,19 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (name: " ); //$NON-NLS-1$
-        result.append ( this.name );
+        result.append ( name );
         result.append ( ", instanceNumber: " ); //$NON-NLS-1$
-        result.append ( this.instanceNumber );
+        result.append ( instanceNumber );
         result.append ( ')' );
         return result.toString ();
     }

@@ -15,21 +15,17 @@ package org.eclipse.scada.configuration.infrastructure;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Oracle VM Settings</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getInitialHeapSize
- * <em>Initial Heap Size</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getMaximumHeapSize
- * <em>Maximum Heap Size</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getInitialHeapSize <em>Initial Heap Size</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getMaximumHeapSize <em>Maximum Heap Size</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOracleVMSettings()
- * @model annotation=
- *        "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup groupId='oracle.vm.settings'"
+ * @model annotation="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup groupId='oracle.vm.settings'"
  * @generated
  */
 public interface OracleVMSettings extends JavaModule
@@ -42,7 +38,6 @@ public interface OracleVMSettings extends JavaModule
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Initial Heap Size</em>' attribute.
      * @see #setInitialHeapSize(String)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOracleVMSettings_InitialHeapSize()
@@ -52,14 +47,10 @@ public interface OracleVMSettings extends JavaModule
     String getInitialHeapSize ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getInitialHeapSize
-     * <em>Initial Heap Size</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getInitialHeapSize <em>Initial Heap Size</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Initial Heap Size</em>' attribute.
+     * @param value the new value of the '<em>Initial Heap Size</em>' attribute.
      * @see #getInitialHeapSize()
      * @generated
      */
@@ -73,7 +64,6 @@ public interface OracleVMSettings extends JavaModule
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Maximum Heap Size</em>' attribute.
      * @see #setMaximumHeapSize(String)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOracleVMSettings_MaximumHeapSize()
@@ -83,14 +73,10 @@ public interface OracleVMSettings extends JavaModule
     String getMaximumHeapSize ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getMaximumHeapSize
-     * <em>Maximum Heap Size</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getMaximumHeapSize <em>Maximum Heap Size</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Maximum Heap Size</em>' attribute.
+     * @param value the new value of the '<em>Maximum Heap Size</em>' attribute.
      * @see #getMaximumHeapSize()
      * @generated
      */

@@ -24,7 +24,7 @@ package org.eclipse.scada.configuration.infrastructure;
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getDSFileBackend()
- * @model
+ * @model annotation="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup scada.ds.backend=''"
  * @generated
  */
 public interface DSFileBackend extends EquinoxModule

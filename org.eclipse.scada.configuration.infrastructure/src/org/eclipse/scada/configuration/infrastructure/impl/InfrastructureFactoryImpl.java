@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.configuration.infrastructure.*;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
 import org.eclipse.scada.configuration.infrastructure.ConfigurationAdminFileBackend;
@@ -51,7 +52,6 @@ import org.eclipse.scada.configuration.infrastructure.World;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class InfrastructureFactoryImpl extends EFactoryImpl implements InfrastructureFactory
@@ -60,20 +60,19 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static InfrastructureFactory init ()
     {
         try
         {
-            final InfrastructureFactory theInfrastructureFactory = (InfrastructureFactory)EPackage.Registry.INSTANCE.getEFactory ( InfrastructurePackage.eNS_URI );
+            InfrastructureFactory theInfrastructureFactory = (InfrastructureFactory)EPackage.Registry.INSTANCE.getEFactory ( InfrastructurePackage.eNS_URI );
             if ( theInfrastructureFactory != null )
             {
                 return theInfrastructureFactory;
             }
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -84,7 +83,6 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public InfrastructureFactoryImpl ()
@@ -95,11 +93,10 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EObject create ( final EClass eClass )
+    public EObject create ( EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -157,6 +154,8 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
                 return createConfigurationAdminFileBackend ();
             case InfrastructurePackage.DS_FILE_BACKEND:
                 return createDSFileBackend ();
+            case InfrastructurePackage.CONFIGURATION_ADMIN_SETTINGS:
+                return createConfigurationAdminSettings ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -165,11 +164,10 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object createFromString ( final EDataType eDataType, final String initialValue )
+    public Object createFromString ( EDataType eDataType, String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -183,11 +181,10 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String convertToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertToString ( EDataType eDataType, Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -230,104 +227,96 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public MasterImport createMasterImport ()
     {
-        final MasterImportImpl masterImport = new MasterImportImpl ();
+        MasterImportImpl masterImport = new MasterImportImpl ();
         return masterImport;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Options createOptions ()
     {
-        final OptionsImpl options = new OptionsImpl ();
+        OptionsImpl options = new OptionsImpl ();
         return options;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public CommonDriver createCommonDriver ()
     {
-        final CommonDriverImpl commonDriver = new CommonDriverImpl ();
+        CommonDriverImpl commonDriver = new CommonDriverImpl ();
         return commonDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ExternalNode createExternalNode ()
     {
-        final ExternalNodeImpl externalNode = new ExternalNodeImpl ();
+        ExternalNodeImpl externalNode = new ExternalNodeImpl ();
         return externalNode;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public SystemNode createSystemNode ()
     {
-        final SystemNodeImpl systemNode = new SystemNodeImpl ();
+        SystemNodeImpl systemNode = new SystemNodeImpl ();
         return systemNode;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public SystemPropertyUserService createSystemPropertyUserService ()
     {
-        final SystemPropertyUserServiceImpl systemPropertyUserService = new SystemPropertyUserServiceImpl ();
+        SystemPropertyUserServiceImpl systemPropertyUserService = new SystemPropertyUserServiceImpl ();
         return systemPropertyUserService;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public UserEntry createUserEntry ()
     {
-        final UserEntryImpl userEntry = new UserEntryImpl ();
+        UserEntryImpl userEntry = new UserEntryImpl ();
         return userEntry;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public JdbcUserService createJdbcUserService ()
     {
-        final JdbcUserServiceImpl jdbcUserService = new JdbcUserServiceImpl ();
+        JdbcUserServiceImpl jdbcUserService = new JdbcUserServiceImpl ();
         return jdbcUserService;
     }
 
@@ -349,91 +338,84 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EquinoxDriver createEquinoxDriver ()
     {
-        final EquinoxDriverImpl equinoxDriver = new EquinoxDriverImpl ();
+        EquinoxDriverImpl equinoxDriver = new EquinoxDriverImpl ();
         return equinoxDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ExternalDriver createExternalDriver ()
     {
-        final ExternalDriverImpl externalDriver = new ExternalDriverImpl ();
+        ExternalDriverImpl externalDriver = new ExternalDriverImpl ();
         return externalDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ExternalDriverPlaceholder createExternalDriverPlaceholder ()
     {
-        final ExternalDriverPlaceholderImpl externalDriverPlaceholder = new ExternalDriverPlaceholderImpl ();
+        ExternalDriverPlaceholderImpl externalDriverPlaceholder = new ExternalDriverPlaceholderImpl ();
         return externalDriverPlaceholder;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ApplicationConfiguration createApplicationConfiguration ()
     {
-        final ApplicationConfigurationImpl applicationConfiguration = new ApplicationConfigurationImpl ();
+        ApplicationConfigurationImpl applicationConfiguration = new ApplicationConfigurationImpl ();
         return applicationConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Configurations createConfigurations ()
     {
-        final ConfigurationsImpl configurations = new ConfigurationsImpl ();
+        ConfigurationsImpl configurations = new ConfigurationsImpl ();
         return configurations;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public HttpServiceModule createHttpServiceModule ()
     {
-        final HttpServiceModuleImpl httpServiceModule = new HttpServiceModuleImpl ();
+        HttpServiceModuleImpl httpServiceModule = new HttpServiceModuleImpl ();
         return httpServiceModule;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public RestExporterModule createRestExporterModule ()
     {
-        final RestExporterModuleImpl restExporterModule = new RestExporterModuleImpl ();
+        RestExporterModuleImpl restExporterModule = new RestExporterModuleImpl ();
         return restExporterModule;
     }
 
@@ -455,130 +437,129 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public WebAdminConsole createWebAdminConsole ()
     {
-        final WebAdminConsoleImpl webAdminConsole = new WebAdminConsoleImpl ();
+        WebAdminConsoleImpl webAdminConsole = new WebAdminConsoleImpl ();
         return webAdminConsole;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public OracleVMSettings createOracleVMSettings ()
     {
-        final OracleVMSettingsImpl oracleVMSettings = new OracleVMSettingsImpl ();
+        OracleVMSettingsImpl oracleVMSettings = new OracleVMSettingsImpl ();
         return oracleVMSettings;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public GenericVMSettings createGenericVMSettings ()
     {
-        final GenericVMSettingsImpl genericVMSettings = new GenericVMSettingsImpl ();
+        GenericVMSettingsImpl genericVMSettings = new GenericVMSettingsImpl ();
         return genericVMSettings;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EventInjectorHttp createEventInjectorHttp ()
     {
-        final EventInjectorHttpImpl eventInjectorHttp = new EventInjectorHttpImpl ();
+        EventInjectorHttpImpl eventInjectorHttp = new EventInjectorHttpImpl ();
         return eventInjectorHttp;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EventInjectorSyslog createEventInjectorSyslog ()
     {
-        final EventInjectorSyslogImpl eventInjectorSyslog = new EventInjectorSyslogImpl ();
+        EventInjectorSyslogImpl eventInjectorSyslog = new EventInjectorSyslogImpl ();
         return eventInjectorSyslog;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public JMXSettings createJMXSettings ()
     {
-        final JMXSettingsImpl jmxSettings = new JMXSettingsImpl ();
+        JMXSettingsImpl jmxSettings = new JMXSettingsImpl ();
         return jmxSettings;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ConfigurationAdminFileBackend createConfigurationAdminFileBackend ()
     {
-        final ConfigurationAdminFileBackendImpl configurationAdminFileBackend = new ConfigurationAdminFileBackendImpl ();
+        ConfigurationAdminFileBackendImpl configurationAdminFileBackend = new ConfigurationAdminFileBackendImpl ();
         return configurationAdminFileBackend;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public DSFileBackend createDSFileBackend ()
     {
-        final DSFileBackendImpl dsFileBackend = new DSFileBackendImpl ();
+        DSFileBackendImpl dsFileBackend = new DSFileBackendImpl ();
         return dsFileBackend;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public SlaveStorageLayout createSlaveStorageLayoutFromString ( final EDataType eDataType, final String initialValue )
+    public ConfigurationAdminSettings createConfigurationAdminSettings ()
     {
-        final SlaveStorageLayout result = SlaveStorageLayout.get ( initialValue );
+        ConfigurationAdminSettingsImpl configurationAdminSettings = new ConfigurationAdminSettingsImpl ();
+        return configurationAdminSettings;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SlaveStorageLayout createSlaveStorageLayoutFromString ( EDataType eDataType, String initialValue )
+    {
+        SlaveStorageLayout result = SlaveStorageLayout.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertSlaveStorageLayoutToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertSlaveStorageLayoutToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -586,7 +567,6 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -598,7 +578,6 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @deprecated
      * @generated
      */

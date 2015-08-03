@@ -14,15 +14,13 @@ package org.eclipse.scada.configuration.infrastructure;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Driver</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.eclipse.scada.configuration.infrastructure.Driver#getNode
- * <em>Node</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.Driver#getProtocolTypeTag
- * <em>Protocol Type Tag</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Driver#getNode <em>Node</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Driver#getProtocolTypeTag <em>Protocol Type Tag</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getDriver()
@@ -33,16 +31,13 @@ public interface Driver extends NamedApplication
 {
     /**
      * Returns the value of the '<em><b>Node</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.eclipse.scada.configuration.infrastructure.SystemNode#getDrivers
-     * <em>Drivers</em>}'.
+     * It is bidirectional and its opposite is '{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getDrivers <em>Drivers</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Node</em>' reference isn't clear, there really
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Node</em>' container reference.
      * @see #setNode(SystemNode)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getDriver_Node()
@@ -53,14 +48,10 @@ public interface Driver extends NamedApplication
     SystemNode getNode ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.Driver#getNode
-     * <em>Node</em>}' container reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.Driver#getNode <em>Node</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Node</em>' container reference.
+     * @param value the new value of the '<em>Node</em>' container reference.
      * @see #getNode()
      * @generated
      */
@@ -75,7 +66,6 @@ public interface Driver extends NamedApplication
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Protocol Type Tag</em>' attribute.
      * @see #setProtocolTypeTag(String)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getDriver_ProtocolTypeTag()
@@ -85,14 +75,10 @@ public interface Driver extends NamedApplication
     String getProtocolTypeTag ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.Driver#getProtocolTypeTag
-     * <em>Protocol Type Tag</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.Driver#getProtocolTypeTag <em>Protocol Type Tag</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Protocol Type Tag</em>' attribute.
+     * @param value the new value of the '<em>Protocol Type Tag</em>' attribute.
      * @see #getProtocolTypeTag()
      * @generated
      */

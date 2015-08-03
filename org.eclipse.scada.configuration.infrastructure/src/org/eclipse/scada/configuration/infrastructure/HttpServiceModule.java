@@ -15,13 +15,12 @@ package org.eclipse.scada.configuration.infrastructure;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Http Service Module</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule#getPort
- * <em>Port</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule#getPort <em>Port</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getHttpServiceModule()
@@ -39,7 +38,6 @@ public interface HttpServiceModule extends EquinoxModule
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Port</em>' attribute.
      * @see #setPort(short)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getHttpServiceModule_Port()
@@ -49,14 +47,10 @@ public interface HttpServiceModule extends EquinoxModule
     short getPort ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule#getPort
-     * <em>Port</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule#getPort <em>Port</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Port</em>' attribute.
+     * @param value the new value of the '<em>Port</em>' attribute.
      * @see #getPort()
      * @generated
      */
