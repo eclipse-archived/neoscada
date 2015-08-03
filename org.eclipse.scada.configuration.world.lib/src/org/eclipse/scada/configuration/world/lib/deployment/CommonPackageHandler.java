@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
@@ -35,9 +36,7 @@ import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandl
 import org.eclipse.scada.configuration.world.lib.deployment.startup.UpstartHandler;
 import org.eclipse.scada.configuration.world.lib.setup.SubModuleHandler;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
-import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
-import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
 import org.eclipse.scada.utils.pkg.deb.FileContentProvider;
 import org.eclipse.scada.utils.pkg.deb.StaticContentProvider;
 import org.eclipse.scada.utils.str.StringHelper;
@@ -160,7 +159,7 @@ public abstract class CommonPackageHandler extends CommonHandler
      * Inject the CA bootstrap property to the profile
      *
      * @param file
-     *            the profile.xml file in the debian package target
+     *            the profile.xml file in the package target
      * @throws IOException
      */
     protected void patchProfile ( final String appName, final File file ) throws IOException
@@ -170,10 +169,7 @@ public abstract class CommonPackageHandler extends CommonHandler
         r.load ( null );
 
         final Profile profile = (Profile)EcoreUtil.getObjectByType ( r.getContents (), ProfilePackage.Literals.PROFILE );
-        final SystemProperty bootstrap = ProfileFactory.eINSTANCE.createSystemProperty ();
-        bootstrap.setKey ( "org.eclipse.scada.ca.file.provisionJsonUrl" );
-        bootstrap.setValue ( "file:///usr/share/eclipsescada/ca.bootstrap/bootstrap." + appName + ".json" );
-        profile.getProperty ().add ( bootstrap );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ca.file.provisionJsonUrl", "file:///usr/share/eclipsescada/ca.bootstrap/bootstrap." + appName + ".json" );
         r.save ( null );
     }
 
