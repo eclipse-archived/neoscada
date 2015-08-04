@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.scada.ca.ConfigurationAdministrator;
+import org.eclipse.scada.ca.updater.DirectoryScanner.FailMode;
 import org.eclipse.scada.ca.updater.Updater;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
@@ -31,15 +32,11 @@ public class UpdatingMergeWatcher extends AbstractMergeWatcher
 
     private final Path path;
 
-    private final boolean watchFile;
-
     public UpdatingMergeWatcher ( final ConfigurationAdministrator admin, final Path path, final long delay, final TimeUnit timeUnit ) throws IOException
     {
         super ( path, delay, timeUnit );
         this.path = path;
         this.admin = admin;
-
-        this.watchFile = Files.isRegularFile ( path );
 
         // initial update
         processFireChange ();
@@ -56,6 +53,7 @@ public class UpdatingMergeWatcher extends AbstractMergeWatcher
 
             if ( this.watchFile )
             {
+                // watching a single file
                 try ( Reader reader = Files.newBufferedReader ( this.path, StandardCharsets.UTF_8 ) )
                 {
                     updater.loadJson ( reader );
@@ -63,7 +61,8 @@ public class UpdatingMergeWatcher extends AbstractMergeWatcher
             }
             else
             {
-                // FIXME: implement directory mode
+                // watching a full directory
+                updater.loadDirectory ( this.path, 1, FailMode.FAIL );
             }
 
             final int changes = updater.getChanges ().size ();

@@ -10,7 +10,9 @@
  *******************************************************************************/
 package org.eclipse.scada.ca.updater;
 
+import java.io.IOException;
 import java.io.Reader;
+import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,7 @@ import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.Factory;
 import org.eclipse.scada.ca.data.DiffEntry;
 import org.eclipse.scada.ca.oscar.OscarLoader;
+import org.eclipse.scada.ca.updater.DirectoryScanner.FailMode;
 import org.eclipse.scada.ca.utils.DiffController;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 
@@ -72,6 +75,33 @@ public class Updater
     public void loadJson ( final Reader reader )
     {
         this.diff.setLocalData ( OscarLoader.loadJsonData ( reader ) );
+    }
+
+    public void setLocalData ( final Map<String, Map<String, Map<String, String>>> localData )
+    {
+        this.diff.setLocalData ( localData );
+    }
+
+    /**
+     * Load all files from a local directory as
+     *
+     * @param dir
+     *            the directory to start
+     * @param depth
+     *            the depth of sub directories to descend into
+     * @param failMode
+     *            The mode how parsing failures are handled
+     */
+    public void loadDirectory ( final Path dir, final int depth, final FailMode failMode )
+    {
+        try
+        {
+            this.diff.setLocalData ( new DirectoryScanner ( dir, depth, failMode ).scan () );
+        }
+        catch ( final IOException e )
+        {
+            throw new RuntimeException ( e );
+        }
     }
 
     protected void makeDiff ()

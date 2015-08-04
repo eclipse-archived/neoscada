@@ -100,7 +100,7 @@ public class Activator implements BundleActivator
             {
                 return new UpdatingMergeWatcher ( admin, path, this.settleTimeout, TimeUnit.MILLISECONDS );
             }
-            catch ( final IOException e )
+            catch ( final Exception e )
             {
                 logger.warn ( "Failed to start merge watcher", e );
             }

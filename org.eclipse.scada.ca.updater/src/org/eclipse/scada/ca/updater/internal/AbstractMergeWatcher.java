@@ -47,7 +47,7 @@ public abstract class AbstractMergeWatcher
 
     private final Thread runner;
 
-    private boolean watchFile;
+    protected final boolean watchFile;
 
     /**
      * The path we are actually watching
@@ -63,6 +63,11 @@ public abstract class AbstractMergeWatcher
         this.path = path;
         this.delay = delay;
         this.timeUnit = timeUnit;
+
+        if ( !Files.exists ( path ) )
+        {
+            throw new IllegalArgumentException ( String.format ( "Failed to watch: %s. Path does not exists.", path ) );
+        }
 
         this.ws = path.getFileSystem ().newWatchService ();
 
@@ -124,9 +129,10 @@ public abstract class AbstractMergeWatcher
         logger.trace ( "Watching for events" );
         while ( true )
         {
+            WatchKey key = null;
             try
             {
-                final WatchKey key = this.ws.take ();
+                key = this.ws.take ();
                 logger.trace ( "Took events: {}", key.watchable () );
 
                 final List<WatchEvent<?>> events = key.pollEvents ();
@@ -134,16 +140,17 @@ public abstract class AbstractMergeWatcher
                 {
                     processEvent ( evt );
                 }
-
-                key.reset ();
             }
-            catch ( final InterruptedException e )
+            catch ( final InterruptedException | ClosedWatchServiceException e )
             {
                 return;
             }
-            catch ( final ClosedWatchServiceException e )
+            finally
             {
-                return;
+                if ( key != null )
+                {
+                    key.reset ();
+                }
             }
         }
     }

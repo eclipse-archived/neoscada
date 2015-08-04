@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.zip.ZipEntry;
@@ -150,5 +151,45 @@ public class OscarLoader
     {
         final String fileName = file.getName ().toLowerCase ();
         return fileName.endsWith ( OSCAR_DOT_SUFFIX );
+    }
+
+    /**
+     * Put all configuration instances into the target map
+     * <p>
+     * If a configuration with the same ID already exists is will be overwritten
+     * completely. Single properties of a configuration instance will not get
+     * merged.
+     * </p>
+     *
+     * @param target
+     *            the map to put the data into
+     * @param data
+     *            the data to put, must not be {@code null}
+     * @return the number of configurations processed
+     */
+    public static int putAll ( final Map<String, Map<String, Map<String, String>>> target, final Map<String, Map<String, Map<String, String>>> data )
+    {
+        int count = 0;
+
+        for ( final Map.Entry<String, Map<String, Map<String, String>>> factoryEntry : data.entrySet () )
+        {
+            final String factoryId = factoryEntry.getKey ();
+
+            Map<String, Map<String, String>> factory = target.get ( factoryId );
+            if ( factory == null )
+            {
+                factory = new HashMap<> ( factoryEntry.getValue ().size () );
+                target.put ( factoryId, factory );
+            }
+
+            for ( final Map.Entry<String, Map<String, String>> cfgEntry : factoryEntry.getValue ().entrySet () )
+            {
+                final String cfgId = cfgEntry.getKey ();
+                factory.put ( cfgId, new HashMap<> ( cfgEntry.getValue () ) );
+                count++;
+            }
+        }
+
+        return count;
     }
 }
