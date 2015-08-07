@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,6 +12,7 @@ package org.eclipse.scada.utils.io;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
@@ -19,6 +20,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 public class RecursiveDeleteVisitor extends SimpleFileVisitor<Path>
 {
+    public static FileVisitor<Path> INSTANCE = new RecursiveDeleteVisitor ();
+
     @Override
     public FileVisitResult visitFile ( final Path file, final BasicFileAttributes attrs ) throws IOException
     {
