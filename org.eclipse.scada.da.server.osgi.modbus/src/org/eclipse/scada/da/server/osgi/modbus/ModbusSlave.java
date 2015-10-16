@@ -108,35 +108,26 @@ public class ModbusSlave implements Listener
 
         final ByteOrder dataOrder = ModbusProtocol.makeOrder ( cfg.getString ( "dataOrder" ), ByteOrder.BIG_ENDIAN );
 
-        try
+        // we only add blocks since we are re-created on any change
+
+        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "block." ).entrySet () )
         {
-            // we only add blocks since we are re-created on any change
-
-            for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "block." ).entrySet () )
-            {
-                final Request request = parseRequest ( entry.getValue (), dataOrder );
-                this.blocks.put ( entry.getKey (), request );
-            }
-
-            // set master device
-
-            final String newMasterId = cfg.getStringChecked ( "modbus.master.id", "'modbus.master.id' must be set to the id of a master device" );
-            if ( !newMasterId.equals ( this.masterId ) )
-            {
-                logger.debug ( "setting new master id: {} -> {}", this.masterId, newMasterId );
-
-                unbindMaster ();
-                this.masterId = newMasterId;
-
-                // receive all masters from the master factory
-                this.masterFactory.resend ( this );
-            }
+            final Request request = parseRequest ( entry.getValue (), dataOrder );
+            this.blocks.put ( entry.getKey (), request );
         }
-        catch ( final Exception e )
+
+        // set master device
+
+        final String newMasterId = cfg.getStringChecked ( "modbus.master.id", "'modbus.master.id' must be set to the id of a master device" );
+        if ( !newMasterId.equals ( this.masterId ) )
         {
-            // dispose since we might have added some blocks already
-            dispose ();
-            throw e;
+            logger.debug ( "setting new master id: {} -> {}", this.masterId, newMasterId );
+
+            unbindMaster ();
+            this.masterId = newMasterId;
+
+            // receive all masters from the master factory
+            this.masterFactory.resend ( this );
         }
     }
 
