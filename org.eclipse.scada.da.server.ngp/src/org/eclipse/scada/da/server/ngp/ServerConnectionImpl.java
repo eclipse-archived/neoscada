@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - reduce log output
  *******************************************************************************/
 package org.eclipse.scada.da.server.ngp;
 
@@ -36,6 +37,7 @@ import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.core.server.ItemChangeListener;
 import org.eclipse.scada.da.core.server.Session;
 import org.eclipse.scada.da.core.server.browser.FolderListener;
+import org.eclipse.scada.da.core.server.browser.NoSuchFolderException;
 import org.eclipse.scada.da.data.AttributeWriteResultEntry;
 import org.eclipse.scada.da.data.BrowserEntry;
 import org.eclipse.scada.da.data.FolderEntryType;
@@ -281,7 +283,7 @@ public class ServerConnectionImpl extends ServiceServerConnection<Session, Hive>
 
     private ErrorInformation convertEntry ( final WriteAttributeResult value )
     {
-        if ( ( value == null ) || value.isSuccess () || ( value.getError () == null ) )
+        if ( value == null || value.isSuccess () || value.getError () == null )
         {
             return null;
         }
@@ -346,6 +348,10 @@ public class ServerConnectionImpl extends ServiceServerConnection<Session, Hive>
         try
         {
             this.service.getBrowser ().unsubscribe ( this.session, new Location ( message.getLocation () ) );
+        }
+        catch ( final NoSuchFolderException e )
+        {
+            logger.debug ( "Folder was already gone", e );
         }
         catch ( final Exception e )
         {
