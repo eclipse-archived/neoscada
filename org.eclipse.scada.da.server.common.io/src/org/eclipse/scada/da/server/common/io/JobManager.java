@@ -405,7 +405,7 @@ public class JobManager
         final PollRequest oldBlock = this.blocks.remove ( id );
         if ( oldBlock != null )
         {
-            logger.debug ( "Dispose bock: {}", id );
+            logger.debug ( "Dispose block: {}", id );
             oldBlock.dispose ();
         }
     }
