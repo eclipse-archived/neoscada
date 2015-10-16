@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 Jens Reimann and others.
+ * Copyright (c) 2013, 2015 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
- *     IBH SYSTEMS GmbH - some minor fixes
+ *     IBH SYSTEMS GmbH - some minor fixes, some major fixes
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
@@ -40,7 +40,7 @@ public class ModbusSlave implements Listener
 
     private String name;
 
-    private final Map<String, ModbusRequestBlock> blocks = new HashMap<> ();
+    private final Map<String, Request> blocks = new HashMap<> (); // Local ID to block request
 
     private final MasterFactory masterFactory;
 
@@ -57,7 +57,16 @@ public class ModbusSlave implements Listener
     public static ModbusSlave create ( final BundleContext context, final Executor executor, final String configurationId, final Map<String, String> parameters, final MasterFactory masterFactory, final AtomicInteger transactionId )
     {
         final ModbusSlave slave = new ModbusSlave ( configurationId, context, masterFactory, executor, transactionId );
-        slave.configure ( parameters );
+        try
+        {
+            slave.configure ( parameters );
+        }
+        catch ( final Exception e )
+        {
+            // dispose what was already created
+            slave.dispose ();
+            throw e;
+        }
         return slave;
     }
 
@@ -71,23 +80,22 @@ public class ModbusSlave implements Listener
 
         synchronized ( this )
         {
+            // this will send all masters, but we currently have a masterId of null, so no match
             this.masterFactory.addMasterListener ( this );
         }
     }
 
     public void dispose ()
     {
-        logger.info ( "Disposing block: {}", this.id );
+        logger.info ( "Disposing slave: {}", this.id );
 
         this.masterFactory.removeMasterListener ( this );
         stop ();
-        for ( final ModbusRequestBlock block : this.blocks.values () )
-        {
-            block.dispose ();
-        }
+
+        // blocks already got dispose by the stop method
         this.blocks.clear ();
 
-        logger.info ( "Block {} disposed", this.id );
+        logger.info ( "Slave {} disposed", this.id );
     }
 
     protected synchronized void configure ( final Map<String, String> properties )
@@ -107,7 +115,7 @@ public class ModbusSlave implements Listener
             for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "block." ).entrySet () )
             {
                 final Request request = parseRequest ( entry.getValue (), dataOrder );
-                addBlock ( entry.getKey (), request );
+                this.blocks.put ( entry.getKey (), request );
             }
 
             // set master device
@@ -119,6 +127,8 @@ public class ModbusSlave implements Listener
 
                 unbindMaster ();
                 this.masterId = newMasterId;
+
+                // receive all masters from the master factory
                 this.masterFactory.resend ( this );
             }
         }
@@ -154,11 +164,13 @@ public class ModbusSlave implements Listener
 
     private void bindMaster ( final ModbusMaster master )
     {
+        logger.debug ( "Binding to master: {}", master.getId () );
+
         if ( this.master != null )
         {
             unbindMaster ();
         }
-        this.master = master;
+
         start ( master, master.getJobManager () );
     }
 
@@ -171,6 +183,8 @@ public class ModbusSlave implements Listener
     {
         // format: FC:START:COUNT:PERIOD[:NAME]
         // period is in "ms"
+
+        logger.debug ( "Parsing block: {} / {}", value, dataOrder );
 
         final String[] toks = value.split ( "\\:" );
         if ( toks.length < 6 || toks.length > 7 )
@@ -211,9 +225,10 @@ public class ModbusSlave implements Listener
         this.master = master;
         this.jobManager = jobManager;
 
-        for ( final Map.Entry<String, ModbusRequestBlock> entry : this.blocks.entrySet () )
+        for ( final Map.Entry<String, Request> entry : this.blocks.entrySet () )
         {
-            this.jobManager.addBlock ( makeBlockId ( entry.getKey () ), entry.getValue () );
+            final String localBlockId = entry.getKey ();
+            this.jobManager.addBlock ( makeBlockId ( localBlockId ), createBlockFromRequest ( localBlockId, entry.getValue () ) );
         }
     }
 
@@ -227,55 +242,28 @@ public class ModbusSlave implements Listener
             return;
         }
 
-        for ( final Map.Entry<String, ModbusRequestBlock> entry : this.blocks.entrySet () )
+        for ( final String localBlockId : this.blocks.keySet () )
         {
-            this.jobManager.removeBlock ( makeBlockId ( entry.getKey () ) );
+            this.jobManager.removeBlock ( makeBlockId ( localBlockId ) );
         }
 
         this.master = null;
         this.jobManager = null;
     }
 
-    protected synchronized void addBlock ( final String id, final Request request )
+    private ModbusRequestBlock createBlockFromRequest ( final String id, final Request request )
     {
-        logger.debug ( "Adding block: {}", id );
-
-        removeBlock ( id );
-
         String blockName = request.getName ();
         if ( blockName == null || blockName.isEmpty () )
         {
             blockName = id;
         }
-        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, makeBlockId ( id ), this.id + "." + blockName, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
-
-        this.blocks.put ( id, block );
-
-        if ( this.jobManager != null )
-        {
-            this.jobManager.addBlock ( makeBlockId ( id ), block );
-        }
+        return new ModbusRequestBlock ( this.executor, makeBlockId ( id ), this.id + "." + blockName, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
     }
 
     private String makeBlockId ( final String id )
     {
         return this.id + "." + id;
-    }
-
-    protected synchronized void removeBlock ( final String id )
-    {
-        logger.trace ( "Removing block: {}", id );
-
-        final ModbusRequestBlock block = this.blocks.remove ( id );
-        if ( block != null )
-        {
-            logger.debug ( "Removed block: {}", id );
-            if ( this.jobManager != null )
-            {
-                this.jobManager.removeBlock ( makeBlockId ( id ) );
-            }
-            block.dispose ();
-        }
     }
 
     public Object createPollRequest ( final int transactionId, final Request request )

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2015 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
- *     IBH SYSTEMS GmbH - added modbus TCP
+ *     IBH SYSTEMS GmbH - added modbus TCP, fix reload issue
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
@@ -75,7 +75,16 @@ public class ModbusMaster extends AbstractConnectionDevice
     {
         final ModbusMaster device = new ModbusMaster ( context, id, executor, processor, "ModbusMaster", "modbus" );
 
-        device.configure ( parameters );
+        try
+        {
+            device.configure ( parameters );
+        }
+        catch ( final Exception e )
+        {
+            // dipose what was already created
+            device.dispose ();
+            throw e;
+        }
 
         return device;
     }
@@ -92,7 +101,7 @@ public class ModbusMaster extends AbstractConnectionDevice
 
         this.name = cfg.getString ( this.name, this.id );
 
-        this.readTimeout = getTimeout ( properties, "readTimeout", 10000/*ms*/);
+        this.readTimeout = getTimeout ( properties, "readTimeout", 10000/*ms*/ );
 
         // only relevant for modbus RTU
         this.interFrameDelay = cfg.getDouble ( "interFrameDelay", Double.parseDouble ( System.getProperty ( "org.eclipse.scada.da.server.osgi.modbus.defaultInterFrameDelay", "" + INTER_FRAME_DELAY_DEFAULT ) ) );
