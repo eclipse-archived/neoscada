@@ -81,7 +81,7 @@ public class ModbusMaster extends AbstractConnectionDevice
         }
         catch ( final Exception e )
         {
-            // dipose what was already created
+            // dispose what was already created
             device.dispose ();
             throw e;
         }
