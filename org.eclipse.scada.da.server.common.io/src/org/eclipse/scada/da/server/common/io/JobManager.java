@@ -398,6 +398,12 @@ public class JobManager
         this.blocks.put ( id, block );
     }
 
+    /**
+     * Remove and dispose a block
+     * 
+     * @param id
+     *            the id of the block to remove
+     */
     public synchronized void removeBlock ( final String id )
     {
         logger.debug ( "Removing block: {}", id );
