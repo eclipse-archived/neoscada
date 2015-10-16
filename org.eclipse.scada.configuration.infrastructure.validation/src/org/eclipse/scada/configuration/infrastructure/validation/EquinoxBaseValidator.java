@@ -27,7 +27,7 @@ public class EquinoxBaseValidator extends TypedValidator<EquinoxBase>
     {
         if ( target.getInstanceNumber () <= 0 )
         {
-            context.add ( InfrastructurePackage.Literals.EQUINOX_BASE__INSTANCE_NUMBER, "Instance number must be greater than zero (is {})", target.getInstanceNumber () );
+            context.add ( InfrastructurePackage.Literals.EQUINOX_BASE__INSTANCE_NUMBER, "Instance number must be greater than zero (is {0})", target.getInstanceNumber () );
         }
     }
 }
