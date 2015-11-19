@@ -28,10 +28,6 @@
 
 <title>[site.name.encodeHtml()/] – [title.encodeHtml()/]</title>
 
-<!--
-<link rel="stylesheet" type="text/css" href="[relative(fileName, 'style/default.css' )/]" />
--->
-
 <link rel="alternate" type="application/rss+xml" title="[site.name.encodeHtml()/] Feed" href="[getProperty('site.base')/]/feed.xml" />
 
 <script>
@@ -112,7 +108,7 @@ var track = function(url, category, action) {
 </div>
 
 <aside id="logo">
-	<img width="377" height="71" src="[relative(fileName, 'images/logo.png' )/]"/>
+	<img width="400" height="136" src="[relative(fileName, 'images/logo.png' )/]"/>
 </aside>
 
 <aside id="sidebar-right">
@@ -141,18 +137,7 @@ var track = function(url, category, action) {
 </div>
 </aside>
 
-<!-- style -->
-<script>
-      var cb = function() {
-        var l = document.createElement('link'); l.rel = 'stylesheet';
-        l.href = '[relative(fileName, 'style/default.css' )/]';
-        var h = document.getElementsByTagName('head')[ '[' /]0[ ']' /]; h.parentNode.insertBefore(l, h);
-      };
-      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-          webkitRequestAnimationFrame || msRequestAnimationFrame;
-      if (raf) raf(cb);
-      else window.addEventListener('load', cb);
-</script>
+<link rel="stylesheet" href="[relative(fileName, 'style/default.css' )/]">
 
 <!-- google -->
 
