@@ -80,6 +80,7 @@ public class ScheduledExportedExecutorService implements ScheduledExecutorServic
     @Override
     public List<Runnable> shutdownNow ()
     {
+        this.executorExporter.dispose ();
         return this.executor.shutdownNow ();
     }
 
