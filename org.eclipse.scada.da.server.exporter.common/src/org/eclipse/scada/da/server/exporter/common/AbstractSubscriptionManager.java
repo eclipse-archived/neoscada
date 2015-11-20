@@ -168,8 +168,15 @@ public abstract class AbstractSubscriptionManager
         if ( this.hive != null )
         {
             logger.info ( "Creating new session" );
-
-            createSession ();
+            try
+            {
+                createSession ();
+            }
+            catch ( final Exception e )
+            {
+                logger.warn ( "Failed to create session", e );
+                rescheduleSession ();
+            }
         }
     }
 
