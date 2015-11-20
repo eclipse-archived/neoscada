@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.eclipse.scada.core.InvalidSessionException;
-import org.eclipse.scada.core.UnableToCreateSessionException;
 import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.lifecycle.LifecycleAware;
@@ -31,8 +30,6 @@ public interface Service<S extends Session> extends LifecycleAware
      * @param contextInformation
      *            additional context information
      * @return a new session
-     * @throws UnableToCreateSessionException
-     *             in the case the session could not be created
      */
     public NotifyFuture<S> createSession ( Properties props, Map<String, Object> contextInformation, CallbackHandler callbackHandler );
 
