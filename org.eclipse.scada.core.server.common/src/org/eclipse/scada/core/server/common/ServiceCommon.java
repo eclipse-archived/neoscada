@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - add context information
+ *     IBH SYSTEMS GmbH - add context information, bug fixes
  *******************************************************************************/
 package org.eclipse.scada.core.server.common;
 
@@ -33,6 +33,7 @@ import org.eclipse.scada.sec.authz.AuthorizationContext;
 import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.utils.concurrent.CallingFuture;
 import org.eclipse.scada.utils.concurrent.FutureListener;
+import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
@@ -88,7 +89,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
 
     protected Set<String> extractPrivileges ( final Properties properties )
     {
-        final Set<String> result = new HashSet<String> ();
+        final Set<String> result = new HashSet<> ();
 
         for ( final Map.Entry<Object, Object> entry : properties.entrySet () )
         {
@@ -125,7 +126,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
     protected NotifyFuture<UserInformation> loginUser ( final Properties properties, final Map<String, Object> contextInformation, final CallbackHandler callbackHandler )
     {
         final NotifyFuture<AuthorizationReply> future = authorize ( new AuthorizationRequest ( "SESSION", null, "CONNECT", UserInformation.ANONYMOUS, contextInformation ), callbackHandler );
-        return new CallingFuture<AuthorizationReply, UserInformation> ( future ) {
+        return new CallingFuture<AuthorizationReply, UserInformation> ( future) {
 
             @Override
             public UserInformation call ( final Future<AuthorizationReply> future ) throws Exception
@@ -139,7 +140,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
                     throw e;
                 }
 
-                return authResult.getUserInformation ();
+                return authResult.getUserInformation ( );
             }
         };
     }
@@ -191,7 +192,14 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
         context.setRequest ( request );
 
         // log the request
-        this.auditLogService.authorizationRequested ( request );
+        try
+        {
+            this.auditLogService.authorizationRequested ( request );
+        }
+        catch ( final Exception e )
+        {
+            return new InstantErrorFuture<> ( e );
+        }
 
         final NotifyFuture<AuthorizationReply> result = this.authorizationImplementation.authorize ( context, defaultResult );
 
@@ -227,7 +235,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
         if ( targetUser == null )
         {
             logger.debug ( "target user is null" );
-            return new InstantFuture<UserInformation> ( sessionUser );
+            return new InstantFuture<> ( sessionUser );
         }
 
         // check if user differs
@@ -235,7 +243,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
         {
             logger.debug ( "Session user and target user match ... using session user" );
             // session is already is proxy user
-            return new InstantFuture<UserInformation> ( sessionUser );
+            return new InstantFuture<> ( sessionUser );
         }
 
         logger.debug ( "Trying to set target user: {}", targetUser );
@@ -243,7 +251,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
         // try to set proxy user
         final NotifyFuture<AuthorizationReply> future = authorize ( new AuthorizationRequest ( "SESSION", targetUser, "PROXY_USER", session.getUserInformation (), null ), handler );
 
-        return new CallingFuture<AuthorizationReply, UserInformation> ( future ) {
+        return new CallingFuture<AuthorizationReply, UserInformation> ( future) {
 
             @Override
             public UserInformation call ( final Future<AuthorizationReply> future ) throws Exception
