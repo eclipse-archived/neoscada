@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2015 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix issue with empty io directions
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.item;
 
@@ -96,11 +97,16 @@ public class DataItemTargetFactoryImpl extends AbstractServiceConfigurationFacto
 
         final String io = cfg.getString ( "io.directions" );
         final Set<IODirection> ioDirection;
-        if ( io != null )
+        if ( io != null && !io.trim ().isEmpty () )
         {
             ioDirection = EnumSet.noneOf ( IODirection.class );
-            for ( final String tok : io.split ( "[,\\s]+" ) )
+            for ( String tok : io.split ( "[,\\s]+" ) )
             {
+                tok = tok.trim ();
+                if ( tok.isEmpty () )
+                {
+                    continue;
+                }
                 ioDirection.add ( IODirection.valueOf ( tok ) );
             }
         }
