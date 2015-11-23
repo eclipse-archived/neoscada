@@ -6,4 +6,5 @@
       <provide interface="org.eclipse.scada.da.server.exporter.rest.internal.DataContextProvider"/>
    </service>
    <property name="factoryId" type="String" value="org.eclipse.scada.da.server.exporter.rest.context"/>
+   <property name="service.description" type="String" value="REST Exporter Context"/>
 </scr:component>
