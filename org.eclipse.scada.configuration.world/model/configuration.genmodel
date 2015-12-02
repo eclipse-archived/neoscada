@@ -14,6 +14,7 @@
       childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.world"
       fileExtensions="eswm" ecorePackage="configuration.ecore#/">
     <genDataTypes ecoreDataType="configuration.ecore#//Pattern"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//ValidationContext"/>
     <genClasses ecoreClass="configuration.ecore#//World">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//World/nodes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//World/options"/>
@@ -177,6 +178,10 @@
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ChangeType/SET"/>
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ChangeType/DIRECTION"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/IODirection">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/IODirection/INPUT"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/IODirection/OUTPUT"/>
+      </genEnums>
       <genDataTypes ecoreDataType="configuration.ecore#//osgi/Severity"/>
       <genDataTypes ecoreDataType="configuration.ecore#//osgi/Variant"/>
       <genClasses ecoreClass="configuration.ecore#//osgi/EquinoxApplication">
@@ -244,6 +249,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/hierarchy"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/system"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/dataType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/ioDirections"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//osgi/LevelMonitor">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/preset"/>
@@ -269,7 +275,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ScriptItem/scriptEngine"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/commands"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/writeCommandScript"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/propertyentry"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/initProperties"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//osgi/ImportItem">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -410,7 +416,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItem/outbound"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItem/inbound"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItem/propertyentry"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItem/initProperties"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//osgi/FormulaItemOutbound">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItemOutbound/output"/>
@@ -800,7 +806,6 @@
     <nestedGenPackages prefix="Setup" basePackage="org.eclipse.scada.configuration.world"
         resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
         extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="configuration.ecore#//setup">
-      <genDataTypes ecoreDataType="configuration.ecore#//setup/ValidationContext"/>
       <genDataTypes ecoreDataType="configuration.ecore#//setup/Status"/>
       <genClasses ecoreClass="configuration.ecore#//setup/OperatingSystemDescriptor"
           labelFeature="#//world/setup/OperatingSystemDescriptor/label">

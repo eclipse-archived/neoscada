@@ -1055,6 +1055,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
         addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.UPSTART );
         addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.REDHAT_SYSV );
         addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.LSB_SYSV );
+        addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.SYSTEMD );
     }
 
 } //DeploymentPackageImpl

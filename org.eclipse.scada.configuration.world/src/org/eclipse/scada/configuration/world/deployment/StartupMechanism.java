@@ -64,7 +64,16 @@ public enum StartupMechanism implements Enumerator
      * @generated
      * @ordered
      */
-    LSB_SYSV ( 3, "LSB_SYSV", "LSB_SYSV" ); //$NON-NLS-1$ //$NON-NLS-2$
+    LSB_SYSV ( 3, "LSB_SYSV", "LSB_SYSV" ),
+    /**
+     * The '<em><b>SYSTEMD</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #SYSTEMD_VALUE
+     * @generated
+     * @ordered
+     */
+    SYSTEMD ( 4, "SYSTEMD", "SYSTEMD" ); //$NON-NLS-1$ //$NON-NLS-2$
 
     /**
      * The '<em><b>DEFAULT</b></em>' literal value.
@@ -127,12 +136,27 @@ public enum StartupMechanism implements Enumerator
     public static final int LSB_SYSV_VALUE = 3;
 
     /**
+     * The '<em><b>SYSTEMD</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>SYSTEMD</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #SYSTEMD
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int SYSTEMD_VALUE = 4;
+
+    /**
      * An array of all the '<em><b>Startup Mechanism</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final StartupMechanism[] VALUES_ARRAY = new StartupMechanism[] { DEFAULT, UPSTART, REDHAT_SYSV, LSB_SYSV, };
+    private static final StartupMechanism[] VALUES_ARRAY = new StartupMechanism[] { DEFAULT, UPSTART, REDHAT_SYSV, LSB_SYSV, SYSTEMD, };
 
     /**
      * A public read-only list of all the '<em><b>Startup Mechanism</b></em>' enumerators.
@@ -204,6 +228,8 @@ public enum StartupMechanism implements Enumerator
                 return REDHAT_SYSV;
             case LSB_SYSV_VALUE:
                 return LSB_SYSV;
+            case SYSTEMD_VALUE:
+                return SYSTEMD;
         }
         return null;
     }

@@ -1229,6 +1229,7 @@
       <eLiterals name="UPSTART" value="1"/>
       <eLiterals name="REDHAT_SYSV" value="2"/>
       <eLiterals name="LSB_SYSV" value="3"/>
+      <eLiterals name="SYSTEMD" value="4" literal="SYSTEMD"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Mappings">
       <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
