@@ -1,0 +1,11 @@
+[Unit]
+Description=Equinox application @@appName@@
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/scada.app.@@appName@@.launcher
+StandardOutput=null
+User=eclipsescada
+
+[Install]
+WantedBy=multi-user.target

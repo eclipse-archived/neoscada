@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -33,6 +33,7 @@ import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.LSBSystemVHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.RedhatSystemVHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.SystemdHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.UpstartHandler;
 import org.eclipse.scada.configuration.world.lib.setup.SubModuleHandler;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
@@ -206,6 +207,8 @@ public abstract class CommonPackageHandler extends CommonHandler
                 return new UpstartHandler ( this.deploy.getOperatingSystem () );
             case LSB_SYSV:
                 return new LSBSystemVHandler ();
+            case SYSTEMD:
+                return new SystemdHandler ();
             case DEFAULT:
                 return null; // we ran of options here
         }
@@ -270,6 +273,56 @@ public abstract class CommonPackageHandler extends CommonHandler
         }
         SubModuleHandler.runSetup ( context, deploy.getAdditionalSetupModules (), deploy.getOperatingSystem () );
         monitor.done ();
+    }
+
+    protected String createStopApps ()
+    {
+        final StringBuilder sb = new StringBuilder ();
+        stopApplications ( sb );
+        return sb.toString ();
+    }
+
+    protected String createStartApps ()
+    {
+        final StringBuilder sb = new StringBuilder ();
+        startApplications ( sb );
+        return sb.toString ();
+    }
+
+    protected void startApplications ( final StringBuilder sb )
+    {
+        final ScriptMaker sm = new ScriptMaker ( getStartupHandler () );
+
+        for ( final String driver : makeDriverList () )
+        {
+            sm.appendStartDriver ( sb, driver );
+        }
+
+        if ( this.deploy.isAutomaticCreate () )
+        {
+            for ( final String app : makeEquinoxList () )
+            {
+                sm.appendStartApp ( sb, app );
+            }
+        }
+    }
+
+    protected void stopApplications ( final StringBuilder sb )
+    {
+        final ScriptMaker sm = new ScriptMaker ( getStartupHandler () );
+
+        for ( final String driver : makeDriverList () )
+        {
+            sm.appendStopDriver ( sb, driver );
+        }
+
+        if ( this.deploy.isAutomaticCreate () )
+        {
+            for ( final String app : makeEquinoxList () )
+            {
+                sm.appendStopApp ( sb, app );
+            }
+        }
     }
 
 }

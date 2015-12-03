@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -39,6 +39,7 @@ import org.eclipse.scada.configuration.world.lib.deployment.CommonHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.Contents;
 import org.eclipse.scada.configuration.world.lib.deployment.ScoopFilesVisitor;
+import org.eclipse.scada.configuration.world.lib.deployment.ScriptMaker;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
 import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
@@ -49,6 +50,8 @@ import com.google.common.io.CharStreams;
 public class DebianHandler extends CommonPackageHandler
 {
     private static final String CONTROL_SCRIPTS_DIR = "/usr/lib/eclipsescada/packagescripts";
+
+    private static final String NL = "\n";
 
     private final DebianDeploymentMechanism deploy;
 
@@ -125,10 +128,12 @@ public class DebianHandler extends CommonPackageHandler
 
             try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
             {
-                replacements.put ( "postinst.scripts", context.getPostInstallationString () + "\n" + createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-                replacements.put ( "preinst.scripts", context.getPreInstallationString () + "\n" + createUserScriptCallbacks ( packageFolder, "preinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-                replacements.put ( "prerm.scripts", context.getPreRemovalString () + "\n" + createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-                replacements.put ( "postrm.scripts", context.getPostRemovalString () + "\n" + createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                final ScriptMaker sm = new ScriptMaker ( getStartupHandler () );
+
+                replacements.put ( "postinst.scripts", context.getPostInstallationString () + NL + createUserScriptCallbacks ( packageFolder, "postinst" ) + sm.makePostInst () ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "preinst.scripts", context.getPreInstallationString () + NL + createUserScriptCallbacks ( packageFolder, "preinst" + sm.makePreInst () ) ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "prerm.scripts", context.getPreRemovalString () + NL + createUserScriptCallbacks ( packageFolder, "prerm" ) + sm.makePreRem () ); //$NON-NLS-1$ //$NON-NLS-2$
+                replacements.put ( "postrm.scripts", context.getPostRemovalString () + NL + createUserScriptCallbacks ( packageFolder, "postrm" + sm.makePostRem () ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
                 deb.setPostinstScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
                 deb.setPostrmScript ( Contents.createContent ( CommonHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
@@ -228,98 +233,14 @@ public class DebianHandler extends CommonPackageHandler
         return StringHelper.join ( result, ", " ); //$NON-NLS-1$
     }
 
-    private String createStopApps ()
-    {
-        final StringBuilder sb = new StringBuilder ();
-        stopApplications ( sb );
-        return sb.toString ();
-    }
-
-    private String createStartApps ()
-    {
-        final StringBuilder sb = new StringBuilder ();
-        startApplications ( sb );
-        return sb.toString ();
-    }
-
-    protected void startApplications ( final StringBuilder sb )
-    {
-        final StartupHandler sh = getStartupHandler ();
-        if ( sh == null )
-        {
-            return;
-        }
-
-        for ( final String driver : makeDriverList () )
-        {
-            final String cmd = sh.startDriverCommand ( driver );
-            if ( cmd == null )
-            {
-                continue;
-            }
-
-            sb.append ( String.format ( "    %s || echo failed to start %s", cmd, driver ) ); //$NON-NLS-1$
-            sb.append ( '\n' );
-        }
-
-        if ( this.deploy.isAutomaticCreate () )
-        {
-            for ( final String app : makeEquinoxList () )
-            {
-                final String cmd = sh.startEquinoxCommand ( app );
-                if ( cmd == null )
-                {
-                    continue;
-                }
-
-                sb.append ( String.format ( "    %s || echo failed to start %s", cmd, app ) ); //$NON-NLS-1$
-                sb.append ( '\n' );
-            }
-        }
-    }
-
-    protected void stopApplications ( final StringBuilder sb )
-    {
-        final StartupHandler sh = getStartupHandler ();
-        if ( sh == null )
-        {
-            return;
-        }
-
-        for ( final String driver : makeDriverList () )
-        {
-            final String cmd = sh.stopDriverCommand ( driver );
-            if ( cmd == null )
-            {
-                continue;
-            }
-            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, driver ) ); //$NON-NLS-1$
-            sb.append ( '\n' );
-        }
-
-        if ( this.deploy.isAutomaticCreate () )
-        {
-            for ( final String app : makeEquinoxList () )
-            {
-                final String cmd = sh.stopEquinoxCommand ( app );
-                if ( cmd == null )
-                {
-                    continue;
-                }
-                sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, app ) ); //$NON-NLS-1$
-                sb.append ( '\n' );
-            }
-        }
-    }
-
     /*
     private String createChangeLog ( final String packageName, final List<ChangeEntry> changes )
     {
         final StringBuilder sb = new StringBuilder ();
-
+    
         final ArrayList<ChangeEntry> sortedChanges = new ArrayList<> ( changes );
         Collections.sort ( sortedChanges, new ChangeEntryComparator ( true ) );
-
+    
         for ( final ChangeEntry entry : sortedChanges )
         {
             sb.append ( String.format ( "%s (%s) stable; urgency=low\n", packageName, entry.getVersion () ) );
@@ -327,15 +248,15 @@ public class DebianHandler extends CommonPackageHandler
             sb.append ( "  * " + entry.getDescription () );
             sb.append ( '\n' );
             sb.append ( '\n' ); // additional empty line
-
+    
             try ( Formatter f = new Formatter ( sb, Locale.ENGLISH ) )
             {
                 f.format ( " -- %1$s <%2$s>  %3$ta, %3$te %3$tb %3$tY %3$tT %3$tz", entry.getAuthor ().getName (), entry.getAuthor ().getEmail (), entry.getDate () );
             }
-
+    
             sb.append ( "\n\n" );
         }
-
+    
         return sb.toString ();
     }
      */

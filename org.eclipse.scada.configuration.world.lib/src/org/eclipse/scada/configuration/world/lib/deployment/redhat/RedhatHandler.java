@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,6 +34,7 @@ import org.eclipse.scada.configuration.world.lib.deployment.CommonHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
 import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
+import org.eclipse.scada.configuration.world.lib.deployment.ScriptMaker;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
@@ -43,7 +44,6 @@ import org.slf4j.LoggerFactory;
 
 public class RedhatHandler extends CommonPackageHandler
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( RedhatHandler.class );
 
     private final RedhatDeploymentMechanism deploy;
@@ -101,8 +101,8 @@ public class RedhatHandler extends CommonPackageHandler
         replacements.put ( "version", version ); //$NON-NLS-1$
         replacements.put ( "qualifier", qualifier ); //$NON-NLS-1$
         replacements.put ( "changeLog", makeChangeLog ( this.deploy.getChanges () ) ); //$NON-NLS-1$
-        replacements.put ( "stop.apps", makeStop () ); //$NON-NLS-1$
-        replacements.put ( "start.apps", makeStart () ); //$NON-NLS-1$
+        replacements.put ( "start.apps", createStartApps () ); //$NON-NLS-1$
+        replacements.put ( "stop.apps", createStopApps () ); //$NON-NLS-1$
         replacements.put ( "create.apps", makeCreate ( this.deploy ) ); //$NON-NLS-1$
         replacements.put ( "license", this.deploy.getLicense () ); //$NON-NLS-1$
 
@@ -113,10 +113,12 @@ public class RedhatHandler extends CommonPackageHandler
 
         // create spec file - all content must be known
 
-        replacements.put ( "postinst.scripts", context.getPostInstallationString () );
-        replacements.put ( "preinst.scripts", context.getPreInstallationString () );
-        replacements.put ( "postrem.scripts", context.getPostRemovalString () );
-        replacements.put ( "prerem.scripts", context.getPreRemovalString () );
+        final ScriptMaker sm = new ScriptMaker ( getStartupHandler () );
+
+        replacements.put ( "postinst.scripts", context.getPostInstallationString () + sm.makePostInst () );
+        replacements.put ( "preinst.scripts", context.getPreInstallationString () + sm.makePreInst () );
+        replacements.put ( "postrem.scripts", context.getPostRemovalString () + sm.makePostRem () );
+        replacements.put ( "prerem.scripts", context.getPreRemovalString () + sm.makePreRem () );
 
         replacements.put ( "files", makeFiles ( context.getFiles (), context.getDirectories () ) ); //$NON-NLS-1$
         replacements.put ( "depends", makeDependencies ( context.getDependencies () ) );
@@ -162,56 +164,6 @@ public class RedhatHandler extends CommonPackageHandler
         }
 
         nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
-    }
-
-    private String makeStop ()
-    {
-        final StartupHandler sh = getStartupHandler ();
-        if ( sh == null )
-        {
-            return "";
-        }
-
-        final StringBuilder sb = new StringBuilder ();
-        for ( final String driver : makeDriverList () )
-        {
-            sb.append ( sh.stopDriverCommand ( driver ) + " || true" );
-            sb.append ( "\n" ); //$NON-NLS-1$
-        }
-        if ( this.deploy.isAutomaticCreate () )
-        {
-            for ( final String app : makeEquinoxList () )
-            {
-                sb.append ( sh.stopEquinoxCommand ( app ) + " || true" );
-                sb.append ( "\n" ); //$NON-NLS-1$
-            }
-        }
-        return sb.toString ();
-    }
-
-    private String makeStart ()
-    {
-        final StartupHandler sh = getStartupHandler ();
-        if ( sh == null )
-        {
-            return "";
-        }
-
-        final StringBuilder sb = new StringBuilder ();
-        for ( final String driver : makeDriverList () )
-        {
-            sb.append ( sh.startDriverCommand ( driver ) + " || true" );
-            sb.append ( "\n" ); //$NON-NLS-1$
-        }
-        if ( this.deploy.isAutomaticCreate () )
-        {
-            for ( final String app : makeEquinoxList () )
-            {
-                sb.append ( sh.startEquinoxCommand ( app ) + " || true" );
-                sb.append ( "\n" ); //$NON-NLS-1$
-            }
-        }
-        return sb.toString ();
     }
 
     private String makeDependencies ( final Set<String> additional )

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,7 +22,7 @@ import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
 import org.eclipse.scada.configuration.world.lib.deployment.OperatingSystemDescriptors;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
 
-public class UpstartHandler implements StartupHandler
+public class UpstartHandler extends AbstractStartupHandler
 {
 
     private final OperatingSystemDescriptor operatingSystem;
@@ -57,27 +57,27 @@ public class UpstartHandler implements StartupHandler
     }
 
     @Override
-    public String startDriverCommand ( final String driverName )
+    public String[] startDriverCommand ( final String driverName )
     {
-        return "start scada.driver." + driverName;
+        return new String[] { "start scada.driver." + driverName };
     }
 
     @Override
-    public String stopDriverCommand ( final String driverName )
+    public String[] stopDriverCommand ( final String driverName )
     {
-        return "stop scada.driver." + driverName;
+        return new String[] { "stop scada.driver." + driverName };
     }
 
     @Override
-    public String startEquinoxCommand ( final String appName )
+    public String[] startEquinoxCommand ( final String appName )
     {
-        return "start scada.app." + appName;
+        return new String[] { "start scada.app." + appName };
     }
 
     @Override
-    public String stopEquinoxCommand ( final String appName )
+    public String[] stopEquinoxCommand ( final String appName )
     {
-        return "stop scada.app." + appName;
+        return new String[] { "stop scada.app." + appName };
     }
 
     @Override

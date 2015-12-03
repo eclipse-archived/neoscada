@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,13 +22,21 @@ public interface StartupHandler
 
     public void createEquinox ( DeploymentContext context, String appName, Map<String, String> replacements, IProgressMonitor monitor ) throws Exception;
 
-    public String startDriverCommand ( String driverName );
+    public String[] startDriverCommand ( String driverName );
 
-    public String stopDriverCommand ( String driverName );
+    public String[] stopDriverCommand ( String driverName );
 
-    public String startEquinoxCommand ( String appName );
+    public String[] startEquinoxCommand ( String appName );
 
-    public String stopEquinoxCommand ( String appName );
+    public String[] stopEquinoxCommand ( String appName );
 
     public Set<String> getAdditionalPackageDependencies ();
+
+    public String[] preinstCommands ();
+
+    public String[] postinstCommands ();
+
+    public String[] preremCommands ();
+
+    public String[] postremCommands ();
 }

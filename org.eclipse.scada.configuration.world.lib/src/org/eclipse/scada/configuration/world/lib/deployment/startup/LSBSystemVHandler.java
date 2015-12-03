@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2015 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,7 +20,7 @@ import org.eclipse.scada.configuration.world.lib.deployment.Contents;
 import org.eclipse.scada.configuration.world.lib.deployment.DeploymentContext;
 import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
 
-public class LSBSystemVHandler implements StartupHandler
+public class LSBSystemVHandler extends AbstractStartupHandler
 {
 
     private static Pattern ALT_PATTERN = Pattern.compile ( "\\@\\@(.*?)\\@\\@" ); //$NON-NLS-1$
@@ -39,27 +39,27 @@ public class LSBSystemVHandler implements StartupHandler
     }
 
     @Override
-    public String startDriverCommand ( final String driverName )
+    public String[] startDriverCommand ( final String driverName )
     {
-        return "/etc/init.d/scada.driver." + driverName + " start";
+        return new String[] { "/etc/init.d/scada.driver." + driverName + " start" };
     }
 
     @Override
-    public String stopDriverCommand ( final String driverName )
+    public String[] stopDriverCommand ( final String driverName )
     {
-        return "/etc/init.d/scada.driver." + driverName + " stop";
+        return new String[] { "/etc/init.d/scada.driver." + driverName + " stop" };
     }
 
     @Override
-    public String startEquinoxCommand ( final String appName )
+    public String[] startEquinoxCommand ( final String appName )
     {
-        return "/etc/init.d/scada.app." + appName + " start";
+        return new String[] { "/etc/init.d/scada.app." + appName + " start" };
     }
 
     @Override
-    public String stopEquinoxCommand ( final String appName )
+    public String[] stopEquinoxCommand ( final String appName )
     {
-        return "/etc/init.d/scada.app." + appName + " stop";
+        return new String[] { "/etc/init.d/scada.app." + appName + " stop" };
     }
 
     @Override
