@@ -70,8 +70,8 @@ public class SystemdHandler extends AbstractStartupHandler
     public String[] stopEquinoxCommand ( final String appName )
     {
         return new String[] { //
-                String.format ( "systemctl disable \"scada.app.%s\".service", appName ), //
-                String.format ( "systemctl stop \"scada.app.%s\"", appName ) //
+                String.format ( "systemctl --no-reload disable \"scada.app.%s\".service", appName ), //
+                String.format ( "systemctl stop \"scada.app.%s\".service", appName ) //
         };
     }
 

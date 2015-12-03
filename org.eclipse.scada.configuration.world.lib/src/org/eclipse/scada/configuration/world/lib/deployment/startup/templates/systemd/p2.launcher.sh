@@ -3,4 +3,4 @@
 . /etc/default/eclipsescada
 
 cd ~eclipsescada/"@@appName@@"
-exec screen -d -m -S "@@appName@@" ./launcher
+exec screen -D -m -S "@@appName@@" ./launcher
