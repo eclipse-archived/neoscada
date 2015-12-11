@@ -9,14 +9,14 @@
    <feature url="features/org.eclipse.scada.vi.editors_0.3.0.qualifier.jar" id="org.eclipse.scada.vi.editors" version="0.3.0.qualifier">
       <category name="org.eclipse.scada.hmi.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.hmi.category" label="Eclipse SCADA Human Machine Interface (Incubation)">
+   <category-def name="org.eclipse.scada.hmi.category" label="Eclipse NeoSCADA Human Machine Interface (Incubation)">
       <description>
-         The Eclipse SCADA Human Machine Interface
+         The Eclipse NeoSCADA Human Machine Interface
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.hmi.sdk.category" label="Eclipse SCADA Human Machine Interface SDK (Incubation)">
+   <category-def name="org.eclipse.scada.hmi.sdk.category" label="Eclipse NeoSCADA Human Machine Interface SDK (Incubation)">
       <description>
-         Binaries and sources of the The Eclipse SCADA Human Machine Interface
+         Binaries and sources of the The Eclipse NeoSCADA Human Machine Interface
       </description>
    </category-def>
 </site>
