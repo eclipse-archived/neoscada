@@ -20,7 +20,7 @@
     
     <property name="global.hudson.buildNumber" value="lastSuccessfulBuild"/>
     
-    <property name="global.hudson.root" value="https://hudson.eclipse.org/hudson"/>
+    <property name="global.hudson.root" value="https://hudson.eclipse.org/shared"/>
     <property name="global.hudson.job" value="EclipseSCADA-Installer-Windows"/>
     <property name="global.hudson.download" value="${global.hudson.root}/job/${global.hudson.job}/${global.hudson.buildNumber}/artifact"/>
     
