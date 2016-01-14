@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <Include>
 
-<?define ProductName = "Eclipse SCADA Admin Client" ?>
+<?define ProductName = "Eclipse NeoSCADA Admin Client" ?>
 
 <?if $(var.Platform) = x64 ?>
 	<?define Win64 = "yes" ?>
