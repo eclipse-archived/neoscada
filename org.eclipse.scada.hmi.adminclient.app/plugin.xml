@@ -37,13 +37,13 @@
          </property>
       	<property
             name="introTitle"
-            value="Welcome to the Eclipse SCADA Admin Client"/>
+            value="Welcome to the Eclipse NeoSCADA Admin Client"/>
          <property
                name="introBrandingImage"
                value="product:branding/about.png"/>
           <property
        	       name="introBrandingImageText"
-               value="Eclipse SCADA Admin Client"/>
+               value="Eclipse NeoSCADA Admin Client"/>
          <property
                name="aboutText"
                value="%productBlurb">
@@ -54,7 +54,7 @@
        </property>
          <property
                name="appName"
-               value="Eclipse SCADA Admin Client (Incubation)">
+               value="Eclipse NeoSCADA Admin Client (Incubation)">
          </property>
  		<property
 				name="cssTheme"
