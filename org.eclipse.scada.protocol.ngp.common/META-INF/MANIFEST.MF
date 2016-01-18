@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol Common (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.ngp.common
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.protocol.ngp.common;version="0.1.0";
   uses:="org.apache.mina.filter.ssl,
