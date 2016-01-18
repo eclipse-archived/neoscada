@@ -8,9 +8,8 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
- *     IBH SYSTEMS GmbH - cleanups and fixes
+ *     IBH SYSTEMS GmbH - cleanups and fixes, add "requireSsl"
  *******************************************************************************/
-
 package org.eclipse.scada.protocol.ngp.common;
 
 import java.util.LinkedList;
@@ -41,6 +40,8 @@ public class ProtocolConfiguration
     private int timeout = 10000;
 
     private SslContextFactory sslContextFactory;
+
+    private boolean sslRequired = false;
 
     private List<String> preferredProtocols = new LinkedList<String> ();
 
@@ -101,6 +102,16 @@ public class ProtocolConfiguration
     public SslContextFactory getSslContextFactory ()
     {
         return this.sslContextFactory;
+    }
+
+    public void setSslRequired ( final boolean sslRequired )
+    {
+        this.sslRequired = sslRequired;
+    }
+
+    public boolean isSslRequired ()
+    {
+        return this.sslRequired;
     }
 
     public void setPingFrequency ( final int pingFrequency )

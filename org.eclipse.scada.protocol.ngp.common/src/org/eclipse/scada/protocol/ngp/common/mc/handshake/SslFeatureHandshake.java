@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,9 +8,8 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
- *     IBH SYSTEMS GmbH - minor fixes
+ *     IBH SYSTEMS GmbH - minor fixes, allow requiring SSL
  *******************************************************************************/
-
 package org.eclipse.scada.protocol.ngp.common.mc.handshake;
 
 import java.util.Map;
@@ -27,6 +26,10 @@ public class SslFeatureHandshake extends AbstractHandshake
         {
             helloProperties.put ( "requestSsl", "true" );
         }
+        else if ( context.getProtocolConfiguration ().isSslRequired () )
+        {
+            throw new IllegalStateException ( "SSL is required by the client but not configured" );
+        }
     }
 
     @Override
@@ -34,7 +37,14 @@ public class SslFeatureHandshake extends AbstractHandshake
     {
         if ( context.getProtocolConfiguration ().getSslContextFactory () == null )
         {
-            // we cannot do SSL ... client may choose to close
+            // we cannot do SSL
+            if ( context.getProtocolConfiguration ().isSslRequired () )
+            {
+                // ... but we must
+                throw new IllegalStateException ( "Server requires SSL" );
+            }
+
+            // ... client may choose to close
             return;
         }
 
@@ -44,7 +54,7 @@ public class SslFeatureHandshake extends AbstractHandshake
             return;
         }
 
-        // we can do ssl and it was requested
+        // we can do SSL and it was requested
         acceptedProperties.put ( "useSsl", "true" );
     }
 
@@ -53,11 +63,15 @@ public class SslFeatureHandshake extends AbstractHandshake
     {
         if ( !getBoolean ( acceptedProperties, "useSsl", Boolean.FALSE ) )
         {
+            if ( context.getProtocolConfiguration ().isSslRequired () )
+            {
+                throw new IllegalStateException ( "SSL required by the client, but not supported by the server" );
+            }
             return;
         }
         /*
-         * If we start ssl and are in server mode the first packet needs to be sent outside of ssl.
-         * In client mode the next (first) packet will already be SSL.
+         * If we start SSL and are in server mode the first packet (which is the handshake reply)
+         * needs to be sent outside of SSL. In client mode the next (first) packet will already be SSL.
          */
         new ChainConfigurator ( context.getSession () ).startSsl ( !context.isClientMode (), context.isClientMode () );
     }

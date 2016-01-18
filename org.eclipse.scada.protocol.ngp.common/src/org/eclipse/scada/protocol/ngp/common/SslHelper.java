@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add "requireSsl"
  *******************************************************************************/
 package org.eclipse.scada.protocol.ngp.common;
 
@@ -41,27 +42,41 @@ public final class SslHelper
         return defaultValue;
     }
 
+    public static boolean isSslRequired ( final Map<String, String> properties )
+    {
+        return properties.containsKey ( "requireSsl" ) && properties.get ( "requireSsl" ) != null && Boolean.parseBoolean ( properties.get ( "requireSsl" ) );
+    }
+
     // FIXME: this should be able to reload at some point, maybe mina does it. need to check.
     public static SslContextFactory createDefaultSslFactory ( final Map<String, String> properties, final boolean clientMode ) throws Exception
     {
-        final boolean requireSsl = properties.containsKey ( "requireSsl" ) && properties.get ( "requireSsl" ) != null && Boolean.parseBoolean ( properties.get ( "requireSsl" ) );
+        final boolean requireSsl = isSslRequired ( properties );
 
-        final String defaultKeyStoreFile = System.getProperty ( "user.home" ) + "/.eclipseScada/keystore";
+        final File defaultKeyStoreFile = findDefaultKeyStore ();
 
-        String keyStoreFile = get ( properties, "sslKeyStoreFile", null );
-        if ( keyStoreFile == null && !new File ( defaultKeyStoreFile ).canRead () && !requireSsl )
+        final String keyStoreFileName = get ( properties, "sslKeyStoreFile", null );
+        File keyStoreFile = keyStoreFileName != null ? new File ( keyStoreFileName ) : null;
+
+        if ( keyStoreFile == null && defaultKeyStoreFile == null && !requireSsl )
         {
             // no STATS_KEY store provided and no default key store found
             // no ssl
             return null;
         }
-        if ( keyStoreFile == null )
+        if ( keyStoreFile == null && defaultKeyStoreFile != null )
         {
+            // no specific key store file and default key store file exists and is readable
             logger.debug ( "Using default key store file: {}", defaultKeyStoreFile );
             keyStoreFile = defaultKeyStoreFile;
         }
 
-        final String trustStoreFile = get ( properties, "sslTrustStoreFile", keyStoreFile );
+        if ( keyStoreFile == null )
+        {
+            // no key store to use
+            return null;
+        }
+
+        final String trustStoreFile = get ( properties, "sslTrustStoreFile", keyStoreFile.getAbsolutePath () );
 
         final String password = get ( properties, "sslPassword", null );
 
@@ -82,7 +97,7 @@ public final class SslHelper
         logger.debug ( "Default TrustManagerFactory: {}", TrustManagerFactory.getDefaultAlgorithm () );
 
         final KeyStoreFactory keyStoreFactory = new KeyStoreFactory ();
-        keyStoreFactory.setDataFile ( new File ( keyStoreFile ) );
+        keyStoreFactory.setDataFile ( keyStoreFile );
         keyStoreFactory.setPassword ( keyStorePassword );
 
         final KeyStoreFactory trustStoreFactory = new KeyStoreFactory ();
@@ -95,5 +110,50 @@ public final class SslHelper
         factory.setKeyManagerFactoryKeyStorePassword ( keyPassword );
 
         return factory;
+    }
+
+    private static File findDefaultKeyStore ()
+    {
+        File file;
+
+        file = testKeyStore ( System.getProperty ( "user.home" ) + "/.eclipseScada/keystore" );
+        if ( file != null )
+        {
+            return file;
+        }
+
+        file = testKeyStore ( System.getProperty ( "user.home" ) + "/.eclipse.scada/keystore" );
+        if ( file != null )
+        {
+            return file;
+        }
+
+        file = testKeyStore ( System.getProperty ( "java.home" ) + "/lib/security/cacerts" );
+        if ( file != null )
+        {
+            return file;
+        }
+
+        return null;
+    }
+
+    private static File testKeyStore ( final String name )
+    {
+        logger.debug ( "Testing: {}", name );
+
+        if ( name == null )
+        {
+            return null;
+        }
+
+        final File file = new File ( name );
+        if ( !file.canRead () )
+        {
+            return null;
+        }
+
+        logger.info ( "Considering: {}", name );
+
+        return file;
     }
 }
