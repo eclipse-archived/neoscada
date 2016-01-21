@@ -70,8 +70,6 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2015051921075
 	org.apache.commons.pool.source[1.6.0,1.6.1)
 	org.apache.commons.httpclient[3.1.0,3.1.1)
 	org.apache.commons.httpclient.source[3.1.0,3.1.1)
-	org.apache.commons.io[2.0.1,2.0.2)
-	org.apache.commons.io.source[2.0.1,2.0.2)
 	
 	org.apache.poi[3.9.0,3.9.1)
 	org.apache.poi.source[3.9.0,3.9.1)
