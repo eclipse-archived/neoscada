@@ -7,8 +7,7 @@ Bundle-Activator: org.eclipse.scada.hd.server.storage.master.hds.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.apache.felix.gogo.runtime;bundle-version="0.8.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.apache.commons.io;version="2.0.1",
- org.eclipse.scada.core;version="0.1.0",
+Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.da.client;version="0.1.0",
  org.eclipse.scada.hd;version="0.1.0",
  org.eclipse.scada.hd.data;version="0.1.0",
@@ -18,6 +17,7 @@ Import-Package: org.apache.commons.io;version="2.0.1",
  org.eclipse.scada.hd.server.storage.hds;version="0.1.0",
  org.eclipse.scada.hds;version="0.1.0",
  org.eclipse.scada.utils.concurrent;version="0.3.0",
+ org.eclipse.scada.utils.io;version="0.3.0",
  org.eclipse.scada.utils.lang;version="0.1.0",
  org.eclipse.scada.utils.str;version="0.1.0",
  org.osgi.framework;version="1.6.0",

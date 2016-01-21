@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,11 +8,13 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - make the storage base, use exported executor
+ *     IBH SYSTEMS GmbH - make the storage base, use exported executor,
+ *                        remove commons.io
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.master.hds;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -21,13 +23,13 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.commons.io.FileUtils;
 import org.eclipse.scada.hd.server.storage.hds.AbstractStorageManager;
 import org.eclipse.scada.hd.server.storage.hds.StorageConfiguration;
 import org.eclipse.scada.hd.server.storage.hds.StorageHelper;
 import org.eclipse.scada.hd.server.storage.hds.StorageInformation;
 import org.eclipse.scada.hds.DataFilePool;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
+import org.eclipse.scada.utils.io.RecursiveDeleteVisitor;
 import org.eclipse.scada.utils.str.StringReplacer;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
@@ -193,7 +195,7 @@ public class StorageManager extends AbstractStorageManager
                 }
             }
 
-            FileUtils.deleteDirectory ( file );
+            Files.walkFileTree ( file.toPath (), RecursiveDeleteVisitor.INSTANCE );
         }
         finally
         {
