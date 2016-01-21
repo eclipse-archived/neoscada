@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA HD Test Server (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.server.test.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.hd;version="0.1.0",

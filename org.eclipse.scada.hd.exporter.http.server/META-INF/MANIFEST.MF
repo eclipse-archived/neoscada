@@ -23,4 +23,4 @@ Import-Package: com.google.gson;version="1.4.0",
  org.osgi.util.tracker;version="1.5.0",
  org.slf4j;version="1.5.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project

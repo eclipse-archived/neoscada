@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Event Handler (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.handler
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.scada.ae.server.handler;version="0.2.0";uses:="org.eclipse.scada.ae"
 Import-Package: org.eclipse.scada.ae;version="0.2.0",

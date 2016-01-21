@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Base IO Functionality (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.io.common
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.server.io.common;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.mina.core.buffer;version="2.0.2",

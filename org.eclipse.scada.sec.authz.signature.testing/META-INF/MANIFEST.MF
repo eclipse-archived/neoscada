@@ -16,4 +16,4 @@ Import-Package: javax.script,
  javax.xml.transform.dom,
  javax.xml.transform.stream,
  org.eclipse.scada.utils.collection;version="0.1.0"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project

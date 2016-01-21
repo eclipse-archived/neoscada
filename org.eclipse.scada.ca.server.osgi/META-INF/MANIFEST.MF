@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA CA Server OSGi (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.server.osgi
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.server.osgi.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.ca.data;version="0.1.0",

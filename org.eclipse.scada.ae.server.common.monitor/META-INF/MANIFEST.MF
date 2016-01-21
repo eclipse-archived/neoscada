@@ -4,7 +4,7 @@ Bundle-Name: Monitor Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.common.monitor
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.common.monitor.internal.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.data;version="0.1.0",

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: HTTP Exporter for HD (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.exporter.http
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.hd.exporter.http;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.google.gson;version="1.4.0",

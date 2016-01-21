@@ -6,14 +6,14 @@
    <feature url="features/org.eclipse.scada.core.sdk_0.3.0.qualifier.jar" id="org.eclipse.scada.core.sdk" version="0.3.0.qualifier">
       <category name="org.eclipse.scada.core.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.core.category" label="Eclipse SCADA Core System (Incubation)">
+   <category-def name="org.eclipse.scada.core.category" label="Eclipse NeoSCADA Core System (Incubation)">
       <description>
-         The core of the Eclipse SCADA system.
+         The core of the Eclipse NeoSCADA system.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.core.sdk.category" label="Eclipse SCADA Core System SDK (Incubation)">
+   <category-def name="org.eclipse.scada.core.sdk.category" label="Eclipse NeoSCADA Core System SDK (Incubation)">
       <description>
-         Binaries and sources of the Eclipse SCADA core system.
+         Binaries and sources of the Eclipse NeoSCADA core system.
       </description>
    </category-def>
 </site>

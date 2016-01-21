@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol AE (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.protocol.ngp.codec
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ae.protocol.ngp.codec;version="0.1.0";
   uses:="org.eclipse.scada.protocol.ngp.common.mc.protocol,
    org.eclipse.scada.protocol.ngp.common.utils,

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Common DA Server Components (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.common
 Bundle-Version: 0.3.0.qualifier
-Bundle-Vendor: %providerName
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.server.browser.common;version="0.1.0";uses:="org.eclipse.scada.da.core.browser,org.eclipse.scada.da.server.common,org.eclipse.scada.da.core",
  org.eclipse.scada.da.server.browser.common.query;version="0.1.0";uses:="org.eclipse.scada.da.server.common,org.eclipse.scada.da.server.browser.common",
  org.eclipse.scada.da.server.common;version="0.1.0";

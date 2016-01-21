@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol AE Data (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.data
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ae.data;version="0.1.0";uses:="org.eclipse.scada.core",
  org.eclipse.scada.ae.data.message;version="0.1.0";uses:="org.eclipse.scada.ae.data,org.eclipse.scada.core.data"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

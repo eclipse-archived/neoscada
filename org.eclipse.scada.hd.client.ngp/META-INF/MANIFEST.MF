@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA NextGenerationProtocol HD Client Connection (Incubati
 Bundle-SymbolicName: org.eclipse.scada.hd.client.ngp
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.client.ngp.internal.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.hd.client.ngp;version="0.2.0";
   uses:="org.eclipse.scada.core.client.ngp,
    org.eclipse.scada.hd.data,

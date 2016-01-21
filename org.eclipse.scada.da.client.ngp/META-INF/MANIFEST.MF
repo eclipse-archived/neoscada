@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA NextGenerationProtocol DA Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.client.ngp
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.client.ngp.internal.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.client.ngp;version="0.2.0";
   uses:="org.eclipse.scada.utils.concurrent,
    org.eclipse.scada.core.client.ngp,

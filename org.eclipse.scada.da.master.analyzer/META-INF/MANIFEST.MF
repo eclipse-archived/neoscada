@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Master Server Analyzer (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.master.analyzer
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.master.analyzer.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.google.gson;version="1.7.1",
  org.eclipse.scada.core;version="0.1.0",

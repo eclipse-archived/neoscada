@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA Event Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.event
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.event.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ae.event;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.ae;version="0.1.0",

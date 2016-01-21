@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Core Connection Provider (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.connection.provider
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.core.connection.provider;version="0.1.0",
  org.eclipse.scada.core.connection.provider.info;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

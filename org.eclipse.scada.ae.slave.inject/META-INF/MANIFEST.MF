@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA AE Slave Import Bundle (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.slave.inject
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.slave.inject.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: com.google.common.collect;version="10.0.0",
  org.eclipse.scada.ae;version="0.1.0",

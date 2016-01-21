@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA AE Filter Support (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.filter
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ae.filter;version="0.1.0",
  org.eclipse.scada.ae.filter.internal;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Configuration Admin Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca
 Bundle-Version: 0.3.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ca;version="0.3.0";
   uses:="org.eclipse.scada.core,
    org.eclipse.scada.ca.data,

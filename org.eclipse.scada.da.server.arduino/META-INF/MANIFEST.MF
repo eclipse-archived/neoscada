@@ -4,7 +4,7 @@ Bundle-Name: Arduino DA Server (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.arduino
 Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.arduino.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.mina.core.service;version="2.0.2",
  org.eclipse.scada.ca;version="0.1.0",

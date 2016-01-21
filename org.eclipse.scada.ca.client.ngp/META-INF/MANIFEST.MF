@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA NextGenerationProtocol CA Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.client.ngp
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.client.ngp.internal.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ca.client.ngp;version="0.2.0",
  org.eclipse.scada.ca.client.ngp.internal;version="0.2.0";x-friends:="org.eclipse.scada.ca.ui.connection.creator.ngp"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

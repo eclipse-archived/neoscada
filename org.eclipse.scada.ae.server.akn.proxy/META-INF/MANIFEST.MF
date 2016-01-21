@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA AE Proxy Acknownledge (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.akn.proxy
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.akn.proxy.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.client;version="0.1.0",

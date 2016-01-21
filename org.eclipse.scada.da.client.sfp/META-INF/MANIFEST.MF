@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Small Footprint Protocol (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.client.sfp
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.client.sfp.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.client.sfp;version="0.2.0";
   uses:="org.openscada.core.client,
    org.openscada.core.client.common,

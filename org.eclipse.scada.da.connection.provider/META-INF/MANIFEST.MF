@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Connection Provider (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.connection.provider
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.connection.provider.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.connection.provider;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.core;version="0.1.0",

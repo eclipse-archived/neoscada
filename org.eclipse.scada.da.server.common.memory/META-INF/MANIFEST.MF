@@ -4,7 +4,7 @@ Bundle-Name: Base functionality for memory block based servers (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.common.memory
 Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.common.memory.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.server.common.memory;version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: com.google.common.collect;version="10.0.1",

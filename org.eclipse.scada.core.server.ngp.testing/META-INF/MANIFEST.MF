@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA NextGenerationProtocol Core Server Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.server.ngp.testing;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.core.server.ngp.testing.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.equinox.app;bundle-version="1.3.100"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.mina.core.session;version="[2.0.2,3.0.0)",

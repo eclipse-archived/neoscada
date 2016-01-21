@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: AE Common Monitors Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.monitor.common
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ae.monitor.common;version="0.1.0",
  org.eclipse.scada.ae.monitor.common.level;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA HDS Implemenation of HD (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.storage.hds
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.hd.server.storage.hds;version="0.2.0";
   uses:="org.eclipse.scada.hd.server.common,
    org.eclipse.scada.utils.concurrent,

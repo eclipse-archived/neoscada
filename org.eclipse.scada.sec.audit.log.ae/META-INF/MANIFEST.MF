@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA AE Audit Log (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.audit.log.ae
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Service-Component: OSGI-INF/service.xml
 Import-Package: org.eclipse.scada.ae;version="0.1.0",

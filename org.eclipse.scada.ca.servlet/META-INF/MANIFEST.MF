@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA CA Servlet Console Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.servlet
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.servlet.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: javax.servlet;version="2.4.0",
  javax.servlet.http;version="2.4.0",

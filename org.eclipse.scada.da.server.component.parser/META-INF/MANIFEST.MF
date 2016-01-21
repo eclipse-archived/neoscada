@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Component Server Parser Base (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.component.parser
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.scada.da.server.component.parser;version="0.2.0"
 Import-Package: org.eclipse.scada.base.extractor.extract;version="0.2.0",

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Historical Data (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.hd;version="0.1.0",
  org.eclipse.scada.hd.client;version="0.1.0",
  org.eclipse.scada.hd.server;version="0.1.0"

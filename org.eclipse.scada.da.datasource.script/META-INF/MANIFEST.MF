@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Script DataSource (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.script
 Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.script.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: javax.script,
  org.eclipse.scada.ae.event;version="0.1.0",

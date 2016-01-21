@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA OSGi Hive (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.osgi
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.osgi.internal.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",

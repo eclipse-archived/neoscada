@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Online CA Updater (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.updater
 Bundle-Version: 0.3.0.qualifier
-Bundle-Vendor: IBH SYSTEMS GmbH
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.ca;version="0.2.0",
  org.eclipse.scada.ca.data;version="0.1.0",

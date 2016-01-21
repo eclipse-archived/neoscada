@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA HD Performance Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.perf.test;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.perf.test.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.scada.hd;bundle-version="0.1.0",

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Unit Test for org.eclipsescada.hd.server.storage.common (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.storage.common.tests
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.junit;bundle-version="4.11.0",
  org.eclipse.scada.hd.server.storage.common;bundle-version="0.1.0"

@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Data Source Proxy (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.proxy
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.proxy.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.ca.common.factory;version="0.1.0",
