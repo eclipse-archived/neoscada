@@ -1,8 +1,8 @@
-buildType=R
+buildType=S
 
-release=0.2
+release=0.3
 microVersion=0
-qualifier=
+qualifier=.M3
 buildHelperVersion=0.0.18
 
 branch="$release.x-release"

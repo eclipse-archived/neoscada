@@ -76,6 +76,7 @@
 					<doctitle>Eclipse NeoSCADA ${project.version}</doctitle>
 					<excludePackageNames>org.apache:org.eclipse.scada.ide:org.eclipse.scada.configuration</excludePackageNames>
 					<finalName>org.eclipse.scada</finalName>
+					<additionalparam>-Xdoclint:none</additionalparam>
 				</configuration>
 			</plugin>
 			
