@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA NGP Editor Additions (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.ngp.model.additions;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.protocol.ngp.model.additions.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.scada.protocol.ngp.model;bundle-version="0.1.0",

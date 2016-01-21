@@ -10,7 +10,7 @@
       <content-type
             file-extensions="hds"
             id="org.eclipse.scada.hds.archive"
-            name="Eclipse SCADA HDS Value Archive File"
+            name="Eclipse NeoSCADA HDS Value Archive File"
             priority="normal">
       </content-type>
    </extension>
@@ -22,7 +22,7 @@
             extensions="hds"
             icon="icons/content-hds.png"
             id="org.eclipse.scada.ide.hd.hdsspy.editors.HDSEditor"
-            name="Eclipse SCADA Value Archive Editor">
+            name="Eclipse NeoSCADA Value Archive Editor">
          <contentTypeBinding
                contentTypeId="org.eclipse.scada.hds.archive">
          </contentTypeBinding>

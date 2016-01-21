@@ -4,9 +4,10 @@ Bundle-Name: Component UI (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.ui.component;singleton:=true
 Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.ui.component.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.jface.databinding;bundle-version="1.7.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.core.databinding,
  org.eclipse.core.databinding.beans,
@@ -29,7 +30,6 @@ Import-Package: org.eclipse.core.databinding,
  org.eclipse.emf.ecore,
  org.eclipse.emf.edit.provider,
  org.eclipse.jface.databinding.dialog,
- org.eclipse.jface.databinding.swt,
  org.eclipse.jface.databinding.util,
  org.eclipse.jface.databinding.viewers,
  org.eclipse.scada.configuration.component;version="0.1.0",

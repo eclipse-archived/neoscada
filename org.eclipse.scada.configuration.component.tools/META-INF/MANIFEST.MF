@@ -4,7 +4,7 @@ Bundle-Name: Component Edit Tools (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.tools;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.component.tools.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.expressions,

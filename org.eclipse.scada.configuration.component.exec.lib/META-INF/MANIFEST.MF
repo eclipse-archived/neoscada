@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Exec Component Generator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.exec.lib;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.equinox.registry,
  org.eclipse.emf.common,
  org.eclipse.emf.ecore;bundle-version="2.9.0"

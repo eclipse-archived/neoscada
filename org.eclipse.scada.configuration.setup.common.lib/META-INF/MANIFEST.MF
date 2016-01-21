@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Setup Components Library
 Bundle-SymbolicName: org.eclipse.scada.configuration.setup.common.lib;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.emf;bundle-version="2.6.0",

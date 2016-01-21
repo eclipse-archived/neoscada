@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Parser Driver Generator Handlers
 Bundle-SymbolicName: org.eclipse.scada.configuration.driver.parser.lib;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.scada.configuration.driver.parser;bundle-version="0.2.0"
 Import-Package: org.eclipse.core.resources,

@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA Visual Interface Preview Editor
 Bundle-SymbolicName: org.eclipse.scada.ide.vi.preview.editor;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ide.vi.preview.editor.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.common;bundle-version="2.9.2",

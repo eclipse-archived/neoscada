@@ -21,14 +21,14 @@
    <feature url="features/org.eclipse.scada.ide.sdk_0.3.0.qualifier.jar" id="org.eclipse.scada.ide.sdk" version="0.3.0.qualifier">
       <category name="org.eclipse.scada.configuration.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.configuration.category" label="Eclipse SCADA Configuration (Incubation)">
+   <category-def name="org.eclipse.scada.configuration.category" label="Eclipse NeoSCADA Configuration (Incubation)">
       <description>
-         The Eclipse SCADA IDE Configuration System Components.
+         The Eclipse NeoSCADA IDE Configuration System Components.
 
-Install this if you want to creation configuration projects for using Eclipse SCADA setups.
+Install this if you want to creation configuration projects for using Eclipse NeoSCADA setups.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.configuration.sdk.category" label="Eclipse SCADA IDE Development">
+   <category-def name="org.eclipse.scada.configuration.sdk.category" label="Eclipse NeoSCADA IDE Development">
       <description>
          The SDK and additional development features for the IDE based configuration system.
       </description>

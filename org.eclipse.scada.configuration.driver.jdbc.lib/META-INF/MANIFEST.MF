@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: JDBC Driver Generator (Incubuation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.driver.jdbc.lib;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,

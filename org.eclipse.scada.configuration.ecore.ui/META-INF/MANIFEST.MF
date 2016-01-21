@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA Ecore UI Extensions
 Bundle-SymbolicName: org.eclipse.scada.configuration.ecore.ui
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.ecore.ui.internal.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.edit;bundle-version="2.9.0",

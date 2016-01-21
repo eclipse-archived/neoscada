@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Recipe Library (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.recipe.lib
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: javax.inject;version="1.0.0",
  org.apache.commons.beanutils;version="1.8.0",

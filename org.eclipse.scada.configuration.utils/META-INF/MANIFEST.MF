@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Configuration Utils (Incubation) (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.utils
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.scada.configuration.utils;version="0.1.0";
   uses:="org.eclipse.core.runtime,

@@ -4,7 +4,7 @@ Bundle-Name: HDS Archive Spy (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ide.hd.hdsspy;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ide.hd.hdsspy.Activator
-Bundle-Vendor: Eclipse SCADA
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jface.text,
