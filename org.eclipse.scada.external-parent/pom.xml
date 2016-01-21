@@ -21,7 +21,7 @@
 	<repositories>
 		<repository>
 			<id>repo.eclipse.scada.org</id>
-			<name>Eclipse SCADA Repository</name>
+			<name>Eclipse NeoSCADA Repository</name>
 			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
 			<releases>
 				<enabled>true</enabled>
@@ -53,7 +53,7 @@
 			<repositories>
 				<repository>
 					<id>eclipse.scada.external.wrapper</id>
-					<name>Eclipse SCADA Externals Wrapper</name>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
 					<layout>p2</layout>
 					<url>file:${basedir}/../org.eclipse.scada.external-repo/repo</url>
 				</repository>

@@ -12,6 +12,6 @@
    <feature url="features/org.eclipse.scada.external.wrapper_0.3.0.qualifier.jar" id="org.eclipse.scada.external.wrapper" version="0.3.0.qualifier">
       <category name="org.eclipse.scada.external.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.external.category" label="3rd party libraries used by Eclipse SCADA (Incubation)"/>
-   <category-def name="org.eclipse.scada.external.sdk.category" label="3rd party libraries used by Eclipse SCADA (SDK) (Incubation)"/>
+   <category-def name="org.eclipse.scada.external.category" label="3rd party libraries used by Eclipse NeoSCADA (Incubation)"/>
+   <category-def name="org.eclipse.scada.external.sdk.category" label="3rd party libraries used by Eclipse NeoSCADA (SDK) (Incubation)"/>
 </site>
