@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA SWT Chart View
 Bundle-SymbolicName: org.eclipse.scada.chart.swt
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.chart.swt;version="0.2.0";
   uses:="org.eclipse.scada.chart,
    org.eclipse.jface.resource,
