@@ -14,7 +14,7 @@
 	<packaging>pom</packaging>
 
 	<organization>
-		<name>Eclipse SCADA Project</name>
+		<name>Eclipse NeoSCADA Project</name>
 	</organization>
 	
 	<build>

@@ -4,7 +4,7 @@
      ====================================================================== -->
 <project name="project" default="default">
     <description>
-        MSI Setup build for Eclipse SCADA Admin Client
+        MSI Setup build for Eclipse NeoSCADA Admin Client
     </description>
 
     <property file="local.properties" />

@@ -14,7 +14,7 @@
 	<packaging>pom</packaging>
 
 	<description>
-		Eclipse SCADA base package
+		Eclipse NeoSCADA base package
 	</description>
 
 	<properties>
@@ -37,7 +37,7 @@
 
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
+							<distribution>Eclipse NeoSCADA %{version} (Incubation)</distribution>
 							<group>System Environment/Base</group>
 							<changelogFile>../rpm/changelog</changelogFile>
 						</configuration>

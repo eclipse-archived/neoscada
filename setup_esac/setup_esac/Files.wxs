@@ -19,7 +19,7 @@
 					<Component Id="ApplicationShortcut" Guid="1C3FB379-49BA-4C08-905F-FB1F554B2A8B">
 						<Shortcut Id="ApplicationStartMenuShortcut"
 						          Name="$(var.ProductName)"
-						          Description="The Eclipse SCADA Admin Client"
+						          Description="The Eclipse NeoSCADA Admin Client"
 						          Arguments='-data "%LOCALAPPDATA%\esac"'
 						          Target="[#esac.exe]"/>
 						<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>

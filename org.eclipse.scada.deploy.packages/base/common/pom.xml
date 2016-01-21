@@ -14,7 +14,7 @@
 	<packaging>pom</packaging>
 
 	<description>
-		Eclipse SCADA base package
+		Eclipse NeoSCADA base package
 	</description>
 
 	<properties>
@@ -38,7 +38,7 @@
 						<configuration>
 							<name>org.eclipse.scada</name>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
+							<distribution>Eclipse NeoSCADA %{version} (Incubation)</distribution>
 							<group>System Environment/Base</group>
 							<changelogFile>../rpm/changelog</changelogFile>
 
@@ -142,7 +142,7 @@
 										<script><![CDATA[
 if ! getent passwd "eclipsescada" >/dev/null; then
 	# create new user
-	useradd --system --user-group --home "/var/lib/eclipsescada" --comment "Eclipse SCADA User" "eclipsescada"
+	useradd --system --user-group --home "/var/lib/eclipsescada" --comment "Eclipse NeoSCADA User" "eclipsescada"
 fi
 mkdir -p "/var/lib/eclipsescada"
 chown -R "eclipsescada:eclipsescada" "/var/lib/eclipsescada"

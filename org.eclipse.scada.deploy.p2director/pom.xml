@@ -14,17 +14,17 @@
 	<packaging>eclipse-repository</packaging>
 	
 	<organization>
-		<name>Eclipse SCADA Project</name>
+		<name>Eclipse NeoSCADA Project</name>
 	</organization>
 
 	<description>
-		The Eclipse P2 director application packaged for the Eclipse SCADA system.
+		The Eclipse P2 director application packaged for the Eclipse NeoSCADA system.
 	</description>
 
 	<repositories>
 		<repository>
 			<id>repo.eclipse.scada.org</id>
-			<name>Eclipse SCADA Repository</name>
+			<name>Eclipse NeoSCADA Repository</name>
 			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
 			<releases>
 				<enabled>true</enabled>
@@ -140,7 +140,7 @@
 
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA ${project.version} (Incubation)</distribution>
+							<distribution>Eclipse NeoSCADA ${project.version} (Incubation)</distribution>
 							<group>Application/Misc</group>
 							<changelogFile>rpm/changelog</changelogFile>
 

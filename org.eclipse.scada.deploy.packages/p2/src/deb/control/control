@@ -4,6 +4,6 @@ Section: misc
 Priority: optional
 Architecture: all
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
-Description: Eclipse SCADA base P2 package
+Description: Eclipse NeoSCADA base P2 package
 Distribution: development
 Depends: org.eclipse.scada (>=[[version]]), org.eclipse.scada.deploy.p2director-incubation, python (>= 2.6)

@@ -14,7 +14,7 @@
 	<packaging>pom</packaging>
 
 	<description>
-		Eclipse SCADA base configuration package
+		Eclipse NeoSCADA base configuration package
 	</description>
 
 	<properties>

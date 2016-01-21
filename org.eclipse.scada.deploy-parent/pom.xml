@@ -21,7 +21,7 @@
 	<repositories>
 		<repository>
 			<id>repo.eclipse.scada.org</id>
-			<name>Eclipse SCADA Repository</name>
+			<name>Eclipse NeoSCADA Repository</name>
 			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
 			<releases>
 				<enabled>true</enabled>

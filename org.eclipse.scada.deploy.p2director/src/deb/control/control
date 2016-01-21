@@ -5,5 +5,5 @@ Priority: optional
 Architecture: all
 Depends: org.eclipse.scada
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
-Description: Eclipse SCADA P2 Director
+Description: Eclipse NeoSCADA P2 Director
 Distribution: development

@@ -29,10 +29,10 @@
 
    <requires>
       <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
-      <import feature="org.eclipse.equinox.core.feature" version="1.1.0.v20130529-1710"/>
-      <import feature="org.eclipse.equinox.server.core" version="1.2.0.v20130529-1710"/>
-      <import feature="org.eclipse.equinox.server.jetty" version="1.1.0.v20130429-1600"/>
-      <import feature="org.eclipse.equinox.server.p2" version="1.2.0.v20130604-2047"/>
+      <import feature="org.eclipse.equinox.core.feature" version="1.1.0.v20130529-1710" match="compatible"/>
+      <import feature="org.eclipse.equinox.server.core" version="1.2.0.v20130529-1710" match="compatible"/>
+      <import feature="org.eclipse.equinox.server.jetty" version="1.1.0.v20130429-1600" match="compatible"/>
+      <import feature="org.eclipse.equinox.server.p2" version="1.2.0.v20130604-2047" match="compatible"/>
    </requires>
 
    <plugin

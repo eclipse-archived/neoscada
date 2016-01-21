@@ -9,7 +9,7 @@ case "$1" in
 
 # create $USER user if it isn't already there ...
 		if ! getent passwd "$USER" >/dev/null; then
-	        adduser --system --group --home "/var/lib/$USER" "$USER" --quiet --gecos "Eclipse SCADA User"
+	        adduser --system --group --home "/var/lib/$USER" "$USER" --quiet --gecos "Eclipse NeoSCADA User"
 		fi
 
 # create the home "/var/lib/$USER", just in case ...

@@ -93,7 +93,7 @@
 						
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
+							<distribution>Eclipse NeoSCADA %{version} (Incubation)</distribution>
 							<group>Application/Misc</group>
 							<changelogFile>rpm/changelog</changelogFile>
 							<version>${unqualifiedVersion}</version>

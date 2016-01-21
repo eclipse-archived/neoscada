@@ -3,7 +3,7 @@
 
 <?include $(sys.CURRENTDIR)\..\common\common.wxi?>
 	
-<?define ProductName = "Eclipse SCADA Common Drivers" ?>
+<?define ProductName = "Eclipse NeoSCADA Common Drivers" ?>
 
 <?if $(var.Platform) = x64 ?>
 	<?define ProductUpgradeCode = "F8111786-E55B-4307-BDEB-DE45453A7D81" ?>

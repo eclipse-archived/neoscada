@@ -24,7 +24,7 @@
 			<RegistrySearch Id="search.extra.jars" Root="HKLM" Key="SOFTWARE\Eclipse SCADA Common Drivers" Type="raw" Name="ExtraJarPath"/>
 		</Property>
 		
-		<Condition Message="You need to install the Eclipse SCADA Common Driver package first">INSTALLDIR or Installed</Condition>
+		<Condition Message="You need to install the Eclipse NeoSCADA Common Driver package first">INSTALLDIR or Installed</Condition>
 		
 		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="none"/>
 		

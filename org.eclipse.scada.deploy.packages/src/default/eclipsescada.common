@@ -1,4 +1,4 @@
-# You can configure defaults for the Eclipse SCADA shell scripts here
+# You can configure defaults for the Eclipse NeoSCADA shell scripts here
 
 # If you want to skip the JVM detection, then uncomment the following line 
 # and set the path to the correct java virtual machine you want to use

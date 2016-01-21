@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Eclipse SCADA P2 Director" uid="org.eclipse.scada.deploy.p2director" id="org.eclipse.equinox.p2.director.product" version="4.5.0" useFeatures="false" includeLaunchers="false">
-
+<product name="Eclipse NeoSCADA P2 Director" uid="org.eclipse.scada.deploy.p2director" id="org.eclipse.equinox.p2.director.product" version="4.5.0" useFeatures="false" includeLaunchers="false">
 
    <configIni use="default">
    </configIni>
@@ -14,14 +13,12 @@
 
    <windowImages/>
 
-
    <launcher name="p2director">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
-
 
    <vm>
    </vm>

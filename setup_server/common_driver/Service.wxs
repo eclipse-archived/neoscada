@@ -2,7 +2,7 @@
 
 <?include $(sys.CURRENTDIR)\common.wxi?>
 
-<?define ServiceName = "EclipseSCADACommon" ?>
+<?define ServiceName = "EclipseNeoSCADACommon" ?>
 <?define ServiceExe = "common.driver_prunsrv.exe" ?>
 <?define ExporterConfiguration = "exporter.xml" ?>
 
@@ -62,8 +62,8 @@
 					
 					<ServiceInstall
 						Id="DefaultExporter"
-						DisplayName="Eclipse SCADA Common Driver"
-						Description="The Eclipse SCADA Common Driver Service"
+						DisplayName="Eclipse NeoSCADA Common Driver"
+						Description="The Eclipse NeoSCADA Common Driver Service"
 						Name="$(var.ServiceName)"
 						Type="ownProcess"
 						Start="demand"

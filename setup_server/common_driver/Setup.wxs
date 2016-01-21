@@ -9,7 +9,7 @@
 >
 	
 	<Product Id="*"
-	         Name="Eclipse SCADA Common Drivers"
+	         Name="Eclipse NeoSCADA Common Drivers"
 	         Language="1033"
 	         Version="0.1.0.$(var.BuildNumber)"
 	         UpgradeCode="25DBFC70-57F2-4C8B-9D38-3BB5E153569E"

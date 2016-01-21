@@ -4,6 +4,6 @@ Section: misc
 Priority: optional
 Architecture: all
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
-Description: Eclipse SCADA base package
+Description: Eclipse NeoSCADA base package
 Distribution: default
 Depends: adduser, perl (>=5.0), org.eclipse.scada.configuration, jsvc
