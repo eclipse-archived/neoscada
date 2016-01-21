@@ -4,7 +4,7 @@ Bundle-Name: Acceleo Generator Module Runtime Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.ngp.generator
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.protocol.ngp.generator.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore,

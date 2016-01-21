@@ -3,5 +3,5 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Protocols (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocols
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

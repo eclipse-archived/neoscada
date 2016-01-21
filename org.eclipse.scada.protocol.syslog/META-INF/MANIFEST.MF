@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Syslog Network Protocol
 Bundle-SymbolicName: org.eclipse.scada.protocol.syslog
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.scada.protocol.syslog;version="0.2.0",
  org.eclipse.scada.protocol.syslog.time;version="0.2.0"

@@ -7,7 +7,7 @@
             objectClass="org.eclipse.core.resources.IFile"
             nameFilter="*.protocol"
             id="org.eclipse.scada.protocol.ngp.generator.ui.popupMenus.contribution.IFile">
-         <menu id="org.eclipse.scada.oxygen.protocols" label="Eclipse SCADA Protocols" path="additionsAcceleo">
+         <menu id="org.eclipse.scada.oxygen.protocols" label="Eclipse NeoSCADA Protocols" path="additionsAcceleo">
                <groupMarker name="acceleo"/> 
          </menu>
          <action

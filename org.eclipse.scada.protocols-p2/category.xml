@@ -16,7 +16,7 @@
    </category-def>
    <category-def name="org.eclipse.scada.protocols.sdk.category" label="Eclipse SCADA Protocols SDK (Incubation)">
       <description>
-         Binaries and sources to all Eclipse SCADA Protocols modules.
+         Binaries and sources to all Eclipse NeoSCADA Protocols modules.
       </description>
    </category-def>
 </site>

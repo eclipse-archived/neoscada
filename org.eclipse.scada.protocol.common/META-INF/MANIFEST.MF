@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Common protocol tools (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.common
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.protocol.common;version="0.1.0";uses:="org.apache.mina.core.session,org.apache.mina.core.filterchain,org.apache.mina.core.write",
  org.eclipse.scada.protocol.common.io;version="0.1.0";uses:="org.apache.mina.core.session,org.apache.mina.core.filterchain,org.apache.mina.filter.codec"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

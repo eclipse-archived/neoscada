@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Services based on RELP
 Bundle-SymbolicName: org.eclipse.scada.protocol.relp.service;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: io.netty.bootstrap;version="4.0.19",
  io.netty.buffer;version="4.0.19",
