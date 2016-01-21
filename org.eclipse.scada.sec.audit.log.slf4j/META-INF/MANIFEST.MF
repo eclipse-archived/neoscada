@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.scada.sec.audit.log.slf4j;version="0.1.0";uses:="org.eclipse.scada.sec.authz,org.eclipse.scada.sec.audit,org.eclipse.scada.sec"
 Service-Component: OSGI-INF/service.xml
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security Audit Service based on SLF4J (Incubation)
 Bundle-ManifestVersion: 2

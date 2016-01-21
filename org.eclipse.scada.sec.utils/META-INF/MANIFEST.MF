@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.scada.sec.utils.password;version="0.1.0"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Security Utilities (Incubation)
 Bundle-ManifestVersion: 2

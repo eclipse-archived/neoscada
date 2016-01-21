@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Service-Component: OSGI-INF/component.xml
 Export-Package: org.eclipse.scada.sec.auth.logon;version="0.1.0";uses:="org.eclipse.scada.utils.concurrent,org.eclipse.scada.sec.authz,org.eclipse.scada.sec"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security Logon Authorization (Incubation)
 Bundle-ManifestVersion: 2

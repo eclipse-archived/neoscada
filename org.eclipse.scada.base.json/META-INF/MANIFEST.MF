@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Base Json Types (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.base.json
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: com.google.gson;version="2.1.0",
  org.eclipse.scada.core;version="0.1.0",

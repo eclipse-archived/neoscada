@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Require-Bundle: org.eclipse.pde.core
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.3.0.qualifier
 Bundle-Name: Documentation (Incubation)
 Bundle-ManifestVersion: 2

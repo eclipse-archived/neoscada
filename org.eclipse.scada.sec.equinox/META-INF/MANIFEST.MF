@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Require-Bundle: org.eclipse.equinox.security;bundle-version="1.1.0"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security Equinox JAAS Integration (Incubation)

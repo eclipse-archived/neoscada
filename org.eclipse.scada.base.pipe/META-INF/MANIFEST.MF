@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Persistent Queue Service
 Bundle-SymbolicName: org.eclipse.scada.base.pipe
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.utils.io;version="0.2.0",
  org.eclipse.scada.utils.str;version="0.2.0",

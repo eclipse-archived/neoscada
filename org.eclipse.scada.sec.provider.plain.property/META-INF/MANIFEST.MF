@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.scada.sec.provider.plain.property;version="0.1.0";uses:="org.eclipse.scada.sec.authn"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security Plain Property Provider (Incubation)
 Bundle-Activator: org.eclipse.scada.sec.provider.plain.property.intern

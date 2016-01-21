@@ -66,9 +66,9 @@
 						</executions>
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA ${project.version} (Incubation)</distribution>
+							<distribution>Eclipse NeoSCADA ${project.version} (Incubation)</distribution>
 							<group>Application/Misc</group>
-							<packager>Eclipse SCADA Project</packager>
+							<packager>Eclipse NeoSCADA Project</packager>
 							<changelogFile>rpm/changelog</changelogFile>
 							<defineStatements>
 								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->

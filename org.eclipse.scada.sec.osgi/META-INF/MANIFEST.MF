@@ -6,7 +6,7 @@ Export-Package: org.eclipse.scada.sec.osgi;version="0.1.0";
    org.eclipse.scada.sec.callback,
    org.osgi.framework,
    org.eclipse.scada.sec"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security OSGi (Incubation)
 Bundle-ManifestVersion: 2

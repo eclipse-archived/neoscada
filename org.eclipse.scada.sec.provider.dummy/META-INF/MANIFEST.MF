@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Service-Component: OSGI-INF/component.xml
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security Dummy Provider (Incubation)
 Bundle-ManifestVersion: 2

@@ -6,6 +6,6 @@
    <feature url="features/org.eclipse.scada.base.sdk_0.3.0.qualifier.jar" id="org.eclipse.scada.base.sdk" version="0.3.0.qualifier">
       <category name="org.eclipse.scada.base.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.base.category" label="Eclipse SCADA Base (Incubation)"/>
-   <category-def name="org.eclipse.scada.base.sdk.category" label="Eclipse SCADA Base SDK (Incubation)"/>
+   <category-def name="org.eclipse.scada.base.category" label="Eclipse NeoSCADA Base (Incubation)"/>
+   <category-def name="org.eclipse.scada.base.sdk.category" label="Eclipse NeoSCADA Base SDK (Incubation)"/>
 </site>

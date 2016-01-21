@@ -9,7 +9,7 @@ Export-Package: org.eclipse.scada.sec;version="0.1.0";
  org.eclipse.scada.sec.authn;version="0.1.0";uses:="org.eclipse.scada.sec.utils.password,org.eclipse.scada.sec.callback,org.eclipse.scada.sec",
  org.eclipse.scada.sec.authz;version="0.1.0";uses:="org.eclipse.scada.utils.concurrent,org.eclipse.scada.sec.callback,org.eclipse.scada.sec",
  org.eclipse.scada.sec.callback;version="0.1.0";uses:="org.eclipse.scada.utils.concurrent,javax.security.auth.callback,org.eclipse.scada.sec.utils.password"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security (Incubation)
 Bundle-ManifestVersion: 2

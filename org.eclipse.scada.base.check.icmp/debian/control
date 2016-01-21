@@ -8,5 +8,5 @@ Build-Depends: debhelper (>=8), cdbs, dh-autoreconf
 Package: eclipse-scada-ping
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Eclipse SCADA ping tool
+Description: Eclipse NeoSCADA ping tool
  The eclipse_scada_ping tool measures reachability using ICMP echo/echo reply.

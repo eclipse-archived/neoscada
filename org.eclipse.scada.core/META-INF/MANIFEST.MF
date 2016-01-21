@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.scada.core;version="0.1.0";uses:="org.eclipse.scada.utils.statuscodes"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Core (Incubation)
 Bundle-ManifestVersion: 2

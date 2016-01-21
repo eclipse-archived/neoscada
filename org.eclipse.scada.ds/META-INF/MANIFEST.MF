@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.scada.ds;version="0.1.0";uses:="org.eclipse.scada.utils.concurrent,org.osgi.framework"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA DA (Incubation)
 Bundle-ManifestVersion: 2

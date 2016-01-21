@@ -9,4 +9,4 @@ Require-Bundle: org.junit,
  ch.qos.logback.classic;bundle-version="1.0.7",
  ch.qos.logback.core;bundle-version="1.0.7"
 Import-Package: org.eclipse.scada.base.extractor.extract;version="0.2.0"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
