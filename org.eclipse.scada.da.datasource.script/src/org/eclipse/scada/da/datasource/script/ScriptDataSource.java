@@ -273,7 +273,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
         for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "initProperty." ).entrySet () )
         {
             logger.debug ( "Init parameter - '{}' - '{}'", entry.getKey (), entry.getValue () );
-            this.scriptContext.setAttribute ( entry.getKey (), entry.getKey (), ScriptContext.ENGINE_SCOPE );
+            this.scriptContext.setAttribute ( entry.getKey (), entry.getValue (), ScriptContext.ENGINE_SCOPE );
 
         }
 
