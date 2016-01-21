@@ -15,22 +15,22 @@
    <feature url="features/org.eclipse.scada.utils.ui.server.sdk_0.3.0.qualifier.jar" id="org.eclipse.scada.utils.ui.server.sdk" version="0.3.0.qualifier">
       <category name="org.eclipse.scada.utils.ui.server.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.utils.category" label="Eclipse SCADA Utils (Incubation)">
+   <category-def name="org.eclipse.scada.utils.category" label="Eclipse NeoSCADA Utils (Incubation)">
       <description>
          Non-UI utilities.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.utils.sdk.category" label="Eclipse SCADA Utils SDK (Incubation)">
+   <category-def name="org.eclipse.scada.utils.sdk.category" label="Eclipse NeoSCADA Utils SDK (Incubation)">
       <description>
-         Binaries and sources to all Eclipse SCADA Utils modules.
+         Binaries and sources to all Eclipse NeoSCADA Utils modules.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.utils.ui.server.category" label="Eclipse SCADA Server User Interface (Incubuation)">
+   <category-def name="org.eclipse.scada.utils.ui.server.category" label="Eclipse NeoSCADA Server User Interface (Incubuation)">
       <description>
          Modules to create a server side user interface.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.utils.ui.server.sdk.category" label="Eclipse SCADA Server User Interface SDK (Incubuation)">
+   <category-def name="org.eclipse.scada.utils.ui.server.sdk.category" label="Eclipse NeoSCADA Server User Interface SDK (Incubuation)">
       <description>
          Binaries and sources to the server side UI components.
       </description>

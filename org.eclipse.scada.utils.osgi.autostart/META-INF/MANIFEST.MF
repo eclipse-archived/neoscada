@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA OSGi AutoStart Bundles (Incubation)
 Bundle-Activator: org.eclipse.scada.utils.osgi.autostart.Activator

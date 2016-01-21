@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Server UI Utilities
 Bundle-SymbolicName: org.eclipse.scada.utils.ui.server
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Service-Component: OSGI-INF/appCfg.xml
 Import-Package: org.eclipse.core.databinding,

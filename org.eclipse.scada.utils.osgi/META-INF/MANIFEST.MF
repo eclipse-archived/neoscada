@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Export-Package: org.eclipse.scada.utils.osgi;version="0.1.0";uses:="org.osgi.framework",
  org.eclipse.scada.utils.osgi.pool;version="0.1.0";uses:="org.osgi.framework"
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA OSGi Utilities (Incubation)
 Bundle-ManifestVersion: 2
