@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Styles (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.ui.styles
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.ui.styles.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.ui.styles;version="0.1.0"
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA CA UI Editor (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.ui.editor;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.ui.editor.internal.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ca.ui.editor;version="0.1.0",
  org.eclipse.scada.ca.ui.editor.config.form;version="0.1.0",
  org.eclipse.scada.ca.ui.editor.input;version="0.1.0"

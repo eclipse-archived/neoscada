@@ -4,7 +4,7 @@ Bundle-Name: CA Common Editor Forms
 Bundle-SymbolicName: org.eclipse.scada.ca.ui.editor.forms.common;singleton:=true
 Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.ui.editor.forms.common.internal.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ca.ui.editor.forms.common;version="0.3.0"
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

@@ -3,6 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: org.eclipse.scada.da.client.dataitem.details.chart.nl1 Fragment
 Bundle-SymbolicName: org.eclipse.scada.da.ui.client.dataitem.details.chart.nl1
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Fragment-Host: org.eclipse.scada.da.ui.client.dataitem.details.chart;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA Summary Explorer (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.ui.summary.explorer;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.ui.summary.explorer.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.databinding;bundle-version="1.4.0",

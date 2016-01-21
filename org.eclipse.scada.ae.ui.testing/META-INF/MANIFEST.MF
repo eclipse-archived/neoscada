@@ -4,7 +4,7 @@ Bundle-Name: Testing Plug-in
 Bundle-SymbolicName: org.eclipse.scada.ae.ui.testing;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.ui.testing.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.scada.ae;bundle-version="0.1.0",

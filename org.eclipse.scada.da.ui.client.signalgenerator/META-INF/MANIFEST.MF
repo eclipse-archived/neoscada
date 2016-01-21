@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA SignalGenerator Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.ui.client.signalgenerator;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.ui.client.signalgenerator.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

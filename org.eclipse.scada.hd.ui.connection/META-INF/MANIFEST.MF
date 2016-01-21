@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA HD Connection UI (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.ui.connection;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.ui.connection.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Localization: OSGI-INF/l10n/bundle
 Export-Package: org.eclipse.scada.hd.ui.connection;version="0.2.0",
  org.eclipse.scada.hd.ui.connection.data;version="0.2.0",

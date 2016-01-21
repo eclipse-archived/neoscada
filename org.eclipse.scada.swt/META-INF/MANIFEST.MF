@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: SWT Extensions
 Bundle-SymbolicName: org.eclipse.scada.swt
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.swt;version="0.1.0"
 Require-Bundle: org.eclipse.swt;bundle-version="3.7.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

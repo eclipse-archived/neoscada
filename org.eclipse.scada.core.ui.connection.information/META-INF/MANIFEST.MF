@@ -4,7 +4,7 @@ Bundle-Name: Connection Information
 Bundle-SymbolicName: org.eclipse.scada.core.ui.connection.information;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.core.ui.connection.information.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jface.databinding;bundle-version="1.5.0",

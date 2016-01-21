@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Client Chart (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ui.chart;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ui.chart.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ui.chart.configuration;version="0.2.0";uses:="org.eclipse.scada.ui.chart.model,org.eclipse.osgi.util,org.eclipse.scada.da.ui.connection.data",
  org.eclipse.scada.ui.chart.selector;version="0.2.0";
   uses:="org.eclipse.scada.ui.chart.model,

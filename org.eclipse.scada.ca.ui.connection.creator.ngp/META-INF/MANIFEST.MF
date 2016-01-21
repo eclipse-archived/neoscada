@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol CA Connection Creator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.ui.connection.creator.ngp;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.scada.core.ui.connection.creator;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.ca.client;version="0.1.0",

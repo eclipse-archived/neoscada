@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol AE Connection Creator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.ui.connection.creator.ngp;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.scada.core.ui.connection.creator;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.ae.client;version="0.1.0",

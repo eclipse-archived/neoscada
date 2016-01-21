@@ -4,7 +4,7 @@ Bundle-Name: VI End User UI
 Bundle-SymbolicName: org.eclipse.scada.vi.ui.user;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.vi.ui.user.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.vi.ui.user;version="0.1.0",
  org.eclipse.scada.vi.ui.user.viewer;version="0.1.0",
  org.eclipse.scada.vi.ui.user.viewer.ext;version="0.1.0"

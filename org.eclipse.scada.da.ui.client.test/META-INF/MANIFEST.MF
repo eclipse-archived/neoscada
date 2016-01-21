@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.ui.client.test;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.ui.client.test.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Localization: plugin
 Export-Package: org.eclipse.scada.da.ui.client.test;version="0.1.0";uses:="org.eclipse.jface.resource,org.eclipse.ui.plugin,org.osgi.framework",
  org.eclipse.scada.da.ui.client.test.views.realtime;version="0.1.0";uses:="org.eclipse.ui,org.eclipse.ui.part,org.eclipse.swt.widgets"

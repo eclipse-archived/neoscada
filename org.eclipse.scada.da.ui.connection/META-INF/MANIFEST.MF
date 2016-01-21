@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA DA Connection UI (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.ui.connection;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.ui.connection.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.ui.connection;version="0.2.0";uses:="org.osgi.framework,org.eclipse.core.runtime,org.eclipse.ui.plugin",
  org.eclipse.scada.da.ui.connection.commands;version="0.2.0";uses:="org.eclipse.scada.da.ui.connection.data,org.eclipse.scada.ui.databinding",
  org.eclipse.scada.da.ui.connection.data;version="0.2.0";
