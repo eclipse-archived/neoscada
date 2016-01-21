@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,8 +9,11 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - fix bug 433409, fix bug 437536, add init properties
+ *                        fix bug 432792
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.script;
+
+import static java.lang.Boolean.getBoolean;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -51,6 +54,8 @@ import org.slf4j.LoggerFactory;
 
 public class ScriptDataSource extends AbstractMultiSourceDataSource
 {
+    private static final String SYS_PROP_BASE = "org.eclipse.neoscada.da.datasource.script.";
+
     private static final String DEFAULT_ENGINE_NAME = System.getProperty ( "org.eclipse.scada.da.datasource.script.defaultScriptEngine", "JavaScript" );
 
     final static Logger logger = LoggerFactory.getLogger ( ScriptDataSource.class );
@@ -240,7 +245,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
             {
                 handleTimer ();
             }
-        }, period, period, TimeUnit.MILLISECONDS );
+        }, period, getBoolean ( SYS_PROP_BASE + "usePeriodAsInitial" ) ? period : 0L, TimeUnit.MILLISECONDS );
     }
 
     private void stopTimer ()
@@ -281,7 +286,17 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
         final String initScript = cfg.getString ( "init" );
         if ( initScript != null )
         {
-            performScript ( new ScriptExecutor ( engine, initScript, ScriptDataSource.class.getClassLoader () ), this.scriptContext );
+            final ScriptExecutor script = new ScriptExecutor ( engine, initScript, ScriptDataSource.class.getClassLoader () );
+            if ( getBoolean ( SYS_PROP_BASE + "useInitialValue" ) )
+            {
+                logger.debug ( "Using initial value" );
+                executeScript ( script );
+            }
+            else
+            {
+                logger.debug ( "Ignoring initial value" );
+                performScript ( script, this.scriptContext );
+            }
         }
 
         this.updateCommand = makeScript ( engine, cfg.getString ( "updateCommand" ) );
