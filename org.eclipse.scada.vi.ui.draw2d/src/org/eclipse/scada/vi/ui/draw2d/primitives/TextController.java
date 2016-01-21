@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - extend image layout options
+ *     IBH SYSTEMS GmbH - extend image layout options, fix issue 437658
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
@@ -38,7 +38,7 @@ public class TextController extends FigureController
     {
         super ( controller, manager );
         this.canvas = canvas;
-        this.figure = new Label ( element.getText () ) {
+        this.figure = new Label ( element.getText ()) {
             @Override
             public void addNotify ()
             {
@@ -61,7 +61,7 @@ public class TextController extends FigureController
             public void removeNotify ()
             {
                 stop ();
-                super.removeNotify ();
+                super.removeNotify ( );
             }
         };
         controller.addElement ( element, this );
@@ -87,6 +87,26 @@ public class TextController extends FigureController
         setAlpha ( element.getAlpha () );
 
         setFontFull ( element.getFontName (), element.getFontSize (), element.isFontBold (), element.isFontItalic () );
+    }
+
+    public void setTextAlignment ( final String value )
+    {
+        this.figure.setTextAlignment ( Helper.convertPosition ( value, PositionConstants.CENTER ) );
+    }
+
+    public void setLabelAlignment ( final String value )
+    {
+        this.figure.setLabelAlignment ( Helper.convertPosition ( value, PositionConstants.CENTER ) );
+    }
+
+    public void setIconAlignment ( final String value )
+    {
+        this.figure.setIconAlignment ( Helper.convertPosition ( value, PositionConstants.CENTER ) );
+    }
+
+    public void setTextPlacement ( final String value )
+    {
+        this.figure.setTextPlacement ( Helper.convertPosition ( value, PositionConstants.EAST ) );
     }
 
     public void setFontBold ( final boolean bold )
@@ -189,7 +209,7 @@ public class TextController extends FigureController
 
     }
 
-    private int convertOrientation ( final Orientation orientation, final int defaultValue )
+    private static int convertOrientation ( final Orientation orientation, final int defaultValue )
     {
         if ( orientation == null )
         {
