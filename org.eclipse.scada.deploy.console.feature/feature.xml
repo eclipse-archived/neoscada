@@ -20,16 +20,15 @@
    </license>
 
    <requires>
-      <import plugin="org.apache.sshd.core" version="0.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.console" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.console.ssh" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.felix.gogo.command" version="0.10.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.felix.gogo.runtime" version="0.10.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.felix.gogo.shell" version="0.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.osgi" version="3.10.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.sshd.core" version="0.7.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
    </requires>
-
-   <plugin
-         id="org.eclipse.equinox.console"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
    <plugin
          id="org.eclipse.equinox.console.jaas.fragment"
@@ -37,48 +36,6 @@
          install-size="0"
          version="0.0.0"
          fragment="true"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.equinox.console.ssh"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.felix.gogo.command"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.felix.gogo.runtime"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.felix.gogo.shell"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.sshd.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.osgi"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
          unpack="false"/>
 
 </feature>
