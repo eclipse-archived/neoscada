@@ -148,7 +148,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
             final Map<?, ?> map = (Map<?, ?>)result;
             for ( final Map.Entry<?, ?> entry : map.entrySet () )
             {
-                if ( entry.getKey () instanceof String && entry.getValue () instanceof WriteAttributeResult )
+                if ( ( entry.getKey () instanceof String ) && ( entry.getValue () instanceof WriteAttributeResult ) )
                 {
                     r.put ( (String)entry.getKey (), (WriteAttributeResult)entry.getValue () );
                 }
@@ -245,7 +245,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
             {
                 handleTimer ();
             }
-        }, period, getBoolean ( SYS_PROP_BASE + "usePeriodAsInitial" ) ? period : 0L, TimeUnit.MILLISECONDS );
+        }, getBoolean ( SYS_PROP_BASE + "usePeriodAsInitial" ) ? period : 0L, period, TimeUnit.MILLISECONDS );
     }
 
     private void stopTimer ()
@@ -306,7 +306,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
 
     private ScriptExecutor makeScript ( final ScriptEngine engine, final String string ) throws Exception
     {
-        if ( string == null || string.isEmpty () )
+        if ( ( string == null ) || string.isEmpty () )
         {
             return null;
         }
