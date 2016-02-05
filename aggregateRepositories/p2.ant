@@ -150,7 +150,7 @@ Contributors:
     	
     	<!-- make a zipped P2 repository -->
     	
-    	<zip basedir="temp/build/final" destfile="${download.dir.p2}/org.eclipse.neoscada.p2-${version}.zip" />
+    	<zip basedir="temp/build/final" destfile="${download.dir.p2}/org.eclipse.neoscada.p2-${version}-${buildType}${buildTimestamp}.zip" />
         
         <!-- add index.html -->
     	
