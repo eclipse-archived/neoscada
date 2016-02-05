@@ -76,7 +76,7 @@
             icon="icons/new_client.gif"
             id="org.eclipse.scada.configuration.ui.project.appWizard"
             java="true"
-            name="Eclipse SCADA Client Application"
+            name="Eclipse NeoSCADA Client Application"
             pureOSGi="false"
             rcp="true"
             requiresActivator="false"

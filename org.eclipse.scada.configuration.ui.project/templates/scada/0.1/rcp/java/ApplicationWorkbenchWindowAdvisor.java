@@ -23,7 +23,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         configurer.setShowStatusLine ( true );
         configurer.setShowProgressIndicator ( true );
         configurer.setShowMenuBar ( true );
-        configurer.setTitle("Eclipse SCADA Client"); //$$NON-NLS-1$$
+        configurer.setTitle("Eclipse NeoSCADA Client"); //$$NON-NLS-1$$
     }
     
     @Override

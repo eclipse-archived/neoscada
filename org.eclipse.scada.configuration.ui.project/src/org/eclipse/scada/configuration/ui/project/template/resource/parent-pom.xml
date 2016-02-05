@@ -30,7 +30,7 @@
 		<repository>
 			<id>eclipse.kepler</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/kepler</url>
+			<url>http://download.eclipse.org/releases/mars</url>
 		</repository>
 		<repository>
 			<id>eclipse.orbit</id>
@@ -40,7 +40,7 @@
 		<repository>
 			<id>eclipse.scada</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/eclipsescada/updates/release/0.1.0/</url>
+			<url>http://download.eclipse.org/eclipsescada/updates/release/0.3.0/</url>
 		</repository>
 	</repositories>
 

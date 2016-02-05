@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Eclipse SCADA Client Application" uid="@@pluginId@@.app" id="@@pluginId@@.product" application="@@pluginId@@.application" version="@@version@@" useFeatures="true" includeLaunchers="true">
+<product name="Eclipse NeoSCADA Client Application" uid="@@pluginId@@.app" id="@@pluginId@@.product" application="@@pluginId@@.application" version="@@version@@" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
    </launcherArgs>
 
    <windowImages i16="icons/app/icon_16px.png" i32="icons/app/icon_32px.png" i48="icons/app/icon_48px.png" i64="icons/app/icon_64px.png" i128="icons/app/icon_128px.png"/>
 
-   <splash location="@@pluginId@@" />
-
+   <splash
+      location="@@pluginId@@" />
    <launcher name="clientApp">
+      <linux icon="/@@pluginId@@-product/icons/app/icon.xpm"/>
+      <macosx icon="/@@pluginId@@-product/icons/app/icon.icns"/>
       <solaris/>
       <win useIco="true">
-      	 <ico path="/@@pluginId@@-product/icons/app/icon.ico"/>
+         <ico path="/@@pluginId@@-product/icons/app/icon.ico"/>
          <bmp/>
       </win>
-      <macosx icon="/@@pluginId@@-product/icons/app/icon.icns"/>
-      <linux icon="/@@pluginId@@-product/icons/app/icon.xpm"/>
    </launcher>
 
    <vm>
    </vm>
+
+   <plugins>
+   </plugins>
 
    <features>
       <feature id="org.eclipse.rcp"/>
