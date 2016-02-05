@@ -5,7 +5,7 @@
          point="org.eclipse.ui.newWizards">
       <category
             id="org.eclipse.scada.configuration"
-            name="Eclipse SCADA Configuration">
+            name="Eclipse NeoSCADA Configuration">
       </category>
       <category
             id="org.eclipse.scada.configuration.models"
@@ -19,7 +19,7 @@
             allPopups="false"
             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
          <menu
-               label="Eclipse SCADA Configuration"
+               label="Eclipse NeoSCADA Configuration"
                id="org.eclipse.scada.configuration">
          </menu>
       </menuContribution>         

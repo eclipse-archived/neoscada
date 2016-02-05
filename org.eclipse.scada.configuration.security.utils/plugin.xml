@@ -15,7 +15,7 @@
             default-charset="UTF-8"
             file-extensions="osjs"
             id="org.eclipse.scada.script.js"
-            name="Eclipse SCADA JavaScript File"
+            name="Eclipse NeoSCADA JavaScript File"
             priority="high">
       </content-type>
    </extension>

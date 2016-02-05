@@ -41,7 +41,7 @@
             delegate="org.eclipse.scada.da.server.ui.launcher.driver.DriverLaunchDelegate"
             id="org.eclipse.scada.da.server.ui.launcher.Driver"
             modes="run"
-            name="SCADA Driver"
+            name="NeoSCADA Driver"
             public="true">
       </launchConfigurationType>
    </extension>

@@ -6,22 +6,22 @@
       <target
             definition="targets/es012.target"
             id="org.eclipse.scada.configuration.ui.pde.target.es012"
-            name="Eclipse SCADA 0.1.2 Server Runtime">
+            name="Eclipse NeoSCADA 0.1.2 Server Runtime">
       </target>
       <target
             definition="targets/es013.target"
             id="org.eclipse.scada.configuration.ui.pde.target.es013"
-            name="Eclipse SCADA 0.1.3 Server Runtime">
+            name="Eclipse NeoSCADA 0.1.3 Server Runtime">
       </target>
       <target
             definition="targets/es020m3.target"
             id="org.eclipse.scada.configuration.ui.pde.target.es020m3"
-            name="Eclipse SCADA 0.2.0.M3 Server Runtime (milestone)">
+            name="Eclipse NeoSCADA 0.2.0.M3 Server Runtime (milestone)">
       </target>
       <target
             definition="targets/es-current.target"
             id="org.eclipse.scada.configuration.ui.pde.target.es-current"
-            name="Eclipse SCADA 0.2.0 Server Runtime">
+            name="Eclipse NeoSCADA 0.3.0 Server Runtime">
       </target>
    </extension>
 

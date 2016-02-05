@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA DA Hive Launcher (Incubation)
+Bundle-Name: Eclipse NeoSCADA DA Hive Launcher (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.ui.launcher;singleton:=true
-Bundle-Version: 0.2.1.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.ui.launcher.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui;bundle-version="3.8.0",

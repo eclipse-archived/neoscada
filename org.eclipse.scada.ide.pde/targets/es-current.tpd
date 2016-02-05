@@ -2,7 +2,7 @@ target "Eclipse SCADA - Current"
 
 with source, allEnvironments
 
-location "http://download.eclipse.org/eclipsescada/updates/milestone/0.2" {
+location "http://download.eclipse.org/eclipsescada/updates/milestone/0.3" {
 		org.eclipse.scada.core.common.feature.group
 		org.eclipse.scada.core.server.feature.group
 		org.eclipse.scada.core.protocols.feature.group

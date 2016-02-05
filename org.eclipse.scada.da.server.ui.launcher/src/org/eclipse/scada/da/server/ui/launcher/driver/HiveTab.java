@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -43,9 +43,9 @@ import org.eclipse.ui.views.navigator.ResourceComparator;
 
 public class HiveTab extends AbstractLaunchConfigurationTab
 {
-    private final String WORKSPACE_SELECTION_DIALOG = Activator.PLUGIN_ID + ".WORKSPACE_SELECTION_DIALOG"; //$NON-NLS-1$
+    private final static String WORKSPACE_SELECTION_DIALOG = Activator.PLUGIN_ID + ".WORKSPACE_SELECTION_DIALOG"; //$NON-NLS-1$
 
-    private final String VARIABLE_SELECTION_DIALOG = Activator.PLUGIN_ID + ".VARIABLE_SELECTION_DIALOG"; //$NON-NLS-1$
+    private final static String VARIABLE_SELECTION_DIALOG = Activator.PLUGIN_ID + ".VARIABLE_SELECTION_DIALOG"; //$NON-NLS-1$
 
     private Text fileText;
 
@@ -106,7 +106,7 @@ public class HiveTab extends AbstractLaunchConfigurationTab
     protected void chooseVariable ()
     {
         final StringVariableSelectionDialog dlg = new StringVariableSelectionDialog ( getShell () );
-        dlg.setDialogBoundsSettings ( getDialogBoundsSettings ( this.VARIABLE_SELECTION_DIALOG ), Dialog.DIALOG_PERSISTSIZE );
+        dlg.setDialogBoundsSettings ( getDialogBoundsSettings ( HiveTab.VARIABLE_SELECTION_DIALOG ), Dialog.DIALOG_PERSISTSIZE );
         if ( dlg.open () == Window.OK )
         {
             this.fileText.insert ( dlg.getVariableExpression () );
@@ -118,7 +118,7 @@ public class HiveTab extends AbstractLaunchConfigurationTab
     {
         final FileDialog dlg = new FileDialog ( getShell (), SWT.OPEN | SWT.MULTI );
         dlg.setFilterExtensions ( new String[] { "*.xml", "*.*" } );
-        dlg.setFilterNames ( new String[] { "Eclipse SCADA Exporter Files", "All files" } );
+        dlg.setFilterNames ( new String[] { "Eclipse NeoSCADA Exporter Files", "All files" } );
         final String result = dlg.open ();
         if ( result != null )
         {
@@ -151,7 +151,7 @@ public class HiveTab extends AbstractLaunchConfigurationTab
         dialog.setInput ( ResourcesPlugin.getWorkspace ().getRoot () );
         dialog.setComparator ( new ResourceComparator ( ResourceComparator.NAME ) );
         dialog.setAllowMultiple ( true );
-        dialog.setDialogBoundsSettings ( getDialogBoundsSettings ( this.WORKSPACE_SELECTION_DIALOG ), Dialog.DIALOG_PERSISTSIZE );
+        dialog.setDialogBoundsSettings ( getDialogBoundsSettings ( HiveTab.WORKSPACE_SELECTION_DIALOG ), Dialog.DIALOG_PERSISTSIZE );
         if ( dialog.open () == IDialogConstants.OK_ID )
         {
             final IResource resource = (IResource)dialog.getFirstResult ();

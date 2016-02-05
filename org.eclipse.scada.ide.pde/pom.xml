@@ -11,7 +11,7 @@
 
 	<groupId>org.eclipse.scada.ide</groupId>
 	<artifactId>org.eclipse.scada.ide.pde</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
 
 	<profiles>

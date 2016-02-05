@@ -55,7 +55,7 @@
       </command>
       <category
             id="org.eclipse.scada.configuration"
-            name="Eclipse SCADA Configuration">
+            name="Eclipse NeoSCADA Configuration">
       </category>
    </extension>
 

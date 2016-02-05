@@ -8,6 +8,6 @@
   </parent>
   <groupId>org.eclipse.scada.ide</groupId>
   <artifactId>org.eclipse.scada.da.server.ui.launcher</artifactId>
-  <version>0.2.1-SNAPSHOT</version>
+  <version>0.3.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 </project>
