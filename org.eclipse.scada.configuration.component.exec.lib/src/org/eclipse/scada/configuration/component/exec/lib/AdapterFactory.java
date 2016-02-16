@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,10 +18,8 @@ import org.eclipse.scada.configuration.generator.Generator;
 
 public class AdapterFactory implements IAdapterFactory
 {
-
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter ( final Object adaptableObject, final Class adapterType )
+    public <T> T getAdapter ( final Object adaptableObject, final Class<T> adapterType )
     {
         if ( !Generator.class.equals ( adapterType ) )
         {
@@ -30,24 +28,22 @@ public class AdapterFactory implements IAdapterFactory
 
         if ( adaptableObject instanceof LoadAverage )
         {
-            return new LoadAverageGenerator ( (LoadAverage)adaptableObject );
+            return adapterType.cast ( new LoadAverageGenerator ( (LoadAverage)adaptableObject ) );
         }
         else if ( adaptableObject instanceof PingCheck )
         {
-            return new PingCheckGenerator ( (PingCheck)adaptableObject );
+            return adapterType.cast ( new PingCheckGenerator ( (PingCheck)adaptableObject ) );
         }
         else if ( adaptableObject instanceof SystemInformationVMStat )
         {
-            return new SystemInformationVMStatGenerator ( (SystemInformationVMStat)adaptableObject );
+            return adapterType.cast ( new SystemInformationVMStatGenerator ( (SystemInformationVMStat)adaptableObject ) );
         }
         return null;
     }
 
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Class[] getAdapterList ()
+    public Class<?>[] getAdapterList ()
     {
         return new Class<?>[] { Generator.class };
     }
-
 }

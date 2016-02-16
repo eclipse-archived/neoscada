@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,30 +17,26 @@ import org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler;
 
 public class AdapterFactoryImpl implements IAdapterFactory
 {
-
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter ( final Object adaptableObject, final Class adapterType )
+    public <T> T getAdapter ( final Object adaptableObject, final Class<T> adapterType )
     {
         if ( adapterType.equals ( SetupModuleHandler.class ) )
         {
             if ( adaptableObject instanceof PostgresSetupModule )
             {
-                return new PostgresHandler ( (PostgresSetupModule)adaptableObject );
+                return adapterType.cast ( new PostgresHandler ( (PostgresSetupModule)adaptableObject ) );
             }
             else if ( adaptableObject instanceof SerialToNetworkSetupModule )
             {
-                return new SerialToNetworkHandler ( (SerialToNetworkSetupModule)adaptableObject );
+                return adapterType.cast ( new SerialToNetworkHandler ( (SerialToNetworkSetupModule)adaptableObject ) );
             }
         }
         return null;
     }
 
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Class[] getAdapterList ()
+    public Class<?>[] getAdapterList ()
     {
         return new Class[] { SetupModuleHandler.class };
     }
-
 }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,10 +20,8 @@ import org.eclipse.scada.configuration.generator.Generator;
 
 public class AdapterFactory implements IAdapterFactory
 {
-
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Generator getAdapter ( final Object adaptableObject, final Class adapterType )
+    public <T> T getAdapter ( final Object adaptableObject, final Class<T> adapterType )
     {
         if ( !Generator.class.equals ( adapterType ) )
         {
@@ -32,32 +30,30 @@ public class AdapterFactory implements IAdapterFactory
 
         if ( adaptableObject instanceof ToggleHeartbeatGenerator )
         {
-            return new ToggleHeartbeatGeneratorGenerator ( (ToggleHeartbeatGenerator)adaptableObject );
+            return adapterType.cast ( new ToggleHeartbeatGeneratorGenerator ( (ToggleHeartbeatGenerator)adaptableObject ) );
         }
         else if ( adaptableObject instanceof ChangeHeartbeatDetector )
         {
-            return new ChangeHeartbeatDetectorGenerator ( (ChangeHeartbeatDetector)adaptableObject );
+            return adapterType.cast ( new ChangeHeartbeatDetectorGenerator ( (ChangeHeartbeatDetector)adaptableObject ) );
         }
         else if ( adaptableObject instanceof TimerAction )
         {
-            return new TimerActionGenerator ( (TimerAction)adaptableObject );
+            return adapterType.cast ( new TimerActionGenerator ( (TimerAction)adaptableObject ) );
         }
         else if ( adaptableObject instanceof CurrentTimeComponent )
         {
-            return new CurrentTimeGenerator ( (CurrentTimeComponent)adaptableObject );
+            return adapterType.cast ( new CurrentTimeGenerator ( (CurrentTimeComponent)adaptableObject ) );
         }
         else if ( adaptableObject instanceof ScaledValue )
         {
-            return new ScaledValueGeneratorGenerator ( (ScaledValue)adaptableObject );
+            return adapterType.cast ( new ScaledValueGeneratorGenerator ( (ScaledValue)adaptableObject ) );
         }
         return null;
     }
 
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public Class[] getAdapterList ()
+    public Class<?>[] getAdapterList ()
     {
         return new Class<?>[] { Generator.class };
     }
-
 }

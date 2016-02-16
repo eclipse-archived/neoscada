@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,10 +16,8 @@ import org.eclipse.scada.configuration.infrastructure.lib.DriverHandler;
 
 public class AdapterFactoryImpl implements IAdapterFactory
 {
-
-    @SuppressWarnings ( "rawtypes" )
     @Override
-    public DriverHandler getAdapter ( final Object adaptableObject, final Class adapterType )
+    public <T> T getAdapter ( final Object adaptableObject, final Class<T> adapterType )
     {
         if ( !DriverHandler.class.equals ( adapterType ) )
         {
@@ -28,7 +26,7 @@ public class AdapterFactoryImpl implements IAdapterFactory
 
         if ( adaptableObject instanceof ParserComponentHost )
         {
-            return new DriverHandlerImpl ();
+            return adapterType.cast ( new DriverHandlerImpl () );
         }
         return null;
     }
@@ -38,5 +36,4 @@ public class AdapterFactoryImpl implements IAdapterFactory
     {
         return new Class<?>[] { DriverHandler.class };
     }
-
 }
