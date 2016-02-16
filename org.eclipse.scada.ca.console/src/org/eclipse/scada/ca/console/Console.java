@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2016 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - improve console
  *******************************************************************************/
 package org.eclipse.scada.ca.console;
 
@@ -22,6 +23,7 @@ import java.io.PrintStream;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,6 +43,24 @@ import org.eclipse.scada.utils.str.Tables;
 
 public class Console
 {
+    private static final Comparator<? super Configuration> CFG_ID_COMPARATOR = new Comparator<Configuration> () {
+
+        @Override
+        public int compare ( final Configuration o1, final Configuration o2 )
+        {
+            return o1.getId ().compareTo ( o2.getId () );
+        }
+    };
+
+    private static final Comparator<? super Factory> FACTORY_ID_COMPARATOR = new Comparator<Factory> () {
+
+        @Override
+        public int compare ( final Factory o1, final Factory o2 )
+        {
+            return o1.getId ().compareTo ( o2.getId () );
+        }
+    };
+
     private ConfigurationAdministrator admin;
 
     private static abstract class ResultPrinter implements FutureListener<Configuration>
@@ -167,8 +187,12 @@ public class Console
     @Descriptor ( "Show full factories information" )
     public void showfactories ()
     {
+        final Factory[] factories = this.admin.getKnownFactories ();
+
+        Arrays.sort ( factories, FACTORY_ID_COMPARATOR );
+
         final List<List<String>> data = new LinkedList<List<String>> ();
-        for ( final Factory factory : this.admin.getKnownFactories () )
+        for ( final Factory factory : factories )
         {
             final List<String> row = new LinkedList<String> ();
 
@@ -200,6 +224,8 @@ public class Console
         final List<List<String>> rows = new LinkedList<List<String>> ();
         if ( cfgs != null )
         {
+            Arrays.sort ( cfgs, CFG_ID_COMPARATOR );
+
             for ( final Configuration cfg : cfgs )
             {
                 final List<String> row = new LinkedList<String> ();
