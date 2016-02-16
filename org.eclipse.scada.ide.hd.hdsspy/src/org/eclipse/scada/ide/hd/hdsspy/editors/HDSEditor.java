@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH Corporation and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,7 +13,7 @@ package org.eclipse.scada.ide.hd.hdsspy.editors;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.DisplayRealm;
 import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.TableLayout;
@@ -31,7 +31,6 @@ import org.eclipse.ui.statushandlers.StatusManager;
 
 public class HDSEditor extends EditorPart
 {
-
     private TableViewer viewer;
 
     private WritableList entries;
@@ -100,7 +99,7 @@ public class HDSEditor extends EditorPart
     @Override
     public void createPartControl ( final Composite parent )
     {
-        this.entries = new WritableList ( SWTObservables.getRealm ( parent.getDisplay () ) );
+        this.entries = new WritableList ( DisplayRealm.getRealm ( parent.getDisplay () ) );
 
         this.viewer = new TableViewer ( parent, SWT.FULL_SELECTION | SWT.MULTI );
         this.viewer.getTable ().setHeaderVisible ( true );

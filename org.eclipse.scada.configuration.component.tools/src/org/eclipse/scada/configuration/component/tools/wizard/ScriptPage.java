@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,7 +19,7 @@ import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.core.databinding.validation.IValidator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.databinding.wizard.WizardPageSupport;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.scada.configuration.component.tools.Activator;
@@ -112,7 +112,7 @@ public class ScriptPage extends WizardPage
 
         this.text = new Text ( wrapper, SWT.MULTI | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL );
         this.text.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true, buttons + 1, 1 ) );
-        dbc.bindValue ( SWTObservables.observeText ( this.text, SWT.Modify ), this.scriptValue, new UpdateValueStrategy ().setAfterConvertValidator ( new IValidator () {
+        dbc.bindValue ( WidgetProperties.text ( SWT.Modify ).observe ( this.text ), this.scriptValue, new UpdateValueStrategy ().setAfterConvertValidator ( new IValidator () {
 
             @Override
             public IStatus validate ( final Object value )
