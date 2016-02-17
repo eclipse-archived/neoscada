@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -93,7 +93,15 @@ public class OscarContext
             factoryData = createMap ( 5_000 );
             this.data.put ( factoryId, factoryData );
         }
-        factoryData.put ( configurationId, data );
+
+        if ( useTreeMaps () && ! ( data instanceof TreeMap ) )
+        {
+            factoryData.put ( configurationId, new TreeMap<> ( data ) );
+        }
+        else
+        {
+            factoryData.put ( configurationId, data );
+        }
     }
 
     public Map<String, Map<String, Map<String, String>>> getData ()
