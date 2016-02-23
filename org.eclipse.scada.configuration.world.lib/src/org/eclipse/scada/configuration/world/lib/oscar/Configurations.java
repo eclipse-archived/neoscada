@@ -11,10 +11,10 @@
 package org.eclipse.scada.configuration.world.lib.oscar;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 public final class Configurations
 {
@@ -23,7 +23,7 @@ public final class Configurations
     }
 
     // FIXME: check if this should be in sync with the app generator on attribute summaries
-    public static final Set<String> groupsSum = new HashSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked", "info", "warning" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+    public static final Set<String> groupsSum = new TreeSet<String> ( Arrays.asList ( "manual", "error", "alarm", "ackRequired", "blocked", "info", "warning" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 
     public static void applyInfoAttributes ( final Map<String, String> attributes, final Map<String, String> data )
     {
