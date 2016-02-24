@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Debian Package Utilities (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.utils.pkg.deb
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.scada.utils.pkg.deb;version="0.2.0",

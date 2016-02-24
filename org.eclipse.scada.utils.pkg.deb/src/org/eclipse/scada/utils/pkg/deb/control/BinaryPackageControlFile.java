@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -47,6 +47,8 @@ public class BinaryPackageControlFile extends GenericControlFile
         public static ControlFieldDefinition CONFLICTS = new ControlFieldDefinition ( "Conflicts", FieldType.SIMPLE ); //$NON-NLS-1$
 
         public static ControlFieldDefinition DEPENDS = new ControlFieldDefinition ( "Depends", FieldType.SIMPLE ); //$NON-NLS-1$
+
+        public static ControlFieldDefinition PRE_DEPENDS = new ControlFieldDefinition ( "Pre-Depends", FieldType.SIMPLE ); //$NON-NLS-1$
 
     }
 
