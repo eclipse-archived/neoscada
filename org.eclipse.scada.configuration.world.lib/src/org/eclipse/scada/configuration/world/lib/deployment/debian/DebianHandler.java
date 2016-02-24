@@ -20,11 +20,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
@@ -121,6 +123,7 @@ public class DebianHandler extends CommonPackageHandler
                 Files.walkFileTree ( src, scoop );
             }
 
+            packageControlFile.set ( BinaryPackageControlFile.Fields.PRE_DEPENDS, makePreDependencies ( Collections.<String> emptyList () ) );
             packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies ( context.getDependencies () ) );
 
             final File outputFile = new File ( nodeDir.getLocation ().toFile (), packageControlFile.makeFileName () );
@@ -209,11 +212,18 @@ public class DebianHandler extends CommonPackageHandler
         return StartupMechanism.UPSTART;
     }
 
+    private String makePreDependencies ( final Collection<String> dependencies )
+    {
+        final Set<String> result = new TreeSet<> ( dependencies );
+
+        result.add ( "org.eclipse.scada" ); //$NON-NLS-1$
+
+        return StringHelper.join ( result, ", " ); //$NON-NLS-1$
+    }
+
     private String makeDependencies ( final Set<String> dependencies )
     {
         final Set<String> result = new HashSet<> ();
-
-        result.add ( "org.eclipse.scada" ); //$NON-NLS-1$
 
         if ( needP2 () )
         {
