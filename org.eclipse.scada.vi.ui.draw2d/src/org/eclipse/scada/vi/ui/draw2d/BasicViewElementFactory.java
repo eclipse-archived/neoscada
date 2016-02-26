@@ -71,7 +71,7 @@ public class BasicViewElementFactory
 
     private final ResourceManager manager;
 
-    private final Map<URI, XMISymbolLoader> symbolCache = new HashMap<URI, XMISymbolLoader> ();
+    private final Map<URI, XMISymbolLoader> symbolCache;
 
     private final FigureCanvas canvas;
 
@@ -89,6 +89,17 @@ public class BasicViewElementFactory
         this.manager = manager;
         this.canvas = canvas;
         this.symbolLoader = symbolLoader;
+        this.symbolCache = new HashMap<URI, XMISymbolLoader> ();
+
+        this.factoryContext = factoryContext == null ? FactoryContext.DEFAULT : factoryContext;
+    }
+
+    public BasicViewElementFactory ( final FigureCanvas canvas, final ResourceManager manager, final SymbolLoader symbolLoader, final FactoryContext factoryContext, final Map<URI, XMISymbolLoader> symbolCache )
+    {
+        this.manager = manager;
+        this.canvas = canvas;
+        this.symbolLoader = symbolLoader;
+        this.symbolCache = symbolCache;
 
         this.factoryContext = factoryContext == null ? FactoryContext.DEFAULT : factoryContext;
     }
@@ -262,7 +273,7 @@ public class BasicViewElementFactory
      */
     public BasicViewElementFactory createSubFactory ( final SymbolLoader symbolLoader )
     {
-        return new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader, this.factoryContext );
+        return new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader, this.factoryContext, this.symbolCache );
     }
 
     public void createConnections ( final Layer layer, final SymbolController controller, final EList<Connection> connections )
