@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,6 +14,7 @@ package org.eclipse.scada.utils.script;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -263,7 +264,10 @@ public class ScriptExecutor
             }
             else if ( this.commandUrl != null )
             {
-                return this.engine.eval ( new InputStreamReader ( this.commandUrl.openStream () ) );
+                try ( Reader reader = new InputStreamReader ( this.commandUrl.openStream () ) )
+                {
+                    return this.engine.eval ( reader, scriptContext );
+                }
             }
             else
             {
