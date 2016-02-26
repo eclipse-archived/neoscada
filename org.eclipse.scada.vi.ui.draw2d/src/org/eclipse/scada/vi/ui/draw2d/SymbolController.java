@@ -12,8 +12,6 @@
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -47,14 +45,12 @@ import org.eclipse.scada.vi.data.SummaryListener;
 import org.eclipse.scada.vi.model.Primitive;
 import org.eclipse.scada.vi.model.Symbol;
 import org.eclipse.scada.vi.ui.draw2d.loader.SymbolLoader;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
-import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -99,13 +95,9 @@ public class SymbolController implements Listener
 
     private final Map<String, Object> scriptObjects;
 
-    private MessageConsole console;
+    private ConsoleContext console;
 
     private MessageConsole createdConsole;
-
-    private MessageConsoleStream logStream;
-
-    private MessageConsoleStream errorStream;
 
     private final String symbolInfoName;
 
@@ -127,8 +119,6 @@ public class SymbolController implements Listener
     private final SymbolLoader symbolLoader;
 
     private final ScriptEngine scriptEngine;
-
-    private PrintWriter errorPrintWriter;
 
     private final FactoryContext factoryContext;
 
@@ -250,19 +240,10 @@ public class SymbolController implements Listener
          * http://bugs.sun.com/view_bug.do?bug_id=6759414
          * */
 
-        final MessageConsoleStream writerStream = this.console.newMessageStream ();
-        scriptContext.setWriter ( new PrintWriter ( new OutputStreamWriter ( writerStream ) ) );
-
-        this.errorStream = this.console.newMessageStream ();
-        this.errorStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_RED ) );
-        this.errorPrintWriter = new PrintWriter ( new OutputStreamWriter ( this.errorStream ) );
-        scriptContext.setErrorWriter ( this.errorPrintWriter );
-
-        this.logStream = this.console.newMessageStream ();
-        this.logStream.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_GRAY ) );
+        this.console.applyTo ( scriptContext );
     }
 
-    private MessageConsole createOrGetConsole ()
+    private ConsoleContext createOrGetConsole ()
     {
         if ( this.parentController != null && this.parentController.getConsole () != null )
         {
@@ -270,13 +251,13 @@ public class SymbolController implements Listener
         }
 
         final IConsoleManager manager = ConsolePlugin.getDefault ().getConsoleManager ();
-        final MessageConsole console = new MessageConsole ( String.format ( "Symbol Debug Console: %s", this.symbolInfoName ), null, null, true );
-        manager.addConsoles ( new IConsole[] { console } );
-        this.createdConsole = console;
-        return console;
+        final MessageConsole messageConsole = new MessageConsole ( String.format ( "Symbol Debug Console: %s", this.symbolInfoName ), null, null, true );
+        manager.addConsoles ( new IConsole[] { messageConsole } );
+        this.createdConsole = messageConsole;
+        return new ConsoleContext ( messageConsole );
     }
 
-    protected MessageConsole getConsole ()
+    protected ConsoleContext getConsole ()
     {
         if ( this.console != null )
         {
@@ -311,7 +292,7 @@ public class SymbolController implements Listener
 
     private void loadScript ( final String module ) throws Exception
     {
-        this.logStream.println ( String.format ( "Loading script module: %s", module ) );
+        this.console.getLogStream ().println ( String.format ( "Loading script module: %s", module ) );
 
         // fire load event
 
@@ -390,25 +371,11 @@ public class SymbolController implements Listener
         {
             ConsolePlugin.getDefault ().getConsoleManager ().removeConsoles ( new IConsole[] { this.createdConsole } );
             this.createdConsole = null;
+
+            this.console.dispose ();
         }
 
         // close log stream
-
-        if ( this.logStream != null && !this.logStream.isClosed () )
-        {
-            try
-            {
-                this.logStream.close ();
-            }
-            catch ( final IOException e )
-            {
-                logger.warn ( "Failed to close log stream", e );
-            }
-            finally
-            {
-                this.logStream = null;
-            }
-        }
 
         if ( this.parentController != null )
         {
@@ -648,18 +615,7 @@ public class SymbolController implements Listener
 
     public void debugLog ( final String string )
     {
-        final MessageConsoleStream stream = this.console.newMessageStream ();
-        final PrintWriter ps = new PrintWriter ( stream );
-        ps.println ( string );
-
-        try
-        {
-            ps.close ();
-            stream.close ();
-        }
-        catch ( final IOException e )
-        {
-        }
+        this.console.getLogStream ().println ( string );
     }
 
     public void errorLog ( final String string )
@@ -669,12 +625,14 @@ public class SymbolController implements Listener
 
     public void errorLog ( final String string, final Throwable e )
     {
-        this.errorPrintWriter.println ( string );
+        final PrintWriter epw = this.console.getErrorPrintWriter ();
+
+        epw.println ( string );
         if ( e != null )
         {
-            e.printStackTrace ( this.errorPrintWriter );
+            e.printStackTrace ( epw );
         }
-        this.errorPrintWriter.flush ();
+        epw.flush ();
     }
 
     protected SymbolContext getContext ()
