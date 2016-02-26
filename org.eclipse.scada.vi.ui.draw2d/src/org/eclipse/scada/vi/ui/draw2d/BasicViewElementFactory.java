@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,9 +15,7 @@ package org.eclipse.scada.vi.ui.draw2d;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.SafeRunner;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
@@ -64,7 +62,6 @@ import org.eclipse.scada.vi.ui.draw2d.primitives.SymbolReferenceController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.TextController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.XYContainerController;
 import org.eclipse.swt.SWT;
-import org.eclipse.ui.statushandlers.StatusManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -112,7 +109,7 @@ public class BasicViewElementFactory
     {
         if ( element == null )
         {
-            StatusManager.getManager ().handle ( new Status ( IStatus.INFO, Activator.PLUGIN_ID, "Empty element found" ), StatusManager.LOG );
+            logger.info ( "Empty element found" );
             return new Controller () {
 
                 @Override
