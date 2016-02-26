@@ -26,7 +26,6 @@ import java.util.Properties;
 import java.util.Set;
 
 import javax.script.ScriptContext;
-import javax.script.ScriptEngine;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.emf.common.util.URI;
@@ -36,7 +35,6 @@ import org.eclipse.scada.core.ui.styles.StyleGenerator.GeneratorListener;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.scada.utils.script.Scripts;
 import org.eclipse.scada.vi.data.DataValue;
 import org.eclipse.scada.vi.data.RegistrationManager;
 import org.eclipse.scada.vi.data.RegistrationManager.Listener;
@@ -54,6 +52,7 @@ import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.profiler.Profiler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -78,8 +77,6 @@ public class SymbolController implements Listener
     private final SymbolContext context;
 
     private final ScriptContext scriptContext;
-
-    private final ClassLoader classLoader;
 
     private final Map<String, Object> elements = new HashMap<String, Object> ();
 
@@ -118,34 +115,45 @@ public class SymbolController implements Listener
 
     private final SymbolLoader symbolLoader;
 
-    private final ScriptEngine scriptEngine;
-
     private final FactoryContext factoryContext;
+
+    private final ScriptManager scriptManager;
 
     public SymbolController ( final Shell shell, final SymbolLoader symbolLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects, final FactoryContext factoryContext ) throws Exception
     {
-        this ( shell, null, symbolLoader, properties, scriptObjects, factoryContext );
+        this ( shell, null, symbolLoader, properties, scriptObjects, factoryContext, new ScriptManager () );
     }
 
     public SymbolController ( final Shell shell, final SymbolController parentController, final SymbolLoader symbolLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects, final FactoryContext factoryContext ) throws Exception
     {
+        this ( shell, parentController, symbolLoader, properties, scriptObjects, factoryContext, parentController.scriptManager );
+    }
+
+    private SymbolController ( final Shell shell, final SymbolController parentController, final SymbolLoader symbolLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects, final FactoryContext factoryContext, final ScriptManager scriptManager ) throws Exception
+    {
+        final Profiler p = new Profiler ( "SymbolController" );
+
+        p.start ( "init" );
         this.shell = shell;
         this.symbolLoader = symbolLoader;
         this.symbolInfoName = symbolLoader.getSourceName ();
         this.parentController = parentController;
-        this.classLoader = symbolLoader.getClassLoader ();
 
         this.factoryContext = factoryContext;
+
+        this.scriptManager = scriptManager;
 
         this.generator = org.eclipse.scada.core.ui.styles.Activator.getDefaultStyleGenerator ();
 
         this.nameHierarchy = makeNameHierarchy ();
 
+        p.start ( "data" );
         this.symbolData = new SymbolData ( this );
         this.registrationManager = new RegistrationManager ( Activator.getDefault ().getBundle ().getBundleContext (), this.symbolInfoName );
         this.registrationManager.addListener ( this );
         this.registrationManager.open ();
 
+        p.start ( "load" );
         final Symbol symbol = symbolLoader.loadSymbol ();
 
         if ( parentController != null )
@@ -173,6 +181,7 @@ public class SymbolController implements Listener
             }
         }
 
+        p.start ( "ctx" );
         this.context = new SymbolContext ( this );
 
         if ( parentController != null )
@@ -180,8 +189,11 @@ public class SymbolController implements Listener
             parentController.addChild ( this );
         }
 
+        p.start ( "console" );
         this.scriptContext = new SimpleScriptContext ();
         assignConsole ( this.scriptContext );
+
+        p.start ( "add scripts" );
 
         this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
         this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
@@ -194,18 +206,22 @@ public class SymbolController implements Listener
             addScriptObjects ( parentController.getScriptObjects () );
         }
 
-        this.scriptEngine = Scripts.createEngine ( "JavaScript", this.classLoader );
+        p.start ( "load scripts" );
 
         for ( final String module : symbol.getScriptModules () )
         {
             loadScript ( module );
         }
 
-        this.onInit = new ScriptExecutor ( this.scriptEngine, symbol.getOnInit (), this.classLoader, "onInit" ); //$NON-NLS-1$
-        this.onDispose = new ScriptExecutor ( this.scriptEngine, symbol.getOnDispose (), this.classLoader, "onDispose" ); //$NON-NLS-1$
-        this.onUpdate = new ScriptExecutor ( this.scriptEngine, symbol.getOnUpdate (), this.classLoader, "onUpdate" ); //$NON-NLS-1$
+        p.start ( "parse" );
 
+        this.onInit = this.scriptManager.parse ( symbol.getOnInit (), "onInit" ); //$NON-NLS-1$
+        this.onDispose = this.scriptManager.parse ( symbol.getOnDispose (), "onDispose" ); //$NON-NLS-1$
+        this.onUpdate = this.scriptManager.parse ( symbol.getOnUpdate (), "onUpdate" ); //$NON-NLS-1$
+
+        p.start ( "add listener" );
         this.generator.addListener ( this.generatorListener );
+        // p.stop ().print ();
     }
 
     public Shell getShell ()
@@ -308,7 +324,11 @@ public class SymbolController implements Listener
         // load
 
         final String moduleSource = this.symbolLoader.loadStringResource ( module );
-        new ScriptExecutor ( this.scriptEngine, moduleSource, this.classLoader, module ).execute ( this.scriptContext );
+        final ScriptExecutor s = this.scriptManager.parse ( moduleSource, module );
+        if ( s != null )
+        {
+            s.execute ( this.scriptContext );
+        }
     }
 
     public void init () throws Exception
@@ -399,12 +419,17 @@ public class SymbolController implements Listener
         }
     }
 
-    public Object createProperties ( final String command, final String onCreateProperties, final Map<String, String> currentProperties ) throws Exception
+    public void createProperties ( final String command, final String onCreateProperties, final Map<String, String> currentProperties ) throws Exception
     {
-        final ScriptExecutor executor = new ScriptExecutor ( this.scriptEngine, onCreateProperties, this.classLoader, "onCreateProperties" );
+        final ScriptExecutor executor = this.scriptManager.parse ( onCreateProperties, "onCreateProperties" );
+        if ( executor == null )
+        {
+            return;
+        }
+
         final Map<String, Object> localProperties = new HashMap<String, Object> ( 1 );
         localProperties.put ( "properties", currentProperties );
-        return executor.execute ( this.scriptContext, localProperties );
+        executor.execute ( this.scriptContext, localProperties );
     }
 
     public Object getElement ( final String name )
@@ -551,6 +576,11 @@ public class SymbolController implements Listener
 
     protected void notifySummaryListeners ()
     {
+        if ( this.summaryListeners.isEmpty () )
+        {
+            return;
+        }
+
         final SummaryInformation info = getSummaryInformation ();
 
         logger.debug ( "notify summary: {}", info );
@@ -582,7 +612,7 @@ public class SymbolController implements Listener
             return null;
         }
 
-        return new ScriptExecutor ( this.scriptEngine, command, this.classLoader, sourceName );
+        return this.scriptManager.parse ( command, sourceName );
     }
 
     public void execute ( final ScriptExecutor scriptExecutor, final Map<String, Object> scriptObjects ) throws Exception

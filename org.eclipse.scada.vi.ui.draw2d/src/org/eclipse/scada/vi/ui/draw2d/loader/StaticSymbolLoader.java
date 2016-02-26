@@ -29,12 +29,9 @@ public class StaticSymbolLoader implements SymbolLoader
 
     private final Symbol symbol;
 
-    private final ClassLoader classLoader;
-
-    public StaticSymbolLoader ( final Symbol symbol, final ClassLoader classLoader )
+    public StaticSymbolLoader ( final Symbol symbol )
     {
         this.symbol = symbol;
-        this.classLoader = classLoader;
     }
 
     @Override
@@ -55,12 +52,6 @@ public class StaticSymbolLoader implements SymbolLoader
     public Symbol loadSymbol ()
     {
         return this.symbol;
-    }
-
-    @Override
-    public ClassLoader getClassLoader ()
-    {
-        return this.classLoader;
     }
 
     @Override

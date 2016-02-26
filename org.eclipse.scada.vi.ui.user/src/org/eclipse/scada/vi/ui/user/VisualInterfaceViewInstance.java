@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,13 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - minor cleanups
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.user;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.SafeRunner;
@@ -40,7 +42,7 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
 
     private final Composite parent;
 
-    private final LinkedHashMap<String, Object> scriptObjects;
+    private final Map<String, Object> scriptObjects;
 
     private SummaryInformation currentSummary;
 
@@ -53,7 +55,7 @@ public class VisualInterfaceViewInstance extends AbstractViewInstance implements
 
         // create the visual interface view
 
-        this.scriptObjects = new LinkedHashMap<String, Object> ();
+        this.scriptObjects = new HashMap<String, Object> ();
         this.scriptObjects.put ( "viewManager", viewManager ); //$NON-NLS-1$
     }
 

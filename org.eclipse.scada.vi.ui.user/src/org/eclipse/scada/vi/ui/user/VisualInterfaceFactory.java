@@ -26,7 +26,7 @@ public class VisualInterfaceFactory implements ViewInstanceFactory
     @Override
     public ViewInstance createViewInstance ( final ViewManager viewManager, final ViewManagerContext viewManagerContext, final ViewInstanceDescriptor descriptor, final Composite viewHolder, final ResourceManager manager, final IWorkbenchPartSite site )
     {
-        final VisualInterfaceViewInstance instance = new VisualInterfaceViewInstance ( viewManager, viewManagerContext, viewHolder, descriptor, (IEvaluationService)site.getService ( IEvaluationService.class ) );
+        final VisualInterfaceViewInstance instance = new VisualInterfaceViewInstance ( viewManager, viewManagerContext, viewHolder, descriptor, site.getService ( IEvaluationService.class ) );
         instance.init ();
         return instance;
     }

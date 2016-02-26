@@ -56,6 +56,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.statushandlers.StatusManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.profiler.Profiler;
 
 public class VisualInterfaceViewer extends Composite implements SummaryProvider
 {
@@ -134,9 +135,9 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
         this ( parent, style, new XMISymbolLoader ( uri ), scriptObjects, properties );
     }
 
-    public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol, final ClassLoader classLoader, final Map<String, Object> scriptObjects, final Map<String, String> properties )
+    public VisualInterfaceViewer ( final Composite parent, final int style, final Symbol symbol, final Map<String, Object> scriptObjects, final Map<String, String> properties )
     {
-        this ( parent, style, new StaticSymbolLoader ( symbol, classLoader ), scriptObjects, properties );
+        this ( parent, style, new StaticSymbolLoader ( symbol ), scriptObjects, properties );
     }
 
     public VisualInterfaceViewer ( final Composite parent, final int style, final SymbolLoader symbolLoader, final Map<String, Object> scriptObjects, final Map<String, String> properties )
@@ -148,10 +149,16 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
     {
         super ( parent, style );
 
+        final Profiler p = new Profiler ( "VisualInterfaceViewer" );
+
+        p.start ( "init" );
+
         this.initialProperties = properties == null ? Collections.<String, String> emptyMap () : properties;
         this.scriptObjects = scriptObjects;
 
         this.factoryContext = factoryContext;
+
+        p.start ( "rm" );
 
         this.manager = new LocalResourceManager ( JFaceResources.getResources () );
 
@@ -168,10 +175,13 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
         this.canvas = createCanvas ();
         setZooming ( null );
 
+        p.start ( "new factory" );
+
         this.factory = new BasicViewElementFactory ( this.canvas, this.manager, symbolLoader, this.factoryContext );
 
         try
         {
+            p.start ( "create pane" );
             this.pane = createPane ();
             this.layer = new Layer ();
             this.connectionLayer = new ConnectionLayer ();
@@ -180,8 +190,11 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
             this.pane.add ( this.connectionLayer );
             this.pane.add ( this.layer );
 
+            p.start ( "load" );
             this.symbol = symbolLoader.loadSymbol ();
+            p.start ( "create" );
             create ( symbolLoader );
+            p.start ( "apply" );
             applyColor ( this.symbol );
             applyImage ( this.symbol, symbolLoader );
         }
@@ -192,6 +205,7 @@ public class VisualInterfaceViewer extends Composite implements SummaryProvider
 
             this.canvas.setContents ( Helper.createErrorFigure ( e ) );
         }
+        p.stop ().print ();
     }
 
     /**
