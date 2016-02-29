@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.ValueArchiveServer#getArchives <em>Archives</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.ValueArchiveServer#getDefaultArchiveConfiguration <em>Default Archive Configuration</em>}</li>
  * </ul>
  *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getValueArchiveServer()
@@ -46,4 +47,30 @@ public interface ValueArchiveServer extends EquinoxApplication
      * @generated
      */
     EList<ValueArchive> getArchives ();
+
+    /**
+     * Returns the value of the '<em><b>Default Archive Configuration</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Default Archive Configuration</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Default Archive Configuration</em>' containment reference.
+     * @see #setDefaultArchiveConfiguration(ArchiveConfiguration)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getValueArchiveServer_DefaultArchiveConfiguration()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    ArchiveConfiguration getDefaultArchiveConfiguration ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ValueArchiveServer#getDefaultArchiveConfiguration <em>Default Archive Configuration</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Default Archive Configuration</em>' containment reference.
+     * @see #getDefaultArchiveConfiguration()
+     * @generated
+     */
+    void setDefaultArchiveConfiguration ( ArchiveConfiguration value );
 } // ValueArchiveServer

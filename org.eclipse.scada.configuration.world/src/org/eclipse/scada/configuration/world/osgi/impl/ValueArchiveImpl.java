@@ -15,9 +15,11 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.ValueArchive;
@@ -33,6 +35,7 @@ import org.eclipse.scada.configuration.world.osgi.ValueArchive;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveImpl#getArchiveconfiguration <em>Archiveconfiguration</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +91,16 @@ public class ValueArchiveImpl extends MinimalEObjectImpl.Container implements Va
      * @ordered
      */
     protected EList<Item> items;
+
+    /**
+     * The cached value of the '{@link #getArchiveconfiguration() <em>Archiveconfiguration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getArchiveconfiguration()
+     * @generated
+     * @ordered
+     */
+    protected ArchiveConfiguration archiveconfiguration;
 
     /**
      * <!-- begin-user-doc -->
@@ -175,6 +188,49 @@ public class ValueArchiveImpl extends MinimalEObjectImpl.Container implements Va
      * <!-- end-user-doc -->
      * @generated
      */
+    public ArchiveConfiguration getArchiveconfiguration ()
+    {
+        if ( archiveconfiguration != null && archiveconfiguration.eIsProxy () )
+        {
+            InternalEObject oldArchiveconfiguration = (InternalEObject)archiveconfiguration;
+            archiveconfiguration = (ArchiveConfiguration)eResolveProxy ( oldArchiveconfiguration );
+            if ( archiveconfiguration != oldArchiveconfiguration )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, OsgiPackage.VALUE_ARCHIVE__ARCHIVECONFIGURATION, oldArchiveconfiguration, archiveconfiguration ) );
+            }
+        }
+        return archiveconfiguration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ArchiveConfiguration basicGetArchiveconfiguration ()
+    {
+        return archiveconfiguration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setArchiveconfiguration ( ArchiveConfiguration newArchiveconfiguration )
+    {
+        ArchiveConfiguration oldArchiveconfiguration = archiveconfiguration;
+        archiveconfiguration = newArchiveconfiguration;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.VALUE_ARCHIVE__ARCHIVECONFIGURATION, oldArchiveconfiguration, archiveconfiguration ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -186,6 +242,10 @@ public class ValueArchiveImpl extends MinimalEObjectImpl.Container implements Va
                 return getName ();
             case OsgiPackage.VALUE_ARCHIVE__ITEMS:
                 return getItems ();
+            case OsgiPackage.VALUE_ARCHIVE__ARCHIVECONFIGURATION:
+                if ( resolve )
+                    return getArchiveconfiguration ();
+                return basicGetArchiveconfiguration ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -211,6 +271,9 @@ public class ValueArchiveImpl extends MinimalEObjectImpl.Container implements Va
                 getItems ().clear ();
                 getItems ().addAll ( (Collection<? extends Item>)newValue );
                 return;
+            case OsgiPackage.VALUE_ARCHIVE__ARCHIVECONFIGURATION:
+                setArchiveconfiguration ( (ArchiveConfiguration)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -234,6 +297,9 @@ public class ValueArchiveImpl extends MinimalEObjectImpl.Container implements Va
             case OsgiPackage.VALUE_ARCHIVE__ITEMS:
                 getItems ().clear ();
                 return;
+            case OsgiPackage.VALUE_ARCHIVE__ARCHIVECONFIGURATION:
+                setArchiveconfiguration ( (ArchiveConfiguration)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -254,6 +320,8 @@ public class ValueArchiveImpl extends MinimalEObjectImpl.Container implements Va
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case OsgiPackage.VALUE_ARCHIVE__ITEMS:
                 return items != null && !items.isEmpty ();
+            case OsgiPackage.VALUE_ARCHIVE__ARCHIVECONFIGURATION:
+                return archiveconfiguration != null;
         }
         return super.eIsSet ( featureID );
     }

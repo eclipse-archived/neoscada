@@ -33,6 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter;
 import org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule;
 import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
+import org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration;
 import org.eclipse.scada.configuration.world.osgi.AttributesSummary;
 import org.eclipse.scada.configuration.world.osgi.Average;
 import org.eclipse.scada.configuration.world.osgi.AverageItem;
@@ -892,6 +893,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     private EClass deltaItemEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass archiveConfigurationEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -2168,6 +2176,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EReference getValueArchiveServer_Archives ()
     {
         return (EReference)valueArchiveServerEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getValueArchiveServer_DefaultArchiveConfiguration ()
+    {
+        return (EReference)valueArchiveServerEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -3977,6 +3995,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getValueArchive_Archiveconfiguration ()
+    {
+        return (EReference)valueArchiveEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getConfigurationAdministratorExporter ()
     {
@@ -4844,6 +4872,36 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getArchiveConfiguration ()
+    {
+        return archiveConfigurationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getArchiveConfiguration_FileSizeInMilliseconds ()
+    {
+        return (EAttribute)archiveConfigurationEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getArchiveConfiguration_NumberOfFiles ()
+    {
+        return (EAttribute)archiveConfigurationEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getAverageReferenceType ()
     {
@@ -5132,6 +5190,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         valueArchiveServerEClass = createEClass ( VALUE_ARCHIVE_SERVER );
         createEReference ( valueArchiveServerEClass, VALUE_ARCHIVE_SERVER__ARCHIVES );
+        createEReference ( valueArchiveServerEClass, VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION );
 
         defaultMasterServerEClass = createEClass ( DEFAULT_MASTER_SERVER );
 
@@ -5349,6 +5408,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         valueArchiveEClass = createEClass ( VALUE_ARCHIVE );
         createEReference ( valueArchiveEClass, VALUE_ARCHIVE__ITEMS );
+        createEReference ( valueArchiveEClass, VALUE_ARCHIVE__ARCHIVECONFIGURATION );
 
         configurationAdministratorExporterEClass = createEClass ( CONFIGURATION_ADMINISTRATOR_EXPORTER );
         createEOperation ( configurationAdministratorExporterEClass, CONFIGURATION_ADMINISTRATOR_EXPORTER___GET_TYPE_TAG );
@@ -5463,6 +5523,10 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         deltaItemEClass = createEClass ( DELTA_ITEM );
         createEReference ( deltaItemEClass, DELTA_ITEM__SOURCE );
+
+        archiveConfigurationEClass = createEClass ( ARCHIVE_CONFIGURATION );
+        createEAttribute ( archiveConfigurationEClass, ARCHIVE_CONFIGURATION__FILE_SIZE_IN_MILLISECONDS );
+        createEAttribute ( archiveConfigurationEClass, ARCHIVE_CONFIGURATION__NUMBER_OF_FILES );
 
         // Create enums
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
@@ -5751,6 +5815,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         initEClass ( valueArchiveServerEClass, ValueArchiveServer.class, "ValueArchiveServer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getValueArchiveServer_Archives (), this.getValueArchive (), null, "archives", null, 0, -1, ValueArchiveServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getValueArchiveServer_DefaultArchiveConfiguration (), this.getArchiveConfiguration (), null, "defaultArchiveConfiguration", null, 0, 1, ValueArchiveServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( defaultMasterServerEClass, DefaultMasterServer.class, "DefaultMasterServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -5973,6 +6038,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         initEClass ( valueArchiveEClass, ValueArchive.class, "ValueArchive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getValueArchive_Items (), this.getItem (), null, "items", null, 0, -1, ValueArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getValueArchive_Archiveconfiguration (), this.getArchiveConfiguration (), null, "archiveconfiguration", null, 0, 1, ValueArchive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( configurationAdministratorExporterEClass, ConfigurationAdministratorExporter.class, "ConfigurationAdministratorExporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -6089,6 +6155,10 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEClass ( deltaItemEClass, DeltaItem.class, "DeltaItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getDeltaItem_Source (), this.getItem (), null, "source", null, 1, 1, DeltaItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
+        initEClass ( archiveConfigurationEClass, ArchiveConfiguration.class, "ArchiveConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getArchiveConfiguration_FileSizeInMilliseconds (), theEcorePackage.getELong (), "fileSizeInMilliseconds", "3600000", 0, 1, ArchiveConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getArchiveConfiguration_NumberOfFiles (), theEcorePackage.getELong (), "numberOfFiles", "2160", 0, 1, ArchiveConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
         // Initialize enums and add enum literals
         initEEnum ( averageReferenceTypeEEnum, AverageReferenceType.class, "AverageReferenceType" ); //$NON-NLS-1$
         addEEnumLiteral ( averageReferenceTypeEEnum, AverageReferenceType.MIN );
@@ -6160,6 +6230,8 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         // Create annotations
         // http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup
         createExclusiveGroupAnnotations ();
+        // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+        createExtendedMetaDataAnnotations ();
     }
 
     /**
@@ -6176,6 +6248,19 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         addAnnotation ( httpServiceEClass, source, new String[] { "groupId", "http.service" //$NON-NLS-1$ //$NON-NLS-2$
         } );
         addAnnotation ( telnetConsoleEClass, source, new String[] { "groupId", "telnet.console" //$NON-NLS-1$ //$NON-NLS-2$
+        } );
+    }
+
+    /**
+     * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createExtendedMetaDataAnnotations ()
+    {
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
+        addAnnotation ( getArchiveConfiguration_NumberOfFiles (), source, new String[] { "name", "numberOfFiles" //$NON-NLS-1$ //$NON-NLS-2$
         } );
     }
 

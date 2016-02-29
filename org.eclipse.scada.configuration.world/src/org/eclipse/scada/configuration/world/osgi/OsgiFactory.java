@@ -823,6 +823,15 @@ public interface OsgiFactory extends EFactory
     DeltaItem createDeltaItem ();
 
     /**
+     * Returns a new object of class '<em>Archive Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Archive Configuration</em>'.
+     * @generated
+     */
+    ArchiveConfiguration createArchiveConfiguration ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

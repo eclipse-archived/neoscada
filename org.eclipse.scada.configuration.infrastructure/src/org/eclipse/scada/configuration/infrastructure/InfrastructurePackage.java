@@ -1575,13 +1575,22 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SERVER__LOCAL_CREDENTIALS = EQUINOX_APPLICATION__LOCAL_CREDENTIALS;
 
     /**
+     * The feature id for the '<em><b>Default Archiveconfiguration</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION = EQUINOX_APPLICATION_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Value Archive Server</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VALUE_ARCHIVE_SERVER_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 0;
+    int VALUE_ARCHIVE_SERVER_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Value Archive Server</em>' class.
@@ -3395,6 +3404,17 @@ public interface InfrastructurePackage extends EPackage
     EClass getValueArchiveServer ();
 
     /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveServer#getDefaultArchiveconfiguration <em>Default Archiveconfiguration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Default Archiveconfiguration</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.ValueArchiveServer#getDefaultArchiveconfiguration()
+     * @see #getValueArchiveServer()
+     * @generated
+     */
+    EReference getValueArchiveServer_DefaultArchiveconfiguration ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver <em>Abstract Factory Driver</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4676,6 +4696,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EClass VALUE_ARCHIVE_SERVER = eINSTANCE.getValueArchiveServer ();
+
+        /**
+         * The meta object literal for the '<em><b>Default Archiveconfiguration</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION = eINSTANCE.getValueArchiveServer_DefaultArchiveconfiguration ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractFactoryDriverImpl <em>Abstract Factory Driver</em>}' class.

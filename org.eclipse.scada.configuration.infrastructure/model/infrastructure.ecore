@@ -176,7 +176,11 @@
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/JdbcUserService"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValueArchiveServer" eSuperTypes="#//EquinoxApplication"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueArchiveServer" eSuperTypes="#//EquinoxApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultArchiveconfiguration"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ArchiveConfiguration"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractFactoryDriver" abstract="true"
       eSuperTypes="#//Driver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverTypeId" lowerBound="1"

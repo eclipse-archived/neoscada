@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
+import org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration;
 import org.eclipse.scada.configuration.world.osgi.Connection;
 import org.eclipse.scada.configuration.world.osgi.Exporter;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
@@ -47,6 +48,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveServerImpl#getSecurityConfiguration <em>Security Configuration</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveServerImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveServerImpl#getArchives <em>Archives</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveServerImpl#getDefaultArchiveConfiguration <em>Default Archive Configuration</em>}</li>
  * </ul>
  *
  * @generated
@@ -152,6 +154,16 @@ public abstract class ValueArchiveServerImpl extends MinimalEObjectImpl.Containe
      * @ordered
      */
     protected EList<ValueArchive> archives;
+
+    /**
+     * The cached value of the '{@link #getDefaultArchiveConfiguration() <em>Default Archive Configuration</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefaultArchiveConfiguration()
+     * @generated
+     * @ordered
+     */
+    protected ArchiveConfiguration defaultArchiveConfiguration;
 
     /**
      * <!-- begin-user-doc -->
@@ -404,6 +416,86 @@ public abstract class ValueArchiveServerImpl extends MinimalEObjectImpl.Containe
      * <!-- end-user-doc -->
      * @generated
      */
+    public ArchiveConfiguration getDefaultArchiveConfiguration ()
+    {
+        if ( defaultArchiveConfiguration != null && defaultArchiveConfiguration.eIsProxy () )
+        {
+            InternalEObject oldDefaultArchiveConfiguration = (InternalEObject)defaultArchiveConfiguration;
+            defaultArchiveConfiguration = (ArchiveConfiguration)eResolveProxy ( oldDefaultArchiveConfiguration );
+            if ( defaultArchiveConfiguration != oldDefaultArchiveConfiguration )
+            {
+                InternalEObject newDefaultArchiveConfiguration = (InternalEObject)defaultArchiveConfiguration;
+                NotificationChain msgs = oldDefaultArchiveConfiguration.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, null, null );
+                if ( newDefaultArchiveConfiguration.eInternalContainer () == null )
+                {
+                    msgs = newDefaultArchiveConfiguration.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, oldDefaultArchiveConfiguration, defaultArchiveConfiguration ) );
+            }
+        }
+        return defaultArchiveConfiguration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ArchiveConfiguration basicGetDefaultArchiveConfiguration ()
+    {
+        return defaultArchiveConfiguration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetDefaultArchiveConfiguration ( ArchiveConfiguration newDefaultArchiveConfiguration, NotificationChain msgs )
+    {
+        ArchiveConfiguration oldDefaultArchiveConfiguration = defaultArchiveConfiguration;
+        defaultArchiveConfiguration = newDefaultArchiveConfiguration;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, oldDefaultArchiveConfiguration, newDefaultArchiveConfiguration );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDefaultArchiveConfiguration ( ArchiveConfiguration newDefaultArchiveConfiguration )
+    {
+        if ( newDefaultArchiveConfiguration != defaultArchiveConfiguration )
+        {
+            NotificationChain msgs = null;
+            if ( defaultArchiveConfiguration != null )
+                msgs = ( (InternalEObject)defaultArchiveConfiguration ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, null, msgs );
+            if ( newDefaultArchiveConfiguration != null )
+                msgs = ( (InternalEObject)newDefaultArchiveConfiguration ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, null, msgs );
+            msgs = basicSetDefaultArchiveConfiguration ( newDefaultArchiveConfiguration, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, newDefaultArchiveConfiguration, newDefaultArchiveConfiguration ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public Profile getProfile ()
     {
         // TODO: implement this method
@@ -431,6 +523,8 @@ public abstract class ValueArchiveServerImpl extends MinimalEObjectImpl.Containe
                 return ( (InternalEList<?>)getModules () ).basicRemove ( otherEnd, msgs );
             case OsgiPackage.VALUE_ARCHIVE_SERVER__ARCHIVES:
                 return ( (InternalEList<?>)getArchives () ).basicRemove ( otherEnd, msgs );
+            case OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION:
+                return basicSetDefaultArchiveConfiguration ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -465,6 +559,10 @@ public abstract class ValueArchiveServerImpl extends MinimalEObjectImpl.Containe
                 return getModules ();
             case OsgiPackage.VALUE_ARCHIVE_SERVER__ARCHIVES:
                 return getArchives ();
+            case OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION:
+                if ( resolve )
+                    return getDefaultArchiveConfiguration ();
+                return basicGetDefaultArchiveConfiguration ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -508,6 +606,9 @@ public abstract class ValueArchiveServerImpl extends MinimalEObjectImpl.Containe
                 getArchives ().clear ();
                 getArchives ().addAll ( (Collection<? extends ValueArchive>)newValue );
                 return;
+            case OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION:
+                setDefaultArchiveConfiguration ( (ArchiveConfiguration)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -546,6 +647,9 @@ public abstract class ValueArchiveServerImpl extends MinimalEObjectImpl.Containe
             case OsgiPackage.VALUE_ARCHIVE_SERVER__ARCHIVES:
                 getArchives ().clear ();
                 return;
+            case OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION:
+                setDefaultArchiveConfiguration ( (ArchiveConfiguration)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -576,6 +680,8 @@ public abstract class ValueArchiveServerImpl extends MinimalEObjectImpl.Containe
                 return modules != null && !modules.isEmpty ();
             case OsgiPackage.VALUE_ARCHIVE_SERVER__ARCHIVES:
                 return archives != null && !archives.isEmpty ();
+            case OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION:
+                return defaultArchiveConfiguration != null;
         }
         return super.eIsSet ( featureID );
     }

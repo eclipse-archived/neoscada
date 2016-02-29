@@ -383,6 +383,8 @@
         eSuperTypes="#//osgi/EquinoxApplication">
       <eStructuralFeatures xsi:type="ecore:EReference" name="archives" upperBound="-1"
           eType="#//osgi/ValueArchive" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultArchiveConfiguration"
+          eType="#//osgi/ArchiveConfiguration" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DefaultMasterServer" eSuperTypes="#//osgi/MasterServer"/>
     <eClassifiers xsi:type="ecore:EClass" name="CustomMasterServer" eSuperTypes="#//osgi/MasterServer">
@@ -772,6 +774,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="ValueArchive" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
           eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="archiveconfiguration"
+          eType="#//osgi/ArchiveConfiguration"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ConfigurationAdministratorExporter"
         eSuperTypes="#//osgi/Exporter">
@@ -983,6 +987,17 @@
     <eClassifiers xsi:type="ecore:EEnum" name="IODirection">
       <eLiterals name="INPUT"/>
       <eLiterals name="OUTPUT" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArchiveConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileSizeInMilliseconds"
+          eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
+          defaultValueLiteral="3600000"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFiles" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
+          defaultValueLiteral="2160">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value="numberOfFiles"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">

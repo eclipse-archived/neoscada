@@ -2297,6 +2297,31 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implement
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ArchiveConfigurationItemProvider archiveConfigurationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createArchiveConfigurationAdapter ()
+    {
+        if ( archiveConfigurationItemProvider == null )
+        {
+            archiveConfigurationItemProvider = new ArchiveConfigurationItemProvider ( this );
+        }
+
+        return archiveConfigurationItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2613,6 +2638,8 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implement
             sfpDataAccessConnectionItemProvider.dispose ();
         if ( deltaItemItemProvider != null )
             deltaItemItemProvider.dispose ();
+        if ( archiveConfigurationItemProvider != null )
+            archiveConfigurationItemProvider.dispose ();
     }
 
 }

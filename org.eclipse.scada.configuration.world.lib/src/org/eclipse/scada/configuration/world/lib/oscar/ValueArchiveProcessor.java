@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -23,9 +24,11 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.lib.Names;
+import org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration;
 import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.Item;
+import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.ValueArchive;
 import org.eclipse.scada.configuration.world.osgi.ValueArchiveServer;
 import org.eclipse.scada.utils.str.StringHelper;
@@ -39,7 +42,14 @@ public class ValueArchiveProcessor extends BasicOscarProcessor
 
     private final StringBuilder commandBuilder = new StringBuilder ();
 
-    private static final String NL = System.getProperty ( "line.separator", "\n" );
+    private static final String NL = System.lineSeparator ();
+
+    private static final ArchiveConfiguration DEFAULT_CONFIGURATION;
+
+    static
+    {
+        DEFAULT_CONFIGURATION = OsgiFactory.eINSTANCE.createArchiveConfiguration ();
+    }
 
     public ValueArchiveProcessor ( final ValueArchiveServer app, final OscarContext ctx, final IFile commandFile )
     {
@@ -60,7 +70,7 @@ public class ValueArchiveProcessor extends BasicOscarProcessor
     private void writeCommandFile ( final IProgressMonitor monitor ) throws Exception
     {
         final String data = "# These commands must be executed on the target instance" + NL + this.commandBuilder;
-        try (final ByteArrayInputStream input = new ByteArrayInputStream ( data.getBytes () ))
+        try ( final ByteArrayInputStream input = new ByteArrayInputStream ( data.getBytes () ) )
         {
             this.commandFile.create ( input, IResource.KEEP_HISTORY, monitor );
         }
@@ -118,7 +128,9 @@ public class ValueArchiveProcessor extends BasicOscarProcessor
 
     private void createArchive ( final ValueArchive archive, final String sourceId )
     {
-        final Map<String, String> data = new HashMap<String, String> ();
+        final ArchiveConfiguration cfg = findConfiguration ( archive );
+
+        final Map<String, String> data = new TreeMap<String, String> ();
 
         final String id = Names.makeName ( archive );
         data.put ( "datasource.id", sourceId );
@@ -126,8 +138,22 @@ public class ValueArchiveProcessor extends BasicOscarProcessor
 
         // FIXME: this should be configurable
         // FIXME: this should not be executed manually
-        this.commandBuilder.append ( String.format ( "hds:create %s 3600000 2160", id ) );
+        // this.commandBuilder.append ( String.format ( "hds:create %s 3600000 2160", id ) );
+        this.commandBuilder.append ( String.format ( "hds:create %s %s %s", id, cfg.getFileSizeInMilliseconds (), cfg.getNumberOfFiles () ) );
         this.commandBuilder.append ( NL );
+    }
+
+    private ArchiveConfiguration findConfiguration ( final ValueArchive archive )
+    {
+        if ( archive.getArchiveconfiguration () != null )
+        {
+            return archive.getArchiveconfiguration ();
+        }
+        if ( this.app.getDefaultArchiveConfiguration () != null )
+        {
+            return this.app.getDefaultArchiveConfiguration ();
+        }
+        return DEFAULT_CONFIGURATION;
     }
 
     private String createSource ( final ValueArchive archive, final Item item, final int number )

@@ -1856,13 +1856,22 @@ public interface OsgiPackage extends EPackage
     int VALUE_ARCHIVE_SERVER__ARCHIVES = EQUINOX_APPLICATION_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Default Archive Configuration</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION = EQUINOX_APPLICATION_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Value Archive Server</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VALUE_ARCHIVE_SERVER_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 1;
+    int VALUE_ARCHIVE_SERVER_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 2;
 
     /**
      * The operation id for the '<em>Get Profile</em>' operation.
@@ -5507,6 +5516,15 @@ public interface OsgiPackage extends EPackage
     int DEFAULT_VALUE_ARCHIVE_SERVER__ARCHIVES = VALUE_ARCHIVE_SERVER__ARCHIVES;
 
     /**
+     * The feature id for the '<em><b>Default Archive Configuration</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFAULT_VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION = VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION;
+
+    /**
      * The number of structural features of the '<em>Default Value Archive Server</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5635,13 +5653,22 @@ public interface OsgiPackage extends EPackage
     int VALUE_ARCHIVE__ITEMS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Archiveconfiguration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE__ARCHIVECONFIGURATION = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Value Archive</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VALUE_ARCHIVE_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
+    int VALUE_ARCHIVE_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Value Archive</em>' class.
@@ -7555,6 +7582,52 @@ public interface OsgiPackage extends EPackage
     int DELTA_ITEM_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ArchiveConfigurationImpl <em>Archive Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.ArchiveConfigurationImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getArchiveConfiguration()
+     * @generated
+     */
+    int ARCHIVE_CONFIGURATION = 105;
+
+    /**
+     * The feature id for the '<em><b>File Size In Milliseconds</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARCHIVE_CONFIGURATION__FILE_SIZE_IN_MILLISECONDS = 0;
+
+    /**
+     * The feature id for the '<em><b>Number Of Files</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARCHIVE_CONFIGURATION__NUMBER_OF_FILES = 1;
+
+    /**
+     * The number of structural features of the '<em>Archive Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARCHIVE_CONFIGURATION_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Archive Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARCHIVE_CONFIGURATION_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7562,7 +7635,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 105;
+    int AVERAGE_REFERENCE_TYPE = 106;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -7572,7 +7645,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 106;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 107;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -7582,7 +7655,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 107;
+    int ROUNDING_TYPE = 108;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -7592,7 +7665,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 108;
+    int DATA_TYPE = 109;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -7602,7 +7675,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 109;
+    int PASSWORD_TYPE = 110;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ReplicationDataFormat <em>Replication Data Format</em>}' enum.
@@ -7612,7 +7685,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getReplicationDataFormat()
      * @generated
      */
-    int REPLICATION_DATA_FORMAT = 110;
+    int REPLICATION_DATA_FORMAT = 111;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
@@ -7622,7 +7695,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 111;
+    int PERSISTENCE = 112;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -7632,7 +7705,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 112;
+    int ERROR_HANDLING = 113;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -7642,7 +7715,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 113;
+    int CHANGE_TYPE = 114;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.IODirection <em>IO Direction</em>}' enum.
@@ -7652,7 +7725,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getIODirection()
      * @generated
      */
-    int IO_DIRECTION = 114;
+    int IO_DIRECTION = 115;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -7662,7 +7735,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 115;
+    int SEVERITY = 116;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -7672,7 +7745,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 116;
+    int VARIANT = 117;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -8752,6 +8825,17 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EReference getValueArchiveServer_Archives ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.world.osgi.ValueArchiveServer#getDefaultArchiveConfiguration <em>Default Archive Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Default Archive Configuration</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ValueArchiveServer#getDefaultArchiveConfiguration()
+     * @see #getValueArchiveServer()
+     * @generated
+     */
+    EReference getValueArchiveServer_DefaultArchiveConfiguration ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.DefaultMasterServer <em>Default Master Server</em>}'.
@@ -10501,6 +10585,17 @@ public interface OsgiPackage extends EPackage
     EReference getValueArchive_Items ();
 
     /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.osgi.ValueArchive#getArchiveconfiguration <em>Archiveconfiguration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Archiveconfiguration</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ValueArchive#getArchiveconfiguration()
+     * @see #getValueArchive()
+     * @generated
+     */
+    EReference getValueArchive_Archiveconfiguration ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter <em>Configuration Administrator Exporter</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -11392,6 +11487,38 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EReference getDeltaItem_Source ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration <em>Archive Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Archive Configuration</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration
+     * @generated
+     */
+    EClass getArchiveConfiguration ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration#getFileSizeInMilliseconds <em>File Size In Milliseconds</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>File Size In Milliseconds</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration#getFileSizeInMilliseconds()
+     * @see #getArchiveConfiguration()
+     * @generated
+     */
+    EAttribute getArchiveConfiguration_FileSizeInMilliseconds ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration#getNumberOfFiles <em>Number Of Files</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Number Of Files</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration#getNumberOfFiles()
+     * @see #getArchiveConfiguration()
+     * @generated
+     */
+    EAttribute getArchiveConfiguration_NumberOfFiles ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}'.
@@ -12401,6 +12528,14 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EReference VALUE_ARCHIVE_SERVER__ARCHIVES = eINSTANCE.getValueArchiveServer_Archives ();
+
+        /**
+         * The meta object literal for the '<em><b>Default Archive Configuration</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION = eINSTANCE.getValueArchiveServer_DefaultArchiveConfiguration ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.DefaultMasterServerImpl <em>Default Master Server</em>}' class.
@@ -13821,6 +13956,14 @@ public interface OsgiPackage extends EPackage
         EReference VALUE_ARCHIVE__ITEMS = eINSTANCE.getValueArchive_Items ();
 
         /**
+         * The meta object literal for the '<em><b>Archiveconfiguration</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference VALUE_ARCHIVE__ARCHIVECONFIGURATION = eINSTANCE.getValueArchive_Archiveconfiguration ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ConfigurationAdministratorExporterImpl <em>Configuration Administrator Exporter</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -14551,6 +14694,32 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EReference DELTA_ITEM__SOURCE = eINSTANCE.getDeltaItem_Source ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ArchiveConfigurationImpl <em>Archive Configuration</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.ArchiveConfigurationImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getArchiveConfiguration()
+         * @generated
+         */
+        EClass ARCHIVE_CONFIGURATION = eINSTANCE.getArchiveConfiguration ();
+
+        /**
+         * The meta object literal for the '<em><b>File Size In Milliseconds</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ARCHIVE_CONFIGURATION__FILE_SIZE_IN_MILLISECONDS = eINSTANCE.getArchiveConfiguration_FileSizeInMilliseconds ();
+
+        /**
+         * The meta object literal for the '<em><b>Number Of Files</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ARCHIVE_CONFIGURATION__NUMBER_OF_FILES = eINSTANCE.getArchiveConfiguration_NumberOfFiles ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.

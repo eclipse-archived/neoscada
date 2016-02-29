@@ -249,6 +249,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createSfpDataAccessConnection ();
             case OsgiPackage.DELTA_ITEM:
                 return createDeltaItem ();
+            case OsgiPackage.ARCHIVE_CONFIGURATION:
+                return createArchiveConfiguration ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1298,6 +1300,17 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         DeltaItemImpl deltaItem = new DeltaItemImpl ();
         return deltaItem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ArchiveConfiguration createArchiveConfiguration ()
+    {
+        ArchiveConfigurationImpl archiveConfiguration = new ArchiveConfigurationImpl ();
+        return archiveConfiguration;
     }
 
     /**

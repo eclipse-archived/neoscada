@@ -67,6 +67,7 @@ public class ValueArchiveItemProvider extends ItemProviderAdapter implements IEd
             addShortDescriptionPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
             addItemsPropertyDescriptor ( object );
+            addArchiveconfigurationPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -110,6 +111,19 @@ public class ValueArchiveItemProvider extends ItemProviderAdapter implements IEd
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueArchive_items_feature" ), //$NON-NLS-1$
         getString ( "_UI_PropertyDescriptor_description", "_UI_ValueArchive_items_feature", "_UI_ValueArchive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         OsgiPackage.Literals.VALUE_ARCHIVE__ITEMS, true, false, true, null, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Archiveconfiguration feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addArchiveconfigurationPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueArchive_archiveconfiguration_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_ValueArchive_archiveconfiguration_feature", "_UI_ValueArchive_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        OsgiPackage.Literals.VALUE_ARCHIVE__ARCHIVECONFIGURATION, true, false, true, null, null, null ) );
     }
 
     /**

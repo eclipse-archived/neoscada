@@ -10,11 +10,19 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure;
 
+import org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Value Archive Server</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveServer#getDefaultArchiveconfiguration <em>Default Archiveconfiguration</em>}</li>
+ * </ul>
  *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getValueArchiveServer()
  * @model
@@ -22,4 +30,30 @@ package org.eclipse.scada.configuration.infrastructure;
  */
 public interface ValueArchiveServer extends EquinoxApplication
 {
+
+    /**
+     * Returns the value of the '<em><b>Default Archiveconfiguration</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Default Archiveconfiguration</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Default Archiveconfiguration</em>' containment reference.
+     * @see #setDefaultArchiveconfiguration(ArchiveConfiguration)
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getValueArchiveServer_DefaultArchiveconfiguration()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    ArchiveConfiguration getDefaultArchiveconfiguration ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveServer#getDefaultArchiveconfiguration <em>Default Archiveconfiguration</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Default Archiveconfiguration</em>' containment reference.
+     * @see #getDefaultArchiveconfiguration()
+     * @generated
+     */
+    void setDefaultArchiveconfiguration ( ArchiveConfiguration value );
 } // ValueArchiveServer
