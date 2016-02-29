@@ -30,7 +30,9 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.lib.Items;
+import org.eclipse.scada.configuration.lib.Nodes;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
 import org.eclipse.scada.configuration.world.osgi.Exporter;
 import org.eclipse.scada.configuration.world.osgi.Item;
@@ -146,7 +148,7 @@ public class ItemCreatorImpl extends MasterItemCreatorImpl
 
     /**
      * Set the connection based on a driver
-     * 
+     *
      * @param source
      *            the driver
      * @param item
@@ -178,7 +180,8 @@ public class ItemCreatorImpl extends MasterItemCreatorImpl
             final ValueArchiveServer archive = this.ctx.getArchiveServer ( this.master.getImplementation () );
             if ( archive == null )
             {
-                throw new IllegalStateException ( String.format ( "Item %s should be archived but no archive server is configured on %s", item, this.master ) );
+                final Node node = Nodes.fromApp ( this.master.getImplementation () );
+                throw new IllegalStateException ( String.format ( "Item %s should be archived but no archive server is configured for %s on %s", item, this.master, node ) );
             }
             Items.addArchive ( archive, item );
         }
