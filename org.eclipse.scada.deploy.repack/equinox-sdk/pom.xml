@@ -15,7 +15,7 @@
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>
-	<artifactId>equinox-SDK</artifactId>
+	<artifactId>equinox-sdk</artifactId>
 	<version>4.5.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 

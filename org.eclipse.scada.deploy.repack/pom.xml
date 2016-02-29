@@ -32,7 +32,7 @@
 	</repositories>
 
 	<modules>
-		<module>equinox-SDK</module>
+		<module>equinox-sdk</module>
 		<module>gemini-dbaccess</module>
 		<module>org.eclipse.ecf.sdk</module>
 		<module>org.eclipse.platform</module>
