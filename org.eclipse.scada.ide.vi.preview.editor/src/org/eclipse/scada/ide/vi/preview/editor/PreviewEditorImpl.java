@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -252,7 +252,7 @@ public class PreviewEditorImpl extends AbstractModelEditor
         if ( symbol != null )
         {
             final Map<String, String> properties = new HashMap<> ();
-            final SymbolLoader symbolLoader = new StaticSymbolLoader ( symbol, getInterfaceClassLoader () );
+            final SymbolLoader symbolLoader = new StaticSymbolLoader ( symbol );
             final Map<String, Object> scriptObjects = new HashMap<> ();
             this.viewer = new VisualInterfaceViewer ( this.symbolArea, SWT.NONE, symbolLoader, scriptObjects, properties, this.factoryContext );
         }
