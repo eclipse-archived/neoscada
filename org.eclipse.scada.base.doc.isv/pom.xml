@@ -23,8 +23,8 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>tycho-document-bundle</groupId>
-				<artifactId>javadoc</artifactId>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-document-bundle-plugin</artifactId>
 				<executions>
 					<execution>
 						<id>javadoc</id>
