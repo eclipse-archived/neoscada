@@ -78,12 +78,6 @@
 			</plugin>
 
 			<plugin>
-				<groupId>tycho-document-bundle</groupId>
-				<artifactId>javadoc</artifactId>
-				<version>${tycho-extras-version}</version>
-			</plugin>
-
-			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
