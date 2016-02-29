@@ -23,8 +23,8 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.eclipse.scada.releng</groupId>
-				<artifactId>doc-bundle</artifactId>
+				<groupId>tycho-document-bundle</groupId>
+				<artifactId>javadoc</artifactId>
 				<executions>
 					<execution>
 						<id>javadoc</id>
