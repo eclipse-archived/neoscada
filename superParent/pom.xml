@@ -78,9 +78,9 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.eclipse.scada.releng</groupId>
-				<artifactId>doc-bundle</artifactId>
-				<version>0.0.6</version>
+				<groupId>tycho-document-bundle</groupId>
+				<artifactId>javadoc</artifactId>
+				<version>${tycho-extras-version}</version>
 			</plugin>
 
 			<plugin>
