@@ -173,6 +173,7 @@ Contributors:
         <mkdir dir="${download.dir.maven}"/>
         
         <mkdir dir="temp/p2tom2"/>
+    	<mkdir dir="temp/p2tom2/tmp"/>
         
         <get src="http://download.eclipse.org/eclipsescada/releng/p2tom2-${p2tom2.version}.zip" dest="temp/p2tom2.zip" usetimestamp="true"/>
         <unzip src="temp/p2tom2.zip" dest="temp"/>
@@ -180,6 +181,7 @@ Contributors:
         <java classname="org.eclipse.equinox.launcher.Main"
             fork="true"
            	failonerror="true"
+        	dir="temp/p2tom2"
             >
             <classpath>
                 <fileset dir="temp/p2tom2/plugins/">
@@ -194,7 +196,7 @@ Contributors:
             <!-- validation repos -->
             <arg value="http://download.eclipse.org/releases/mars"/>
             
-            <sysproperty key="path.p2temp" file="${java.io.tmpdir}/p2tom2.p2"/>
+            <sysproperty key="path.p2temp" file="temp/p2tom2/tmp"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
         	<sysproperty key="stripQualifier" value="true"/>
         </java>
