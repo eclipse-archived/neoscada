@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014,2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -42,6 +42,8 @@ import com.google.common.io.ByteStreams;
 
 public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
 {
+    private static final int AR_ARCHIVE_DEFAULT_MODE = 33188; // unfortunately this is not a public field of ArArchiveEntry
+
     public static final Charset CHARSET = Charset.forName ( "UTF-8" );
 
     private final ArArchiveOutputStream ar;
@@ -53,6 +55,8 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
     private final TarArchiveOutputStream dataStream;
 
     private final GenericControlFile packageControlFile;
+
+    private final TimestampProvider timestampProvider;
 
     private long installedSize = 0;
 
@@ -72,12 +76,22 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
 
     public DebianPackageWriter ( final OutputStream stream, final GenericControlFile packageControlFile ) throws IOException
     {
+        this ( stream, packageControlFile, TimestampProvider.DEFAULT_TIMESTAMP_PROVIDER );
+    }
+
+    public DebianPackageWriter ( final OutputStream stream, final GenericControlFile packageControlFile, final TimestampProvider timestampProvider ) throws IOException
+    {
         this.packageControlFile = packageControlFile;
+        this.timestampProvider = timestampProvider;
+        if ( getTimestampProvider () == null )
+        {
+            throw new IllegalArgumentException ( "'timestampProvider' must not be null" );
+        }
         BinaryPackageControlFile.validate ( packageControlFile );
 
         this.ar = new ArArchiveOutputStream ( stream );
 
-        this.ar.putArchiveEntry ( new ArArchiveEntry ( "debian-binary", this.binaryHeader.length ) );
+        this.ar.putArchiveEntry ( new ArArchiveEntry ( "debian-binary", this.binaryHeader.length, 0, 0, AR_ARCHIVE_DEFAULT_MODE, getTimestampProvider ().getModTime () / 1000 ) );
         this.ar.write ( this.binaryHeader );
         this.ar.closeArchiveEntry ();
 
@@ -121,7 +135,7 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
 
             final TarArchiveEntry entry = new TarArchiveEntry ( fileName );
             entry.setSize ( contentProvider.getSize () );
-            applyInfo ( entry, entryInformation );
+            applyInfo ( entry, entryInformation, this.getTimestampProvider () );
 
             checkCreateParents ( fileName );
 
@@ -183,7 +197,7 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
     protected void internalAddDirectory ( final String path, final EntryInformation entryInformation ) throws IOException
     {
         final TarArchiveEntry entry = new TarArchiveEntry ( path );
-        applyInfo ( entry, entryInformation );
+        applyInfo ( entry, entryInformation, this.getTimestampProvider () );
 
         this.dataStream.putArchiveEntry ( entry );
         this.dataStream.closeArchiveEntry ();
@@ -191,7 +205,7 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
         this.paths.add ( path );
     }
 
-    private static void applyInfo ( final TarArchiveEntry entry, final EntryInformation entryInformation )
+    private static void applyInfo ( final TarArchiveEntry entry, final EntryInformation entryInformation, TimestampProvider timestampProvider )
     {
         if ( entryInformation == null )
         {
@@ -207,6 +221,7 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
             entry.setGroupName ( entryInformation.getGroup () );
         }
         entry.setMode ( entryInformation.getMode () );
+        entry.setModTime ( timestampProvider.getModTime () );
     }
 
     private void checkCreateParents ( final String fileName ) throws IOException
@@ -262,9 +277,8 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
         final File controlFile = File.createTempFile ( "control", null );
         try
         {
-            try (
-                    GZIPOutputStream gout = new GZIPOutputStream ( new FileOutputStream ( controlFile ) );
-                    TarArchiveOutputStream tout = new TarArchiveOutputStream ( gout ) )
+            try ( GZIPOutputStream gout = new GZIPOutputStream ( new FileOutputStream ( controlFile ) );
+                  TarArchiveOutputStream tout = new TarArchiveOutputStream ( gout ) )
             {
                 tout.setLongFileMode ( TarArchiveOutputStream.LONGFILE_GNU );
 
@@ -300,6 +314,7 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
         entry.setUserName ( "root" );
         entry.setGroupName ( "root" );
         entry.setSize ( content.getSize () );
+        entry.setModTime ( this.getTimestampProvider ().getModTime () );
         out.putArchiveEntry ( entry );
         try ( InputStream stream = content.createInputStream () )
         {
@@ -366,7 +381,7 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
 
     private void addArFile ( final File file, final String entryName ) throws IOException
     {
-        final ArArchiveEntry entry = new ArArchiveEntry ( entryName, file.length () );
+        final ArArchiveEntry entry = new ArArchiveEntry ( entryName, file.length (), 0, 0, AR_ARCHIVE_DEFAULT_MODE, timestampProvider.getModTime () / 1000 );
         this.ar.putArchiveEntry ( entry );
 
         ByteStreams.copy ( new FileInputStream ( file ), this.ar );
@@ -394,4 +409,8 @@ public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
         this.prermScript = prermScript;
     }
 
+    public TimestampProvider getTimestampProvider ()
+    {
+        return timestampProvider;
+    }
 }
