@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.recipe.RecipePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.MapInputImpl#getLocalName <em>Local Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.MapInputImpl#getContextName <em>Context Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

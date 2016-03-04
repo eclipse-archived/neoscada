@@ -922,6 +922,24 @@ public interface CommonPackage extends EPackage
     int SCALED_VALUE___GET_MASTER_ON = ComponentPackage.SINGLE_VALUE___GET_MASTER_ON;
 
     /**
+     * The operation id for the '<em>Is Readable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE___IS_READABLE = ComponentPackage.SINGLE_VALUE___IS_READABLE;
+
+    /**
+     * The operation id for the '<em>Is Writable</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCALED_VALUE___IS_WRITABLE = ComponentPackage.SINGLE_VALUE___IS_WRITABLE;
+
+    /**
      * The number of operations of the '<em>Scaled Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

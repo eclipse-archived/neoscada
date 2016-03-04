@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Execute#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Execute#getTask <em>Task</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.recipe.Execute#getOutput <em>Output</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Execute#getInputReference <em>Input Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.recipe.RecipePackage#getExecute()
  * @model

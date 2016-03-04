@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.infrastructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -147,7 +148,7 @@ public class ExternalDriverItemProvider extends DriverItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -156,6 +157,19 @@ public class ExternalDriverItemProvider extends DriverItemProvider
         final String label = String.format ( "%s @ %s", ( (ExternalDriver)object ).getName (), ( (ExternalDriver)object ).getNode ().getHostName () );
         return label == null || label.length () == 0 ? getString ( "_UI_ExternalDriver_type" ) : //$NON-NLS-1$
         getString ( "_UI_ExternalDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public Object getStyledText ( final Object object )
+    {
+        return getStyledDriverLabel ( (ExternalDriver)object, getString ( "_UI_ExternalDriver_type" ) );
     }
 
     /**

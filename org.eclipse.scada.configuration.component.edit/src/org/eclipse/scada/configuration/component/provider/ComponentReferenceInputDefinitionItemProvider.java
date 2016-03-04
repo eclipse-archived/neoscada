@@ -10,25 +10,19 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.provider;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.ui.celleditor.ExtendedComboBoxCellEditor;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
-import org.eclipse.scada.configuration.component.DataComponent;
-import org.eclipse.scada.configuration.component.edit.ComponentLabelProvider;
-import org.eclipse.scada.configuration.ecore.ui.ItemPropertyDescriptor2;
-import org.eclipse.swt.widgets.Composite;
+import org.eclipse.scada.configuration.component.edit.ComponentHelper;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition} object.
@@ -77,47 +71,7 @@ public class ComponentReferenceInputDefinitionItemProvider extends InputDefiniti
      */
     protected void addComponentPropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentReferenceInputDefinition_component_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_component_feature", "_UI_ComponentReferenceInputDefinition_type" ), ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__COMPONENT, true, false, true, null, null, null) {
-
-            @Override
-            public CellEditor createPropertyEditor ( final Composite composite, final Object object )
-            {
-                return new ExtendedComboBoxCellEditor ( composite, new ArrayList<> ( getChoiceOfValues ( object ) ), new ComponentLabelProvider ( this.adapterFactory ), true );
-            }
-
-            @Override
-            public Collection<?> getChoiceOfValues ( final Object object )
-            {
-                final ComponentReferenceInputDefinition ref = (ComponentReferenceInputDefinition)object;
-                if ( ! ( ref.eContainer () instanceof DataComponent ) )
-                {
-                    return super.getChoiceOfValues ( object );
-                }
-
-                final Collection<Object> result = new HashSet<> ();
-                final DataComponent container = (DataComponent)ref.eContainer ();
-                for ( final Object o : super.getChoiceOfValues ( object ) )
-                {
-                    if ( o == container )
-                    {
-                        // remove self
-                        continue;
-                    }
-
-                    if ( ! ( o instanceof DataComponent ) )
-                    {
-                        result.add ( o );
-                        continue;
-                    }
-                    final DataComponent dc = (DataComponent)o;
-                    if ( dc.getMasterOn ().containsAll ( container.getMasterOn () ) )
-                    {
-                        result.add ( dc );
-                    }
-                }
-                return result;
-            }
-        } );
+        ComponentHelper.addComponentProperty ( this.itemPropertyDescriptors, this.adapterFactory, getResourceLocator (), getString ( "_UI_ComponentReferenceInputDefinition_component_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_component_feature", "_UI_ComponentReferenceInputDefinition_type" ), ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__COMPONENT );
     }
 
     /**
@@ -165,9 +119,29 @@ public class ComponentReferenceInputDefinitionItemProvider extends InputDefiniti
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (ComponentReferenceInputDefinition)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_ComponentReferenceInputDefinition_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ComponentReferenceInputDefinition_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_ComponentReferenceInputDefinition_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_ComponentReferenceInputDefinition_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**

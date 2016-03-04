@@ -35,6 +35,7 @@ import org.eclipse.scada.configuration.recipe.Task;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getTask <em>Task</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getImport <em>Import</em>}</li>
@@ -43,7 +44,6 @@ import org.eclipse.scada.configuration.recipe.Task;
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getProfiles <em>Profiles</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

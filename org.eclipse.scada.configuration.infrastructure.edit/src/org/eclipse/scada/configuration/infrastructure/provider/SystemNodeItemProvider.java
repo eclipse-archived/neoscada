@@ -12,10 +12,12 @@ package org.eclipse.scada.configuration.infrastructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
@@ -101,7 +103,7 @@ public class SystemNodeItemProvider extends NodeItemProvider
      * This returns SystemNode.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -125,7 +127,7 @@ public class SystemNodeItemProvider extends NodeItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -138,6 +140,19 @@ public class SystemNodeItemProvider extends NodeItemProvider
         }
         return label == null || label.length () == 0 ? getString ( "_UI_SystemNode_type" ) : //$NON-NLS-1$
         getString ( "_UI_SystemNode_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
+    public Object getStyledText ( final Object object )
+    {
+        return new StyledString ( getText ( object ) );
     }
 
     /**

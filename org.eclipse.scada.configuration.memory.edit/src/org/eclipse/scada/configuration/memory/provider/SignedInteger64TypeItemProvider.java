@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.scada.configuration.memory.SignedInteger64Type;
 
 /**
@@ -78,8 +79,20 @@ public class SignedInteger64TypeItemProvider extends OrderedTypeItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         SignedInteger64Type signedInteger64Type = (SignedInteger64Type)object;
-        return getString ( "_UI_SignedInteger64Type_type" ) + " " + signedInteger64Type.getIndex ();
+        return new StyledString ( getString ( "_UI_SignedInteger64Type_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ).append ( Integer.toString ( signedInteger64Type.getIndex () ) );
     }
 
     /**

@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.globalization.GlobalizeFactory;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
@@ -127,7 +128,7 @@ public class MasterServerItemProvider extends EquinoxApplicationItemProvider
      * This returns MasterServer.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -170,6 +171,19 @@ public class MasterServerItemProvider extends EquinoxApplicationItemProvider
         }
         return label == null || label.length () == 0 ? getString ( "_UI_MasterServer_type" ) : //$NON-NLS-1$
         getString ( "_UI_MasterServer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public Object getStyledText ( final Object object )
+    {
+        return new StyledString ( getText ( object ) );
     }
 
     /**

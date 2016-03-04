@@ -16,6 +16,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.scada.configuration.component.TransientValue;
 
 /**
@@ -86,9 +87,29 @@ public class TransientValueItemProvider extends SingleValueItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (TransientValue)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_TransientValue_type" ) : //$NON-NLS-1$
-        getString ( "_UI_TransientValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_TransientValue_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_TransientValue_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**

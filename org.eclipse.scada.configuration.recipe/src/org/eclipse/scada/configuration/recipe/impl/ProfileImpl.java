@@ -37,11 +37,11 @@ import org.eclipse.scada.configuration.recipe.RecipePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.ProfileImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.ProfileImpl#getProperties <em>Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

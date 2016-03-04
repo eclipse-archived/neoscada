@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
@@ -169,7 +170,19 @@ public class ComponentWorldItemProvider extends ContainerItemProvider
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_ComponentWorld_type" ); //$NON-NLS-1$
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
+        return new StyledString ( getString ( "_UI_ComponentWorld_type" ) ); //$NON-NLS-1$
     }
 
     /**

@@ -111,7 +111,7 @@ public class CommonDriverItemProvider extends AbstractFactoryDriverItemProvider
      * This returns CommonDriver.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -142,6 +142,19 @@ public class CommonDriverItemProvider extends AbstractFactoryDriverItemProvider
     public String getText ( final Object object )
     {
         return getDriverLabel ( (CommonDriver)object, getString ( "_UI_CommonDriver_type" ) );
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public Object getStyledText ( final Object object )
+    {
+        return getStyledDriverLabel ( (CommonDriver)object, getString ( "_UI_CommonDriver_type" ) );
     }
 
     /**

@@ -80,75 +80,73 @@ public class RecipeAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected RecipeSwitch<Adapter> modelSwitch =
-            new RecipeSwitch<Adapter> ()
-            {
-                @Override
-                public Adapter caseDefinition ( Definition object )
-                {
-                    return createDefinitionAdapter ();
-                }
+    protected RecipeSwitch<Adapter> modelSwitch = new RecipeSwitch<Adapter> () {
+        @Override
+        public Adapter caseDefinition ( Definition object )
+        {
+            return createDefinitionAdapter ();
+        }
 
-                @Override
-                public Adapter caseTask ( Task object )
-                {
-                    return createTaskAdapter ();
-                }
+        @Override
+        public Adapter caseTask ( Task object )
+        {
+            return createTaskAdapter ();
+        }
 
-                @Override
-                public Adapter caseExecute ( Execute object )
-                {
-                    return createExecuteAdapter ();
-                }
+        @Override
+        public Adapter caseExecute ( Execute object )
+        {
+            return createExecuteAdapter ();
+        }
 
-                @Override
-                public Adapter caseMapInput ( MapInput object )
-                {
-                    return createMapInputAdapter ();
-                }
+        @Override
+        public Adapter caseMapInput ( MapInput object )
+        {
+            return createMapInputAdapter ();
+        }
 
-                @Override
-                public Adapter caseInputValue ( InputValue object )
-                {
-                    return createInputValueAdapter ();
-                }
+        @Override
+        public Adapter caseInputValue ( InputValue object )
+        {
+            return createInputValueAdapter ();
+        }
 
-                @Override
-                public Adapter caseStringInputValue ( StringInputValue object )
-                {
-                    return createStringInputValueAdapter ();
-                }
+        @Override
+        public Adapter caseStringInputValue ( StringInputValue object )
+        {
+            return createStringInputValueAdapter ();
+        }
 
-                @Override
-                public Adapter caseCaptureOutput ( CaptureOutput object )
-                {
-                    return createCaptureOutputAdapter ();
-                }
+        @Override
+        public Adapter caseCaptureOutput ( CaptureOutput object )
+        {
+            return createCaptureOutputAdapter ();
+        }
 
-                @Override
-                public Adapter caseInputReference ( InputReference object )
-                {
-                    return createInputReferenceAdapter ();
-                }
+        @Override
+        public Adapter caseInputReference ( InputReference object )
+        {
+            return createInputReferenceAdapter ();
+        }
 
-                @Override
-                public Adapter casePropertyEntry ( PropertyEntry object )
-                {
-                    return createPropertyEntryAdapter ();
-                }
+        @Override
+        public Adapter casePropertyEntry ( PropertyEntry object )
+        {
+            return createPropertyEntryAdapter ();
+        }
 
-                @Override
-                public Adapter caseProfile ( Profile object )
-                {
-                    return createProfileAdapter ();
-                }
+        @Override
+        public Adapter caseProfile ( Profile object )
+        {
+            return createProfileAdapter ();
+        }
 
-                @Override
-                public Adapter defaultCase ( EObject object )
-                {
-                    return createEObjectAdapter ();
-                }
-            };
+        @Override
+        public Adapter defaultCase ( EObject object )
+        {
+            return createEObjectAdapter ();
+        }
+    };
 
     /**
      * Creates an adapter for the <code>target</code>.

@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.recipe.CaptureOutput#getLocalName <em>Local Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.CaptureOutput#getContextName <em>Context Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.recipe.RecipePackage#getCaptureOutput()
  * @model

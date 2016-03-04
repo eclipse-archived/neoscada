@@ -15,6 +15,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.scada.configuration.component.DanglingItemReference;
 import org.eclipse.scada.configuration.world.osgi.provider.ItemItemProvider;
 
@@ -24,7 +26,7 @@ import org.eclipse.scada.configuration.world.osgi.provider.ItemItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DanglingItemReferenceItemProvider extends ItemItemProvider
+public class DanglingItemReferenceItemProvider extends ItemItemProvider implements IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -86,9 +88,29 @@ public class DanglingItemReferenceItemProvider extends ItemItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (DanglingItemReference)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_DanglingItemReference_type" ) : //$NON-NLS-1$
-        getString ( "_UI_DanglingItemReference_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_DanglingItemReference_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_DanglingItemReference_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**

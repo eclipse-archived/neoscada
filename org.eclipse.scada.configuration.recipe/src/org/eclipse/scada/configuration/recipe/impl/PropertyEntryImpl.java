@@ -27,11 +27,11 @@ import org.eclipse.scada.configuration.recipe.RecipePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.PropertyEntryImpl#getKey <em>Key</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.PropertyEntryImpl#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

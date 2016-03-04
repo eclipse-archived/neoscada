@@ -47,9 +47,7 @@ public final class RecipeEditPlugin extends EMFPlugin
      */
     public RecipeEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                } );
+        super ( new ResourceLocator[] {} );
     }
 
     /**

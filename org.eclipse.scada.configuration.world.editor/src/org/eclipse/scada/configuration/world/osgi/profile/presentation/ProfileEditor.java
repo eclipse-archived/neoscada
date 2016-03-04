@@ -128,6 +128,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.provider.ProfileItemPr
 import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSupport;
 import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
+import org.eclipse.emf.edit.ui.provider.DelegatingStyledCellLabelProvider;
 import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import org.eclipse.scada.configuration.script.provider.ScriptItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.security.provider.SecurityItemProviderAdapterFactory;
@@ -495,7 +496,7 @@ public class ProfileEditor extends MultiPageEditorPart implements IEditingDomain
                                     {
                                         if ( ( delta.getFlags () & IResourceDelta.MARKERS ) != 0 )
                                         {
-                                            DiagnosticDecorator.DiagnosticAdapter.update ( resource, markerHelper.getMarkerDiagnostics ( resource, (IFile)delta.getResource (), false ) );
+                                            DiagnosticDecorator.Styled.DiagnosticAdapter.update ( resource, markerHelper.getMarkerDiagnostics ( resource, (IFile)delta.getResource (), false ) );
                                         }
                                         if ( ( delta.getFlags () & IResourceDelta.CONTENT ) != 0 )
                                         {
@@ -1127,13 +1128,13 @@ public class ProfileEditor extends MultiPageEditorPart implements IEditingDomain
                 selectionViewer = (TreeViewer)viewerPane.getViewer ();
                 selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
 
-                selectionViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), selectionViewer ) ) );
+                selectionViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new DecoratingColumLabelProvider.StyledLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, selectionViewer ), new DiagnosticDecorator.Styled ( editingDomain.getResourceSet (), selectionViewer ) ) ) );
                 selectionViewer.setInput ( editingDomain.getResourceSet () );
                 selectionViewer.setSelection ( new StructuredSelection ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
                 viewerPane.setTitle ( editingDomain.getResourceSet () );
 
                 new AdapterFactoryTreeEditor ( selectionViewer.getTree (), adapterFactory );
-                new ColumnViewerInformationControlToolTipSupport ( selectionViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, selectionViewer ) );
+                new ColumnViewerInformationControlToolTipSupport ( selectionViewer, new DiagnosticDecorator.Styled.EditingDomainLocationListener ( editingDomain, selectionViewer ) );
 
                 createContextMenuFor ( selectionViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1164,7 +1165,7 @@ public class ProfileEditor extends MultiPageEditorPart implements IEditingDomain
                 parentViewer = (TreeViewer)viewerPane.getViewer ();
                 parentViewer.setAutoExpandLevel ( 30 );
                 parentViewer.setContentProvider ( new ReverseAdapterFactoryContentProvider ( adapterFactory ) );
-                parentViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                parentViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, parentViewer ) ) );
 
                 createContextMenuFor ( parentViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1191,7 +1192,7 @@ public class ProfileEditor extends MultiPageEditorPart implements IEditingDomain
                 viewerPane.createControl ( getContainer () );
                 listViewer = (ListViewer)viewerPane.getViewer ();
                 listViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                listViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                listViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, listViewer ) ) );
 
                 createContextMenuFor ( listViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1218,10 +1219,10 @@ public class ProfileEditor extends MultiPageEditorPart implements IEditingDomain
                 viewerPane.createControl ( getContainer () );
                 treeViewer = (TreeViewer)viewerPane.getViewer ();
                 treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                treeViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), treeViewer ) ) );
+                treeViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new DecoratingColumLabelProvider.StyledLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, treeViewer ), new DiagnosticDecorator.Styled ( editingDomain.getResourceSet (), treeViewer ) ) ) );
 
                 new AdapterFactoryTreeEditor ( treeViewer.getTree (), adapterFactory );
-                new ColumnViewerInformationControlToolTipSupport ( treeViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, treeViewer ) );
+                new ColumnViewerInformationControlToolTipSupport ( treeViewer, new DiagnosticDecorator.Styled.EditingDomainLocationListener ( editingDomain, treeViewer ) );
 
                 createContextMenuFor ( treeViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1266,9 +1267,9 @@ public class ProfileEditor extends MultiPageEditorPart implements IEditingDomain
 
                 tableViewer.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
                 tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                tableViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), tableViewer ) ) );
+                tableViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new DecoratingColumLabelProvider.StyledLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, tableViewer ), new DiagnosticDecorator.Styled ( editingDomain.getResourceSet (), tableViewer ) ) ) );
 
-                new ColumnViewerInformationControlToolTipSupport ( tableViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, tableViewer ) );
+                new ColumnViewerInformationControlToolTipSupport ( tableViewer, new DiagnosticDecorator.Styled.EditingDomainLocationListener ( editingDomain, tableViewer ) );
 
                 createContextMenuFor ( tableViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1313,9 +1314,9 @@ public class ProfileEditor extends MultiPageEditorPart implements IEditingDomain
 
                 treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
                 treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                treeViewerWithColumns.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), treeViewerWithColumns ) ) );
+                treeViewerWithColumns.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new DecoratingColumLabelProvider.StyledLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, treeViewerWithColumns ), new DiagnosticDecorator.Styled ( editingDomain.getResourceSet (), treeViewerWithColumns ) ) ) );
 
-                new ColumnViewerInformationControlToolTipSupport ( treeViewerWithColumns, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, treeViewerWithColumns ) );
+                new ColumnViewerInformationControlToolTipSupport ( treeViewerWithColumns, new DiagnosticDecorator.Styled.EditingDomainLocationListener ( editingDomain, treeViewerWithColumns ) );
 
                 createContextMenuFor ( treeViewerWithColumns );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1467,10 +1468,10 @@ public class ProfileEditor extends MultiPageEditorPart implements IEditingDomain
                     // Set up the tree viewer.
                     //
                     contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                    contentOutlineViewer.setLabelProvider ( new DecoratingColumLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ), new DiagnosticDecorator ( editingDomain.getResourceSet (), contentOutlineViewer ) ) );
+                    contentOutlineViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new DecoratingColumLabelProvider.StyledLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, contentOutlineViewer ), new DiagnosticDecorator.Styled ( editingDomain.getResourceSet (), contentOutlineViewer ) ) ) );
                     contentOutlineViewer.setInput ( editingDomain.getResourceSet () );
 
-                    new ColumnViewerInformationControlToolTipSupport ( contentOutlineViewer, new DiagnosticDecorator.EditingDomainLocationListener ( editingDomain, contentOutlineViewer ) );
+                    new ColumnViewerInformationControlToolTipSupport ( contentOutlineViewer, new DiagnosticDecorator.Styled.EditingDomainLocationListener ( editingDomain, contentOutlineViewer ) );
 
                     // Make sure our popups work.
                     //

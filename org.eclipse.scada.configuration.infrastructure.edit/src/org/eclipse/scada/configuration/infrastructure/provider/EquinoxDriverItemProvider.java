@@ -144,7 +144,7 @@ public class EquinoxDriverItemProvider extends AbstractFactoryDriverItemProvider
      * This returns EquinoxDriver.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -175,6 +175,19 @@ public class EquinoxDriverItemProvider extends AbstractFactoryDriverItemProvider
     public String getText ( final Object object )
     {
         return getDriverLabel ( (EquinoxDriver)object, getString ( "_UI_EquinoxDriver_type" ) );
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
+    public Object getStyledText ( final Object object )
+    {
+        return getStyledDriverLabel ( (EquinoxDriver)object, getString ( "_UI_EquinoxDriver_type" ) );
     }
 
     /**

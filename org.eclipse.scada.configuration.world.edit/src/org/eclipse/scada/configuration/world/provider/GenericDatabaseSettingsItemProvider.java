@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.GenericDatabaseSettings;
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -132,9 +133,29 @@ public class GenericDatabaseSettingsItemProvider extends AbstractGenericDatabase
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (GenericDatabaseSettings)object ).getId ();
-        return label == null || label.length () == 0 ? getString ( "_UI_GenericDatabaseSettings_type" ) : //$NON-NLS-1$
-        getString ( "_UI_GenericDatabaseSettings_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_GenericDatabaseSettings_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_GenericDatabaseSettings_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**

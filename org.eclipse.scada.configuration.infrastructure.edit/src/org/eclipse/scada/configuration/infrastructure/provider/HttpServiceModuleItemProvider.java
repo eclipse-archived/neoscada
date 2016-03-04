@@ -25,10 +25,12 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
@@ -40,7 +42,7 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HttpServiceModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class HttpServiceModuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -116,8 +118,20 @@ public class HttpServiceModuleItemProvider extends ItemProviderAdapter implement
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         HttpServiceModule httpServiceModule = (HttpServiceModule)object;
-        return getString ( "_UI_HttpServiceModule_type" ) + " " + httpServiceModule.getPort (); //$NON-NLS-1$ //$NON-NLS-2$
+        return new StyledString ( getString ( "_UI_HttpServiceModule_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ).append ( Short.toString ( httpServiceModule.getPort () ) ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

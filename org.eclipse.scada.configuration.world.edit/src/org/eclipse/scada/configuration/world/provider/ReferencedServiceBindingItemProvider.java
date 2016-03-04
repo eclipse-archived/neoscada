@@ -26,11 +26,13 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.ReferencedServiceBinding;
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -41,7 +43,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ReferencedServiceBindingItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class ReferencedServiceBindingItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -150,7 +152,19 @@ public class ReferencedServiceBindingItemProvider extends ItemProviderAdapter im
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_ReferencedServiceBinding_type" ); //$NON-NLS-1$
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
+        return new StyledString ( getString ( "_UI_ReferencedServiceBinding_type" ) ); //$NON-NLS-1$
     }
 
     /**

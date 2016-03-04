@@ -21,11 +21,13 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
@@ -37,7 +39,7 @@ import org.eclipse.scada.configuration.world.osgi.PullEvents;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PullEventsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class PullEventsItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -185,9 +187,29 @@ public class PullEventsItemProvider extends ItemProviderAdapter implements IEdit
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (PullEvents)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_PullEvents_type" ) : //$NON-NLS-1$
-        getString ( "_UI_PullEvents_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_PullEvents_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_PullEvents_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**

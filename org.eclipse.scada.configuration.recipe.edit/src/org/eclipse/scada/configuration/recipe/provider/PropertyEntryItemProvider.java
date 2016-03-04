@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.recipe.provider;
 
@@ -22,36 +22,34 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.recipe.PropertyEntry;
 import org.eclipse.scada.configuration.recipe.RecipePackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.recipe.PropertyEntry} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.recipe.PropertyEntry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ *
  * @generated
  */
-public class PropertyEntryItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class PropertyEntryItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    public PropertyEntryItemProvider ( AdapterFactory adapterFactory )
+    public PropertyEntryItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -60,75 +58,59 @@ public class PropertyEntryItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addKeyPropertyDescriptor ( object );
             addValuePropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Key feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addKeyPropertyDescriptor ( Object object )
+    protected void addKeyPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_PropertyEntry_key_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_key_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.PROPERTY_ENTRY__KEY,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PropertyEntry_key_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_key_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        RecipePackage.Literals.PROPERTY_ENTRY__KEY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
      * This adds a property descriptor for the Value feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addValuePropertyDescriptor ( Object object )
+    protected void addValuePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_PropertyEntry_value_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_value_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.PROPERTY_ENTRY__VALUE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_PropertyEntry_value_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_value_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        RecipePackage.Literals.PROPERTY_ENTRY__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
      * This returns PropertyEntry.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/PropertyEntry" ) ); //$NON-NLS-1$
     }
@@ -137,8 +119,8 @@ public class PropertyEntryItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated NOT
+     *
+     * @generated
      */
     @Override
     public String getText ( final Object object )
@@ -146,20 +128,54 @@ public class PropertyEntryItemProvider
         final String label = ( (PropertyEntry)object ).getKey ();
         final String value = ( (PropertyEntry)object ).getValue ();
 
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_PropertyEntry_type" ) : //$NON-NLS-1$
-                getString ( "_UI_PropertyEntry_type" ) + " " + String.format ( "%s (%s)", label, value ); //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ? getString ( "_UI_PropertyEntry_type" ) : //$NON-NLS-1$
+        getString ( "_UI_PropertyEntry_type" ) + " " + String.format ( "%s (%s)", label, value ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This returns the label styled text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public Object getStyledText ( final Object object )
+    {
+        final StyledString styledLabel = new StyledString ();
+
+        styledLabel.append ( getString ( "_UI_PropertyEntry_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+
+        final String key = ( (PropertyEntry)object ).getKey ();
+        final String value = ( (PropertyEntry)object ).getValue ();
+
+        if ( key != null && !key.isEmpty () )
+        {
+            styledLabel.append ( " " ).append ( key );
+        }
+
+        styledLabel.append ( " = ", StyledString.Style.QUALIFIER_STYLER );
+
+        if ( value != null && !value.isEmpty () )
+        {
+            styledLabel.append ( value );
+        }
+
+        return styledLabel;
+    }
+
+    /**
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -174,14 +190,16 @@ public class PropertyEntryItemProvider
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -190,6 +208,7 @@ public class PropertyEntryItemProvider
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override

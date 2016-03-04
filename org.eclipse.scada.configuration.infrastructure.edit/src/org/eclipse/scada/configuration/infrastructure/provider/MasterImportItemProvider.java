@@ -23,14 +23,15 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
-import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
@@ -39,7 +40,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MasterImportItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class MasterImportItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -157,30 +158,34 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
-     * @generated NOT
+     * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        String id = ( (MasterImport)object ).getId ();
-        if ( id == null || id.isEmpty () )
-        {
-            id = "<unnamed>";
-        }
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
 
-        final MasterImport mi = (MasterImport)object;
-        if ( mi.getImportedMaster () != null )
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
+        String label = ( (MasterImport)object ).getId ();
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
         {
-            final MasterServer im = mi.getImportedMaster ();
-            final IItemLabelProvider labelProvider = (IItemLabelProvider)this.adapterFactory.adapt ( im, IItemLabelProvider.class );
-            final String imLabel = labelProvider != null ? labelProvider.getText ( im ) : "" + im;
-            return String.format ( "%s from %s as %s", getString ( "_UI_MasterImport_type" ), imLabel, id ); //$NON-NLS-2$
+            styledLabel.append ( getString ( "_UI_MasterImport_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
         }
         else
         {
-            return getString ( "_UI_MasterImport_type" ) + " " + id; //$NON-NLS-1$ //$NON-NLS-2$
+            styledLabel.append ( getString ( "_UI_MasterImport_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
         }
+        return styledLabel;
     }
 
     /**

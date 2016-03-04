@@ -22,11 +22,13 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
 import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
@@ -37,7 +39,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemPropertyItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class SystemPropertyItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -136,26 +138,40 @@ public class SystemPropertyItemProvider extends ItemProviderAdapter implements I
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getText ( Object object )
+    {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @generated NOT
      */
     @Override
-    public String getText ( final Object object )
+    public Object getStyledText ( final Object object )
     {
-        final StringBuilder sb = new StringBuilder ( getString ( "_UI_SystemProperty_type" ) ); //$NON-NLS-1$
+        final StyledString styledLabel = new StyledString ();
+
+        styledLabel.append ( getString ( "_UI_SystemProperty_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
 
         if ( ( (SystemProperty)object ).getKey () != null )
         {
-            sb.append ( ' ' );
-            sb.append ( ( (SystemProperty)object ).getKey () );
+            styledLabel.append ( " " );
+            styledLabel.append ( ( (SystemProperty)object ).getKey () );
         }
-        sb.append ( " = " ); //$NON-NLS-1$
+        styledLabel.append ( " = ", StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
         if ( ( (SystemProperty)object ).getValue () != null )
         {
-            sb.append ( ( (SystemProperty)object ).getValue () );
+            styledLabel.append ( ( (SystemProperty)object ).getValue () );
         }
 
-        return sb.toString ();
+        return styledLabel;
     }
 
     /**

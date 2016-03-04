@@ -31,6 +31,7 @@ import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
@@ -97,6 +98,7 @@ public class DeploymentItemProviderAdapterFactory extends DeploymentAdapterFacto
         supportedTypes.add ( IItemLabelProvider.class );
         supportedTypes.add ( IItemPropertySource.class );
         supportedTypes.add ( ITableItemLabelProvider.class );
+        supportedTypes.add ( IItemStyledLabelProvider.class );
     }
 
     /**

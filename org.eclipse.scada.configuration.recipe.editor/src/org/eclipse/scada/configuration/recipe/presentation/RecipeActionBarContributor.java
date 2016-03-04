@@ -58,9 +58,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RecipeActionBarContributor
-        extends EditingDomainActionBarContributor
-        implements ISelectionChangedListener
+public class RecipeActionBarContributor extends EditingDomainActionBarContributor implements ISelectionChangedListener
 {
     /**
      * This keeps track of the active editor.
@@ -84,22 +82,20 @@ public class RecipeActionBarContributor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IAction showPropertiesViewAction =
-            new Action ( RecipeEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" ) ) //$NON-NLS-1$
+    protected IAction showPropertiesViewAction = new Action ( RecipeEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" )) {//$NON-NLS-1$
+        @Override
+        public void run ()
+        {
+            try
             {
-                @Override
-                public void run ()
-                {
-                    try
-                    {
-                        getPage ().showView ( "org.eclipse.ui.views.PropertySheet" ); //$NON-NLS-1$
-                    }
-                    catch ( PartInitException exception )
-                    {
-                        RecipeEditorPlugin.INSTANCE.log ( exception );
-                    }
-                }
-            };
+                getPage ().showView ( "org.eclipse.ui.views.PropertySheet" ); //$NON-NLS-1$
+            }
+            catch ( PartInitException exception )
+            {
+                RecipeEditorPlugin.INSTANCE.log ( exception );
+            }
+        }
+    };
 
     /**
      * This action refreshes the viewer of the current editor if the editor
@@ -108,28 +104,26 @@ public class RecipeActionBarContributor
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IAction refreshViewerAction =
-            new Action ( RecipeEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" ) ) //$NON-NLS-1$
-            {
-                @Override
-                public boolean isEnabled ()
-                {
-                    return activeEditorPart instanceof IViewerProvider;
-                }
+    protected IAction refreshViewerAction = new Action ( RecipeEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" )) {//$NON-NLS-1$
+        @Override
+        public boolean isEnabled ()
+        {
+            return activeEditorPart instanceof IViewerProvider;
+        }
 
-                @Override
-                public void run ()
+        @Override
+        public void run ()
+        {
+            if ( activeEditorPart instanceof IViewerProvider )
+            {
+                Viewer viewer = ( (IViewerProvider)activeEditorPart ).getViewer ();
+                if ( viewer != null )
                 {
-                    if ( activeEditorPart instanceof IViewerProvider )
-                    {
-                        Viewer viewer = ( (IViewerProvider)activeEditorPart ).getViewer ();
-                        if ( viewer != null )
-                        {
-                            viewer.refresh ();
-                        }
-                    }
+                    viewer.refresh ( );
                 }
-            };
+            }
+        }
+    };
 
     /**
      * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
@@ -239,14 +233,12 @@ public class RecipeActionBarContributor
 
         // Force an update because Eclipse hides empty menus now.
         //
-        submenuManager.addMenuListener
-                ( new IMenuListener ()
-                {
-                    public void menuAboutToShow ( IMenuManager menuManager )
-                    {
-                        menuManager.updateAll ( true );
-                    }
-                } );
+        submenuManager.addMenuListener ( new IMenuListener () {
+            public void menuAboutToShow ( IMenuManager menuManager )
+            {
+                menuManager.updateAll ( true );
+            }
+        } );
 
         addGlobalActions ( submenuManager );
     }

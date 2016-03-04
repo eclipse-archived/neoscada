@@ -6,7 +6,7 @@
     modelName="CommonComponents" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
     copyrightFields="false" runtimeVersion="2.11" usedGenPackages="../../org.eclipse.scada.configuration.component/model/component.genmodel#//component ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
-    operationReflection="true" importOrganizing="true">
+    operationReflection="true" importOrganizing="true" styleProviders="true">
   <foreignModel>commonComponents.ecore</foreignModel>
   <genPackages prefix="Common" basePackage="org.eclipse.scada.configuration.component"
       resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"

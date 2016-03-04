@@ -22,11 +22,13 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.HandlerPriorityRule;
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -37,7 +39,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class HandlerPriorityRuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class HandlerPriorityRuleItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -169,8 +171,20 @@ public class HandlerPriorityRuleItemProvider extends ItemProviderAdapter impleme
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         HandlerPriorityRule handlerPriorityRule = (HandlerPriorityRule)object;
-        return getString ( "_UI_HandlerPriorityRule_type" ) + " " + handlerPriorityRule.getOrder (); //$NON-NLS-1$ //$NON-NLS-2$
+        return new StyledString ( getString ( "_UI_HandlerPriorityRule_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ).append ( Integer.toString ( handlerPriorityRule.getOrder () ) ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

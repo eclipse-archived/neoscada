@@ -33,13 +33,13 @@ import org.eclipse.scada.configuration.recipe.Task;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.TaskImpl#getExecute <em>Execute</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.TaskImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.TaskImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.TaskImpl#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

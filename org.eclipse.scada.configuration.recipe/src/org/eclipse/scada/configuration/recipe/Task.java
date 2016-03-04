@@ -22,13 +22,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Task#getExecute <em>Execute</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Task#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Task#getDefinition <em>Definition</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Task#getOrder <em>Order</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.configuration.recipe.RecipePackage#getTask()
  * @model

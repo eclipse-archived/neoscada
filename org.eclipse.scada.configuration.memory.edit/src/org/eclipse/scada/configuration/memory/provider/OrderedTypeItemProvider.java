@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.memory.MemoryPackage;
 import org.eclipse.scada.configuration.memory.OrderedType;
@@ -79,8 +80,20 @@ public class OrderedTypeItemProvider extends BaseScalarTypeItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         OrderedType orderedType = (OrderedType)object;
-        return getString ( "_UI_OrderedType_type" ) + " " + orderedType.getIndex ();
+        return new StyledString ( getString ( "_UI_OrderedType_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ).append ( Integer.toString ( orderedType.getIndex () ) );
     }
 
     /**

@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.scada.configuration.memory.SignedInteger16Type;
 
 /**
@@ -78,8 +79,20 @@ public class SignedInteger16TypeItemProvider extends OrderedTypeItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         SignedInteger16Type signedInteger16Type = (SignedInteger16Type)object;
-        return getString ( "_UI_SignedInteger16Type_type" ) + " " + signedInteger16Type.getIndex ();
+        return new StyledString ( getString ( "_UI_SignedInteger16Type_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ).append ( Integer.toString ( signedInteger16Type.getIndex () ) );
     }
 
     /**

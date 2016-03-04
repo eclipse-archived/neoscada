@@ -20,6 +20,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.MovingAverageModule;
@@ -152,8 +153,20 @@ public class MovingAverageModuleItemProvider extends CalculationModuleItemProvid
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         MovingAverageModule movingAverageModule = (MovingAverageModule)object;
-        return getString ( "_UI_MovingAverageModule_type" ) + " " + movingAverageModule.getNullRange (); //$NON-NLS-1$ //$NON-NLS-2$
+        return new StyledString ( getString ( "_UI_MovingAverageModule_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ).append ( Long.toString ( movingAverageModule.getNullRange () ) ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

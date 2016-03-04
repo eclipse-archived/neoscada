@@ -15,6 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.scada.configuration.memory.UnsignedInteger8Type;
 
 /**
@@ -74,8 +75,20 @@ public class UnsignedInteger8TypeItemProvider extends BaseScalarTypeItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         UnsignedInteger8Type unsignedInteger8Type = (UnsignedInteger8Type)object;
-        return getString ( "_UI_UnsignedInteger8Type_type" ) + " " + unsignedInteger8Type.getIndex ();
+        return new StyledString ( getString ( "_UI_UnsignedInteger8Type_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ).append ( Integer.toString ( unsignedInteger8Type.getIndex () ) );
     }
 
     /**

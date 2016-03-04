@@ -57,6 +57,7 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.scada.configuration.memory.provider.MemoryItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.DelegatingStyledCellLabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -1091,7 +1092,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
                 selectionViewer = (TreeViewer)viewerPane.getViewer ();
                 selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
 
-                selectionViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                selectionViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, selectionViewer ) ) );
                 selectionViewer.setInput ( editingDomain.getResourceSet () );
                 selectionViewer.setSelection ( new StructuredSelection ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
                 viewerPane.setTitle ( editingDomain.getResourceSet () );
@@ -1127,7 +1128,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
                 parentViewer = (TreeViewer)viewerPane.getViewer ();
                 parentViewer.setAutoExpandLevel ( 30 );
                 parentViewer.setContentProvider ( new ReverseAdapterFactoryContentProvider ( adapterFactory ) );
-                parentViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                parentViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, parentViewer ) ) );
 
                 createContextMenuFor ( parentViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1154,7 +1155,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
                 viewerPane.createControl ( getContainer () );
                 listViewer = (ListViewer)viewerPane.getViewer ();
                 listViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                listViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                listViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, listViewer ) ) );
 
                 createContextMenuFor ( listViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1181,7 +1182,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
                 viewerPane.createControl ( getContainer () );
                 treeViewer = (TreeViewer)viewerPane.getViewer ();
                 treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                treeViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                treeViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, treeViewer ) ) );
 
                 new AdapterFactoryTreeEditor ( treeViewer.getTree (), adapterFactory );
 
@@ -1228,7 +1229,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 tableViewer.setColumnProperties ( new String[] { "a", "b" } );
                 tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                tableViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                tableViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, tableViewer ) ) );
 
                 createContextMenuFor ( tableViewer );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1273,7 +1274,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } );
                 treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                treeViewerWithColumns.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                treeViewerWithColumns.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, treeViewerWithColumns ) ) );
 
                 createContextMenuFor ( treeViewerWithColumns );
                 int pageIndex = addPage ( viewerPane.getControl () );
@@ -1425,7 +1426,7 @@ public class MemoryEditor extends MultiPageEditorPart implements IEditingDomainP
                     // Set up the tree viewer.
                     //
                     contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-                    contentOutlineViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                    contentOutlineViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, contentOutlineViewer ) ) );
                     contentOutlineViewer.setInput ( editingDomain.getResourceSet () );
 
                     // Make sure our popups work.

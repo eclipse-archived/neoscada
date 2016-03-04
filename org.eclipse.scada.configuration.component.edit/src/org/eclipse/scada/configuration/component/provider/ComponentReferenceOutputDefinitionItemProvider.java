@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.component.provider;
 
@@ -16,12 +16,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition;
+import org.eclipse.scada.configuration.component.edit.ComponentHelper;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ComponentReferenceOutputDefinition} object.
@@ -64,13 +63,12 @@ public class ComponentReferenceOutputDefinitionItemProvider extends OutputDefini
      * This adds a property descriptor for the Component feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
-    protected void addComponentPropertyDescriptor ( Object object )
+    protected void addComponentPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentReferenceOutputDefinition_component_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceOutputDefinition_component_feature", "_UI_ComponentReferenceOutputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.COMPONENT_REFERENCE_OUTPUT_DEFINITION__COMPONENT, true, false, true, null, null, null ) );
+        ComponentHelper.addComponentProperty ( this.itemPropertyDescriptors, this.adapterFactory, getResourceLocator (), getString ( "_UI_ComponentReferenceOutputDefinition_component_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceOutputDefinition_component_feature", "_UI_ComponentReferenceOutputDefinition_type" ), ComponentPackage.Literals.COMPONENT_REFERENCE_OUTPUT_DEFINITION__COMPONENT );
     }
 
     /**
@@ -105,9 +103,29 @@ public class ComponentReferenceOutputDefinitionItemProvider extends OutputDefini
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (ComponentReferenceOutputDefinition)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_ComponentReferenceOutputDefinition_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ComponentReferenceOutputDefinition_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_ComponentReferenceOutputDefinition_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_ComponentReferenceOutputDefinition_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**

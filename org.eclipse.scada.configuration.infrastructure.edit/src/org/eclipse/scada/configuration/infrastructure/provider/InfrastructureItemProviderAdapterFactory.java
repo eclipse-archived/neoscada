@@ -32,6 +32,7 @@ import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
@@ -106,6 +107,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
         supportedTypes.add ( ITreeItemContentProvider.class );
         supportedTypes.add ( IItemLabelProvider.class );
         supportedTypes.add ( IItemPropertySource.class );
+        supportedTypes.add ( IItemStyledLabelProvider.class );
     }
 
     /**
@@ -801,6 +803,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory ()
     {
         return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory ();
@@ -812,6 +815,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setParentAdapterFactory ( ComposedAdapterFactory parentAdapterFactory )
     {
         this.parentAdapterFactory = parentAdapterFactory;
@@ -891,6 +895,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Collection<?> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
     {
         return childCreationExtenderManager.getNewChildDescriptors ( object, editingDomain );
@@ -901,6 +906,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator ()
     {
         return childCreationExtenderManager;
@@ -912,6 +918,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void addListener ( INotifyChangedListener notifyChangedListener )
     {
         changeNotifier.addListener ( notifyChangedListener );
@@ -923,6 +930,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void removeListener ( INotifyChangedListener notifyChangedListener )
     {
         changeNotifier.removeListener ( notifyChangedListener );
@@ -934,6 +942,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void fireNotifyChanged ( Notification notification )
     {
         changeNotifier.fireNotifyChanged ( notification );
@@ -950,6 +959,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void dispose ()
     {
         disposable.dispose ();
@@ -1029,6 +1039,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
          * <!-- end-user-doc -->
          * @generated
          */
+        @Override
         public Collection<Object> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
         {
             ArrayList<Object> result = new ArrayList<Object> ();
@@ -1041,6 +1052,7 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
          * <!-- end-user-doc -->
          * @generated
          */
+        @Override
         public ResourceLocator getResourceLocator ()
         {
             return InfrastructureEditPlugin.INSTANCE;

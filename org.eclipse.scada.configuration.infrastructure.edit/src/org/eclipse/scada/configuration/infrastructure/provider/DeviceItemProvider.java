@@ -23,10 +23,12 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
@@ -39,7 +41,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeviceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class DeviceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -114,14 +116,28 @@ public class DeviceItemProvider extends ItemProviderAdapter implements IEditingD
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getText ( Object object )
+    {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @generated NOT
      */
     @Override
-    public String getText ( final Object object )
+    public Object getStyledText ( final Object object )
     {
         String label = ( (Device)object ).getName ();
         label = label == null || label.length () == 0 ? getDeviceType () : getDeviceType () + " " + label; //$NON-NLS-1$
+
+        final StyledString styledLabel = new StyledString ();
 
         String nodeName = null;
         final Device device = (Device)object;
@@ -139,7 +155,9 @@ public class DeviceItemProvider extends ItemProviderAdapter implements IEditingD
             nodeName = "<unknown>";
         }
 
-        return String.format ( "%s on %s", label, nodeName );
+        styledLabel.append ( label ).append ( " on " + nodeName, StyledString.Style.DECORATIONS_STYLER );
+
+        return styledLabel;
     }
 
     protected String getDeviceType ()

@@ -15,6 +15,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.scada.configuration.memory.UnsignedInteger32Type;
 
 /**
@@ -74,8 +75,20 @@ public class UnsignedInteger32TypeItemProvider extends OrderedTypeItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         UnsignedInteger32Type unsignedInteger32Type = (UnsignedInteger32Type)object;
-        return getString ( "_UI_UnsignedInteger32Type_type" ) + " " + unsignedInteger32Type.getIndex ();
+        return new StyledString ( getString ( "_UI_UnsignedInteger32Type_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ).append ( Integer.toString ( unsignedInteger32Type.getIndex () ) );
     }
 
     /**

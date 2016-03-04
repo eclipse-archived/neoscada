@@ -24,34 +24,32 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration}
- * object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
-public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public ArchiveConfigurationItemProvider ( final AdapterFactory adapterFactory )
+    public ArchiveConfigurationItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -60,33 +58,30 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addFileSizeInMillisecondsPropertyDescriptor ( object );
             addNumberOfFilesPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the File Size In Milliseconds
-     * feature.
+     * This adds a property descriptor for the File Size In Milliseconds feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addFileSizeInMillisecondsPropertyDescriptor ( final Object object )
+    protected void addFileSizeInMillisecondsPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ArchiveConfiguration_fileSizeInMilliseconds_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ArchiveConfiguration_fileSizeInMilliseconds_feature" ), //$NON-NLS-1$
         getString ( "_UI_PropertyDescriptor_description", "_UI_ArchiveConfiguration_fileSizeInMilliseconds_feature", "_UI_ArchiveConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         OsgiPackage.Literals.ARCHIVE_CONFIGURATION__FILE_SIZE_IN_MILLISECONDS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
@@ -95,12 +90,11 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
      * This adds a property descriptor for the Number Of Files feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addNumberOfFilesPropertyDescriptor ( final Object object )
+    protected void addNumberOfFilesPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ArchiveConfiguration_numberOfFiles_feature" ), //$NON-NLS-1$
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ArchiveConfiguration_numberOfFiles_feature" ), //$NON-NLS-1$
         getString ( "_UI_PropertyDescriptor_description", "_UI_ArchiveConfiguration_numberOfFiles_feature", "_UI_ArchiveConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         OsgiPackage.Literals.ARCHIVE_CONFIGURATION__NUMBER_OF_FILES, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
@@ -109,11 +103,10 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
      * This returns ArchiveConfiguration.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ArchiveConfiguration" ) ); //$NON-NLS-1$
     }
@@ -121,7 +114,6 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
@@ -151,17 +143,27 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This returns the label styled text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
+     * @generated NOT
+     */
+    @Override
+    public Object getStyledText ( final Object object )
+    {
+        return new StyledString ( getText ( object ) );
+    }
+
+    /**
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -176,16 +178,14 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -194,13 +194,12 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

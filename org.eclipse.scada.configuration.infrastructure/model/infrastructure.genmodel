@@ -6,7 +6,7 @@
     modelName="Infrastructure" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
     complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.11" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script"
-    operationReflection="true" importOrganizing="true" decoration="Live">
+    operationReflection="true" importOrganizing="true" decoration="Live" styleProviders="true">
   <foreignModel>infrastructure.ecore</foreignModel>
   <genPackages prefix="Infrastructure" basePackage="org.eclipse.scada.configuration"
       resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
@@ -83,7 +83,9 @@
     <genClasses ecoreClass="infrastructure.ecore#//JdbcUserService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//JdbcUserService/implementation"/>
     </genClasses>
-    <genClasses ecoreClass="infrastructure.ecore#//ValueArchiveServer"/>
+    <genClasses ecoreClass="infrastructure.ecore#//ValueArchiveServer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//ValueArchiveServer/defaultArchiveconfiguration"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="infrastructure.ecore#//AbstractFactoryDriver">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//AbstractFactoryDriver/driverTypeId"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//AbstractFactoryDriver/devices"/>
@@ -179,6 +181,10 @@
     <genClasses image="false" ecoreClass="infrastructure.ecore#//JavaModule"/>
     <genClasses ecoreClass="infrastructure.ecore#//DSFileBackend">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//DSFileBackend/path"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ConfigurationAdminSettings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ConfigurationAdminSettings/automaticMerge"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ConfigurationAdminSettings/settleTimeout"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

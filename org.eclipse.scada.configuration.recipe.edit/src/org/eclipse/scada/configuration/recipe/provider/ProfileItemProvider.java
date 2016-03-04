@@ -26,10 +26,12 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.scada.configuration.recipe.Profile;
@@ -42,14 +44,7 @@ import org.eclipse.scada.configuration.recipe.RecipePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProfileItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class ProfileItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -88,19 +83,9 @@ public class ProfileItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Profile_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_name_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.PROFILE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Profile_name_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_name_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        RecipePackage.Literals.PROFILE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -157,10 +142,29 @@ public class ProfileItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (Profile)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Profile_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Profile_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_Profile_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_Profile_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**
@@ -199,10 +203,7 @@ public class ProfileItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( RecipePackage.Literals.PROFILE__PROPERTIES,
-                        RecipeFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( RecipePackage.Literals.PROFILE__PROPERTIES, RecipeFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

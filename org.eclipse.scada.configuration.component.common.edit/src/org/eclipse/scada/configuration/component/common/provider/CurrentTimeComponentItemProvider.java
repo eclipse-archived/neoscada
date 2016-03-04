@@ -4,20 +4,22 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.CurrentTimeComponent;
@@ -109,7 +111,7 @@ public class CurrentTimeComponentItemProvider extends MasterComponentItemProvide
      * This returns CurrentTimeComponent.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -133,15 +135,36 @@ public class CurrentTimeComponentItemProvider extends MasterComponentItemProvide
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getText ( Object object )
+    {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * 
      * @generated NOT
      */
     @Override
-    public String getText ( final Object object )
+    public Object getStyledText ( final Object object )
     {
         final DateFormat label = ( (CurrentTimeComponent)object ).getDateFormat ();
-        return label == null ? getString ( "_UI_CurrentTimeComponent_type" ) : //$NON-NLS-1$
-        getString ( "_UI_CurrentTimeComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        final StyledString styledLabel = new StyledString ();
+        if ( label == null )
+        {
+            styledLabel.append ( getString ( "_UI_CurrentTimeComponent_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_CurrentTimeComponent_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+
+        return styledLabel;
     }
 
     /**

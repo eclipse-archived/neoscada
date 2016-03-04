@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.world.deployment.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -21,11 +22,13 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.deployment.Author;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
@@ -36,7 +39,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AuthorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class AuthorItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -98,7 +101,7 @@ public class AuthorItemProvider extends ItemProviderAdapter implements IEditingD
      * This returns Author.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -122,15 +125,36 @@ public class AuthorItemProvider extends ItemProviderAdapter implements IEditingD
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getText ( Object object )
+    {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @generated NOT
      */
     @Override
-    public String getText ( final Object object )
+    public Object getStyledText ( final Object object )
     {
-        final String label = String.format ( "%s <%s>", ( (Author)object ).getName (), ( (Author)object ).getEmail () );
-        return label == null || label.length () == 0 ? getString ( "_UI_Author_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Author_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        final StyledString styledLabel = new StyledString ();
+        styledLabel.append ( getString ( "_UI_Author_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        final Author author = (Author)object;
+        if ( author.getName () != null )
+        {
+            styledLabel.append ( author.getName () );
+        }
+
+        styledLabel.append ( " <" + author.getEmail () + ">", StyledString.Style.DECORATIONS_STYLER );
+
+        return styledLabel;
     }
 
     /**

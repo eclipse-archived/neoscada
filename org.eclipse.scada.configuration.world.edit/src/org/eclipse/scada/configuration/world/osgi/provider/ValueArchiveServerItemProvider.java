@@ -23,11 +23,13 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
@@ -41,7 +43,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueArchiveServerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
+public class ValueArchiveServerItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -71,7 +73,6 @@ public class ValueArchiveServerItemProvider extends ItemProviderAdapter implemen
             addNamePropertyDescriptor ( object );
             addCustomizationProfilePropertyDescriptor ( object );
             addSecurityConfigurationPropertyDescriptor ( object );
-            addDefaultArchiveConfigurationPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -131,19 +132,6 @@ public class ValueArchiveServerItemProvider extends ItemProviderAdapter implemen
     }
 
     /**
-     * This adds a property descriptor for the Default Archive Configuration feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addDefaultArchiveConfigurationPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueArchiveServer_defaultArchiveConfiguration_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ValueArchiveServer_defaultArchiveConfiguration_feature", "_UI_ValueArchiveServer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, true, false, true, null, null, null ) );
-    }
-
-    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -162,6 +150,7 @@ public class ValueArchiveServerItemProvider extends ItemProviderAdapter implemen
             childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE );
             childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES );
             childrenFeatures.add ( OsgiPackage.Literals.VALUE_ARCHIVE_SERVER__ARCHIVES );
+            childrenFeatures.add ( OsgiPackage.Literals.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION );
         }
         return childrenFeatures;
     }
@@ -200,9 +189,29 @@ public class ValueArchiveServerItemProvider extends ItemProviderAdapter implemen
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (ValueArchiveServer)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_ValueArchiveServer_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ValueArchiveServer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_ValueArchiveServer_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_ValueArchiveServer_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**
@@ -228,6 +237,7 @@ public class ValueArchiveServerItemProvider extends ItemProviderAdapter implemen
             case OsgiPackage.VALUE_ARCHIVE_SERVER__CUSTOMIZATION_PROFILE:
             case OsgiPackage.VALUE_ARCHIVE_SERVER__MODULES:
             case OsgiPackage.VALUE_ARCHIVE_SERVER__ARCHIVES:
+            case OsgiPackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -289,6 +299,8 @@ public class ValueArchiveServerItemProvider extends ItemProviderAdapter implemen
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES, OsgiFactory.eINSTANCE.createEventInjectorManager () ) );
 
         newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.VALUE_ARCHIVE_SERVER__ARCHIVES, OsgiFactory.eINSTANCE.createValueArchive () ) );
+
+        newChildDescriptors.add ( createChildParameter ( OsgiPackage.Literals.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVE_CONFIGURATION, OsgiFactory.eINSTANCE.createArchiveConfiguration () ) );
     }
 
     /**

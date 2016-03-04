@@ -26,10 +26,12 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.scada.configuration.recipe.Definition;
@@ -42,14 +44,7 @@ import org.eclipse.scada.configuration.recipe.RecipePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DefinitionItemProvider
-        extends ItemProviderAdapter
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+public class DefinitionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -90,19 +85,9 @@ public class DefinitionItemProvider
      */
     protected void addImportPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Definition_import_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_import_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.DEFINITION__IMPORT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Definition_import_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_import_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        RecipePackage.Literals.DEFINITION__IMPORT, true, false, true, null, null, null ) );
     }
 
     /**
@@ -113,19 +98,9 @@ public class DefinitionItemProvider
      */
     protected void addNamePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Definition_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_name_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.DEFINITION__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Definition_name_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_name_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        RecipePackage.Literals.DEFINITION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -136,19 +111,9 @@ public class DefinitionItemProvider
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Definition_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_id_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.DEFINITION__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Definition_id_feature" ), //$NON-NLS-1$
+        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_id_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        RecipePackage.Literals.DEFINITION__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -207,10 +172,29 @@ public class DefinitionItemProvider
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (Definition)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Definition_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Definition_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_Definition_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_Definition_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**
@@ -252,20 +236,11 @@ public class DefinitionItemProvider
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( RecipePackage.Literals.DEFINITION__TASK,
-                        RecipeFactory.eINSTANCE.createTask () ) );
+        newChildDescriptors.add ( createChildParameter ( RecipePackage.Literals.DEFINITION__TASK, RecipeFactory.eINSTANCE.createTask () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( RecipePackage.Literals.DEFINITION__PROPERTIES,
-                        RecipeFactory.eINSTANCE.createPropertyEntry () ) );
+        newChildDescriptors.add ( createChildParameter ( RecipePackage.Literals.DEFINITION__PROPERTIES, RecipeFactory.eINSTANCE.createPropertyEntry () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( RecipePackage.Literals.DEFINITION__PROFILES,
-                        RecipeFactory.eINSTANCE.createProfile () ) );
+        newChildDescriptors.add ( createChildParameter ( RecipePackage.Literals.DEFINITION__PROFILES, RecipeFactory.eINSTANCE.createProfile () ) );
     }
 
     /**

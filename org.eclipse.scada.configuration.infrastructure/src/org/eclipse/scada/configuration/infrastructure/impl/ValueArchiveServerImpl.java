@@ -27,9 +27,7 @@ import org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.ValueArchiveServerImpl#getDefaultArchiveconfiguration
- * <em>Default Archiveconfiguration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ValueArchiveServerImpl#getDefaultArchiveconfiguration <em>Default Archiveconfiguration</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,11 +35,9 @@ import org.eclipse.scada.configuration.world.osgi.ArchiveConfiguration;
 public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements ValueArchiveServer
 {
     /**
-     * The cached value of the '{@link #getDefaultArchiveconfiguration()
-     * <em>Default Archiveconfiguration</em>}' containment reference.
+     * The cached value of the '{@link #getDefaultArchiveconfiguration() <em>Default Archiveconfiguration</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getDefaultArchiveconfiguration()
      * @generated
      * @ordered
@@ -51,7 +47,6 @@ public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements Va
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ValueArchiveServerImpl ()
@@ -62,7 +57,6 @@ public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements Va
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -74,69 +68,58 @@ public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements Va
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ArchiveConfiguration getDefaultArchiveconfiguration ()
     {
-        if ( this.defaultArchiveconfiguration != null && this.defaultArchiveconfiguration.eIsProxy () )
+        if ( defaultArchiveconfiguration != null && defaultArchiveconfiguration.eIsProxy () )
         {
-            final InternalEObject oldDefaultArchiveconfiguration = (InternalEObject)this.defaultArchiveconfiguration;
-            this.defaultArchiveconfiguration = (ArchiveConfiguration)eResolveProxy ( oldDefaultArchiveconfiguration );
-            if ( this.defaultArchiveconfiguration != oldDefaultArchiveconfiguration )
+            InternalEObject oldDefaultArchiveconfiguration = (InternalEObject)defaultArchiveconfiguration;
+            defaultArchiveconfiguration = (ArchiveConfiguration)eResolveProxy ( oldDefaultArchiveconfiguration );
+            if ( defaultArchiveconfiguration != oldDefaultArchiveconfiguration )
             {
-                final InternalEObject newDefaultArchiveconfiguration = (InternalEObject)this.defaultArchiveconfiguration;
+                InternalEObject newDefaultArchiveconfiguration = (InternalEObject)defaultArchiveconfiguration;
                 NotificationChain msgs = oldDefaultArchiveconfiguration.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, null, null );
                 if ( newDefaultArchiveconfiguration.eInternalContainer () == null )
                 {
                     msgs = newDefaultArchiveconfiguration.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, null, msgs );
                 }
                 if ( msgs != null )
-                {
                     msgs.dispatch ();
-                }
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, oldDefaultArchiveconfiguration, this.defaultArchiveconfiguration ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, oldDefaultArchiveconfiguration, defaultArchiveconfiguration ) );
             }
         }
-        return this.defaultArchiveconfiguration;
+        return defaultArchiveconfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ArchiveConfiguration basicGetDefaultArchiveconfiguration ()
     {
-        return this.defaultArchiveconfiguration;
+        return defaultArchiveconfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NotificationChain basicSetDefaultArchiveconfiguration ( final ArchiveConfiguration newDefaultArchiveconfiguration, NotificationChain msgs )
+    public NotificationChain basicSetDefaultArchiveconfiguration ( ArchiveConfiguration newDefaultArchiveconfiguration, NotificationChain msgs )
     {
-        final ArchiveConfiguration oldDefaultArchiveconfiguration = this.defaultArchiveconfiguration;
-        this.defaultArchiveconfiguration = newDefaultArchiveconfiguration;
+        ArchiveConfiguration oldDefaultArchiveconfiguration = defaultArchiveconfiguration;
+        defaultArchiveconfiguration = newDefaultArchiveconfiguration;
         if ( eNotificationRequired () )
         {
-            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, oldDefaultArchiveconfiguration, newDefaultArchiveconfiguration );
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, oldDefaultArchiveconfiguration, newDefaultArchiveconfiguration );
             if ( msgs == null )
-            {
                 msgs = notification;
-            }
             else
-            {
                 msgs.add ( notification );
-            }
         }
         return msgs;
     }
@@ -144,43 +127,33 @@ public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements Va
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setDefaultArchiveconfiguration ( final ArchiveConfiguration newDefaultArchiveconfiguration )
+    public void setDefaultArchiveconfiguration ( ArchiveConfiguration newDefaultArchiveconfiguration )
     {
-        if ( newDefaultArchiveconfiguration != this.defaultArchiveconfiguration )
+        if ( newDefaultArchiveconfiguration != defaultArchiveconfiguration )
         {
             NotificationChain msgs = null;
-            if ( this.defaultArchiveconfiguration != null )
-            {
-                msgs = ( (InternalEObject)this.defaultArchiveconfiguration ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, null, msgs );
-            }
+            if ( defaultArchiveconfiguration != null )
+                msgs = ( (InternalEObject)defaultArchiveconfiguration ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, null, msgs );
             if ( newDefaultArchiveconfiguration != null )
-            {
                 msgs = ( (InternalEObject)newDefaultArchiveconfiguration ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, null, msgs );
-            }
             msgs = basicSetDefaultArchiveconfiguration ( newDefaultArchiveconfiguration, msgs );
             if ( msgs != null )
-            {
                 msgs.dispatch ();
-            }
         }
         else if ( eNotificationRequired () )
-        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION, newDefaultArchiveconfiguration, newDefaultArchiveconfiguration ) );
-        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -193,19 +166,16 @@ public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements Va
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
             case InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION:
                 if ( resolve )
-                {
                     return getDefaultArchiveconfiguration ();
-                }
                 return basicGetDefaultArchiveconfiguration ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -214,11 +184,10 @@ public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements Va
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -232,11 +201,10 @@ public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements Va
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -250,16 +218,15 @@ public class ValueArchiveServerImpl extends EquinoxApplicationImpl implements Va
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case InfrastructurePackage.VALUE_ARCHIVE_SERVER__DEFAULT_ARCHIVECONFIGURATION:
-                return this.defaultArchiveconfiguration != null;
+                return defaultArchiveconfiguration != null;
         }
         return super.eIsSet ( featureID );
     }
