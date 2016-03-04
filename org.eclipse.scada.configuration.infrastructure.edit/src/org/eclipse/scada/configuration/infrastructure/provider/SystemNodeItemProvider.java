@@ -127,32 +127,40 @@ public class SystemNodeItemProvider extends NodeItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
-     * @generated NOT
+     * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        String label = ( (SystemNode)object ).getName ();
-        if ( label == null )
-        {
-            label = ( (Node)object ).getHostName ();
-        }
-        return label == null || label.length () == 0 ? getString ( "_UI_SystemNode_type" ) : //$NON-NLS-1$
-        getString ( "_UI_SystemNode_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return ( (StyledString)getStyledText ( object ) ).getString ();
     }
 
     /**
      * This returns the label styled text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
     public Object getStyledText ( final Object object )
     {
-        return new StyledString ( getText ( object ) );
+        final StyledString styledLabel = new StyledString ();
+
+        styledLabel.append ( getString ( "_UI_SystemNode_type" ), StyledString.Style.QUALIFIER_STYLER );
+
+        String label = ( (SystemNode)object ).getName ();
+        if ( label == null )
+        {
+            label = ( (Node)object ).getHostName ();
+        }
+
+        if ( label != null && label.isEmpty () )
+        {
+            styledLabel.append ( label );
+        }
+
+        return styledLabel;
     }
 
     /**
