@@ -155,9 +155,9 @@ public class SystemNodeItemProvider extends NodeItemProvider
             label = ( (Node)object ).getHostName ();
         }
 
-        if ( label != null && label.isEmpty () )
+        if ( label != null && !label.isEmpty () )
         {
-            styledLabel.append ( label );
+            styledLabel.append ( " " + label );
         }
 
         return styledLabel;
