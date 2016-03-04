@@ -17,13 +17,14 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
-import org.eclipse.scada.configuration.infrastructure.ExternalNode;
 import org.eclipse.scada.configuration.infrastructure.Node;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.ExternalNode} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.infrastructure.ExternalNode} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ *
  * @generated
  */
 public class ExternalNodeItemProvider extends NodeItemProvider
@@ -32,9 +33,10 @@ public class ExternalNodeItemProvider extends NodeItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    public ExternalNodeItemProvider ( AdapterFactory adapterFactory )
+    public ExternalNodeItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -43,17 +45,18 @@ public class ExternalNodeItemProvider extends NodeItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,6 +75,7 @@ public class ExternalNodeItemProvider extends NodeItemProvider
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -84,10 +88,11 @@ public class ExternalNodeItemProvider extends NodeItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
         return ( (StyledString)getStyledText ( object ) ).getString ();
     }
@@ -96,54 +101,43 @@ public class ExternalNodeItemProvider extends NodeItemProvider
      * This returns the label styled text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
     public Object getStyledText ( final Object object )
     {
-        final StyledString styledLabel = new StyledString ();
-
-        String label = ( (ExternalNode)object ).getName ();
-        if ( label == null )
-        {
-            label = ( (Node)object ).getHostName ();
-        }
-
-        if ( label == null || label.length () == 0 )
-        {
-            styledLabel.append ( getString ( "_UI_ExternalNode_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
-        }
-        else
-        {
-            styledLabel.append ( getString ( "_UI_ExternalNode_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
-        }
-        return styledLabel;
+        return getStyledNodeLabel ( (Node)object, getString ( "_UI_ExternalNode_type" ) );
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
         super.notifyChanged ( notification );
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
