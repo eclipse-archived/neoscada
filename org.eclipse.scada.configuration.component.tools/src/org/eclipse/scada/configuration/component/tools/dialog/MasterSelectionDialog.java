@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,17 +19,23 @@ import org.eclipse.core.databinding.observable.value.IValueChangeListener;
 import org.eclipse.core.databinding.observable.value.ValueChangeEvent;
 import org.eclipse.core.databinding.observable.value.WritableValue;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.databinding.viewers.ObservableListTreeContentProvider;
 import org.eclipse.jface.databinding.viewers.ViewersObservables;
+import org.eclipse.jface.dialogs.DialogSettings;
+import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
+import org.eclipse.scada.configuration.component.tools.Activator;
 import org.eclipse.scada.configuration.component.tools.MasterMode;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
@@ -48,6 +54,8 @@ import org.eclipse.swt.widgets.Shell;
 
 public class MasterSelectionDialog extends TitleAreaDialog
 {
+    private static final String SETTINGS_LAST_SELECTION = "lastSelection";
+
     private final World world;
 
     private final WritableValue masterValue = new WritableValue ();
@@ -58,11 +66,52 @@ public class MasterSelectionDialog extends TitleAreaDialog
 
     private Button delete;
 
+    private final IDialogSettings dialogSettings;
+
+    private final MasterServer lastSelection;
+
     public MasterSelectionDialog ( final Shell parentShell, final World world )
     {
         super ( parentShell );
         this.world = world;
         setHelpAvailable ( false );
+
+        this.dialogSettings = DialogSettings.getOrCreateSection ( Activator.getDefault ().getDialogSettings (), "MasterSelectionDialog" );
+        this.lastSelection = loadLastSelection ();
+    }
+
+    @Override
+    protected boolean isResizable ()
+    {
+        return true;
+    }
+
+    private MasterServer loadLastSelection ()
+    {
+        final String lastUri = this.dialogSettings.get ( SETTINGS_LAST_SELECTION );
+        if ( lastUri == null )
+        {
+            return null;
+        }
+
+        try
+        {
+            final EObject lastSelection = this.world.eResource ().getResourceSet ().getEObject ( URI.createURI ( lastUri ), true );
+            if ( lastSelection instanceof MasterServer )
+            {
+                return (MasterServer)lastSelection;
+            }
+        }
+        catch ( final Exception e )
+        {
+        }
+        return null;
+    }
+
+    @Override
+    protected IDialogSettings getDialogBoundsSettings ()
+    {
+        return DialogSettings.getOrCreateSection ( this.dialogSettings, "bounds" );
     }
 
     public MasterServer getMaster ()
@@ -126,6 +175,12 @@ public class MasterSelectionDialog extends TitleAreaDialog
             }
         } );
 
+        if ( this.lastSelection != null )
+        {
+            viewer.setSelection ( new StructuredSelection ( this.lastSelection ) );
+            viewer.reveal ( this.lastSelection );
+        }
+
         return composite;
     }
 
@@ -149,6 +204,24 @@ public class MasterSelectionDialog extends TitleAreaDialog
     {
         updateMode ();
         super.okPressed ();
+    }
+
+    @Override
+    public boolean close ()
+    {
+        if ( getReturnCode () == OK )
+        {
+            final MasterServer master = getMaster ();
+            if ( master != null )
+            {
+                final URI uri = EcoreUtil.getURI ( master );
+                if ( uri != null )
+                {
+                    this.dialogSettings.put ( SETTINGS_LAST_SELECTION, uri.toString () );
+                }
+            }
+        }
+        return super.close ();
     }
 
     protected void updateMode ()
