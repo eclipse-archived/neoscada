@@ -78,12 +78,6 @@
 			</plugin>
 
 			<plugin>
-				<groupId>org.eclipse.scada.releng</groupId>
-				<artifactId>doc-bundle</artifactId>
-				<version>0.0.6</version>
-			</plugin>
-
-			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse NeoSCADA Target Platform (SDK)" sequenceNumber="1437559315">
+<target name="Eclipse NeoSCADA Target Platform (SDK)" sequenceNumber="1457083572">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
@@ -28,8 +28,6 @@
       <unit id="org.apache.commons.pool.source" version="1.6.0.v201204271246"/>
       <unit id="org.apache.commons.httpclient" version="3.1.0.v201012070820"/>
       <unit id="org.apache.commons.httpclient.source" version="3.1.0.v201012070820"/>
-      <unit id="org.apache.commons.io" version="2.0.1.v201105210651"/>
-      <unit id="org.apache.commons.io.source" version="2.0.1.v201105210651"/>
       <unit id="org.apache.poi" version="3.9.0.v201405241750"/>
       <unit id="org.apache.poi.source" version="3.9.0.v201405241750"/>
       <unit id="org.apache.mina.core" version="2.0.7.v201401071602"/>
@@ -73,41 +71,41 @@
       <repository location="http://download.eclipse.org/gemini/updates/dbaccess/1.1.0"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.scada.external.wrapper.feature.group" version="0.3.0.v20150512-1036"/>
-      <unit id="org.eclipse.scada.external.sdk.feature.group" version="0.3.0.v20150512-1036"/>
-      <unit id="org.eclipse.scada.base.sdk.feature.group" version="0.3.0.v20150512-1316"/>
-      <unit id="org.eclipse.scada.protocols.sdk.feature.group" version="0.3.0.v20150527-1023"/>
-      <unit id="org.eclipse.scada.configuration.sdk.feature.group" version="0.3.0.v20150722-0728"/>
-      <unit id="org.eclipse.scada.external.orbit.feature.group" version="0.3.0.v20150611-0954"/>
-      <unit id="org.eclipse.scada.chart.sdk.feature.group" version="0.3.0.v20150527-1025"/>
-      <unit id="org.eclipse.scada.hmi.sdk.feature.group" version="0.3.0.v20150527-1303"/>
-      <unit id="org.eclipse.scada.utils.sdk.feature.group" version="0.3.0.v20150722-0931"/>
-      <unit id="org.eclipse.scada.core.sdk.feature.group" version="0.3.0.v20150722-0727"/>
-      <unit id="org.eclipse.scada.external.feature.group" version="0.3.0.v20150512-1036"/>
+      <unit id="org.eclipse.scada.external.wrapper.feature.group" version="0.3.0.v20160121-1459"/>
+      <unit id="org.eclipse.scada.external.sdk.feature.group" version="0.3.0.v20160121-1459"/>
+      <unit id="org.eclipse.scada.base.sdk.feature.group" version="0.3.0.v20160121-1426"/>
+      <unit id="org.eclipse.scada.protocols.sdk.feature.group" version="0.3.0.v20160121-1428"/>
+      <unit id="org.eclipse.scada.configuration.sdk.feature.group" version="0.3.0.v20160229-1105"/>
+      <unit id="org.eclipse.scada.external.orbit.feature.group" version="0.3.0.v20160121-1516"/>
+      <unit id="org.eclipse.scada.chart.sdk.feature.group" version="0.3.0.v20160121-1425"/>
+      <unit id="org.eclipse.scada.hmi.sdk.feature.group" version="0.3.0.v20160226-1536"/>
+      <unit id="org.eclipse.scada.utils.sdk.feature.group" version="0.3.0.v20160224-1336"/>
+      <unit id="org.eclipse.scada.core.sdk.feature.group" version="0.3.0.v20160216-1258"/>
+      <unit id="org.eclipse.scada.external.feature.group" version="0.3.0.v20160121-1459"/>
       <repository location="http://download.eclipse.org/eclipsescada/updates/nightly/0.3"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.jgit.feature.group" version="4.0.0.201506090130-r"/>
-      <unit id="org.eclipse.egit.feature.group" version="4.0.0.201506090130-r"/>
-      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.0.v20150602-1417"/>
+      <unit id="org.eclipse.jgit.feature.group" version="4.1.1.201511131810-r"/>
+      <unit id="org.eclipse.egit.feature.group" version="4.1.1.201511131810-r"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.2.v20160202-2102"/>
       <unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.9.0.201505312255"/>
-      <unit id="org.eclipse.emf.sdk.feature.group" version="2.11.0.v20150601-0402"/>
-      <unit id="org.eclipse.ecf.core.feature.group" version="3.10.0.v20150512-1727"/>
-      <unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.1.0.v20150608-1714"/>
-      <unit id="org.eclipse.platform.feature.group" version="4.5.0.v20150603-2358"/>
-      <unit id="org.eclipse.pde.feature.group" version="3.11.0.v20150603-2000"/>
-      <unit id="org.eclipse.wst.web_ui.feature.feature.group" version="3.7.0.v201505261810"/>
-      <unit id="org.eclipse.acceleo.feature.group" version="3.6.0.201506080954"/>
-      <unit id="org.eclipse.gef.sdk.feature.group" version="3.10.0.201506010206"/>
-      <unit id="org.eclipse.jdt.feature.group" version="3.11.0.v20150603-2000"/>
-      <unit id="org.eclipse.ecf.core.feature.feature.group" version="1.1.0.v20150512-1727"/>
+      <unit id="org.eclipse.emf.sdk.feature.group" version="2.11.2.v20160208-0841"/>
+      <unit id="org.eclipse.ecf.core.feature.group" version="3.12.0.v20151130-0157"/>
+      <unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.1.0.v20160118-1848"/>
+      <unit id="org.eclipse.platform.feature.group" version="4.5.2.v20160212-1500"/>
+      <unit id="org.eclipse.pde.feature.group" version="3.11.2.v20160212-1500"/>
+      <unit id="org.eclipse.wst.web_ui.feature.feature.group" version="3.7.1.v201602111638"/>
+      <unit id="org.eclipse.acceleo.feature.group" version="3.6.3.201602090916"/>
+      <unit id="org.eclipse.gef.sdk.feature.group" version="3.10.1.201508170204"/>
+      <unit id="org.eclipse.jdt.feature.group" version="3.11.2.v20160212-1500"/>
+      <unit id="org.eclipse.ecf.core.feature.feature.group" version="1.2.0.v20151130-0157"/>
       <unit id="org.eclipse.equinox.p2.core.feature.feature.group" version="1.3.100.v20150527-1706"/>
-      <unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="1.0.0.v20150512-1727"/>
-      <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.0.0.v20150512-1727"/>
-      <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.10.0.v20150512-1727"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="3.10.0.v20150512-1727"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="1.0.0.v20150512-1727"/>
-      <unit id="org.eclipse.equinox.p2.rcp.feature.feature.group" version="1.2.100.v20150527-1706"/>
+      <unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="1.1.0.v20151130-0157"/>
+      <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.1.0.v20151130-0157"/>
+      <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.12.0.v20151130-0157"/>
+      <unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="3.12.0.v20151130-0157"/>
+      <unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="1.1.0.v20151130-0157"/>
+      <unit id="org.eclipse.equinox.p2.rcp.feature.feature.group" version="1.2.101.v20150826-1318"/>
       <repository location="http://download.eclipse.org/releases/mars"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
