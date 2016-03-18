@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.edit.ComponentHelper;
+import org.eclipse.scada.configuration.component.edit.ComponentLabelProvider;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition} object.
@@ -32,15 +33,29 @@ import org.eclipse.scada.configuration.component.edit.ComponentHelper;
  */
 public class ComponentReferenceInputDefinitionItemProvider extends InputDefinitionItemProvider
 {
+    private final ComponentLabelProvider componentLabelProvider;
+
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
-    public ComponentReferenceInputDefinitionItemProvider ( AdapterFactory adapterFactory )
+    public ComponentReferenceInputDefinitionItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
+        this.componentLabelProvider = new ComponentLabelProvider ( adapterFactory );
+    }
+
+    /**
+     * @generated NOT
+     */
+    @Override
+    public void dispose ()
+    {
+        super.dispose ();
+        this.componentLabelProvider.dispose ();
     }
 
     /**
@@ -83,8 +98,8 @@ public class ComponentReferenceInputDefinitionItemProvider extends InputDefiniti
     protected void addLocalTagPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentReferenceInputDefinition_localTag_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_localTag_feature", "_UI_ComponentReferenceInputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__LOCAL_TAG, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_localTag_feature", "_UI_ComponentReferenceInputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__LOCAL_TAG, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -126,13 +141,17 @@ public class ComponentReferenceInputDefinitionItemProvider extends InputDefiniti
      * This returns the label styled text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
-    public Object getStyledText ( Object object )
+    public Object getStyledText ( final Object object )
     {
-        String label = ( (ComponentReferenceInputDefinition)object ).getName ();
-        StyledString styledLabel = new StyledString ();
+        final ComponentReferenceInputDefinition ref = (ComponentReferenceInputDefinition)object;
+
+        final String label = ref.getName ();
+        final StyledString styledLabel = new StyledString ();
+
         if ( label == null || label.length () == 0 )
         {
             styledLabel.append ( getString ( "_UI_ComponentReferenceInputDefinition_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
@@ -141,23 +160,37 @@ public class ComponentReferenceInputDefinitionItemProvider extends InputDefiniti
         {
             styledLabel.append ( getString ( "_UI_ComponentReferenceInputDefinition_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
         }
+
+        if ( ref.getComponent () != null )
+        {
+            final String componentLabel = this.componentLabelProvider.getText ( ref.getComponent () );
+            if ( componentLabel != null && !componentLabel.isEmpty () )
+            {
+                styledLabel.append ( " " + componentLabel, StyledString.Style.DECORATIONS_STYLER );
+            }
+        }
+
         return styledLabel;
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
         switch ( notification.getFeatureID ( ComponentReferenceInputDefinition.class ) )
         {
+            case ComponentPackage.COMPONENT_REFERENCE_INPUT_DEFINITION__COMPONENT:
             case ComponentPackage.COMPONENT_REFERENCE_INPUT_DEFINITION__LOCAL_TAG:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
