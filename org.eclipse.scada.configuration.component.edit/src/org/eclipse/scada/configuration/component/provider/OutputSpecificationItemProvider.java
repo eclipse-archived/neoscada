@@ -79,8 +79,8 @@ public class OutputSpecificationItemProvider extends ItemProviderAdapter impleme
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OutputSpecification_name_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_OutputSpecification_name_feature", "_UI_OutputSpecification_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.OUTPUT_SPECIFICATION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_OutputSpecification_name_feature", "_UI_OutputSpecification_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.OUTPUT_SPECIFICATION__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -92,8 +92,8 @@ public class OutputSpecificationItemProvider extends ItemProviderAdapter impleme
     protected void addDataTypePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OutputSpecification_dataType_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_OutputSpecification_dataType_feature", "_UI_OutputSpecification_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.OUTPUT_SPECIFICATION__DATA_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_OutputSpecification_dataType_feature", "_UI_OutputSpecification_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.OUTPUT_SPECIFICATION__DATA_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

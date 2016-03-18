@@ -67,9 +67,9 @@ public class MasterComponentItemProvider extends DataComponentItemProvider
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterAssigned_masterOn_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterAssigned_masterOn_feature", "_UI_MasterAssigned_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, true, false, true, null, getString ( "_UI_corePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterAssigned_masterOn_feature", "_UI_MasterAssigned_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, true, false, true, null, getString ( "_UI_corePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**

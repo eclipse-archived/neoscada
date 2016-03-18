@@ -69,8 +69,8 @@ public class ComponentDanglingReferenceItemProvider extends DanglingItemReferenc
     protected void addLocalTagPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentDanglingReference_localTag_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentDanglingReference_localTag_feature", "_UI_ComponentDanglingReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.COMPONENT_DANGLING_REFERENCE__LOCAL_TAG, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentDanglingReference_localTag_feature", "_UI_ComponentDanglingReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.COMPONENT_DANGLING_REFERENCE__LOCAL_TAG, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -82,8 +82,8 @@ public class ComponentDanglingReferenceItemProvider extends DanglingItemReferenc
     protected void addComponentPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ComponentDanglingReference_component_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentDanglingReference_component_feature", "_UI_ComponentDanglingReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.COMPONENT_DANGLING_REFERENCE__COMPONENT, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentDanglingReference_component_feature", "_UI_ComponentDanglingReference_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.COMPONENT_DANGLING_REFERENCE__COMPONENT, true, false, true, null, null, null ) );
     }
 
     /**

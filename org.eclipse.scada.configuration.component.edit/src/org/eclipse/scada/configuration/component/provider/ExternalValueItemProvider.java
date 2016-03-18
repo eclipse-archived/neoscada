@@ -71,9 +71,9 @@ public class ExternalValueItemProvider extends SingleValueItemProvider
     protected void addConnectionPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalValue_connection_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalValue_connection_feature", "_UI_ExternalValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.EXTERNAL_VALUE__CONNECTION, true, false, true, null, getString ( "_UI_externalPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalValue_connection_feature", "_UI_ExternalValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.EXTERNAL_VALUE__CONNECTION, true, false, true, null, getString ( "_UI_externalPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -85,9 +85,9 @@ public class ExternalValueItemProvider extends SingleValueItemProvider
     protected void addSourceNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalValue_sourceName_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalValue_sourceName_feature", "_UI_ExternalValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.EXTERNAL_VALUE__SOURCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_externalPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalValue_sourceName_feature", "_UI_ExternalValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.EXTERNAL_VALUE__SOURCE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_externalPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -99,9 +99,9 @@ public class ExternalValueItemProvider extends SingleValueItemProvider
     protected void addReadablePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalValue_readable_feature" ), //$NON-NLS-1$
-        getString ( "_UI_ExternalValue_readable_description" ), //$NON-NLS-1$
-        ComponentPackage.Literals.EXTERNAL_VALUE__READABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_ExternalValue_readable_description" ), //$NON-NLS-1$
+                ComponentPackage.Literals.EXTERNAL_VALUE__READABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -113,9 +113,9 @@ public class ExternalValueItemProvider extends SingleValueItemProvider
     protected void addWritablePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalValue_writable_feature" ), //$NON-NLS-1$
-        getString ( "_UI_ExternalValue_writable_description" ), //$NON-NLS-1$
-        ComponentPackage.Literals.EXTERNAL_VALUE__WRITABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_ExternalValue_writable_description" ), //$NON-NLS-1$
+                ComponentPackage.Literals.EXTERNAL_VALUE__WRITABLE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**

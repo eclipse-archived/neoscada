@@ -69,8 +69,8 @@ public class SummariesConfigurationItemProvider extends ConfigurationItemProvide
     protected void addItemThresholdPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SummariesConfiguration_itemThreshold_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_SummariesConfiguration_itemThreshold_feature", "_UI_SummariesConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.SUMMARIES_CONFIGURATION__ITEM_THRESHOLD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_SummariesConfiguration_itemThreshold_feature", "_UI_SummariesConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.SUMMARIES_CONFIGURATION__ITEM_THRESHOLD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

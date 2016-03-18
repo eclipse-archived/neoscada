@@ -69,8 +69,8 @@ public class ItemReferenceOutputDefinitionItemProvider extends OutputDefinitionI
     protected void addItemIdPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemReferenceOutputDefinition_itemId_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReferenceOutputDefinition_itemId_feature", "_UI_ItemReferenceOutputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReferenceOutputDefinition_itemId_feature", "_UI_ItemReferenceOutputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

@@ -15,7 +15,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.scada.configuration.component.DanglingItemReference;
 import org.eclipse.scada.configuration.world.osgi.provider.ItemItemProvider;
@@ -26,7 +25,7 @@ import org.eclipse.scada.configuration.world.osgi.provider.ItemItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DanglingItemReferenceItemProvider extends ItemItemProvider implements IItemStyledLabelProvider
+public class DanglingItemReferenceItemProvider extends ItemItemProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.

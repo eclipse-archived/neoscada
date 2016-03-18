@@ -66,8 +66,8 @@ public class MasterImportConnectionAnalyzerItemProvider extends MasterComponentI
     protected void addConnectionPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterImportConnectionAnalyzer_connection_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImportConnectionAnalyzer_connection_feature", "_UI_MasterImportConnectionAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.MASTER_IMPORT_CONNECTION_ANALYZER__CONNECTION, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImportConnectionAnalyzer_connection_feature", "_UI_MasterImportConnectionAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.MASTER_IMPORT_CONNECTION_ANALYZER__CONNECTION, true, false, true, null, null, null ) );
     }
 
     /**

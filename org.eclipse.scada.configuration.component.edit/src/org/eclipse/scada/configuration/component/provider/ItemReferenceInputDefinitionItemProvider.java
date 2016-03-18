@@ -68,8 +68,8 @@ public class ItemReferenceInputDefinitionItemProvider extends InputDefinitionIte
     protected void addItemIdPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ItemReferenceInputDefinition_itemId_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReferenceInputDefinition_itemId_feature", "_UI_ItemReferenceInputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.ITEM_REFERENCE_INPUT_DEFINITION__ITEM_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ItemReferenceInputDefinition_itemId_feature", "_UI_ItemReferenceInputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.ITEM_REFERENCE_INPUT_DEFINITION__ITEM_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
