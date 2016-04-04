@@ -12,6 +12,8 @@ package org.eclipse.scada.configuration.globalization.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
@@ -48,12 +50,7 @@ public final class GlobalizeEditPlugin extends EMFPlugin
      */
     public GlobalizeEditPlugin ()
     {
-        super ( new ResourceLocator[]
-        {
-                ExecEditPlugin.INSTANCE,
-                SecurityEditPlugin.INSTANCE,
-                WorldEditPlugin.INSTANCE,
-        } );
+        super ( new ResourceLocator[] { ExecEditPlugin.INSTANCE, SecurityEditPlugin.INSTANCE, WorldEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE, ScriptEditPlugin.INSTANCE, } );
     }
 
     /**

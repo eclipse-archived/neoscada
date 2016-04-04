@@ -229,14 +229,12 @@ public class GlobalizeActionBarContributor extends EditingDomainActionBarContrib
 
         // Force an update because Eclipse hides empty menus now.
         //
-        submenuManager.addMenuListener
-                ( new IMenuListener ()
-                {
-                    public void menuAboutToShow ( IMenuManager menuManager )
-                    {
-                        menuManager.updateAll ( true );
-                    }
-                } );
+        submenuManager.addMenuListener ( new IMenuListener () {
+            public void menuAboutToShow ( IMenuManager menuManager )
+            {
+                menuManager.updateAll ( true );
+            }
+        } );
 
         addGlobalActions ( submenuManager );
     }

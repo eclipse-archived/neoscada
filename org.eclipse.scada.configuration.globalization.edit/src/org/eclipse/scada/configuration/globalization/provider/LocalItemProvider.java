@@ -23,10 +23,12 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.globalization.GlobalizeFactory;
 import org.eclipse.scada.configuration.globalization.GlobalizePackage;
@@ -39,7 +41,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LocalItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class LocalItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -80,19 +82,9 @@ public class LocalItemProvider extends ItemProviderAdapter implements IEditingDo
      */
     protected void addLocalPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Local_local_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Local_local_feature", "_UI_Local_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        GlobalizePackage.Literals.LOCAL__LOCAL,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Local_local_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Local_local_feature", "_UI_Local_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                GlobalizePackage.Literals.LOCAL__LOCAL, true, false, true, null, null, null ) );
     }
 
     /**
@@ -103,19 +95,9 @@ public class LocalItemProvider extends ItemProviderAdapter implements IEditingDo
      */
     protected void addDefaultIncludePropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Local_defaultInclude_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Local_defaultInclude_feature", "_UI_Local_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        GlobalizePackage.Literals.LOCAL__DEFAULT_INCLUDE,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Local_defaultInclude_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Local_defaultInclude_feature", "_UI_Local_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                GlobalizePackage.Literals.LOCAL__DEFAULT_INCLUDE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -126,19 +108,9 @@ public class LocalItemProvider extends ItemProviderAdapter implements IEditingDo
      */
     protected void addIdPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Local_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Local_id_feature", "_UI_Local_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        GlobalizePackage.Literals.LOCAL__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Local_id_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Local_id_feature", "_UI_Local_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                GlobalizePackage.Literals.LOCAL__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -189,6 +161,17 @@ public class LocalItemProvider extends ItemProviderAdapter implements IEditingDo
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected boolean shouldComposeCreationImage ()
+    {
+        return true;
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -197,10 +180,29 @@ public class LocalItemProvider extends ItemProviderAdapter implements IEditingDo
     @Override
     public String getText ( Object object )
     {
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
         String label = ( (Local)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Local_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Local_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        StyledString styledLabel = new StyledString ();
+        if ( label == null || label.length () == 0 )
+        {
+            styledLabel.append ( getString ( "_UI_Local_type" ), StyledString.Style.QUALIFIER_STYLER ); //$NON-NLS-1$
+        }
+        else
+        {
+            styledLabel.append ( getString ( "_UI_Local_type" ), StyledString.Style.QUALIFIER_STYLER ).append ( " " + label ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+        return styledLabel;
     }
 
     /**
@@ -242,35 +244,17 @@ public class LocalItemProvider extends ItemProviderAdapter implements IEditingDo
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.LOCAL__LOGON_CREDENTIALS,
-                        WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.LOCAL__LOGON_CREDENTIALS, WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.LOCAL__LOGON_CREDENTIALS,
-                        WorldFactory.eINSTANCE.createPasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.LOCAL__LOGON_CREDENTIALS, WorldFactory.eINSTANCE.createPasswordCredentials () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.LOCAL__FILTERS,
-                        GlobalizeFactory.eINSTANCE.createInclude () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.LOCAL__FILTERS, GlobalizeFactory.eINSTANCE.createInclude () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.LOCAL__FILTERS,
-                        GlobalizeFactory.eINSTANCE.createExclude () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.LOCAL__FILTERS, GlobalizeFactory.eINSTANCE.createExclude () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.LOCAL__FILTERS,
-                        GlobalizeFactory.eINSTANCE.createItemNameFilter () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.LOCAL__FILTERS, GlobalizeFactory.eINSTANCE.createItemNameFilter () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.LOCAL__AUTHORATIVES,
-                        GlobalizeFactory.eINSTANCE.createAuthorative () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.LOCAL__AUTHORATIVES, GlobalizeFactory.eINSTANCE.createAuthorative () ) );
     }
 
     /**

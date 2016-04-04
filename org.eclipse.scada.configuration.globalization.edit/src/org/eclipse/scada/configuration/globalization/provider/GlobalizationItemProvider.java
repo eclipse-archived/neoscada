@@ -23,9 +23,11 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.globalization.Globalization;
 import org.eclipse.scada.configuration.globalization.GlobalizeFactory;
@@ -38,7 +40,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GlobalizationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class GlobalizationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -77,19 +79,9 @@ public class GlobalizationItemProvider extends ItemProviderAdapter implements IE
      */
     protected void addWorldPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Globalization_world_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Globalization_world_feature", "_UI_Globalization_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        GlobalizePackage.Literals.GLOBALIZATION__WORLD,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Globalization_world_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Globalization_world_feature", "_UI_Globalization_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                GlobalizePackage.Literals.GLOBALIZATION__WORLD, true, false, true, null, null, null ) );
     }
 
     /**
@@ -139,6 +131,17 @@ public class GlobalizationItemProvider extends ItemProviderAdapter implements IE
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected boolean shouldComposeCreationImage ()
+    {
+        return true;
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -147,7 +150,19 @@ public class GlobalizationItemProvider extends ItemProviderAdapter implements IE
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_Globalization_type" ); //$NON-NLS-1$
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
+        return new StyledString ( getString ( "_UI_Globalization_type" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -184,20 +199,11 @@ public class GlobalizationItemProvider extends ItemProviderAdapter implements IE
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBALIZATION__DEFAULT_LOGON_CREDENTIALS,
-                        WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBALIZATION__DEFAULT_LOGON_CREDENTIALS, WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBALIZATION__DEFAULT_LOGON_CREDENTIALS,
-                        WorldFactory.eINSTANCE.createPasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBALIZATION__DEFAULT_LOGON_CREDENTIALS, WorldFactory.eINSTANCE.createPasswordCredentials () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBALIZATION__GLOBALS,
-                        GlobalizeFactory.eINSTANCE.createGlobal () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBALIZATION__GLOBALS, GlobalizeFactory.eINSTANCE.createGlobal () ) );
     }
 
     /**

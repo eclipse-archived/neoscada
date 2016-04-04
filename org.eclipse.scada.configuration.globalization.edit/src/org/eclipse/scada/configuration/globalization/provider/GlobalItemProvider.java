@@ -23,9 +23,11 @@ import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.globalization.Global;
 import org.eclipse.scada.configuration.globalization.GlobalizeFactory;
@@ -39,7 +41,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GlobalItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class GlobalItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemStyledLabelProvider
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -78,19 +80,9 @@ public class GlobalItemProvider extends ItemProviderAdapter implements IEditingD
      */
     protected void addGlobalPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Global_global_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Global_global_feature", "_UI_Global_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        GlobalizePackage.Literals.GLOBAL__GLOBAL,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Global_global_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Global_global_feature", "_UI_Global_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                GlobalizePackage.Literals.GLOBAL__GLOBAL, true, false, true, null, null, null ) );
     }
 
     /**
@@ -144,6 +136,17 @@ public class GlobalItemProvider extends ItemProviderAdapter implements IEditingD
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected boolean shouldComposeCreationImage ()
+    {
+        return true;
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -152,7 +155,19 @@ public class GlobalItemProvider extends ItemProviderAdapter implements IEditingD
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_Global_type" ); //$NON-NLS-1$
+        return ( (StyledString)getStyledText ( object ) ).getString ();
+    }
+
+    /**
+     * This returns the label styled text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getStyledText ( Object object )
+    {
+        return new StyledString ( getString ( "_UI_Global_type" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -193,50 +208,23 @@ public class GlobalItemProvider extends ItemProviderAdapter implements IEditingD
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__DEFAULT_LOGON_CREDENTIALS,
-                        WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__DEFAULT_LOGON_CREDENTIALS, WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__DEFAULT_LOGON_CREDENTIALS,
-                        WorldFactory.eINSTANCE.createPasswordCredentials () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__DEFAULT_LOGON_CREDENTIALS, WorldFactory.eINSTANCE.createPasswordCredentials () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__LOCALS,
-                        GlobalizeFactory.eINSTANCE.createLocal () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__LOCALS, GlobalizeFactory.eINSTANCE.createLocal () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__EVENT_POOL_IMPORTS,
-                        GlobalizeFactory.eINSTANCE.createEventPoolImport () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__EVENT_POOL_IMPORTS, GlobalizeFactory.eINSTANCE.createEventPoolImport () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__MONITOR_POOL_IMPORTS,
-                        GlobalizeFactory.eINSTANCE.createMonitorPoolImport () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__MONITOR_POOL_IMPORTS, GlobalizeFactory.eINSTANCE.createMonitorPoolImport () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__LOCAL_PULL,
-                        OsgiFactory.eINSTANCE.createPullEvents () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__LOCAL_PULL, OsgiFactory.eINSTANCE.createPullEvents () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__FILTERS,
-                        GlobalizeFactory.eINSTANCE.createInclude () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__FILTERS, GlobalizeFactory.eINSTANCE.createInclude () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__FILTERS,
-                        GlobalizeFactory.eINSTANCE.createExclude () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__FILTERS, GlobalizeFactory.eINSTANCE.createExclude () ) );
 
-        newChildDescriptors.add
-                ( createChildParameter
-                ( GlobalizePackage.Literals.GLOBAL__FILTERS,
-                        GlobalizeFactory.eINSTANCE.createItemNameFilter () ) );
+        newChildDescriptors.add ( createChildParameter ( GlobalizePackage.Literals.GLOBAL__FILTERS, GlobalizeFactory.eINSTANCE.createItemNameFilter () ) );
     }
 
     /**
