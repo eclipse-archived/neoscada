@@ -70,9 +70,9 @@ public class RedhatDeploymentMechanismItemProvider extends CommonDeploymentMecha
     protected void addLicensePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RedhatDeploymentMechanism_license_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_RedhatDeploymentMechanism_license_feature", "_UI_RedhatDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        DeploymentPackage.Literals.REDHAT_DEPLOYMENT_MECHANISM__LICENSE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_RedhatDeploymentMechanism_license_feature", "_UI_RedhatDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.REDHAT_DEPLOYMENT_MECHANISM__LICENSE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_legalPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**

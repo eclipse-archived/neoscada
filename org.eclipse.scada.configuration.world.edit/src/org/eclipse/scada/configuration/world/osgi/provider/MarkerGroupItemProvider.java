@@ -82,8 +82,8 @@ public class MarkerGroupItemProvider extends ItemProviderAdapter implements IEdi
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MarkerGroup_name_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerGroup_name_feature", "_UI_MarkerGroup_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.MARKER_GROUP__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerGroup_name_feature", "_UI_MarkerGroup_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.MARKER_GROUP__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -95,8 +95,8 @@ public class MarkerGroupItemProvider extends ItemProviderAdapter implements IEdi
     protected void addMarkersPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MarkerGroup_markers_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerGroup_markers_feature", "_UI_MarkerGroup_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.MARKER_GROUP__MARKERS, true, false, false, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MarkerGroup_markers_feature", "_UI_MarkerGroup_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.MARKER_GROUP__MARKERS, true, false, false, null, null, null ) );
     }
 
     /**

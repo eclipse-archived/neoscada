@@ -79,8 +79,8 @@ public class OptionsItemProvider extends ItemProviderAdapter implements IEditing
     protected void addMasterHandlerPrioritiesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Options_masterHandlerPriorities_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_Options_masterHandlerPriorities_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.OPTIONS__MASTER_HANDLER_PRIORITIES, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Options_masterHandlerPriorities_feature", "_UI_Options_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.OPTIONS__MASTER_HANDLER_PRIORITIES, true, false, true, null, null, null ) );
     }
 
     /**

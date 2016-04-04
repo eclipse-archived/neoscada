@@ -90,9 +90,9 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -104,9 +104,9 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -118,8 +118,8 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addJdbcDriverPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcUserService_jdbcDriver_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_jdbcDriver_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.JDBC_USER_SERVICE__JDBC_DRIVER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_jdbcDriver_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_USER_SERVICE__JDBC_DRIVER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -131,8 +131,8 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addAuthorativePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcUserService_authorative_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_authorative_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.JDBC_USER_SERVICE__AUTHORATIVE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_authorative_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_USER_SERVICE__AUTHORATIVE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -144,8 +144,8 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addFindUserSqlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcUserService_findUserSql_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_findUserSql_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.JDBC_USER_SERVICE__FIND_USER_SQL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_findUserSql_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_USER_SERVICE__FIND_USER_SQL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -157,8 +157,8 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addFindRolesForUserSqlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcUserService_findRolesForUserSql_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_findRolesForUserSql_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.JDBC_USER_SERVICE__FIND_ROLES_FOR_USER_SQL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_findRolesForUserSql_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_USER_SERVICE__FIND_ROLES_FOR_USER_SQL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -170,8 +170,8 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addUpdatePasswordSqlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcUserService_updatePasswordSql_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_updatePasswordSql_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.JDBC_USER_SERVICE__UPDATE_PASSWORD_SQL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_updatePasswordSql_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_USER_SERVICE__UPDATE_PASSWORD_SQL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -183,8 +183,8 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addUserIdColumnNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcUserService_userIdColumnName_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_userIdColumnName_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.JDBC_USER_SERVICE__USER_ID_COLUMN_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_userIdColumnName_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_USER_SERVICE__USER_ID_COLUMN_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -196,8 +196,8 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addPasswordColumnNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcUserService_passwordColumnName_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_passwordColumnName_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.JDBC_USER_SERVICE__PASSWORD_COLUMN_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_passwordColumnName_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_USER_SERVICE__PASSWORD_COLUMN_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -209,8 +209,8 @@ public class JdbcUserServiceItemProvider extends ItemProviderAdapter implements 
     protected void addPasswordTypePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JdbcUserService_passwordType_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_passwordType_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.JDBC_USER_SERVICE__PASSWORD_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JdbcUserService_passwordType_feature", "_UI_JdbcUserService_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.JDBC_USER_SERVICE__PASSWORD_TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

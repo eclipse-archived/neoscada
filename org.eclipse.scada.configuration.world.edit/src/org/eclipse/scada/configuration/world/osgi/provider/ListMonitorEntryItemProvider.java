@@ -82,8 +82,8 @@ public class ListMonitorEntryItemProvider extends ItemProviderAdapter implements
     protected void addValuePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitorEntry_value_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitorEntry_value_feature", "_UI_ListMonitorEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.LIST_MONITOR_ENTRY__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitorEntry_value_feature", "_UI_ListMonitorEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.LIST_MONITOR_ENTRY__VALUE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -95,8 +95,8 @@ public class ListMonitorEntryItemProvider extends ItemProviderAdapter implements
     protected void addRequireAckPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitorEntry_requireAck_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitorEntry_requireAck_feature", "_UI_ListMonitorEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.LIST_MONITOR_ENTRY__REQUIRE_ACK, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitorEntry_requireAck_feature", "_UI_ListMonitorEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.LIST_MONITOR_ENTRY__REQUIRE_ACK, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -108,8 +108,8 @@ public class ListMonitorEntryItemProvider extends ItemProviderAdapter implements
     protected void addSeverityPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ListMonitorEntry_severity_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitorEntry_severity_feature", "_UI_ListMonitorEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.LIST_MONITOR_ENTRY__SEVERITY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ListMonitorEntry_severity_feature", "_UI_ListMonitorEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.LIST_MONITOR_ENTRY__SEVERITY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

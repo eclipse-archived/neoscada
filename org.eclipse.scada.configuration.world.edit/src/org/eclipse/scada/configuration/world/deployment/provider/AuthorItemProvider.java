@@ -80,8 +80,8 @@ public class AuthorItemProvider extends ItemProviderAdapter implements IEditingD
     protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Author_name_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_Author_name_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        DeploymentPackage.Literals.AUTHOR__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Author_name_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.AUTHOR__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -93,8 +93,8 @@ public class AuthorItemProvider extends ItemProviderAdapter implements IEditingD
     protected void addEmailPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Author_email_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_Author_email_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        DeploymentPackage.Literals.AUTHOR__EMAIL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Author_email_feature", "_UI_Author_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                DeploymentPackage.Literals.AUTHOR__EMAIL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

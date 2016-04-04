@@ -73,8 +73,8 @@ public class ScriptItemItemProvider extends ItemItemProvider
     protected void addInitScriptPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_initScript_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_initScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.SCRIPT_ITEM__INIT_SCRIPT, true, false, false, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_initScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SCRIPT_ITEM__INIT_SCRIPT, true, false, false, null, null, null ) );
     }
 
     /**
@@ -86,8 +86,8 @@ public class ScriptItemItemProvider extends ItemItemProvider
     protected void addUpdateScriptPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_updateScript_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_updateScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.SCRIPT_ITEM__UPDATE_SCRIPT, true, false, false, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_updateScript_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SCRIPT_ITEM__UPDATE_SCRIPT, true, false, false, null, null, null ) );
     }
 
     /**
@@ -99,8 +99,8 @@ public class ScriptItemItemProvider extends ItemItemProvider
     protected void addScriptEnginePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ScriptItem_scriptEngine_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_scriptEngine_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.SCRIPT_ITEM__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ScriptItem_scriptEngine_feature", "_UI_ScriptItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SCRIPT_ITEM__SCRIPT_ENGINE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -271,7 +271,7 @@ public class ScriptItemItemProvider extends ItemItemProvider
         if ( qualify )
         {
             return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
-            new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
         }
         return super.getCreateChildText ( owner, feature, child, selection );
     }

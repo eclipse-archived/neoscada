@@ -68,8 +68,8 @@ public class NegateItemProvider extends ItemFeatureEntryItemProvider
     protected void addActivePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Negate_active_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_Negate_active_feature", "_UI_Negate_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.NEGATE__ACTIVE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Negate_active_feature", "_UI_Negate_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.NEGATE__ACTIVE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**

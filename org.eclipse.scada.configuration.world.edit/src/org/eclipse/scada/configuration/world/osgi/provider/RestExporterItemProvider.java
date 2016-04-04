@@ -82,8 +82,8 @@ public class RestExporterItemProvider extends ItemProviderAdapter implements IEd
     protected void addItemsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RestExporter_items_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_RestExporter_items_feature", "_UI_RestExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.REST_EXPORTER__ITEMS, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_RestExporter_items_feature", "_UI_RestExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.REST_EXPORTER__ITEMS, true, false, true, null, null, null ) );
     }
 
     /**
@@ -95,8 +95,8 @@ public class RestExporterItemProvider extends ItemProviderAdapter implements IEd
     protected void addContextIdPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RestExporter_contextId_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_RestExporter_contextId_feature", "_UI_RestExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.REST_EXPORTER__CONTEXT_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_RestExporter_contextId_feature", "_UI_RestExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.REST_EXPORTER__CONTEXT_ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

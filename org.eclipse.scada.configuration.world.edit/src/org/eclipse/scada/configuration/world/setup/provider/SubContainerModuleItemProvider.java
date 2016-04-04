@@ -80,8 +80,8 @@ public class SubContainerModuleItemProvider extends ItemProviderAdapter implemen
     protected void addContainerPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SubContainerModule_container_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_SubContainerModule_container_feature", "_UI_SubContainerModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        SetupPackage.Literals.SUB_CONTAINER_MODULE__CONTAINER, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_SubContainerModule_container_feature", "_UI_SubContainerModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                SetupPackage.Literals.SUB_CONTAINER_MODULE__CONTAINER, true, false, true, null, null, null ) );
     }
 
     /**

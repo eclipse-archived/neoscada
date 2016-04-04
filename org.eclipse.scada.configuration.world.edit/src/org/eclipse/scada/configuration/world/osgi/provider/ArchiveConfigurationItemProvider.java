@@ -82,8 +82,8 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
     protected void addFileSizeInMillisecondsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ArchiveConfiguration_fileSizeInMilliseconds_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ArchiveConfiguration_fileSizeInMilliseconds_feature", "_UI_ArchiveConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.ARCHIVE_CONFIGURATION__FILE_SIZE_IN_MILLISECONDS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ArchiveConfiguration_fileSizeInMilliseconds_feature", "_UI_ArchiveConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.ARCHIVE_CONFIGURATION__FILE_SIZE_IN_MILLISECONDS, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -95,8 +95,8 @@ public class ArchiveConfigurationItemProvider extends ItemProviderAdapter implem
     protected void addNumberOfFilesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ArchiveConfiguration_numberOfFiles_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ArchiveConfiguration_numberOfFiles_feature", "_UI_ArchiveConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.ARCHIVE_CONFIGURATION__NUMBER_OF_FILES, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ArchiveConfiguration_numberOfFiles_feature", "_UI_ArchiveConfiguration_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.ARCHIVE_CONFIGURATION__NUMBER_OF_FILES, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**

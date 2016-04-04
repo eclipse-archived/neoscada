@@ -71,8 +71,8 @@ public class EventInjectorJdbcItemProvider extends EventInjectorItemProvider
     protected void addSelectSqlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorJdbc_selectSql_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorJdbc_selectSql_feature", "_UI_EventInjectorJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.EVENT_INJECTOR_JDBC__SELECT_SQL, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorJdbc_selectSql_feature", "_UI_EventInjectorJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EVENT_INJECTOR_JDBC__SELECT_SQL, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -84,8 +84,8 @@ public class EventInjectorJdbcItemProvider extends EventInjectorItemProvider
     protected void addDeleteSqlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorJdbc_deleteSql_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorJdbc_deleteSql_feature", "_UI_EventInjectorJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.EVENT_INJECTOR_JDBC__DELETE_SQL, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorJdbc_deleteSql_feature", "_UI_EventInjectorJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EVENT_INJECTOR_JDBC__DELETE_SQL, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -97,8 +97,8 @@ public class EventInjectorJdbcItemProvider extends EventInjectorItemProvider
     protected void addExistsSqlPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorJdbc_existsSql_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorJdbc_existsSql_feature", "_UI_EventInjectorJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.EVENT_INJECTOR_JDBC__EXISTS_SQL, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorJdbc_existsSql_feature", "_UI_EventInjectorJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.EVENT_INJECTOR_JDBC__EXISTS_SQL, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

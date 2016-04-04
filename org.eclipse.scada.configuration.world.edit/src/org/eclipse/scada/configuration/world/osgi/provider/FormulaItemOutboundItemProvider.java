@@ -82,8 +82,8 @@ public class FormulaItemOutboundItemProvider extends ItemProviderAdapter impleme
     protected void addOutputFormulaPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaItemOutbound_outputFormula_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItemOutbound_outputFormula_feature", "_UI_FormulaItemOutbound_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.FORMULA_ITEM_OUTBOUND__OUTPUT_FORMULA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItemOutbound_outputFormula_feature", "_UI_FormulaItemOutbound_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.FORMULA_ITEM_OUTBOUND__OUTPUT_FORMULA, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -95,8 +95,8 @@ public class FormulaItemOutboundItemProvider extends ItemProviderAdapter impleme
     protected void addWriteValueVariableNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_FormulaItemOutbound_writeValueVariableName_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItemOutbound_writeValueVariableName_feature", "_UI_FormulaItemOutbound_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.FORMULA_ITEM_OUTBOUND__WRITE_VALUE_VARIABLE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_FormulaItemOutbound_writeValueVariableName_feature", "_UI_FormulaItemOutbound_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.FORMULA_ITEM_OUTBOUND__WRITE_VALUE_VARIABLE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

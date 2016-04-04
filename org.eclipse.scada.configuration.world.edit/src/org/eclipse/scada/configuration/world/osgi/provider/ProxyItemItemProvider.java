@@ -66,8 +66,8 @@ public class ProxyItemItemProvider extends ItemItemProvider
     protected void addItemsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProxyItem_items_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ProxyItem_items_feature", "_UI_ProxyItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.PROXY_ITEM__ITEMS, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProxyItem_items_feature", "_UI_ProxyItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.PROXY_ITEM__ITEMS, true, false, true, null, null, null ) );
     }
 
     /**

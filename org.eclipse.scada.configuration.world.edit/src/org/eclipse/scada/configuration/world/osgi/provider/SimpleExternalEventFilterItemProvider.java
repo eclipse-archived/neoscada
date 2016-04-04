@@ -68,8 +68,8 @@ public class SimpleExternalEventFilterItemProvider extends ExternalEventFilterIt
     protected void addFilterPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_SimpleExternalEventFilter_filter_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_SimpleExternalEventFilter_filter_feature", "_UI_SimpleExternalEventFilter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.SIMPLE_EXTERNAL_EVENT_FILTER__FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_SimpleExternalEventFilter_filter_feature", "_UI_SimpleExternalEventFilter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.SIMPLE_EXTERNAL_EVENT_FILTER__FILTER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

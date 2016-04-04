@@ -91,8 +91,8 @@ public class AbstractGenericDatabaseSettingsItemProvider extends ItemProviderAda
     protected void addIdPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DatabaseSettings_id_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_DatabaseSettings_id_feature", "_UI_DatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.DATABASE_SETTINGS__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_DatabaseSettings_id_feature", "_UI_DatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.DATABASE_SETTINGS__ID, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -104,8 +104,8 @@ public class AbstractGenericDatabaseSettingsItemProvider extends ItemProviderAda
     protected void addUsernamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractGenericDatabaseSettings_username_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_username_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_username_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -117,8 +117,8 @@ public class AbstractGenericDatabaseSettingsItemProvider extends ItemProviderAda
     protected void addPasswordPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractGenericDatabaseSettings_password_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_password_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_password_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -130,8 +130,8 @@ public class AbstractGenericDatabaseSettingsItemProvider extends ItemProviderAda
     protected void addLoginTimeoutPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractGenericDatabaseSettings_loginTimeout_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_loginTimeout_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_loginTimeout_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -143,8 +143,8 @@ public class AbstractGenericDatabaseSettingsItemProvider extends ItemProviderAda
     protected void addDatabaseNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractGenericDatabaseSettings_databaseName_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_databaseName_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_databaseName_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -156,8 +156,8 @@ public class AbstractGenericDatabaseSettingsItemProvider extends ItemProviderAda
     protected void addServerNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractGenericDatabaseSettings_serverName_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_serverName_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_serverName_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -169,8 +169,8 @@ public class AbstractGenericDatabaseSettingsItemProvider extends ItemProviderAda
     protected void addPortNumberPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_AbstractGenericDatabaseSettings_portNumber_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_portNumber_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractGenericDatabaseSettings_portNumber_feature", "_UI_AbstractGenericDatabaseSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                WorldPackage.Literals.ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

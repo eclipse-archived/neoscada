@@ -66,8 +66,8 @@ public class ReferenceItemItemProvider extends ItemItemProvider
     protected void addSourcePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ReferenceItem_source_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ReferenceItem_source_feature", "_UI_ReferenceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        OsgiPackage.Literals.REFERENCE_ITEM__SOURCE, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ReferenceItem_source_feature", "_UI_ReferenceItem_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                OsgiPackage.Literals.REFERENCE_ITEM__SOURCE, true, false, true, null, null, null ) );
     }
 
     /**
