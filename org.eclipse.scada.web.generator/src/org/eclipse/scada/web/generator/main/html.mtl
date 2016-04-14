@@ -57,7 +57,7 @@ var track = function(url, category, action) {
 <body>
 
 <nav id="navbar">
-<h3>Eclipse SCADA</h3>
+<h3>Eclipse NeoSCADA</h3>
 
 	<ul class="header">
 [for (page : Page | site.pages)]

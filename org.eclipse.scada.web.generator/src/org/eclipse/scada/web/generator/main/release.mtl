@@ -56,11 +56,11 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/application-home.png')/]"/>
-	Eclipse SCADA Admin Client
+	Eclipse NeoSCADA Admin Client
 <ul class="release">
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse SCADA Admin Client" />
+		<meta itemprop="name" content="Eclipse NeoSCADA Admin Client" />
 		<meta itemprop="operatingSystem" content="Linux" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
@@ -71,7 +71,7 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse SCADA Admin Client" />
+		<meta itemprop="name" content="Eclipse NeoSCADA Admin Client" />
 		<meta itemprop="operatingSystem" content="Windows" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
@@ -82,7 +82,7 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse SCADA Admin Client" />
+		<meta itemprop="name" content="Eclipse NeoSCADA Admin Client" />
 		<meta itemprop="operatingSystem" content="Windows" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
@@ -93,7 +93,7 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse SCADA Admin Client" />
+		<meta itemprop="name" content="Eclipse NeoSCADA Admin Client" />
 		<meta itemprop="operatingSystem" content="Mac OS X" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
@@ -107,7 +107,7 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 
 </ul>
 
-[socialBar(dropsLink(release, 'org.eclipse.scada', '', false), 'Eclipse SCADA Release ' + release.name)/]
+[socialBar(dropsLink(release, 'org.eclipse.scada', '', false), 'Eclipse NeoSCADA Release ' + release.name)/]
 
 </section>
 [/template]
