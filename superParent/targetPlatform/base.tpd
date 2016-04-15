@@ -49,7 +49,17 @@ location "http://download.eclipse.org/paho/" {
 	org.eclipse.paho.client.mqttv3
 }
 
-location "http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/" {
+location "http://packagedrone.eclipse.org/p2/neoscada-0.4-deps" {
+	com.google.guava [18.0.0,18.0.1)
+	com.google.guava.source [18.0.0,18.0.1)
+	org.apache.commons.compress [1.9.0,1.9.1)
+	org.apache.commons.compress.source [1.9.0,1.9.1)
+	org.tukani.xz [1.5.0,1.5.1)
+	
+	org.eclipse.packagedrone.utils.rpm[0.13.0,0.13.1)
+} 
+
+location "http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/" {
 
 /*
  * We do have CQs for specific versions. So we need to fix them.
@@ -61,8 +71,8 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2015051921075
 	org.apache.commons.beanutils.source[1.8.0,1.8.1)
 	org.apache.commons.codec[1.4.0,1.4.1)
 	org.apache.commons.codec.source[1.4.0,1.4.1)
-	org.apache.commons.collections[3.2.0,3.2.1)
-	org.apache.commons.collections.source[3.2.0,3.2.1)
+	org.apache.commons.collections [3.2.2,3.2.3)
+	org.apache.commons.collections.source [3.2.2,3.2.3)
 	
 	org.apache.commons.dbcp[1.4.0,1.4.1)
 	org.apache.commons.dbcp.source[1.4.0,1.4.1)
@@ -77,9 +87,7 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2015051921075
 	org.apache.mina.core.source[2.0.7,2.0.8)
 	org.apache.mina.filter.compression[2.0.7,2.0.8)
 	org.apache.mina.filter.compression.source[2.0.7,2.0.8)
-	
-	com.google.guava[15.0.0,15.0.1)
-	com.google.guava.source[15.0.0,15.0.1)
+
 	com.google.gson[2.2.4,2.2.5)
 	com.google.gson.source[2.2.4,2.2.5)
 
