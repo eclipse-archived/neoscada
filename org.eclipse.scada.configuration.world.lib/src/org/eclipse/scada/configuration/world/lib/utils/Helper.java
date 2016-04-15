@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,9 +12,10 @@ package org.eclipse.scada.configuration.world.lib.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -26,13 +27,12 @@ import org.slf4j.LoggerFactory;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.CharStreams;
 import com.google.common.io.Files;
-import com.google.common.io.InputSupplier;
 
 public class Helper
 {
     private final static Logger logger = LoggerFactory.getLogger ( Helper.class );
 
-    private static Pattern PATTERN = Pattern.compile ( "\\$\\$(.*?)\\$\\$" );
+    private final static Pattern PATTERN = Pattern.compile ( "\\$\\$(.*?)\\$\\$" );
 
     public static void createFile ( final File file, final InputStream resource, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
     {
@@ -43,13 +43,7 @@ public class Helper
     {
         try
         {
-            String str = CharStreams.toString ( CharStreams.newReaderSupplier ( new InputSupplier<InputStream> () {
-                @Override
-                public InputStream getInput () throws IOException
-                {
-                    return resource;
-                }
-            }, Charset.forName ( "UTF-8" ) ) );
+            String str = CharStreams.toString ( new InputStreamReader ( resource, StandardCharsets.UTF_8 ) );
 
             str = StringReplacer.replace ( str, StringReplacer.newSource ( replacements ), pattern );
 
