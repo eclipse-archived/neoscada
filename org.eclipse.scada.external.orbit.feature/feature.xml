@@ -25,6 +25,27 @@
          unpack="false"/>
 
    <plugin
+         id="org.apache.commons.compress"
+         download-size="0"
+         install-size="0"
+         version="1.9.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.packagedrone.utils.rpm"
+         download-size="0"
+         install-size="0"
+         version="0.13.0.201604181130"
+         unpack="false"/>
+
+   <plugin
+         id="org.tukani.xz"
+         download-size="0"
+         install-size="0"
+         version="1.5.0.20151105-1627"
+         unpack="false"/>
+
+   <plugin
          id="org.junit"
          download-size="0"
          install-size="0"
