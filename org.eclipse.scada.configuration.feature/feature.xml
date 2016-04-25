@@ -63,7 +63,7 @@
       <import plugin="org.eclipse.scada.configuration.item.edit" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.contenttype"/>
       <import plugin="org.eclipse.wst.jsdt.core"/>
-      <import plugin="com.google.guava"/>
+      <import plugin="com.google.guava" version="18.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore" version="2.9.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.scada.core"/>
       <import plugin="org.eclipse.scada.da.server.exec.edit" version="0.1.0" match="greaterOrEqual"/>
@@ -103,6 +103,9 @@
       <import plugin="org.apache.commons.beanutils"/>
       <import feature="org.eclipse.scada.ui.utils" version="0.1.0.qualifier"/>
       <import feature="org.eclipse.scada.utils" version="0.1.0.qualifier"/>
+      <import plugin="org.apache.commons.compress" version="1.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.packagedrone.utils.rpm"/>
+      <import plugin="org.tukani.xz"/>
    </requires>
 
    <plugin
