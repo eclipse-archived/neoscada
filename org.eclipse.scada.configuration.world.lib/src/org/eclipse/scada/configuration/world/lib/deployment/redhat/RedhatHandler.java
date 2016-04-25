@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,6 +11,13 @@
 package org.eclipse.scada.configuration.world.lib.deployment.redhat;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -21,31 +28,27 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.packagedrone.utils.rpm.build.BuilderContext;
+import org.eclipse.packagedrone.utils.rpm.build.RpmBuilder;
+import org.eclipse.packagedrone.utils.rpm.build.RpmBuilder.PackageInformation;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.lib.deployment.ChangeEntryComparator;
-import org.eclipse.scada.configuration.world.lib.deployment.CommonHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
 import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
 import org.eclipse.scada.configuration.world.lib.deployment.ScriptMaker;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
-import org.eclipse.scada.configuration.world.lib.utils.Helper;
-import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
-import org.eclipse.scada.utils.str.StringHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class RedhatHandler extends CommonPackageHandler
 {
-    private final static Logger logger = LoggerFactory.getLogger ( RedhatHandler.class );
-
     private final RedhatDeploymentMechanism deploy;
 
     public RedhatHandler ( final ApplicationNode applicationNode, final RedhatDeploymentMechanism deploy )
@@ -73,7 +76,8 @@ public class RedhatHandler extends CommonPackageHandler
 
         final String packageName = getPackageName ();
 
-        final RedhatDeploymentContext context = new RedhatDeploymentContext ( new File ( packageFolder, "src" ), packageName );
+        final File tempDir = new File ( packageFolder, "src" );
+        final RedhatDeploymentContext context = new RedhatDeploymentContext ( tempDir, packageName );
         setDeploymentContext ( context );
 
         // process super
@@ -82,91 +86,122 @@ public class RedhatHandler extends CommonPackageHandler
 
         // handle self
 
-        final File buildRoot = packageFolder.getParentFile ();
-        final File specsDir = new File ( buildRoot, "SPECS" ); //$NON-NLS-1$
-        specsDir.mkdirs ();
-        final File sourcesDir = new File ( buildRoot, "SOURCES" ); //$NON-NLS-1$
-        sourcesDir.mkdirs ();
-
-        // create content
+        final Path outputDir = nodeDir.getLocation ().toFile ().toPath ();
+        Files.createDirectories ( outputDir );
 
         final String version = makeVersion ( this.deploy.getChanges () );
         final String qualifier = makeRelease ();
+        final String nodeName = this.applicationNode.getName () == null ? this.applicationNode.getHostName () : this.applicationNode.getName ();
 
-        final Map<String, String> replacements = new HashMap<> ();
-        replacements.put ( "packageName", packageName ); //$NON-NLS-1$
-        replacements.put ( "authorName", this.deploy.getMaintainer ().getName () ); //$NON-NLS-1$
-        replacements.put ( "authorEmail", this.deploy.getMaintainer ().getEmail () ); //$NON-NLS-1$
-        replacements.put ( "nodeName", this.applicationNode.getName () == null ? this.applicationNode.getHostName () : this.applicationNode.getName () ); //$NON-NLS-1$
-        replacements.put ( "version", version ); //$NON-NLS-1$
-        replacements.put ( "qualifier", qualifier ); //$NON-NLS-1$
-        replacements.put ( "changeLog", makeChangeLog ( this.deploy.getChanges () ) ); //$NON-NLS-1$
-        replacements.put ( "start.apps", createStartApps () ); //$NON-NLS-1$
-        replacements.put ( "stop.apps", createStopApps () ); //$NON-NLS-1$
-        replacements.put ( "create.apps", makeCreate ( this.deploy ) ); //$NON-NLS-1$
-        replacements.put ( "license", this.deploy.getLicense () ); //$NON-NLS-1$
-
-        replacements.put ( "multiuserScreen", this.deploy.isMultiUserScreen () ? "1" : "0" );
-
-        createDrivers ( nodeDir, monitor, packageFolder, replacements );
-        createEquinox ( nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
-
-        // create spec file - all content must be known
-
-        final ScriptMaker sm = new ScriptMaker ( getStartupHandler () );
-
-        replacements.put ( "postinst.scripts", context.getPostInstallationString () + sm.makePostInst () );
-        replacements.put ( "preinst.scripts", context.getPreInstallationString () + sm.makePreInst () );
-        replacements.put ( "postrem.scripts", context.getPostRemovalString () + sm.makePostRem () );
-        replacements.put ( "prerem.scripts", context.getPreRemovalString () + sm.makePreRem () );
-
-        replacements.put ( "files", makeFiles ( context.getFiles (), context.getDirectories () ) ); //$NON-NLS-1$
-        replacements.put ( "depends", makeDependencies ( context.getDependencies () ) );
-
-        final File specFile = new File ( specsDir, packageName + ".spec" ); //$NON-NLS-1$
-        Helper.createFile ( specFile, CommonHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );
-        Helper.createFile ( new File ( packageFolder, "Makefile" ), CommonHandler.class.getResourceAsStream ( "templates/rpm/Makefile" ), replacements, monitor );
-
-        // make source file
-        if ( !Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) ) //$NON-NLS-1$
+        try ( RpmBuilder builder = new RpmBuilder ( packageName, version, qualifier, outputDir ) )
         {
-            monitor.subTask ( "Running 'tar'" ); //$NON-NLS-1$
+            final PackageInformation pinfo = builder.getInformation ();
+            pinfo.setLicense ( this.deploy.getLicense () );
+            pinfo.setSummary ( String.format ( "Eclipse NeoSCADA Configuration for \"%s\"", nodeName ) );
+            pinfo.setDescription ( String.format ( "This is the configuration package for node \"%s\".", nodeName ) );
+            pinfo.setPackager ( String.format ( "%s <%s>", this.deploy.getMaintainer ().getName (), this.deploy.getMaintainer ().getEmail () ) );
+            pinfo.setGroup ( "Application/System" );
 
+            // create content
+
+            final Map<String, String> replacements = new HashMap<> ();
+            replacements.put ( "packageName", packageName ); //$NON-NLS-1$
+            replacements.put ( "authorName", this.deploy.getMaintainer ().getName () ); //$NON-NLS-1$
+            replacements.put ( "authorEmail", this.deploy.getMaintainer ().getEmail () ); //$NON-NLS-1$
+            replacements.put ( "nodeName", nodeName ); //$NON-NLS-1$
+            replacements.put ( "version", version ); //$NON-NLS-1$
+            replacements.put ( "qualifier", qualifier ); //$NON-NLS-1$
+            replacements.put ( "changeLog", makeChangeLog ( this.deploy.getChanges () ) ); //$NON-NLS-1$
+
+            createDrivers ( nodeDir, monitor, packageFolder, replacements );
+            createEquinox ( nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
+
+            // create spec file - all content must be known
+
+            final ScriptMaker sm = new ScriptMaker ( getStartupHandler () );
+
+            builder.setPreInstallationScript ( createStopApps () + context.getPreInstallationString () + sm.makePreInst () );
+            builder.setPostInstallationScript ( context.getPostInstallationString () + sm.makePostInst () + makeMultiScreenScript () + makeCreate ( this.deploy ) + createStartApps () );
+            builder.setPreRemoveScript ( createStopApps () + context.getPreRemovalString () + sm.makePreRem () );
+            builder.setPostRemoveScript ( context.getPostRemovalString () + sm.makePostRem () );
+
+            for ( final String dep : makeDependencies ( context.getDependencies () ) )
             {
-                final File sourceFile = new File ( sourcesDir, packageName + "_" + version + "." + qualifier + ".tar.gz" );
-                final ProcessBuilder processBuilder = new ProcessBuilder ( "tar", "czf", sourceFile.toString (), packageName );
-                processBuilder.directory ( packageFolder.getParentFile () );
-                final int rc = new ProcessRunner ( processBuilder ).run ();
-                logger.info ( "rc = {}", rc ); //$NON-NLS-1$
-
-                if ( rc != 0 )
-                {
-                    throw new IllegalStateException ( String.format ( "command '%s' failed: %s", processBuilder.command (), rc ) );
-                }
+                builder.addRequirement ( dep, null );
             }
 
-            // run rpmbuild
+            final BuilderContext ctx = builder.newContext ();
 
-            monitor.subTask ( "Running 'rpmbuild'" ); //$NON-NLS-1$
-
+            for ( final Map.Entry<String, FileInformation> dir : new TreeMap<> ( context.getDirectories () ).entrySet () /*Sorted*/ )
             {
-                final ProcessBuilder processBuilder = new ProcessBuilder ( "rpmbuild", "--define", "_topdir " + buildRoot.toString (), "-bb", specFile.toString () );
-                processBuilder.directory ( packageFolder );
-
-                final int rc = new ProcessRunner ( processBuilder ).run ();
-                logger.info ( "rc = {}", rc ); //$NON-NLS-1$
-
-                if ( rc != 0 )
-                {
-                    throw new IllegalStateException ( String.format ( "command '%s' failed: %s", processBuilder.command (), rc ) );
-                }
+                ctx.addDirectory ( dir.getKey (), BuilderContext.simpleDirectoryProvider ().customize ( fi -> applyFileInformation ( fi, dir.getValue (), true ) ) );
             }
+
+            final Path base = tempDir.toPath ();
+            Files.walkFileTree ( base, new SimpleFileVisitor<Path> () {
+                @Override
+                public FileVisitResult visitFile ( final Path file, final BasicFileAttributes attrs ) throws IOException
+                {
+                    final Path localPath = Paths.get ( "/" ).resolve ( base.relativize ( file ) ).normalize ();
+                    final String targetName = localPath.toString ().replace ( File.separator, "/" );
+                    final FileInformation i = context.getFiles ().get ( targetName );
+                    ctx.addFile ( targetName, file, BuilderContext.simpleFileProvider ().customize ( fi -> applyFileInformation ( fi, i, true ) ) );
+                    return FileVisitResult.CONTINUE;
+                }
+            } );
+
+            builder.build ();
         }
 
         nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
     }
 
-    private String makeDependencies ( final Set<String> additional )
+    private static void applyFileInformation ( final org.eclipse.packagedrone.utils.rpm.build.FileInformation fi, final FileInformation i, final boolean directory )
+    {
+        if ( i == null )
+        {
+            return;
+        }
+
+        if ( i.getMode () != null )
+        {
+            fi.setMode ( i.getMode ().shortValue () );
+        }
+        if ( i.getOwner () == null )
+        {
+            fi.setUser ( i.getOwner () );
+        }
+        if ( i.getGroup () != null )
+        {
+            fi.setGroup ( i.getGroup () );
+        }
+        if ( !directory && i.getOptions () != null )
+        {
+            for ( final FileOptions opt : i.getOptions () )
+            {
+                switch ( opt )
+                {
+                    case CONFIGURATION:
+                        fi.setConfiguration ( true );
+                        break;
+                }
+            }
+        }
+    }
+
+    private String makeMultiScreenScript ()
+    {
+        if ( this.deploy.isMultiUserScreen () )
+        {
+            return "test -f ~eclipsescada/.screenrc && echo \"multiuser on\nacladd root\" > ~eclipsescada/.screenrc";
+        }
+        else
+        {
+            return "";
+        }
+    }
+
+    private Set<String> makeDependencies ( final Set<String> additional )
     {
         final Set<String> dependencies = new HashSet<> ();
 
@@ -185,71 +220,7 @@ public class RedhatHandler extends CommonPackageHandler
             dependencies.addAll ( sh.getAdditionalPackageDependencies () );
         }
 
-        final Set<String> result = new HashSet<> ();
-
-        for ( final String dep : dependencies )
-        {
-            result.add ( "Requires: " + dep );
-        }
-
-        return StringHelper.join ( result, "\n" );
-    }
-
-    private String makeFiles ( final Map<String, FileInformation> files, final Map<String, FileInformation> dirs )
-    {
-        final StringBuilder sb = new StringBuilder ();
-
-        for ( final Map.Entry<String, FileInformation> de : dirs.entrySet () )
-        {
-            final FileInformation di = de.getValue ();
-
-            final StringBuilder line = new StringBuilder ( "%dir " );
-            writeMode ( line, de.getKey (), di );
-
-            sb.append ( line ).append ( '\n' );
-        }
-
-        for ( final Map.Entry<String, FileInformation> fe : files.entrySet () )
-        {
-            final FileInformation fi = fe.getValue ();
-
-            final StringBuilder line = new StringBuilder ();
-
-            if ( fi != null )
-            {
-                for ( final FileOptions fo : fi.getOptions () )
-                {
-                    switch ( fo )
-                    {
-                        case CONFIGURATION:
-                            line.append ( "%config " );
-                            break;
-                    }
-                }
-            }
-
-            writeMode ( line, fe.getKey (), fi );
-
-            sb.append ( line ).append ( '\n' );
-        }
-
-        return sb.toString ();
-    }
-
-    protected void writeMode ( final StringBuilder line, final String targetName, final FileInformation di )
-    {
-        if ( di != null )
-        {
-            if ( di.getMode () != null || di.getOwner () != null || di.getGroup () != null )
-            {
-                final String mode = di.getMode () == null ? "-" : String.format ( "%04o", di.getMode () );
-                final String user = di.getOwner () == null ? "-" : di.getOwner ();
-                final String group = di.getGroup () == null ? "-" : di.getGroup ();
-
-                line.append ( String.format ( "%%attr(%s,%s,%s) ", mode, user, group ) );
-            }
-        }
-        line.append ( targetName );
+        return dependencies;
     }
 
     private String makeRelease ()
