@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>org.eclipse.scada.ide-parent</artifactId>
 		<groupId>org.eclipse.scada.ide</groupId>
 		<version>0.4.0-SNAPSHOT</version>
 		<relativePath>../org.eclipse.scada.ide-parent</relativePath>
 	</parent>
-  <groupId>org.eclipse.scada.ide.features</groupId>
-  <artifactId>org.eclipse.scada.configuration</artifactId>
-  <version>0.4.0-SNAPSHOT</version>
-  <packaging>eclipse-feature</packaging>
-  
-   <!-- source features -->
+	<groupId>org.eclipse.scada.ide.features</groupId>
+	<artifactId>org.eclipse.scada.configuration</artifactId>
+	<version>0.4.0-SNAPSHOT</version>
+	<packaging>eclipse-feature</packaging>
+
+	<!-- source features -->
 
 	<build>
 		<plugins>
@@ -32,6 +33,11 @@
 				</executions>
 				<configuration>
 					<labelSuffix> (Source)</labelSuffix>
+					<excludes>
+						<plugin id="org.apache.commons.compress.nosource" />
+						<plugin id="org.eclipse.packagedrone.utils.rpm.nosource" />
+						<plugin id="org.tukani.xz.nosource" />
+					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -50,5 +56,5 @@
 			</plugin>
 		</plugins>
 	</build>
-  
+
 </project>
