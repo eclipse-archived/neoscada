@@ -103,9 +103,6 @@
       <import plugin="org.apache.commons.beanutils"/>
       <import feature="org.eclipse.scada.ui.utils" version="0.1.0.qualifier"/>
       <import feature="org.eclipse.scada.utils" version="0.1.0.qualifier"/>
-      <import plugin="org.apache.commons.compress" version="1.9.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.packagedrone.utils.rpm"/>
-      <import plugin="org.tukani.xz"/>
    </requires>
 
    <plugin
@@ -617,4 +614,24 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.apache.commons.compress"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.packagedrone.utils.rpm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.tukani.xz"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 </feature>
