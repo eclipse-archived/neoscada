@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.base_0.3.0.qualifier.jar" id="org.eclipse.scada.base" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.base_0.4.0.qualifier.jar" id="org.eclipse.scada.base" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.base.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.base.sdk_0.3.0.qualifier.jar" id="org.eclipse.scada.base.sdk" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.base.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.base.sdk" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.base.sdk.category"/>
    </feature>
    <category-def name="org.eclipse.scada.base.category" label="Eclipse NeoSCADA Base (Incubation)"/>
