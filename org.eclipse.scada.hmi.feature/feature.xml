@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.scada.hmi"
       label="%featureName"
-      version="0.3.0.qualifier"
+      version="0.4.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.scada.hmi"
       license-feature="org.eclipse.scada.license"
