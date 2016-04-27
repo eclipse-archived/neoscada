@@ -34,7 +34,6 @@
 				<configuration>
 					<labelSuffix> (Source)</labelSuffix>
 					<excludes>
-						<plugin id="org.apache.commons.compress.nosource" />
 						<plugin id="org.eclipse.packagedrone.utils.rpm.nosource" />
 						<plugin id="org.tukani.xz.nosource" />
 					</excludes>
