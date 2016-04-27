@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.configuration_0.3.0.qualifier.jar" id="org.eclipse.scada.configuration" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.configuration_0.4.0.qualifier.jar" id="org.eclipse.scada.configuration" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.configuration.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.configuration.sdk_0.3.0.qualifier.jar" id="org.eclipse.scada.configuration.sdk" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.configuration.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.configuration.sdk" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.configuration.sdk.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ide.protocol.ngp_0.3.0.qualifier.jar" id="org.eclipse.scada.ide.protocol.ngp" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.ide.protocol.ngp_0.4.0.qualifier.jar" id="org.eclipse.scada.ide.protocol.ngp" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.configuration.sdk.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ide.da.server.ui_0.3.0.qualifier.jar" id="org.eclipse.scada.ide.da.server.ui" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.ide.da.server.ui_0.4.0.qualifier.jar" id="org.eclipse.scada.ide.da.server.ui" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.configuration.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.configuration.doc_0.3.0.qualifier.jar" id="org.eclipse.scada.configuration.doc" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.configuration.doc_0.4.0.qualifier.jar" id="org.eclipse.scada.configuration.doc" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.configuration.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ide_0.3.0.qualifier.jar" id="org.eclipse.scada.ide" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.ide_0.4.0.qualifier.jar" id="org.eclipse.scada.ide" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.configuration.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ide.sdk_0.3.0.qualifier.jar" id="org.eclipse.scada.ide.sdk" version="0.3.0.qualifier">
+   <feature url="features/org.eclipse.scada.ide.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.ide.sdk" version="0.4.0.qualifier">
       <category name="org.eclipse.scada.configuration.sdk.category"/>
    </feature>
    <category-def name="org.eclipse.scada.configuration.category" label="Eclipse NeoSCADA Configuration (Incubation)">
