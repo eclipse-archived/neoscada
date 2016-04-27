@@ -34,8 +34,8 @@
 				<configuration>
 					<labelSuffix> (Source)</labelSuffix>
 					<excludes>
-						<plugin id="org.eclipse.packagedrone.utils.rpm.nosource" />
-						<plugin id="org.tukani.xz.nosource" />
+						<plugin id="org.eclipse.packagedrone.utils.rpm" />
+						<plugin id="org.tukani.xz" />
 					</excludes>
 				</configuration>
 			</plugin>
