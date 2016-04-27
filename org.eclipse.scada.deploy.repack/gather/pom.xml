@@ -1,11 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
 		<artifactId>org.eclipse.scada.deploy.repack-parent</artifactId>
-		<version>0.3.0-SNAPSHOT</version>
+		<version>0.4.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 
@@ -30,9 +30,9 @@
 								</goals>
 								<configuration>
 									<target>
-										<property name="repo" value="${project.groupId}" />
-										<property name="version" value="${unqualifiedVersion}" />
-										<ant antfile="post.ant" />
+										<property name="repo" value="${project.groupId}"/>
+										<property name="version" value="${unqualifiedVersion}"/>
+										<ant antfile="post.ant"/>
 									</target>
 								</configuration>
 							</execution>
