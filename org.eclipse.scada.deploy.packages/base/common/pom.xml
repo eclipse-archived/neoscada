@@ -1,11 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>org.eclipse.scada.deploy</groupId>
 		<artifactId>org.eclipse.scada.deploy.packages.common</artifactId>
-		<version>0.3.0-SNAPSHOT</version>
+		<version>0.4.0-SNAPSHOT</version>
 		<relativePath>../../common</relativePath>
 	</parent>
 
@@ -139,26 +139,26 @@
 										</mapping>
 									</mappings>
 									<preinstallScriptlet>
-										<script><![CDATA[
-if ! getent passwd "eclipsescada" >/dev/null; then
+										<script>
+if ! getent passwd "eclipsescada" &gt;/dev/null; then
 	# create new user
 	useradd --system --user-group --home "/var/lib/eclipsescada" --comment "Eclipse NeoSCADA User" "eclipsescada"
 fi
 mkdir -p "/var/lib/eclipsescada"
 chown -R "eclipsescada:eclipsescada" "/var/lib/eclipsescada"
-									]]></script>
+									</script>
 									</preinstallScriptlet>
 									<postremoveScriptlet>
-										<script><![CDATA[
+										<script>
 if [ "$1" -eq "0" ]; then
 	# zero means this we are the last and now are gone
 	# so perform a complete uninstall
-	if which userdel >/dev/null 2>&1; then
-		userdel "eclipsescada" > /dev/null || true
+	if which userdel &gt;/dev/null 2&gt;&amp;1; then
+		userdel "eclipsescada" &gt; /dev/null || true
 	fi
-	groupdel "eclipsescada" > /dev/null || true
+	groupdel "eclipsescada" &gt; /dev/null || true
 fi
-									]]></script>
+									</script>
 									</postremoveScriptlet>
 								</configuration>
 							</execution>
