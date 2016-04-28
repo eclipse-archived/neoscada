@@ -16,6 +16,7 @@ import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.eclipse.emf.common.util.URI;
 
@@ -95,5 +96,11 @@ public class Helper {
 		int month = ( value % 100 ) ;
 		int year = value / 100;
 		return String.format ("%04d/%02d", year, month);
+	}
+	
+	public String currentYear ()
+	{
+		Calendar c = new GregorianCalendar();
+		return "" + c.get(Calendar.YEAR);
 	}
 }

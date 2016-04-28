@@ -39,7 +39,7 @@
 
 </header>
 
-[for (version : Version | site.versions)]
+[for (version : Version | site.versions->sortedBy(v|v.name)->reverse())]
 <section>
 <h2 id="[version.name/]">
 	<a href="[version.name/]">
@@ -83,7 +83,7 @@
 [if versions->isEmpty()]
 None
 [else]
-[for (version : Version | versions) separator (', ')]
+[for (version : Version | versions->sortedBy(v|v.name)->reverse()) separator (', ')]
 <a href="[version.name/]">[version.name/]</a>
 [/for]
 [/if]

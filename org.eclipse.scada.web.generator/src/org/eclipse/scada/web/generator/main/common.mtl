@@ -60,6 +60,10 @@ invoke( 'org.eclipse.scada.web.generator.service.Helper', 'makeArchiveLabel(java
 invoke( 'org.eclipse.scada.web.generator.service.Helper', 'archiveLink(java.lang.Integer)', Sequence { value })
 /]
 
+[query public currentYear() : String  =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'currentYear()', Sequence {})
+/]
+
 [query public asLabel(type: VersionState) : String =
 if ( type = VersionState::RELEASED ) then
 	'Released'

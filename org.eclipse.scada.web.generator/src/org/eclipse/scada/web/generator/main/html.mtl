@@ -57,7 +57,7 @@ var track = function(url, category, action) {
 <body>
 
 <nav id="navbar">
-<h3>Eclipse NeoSCADA</h3>
+<h3>Eclipse NeoSCADA™</h3>
 
 	<ul class="header">
 [for (page : Page | site.pages)]
@@ -102,6 +102,9 @@ var track = function(url, category, action) {
 	        <li><a href="[entry.link/]">[entry.name.encodeHtml()/]</a></li>
 [/for]
 		</ul>
+	</div>
+    <div style="text-align: right;">
+		Copyright © [currentYear()/], IBH SYSTEMS GmbH and others. All rights reserved.
 	</div>
 </footer>
 

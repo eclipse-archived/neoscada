@@ -60,45 +60,45 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 <ul class="release">
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse NeoSCADA Admin Client" />
+		<meta itemprop="name" content="Eclipse NeoSCADA™ Admin Client" />
 		<meta itemprop="operatingSystem" content="Linux" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
 		<img class="download-type" src="[relative(base, 'images/icons/download-linux.png')/]"/>
-		Linux –
+		Linux® –
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86.tar.gz', true)/]">32bit</a>,
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86_64.tar.gz', true)/]">64bit</a>
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse NeoSCADA Admin Client" />
+		<meta itemprop="name" content="Eclipse NeoSCADA™ Admin Client" />
 		<meta itemprop="operatingSystem" content="Windows" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
 		<img class="download-type" src="[relative(base, 'images/icons/download-windows.png')/]"/>
-		Windows MSI Installer –
+		Windows® MSI Installer –
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.msiVersion() + '_x86.msi', true)/]">32bit</a>,
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.msiVersion() + '_x64.msi', true)/]">64bit</a>
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse NeoSCADA Admin Client" />
+		<meta itemprop="name" content="Eclipse NeoSCADA™ Admin Client" />
 		<meta itemprop="operatingSystem" content="Windows" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
 		<img class="download-type" src="[relative(base, 'images/icons/download-windows.png')/]"/>
-		Windows –
+		Windows® –
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86.zip', true)/]">32bit</a>,
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86_64.zip', true)/]">64bit</a>
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse NeoSCADA Admin Client" />
+		<meta itemprop="name" content="Eclipse NeoSCADA™ Admin Client" />
 		<meta itemprop="operatingSystem" content="Mac OS X" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
 		<img class="download-type" src="[relative(base, 'images/icons/download-mac-os.png')/]"/>
-		Mac OS X –
+		Mac OS X® –
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-macosx.cocoa.x86_64.tar.gz', true)/]">64bit</a>
 	</li>
 
@@ -107,7 +107,7 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 
 </ul>
 
-[socialBar(dropsLink(release, 'org.eclipse.scada', '', false), 'Eclipse NeoSCADA Release ' + release.name)/]
+[socialBar(dropsLink(release, 'org.eclipse.scada', '', false), 'Eclipse NeoSCADA™ Release ' + release.name)/]
 
 </section>
 [/template]
