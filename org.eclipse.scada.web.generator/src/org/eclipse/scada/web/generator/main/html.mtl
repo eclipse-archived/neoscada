@@ -118,8 +118,8 @@ var track = function(url, category, action) {
 	<div id="gsearch">
 		<gcse:search></gcse:search>
 	</div>
-    <div id="eclipse-foundation" style="text-align: center;">
-        <a href="https://eclipse.org" target="_blank"><img  style="width: 200px;" src="[relative(fileName, 'images/Eclipse2014_RGB_cropped.svg' )/]" /></a>
+    <div id="eclipse-foundation" style="text-align: right;">
+        <a href="https://eclipse.org" target="_blank"><img width="200" height="47" src="[relative(fileName, 'images/Eclipse2014_RGB_cropped.svg' )/]" /></a>
     </div>
 <div id="sidebar-right-lower">
 	<div id="sidebar-social">
