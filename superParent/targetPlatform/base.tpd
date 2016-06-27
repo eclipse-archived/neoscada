@@ -56,7 +56,7 @@ location "http://packagedrone.eclipse.org/p2/neoscada-0.4-deps" {
 	org.apache.commons.compress.source [1.9.0,1.9.1)
 	org.tukani.xz [1.5.0,1.5.1)
 	
-	org.eclipse.packagedrone.utils.rpm[0.13.0,0.13.1)
+	org.eclipse.packagedrone.utils.rpm[0.14.0,0.14.1)
 } 
 
 location "http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/" {
