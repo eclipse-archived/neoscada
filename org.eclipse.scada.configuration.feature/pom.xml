@@ -36,6 +36,7 @@
 					<excludes>
 						<plugin id="org.eclipse.packagedrone.utils.rpm" />
 						<plugin id="org.tukani.xz" />
+						<plugin id="bcpg" />
 					</excludes>
 				</configuration>
 			</plugin>
