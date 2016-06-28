@@ -43,6 +43,7 @@
       <unit id="org.apache.commons.compress" version="1.9.0"/>
       <unit id="org.apache.commons.compress.source" version="1.9.0"/>
       <unit id="org.tukani.xz" version="1.5.0.20151105-1627"/>
+      <unit id="bcpg" version="1.52.0"/>
       <unit id="org.eclipse.packagedrone.utils.rpm" version="0.14.0.201606271302"/>
       <repository location="http://packagedrone.eclipse.org/p2/neoscada-0.4-deps"/>
     </location>
