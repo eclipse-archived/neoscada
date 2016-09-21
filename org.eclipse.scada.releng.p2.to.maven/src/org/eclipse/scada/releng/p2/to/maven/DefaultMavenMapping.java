@@ -26,9 +26,37 @@ public class DefaultMavenMapping implements MavenMapping
 
     private static final boolean STRIP_QUALIFIER = Boolean.getBoolean ( "stripQualifier" );
 
+    private static final String REPLACE_GROUP_ID_PREFIX;
+
+    private static final String REPLACE_GROUP_ID_VALUE;
+
     private final Properties properties;
 
     private final Set<String> defaultIgnores = new HashSet<> ();
+
+    static
+    {
+        final String replace = System.getProperty ( "groupIdPrefix" );
+        if ( replace == null )
+        {
+            REPLACE_GROUP_ID_PREFIX = null;
+            REPLACE_GROUP_ID_VALUE = null;
+        }
+        else
+        {
+            final String[] toks = replace.split ( ":" );
+            if ( toks.length == 2 )
+            {
+                REPLACE_GROUP_ID_PREFIX = toks[0] + ".";
+                REPLACE_GROUP_ID_VALUE = toks[1] + ".";
+            }
+            else
+            {
+                REPLACE_GROUP_ID_PREFIX = null;
+                REPLACE_GROUP_ID_VALUE = null;
+            }
+        }
+    }
 
     public DefaultMavenMapping ( final Properties properties )
     {
@@ -117,9 +145,24 @@ public class DefaultMavenMapping implements MavenMapping
         final String groupId = makeGroupIdFromTycho ( iu );
         if ( groupId != null )
         {
-            return groupId;
+            return prefixGroupId ( groupId );
         }
-        return makeGroupIdFromIU ( iu );
+        return prefixGroupId ( makeGroupIdFromIU ( iu ) );
+    }
+
+    private static String prefixGroupId ( final String groupId )
+    {
+        if ( groupId == null || REPLACE_GROUP_ID_PREFIX == null )
+        {
+            return null;
+        }
+
+        if ( groupId.startsWith ( REPLACE_GROUP_ID_PREFIX ) )
+        {
+            return REPLACE_GROUP_ID_VALUE + groupId.substring ( REPLACE_GROUP_ID_PREFIX.length () );
+        }
+
+        return groupId;
     }
 
     private String makeGroupIdFromTycho ( final IInstallableUnit iu )
