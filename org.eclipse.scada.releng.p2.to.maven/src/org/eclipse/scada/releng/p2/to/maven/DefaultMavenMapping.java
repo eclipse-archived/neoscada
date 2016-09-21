@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - Minor enhancements
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
@@ -21,10 +22,9 @@ import org.eclipse.equinox.p2.metadata.Version;
 
 public class DefaultMavenMapping implements MavenMapping
 {
+    private static final boolean IGNORE_TYCHO = !Boolean.getBoolean ( "useTychoVersion" );
 
-    private static boolean IGNORE_TYCHO = !Boolean.getBoolean ( "useTychoVersion" );
-
-    private static boolean STRIP_QUALIFIER = Boolean.getBoolean ( "stripQualifier" );
+    private static final boolean STRIP_QUALIFIER = Boolean.getBoolean ( "stripQualifier" );
 
     private final Properties properties;
 

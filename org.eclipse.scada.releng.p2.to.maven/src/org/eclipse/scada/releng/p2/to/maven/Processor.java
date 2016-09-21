@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - minor enhancements
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
@@ -21,10 +22,12 @@ import java.lang.reflect.Constructor;
 import java.net.URI;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -58,6 +61,7 @@ import org.w3c.dom.Element;
 @SuppressWarnings ( "restriction" )
 public class Processor
 {
+    private final boolean dryRun = Boolean.getBoolean ( "dryRun" );
 
     private final IProvisioningAgent agent;
 
@@ -88,6 +92,10 @@ public class Processor
     private final Map<URI, IMetadataRepository> validationRepositories = new HashMap<> ();
 
     private final Map<MavenReference, Set<String>> metadata = new HashMap<> ();
+
+    private final Set<MavenDependency> mavenDependencies = new HashSet<> ();
+
+    private final Set<MavenReference> mavenExports = new HashSet<> ();
 
     public Processor ( final IProvisioningAgent agent, final File output, final URI repositoryLocation, final Properties properties ) throws Exception
     {
@@ -236,6 +244,8 @@ public class Processor
             final Set<MavenDependency> deps = makeDependencies ( iu, pm );
             makePom ( ref, versionBase, deps, iu );
             makeMetaData ( ref, versionBase );
+
+            this.mavenDependencies.addAll ( deps );
         }
     }
 
@@ -284,14 +294,14 @@ public class Processor
             return null;
         }
 
-        final MavenDependency result = new MavenDependency ();
-
         final MavenReference ref = this.mapping.makeReference ( depIu );
 
         if ( ref == null )
         {
             return null;
         }
+
+        final MavenDependency result = new MavenDependency ();
 
         result.setGroupId ( ref.getGroupId () );
         result.setArtifactId ( ref.getArtifactId () );
@@ -410,6 +420,7 @@ public class Processor
             this.metadata.put ( metaRef, versions );
         }
         versions.add ( ref.getVersion () );
+        this.mavenExports.add ( ref );
     }
 
     private void addElement ( final Element parent, final String name, final String value )
@@ -439,6 +450,11 @@ public class Processor
 
     private void mirrorArtifact ( final IArtifactKey art, final File versionBase, final MavenReference ref, final IProgressMonitor pm ) throws Exception
     {
+        if ( this.dryRun )
+        {
+            return;
+        }
+
         final File jarFile = new File ( versionBase, ref.toFileName () );
 
         try ( OutputStream output = new FileOutputStream ( jarFile ) )
@@ -528,6 +544,25 @@ public class Processor
             }
         }
         return null;
+    }
+
+    /**
+     * Get all dependencies which got declared by this build
+     *
+     * @return a sorted list of dependencies
+     */
+    public List<MavenDependency> getMavenDependencies ()
+    {
+        final List<MavenDependency> refs = new ArrayList<> ( this.mavenDependencies );
+        Collections.sort ( refs, MavenDependency.COMPARATOR );
+        return refs;
+    }
+
+    public List<MavenReference> getMavenReferences ()
+    {
+        final List<MavenReference> result = new ArrayList<> ( this.mavenExports );
+        Collections.sort ( result, MavenReference.COMPARATOR );
+        return result;
     }
 
 }

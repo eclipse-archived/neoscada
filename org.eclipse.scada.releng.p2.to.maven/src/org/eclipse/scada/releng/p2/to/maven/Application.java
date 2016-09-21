@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - show dependencies and exports
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
@@ -65,6 +66,14 @@ public class Application implements IApplication
         }
 
         processor.process ( pm );
+
+        System.out.println ( "=== START - MAVEN DEPENDENCIES ===" );
+        processor.getMavenDependencies ().stream ().forEach ( System.out::println );
+        System.out.println ( "===  END  - MAVEN DEPENDENCIES ===" );
+
+        System.out.println ( "=== START - MAVEN EXPORTS ===" );
+        processor.getMavenReferences ().stream ().forEach ( System.out::println );
+        System.out.println ( "===  END  - MAVEN EXPORTS ===" );
 
         // default
         return null;
