@@ -18,7 +18,7 @@
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -console -consoleLog&#10;file:${project_loc:aggregateRepositories}/p2tom2.properties&#10;http://ftp.fau.de/eclipse/eclipsescada/downloads/org.eclipse.scada/drops/0.3.0/R201604140500/p2&#10;http://ftp.acc.umu.se/mirror/eclipse.org/releases/mars"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DuseTychoVersion=false&#10;-DstripQualifier=true&#10;-DdryRun=true"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DuseTychoVersion=false&#10;-DstripQualifier=true&#10;-DdryRun=true&#10;-DfakeJavadoc=true"/>
 <booleanAttribute key="pde.generated.config" value="false"/>
 <stringAttribute key="pde.version" value="3.3"/>
 <stringAttribute key="product" value="org.eclipse.b3.cli.product"/>

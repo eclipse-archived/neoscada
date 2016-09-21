@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.jar.JarOutputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -62,6 +63,8 @@ import org.w3c.dom.Element;
 public class Processor
 {
     private final boolean dryRun = Boolean.getBoolean ( "dryRun" );
+
+    private final boolean fakeJavadoc = Boolean.getBoolean ( "fakeJavadoc" );
 
     private final IProvisioningAgent agent;
 
@@ -244,6 +247,7 @@ public class Processor
             final Set<MavenDependency> deps = makeDependencies ( iu, pm );
             makePom ( ref, versionBase, deps, iu );
             makeMetaData ( ref, versionBase );
+            makeFakeJavadoc ( ref, versionBase );
 
             this.mavenDependencies.addAll ( deps );
         }
@@ -362,6 +366,24 @@ public class Processor
 
         makeChecksum ( "MD5", file, new File ( versionBase, "maven-metadata.xml.md5" ) );
         makeChecksum ( "SHA1", file, new File ( versionBase, "maven-metadata.xml.sha1" ) );
+    }
+
+    private void makeFakeJavadoc ( final MavenReference ref, final File versionBase ) throws Exception
+    {
+        if ( !this.fakeJavadoc )
+        {
+            return;
+        }
+
+        final String name = ref.getArtifactId () + "-" + ref.getVersion () + "-javadoc.jar";
+        final File javadoc = new File ( versionBase, name );
+
+        try ( JarOutputStream jar = new JarOutputStream ( new FileOutputStream ( javadoc ) ) )
+        {
+        }
+
+        makeChecksum ( "MD5", javadoc, new File ( versionBase, name + ".md5" ) );
+        makeChecksum ( "SHA1", javadoc, new File ( versionBase, name + ".sha1" ) );
     }
 
     private void makePom ( final MavenReference ref, final File versionBase, final Set<MavenDependency> deps, final IInstallableUnit iu ) throws Exception
