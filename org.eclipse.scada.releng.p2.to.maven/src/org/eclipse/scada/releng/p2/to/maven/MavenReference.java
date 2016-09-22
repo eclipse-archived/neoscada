@@ -15,7 +15,11 @@ import java.util.Comparator;
 
 public class MavenReference
 {
-    public static final Comparator<MavenReference> COMPARATOR = Comparator.comparing ( MavenReference::getGroupId ).thenComparing ( MavenReference::getArtifactId ).thenComparing ( MavenReference::getVersion ).thenComparing ( MavenReference::getClassifier );
+    public static final Comparator<MavenReference> COMPARATOR = //
+            Comparator.comparing ( MavenReference::getGroupId ) //
+                    .thenComparing ( MavenReference::getArtifactId ) //
+                    .thenComparing ( MavenReference::getVersion ) //
+                    .thenComparing ( MavenReference::getClassifier, Comparator.nullsFirst ( Comparator.naturalOrder () ) );
 
     private String groupId;
 

@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
- *     Red Hat Inc - minor enhancements
+ *     Red Hat Inc - minor enhancements, allow creating an upload JAR
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
@@ -15,11 +15,14 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
 import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,11 +30,14 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.jar.JarFile;
 import java.util.jar.JarOutputStream;
+import java.util.jar.Manifest;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -62,9 +68,22 @@ import org.w3c.dom.Element;
 @SuppressWarnings ( "restriction" )
 public class Processor
 {
+    private static final SimpleDateFormat META_DF = new SimpleDateFormat ( "yyyyMMddHHmmss" );
+
+    private static class Developer
+    {
+        String id;
+
+        String name;
+
+        String email;
+
+        String url;
+    }
+
     private final boolean dryRun = Boolean.getBoolean ( "dryRun" );
 
-    private final boolean fakeJavadoc = Boolean.getBoolean ( "fakeJavadoc" );
+    private final boolean fakeForCentral = Boolean.getBoolean ( "fakeForCentral" );
 
     private final IProvisioningAgent agent;
 
@@ -96,9 +115,13 @@ public class Processor
 
     private final Map<MavenReference, Set<String>> metadata = new HashMap<> ();
 
+    private final List<Developer> developers = new LinkedList<> ();
+
     private final Set<MavenDependency> mavenDependencies = new HashSet<> ();
 
     private final Set<MavenReference> mavenExports = new HashSet<> ();
+
+    private final List<String> errors = new LinkedList<> ();
 
     public Processor ( final IProvisioningAgent agent, final File output, final URI repositoryLocation, final Properties properties ) throws Exception
     {
@@ -115,6 +138,27 @@ public class Processor
         this.documentBuilderFactor = DocumentBuilderFactory.newInstance ();
         this.documentBuilder = this.documentBuilderFactor.newDocumentBuilder ();
         this.transformerFactory = TransformerFactory.newInstance ();
+
+        loadDevelopers ();
+    }
+
+    private void loadDevelopers ()
+    {
+        final String devs = this.properties.getProperty ( "developers" );
+        for ( final String dev : devs.split ( "\\s*,+\\s*" ) )
+        {
+            this.developers.add ( loadDeveloper ( dev ) );
+        }
+    }
+
+    private Developer loadDeveloper ( final String dev )
+    {
+        final Developer result = new Developer ();
+        result.id = dev;
+        result.name = this.properties.getProperty ( String.format ( "developer.%s.name", dev ) );
+        result.email = this.properties.getProperty ( String.format ( "developer.%s.email", dev ) );
+        result.url = this.properties.getProperty ( String.format ( "developer.%s.url", dev ) );
+        return result;
     }
 
     private static MavenMapping makeMappingInstance ( final Properties properties ) throws Exception
@@ -165,13 +209,80 @@ public class Processor
             processUnit ( iu, pm );
         }
 
+        writeUploadScript ();
+
         for ( final Map.Entry<MavenReference, Set<String>> entry : this.metadata.entrySet () )
         {
             writeMetaData ( entry.getKey (), entry.getValue () );
         }
+
     }
 
-    private final SimpleDateFormat META_DF = new SimpleDateFormat ( "yyyyMMddHHmmss" );
+    private void writeUploadScript () throws IOException
+    {
+        final Path path = this.output.toPath ().resolve ( "upload.sh" );
+
+        final int maxJobs = 5;
+
+        try ( PrintWriter script = new PrintWriter ( Files.newBufferedWriter ( path ) ) )
+        {
+            script.println ( "#!/bin/bash" );
+            script.println ();
+            script.println ( "set -e" );
+            script.println ();
+            script.println ( "REPO=${REPO:-https://oss.sonatype.org/service/local/staging/deploy/maven2/}" );
+            script.println ( "ID=${ID:-ossrh}" );
+            script.println ();
+            script.format ( "function waitMax { while [ $(jobs -rp | wc -l) -ge %s ] ; do sleep 1; done }%n%n", maxJobs );
+
+            final List<MavenReference> exports = getMavenExports ();
+            Collections.sort ( exports, MavenReference.COMPARATOR );
+
+            for ( final MavenReference export : exports )
+            {
+                if ( maxJobs > 1 )
+                {
+                    script.print ( "waitMax; " );
+                }
+
+                script.print ( "mvn gpg:sign-and-deploy-file -Durl=\"$REPO\" -DrepositoryId=$ID " );
+                script.format ( " -DpomFile=%s", makePomName ( export ) );
+                script.format ( " -Dfile=%s", makeFileName ( export ) );
+
+                if ( export.getClassifier () != null )
+                {
+                    script.format ( " -Dclassifier=%s", export.getClassifier () );
+                }
+
+                if ( maxJobs > 1 )
+                {
+                    script.println ( " &" );
+                }
+            }
+
+            script.println ();
+            script.println ( "wait" );
+        }
+    }
+
+    private static String makePomName ( final MavenReference export )
+    {
+        return String.format ( "%1$s/%2$s/%3$s/%2$s-%3$s.pom", export.getGroupId ().replace ( '.', File.separatorChar ), export.getArtifactId (), export.getVersion () );
+    }
+
+    private static String makeFileName ( final MavenReference export )
+    {
+        final String groupPath = export.getGroupId ().replace ( '.', File.separatorChar );
+
+        if ( export.getClassifier () == null )
+        {
+            return String.format ( "%1$s/%2$s/%3$s/%2$s-%3$s.jar", groupPath, export.getArtifactId (), export.getVersion () );
+        }
+        else
+        {
+            return String.format ( "%1$s/%2$s/%3$s/%2$s-%3$s-%4$s.jar", groupPath, export.getArtifactId (), export.getVersion (), export.getClassifier () );
+        }
+    }
 
     private void writeMetaData ( final MavenReference key, final Set<String> value ) throws Exception
     {
@@ -199,7 +310,7 @@ public class Processor
             addElement ( vs, "version", version );
         }
 
-        addElement ( v, "lastUpdated", this.META_DF.format ( new Date () ) );
+        addElement ( v, "lastUpdated", Processor.META_DF.format ( new Date () ) );
 
         saveXml ( doc, file );
 
@@ -247,10 +358,13 @@ public class Processor
             final Set<MavenDependency> deps = makeDependencies ( iu, pm );
             makePom ( ref, versionBase, deps, iu );
             makeMetaData ( ref, versionBase );
-            makeFakeJavadoc ( ref, versionBase );
+            makeFake ( ref, versionBase, "javadoc" );
+            makeFake ( ref, versionBase, "sources" );
 
             this.mavenDependencies.addAll ( deps );
         }
+
+        this.mavenExports.add ( ref );
     }
 
     private Set<MavenDependency> makeDependencies ( final IInstallableUnit iu, final IProgressMonitor pm ) throws Exception
@@ -368,22 +482,29 @@ public class Processor
         makeChecksum ( "SHA1", file, new File ( versionBase, "maven-metadata.xml.sha1" ) );
     }
 
-    private void makeFakeJavadoc ( final MavenReference ref, final File versionBase ) throws Exception
+    private void makeFake ( final MavenReference ref, final File versionBase, final String classifier ) throws Exception
     {
-        if ( !this.fakeJavadoc )
+        if ( !this.fakeForCentral )
         {
             return;
         }
 
-        final String name = ref.getArtifactId () + "-" + ref.getVersion () + "-javadoc.jar";
-        final File javadoc = new File ( versionBase, name );
+        final String name = ref.getArtifactId () + "-" + ref.getVersion () + "-" + classifier + ".jar";
+        final File file = new File ( versionBase, name );
 
-        try ( JarOutputStream jar = new JarOutputStream ( new FileOutputStream ( javadoc ) ) )
+        this.mavenExports.add ( new MavenReference ( ref.getGroupId (), ref.getArtifactId (), ref.getVersion (), classifier ) );
+
+        if ( file.exists () )
+        {
+            return;
+        }
+
+        try ( JarOutputStream jar = new JarOutputStream ( new FileOutputStream ( file ) ) )
         {
         }
 
-        makeChecksum ( "MD5", javadoc, new File ( versionBase, name + ".md5" ) );
-        makeChecksum ( "SHA1", javadoc, new File ( versionBase, name + ".sha1" ) );
+        makeChecksum ( "MD5", file, new File ( versionBase, name + ".md5" ) );
+        makeChecksum ( "SHA1", file, new File ( versionBase, name + ".sha1" ) );
     }
 
     private void makePom ( final MavenReference ref, final File versionBase, final Set<MavenDependency> deps, final IInstallableUnit iu ) throws Exception
@@ -398,10 +519,47 @@ public class Processor
         addElement ( project, "artifactId", ref.getArtifactId () );
         addElement ( project, "version", ref.getVersion () );
 
-        addElement ( project, "url", iu.getProperty ( "org.eclipse.equinox.p2.doc.url", null ) );
-        addElement ( project, "description", iu.getProperty ( "org.eclipse.equinox.p2.description", null ) );
+        addElement ( project, "url", makeProjectUrl ( iu ) );
 
-        addElement ( project, "name", iu.getProperty ( "org.eclipse.equinox.p2.name", null ) );
+        // name and description
+
+        String name = iu.getProperty ( "org.eclipse.equinox.p2.name", null );
+        if ( name == null )
+        {
+            name = String.format ( "%s:%s", ref.getGroupId (), ref.getArtifactId () );
+        }
+
+        String description = iu.getProperty ( "org.eclipse.equinox.p2.description", null );
+        if ( description == null )
+        {
+            description = name;
+        }
+
+        addElement ( project, "name", name );
+        addElement ( project, "description", description );
+
+        addDevelopers ( project );
+
+        // license
+
+        if ( ref.getArtifactId ().startsWith ( "org.eclipse." ) )
+        {
+            addEpl ( project );
+        }
+        else
+        {
+            this.errors.add ( String.format ( "%s: no license information", ref ) );
+        }
+
+        final String scm = loadScm ( versionBase, ref );
+        if ( scm == null )
+        {
+            this.errors.add ( String.format ( "%s: no scm information", ref ) );
+        }
+        else
+        {
+            makeScm ( doc, project, scm );
+        }
 
         if ( !deps.isEmpty () )
         {
@@ -432,6 +590,97 @@ public class Processor
         addMetaDataVersion ( ref );
     }
 
+    private void makeScm ( final Document doc, final Element project, final String scm )
+    {
+        final String[] scmToks = scm.split ( ";", 2 );
+
+        final Element scmEle = doc.createElement ( "scm" );
+        project.appendChild ( scmEle );
+        addElement ( scmEle, "connection", scm );
+        addElement ( scmEle, "developerConnection", scm );
+
+        if ( scmToks.length > 0 )
+        {
+            final String key = "scm.url." + scmToks[0];
+            final String url = this.properties.getProperty ( key );
+            if ( url == null )
+            {
+                throw new IllegalStateException ( String.format ( "SCM URL missing for key '%s'", key ) );
+            }
+            addElement ( scmEle, "url", url );
+        }
+    }
+
+    private void addDevelopers ( final Element project )
+    {
+        final Document doc = project.getOwnerDocument ();
+
+        final Element devs = doc.createElement ( "developers" );
+        project.appendChild ( devs );
+
+        for ( final Developer dev : this.developers )
+        {
+            final Element devNode = doc.createElement ( "developer" );
+            devs.appendChild ( devNode );
+
+            addElement ( devNode, "id", dev.id );
+            addElement ( devNode, "name", dev.name );
+            addElement ( devNode, "email", dev.email );
+            addElement ( devNode, "url", dev.url );
+        }
+    }
+
+    private String loadScm ( final File versionBase, final MavenReference ref )
+    {
+        try
+        {
+            final File jarFile = new File ( versionBase, ref.getArtifactId () + "-" + ref.getVersion () + ".jar" );
+            if ( !jarFile.isFile () )
+            {
+                // dry run
+                return null;
+            }
+
+            try ( final JarFile jar = new JarFile ( jarFile ) )
+            {
+                final Manifest mf = jar.getManifest ();
+                final String scm = mf.getMainAttributes ().getValue ( "Eclipse-SourceReferences" );
+                return scm;
+            }
+        }
+        catch ( final Exception e )
+        {
+            e.printStackTrace ();
+        }
+
+        return null;
+    }
+
+    private void addEpl ( final Element project )
+    {
+        final Document doc = project.getOwnerDocument ();
+
+        final Element lics = doc.createElement ( "licenses" );
+        project.appendChild ( lics );
+
+        final Element lic = doc.createElement ( "license" );
+        lics.appendChild ( lic );
+
+        addElement ( lic, "name", "The Eclipse Public License Version 1.0" );
+        addElement ( lic, "url", "http://www.eclipse.org/legal/epl-v10.html" );
+        addElement ( lic, "distribution", "repo" );
+    }
+
+    private String makeProjectUrl ( final IInstallableUnit iu )
+    {
+        String url = iu.getProperty ( "org.eclipse.equinox.p2.doc.url", null );
+        if ( url == null || url.isEmpty () )
+        {
+            url = this.properties.getProperty ( "default.project.url" );
+        }
+        return url;
+    }
+
     private void addMetaDataVersion ( final MavenReference ref )
     {
         final MavenReference metaRef = new MavenReference ( ref.getGroupId (), ref.getArtifactId (), "1" );
@@ -442,7 +691,6 @@ public class Processor
             this.metadata.put ( metaRef, versions );
         }
         versions.add ( ref.getVersion () );
-        this.mavenExports.add ( ref );
     }
 
     private void addElement ( final Element parent, final String name, final String value )
@@ -580,11 +828,15 @@ public class Processor
         return refs;
     }
 
-    public List<MavenReference> getMavenReferences ()
+    public List<MavenReference> getMavenExports ()
     {
         final List<MavenReference> result = new ArrayList<> ( this.mavenExports );
         Collections.sort ( result, MavenReference.COMPARATOR );
         return result;
     }
 
+    public List<String> getErrors ()
+    {
+        return this.errors;
+    }
 }

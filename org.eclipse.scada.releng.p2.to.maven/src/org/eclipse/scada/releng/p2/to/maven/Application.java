@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
+import java.util.List;
 import java.util.Properties;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -72,8 +73,16 @@ public class Application implements IApplication
         System.out.println ( "===  END  - MAVEN DEPENDENCIES ===" );
 
         System.out.println ( "=== START - MAVEN EXPORTS ===" );
-        processor.getMavenReferences ().stream ().forEach ( System.out::println );
+        processor.getMavenExports ().stream ().forEach ( System.out::println );
         System.out.println ( "===  END  - MAVEN EXPORTS ===" );
+
+        final List<String> errors = processor.getErrors ();
+        if ( !errors.isEmpty () )
+        {
+            System.out.println ( "=== START - ERRORS ===" );
+            errors.stream ().forEach ( System.err::println );
+            System.out.println ( "===  END  - ERRORS ===" );
+        }
 
         // default
         return null;
