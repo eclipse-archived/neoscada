@@ -154,7 +154,7 @@ public class DefaultMavenMapping implements MavenMapping
     {
         if ( groupId == null || REPLACE_GROUP_ID_PREFIX == null )
         {
-            return null;
+            return groupId;
         }
 
         if ( groupId.startsWith ( REPLACE_GROUP_ID_PREFIX ) )
