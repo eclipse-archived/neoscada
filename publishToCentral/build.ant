@@ -12,6 +12,9 @@
 	
 	<property name="download.dir.maven" location="m2"/>
 	
+	<property name="url.repo" value="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada/drops/${neoscada.version}/${neoscada.buildId}/p2/"/>
+	<property name="url.validationRepo" value="http://download.eclipse.org/releases/mars"/>
+	
 	<condition property="shouldUpload">
 		<isfalse value="${dryRun}"/>
 	</condition>
@@ -53,9 +56,9 @@
             <arg value="-consoleLog" />
 
             <arg value="file:${p2tom2.file}" /> <!-- configuration -->
-            <arg value="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada/drops/${neoscada.version}/${neoscada.buildId}/p2/" /> <!-- source repo -->
+            <arg value="${url.repo}" /> <!-- source repo -->
             <!-- validation repos -->
-            <arg value="http://download.eclipse.org/releases/mars"/>
+            <arg value="${url.validationRepo}"/>
             
             <sysproperty key="path.p2temp" file="temp/p2tom2/tmp"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
