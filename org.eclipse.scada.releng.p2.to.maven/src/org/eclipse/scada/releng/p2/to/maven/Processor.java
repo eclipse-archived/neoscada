@@ -261,8 +261,10 @@ public class Processor
 
                 if ( maxJobs > 1 )
                 {
-                    script.println ( " &" );
+                    script.print ( " &" );
                 }
+
+                script.println ();
             }
 
             script.println ();
