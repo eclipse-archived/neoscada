@@ -232,6 +232,7 @@ public class Processor
             script.println ();
             script.println ( "REPO=${REPO:-https://oss.sonatype.org/service/local/staging/deploy/maven2/}" );
             script.println ( "ID=${ID:-ossrh}" );
+            script.println ( "MVN=${MVN:-mvn}" );
             script.println ();
 
             if ( maxJobs > 1 )
@@ -249,7 +250,7 @@ public class Processor
                     script.print ( "waitMax; " );
                 }
 
-                script.print ( "mvn gpg:sign-and-deploy-file -Durl=\"$REPO\" -DrepositoryId=$ID " );
+                script.print ( "\"$MVN\" gpg:sign-and-deploy-file -Durl=\"$REPO\" -DrepositoryId=$ID " );
                 script.format ( " -DpomFile=%s", makePomName ( export ) );
                 script.format ( " -Dfile=%s", makeFileName ( export ) );
 
@@ -265,7 +266,11 @@ public class Processor
             }
 
             script.println ();
-            script.println ( "wait" );
+
+            if ( maxJobs > 1 )
+            {
+                script.println ( "wait" );
+            }
         }
     }
 
