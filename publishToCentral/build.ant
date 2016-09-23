@@ -63,7 +63,12 @@
 	<!-- ================================= 
           target: publish
          ================================= -->
-    <target name="publish">
+    <target name="publish" unless="dryRun">
+    		<exec
+    			dir="${download.dir.maven}"
+    			executable="upload.sh"
+    			failifexecutionfails="true" failonerror="true">
+    		</exec>
     </target>
 	
 </project>
