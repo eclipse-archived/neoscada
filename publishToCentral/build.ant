@@ -12,6 +12,10 @@
 	
 	<property name="download.dir.maven" location="m2"/>
 	
+	<condition property="shouldUpload">
+		<isfalse value="${dryRun}"/>
+	</condition>
+	
     <!-- ================================= 
           target: default              
          ================================= -->
@@ -63,7 +67,7 @@
 	<!-- ================================= 
           target: publish
          ================================= -->
-    <target name="publish" unless="dryRun">
+    <target name="publish" unless="shouldUpload">
     		<exec
     			dir="${download.dir.maven}"
     			executable="upload.sh"
