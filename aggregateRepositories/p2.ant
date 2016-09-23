@@ -30,7 +30,7 @@ Contributors:
     <property name="download.dir.p2" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
     
     <property name="p2tom2.file" location="p2tom2.properties"/>
-	<property name="p2tom2.version" value="0.3.2"/>
+	<property name="p2tom2.version" value="0.3.3"/>
     
     <!-- ================================= 
           target: default
