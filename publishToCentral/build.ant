@@ -70,7 +70,7 @@
 	<!-- ================================= 
           target: publish
          ================================= -->
-    <target name="publish" unless="shouldUpload">
+    <target name="publish" if="shouldUpload">
     		<chmod perm="0700" file="${download.dir.maven}/upload.sh" />
     		<exec
     			dir="${download.dir.maven}"
