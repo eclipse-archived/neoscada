@@ -4,6 +4,14 @@
      ====================================================================== -->
 <project name="project" default="default">
 
+    <property name="p2tom2.file" location="../aggregateRepositories/p2tom2.properties"/>
+	<property name="p2tom2.version" value="0.3.1"/>
+	
+	<property name="neoscada.version" value="0.3.0"/>
+	<property name="neoscada.buildId" value="R201604140500"/>
+	
+	<property name="download.dir.maven" location="m2"/>
+	
     <!-- ================================= 
           target: default              
          ================================= -->
@@ -14,12 +22,42 @@
           target: prepare
          ================================= -->
     <target name="prepare">
+        <mkdir dir="${download.dir.maven}"/>
+        
+        <mkdir dir="temp/p2tom2"/>
+    	<mkdir dir="temp/p2tom2/tmp"/>
+        
+        <get src="http://download.eclipse.org/eclipsescada/releng/p2tom2-${p2tom2.version}.zip" dest="temp/p2tom2.zip" usetimestamp="true"/>
+        <unzip src="temp/p2tom2.zip" dest="temp"/>
     </target>
 	
 	<!-- ================================= 
           target: generate
          ================================= -->
-    <target name="generate">
+    <target name="generate" depends="prepare">
+        <java classname="org.eclipse.equinox.launcher.Main"
+            fork="true"
+           	failonerror="true"
+        	dir="temp/p2tom2"
+            >
+            <classpath>
+                <fileset dir="temp/p2tom2/plugins/">
+                    <include name="org.eclipse.equinox.launcher_*.jar" />
+                </fileset>
+            </classpath>
+            
+            <arg value="-consoleLog" />
+
+            <arg value="file:${p2tom2.file}" /> <!-- configuration -->
+            <arg value="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada/drops/${neoscada.version}/${neoscada.buildId}/p2/" /> <!-- source repo -->
+            <!-- validation repos -->
+            <arg value="http://download.eclipse.org/releases/mars"/>
+            
+            <sysproperty key="path.p2temp" file="temp/p2tom2/tmp"/>
+            <sysproperty key="path.output" file="${download.dir.maven}"/>
+        	<sysproperty key="stripQualifier" value="true"/>
+        	<sysproperty key="fakeForCentral" value="true"/>
+        </java>
     </target>
 
 	<!-- ================================= 
