@@ -222,7 +222,7 @@ public class Processor
     {
         final Path path = this.output.toPath ().resolve ( "upload.sh" );
 
-        final int maxJobs = 5;
+        final int maxJobs = Integer.getInteger ( "maxUploadJobs", 1 );
 
         try ( PrintWriter script = new PrintWriter ( Files.newBufferedWriter ( path ) ) )
         {
@@ -233,7 +233,11 @@ public class Processor
             script.println ( "REPO=${REPO:-https://oss.sonatype.org/service/local/staging/deploy/maven2/}" );
             script.println ( "ID=${ID:-ossrh}" );
             script.println ();
-            script.format ( "function waitMax { while [ $(jobs -rp | wc -l) -ge %s ] ; do sleep 1; done }%n%n", maxJobs );
+
+            if ( maxJobs > 1 )
+            {
+                script.format ( "function waitMax { while [ $(jobs -rp | wc -l) -ge %s ] ; do sleep 1; done }%n%n", maxJobs );
+            }
 
             final List<MavenReference> exports = getMavenExports ();
             Collections.sort ( exports, MavenReference.COMPARATOR );
