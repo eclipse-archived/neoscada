@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     Publish to maven central 
+     ====================================================================== -->
+<project name="project" default="default">
+
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="prepare,generate,publish">
+    </target>
+
+    <!-- ================================= 
+          target: prepare
+         ================================= -->
+    <target name="prepare">
+    </target>
+	
+	<!-- ================================= 
+          target: generate
+         ================================= -->
+    <target name="generate">
+    </target>
+
+	<!-- ================================= 
+          target: publish
+         ================================= -->
+    <target name="publish">
+    </target>
+	
+</project>
