@@ -250,7 +250,7 @@ public class Processor
                     script.print ( "waitMax; " );
                 }
 
-                script.print ( "\"$MVN\" gpg:sign-and-deploy-file -Durl=\"$REPO\" -DrepositoryId=$ID " );
+                script.print ( "\"$MVN\" \"$@\" gpg:sign-and-deploy-file -Durl=\"$REPO\" -DrepositoryId=$ID " );
                 script.format ( " -DpomFile=%s", makePomName ( export ) );
                 script.format ( " -Dfile=%s", makeFileName ( export ) );
 
