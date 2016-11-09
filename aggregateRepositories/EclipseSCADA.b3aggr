@@ -55,7 +55,7 @@
       </repositories>
     </contributions>
     <validationRepositories enabled="false" location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/"/>
-    <validationRepositories location="http://download.eclipse.org/releases/mars"/>
+    <validationRepositories location="http://download.eclipse.org/releases/neon"/>
   </validationSets>
   <configurations operatingSystem="linux" windowSystem="gtk"/>
   <configurations operatingSystem="linux" windowSystem="gtk" architecture="x86_64"/>
