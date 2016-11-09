@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2016 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - clean up subscription manager, change shutdown handling
  *     IBH SYSTEMS GmbH - add context information, use exported executors
+ *     Red Hat Inc - add write handler functionality
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.impl;
 
@@ -90,13 +91,13 @@ import org.slf4j.LoggerFactory;
  * }
  * </code>
  */
-public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>implements Hive
+public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> implements Hive
 {
     private final static Logger logger = LoggerFactory.getLogger ( HiveCommon.class );
 
-    private final Set<SessionCommon> sessions = new HashSet<SessionCommon> ();
+    private final Set<SessionCommon> sessions = new HashSet<> ();
 
-    private final Map<String, DataItem> itemMap = new HashMap<String, DataItem> ( 1000 );
+    private final Map<String, DataItem> itemMap = new HashMap<> ( 1000 );
 
     private Lock itemMapReadLock;
 
@@ -106,15 +107,15 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
 
     private Folder rootFolder;
 
-    private final Set<SessionListener> sessionListeners = new CopyOnWriteArraySet<SessionListener> ();
+    private final Set<SessionListener> sessionListeners = new CopyOnWriteArraySet<> ();
 
     private volatile ExecutorService operationService;
 
-    private final List<DataItemFactory> factoryList = new CopyOnWriteArrayList<DataItemFactory> ();
+    private final List<DataItemFactory> factoryList = new CopyOnWriteArrayList<> ();
 
     private ListenableSubscriptionManager<String> itemSubscriptionManager;
 
-    private final Set<DataItemValidator> itemValidators = new CopyOnWriteArraySet<DataItemValidator> ();
+    private final Set<DataItemValidator> itemValidators = new CopyOnWriteArraySet<> ();
 
     private ValidationStrategy validationStrategy = ValidationStrategy.GRANT_ALL;
 
@@ -185,7 +186,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
         }
 
         this.operationService = ExportedExecutorService.newSingleThreadExportedExecutor ( "HiveCommon/" + getHiveId () );
-        this.itemSubscriptionManager = new ListenableSubscriptionManager<String> ( this.operationService, this.subscriptionValidator );
+        this.itemSubscriptionManager = new ListenableSubscriptionManager<> ( this.operationService, this.subscriptionValidator );
 
         if ( this.autoEnableStats && this.rootFolder instanceof FolderCommon )
         {
@@ -418,7 +419,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
 
         final NotifyFuture<UserInformation> loginFuture = loginUser ( properties, contextInformation, callbackHandler );
 
-        return new CallingFuture<UserInformation, Session> ( loginFuture) {
+        return new CallingFuture<UserInformation, Session> ( loginFuture ) {
 
             @Override
             public Session call ( final Future<UserInformation> future ) throws Exception
@@ -434,7 +435,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
 
         logger.debug ( "Create Session - user: {}", user );
 
-        final Map<String, String> sessionProperties = new HashMap<String, String> ();
+        final Map<String, String> sessionProperties = new HashMap<> ();
 
         fillSessionProperties ( user, sessionProperties );
 
@@ -744,7 +745,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
     {
         final SessionCommon sessionCommon = validateSession ( session );
 
-        return new AuthorizedOperation<WriteAttributeResults, AbstractSessionImpl> ( this.authorizationProvider, sessionCommon, DATA_ITEM_OBJECT_TYPE, itemId, "WRITE_ATTRIBUTES", makeSetAttributesContext ( attributes ), operationParameters, sessionCommon.wrapCallbackHandler ( callbackHandler ), DEFAULT_RESULT) {
+        return new AuthorizedOperation<WriteAttributeResults, AbstractSessionImpl> ( this.authorizationProvider, sessionCommon, DATA_ITEM_OBJECT_TYPE, itemId, "WRITE_ATTRIBUTES", makeSetAttributesContext ( attributes ), operationParameters, sessionCommon.wrapCallbackHandler ( callbackHandler ), DEFAULT_RESULT ) {
 
             @Override
             protected NotifyFuture<WriteAttributeResults> granted ( final org.eclipse.scada.core.server.OperationParameters effectiveOperationParameters )
@@ -762,7 +763,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
 
         if ( item == null )
         {
-            return new InstantErrorFuture<WriteAttributeResults> ( new InvalidItemException ( itemId ).fillInStackTrace () );
+            return new InstantErrorFuture<> ( new InvalidItemException ( itemId ).fillInStackTrace () );
         }
 
         // stats
@@ -780,20 +781,20 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
         }
         catch ( final InvalidSessionException e )
         {
-            return new InstantErrorFuture<WriteAttributeResults> ( e );
+            return new InstantErrorFuture<> ( e );
         }
     }
 
     private Map<String, Object> makeSetAttributesContext ( final Map<String, Variant> attributes )
     {
-        final Map<String, Object> context = new HashMap<String, Object> ( 1 );
+        final Map<String, Object> context = new HashMap<> ( 1 );
         context.put ( "attributes", attributes );
         return context;
     }
 
     private Map<String, Object> makeWriteValueContext ( final Variant value )
     {
-        final Map<String, Object> context = new HashMap<String, Object> ( 1 );
+        final Map<String, Object> context = new HashMap<> ( 1 );
         context.put ( "value", value );
         return context;
     }
@@ -803,7 +804,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
     {
         final SessionCommon sessionCommon = validateSession ( session );
 
-        return new AuthorizedOperation<WriteResult, AbstractSessionImpl> ( this.authorizationProvider, sessionCommon, DATA_ITEM_OBJECT_TYPE, itemId, "WRITE", makeWriteValueContext ( value ), operationParameters, sessionCommon.wrapCallbackHandler ( callbackHandler ), DEFAULT_RESULT) {
+        return new AuthorizedOperation<WriteResult, AbstractSessionImpl> ( this.authorizationProvider, sessionCommon, DATA_ITEM_OBJECT_TYPE, itemId, "WRITE", makeWriteValueContext ( value ), operationParameters, sessionCommon.wrapCallbackHandler ( callbackHandler ), DEFAULT_RESULT ) {
 
             @Override
             protected NotifyFuture<WriteResult> granted ( final org.eclipse.scada.core.server.OperationParameters effectiveOperationParameters )
@@ -817,11 +818,11 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
     {
         logger.debug ( "Processing write - granted - itemId: {}, value: {}", itemId, value );
 
-        final DataItem item = retrieveItem ( itemId );
+        final WriteHandler writeHandler = getWriteHandler ( session, itemId );
 
-        if ( item == null )
+        if ( writeHandler == null )
         {
-            return new InstantErrorFuture<WriteResult> ( new InvalidItemException ( itemId ).fillInStackTrace () );
+            return new InstantErrorFuture<> ( new InvalidItemException ( itemId ) );
         }
 
         // stats
@@ -831,7 +832,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
         }
 
         // go
-        final NotifyFuture<WriteResult> future = item.startWriteValue ( value, effectiveOperationParameters );
+        final NotifyFuture<WriteResult> future = writeHandler.startWriteValue ( value, effectiveOperationParameters );
         try
         {
             session.addFuture ( future );
@@ -839,8 +840,24 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
         }
         catch ( final InvalidSessionException e )
         {
-            return new InstantErrorFuture<WriteResult> ( e );
+            return new InstantErrorFuture<> ( e );
         }
+    }
+
+    protected WriteHandler getWriteHandler ( final SessionCommon session, final String itemId )
+    {
+        final DataItem item = retrieveItem ( itemId );
+        if ( item != null )
+        {
+            return new WriteHandler () {
+                @Override
+                public NotifyFuture<WriteResult> startWriteValue ( final Variant value, final org.eclipse.scada.core.server.OperationParameters effectiveOperationParameters )
+                {
+                    return item.startWriteValue ( value, effectiveOperationParameters );
+                }
+            };
+        }
+        return null;
     }
 
     @Override
@@ -867,10 +884,10 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon>im
             {
                 return this.browser;
             }
-            this.browser = new HiveBrowserCommon ( this) {
+            this.browser = new HiveBrowserCommon ( this ) {
 
                 @Override
-                public Folder getRootFolder ( )
+                public Folder getRootFolder ()
                 {
                     return HiveCommon.this.rootFolder;
                 }
