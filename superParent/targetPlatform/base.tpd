@@ -18,6 +18,8 @@ location "http://download.eclipse.org/releases/neon" {
 	org.eclipse.platform.feature.group
 	org.eclipse.pde.feature.group
 	
+	org.eclipse.wst.common.fproj.feature.group
+	org.eclipse.wst.web_core.feature.feature.group
 	org.eclipse.wst.web_ui.feature.feature.group
 	org.eclipse.acceleo.feature.group
 	
