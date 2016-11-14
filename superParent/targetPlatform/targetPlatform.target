@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1478709430">
+<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1479112873">
   <locations>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
       <repository location="http://download.eclipse.org/cbi/updates/license/"/>
     </location>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.apache.commons.logging.source" version="1.1.1.v201101211721"/>
-      <repository location="http://download.eclipse.org/eclipse/updates/4.6"/>
-    </location>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.12.0.v20160829-1338"/>
       <unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.10.0.201606071713"/>
       <unit id="org.eclipse.emf.sdk.feature.group" version="2.12.0.v20160526-0356"/>
@@ -33,11 +29,11 @@
       <unit id="org.eclipse.equinox.p2.rcp.feature.feature.group" version="1.2.200.v20160815-1406"/>
       <repository location="http://download.eclipse.org/releases/neon"/>
     </location>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.paho.client.mqttv3" version="1.0.2"/>
       <repository location="http://download.eclipse.org/paho/"/>
     </location>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="com.google.guava" version="18.0.0"/>
       <unit id="com.google.guava.source" version="18.0.0"/>
       <unit id="org.apache.commons.compress" version="1.9.0"/>
@@ -48,7 +44,7 @@
       <unit id="org.eclipse.packagedrone.utils.rpm" version="0.14.0.201606271302"/>
       <repository location="http://packagedrone.eclipse.org/p2/neoscada-0.4-deps"/>
     </location>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
       <unit id="org.apache.commons.beanutils.source" version="1.8.0.v201205091237"/>
       <unit id="org.apache.commons.codec" version="1.4.0.v201209201156"/>
@@ -97,11 +93,11 @@
       <unit id="osgi.enterprise.source" version="4.2.0.v201108120515"/>
       <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/"/>
     </location>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.gemini.dbaccess.h2.feature.feature.group" version="1.1.0.RELEASE"/>
       <repository location="http://download.eclipse.org/gemini/updates/dbaccess/1.1.0"/>
     </location>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.rap.rwt" version="2.2.0.20131204-0942"/>
       <unit id="org.eclipse.rap.rwt.osgi" version="2.2.0.20131126-1551"/>
       <unit id="org.eclipse.rap.jface" version="2.2.0.20131017-1149"/>

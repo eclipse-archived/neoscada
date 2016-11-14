@@ -5,4 +5,4 @@ include "rap.tpd"
 
 environment JavaSE-1.8
 
-with source, allEnvironments
+with source 
