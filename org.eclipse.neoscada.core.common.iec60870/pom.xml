@@ -8,7 +8,7 @@
     <relativePath>../org.eclipse.scada.core-parent</relativePath>
   </parent>
   <groupId>org.eclipse.scada.core</groupId>
-  <artifactId>org.eclipse.scada.ae.common.ngp</artifactId>
+  <artifactId>org.eclipse.neoscada.core.common.iec60870</artifactId>
   <version>0.4.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 </project>
