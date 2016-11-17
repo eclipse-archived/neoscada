@@ -59,6 +59,16 @@
 		<module>../org.eclipse.scada.protocols.sdk.feature</module>
 
 		<module>../org.eclipse.scada.protocols.editors.feature</module>
+		
+		<module>../org.eclipse.neoscada.protocol.iec60870.feature</module>
+		
+		<module>../org.eclipse.neoscada.protocol.iec60870</module>
+		<module>../org.eclipse.neoscada.protocol.iec60870.client</module>
+		<module>../org.eclipse.neoscada.protocol.iec60870.client.data</module>
+		<module>../org.eclipse.neoscada.protocol.iec60870.server</module>
+		<module>../org.eclipse.neoscada.protocol.iec60870.server.data</module>
+		<module>../org.eclipse.neoscada.protocol.iec60870.server.data.tests</module>
+		<module>../org.eclipse.neoscada.protocol.iec60870.tests</module>
 
 		<module>../org.eclipse.scada.protocol.utils</module>
 		<module>../org.eclipse.scada.protocol.arduino</module>
