@@ -67,6 +67,10 @@
 
 		<module>../org.eclipse.scada.core.feature</module>
 		<module>../org.eclipse.scada.core.sdk.feature</module>
+		
+		<module>../org.eclipse.neoscada.core.common.iec60870</module>
+		<module>../org.eclipse.neoscada.da.server.exporter.iec60870</module>
+		<module>../org.eclipse.neoscada.da.server.iec60870</module>
 
 		<module>../org.eclipse.scada.ae.data</module>
 		<module>../org.eclipse.scada.ae.protocol.ngp.codec</module>

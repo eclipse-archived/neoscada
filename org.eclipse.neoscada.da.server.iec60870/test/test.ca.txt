@@ -1,0 +1,7 @@
+ca:create org.eclipse.neoscada.da.server.iec60870.connection device1 host=scada.eclipse.org port=2404
+
+ca:create org.eclipse.neoscada.da.server.iec60870.connection device1 host=localhost port=2404 
+
+ca:update org.eclipse.neoscada.da.server.iec60870.connection device1 host=scada.eclipse.org port=2404
+
+ca:update org.eclipse.neoscada.da.server.iec60870.connection device1 host=localhost port=2404
