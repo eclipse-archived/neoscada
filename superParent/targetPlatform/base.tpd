@@ -6,6 +6,10 @@ location "http://download.eclipse.org/cbi/updates/license/" {
 	org.eclipse.license.feature.group [1.0.1,1.0.2)
 }
 
+location "http://download.eclipse.org/eclipse/updates/4.6" {
+	org.apache.commons.logging.source [1.1.1,1.1.2)
+}
+
 location "http://download.eclipse.org/releases/neon" {
 	org.eclipse.equinox.sdk.feature.group
 	
