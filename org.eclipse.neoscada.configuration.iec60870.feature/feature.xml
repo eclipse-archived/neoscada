@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.neoscada.configuration.iec60870"
       label="%featureName"
-      version="1.4.0.qualifier"
+      version="0.4.0.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.scada.license"
       license-feature-version="0.1.0.qualifier">
