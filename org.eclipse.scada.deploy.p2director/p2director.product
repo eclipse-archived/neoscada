@@ -13,6 +13,7 @@
 
    <windowImages/>
 
+
    <launcher name="p2director">
       <solaris/>
       <win useIco="false">
@@ -124,7 +125,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.net"/>
       <plugin id="org.eclipse.core.runtime"/>
-      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
       <plugin id="org.eclipse.ecf"/>
       <plugin id="org.eclipse.ecf.filetransfer"/>
       <plugin id="org.eclipse.ecf.identity"/>
