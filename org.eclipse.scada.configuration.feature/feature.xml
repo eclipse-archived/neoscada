@@ -23,6 +23,10 @@
          id="org.eclipse.scada.configuration.arduino.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.neoscada.configuration.iec60870"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
@@ -648,4 +652,5 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+
 </feature>

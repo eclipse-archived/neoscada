@@ -88,10 +88,15 @@
 		<module>../org.eclipse.scada.configuration.feature</module>
 		<module>../org.eclipse.scada.configuration.doc.feature</module>
 		<module>../org.eclipse.scada.configuration.sdk.feature</module>
+		<module>../org.eclipse.neoscada.configuration.iec60870.feature</module>
 
 		<module>../org.eclipse.scada.ide.protocol.ngp.feature</module>
 
 		<module>../org.eclipse.scada.ide.da.server.ui.feature</module>
+		
+		<module>../org.eclipse.neoscada.configuration.iec60870</module>
+		<module>../org.eclipse.neoscada.configuration.iec60870.edit</module>
+		<module>../org.eclipse.neoscada.configuration.iec60870.lib</module>
 
 		<module>../org.eclipse.scada.configuration</module>
 		<module>../org.eclipse.scada.configuration.arduino</module>

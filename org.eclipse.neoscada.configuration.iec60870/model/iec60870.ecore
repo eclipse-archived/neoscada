@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="iec60870" nsURI="http://openscada.org/Configuration/IEC60870"
+    nsPrefix="iec60870">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="component" value="/resource/org.eclipse.scada.configuration.component/model/component.ecore#/"/>
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    <details key="script_0" value="/resource/org.eclipse.scada.configuration.script/model/script.ecore#/"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Exporter" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ApplicationModule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//Device" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Device">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//DataModuleOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hiveProperties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spontaneousBufferWindow"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELongObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of milliseconds used to buffer spontaneous events"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Item"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" lowerBound="1"
+        eType="#//Address"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//DataType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+    <eLiterals name="FLOAT"/>
+    <eLiterals name="BOOLEAN" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Address" instanceClassName="org.eclipse.neoscada.configuration.iec60870.AddressInformation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExporterItemInterceptor" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//ItemInterceptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.script/model/script.ecore#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//DataModuleOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"
+        defaultValueLiteral="2404"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hiveProperties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spontaneousBufferWindow"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELongObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of milliseconds used to buffer spontaneous events"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProtocolOptions">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="asduAddressSizeCheck&#xA;causeOfTransmissionSizeCheck"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <details key="asduAddressSizeCheck" value="asduAddressSize>=1 and asduAddressSize &lt;=2"/>
+      <details key="causeOfTransmissionSizeCheck" value="causeOfTransmissionSize>=1 and causeOfTransmissionSize&lt;=2"/>
+      <details key="informationObjectAddressSizeCheck" value="informationObjectAddressSize>=1 and informationObjectAddressSize&lt;=3"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="15000">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="t1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout2" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="10000">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="t2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout3" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="20000">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="t3"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asduAddressSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte" defaultValueLiteral="2">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="asduAddressType"/>
+        <details key="format" value="SIZE_%d"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="informationObjectAddressSize"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"
+        defaultValueLiteral="3">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="informationObjectAddressType"/>
+        <details key="format" value="SIZE_%d"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="causeOfTransmissionSize"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"
+        defaultValueLiteral="2">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="causeOfTransmissionType"/>
+        <details key="format" value="SIZE_%d"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="w" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="10">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="w"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="k" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="15">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="k"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTimeZone" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This defines in which time zone the timestamps will be converted before they are sent/or after they have been received from communication partner.&#xA;IEC60870-5 recommends to use the UTC as time zone, however not all systems follow that recommendation.&#xA;&#xA;This value must be a valid Java time zone ID."/>
+      </eAnnotations>
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="timeZone"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreDaylightSavingTime"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="ignoreDaylightSavingTime"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataModuleOptions">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundScanPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="60000">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="backgroundScanPeriod"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spontaneousItemBuffer"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        defaultValueLiteral="100">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="spontaneousItemBuffer"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of duplicates in the item buffer"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestampsForBoolean" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="withTimestamp.boolean"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestampsForFloat" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="withTimestamp.float"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientDevice">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//ClientDataModuleOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DriverApplication" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/EquinoxApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//ClientDevice" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientDataModuleOptions">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreBackgroundScan" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="ignoreBackgroundScan"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IEC60870Driver" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//AbstractEquinoxDriver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//IEC60870Device"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IEC60870Device" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Device">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="portCheck"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <details key="portCheck" value="port > 0 and port &lt; 65535"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//ClientDataModuleOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="2404"/>
+  </eClassifiers>
+</ecore:EPackage>
