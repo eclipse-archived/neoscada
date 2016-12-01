@@ -195,7 +195,7 @@ Contributors:
             <arg value="file:${p2tom2.file}" /> <!-- configuration -->
             <arg value="file:${download.dir.p2}" /> <!-- source repo -->
             <!-- validation repos -->
-            <arg value="http://download.eclipse.org/releases/mars"/>
+            <arg value="http://download.eclipse.org/releases/neon"/>
             
             <sysproperty key="path.p2temp" file="temp/p2tom2/tmp"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
