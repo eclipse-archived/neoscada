@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - minor cleanups
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.asdu.types;
 
@@ -16,6 +17,12 @@ import io.netty.buffer.ByteBuf;
 
 public class CauseOfTransmission
 {
+    public static final CauseOfTransmission ACTIVATED = new CauseOfTransmission ( StandardCause.ACTIVATED );
+
+    public static final CauseOfTransmission REQUEST = new CauseOfTransmission ( StandardCause.REQUEST );
+
+    public static final CauseOfTransmission BACKGROUND = new CauseOfTransmission ( StandardCause.BACKGROUND );
+
     private static final int CAUSE_MASK = 0b00111111;
 
     private static final int ACK_BIT = 0b0100000000;
@@ -29,12 +36,6 @@ public class CauseOfTransmission
     private boolean positive;
 
     private byte sourceAddress;
-
-    public static CauseOfTransmission ACTIVATED = new CauseOfTransmission ( StandardCause.ACTIVATED );
-
-    public static CauseOfTransmission REQUEST = new CauseOfTransmission ( StandardCause.REQUEST );
-
-    public static CauseOfTransmission BACKGROUND = new CauseOfTransmission ( StandardCause.BACKGROUND );
 
     private CauseOfTransmission ()
     {
