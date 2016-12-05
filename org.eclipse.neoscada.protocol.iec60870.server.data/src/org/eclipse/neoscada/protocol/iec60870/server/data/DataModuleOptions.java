@@ -7,8 +7,11 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - minor enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
+
+import java.util.Objects;
 
 public class DataModuleOptions
 {
@@ -68,7 +71,19 @@ public class DataModuleOptions
 
     public static class Builder
     {
-        private final DataModuleOptions value = new DataModuleOptions ();
+        private final DataModuleOptions value;
+
+        public Builder ()
+        {
+            this.value = new DataModuleOptions ();
+        }
+
+        public Builder ( final DataModuleOptions options )
+        {
+            Objects.requireNonNull ( options );
+
+            this.value = new DataModuleOptions ( options );
+        }
 
         public void setBooleansWithTimestamp ( final boolean booleansWithTimestamp )
         {
