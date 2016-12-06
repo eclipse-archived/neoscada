@@ -10,13 +10,15 @@
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
 
+import java.util.function.Consumer;
+import java.util.function.Function;
+
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
 import org.eclipse.neoscada.protocol.iec60870.io.MirrorCommand;
 
-import com.google.common.base.Function;
 import com.google.common.util.concurrent.ListenableFuture;
 
 /**
@@ -88,7 +90,8 @@ public interface DataModel
     public BackgroundIterator createBackgroundIterator ();
 
     /**
-     * A method that will call the provided function for each known ASDU address<br>
+     * A method that will call the provided function for each known ASDU
+     * address<br>
      * <p>
      * <em>Note</em> that the ASDUs must not change until each function call has
      * been completed.
@@ -103,9 +106,19 @@ public interface DataModel
      *            will be called if there are no known common ASDU addresses,
      *            may be <code>null</code>
      */
-    public void forAllAsdu ( Function<ASDUAddress, Void> function, Runnable ifNoneFound );
+    public void forAllAsdu ( Consumer<ASDUAddress> function, Runnable ifNoneFound );
 
-    public void dispose ();
+    /**
+     * A wrapper method for {@link #forAllAsdu(Function, Runnable)} using the
+     * Google Guava Function interface
+     * <p>
+     * Calls {@link #forAllAsdu(Consumer, Runnable)}
+     * </p>
+     */
+    public default void forAllAsdu ( final com.google.common.base.Function<ASDUAddress, Void> function, final Runnable ifNoneFound )
+    {
+        forAllAsdu ( (Consumer<ASDUAddress>)function::apply, ifNoneFound );
+    }
 
     public void writeCommand ( ASDUHeader header, InformationObjectAddress informationObjectAddress, boolean state, byte type, MirrorCommand mirrorCommand, boolean execute );
 
@@ -113,4 +126,5 @@ public interface DataModel
 
     public void writeScaledValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, short value, byte type, MirrorCommand mirrorCommand, boolean execute );
 
+    public void dispose ();
 }

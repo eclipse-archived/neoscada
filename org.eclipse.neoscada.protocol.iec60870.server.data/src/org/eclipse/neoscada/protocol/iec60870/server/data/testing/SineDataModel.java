@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
 
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
@@ -31,7 +32,6 @@ import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleFloatBuild
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.base.Function;
 import com.google.common.util.concurrent.ListenableFuture;
 
 public class SineDataModel extends AbstractBaseDataModel
@@ -68,7 +68,7 @@ public class SineDataModel extends AbstractBaseDataModel
 
         for ( int i = 0; i < size; i++ )
         {
-            this.values.add ( new Value<Float> ( 0.0f, System.currentTimeMillis (), QualityInformation.INVALID ) );
+            this.values.add ( new Value<> ( 0.0f, System.currentTimeMillis (), QualityInformation.INVALID ) );
         }
 
         this.executor.scheduleAtFixedRate ( new Runnable () {
@@ -145,10 +145,11 @@ public class SineDataModel extends AbstractBaseDataModel
     }
 
     @Override
-    public void forAllAsdu ( final Function<ASDUAddress, Void> function, final Runnable ifNoneFound )
+    public void forAllAsdu ( final Consumer<ASDUAddress> function, final Runnable ifNoneFound )
     {
         // we only have one
-        function.apply ( ASDU_ADDRESS );
+
+        function.accept ( ASDU_ADDRESS );;
     }
 
     @Override
