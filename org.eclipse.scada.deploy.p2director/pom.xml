@@ -10,7 +10,7 @@
 
 	<groupId>org.eclipse.scada.deploy</groupId>
 	<artifactId>org.eclipse.scada.deploy.p2director-incubation</artifactId>
-	<version>0.3.0-SNAPSHOT</version>
+	<version>0.4.0-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 	
 	<organization>

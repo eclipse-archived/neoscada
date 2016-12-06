@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Eclipse NeoSCADA P2 Director" uid="org.eclipse.scada.deploy.p2director" id="org.eclipse.equinox.p2.director.product" version="4.5.0" useFeatures="false" includeLaunchers="false">
+<product name="Eclipse NeoSCADA P2 Director" uid="org.eclipse.scada.deploy.p2director" id="org.eclipse.equinox.p2.director.product" version="4.6.0" useFeatures="false" includeLaunchers="false">
 
    <configIni use="default">
    </configIni>
@@ -12,7 +12,6 @@
    </launcherArgs>
 
    <windowImages/>
-
 
    <launcher name="p2director">
       <solaris/>
@@ -137,6 +136,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.common"/>
       <plugin id="org.eclipse.equinox.concurrent"/>
       <plugin id="org.eclipse.equinox.ds"/>
+      <plugin id="org.eclipse.equinox.event"/>
       <plugin id="org.eclipse.equinox.frameworkadmin"/>
       <plugin id="org.eclipse.equinox.frameworkadmin.equinox"/>
       <plugin id="org.eclipse.equinox.launcher"/>
