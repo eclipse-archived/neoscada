@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,9 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - change lifecycle model
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
-
-import io.netty.channel.socket.SocketChannel;
 
 import org.eclipse.neoscada.protocol.iec60870.apci.MessageChannel;
 import org.eclipse.neoscada.protocol.iec60870.asdu.MessageManager;
@@ -19,6 +18,8 @@ import org.eclipse.neoscada.protocol.iec60870.server.Server;
 import org.eclipse.neoscada.protocol.iec60870.server.ServerModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import io.netty.channel.socket.SocketChannel;
 
 public class DataModule implements ServerModule
 {
@@ -43,13 +44,14 @@ public class DataModule implements ServerModule
     @Override
     public void dispose ()
     {
-        this.dataModel.dispose ();
+        this.dataModel.stop ();
     }
 
     @Override
     public void initializeChannel ( final SocketChannel channel, final MessageChannel messageChannel )
     {
         logger.debug ( "Init channel: {}", channel );
+        this.dataModel.start ();
         channel.pipeline ().addLast ( new DataModuleHandler ( this.options, messageChannel, this.dataModel ) );
     }
 }

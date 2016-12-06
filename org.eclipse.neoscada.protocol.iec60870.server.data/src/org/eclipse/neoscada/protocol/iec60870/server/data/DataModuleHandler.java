@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,9 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - refactor
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
-
-import io.netty.channel.ChannelHandlerContext;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -34,6 +33,8 @@ import org.slf4j.LoggerFactory;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
+
+import io.netty.channel.ChannelHandlerContext;
 
 public class DataModuleHandler extends AbstractModuleHandler
 {
@@ -144,19 +145,19 @@ public class DataModuleHandler extends AbstractModuleHandler
 
     private void handleWriteCommand ( final ChannelHandlerContext ctx, final SingleCommand msg )
     {
-        final MirrorCommand mc = new DefaultMirrorCommand<SingleCommand> ( ctx, msg );
+        final MirrorCommand mc = new DefaultMirrorCommand<> ( ctx, msg );
         this.dataModel.writeCommand ( msg.getHeader (), msg.getInformationObjectAddress (), msg.getState (), msg.getType (), mc, msg.isExecute () );
     }
 
     private void handleWriteValue ( final ChannelHandlerContext ctx, final SetPointCommandShortFloatingPoint msg )
     {
-        final MirrorCommand mc = new DefaultMirrorCommand<SetPointCommandShortFloatingPoint> ( ctx, msg );
-        this.dataModel.writeValue ( msg.getHeader (), msg.getInformationObjectAddress (), msg.getValue (), msg.getType (), mc, msg.isExecute () );
+        final MirrorCommand mc = new DefaultMirrorCommand<> ( ctx, msg );
+        this.dataModel.writeFloatValue ( msg.getHeader (), msg.getInformationObjectAddress (), msg.getValue (), msg.getType (), mc, msg.isExecute () );
     }
 
     private void handleWriteValue ( final ChannelHandlerContext ctx, final SetPointCommandScaledValue msg )
     {
-        final MirrorCommand mc = new DefaultMirrorCommand<SetPointCommandScaledValue> ( ctx, msg );
+        final MirrorCommand mc = new DefaultMirrorCommand<> ( ctx, msg );
         this.dataModel.writeScaledValue ( msg.getHeader (), msg.getInformationObjectAddress (), msg.getValue (), msg.getType (), mc, msg.isExecute () );
     }
 

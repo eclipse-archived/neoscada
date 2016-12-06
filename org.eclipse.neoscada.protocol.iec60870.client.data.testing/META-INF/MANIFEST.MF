@@ -6,11 +6,11 @@ Bundle-Version: 0.4.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: com.google.common.util.concurrent;version="15.0.0",
- io.netty.channel;version="4.0.19",
- org.eclipse.neoscada.protocol.iec60870;version="1.3.0",
- org.eclipse.neoscada.protocol.iec60870.asdu.types;version="1.3.0",
- org.eclipse.neoscada.protocol.iec60870.client;version="1.3.0",
- org.eclipse.neoscada.protocol.iec60870.client.data;version="1.3.0",
+ io.netty.channel;version="[4.0.0,5.0.0)",
+ org.eclipse.neoscada.protocol.iec60870;version="0.4.0",
+ org.eclipse.neoscada.protocol.iec60870.asdu.types;version="0.4.0",
+ org.eclipse.neoscada.protocol.iec60870.client;version="0.4.0",
+ org.eclipse.neoscada.protocol.iec60870.client.data;version="0.4.0",
  org.eclipse.scada.utils.beans;version="0.2.0"
 Require-Bundle: ch.qos.logback.classic;bundle-version="1.0.7",
  ch.qos.logback.core;bundle-version="1.0.7"

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - minor enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.asdu.types;
 
@@ -28,6 +29,10 @@ public class InformationObjectAddress
 
     public InformationObjectAddress ( final int address )
     {
+        if ( address < 0 || address > 0x00FFFFFF )
+        {
+            throw new IllegalArgumentException ( String.format ( "Address value must be between 0 and 0x00FFFFFF" ) );
+        }
         this.address = address;
     }
 
@@ -40,6 +45,16 @@ public class InformationObjectAddress
     {
         options.getInformationObjectAddressType ().write ( this.address, out );
 
+    }
+
+    public InformationObjectAddress increment ()
+    {
+        return increment ( 1 );
+    }
+
+    public InformationObjectAddress increment ( final int count )
+    {
+        return new InformationObjectAddress ( this.address + count );
     }
 
     public static InformationObjectAddress parse ( final ProtocolOptions options, final ByteBuf data )

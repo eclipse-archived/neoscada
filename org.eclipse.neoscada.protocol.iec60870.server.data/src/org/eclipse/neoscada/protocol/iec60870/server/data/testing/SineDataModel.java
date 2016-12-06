@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc -refactor data model
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data.testing;
 
@@ -222,7 +223,7 @@ public class SineDataModel extends AbstractBaseDataModel
     }
 
     @Override
-    public void writeValue ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final float value, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
+    public void writeFloatValue ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final float value, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
     {
         performWrite ( mirrorCommand, execute );
     }

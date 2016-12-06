@@ -7,13 +7,14 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - minor enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -32,13 +33,15 @@ public abstract class AbstractBaseDataModel implements DataModel
 {
     private final Set<DefaultSubscription> subscriptions = new HashSet<> ();
 
+    private final String threadName;
+
     private volatile int numberOfSubscriptions;
 
-    protected final ListeningScheduledExecutorService executor;
+    protected ListeningScheduledExecutorService executor;
 
     public AbstractBaseDataModel ( final String threadName )
     {
-        this.executor = MoreExecutors.listeningDecorator ( Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( threadName, false, true ) ) );
+        this.threadName = threadName;
     }
 
     @Override
@@ -68,28 +71,14 @@ public abstract class AbstractBaseDataModel implements DataModel
 
         // the completion will come from the executor, so the completion has to wait in line
         // with possible remaining updated
-        return this.executor.submit ( new Callable<Void> () {
-            @Override
-            public Void call () throws Exception
-            {
-                // this is only a marker
-                return null;
-            }
-        } );
+        return this.executor.submit ( () -> null );
     }
 
     protected synchronized void notifyChangeBoolean ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( new Runnable () {
-
-                @Override
-                public void run ()
-                {
-                    sub.notifyChangeBoolean ( asduAddress, startAddress, values );
-                }
-            } );
+            this.executor.execute ( () -> sub.notifyChangeBoolean ( asduAddress, startAddress, values ) );
         }
     }
 
@@ -97,14 +86,7 @@ public abstract class AbstractBaseDataModel implements DataModel
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( new Runnable () {
-
-                @Override
-                public void run ()
-                {
-                    sub.notifyChangeBoolean ( asduAddress, values );
-                }
-            } );
+            this.executor.execute ( () -> sub.notifyChangeBoolean ( asduAddress, values ) );
         }
     }
 
@@ -112,14 +94,7 @@ public abstract class AbstractBaseDataModel implements DataModel
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( new Runnable () {
-
-                @Override
-                public void run ()
-                {
-                    sub.notifyChangeFloat ( asduAddress, startAddress, values );
-                }
-            } );
+            this.executor.execute ( () -> sub.notifyChangeFloat ( asduAddress, startAddress, values ) );
         }
     }
 
@@ -127,29 +102,42 @@ public abstract class AbstractBaseDataModel implements DataModel
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( new Runnable () {
-
-                @Override
-                public void run ()
-                {
-                    sub.notifyChangeFloat ( asduAddress, values );
-                }
-            } );
+            this.executor.execute ( () -> sub.notifyChangeFloat ( asduAddress, values ) );
         }
     }
 
     @Override
-    public synchronized void dispose ()
+    public void start ()
     {
-        this.executor.shutdown ();
+        this.executor = MoreExecutors.listeningDecorator ( Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( this.threadName, false, true ) ) );
+    }
+
+    @Override
+    public synchronized Stopping stop ()
+    {
+        final ExecutorService executor = this.executor;
+
+        if ( executor == null )
+        {
+            return Stopping.EMPTY;
+        }
+
+        this.executor = null;
         this.subscriptions.clear ();
         this.numberOfSubscriptions = 0;
-    }
 
-    public void disposeAndWait () throws InterruptedException
-    {
-        dispose ();
-        this.executor.awaitTermination ( Long.MAX_VALUE, TimeUnit.MILLISECONDS );
-    }
+        if ( executor != null )
+        {
+            executor.shutdown ();
+        }
 
+        return new Stopping () {
+
+            @Override
+            public void await () throws InterruptedException
+            {
+                executor.awaitTermination ( Long.MAX_VALUE, TimeUnit.MILLISECONDS );
+            }
+        };
+    }
 }

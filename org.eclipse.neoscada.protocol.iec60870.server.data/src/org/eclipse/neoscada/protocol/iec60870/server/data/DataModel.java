@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - change lifecycle model
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
 
@@ -122,9 +123,11 @@ public interface DataModel
 
     public void writeCommand ( ASDUHeader header, InformationObjectAddress informationObjectAddress, boolean state, byte type, MirrorCommand mirrorCommand, boolean execute );
 
-    public void writeValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, float value, byte type, MirrorCommand mirrorCommand, boolean execute );
+    public void writeFloatValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, float value, byte type, MirrorCommand mirrorCommand, boolean execute );
 
     public void writeScaledValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, short value, byte type, MirrorCommand mirrorCommand, boolean execute );
 
-    public void dispose ();
+    public void start ();
+
+    public Stopping stop ();
 }
