@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - minor enhancements
  *******************************************************************************/
 package org.eclipse.scada.da.server.exporter.common;
 
@@ -32,6 +33,7 @@ public class SingleSubscriptionManager extends AbstractSubscriptionManager
 
     private final ScheduledExecutorService executor;
 
+    @FunctionalInterface
     public interface Listener
     {
         public void stateChanged ( final String itemId, DataItemValue value );
