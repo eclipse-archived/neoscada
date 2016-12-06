@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,8 +7,12 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - refactor data model
  *******************************************************************************/
 package org.eclipse.neoscada.da.server.exporter.iec60870;
+
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 
 public class MappingEntry
 {
@@ -20,13 +24,13 @@ public class MappingEntry
 
     private final String itemId;
 
-    private final int asduAddress;
+    private final ASDUAddress asduAddress;
 
-    private final int address;
+    private final InformationObjectAddress address;
 
     private final ValueType valueType;
 
-    public MappingEntry ( final String itemId, final int asduAddress, final int address, final ValueType valueType )
+    public MappingEntry ( final String itemId, final ASDUAddress asduAddress, final InformationObjectAddress address, final ValueType valueType )
     {
         this.itemId = itemId;
         this.asduAddress = asduAddress;
@@ -39,14 +43,14 @@ public class MappingEntry
         return this.itemId;
     }
 
-    public int getAddress ()
-    {
-        return this.address;
-    }
-
-    public int getAsduAddress ()
+    public ASDUAddress getAsduAddress ()
     {
         return this.asduAddress;
+    }
+
+    public InformationObjectAddress getAddress ()
+    {
+        return this.address;
     }
 
     public ValueType getValueType ()
@@ -65,8 +69,8 @@ public class MappingEntry
     {
         final int prime = 31;
         int result = 1;
-        result = prime * result + this.address;
-        result = prime * result + this.asduAddress;
+        result = prime * result + ( this.address == null ? 0 : this.address.hashCode () );
+        result = prime * result + ( this.asduAddress == null ? 0 : this.asduAddress.hashCode () );
         result = prime * result + ( this.itemId == null ? 0 : this.itemId.hashCode () );
         result = prime * result + ( this.valueType == null ? 0 : this.valueType.hashCode () );
         return result;
@@ -88,11 +92,25 @@ public class MappingEntry
             return false;
         }
         final MappingEntry other = (MappingEntry)obj;
-        if ( this.address != other.address )
+        if ( this.address == null )
+        {
+            if ( other.address != null )
+            {
+                return false;
+            }
+        }
+        else if ( !this.address.equals ( other.address ) )
         {
             return false;
         }
-        if ( this.asduAddress != other.asduAddress )
+        if ( this.asduAddress == null )
+        {
+            if ( other.asduAddress != null )
+            {
+                return false;
+            }
+        }
+        else if ( !this.asduAddress.equals ( other.asduAddress ) )
         {
             return false;
         }

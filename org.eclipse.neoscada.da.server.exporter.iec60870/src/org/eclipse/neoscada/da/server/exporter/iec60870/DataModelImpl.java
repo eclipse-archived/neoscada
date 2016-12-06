@@ -7,42 +7,29 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - refactor and allow re-use outside of exporter
  *******************************************************************************/
 package org.eclipse.neoscada.da.server.exporter.iec60870;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
-import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
-import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
-import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
-import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationEntry;
-import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.QualityInformation;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
-import org.eclipse.neoscada.protocol.iec60870.io.MirrorCommand;
-import org.eclipse.neoscada.protocol.iec60870.server.data.AbstractBaseDataModel;
-import org.eclipse.neoscada.protocol.iec60870.server.data.BackgroundIterator;
 import org.eclipse.neoscada.protocol.iec60870.server.data.DataListener;
 import org.eclipse.neoscada.protocol.iec60870.server.data.DefaultSubscription;
+import org.eclipse.neoscada.protocol.iec60870.server.data.Stopping;
 import org.eclipse.neoscada.protocol.iec60870.server.data.Subscription;
-import org.eclipse.neoscada.protocol.iec60870.server.data.event.MessageBuilder;
-import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleBooleanBuilder;
-import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleFloatBuilder;
+import org.eclipse.neoscada.protocol.iec60870.server.data.model.BackgroundModel;
+import org.eclipse.neoscada.protocol.iec60870.server.data.model.ChangeDataModel;
+import org.eclipse.neoscada.protocol.iec60870.server.data.model.ChangeModel;
+import org.eclipse.neoscada.protocol.iec60870.server.data.model.WriteModel;
+import org.eclipse.neoscada.protocol.iec60870.server.data.model.WriteModel.Action;
 import org.eclipse.scada.core.NotConvertableException;
 import org.eclipse.scada.core.NullValueException;
 import org.eclipse.scada.core.Variant;
@@ -50,13 +37,10 @@ import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.core.WriteResult;
 import org.eclipse.scada.da.server.exporter.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager;
-import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager.Listener;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.base.Function;
 import com.google.common.util.concurrent.ListenableFuture;
 
 /**
@@ -65,33 +49,11 @@ import com.google.common.util.concurrent.ListenableFuture;
  * <p>
  * All entries are initialized with {@link DataItemValue#DISCONNECTED} in order
  * to populate the caches. This will allow the background transfer to already
- * have data before changes came in. And also prevent the cache structures to
- * change, so the background transmission may hold the iterators.
+ * have data before changes came in.
  * </p>
  */
-public class DataModelImpl extends AbstractBaseDataModel
+public class DataModelImpl extends ChangeDataModel
 {
-    private static final SimpleFloatBuilder FLOAT_BUILDER = new SimpleFloatBuilder ( false );
-
-    private static final SimpleBooleanBuilder BOOLEAN_BUILDER = new SimpleBooleanBuilder ( false );
-
-    private final static class BackgroundState
-    {
-        public Entry<Integer, SortedMap<Integer, Value<?>>> asduAddress;
-
-        public Iterator<Entry<Integer, SortedMap<Integer, Value<?>>>> asduAddressIterator;
-
-        public Iterator<Entry<Integer, Value<?>>> addressIterator;
-
-        public SortedMap<Integer, Value<?>> addressMap;
-
-        @Override
-        public String toString ()
-        {
-            return String.format ( "[asduAddress: %s, asduAddressIterator: %s, addressMap: %s, addressIterator: %s]", this.asduAddress, this.asduAddressIterator, this.addressMap, this.addressIterator );
-        }
-    }
-
     private final static class AddressKey
     {
         private final int asduAddress;
@@ -143,50 +105,31 @@ public class DataModelImpl extends AbstractBaseDataModel
 
     }
 
-    private final class BackgroundIteratorImpl implements BackgroundIterator
-    {
-        private final BackgroundState state = new BackgroundState ();
-
-        @Override
-        public Object nextMessage ()
-        {
-            return proceedBackgroundScan ( this.state );
-        }
-    }
-
     private final static Logger logger = LoggerFactory.getLogger ( DataModelImpl.class );
+
+    private final Long flushDelay;
+
+    private final boolean supportBackgroundScan;
 
     private final SingleSubscriptionManager manager;
 
-    /*
-     * we use a sorted map, so that the addresses are sorted and we
-     * can generate continuous addresses in the message builders
-     */
-    private final Map<Integer, SortedMap<Integer, Value<?>>> cache;
-
     private final InformationBean info;
-
-    private final ExecutorService backgroundExecutor;
 
     private final Map<AddressKey, String> addressMap = new HashMap<> ();
 
-    private final ChangeModel changeModel;
-
-    public DataModelImpl ( final HiveSource hiveSource, final Set<MappingEntry> entries, final Properties hiveProperties, final InformationBean info, final Long flushDelay )
+    public DataModelImpl ( final HiveSource hiveSource, final Set<MappingEntry> entries, final Properties hiveProperties, final InformationBean info, final Long flushDelay, final boolean supportBackgroundScan )
     {
         super ( "org.eclipse.neoscada.da.server.exporter.iec60870.DataModel" );
 
-        this.backgroundExecutor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( "org.eclipse.neoscada.da.server.exporter.iec60870.DataModel/background" ) );
-        this.changeModel = flushDelay == null ? makeInstantChangeModel () : makeBufferingChangeModel ( flushDelay );
+        this.flushDelay = flushDelay;
+        this.supportBackgroundScan = supportBackgroundScan;
 
         this.info = info;
 
         for ( final MappingEntry entry : entries )
         {
-            this.addressMap.put ( new AddressKey ( entry.getAsduAddress (), entry.getAddress () ), entry.getItemId () );
+            this.addressMap.put ( new AddressKey ( entry.getAsduAddress ().getAddress (), entry.getAddress ().getAddress () ), entry.getItemId () );
         }
-
-        this.cache = new HashMap<> ();
 
         this.manager = new SingleSubscriptionManager ( this.executor, hiveSource, hiveProperties, "IEC60870/DataModel" );
         this.manager.start ();
@@ -194,40 +137,48 @@ public class DataModelImpl extends AbstractBaseDataModel
         attach ( entries );
     }
 
-    private ChangeModel makeInstantChangeModel ()
+    @Override
+    protected BackgroundModel createBackgroundModel ()
     {
-        return new InstantChangeModel ( new InstantChangeModel.Context () {
-
-            @Override
-            public void notifyChangeFloat ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
-            {
-                DataModelImpl.this.notifyChangeFloat ( asduAddress, startAddress, values );
-            }
-
-            @Override
-            public void notifyChangeBoolean ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
-            {
-                DataModelImpl.this.notifyChangeBoolean ( asduAddress, startAddress, values );
-            }
-        } );
+        if ( this.supportBackgroundScan )
+        {
+            return makeDefaultBackgroundModel ();
+        }
+        else
+        {
+            return BackgroundModel.NONE;
+        }
     }
 
-    private ChangeModel makeBufferingChangeModel ( final long flushDelay )
+    @Override
+    protected ChangeModel createChangeModel ()
     {
-        return new BufferingChangeModel ( new BufferingChangeModel.Context () {
+        return this.flushDelay == null ? makeInstantChangeModel () : makeBufferingChangeModel ( this.flushDelay );
+    }
+
+    @Override
+    protected WriteModel createWriteModel ()
+    {
+        return new WriteModel () {
 
             @Override
-            public void notifyBoolean ( final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
+            public Action prepareCommand ( final Request<Boolean> request )
             {
-                DataModelImpl.this.notifyChangeBoolean ( asduAddress, values );
+                return DataModelImpl.this.prepareCommand ( request );
             }
 
             @Override
-            public void notifyFloat ( final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
+            public Action prepareSetpointFloat ( final Request<Float> request )
             {
-                DataModelImpl.this.notifyChangeFloat ( asduAddress, values );
+                return DataModelImpl.this.prepareSetpointFloat ( request );
             }
-        }, this.executor, flushDelay );
+
+            @Override
+            public Action prepareSetpointScaled ( final Request<Short> request )
+            {
+                return DataModelImpl.this.prepareSetpointScaled ( request );
+            }
+        };
     }
 
     @Override
@@ -252,14 +203,7 @@ public class DataModelImpl extends AbstractBaseDataModel
         {
             logger.debug ( "Attaching to: {}", entry );
             handleStateChanged ( entry, DataItemValue.DISCONNECTED, false );
-            this.manager.addListener ( entry.getItemId (), new Listener () {
-
-                @Override
-                public void stateChanged ( final String itemId, final DataItemValue value )
-                {
-                    handleStateChanged ( entry, value, true );
-                }
-            } );
+            this.manager.addListener ( entry.getItemId (), ( itemId, value ) -> handleStateChanged ( entry, value, true ) );
         }
     }
 
@@ -267,21 +211,13 @@ public class DataModelImpl extends AbstractBaseDataModel
     {
         logger.trace ( "Handle state change - entry: {}, value: {}", entry, value );
 
-        SortedMap<Integer, Value<?>> unit = this.cache.get ( entry.getAsduAddress () );
-        if ( unit == null )
-        {
-            unit = new TreeMap<> ();
-            this.cache.put ( entry.getAsduAddress (), unit );
-        }
-
         final Value<?> iecValue = convert ( entry, value );
         logger.trace ( "Converted to: {}", iecValue );
-        unit.put ( entry.getAddress (), iecValue );
 
-        notifyChange ( entry, iecValue );
+        notifyDataChange ( entry.getAsduAddress (), entry.getAddress (), iecValue, notify );
     }
 
-    private Value<?> convert ( final MappingEntry entry, final DataItemValue value )
+    private static Value<?> convert ( final MappingEntry entry, final DataItemValue value )
     {
         Variant v = value.getValue ();
         if ( v == null )
@@ -306,7 +242,7 @@ public class DataModelImpl extends AbstractBaseDataModel
             {
                 return errorValue ( entry );
             }
-            return new Value<Object> ( cv, convertTimestamp ( value ), convertQuality ( value ) );
+            return new Value<> ( cv, convertTimestamp ( value ), convertQuality ( value ) );
         }
         catch ( final Exception e )
         {
@@ -315,7 +251,7 @@ public class DataModelImpl extends AbstractBaseDataModel
         }
     }
 
-    private long convertTimestamp ( final DataItemValue value )
+    private static long convertTimestamp ( final DataItemValue value )
     {
         if ( value == null )
         {
@@ -329,7 +265,7 @@ public class DataModelImpl extends AbstractBaseDataModel
         return ts.asLong ( System.currentTimeMillis () );
     }
 
-    private Object convertValue ( final MappingEntry entry, final DataItemValue value ) throws NullValueException, NotConvertableException
+    private static Object convertValue ( final MappingEntry entry, final DataItemValue value ) throws NullValueException, NotConvertableException
     {
         Variant v = value.getValue ();
 
@@ -367,7 +303,7 @@ public class DataModelImpl extends AbstractBaseDataModel
         }
     }
 
-    private QualityInformation convertQuality ( final DataItemValue value )
+    private static QualityInformation convertQuality ( final DataItemValue value )
     {
         final boolean valid = value.isConnected () && !value.isError ();
         final boolean substituted = value.isManual ();
@@ -376,363 +312,72 @@ public class DataModelImpl extends AbstractBaseDataModel
         return new QualityInformation ( blocked, substituted, topical, valid );
     }
 
-    private Value<?> errorValue ( final MappingEntry entry )
+    private static Value<?> errorValue ( final MappingEntry entry )
     {
         switch ( entry.getValueType () )
         {
             case FLOAT:
-                return new Value<Float> ( 0.0f, System.currentTimeMillis (), QualityInformation.INVALID );
+                return new Value<> ( 0.0f, System.currentTimeMillis (), QualityInformation.INVALID );
             case BOOLEAN:
             default:
-                return new Value<Boolean> ( false, System.currentTimeMillis (), QualityInformation.INVALID );
+                return new Value<> ( false, System.currentTimeMillis (), QualityInformation.INVALID );
         }
     }
 
     @Override
-    public void dispose ()
+    public Stopping stop ()
     {
-        this.changeModel.dispose ();
         this.manager.stop ();
-        this.backgroundExecutor.shutdown ();
-        super.dispose ();
+        return super.stop ();
     }
 
-    @Override
-    public void disposeAndWait () throws InterruptedException
+    protected Action prepareCommand ( final WriteModel.Request<Boolean> request )
     {
-        super.disposeAndWait ();
-        this.backgroundExecutor.awaitTermination ( Long.MAX_VALUE, TimeUnit.MILLISECONDS );
+        return perpareWrite ( request, Variant.valueOf ( request.getValue () ) );
     }
 
-    @Override
-    public ListenableFuture<Value<?>> read ( final ASDUAddress asduAddress, final InformationObjectAddress address )
+    protected Action prepareSetpointFloat ( final WriteModel.Request<Float> request )
     {
-        return this.executor.submit ( new Callable<Value<?>> () {
-
-            @Override
-            public Value<?> call () throws Exception
-            {
-                return performRead ( asduAddress, address );
-            }
-        } );
+        return perpareWrite ( request, Variant.valueOf ( request.getValue () ) );
     }
 
-    protected synchronized Value<?> performRead ( final ASDUAddress asduAddress, final InformationObjectAddress address )
+    protected Action prepareSetpointScaled ( final WriteModel.Request<Short> request )
     {
-        final Map<Integer, Value<?>> map = this.cache.get ( asduAddress.getAddress () );
-        if ( map == null )
-        {
-            return null;
-        }
-
-        return map.get ( address.getAddress () );
+        return perpareWrite ( request, Variant.valueOf ( request.getValue () ) );
     }
 
-    @Override
-    public synchronized ListenableFuture<Void> readAll ( final ASDUAddress asduAddress, final Runnable prepare, final DataListener listener )
+    private synchronized Action perpareWrite ( final WriteModel.Request<?> request, final Variant value )
     {
-        final Map<Integer, Value<?>> map = this.cache.get ( asduAddress.getAddress () );
-        if ( map == null )
-        {
-            return null;
-        }
+        logger.debug ( "Request to write - request: {}, value: {}", request, value );
 
-        final Map<Integer, Value<?>> map2 = new HashMap<> ( map ); // copy
-
-        this.executor.submit ( prepare );
-
-        return this.executor.submit ( new Callable<Void> () {
-
-            @Override
-            public Void call ()
-            {
-                performReadAll ( asduAddress, listener, map2 );
-                return null;
-            }
-        } );
-    }
-
-    protected synchronized void performReadAll ( final ASDUAddress asduAddress, final DataListener listener, final Map<Integer, Value<?>> map )
-    {
-        for ( final Map.Entry<Integer, Value<?>> entry : map.entrySet () )
-        {
-            fireListener ( asduAddress, listener, entry );
-        }
-    }
-
-    @Override
-    public void forAllAsdu ( final Function<ASDUAddress, Void> function, final Runnable ifNoneFound )
-    {
-        this.executor.execute ( new Runnable () {
-
-            @Override
-            public void run ()
-            {
-                performForAllAsdu ( function, ifNoneFound );
-            }
-        } );
-    }
-
-    protected synchronized void performForAllAsdu ( final Function<ASDUAddress, Void> function, final Runnable ifNoneFound )
-    {
-        if ( this.cache.isEmpty () )
-        {
-            this.executor.execute ( ifNoneFound );
-            return;
-        }
-
-        for ( final Integer asdu : this.cache.keySet () )
-        {
-            this.executor.execute ( new Runnable () {
-
-                @Override
-                public void run ()
-                {
-                    function.apply ( ASDUAddress.valueOf ( asdu ) );
-                }
-            } );
-        }
-    }
-
-    @Override
-    public BackgroundIterator createBackgroundIterator ()
-    {
-        return new BackgroundIteratorImpl ();
-    }
-
-    public Object proceedBackgroundScan ( final BackgroundState state )
-    {
-        try
-        {
-            logger.debug ( "Background scan - {}", state );
-
-            final Object msg = this.backgroundExecutor.submit ( new Callable<Object> () {
-                @Override
-                public Object call () throws Exception
-                {
-                    return internalBackgroundScan ( state );
-                }
-            } ).get ();
-            logger.debug ( "Background scan result - {}", msg );
-            return msg;
-        }
-        catch ( InterruptedException | ExecutionException e )
-        {
-            throw new RuntimeException ( "Failed to perform background scan", e );
-        }
-    }
-
-    @SuppressWarnings ( { "unchecked", "rawtypes" } )
-    protected synchronized Object internalBackgroundScan ( final BackgroundState state )
-    {
-        if ( state.asduAddressIterator == null )
-        {
-            state.asduAddressIterator = this.cache.entrySet ().iterator ();
-        }
-        if ( state.asduAddress == null )
-        {
-            if ( !state.asduAddressIterator.hasNext () )
-            {
-                return null;
-            }
-            else
-            {
-                state.asduAddress = state.asduAddressIterator.next ();
-            }
-        }
-
-        if ( state.addressIterator == null )
-        {
-            state.addressMap = state.asduAddress.getValue ();
-            state.addressIterator = state.addressMap.entrySet ().iterator ();
-        }
-
-        MessageBuilder<?, ?> builder = null;
-        do
-        {
-            if ( !state.addressIterator.hasNext () )
-            {
-                // end of entries for current common asdu address
-                state.addressIterator = null; // reset address iterator
-                state.asduAddress = null;
-
-                if ( builder != null )
-                {
-                    return builder.build (); // end this message
-                }
-                else
-                {
-                    return null; // we never had content
-                }
-            }
-
-            final Entry<Integer, Value<?>> entry = state.addressIterator.next ();
-
-            if ( builder == null )
-            {
-                builder = createBuilder ( entry.getValue ().getValue () );
-                builder.start ( CauseOfTransmission.BACKGROUND, ASDUAddress.valueOf ( state.asduAddress.getKey () ) );
-            }
-
-            if ( !builder.accepts ( entry.getValue () ) )
-            {
-                // next starting point
-                state.addressMap = state.asduAddress.getValue ().tailMap ( entry.getKey () );
-                state.addressIterator = state.addressMap.entrySet ().iterator ();
-                // stop right now
-                return builder.build ();
-            }
-            else
-            {
-                if ( !builder.addEntry ( InformationObjectAddress.valueOf ( entry.getKey () ), (Value)entry.getValue () ) )
-                {
-                    // builder is full
-                    return builder.build ();
-                }
-            }
-        } while ( true );
-    }
-
-    private void notifyChange ( final MappingEntry entry, final Value<?> value )
-    {
-        this.changeModel.notifyChange ( ASDUAddress.valueOf ( entry.getAsduAddress () ), new InformationObjectAddress ( entry.getAddress () ), value );
-    }
-
-    @SuppressWarnings ( "unchecked" )
-    private static void fireListener ( final ASDUAddress asduAddress, final DataListener listener, final Map.Entry<Integer, Value<?>> entry )
-    {
-        final Value<?> ve = entry.getValue ();
-        final Object v = ve.getValue ();
-
-        if ( v instanceof Boolean )
-        {
-            listener.dataChangeBoolean ( asduAddress, InformationObjectAddress.valueOf ( entry.getKey () ), Collections.singletonList ( (Value<Boolean>)ve ) );
-        }
-        else if ( v instanceof Float )
-        {
-            listener.dataChangeFloat ( asduAddress, InformationObjectAddress.valueOf ( entry.getKey () ), Collections.singletonList ( (Value<Float>)ve ) );
-        }
-    }
-
-    private static MessageBuilder<?, ?> createBuilder ( final Object value )
-    {
-        if ( value instanceof Boolean )
-        {
-            return BOOLEAN_BUILDER.create ();
-        }
-        else if ( value instanceof Number )
-        {
-            return FLOAT_BUILDER.create ();
-        }
-        throw new IllegalStateException ( String.format ( "Value type %s is unsupported", value.getClass () ) );
-    }
-
-    private static class WriteRequest
-    {
-        private final ASDUAddress asduAddress;
-
-        private final InformationObjectAddress address;
-
-        private final Variant value;
-
-        public WriteRequest ( final ASDUAddress asduAddress, final InformationObjectAddress address, final Variant value )
-        {
-            this.asduAddress = asduAddress;
-            this.address = address;
-            this.value = value;
-        }
-
-        public InformationObjectAddress getAddress ()
-        {
-            return this.address;
-        }
-
-        public ASDUAddress getAsduAddress ()
-        {
-            return this.asduAddress;
-        }
-
-        public Variant getValue ()
-        {
-            return this.value;
-        }
-
-        @Override
-        public String toString ()
-        {
-            return String.format ( "[WriteRequest - asduAddress: %s, objectAddress: %s, value: %s", this.asduAddress, this.address, this.value );
-        }
-    }
-
-    private WriteRequest convert ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final Variant value )
-    {
-        return new WriteRequest ( header.getAsduAddress (), informationObjectAddress, value );
-    }
-
-    @Override
-    public void writeCommand ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final boolean state, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        performWrite ( header, informationObjectAddress, Variant.valueOf ( state ), mirrorCommand, execute );
-    }
-
-    @Override
-    public void writeValue ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final float value, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        performWrite ( header, informationObjectAddress, Variant.valueOf ( value ), mirrorCommand, execute );
-    }
-
-    @Override
-    public void writeScaledValue ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final short value, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        performWrite ( header, informationObjectAddress, Variant.valueOf ( value ), mirrorCommand, execute );
-    }
-
-    private void performWrite ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final Variant value, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        final WriteRequest request = convert ( header, informationObjectAddress, value );
-        this.executor.execute ( new Runnable () {
-
-            @Override
-            public void run ()
-            {
-                if ( !performWrite ( request, mirrorCommand, execute ) )
-                {
-                    mirrorCommand.sendActivationConfirm ( false );
-                }
-                // actterm will be sent be the write method itself
-            }
-        } );
-    }
-
-    protected synchronized boolean performWrite ( final WriteRequest request, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        logger.debug ( "Request to write - request: {}, execute: {}", request, execute );
-
-        final String itemId = this.addressMap.get ( new AddressKey ( request.getAsduAddress ().getAddress (), request.getAddress ().getAddress () ) );
+        final String itemId = this.addressMap.get ( new AddressKey ( request.getHeader ().getAsduAddress ().getAddress (), request.getAddress ().getAddress () ) );
         if ( itemId == null )
         {
             logger.info ( "Item for request not found - request: {}", request );
-            return false;
+            return null;
         }
 
         logger.debug ( "Request to write to item: {}", itemId );
 
-        mirrorCommand.sendActivationConfirm ( true );
-
-        if ( execute )
+        if ( !request.isExecute () )
         {
-            final NotifyFuture<WriteResult> future = this.manager.writeValue ( itemId, request.getValue (), null, null );
-            future.addListener ( new Runnable () {
+            return () -> CompletableFuture.completedFuture ( null );
+        }
+        else
+        {
+            return new Action () {
 
                 @Override
-                public void run ()
+                public CompletionStage<Void> execute ()
                 {
-                    logger.debug ( "Write command completed - request: {}, item: {}", request, itemId );
-                    mirrorCommand.sendActivationTermination ();
-                }
-            } );
-        }
+                    final NotifyFuture<WriteResult> future = DataModelImpl.this.manager.writeValue ( itemId, value, null, null );
 
-        return true;
+                    final CompletableFuture<Void> result = new CompletableFuture<> ();
+                    future.addListener ( () -> result.complete ( null ) );
+
+                    return result;
+                }
+            };
+        }
     }
 }

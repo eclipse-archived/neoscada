@@ -18,6 +18,8 @@ import java.util.Set;
 import org.eclipse.neoscada.core.common.iec60870.Configurations;
 import org.eclipse.neoscada.da.server.exporter.iec60870.MappingEntry.ValueType;
 import org.eclipse.neoscada.protocol.iec60870.ProtocolOptions;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.server.data.DataModuleOptions;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 
@@ -168,7 +170,7 @@ public class ExportConfiguration
             itemId = item[0];
         }
 
-        return new MappingEntry ( itemId, asduAddress, infoAddress, type );
+        return new MappingEntry ( itemId, ASDUAddress.valueOf ( asduAddress ), InformationObjectAddress.valueOf ( infoAddress ), type );
     }
 
     private static int convertAddress ( final String string )

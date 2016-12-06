@@ -95,10 +95,12 @@ public class IecExport
 
         if ( this.configuration != null )
         {
-            this.dataModule = new DataModule ( this.configuration.getDataModuleOptions (), new DataModelImpl ( this.hiveSource, this.configuration.getEntries (), this.configuration.getHiveProperties (), this.info, this.configuration.getSpontaneousBufferWindow () ) );
+            final DataModelImpl dataModel = new DataModelImpl ( this.hiveSource, this.configuration.getEntries (), this.configuration.getHiveProperties (), this.info, this.configuration.getSpontaneousBufferWindow (), true );
+            dataModel.start ();
+            this.dataModule = new DataModule ( this.configuration.getDataModuleOptions (), dataModel );
             this.info.setItems ( this.configuration.getEntries ().size () );
 
-            final List<ServerModule> modules = new LinkedList<ServerModule> ();
+            final List<ServerModule> modules = new LinkedList<> ();
             modules.add ( this.dataModule );
 
             this.server = new Server ( this.configuration.getPort (), this.configuration.getProtocolOptions (), modules );
