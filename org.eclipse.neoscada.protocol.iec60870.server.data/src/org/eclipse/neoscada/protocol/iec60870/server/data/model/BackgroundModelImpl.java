@@ -29,6 +29,7 @@ import org.eclipse.neoscada.protocol.iec60870.server.data.BackgroundIterator;
 import org.eclipse.neoscada.protocol.iec60870.server.data.event.MessageBuilder;
 import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleBooleanBuilder;
 import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleFloatBuilder;
+import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleScaledBuilder;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,8 @@ public class BackgroundModelImpl implements BackgroundModel
     private static final Logger logger = LoggerFactory.getLogger ( BackgroundModelImpl.class );
 
     private static final SimpleFloatBuilder FLOAT_BUILDER = new SimpleFloatBuilder ( false ); // background is always without timestamps
+
+    private static final SimpleScaledBuilder SCALED_BUILDER = new SimpleScaledBuilder ( false ); // background is always without timestamps
 
     private static final SimpleBooleanBuilder BOOLEAN_BUILDER = new SimpleBooleanBuilder ( false ); // background is always without timestamps
 
@@ -110,11 +113,14 @@ public class BackgroundModelImpl implements BackgroundModel
         {
             return BOOLEAN_BUILDER.create ();
         }
+        else if ( value instanceof Short )
+        {
+            return SCALED_BUILDER.create ();
+        }
         else if ( value instanceof Number )
         {
             return FLOAT_BUILDER.create ();
         }
-        // FIXME: handle scaled values
         throw new IllegalStateException ( String.format ( "Value type %s is unsupported", value.getClass () ) );
     }
 
