@@ -34,8 +34,8 @@
 				
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<tycho-version>0.22.0</tycho-version>
-		<tycho-extras-version>0.22.0</tycho-extras-version>
+		<tycho-version>0.26.0</tycho-version>
+		<tycho-extras-version>0.26.0</tycho-extras-version>
 		<build-helper-version>0.0.19</build-helper-version>
 
 		<eclipse.orbit.version>R20150124073747</eclipse.orbit.version>
