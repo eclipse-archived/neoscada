@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.eclipse.scada.releng</groupId>
 		<artifactId>superParent</artifactId>
-		<version>0.3.0-SNAPSHOT</version>
+		<version>0.4.0-SNAPSHOT</version>
 	</parent>
 	
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
 	<artifactId>org.eclipse.scada.deploy.repack-base</artifactId>
-	<version>0.3.0-SNAPSHOT</version>
+	<version>0.4.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<organization>
@@ -50,6 +50,16 @@
 			</activation>
 			<properties>
 				<eclipse.download.root>file:///home/data/httpd/download.eclipse.org</eclipse.download.root>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>auto-mirror</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<eclipse.download.root>http://www.eclipse.org/downloads/download.php?r=1&amp;file=</eclipse.download.root>
 			</properties>
 		</profile>
 
