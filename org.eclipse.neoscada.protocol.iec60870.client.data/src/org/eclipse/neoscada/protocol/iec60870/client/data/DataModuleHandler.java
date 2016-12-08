@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,12 +7,12 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.client.data;
 
-import io.netty.channel.ChannelHandlerContext;
-
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.AbstractMessage;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DataTransmissionMessage;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
@@ -34,6 +34,8 @@ import org.eclipse.neoscada.protocol.iec60870.asdu.types.StandardCause;
 import org.eclipse.neoscada.protocol.iec60870.io.AbstractModuleHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import io.netty.channel.ChannelHandlerContext;
 
 public class DataModuleHandler extends AbstractModuleHandler implements DataModuleContext
 {
@@ -104,8 +106,18 @@ public class DataModuleHandler extends AbstractModuleHandler implements DataModu
         if ( msg == DataTransmissionMessage.CONFIRM_START )
         {
             handleStarted ();
+            return;
         }
-        else if ( msg instanceof SinglePointInformationTimeSingle )
+
+        if ( msg instanceof AbstractMessage )
+        {
+            if ( ignoreMessage ( (AbstractMessage)msg ) )
+            {
+                return;
+            }
+        }
+
+        if ( msg instanceof SinglePointInformationTimeSingle )
         {
             handleDataMessage ( (SinglePointInformationTimeSingle)msg );
         }
@@ -176,17 +188,7 @@ public class DataModuleHandler extends AbstractModuleHandler implements DataModu
         this.dataHandler.started ();
     }
 
-    protected void handleDataMessage ( final SinglePointInformationTimeSingle msg )
-    {
-        if ( ignoreMessage ( msg ) )
-        {
-            return;
-        }
-
-        this.dataHandler.process ( msg );
-    }
-
-    protected boolean ignoreMessage ( final SinglePointInformationTimeSingle msg )
+    protected boolean ignoreMessage ( final AbstractMessage msg )
     {
         final Cause cause = msg.getHeader ().getCauseOfTransmission ().getCause ();
         if ( cause == StandardCause.BACKGROUND && this.options.isIgnoreBackgroundScan () )
@@ -195,6 +197,11 @@ public class DataModuleHandler extends AbstractModuleHandler implements DataModu
         }
 
         return false;
+    }
+
+    protected void handleDataMessage ( final SinglePointInformationTimeSingle msg )
+    {
+        this.dataHandler.process ( msg );
     }
 
     protected void handleDataMessage ( final SinglePointInformationSequence msg )
