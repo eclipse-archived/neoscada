@@ -80,7 +80,9 @@ public class Application implements IApplication
         if ( !errors.isEmpty () )
         {
             System.out.println ( "=== START - ERRORS ===" );
+            System.out.flush ();
             errors.stream ().forEach ( System.err::println );
+            System.err.flush ();
             System.out.println ( "===  END  - ERRORS ===" );
         }
 
