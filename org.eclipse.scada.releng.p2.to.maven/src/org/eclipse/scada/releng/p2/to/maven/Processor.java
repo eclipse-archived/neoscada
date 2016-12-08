@@ -13,14 +13,16 @@ package org.eclipse.scada.releng.p2.to.maven;
 
 import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.lang.ProcessBuilder.Redirect;
 import java.lang.reflect.Constructor;
+import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
@@ -65,8 +67,10 @@ import org.osgi.framework.BundleContext;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import com.google.common.io.ByteStreams;
+
 @SuppressWarnings ( "restriction" )
-public class Processor
+public class Processor implements AutoCloseable
 {
     private static final SimpleDateFormat META_DF = new SimpleDateFormat ( "yyyyMMddHHmmss" );
 
@@ -123,6 +127,8 @@ public class Processor
 
     private final List<String> errors = new LinkedList<> ();
 
+    private Path tmpBndTools;
+
     public Processor ( final IProvisioningAgent agent, final File output, final URI repositoryLocation, final Properties properties ) throws Exception
     {
         this.mapping = makeMappingInstance ( properties );
@@ -140,6 +146,24 @@ public class Processor
         this.transformerFactory = TransformerFactory.newInstance ();
 
         loadDevelopers ();
+        setupBndTools ();
+    }
+
+    private void setupBndTools () throws IOException
+    {
+        this.tmpBndTools = Files.createTempFile ( "bndtools-", ".jar" );
+        final URL url = new URL ( "https://repo1.maven.org/maven2/biz/aQute/bnd/biz.aQute.bnd/3.3.0/biz.aQute.bnd-3.3.0.jar" );
+
+        try ( InputStream in = url.openStream (); OutputStream out = Files.newOutputStream ( this.tmpBndTools ); )
+        {
+            ByteStreams.copy ( in, out );
+        }
+    }
+
+    @Override
+    public void close () throws Exception
+    {
+        Files.deleteIfExists ( this.tmpBndTools );
     }
 
     private void loadDevelopers ()
@@ -218,13 +242,30 @@ public class Processor
 
     }
 
-    private void writeUploadScript () throws IOException
+    private void writeUploadScript () throws Exception
     {
-        final Path path = this.output.toPath ().resolve ( "upload.sh" );
+        final List<MavenReference> exports = getMavenExports ();
+        Collections.sort ( exports, MavenReference.COMPARATOR );
 
+        final Set<MavenReference> skips = new HashSet<> ();
+
+        for ( final MavenReference export : exports )
+        {
+            if ( export.getClassifier () != null )
+            {
+                continue;
+            }
+
+            if ( !shouldUpload ( export ) )
+            {
+                skips.add ( export );
+            }
+        }
+
+        final Path path = this.output.toPath ().resolve ( "upload.sh" );
         final int maxJobs = Integer.getInteger ( "maxUploadJobs", 1 );
 
-        try ( PrintWriter script = new PrintWriter ( Files.newBufferedWriter ( path ) ) )
+        try ( final PrintWriter script = new PrintWriter ( Files.newBufferedWriter ( path ) ) )
         {
             script.println ( "#!/bin/bash" );
             script.println ();
@@ -240,11 +281,14 @@ public class Processor
                 script.format ( "function waitMax { while [ $(jobs -rp | wc -l) -ge %s ] ; do sleep 1; done }%n%n", maxJobs );
             }
 
-            final List<MavenReference> exports = getMavenExports ();
-            Collections.sort ( exports, MavenReference.COMPARATOR );
-
             for ( final MavenReference export : exports )
             {
+                if ( skips.contains ( new MavenReference ( export.getGroupId (), export.getArtifactId (), export.getVersion () ) ) )
+                {
+                    script.println ( "# skipping - " + export );
+                    continue;
+                }
+
                 if ( maxJobs > 1 )
                 {
                     script.print ( "waitMax; " );
@@ -276,6 +320,76 @@ public class Processor
         }
     }
 
+    private boolean shouldUpload ( final MavenReference ref ) throws Exception
+    {
+        final String group = ref.getGroupId ().replace ( '.', '/' );
+
+        final String uri = String.format ( "http://central.maven.org/maven2/%s/%s/%s/%s", group, ref.getArtifactId (), ref.getVersion (), ref.toFileName () );
+
+        final URL url = new URL ( uri );
+        final HttpURLConnection con = (HttpURLConnection)url.openConnection ();
+        con.setAllowUserInteraction ( false );
+        con.setUseCaches ( false );
+        con.setConnectTimeout ( 10_000 );
+        con.setReadTimeout ( 10_000 );
+
+        con.connect ();
+
+        if ( con.getResponseCode () == 404 )
+        {
+            // file is not there ... upload
+            return true;
+        }
+
+        final Path tmp = Files.createTempFile ( null, ".jar" );
+        try
+        {
+            try ( InputStream in = con.getInputStream (); OutputStream out = Files.newOutputStream ( tmp ) )
+            {
+                ByteStreams.copy ( in, out );
+            }
+
+            performBaselineCheck ( makeJarFile ( makeVersionBase ( ref ), ref ), tmp );
+        }
+        finally
+        {
+            Files.deleteIfExists ( tmp );
+        }
+
+        return true;
+    }
+
+    private void performBaselineCheck ( final Path newFile, final Path oldFile ) throws Exception
+    {
+        System.out.format ( "Comparing - %s - %s%n", newFile, oldFile );
+
+        final ProcessBuilder pb = new ProcessBuilder ( "java", "-jar", this.tmpBndTools.toString (), "baseline", newFile.toAbsolutePath ().toString (), oldFile.toAbsolutePath ().toString () );
+        pb.redirectError ( Redirect.INHERIT );
+
+        final Path tmp = Files.createTempFile ( null, null );
+        try
+        {
+            pb.redirectOutput ( tmp.toFile () );
+
+            final Process process = pb.start ();
+            process.waitFor ();
+
+            final List<String> lines = Files.readAllLines ( tmp, StandardCharsets.UTF_8 );
+            for ( final String line : lines )
+            {
+                if ( line.contains ( "MAJOR" ) || line.contains ( "MINOR" ) )
+                {
+                    this.errors.add ( String.format ( "Baseline validation failed for: %s - %s", newFile.getFileName (), String.join ( "\n", lines ) ) );
+                }
+            }
+        }
+        finally
+        {
+            Files.deleteIfExists ( tmp );
+        }
+
+    }
+
     private static String makePomName ( final MavenReference export )
     {
         return String.format ( "%1$s/%2$s/%3$s/%2$s-%3$s.pom", export.getGroupId ().replace ( '.', File.separatorChar ), export.getArtifactId (), export.getVersion () );
@@ -297,8 +411,8 @@ public class Processor
 
     private void writeMetaData ( final MavenReference key, final Set<String> value ) throws Exception
     {
-        final File base = makeBase ( key.getGroupId (), key.getArtifactId () );
-        final File file = new File ( base, "maven-metadata.xml" );
+        final Path base = makeBase ( key.getGroupId (), key.getArtifactId () );
+        final Path file = base.resolve ( "maven-metadata.xml" );
 
         System.out.println ( "Write meta data: " + file );
 
@@ -325,8 +439,8 @@ public class Processor
 
         saveXml ( doc, file );
 
-        makeChecksum ( "MD5", file, new File ( base, "maven-metadata.xml.md5" ) );
-        makeChecksum ( "SHA1", file, new File ( base, "maven-metadata.xml.sha1" ) );
+        makeChecksum ( "MD5", file, base.resolve ( "maven-metadata.xml.md5" ) );
+        makeChecksum ( "SHA1", file, base.resolve ( "maven-metadata.xml.sha1" ) );
     }
 
     private void processUnit ( final IInstallableUnit iu, final IProgressMonitor pm ) throws Exception
@@ -355,27 +469,35 @@ public class Processor
 
         System.out.println ( "POM : " + ref );
 
-        final File base = makeBase ( ref.getGroupId (), ref.getArtifactId () );
-        final File versionBase = new File ( base, ref.getVersion () );
-        versionBase.mkdirs ();
-        System.out.println ( "\tStoring to: " + base );
+        final Path versionBase = makeVersionBase ( ref );
+        Files.createDirectories ( versionBase );
+        System.out.println ( "\tStoring to: " + versionBase );
 
         mirrorArtifact ( art, versionBase, ref, pm );
 
         if ( ref.getClassifier () == null )
         {
-            // only do this for main artifacts
-
-            final Set<MavenDependency> deps = makeDependencies ( iu, pm );
-            makePom ( ref, versionBase, deps, iu );
-            makeMetaData ( ref, versionBase );
-            makeFake ( ref, versionBase, "javadoc" );
-            makeFake ( ref, versionBase, "sources" );
-
-            this.mavenDependencies.addAll ( deps );
+            processMainArtifact ( iu, pm, ref, versionBase );
         }
 
         this.mavenExports.add ( ref );
+    }
+
+    private Path makeVersionBase ( final MavenReference ref )
+    {
+        final Path base = makeBase ( ref.getGroupId (), ref.getArtifactId () );
+        return base.resolve ( ref.getVersion () );
+    }
+
+    private void processMainArtifact ( final IInstallableUnit iu, final IProgressMonitor pm, final MavenReference ref, final Path versionBase ) throws Exception
+    {
+        final Set<MavenDependency> deps = makeDependencies ( iu, pm );
+        makePom ( ref, versionBase, deps, iu );
+        makeMetaData ( ref, versionBase );
+        makeFake ( ref, versionBase, "javadoc" );
+        makeFake ( ref, versionBase, "sources" );
+
+        this.mavenDependencies.addAll ( deps );
     }
 
     private Set<MavenDependency> makeDependencies ( final IInstallableUnit iu, final IProgressMonitor pm ) throws Exception
@@ -476,7 +598,7 @@ public class Processor
         return candidates.iterator ().next ();
     }
 
-    private void makeMetaData ( final MavenReference ref, final File versionBase ) throws Exception
+    private void makeMetaData ( final MavenReference ref, final Path versionBase ) throws Exception
     {
         final Document doc = this.documentBuilder.newDocument ();
         final Element metadata = doc.createElement ( "metadata" );
@@ -486,14 +608,14 @@ public class Processor
         addElement ( metadata, "artifactId", ref.getArtifactId () );
         addElement ( metadata, "version", ref.getVersion () );
 
-        final File file = new File ( versionBase, "maven-metadata.xml" );
+        final Path file = versionBase.resolve ( "maven-metadata.xml" );
         saveXml ( doc, file );
 
-        makeChecksum ( "MD5", file, new File ( versionBase, "maven-metadata.xml.md5" ) );
-        makeChecksum ( "SHA1", file, new File ( versionBase, "maven-metadata.xml.sha1" ) );
+        makeChecksum ( "MD5", file, versionBase.resolve ( "maven-metadata.xml.md5" ) );
+        makeChecksum ( "SHA1", file, versionBase.resolve ( "maven-metadata.xml.sha1" ) );
     }
 
-    private void makeFake ( final MavenReference ref, final File versionBase, final String classifier ) throws Exception
+    private void makeFake ( final MavenReference ref, final Path versionBase, final String classifier ) throws Exception
     {
         if ( !this.fakeForCentral )
         {
@@ -501,24 +623,24 @@ public class Processor
         }
 
         final String name = ref.getArtifactId () + "-" + ref.getVersion () + "-" + classifier + ".jar";
-        final File file = new File ( versionBase, name );
+        final Path file = versionBase.resolve ( name );
 
         this.mavenExports.add ( new MavenReference ( ref.getGroupId (), ref.getArtifactId (), ref.getVersion (), classifier ) );
 
-        if ( file.exists () )
+        if ( Files.exists ( file ) )
         {
             return;
         }
 
-        try ( JarOutputStream jar = new JarOutputStream ( new FileOutputStream ( file ) ) )
+        try ( JarOutputStream jar = new JarOutputStream ( Files.newOutputStream ( file ) ) )
         {
         }
 
-        makeChecksum ( "MD5", file, new File ( versionBase, name + ".md5" ) );
-        makeChecksum ( "SHA1", file, new File ( versionBase, name + ".sha1" ) );
+        makeChecksum ( "MD5", file, versionBase.resolve ( name + ".md5" ) );
+        makeChecksum ( "SHA1", file, versionBase.resolve ( name + ".sha1" ) );
     }
 
-    private void makePom ( final MavenReference ref, final File versionBase, final Set<MavenDependency> deps, final IInstallableUnit iu ) throws Exception
+    private void makePom ( final MavenReference ref, final Path versionBase, final Set<MavenDependency> deps, final IInstallableUnit iu ) throws Exception
     {
         final Document doc = this.documentBuilder.newDocument ();
         final Element project = doc.createElementNS ( "http://maven.apache.org/POM/4.0.0", "project" );
@@ -591,12 +713,12 @@ public class Processor
             }
         }
 
-        final File pomFile = new File ( versionBase, ref.getArtifactId () + "-" + ref.getVersion () + ".pom" );
+        final Path pomFile = versionBase.resolve ( ref.getArtifactId () + "-" + ref.getVersion () + ".pom" );
 
         saveXml ( doc, pomFile );
 
-        makeChecksum ( "MD5", pomFile, new File ( versionBase, ref.getArtifactId () + "-" + ref.getVersion () + ".pom.md5" ) );
-        makeChecksum ( "SHA1", pomFile, new File ( versionBase, ref.getArtifactId () + "-" + ref.getVersion () + ".pom.sha1" ) );
+        makeChecksum ( "MD5", pomFile, versionBase.resolve ( ref.getArtifactId () + "-" + ref.getVersion () + ".pom.md5" ) );
+        makeChecksum ( "SHA1", pomFile, versionBase.resolve ( ref.getArtifactId () + "-" + ref.getVersion () + ".pom.sha1" ) );
 
         addMetaDataVersion ( ref );
     }
@@ -641,23 +763,18 @@ public class Processor
         }
     }
 
-    private String loadScm ( final File versionBase, final MavenReference ref )
+    private String loadScm ( final Path versionBase, final MavenReference ref )
     {
         try
         {
-            final File jarFile = new File ( versionBase, ref.getArtifactId () + "-" + ref.getVersion () + ".jar" );
-            if ( !jarFile.isFile () )
+            final Path jarFile = makeJarFile ( versionBase, ref );
+            if ( !Files.isRegularFile ( jarFile ) )
             {
                 // dry run
                 return null;
             }
 
-            try ( final JarFile jar = new JarFile ( jarFile ) )
-            {
-                final Manifest mf = jar.getManifest ();
-                final String scm = mf.getMainAttributes ().getValue ( "Eclipse-SourceReferences" );
-                return scm;
-            }
+            return readSourceReference ( jarFile );
         }
         catch ( final Exception e )
         {
@@ -665,6 +782,25 @@ public class Processor
         }
 
         return null;
+    }
+
+    private String readSourceReference ( final Path jarFile ) throws IOException
+    {
+        final Manifest mf = readManifest ( jarFile );
+        return mf.getMainAttributes ().getValue ( "Eclipse-SourceReferences" );
+    }
+
+    private Manifest readManifest ( final Path jarFile ) throws IOException
+    {
+        try ( final JarFile jar = new JarFile ( jarFile.toFile () ) )
+        {
+            return jar.getManifest ();
+        }
+    }
+
+    private static Path makeJarFile ( final Path versionBase, final MavenReference ref )
+    {
+        return versionBase.resolve ( ref.getArtifactId () + "-" + ref.getVersion () + ".jar" );
     }
 
     private void addEpl ( final Element project )
@@ -716,7 +852,7 @@ public class Processor
         ele.appendChild ( parent.getOwnerDocument ().createTextNode ( value ) );
     }
 
-    private void saveXml ( final Document doc, final File file ) throws Exception
+    private void saveXml ( final Document doc, final Path file ) throws Exception
     {
         final Transformer transformer = this.transformerFactory.newTransformer ();
 
@@ -724,37 +860,37 @@ public class Processor
         transformer.setOutputProperty ( "{http://xml.apache.org/xslt}indent-amount", "2" );
 
         final DOMSource source = new DOMSource ( doc );
-        final StreamResult result = new StreamResult ( file );
+        final StreamResult result = new StreamResult ( file.toFile () );
 
         transformer.transform ( source, result );
     }
 
-    private void mirrorArtifact ( final IArtifactKey art, final File versionBase, final MavenReference ref, final IProgressMonitor pm ) throws Exception
+    private void mirrorArtifact ( final IArtifactKey art, final Path versionBase, final MavenReference ref, final IProgressMonitor pm ) throws Exception
     {
         if ( this.dryRun )
         {
             return;
         }
 
-        final File jarFile = new File ( versionBase, ref.toFileName () );
+        final Path jarFile = versionBase.resolve ( ref.toFileName () );
 
-        try ( OutputStream output = new FileOutputStream ( jarFile ) )
+        try ( OutputStream output = Files.newOutputStream ( jarFile ) )
         {
             final IArtifactDescriptor desc = this.artRepo.createArtifactDescriptor ( art );
             System.out.println ( "Storing to: " + jarFile );
             this.artRepo.getArtifact ( desc, output, pm );
         }
 
-        makeChecksum ( "MD5", jarFile, new File ( versionBase, ref.toFileName ( "md5" ) ) );
-        makeChecksum ( "SHA1", jarFile, new File ( versionBase, ref.toFileName ( "sha1" ) ) );
+        makeChecksum ( "MD5", jarFile, versionBase.resolve ( ref.toFileName ( "md5" ) ) );
+        makeChecksum ( "SHA1", jarFile, versionBase.resolve ( ref.toFileName ( "sha1" ) ) );
     }
 
-    private void makeChecksum ( final String mdName, final File sourceFile, final File targetFile ) throws Exception
+    private void makeChecksum ( final String mdName, final Path sourceFile, final Path targetFile ) throws Exception
     {
         final MessageDigest md = MessageDigest.getInstance ( mdName );
         final byte[] buffer = new byte[4096];
 
-        try ( InputStream input = new BufferedInputStream ( new FileInputStream ( sourceFile ) ) )
+        try ( InputStream input = new BufferedInputStream ( Files.newInputStream ( sourceFile ) ) )
         {
             int len;
             while ( ( len = input.read ( buffer ) ) > 0 )
@@ -769,7 +905,7 @@ public class Processor
             sb.append ( String.format ( "%02x", b ) );
         }
 
-        try ( PrintWriter pw = new PrintWriter ( targetFile ) )
+        try ( PrintWriter pw = new PrintWriter ( Files.newBufferedWriter ( targetFile, StandardCharsets.UTF_8 ) ) )
         {
             pw.print ( sb.toString () );
         }
@@ -802,17 +938,17 @@ public class Processor
         return Boolean.parseBoolean ( value );
     }
 
-    private File makeBase ( final String groupId, final String artifactId )
+    private Path makeBase ( final String groupId, final String artifactId )
     {
         final String toks[] = groupId.split ( "\\." );
 
-        File file = this.output;
+        Path file = this.output.toPath ();
         for ( final String tok : toks )
         {
-            file = new File ( file, tok );
+            file = file.resolve ( tok );
         }
 
-        return new File ( file, artifactId );
+        return file.resolve ( artifactId );
     }
 
     private IArtifactKey findArtifact ( final IInstallableUnit iu )

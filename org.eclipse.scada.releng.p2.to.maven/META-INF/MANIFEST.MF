@@ -8,7 +8,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.equinox.app
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipse.scada.releng.p2.to.maven.Activator
-Import-Package: org.eclipse.core.runtime;version="3.4.0",
+Import-Package: com.google.common.io;version="18.0.0",
+ org.eclipse.core.runtime;version="3.4.0",
  org.eclipse.equinox.internal.p2.metadata,
  org.eclipse.equinox.p2.core;version="2.0.0",
  org.eclipse.equinox.p2.metadata;version="2.1.0",

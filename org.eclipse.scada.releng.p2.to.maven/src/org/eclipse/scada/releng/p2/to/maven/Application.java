@@ -59,31 +59,33 @@ public class Application implements IApplication
 
         final IProvisioningAgent agent = Activator.getAgent ( p2temp.toURI () );
 
-        final Processor processor = new Processor ( agent, output, new URI ( args[1] ), p );
-
-        for ( int i = 2; i < args.length; i++ )
+        try ( Processor processor = new Processor ( agent, output, new URI ( args[1] ), p ) )
         {
-            processor.addValidationRepository ( new URI ( args[i] ) );
-        }
+            for ( int i = 2; i < args.length; i++ )
+            {
+                processor.addValidationRepository ( new URI ( args[i] ) );
+            }
 
-        processor.process ( pm );
+            processor.process ( pm );
 
-        System.out.println ( "=== START - MAVEN DEPENDENCIES ===" );
-        processor.getMavenDependencies ().stream ().forEach ( System.out::println );
-        System.out.println ( "===  END  - MAVEN DEPENDENCIES ===" );
+            System.out.println ( "=== START - MAVEN DEPENDENCIES ===" );
+            processor.getMavenDependencies ().stream ().forEach ( System.out::println );
+            System.out.println ( "===  END  - MAVEN DEPENDENCIES ===" );
 
-        System.out.println ( "=== START - MAVEN EXPORTS ===" );
-        processor.getMavenExports ().stream ().forEach ( System.out::println );
-        System.out.println ( "===  END  - MAVEN EXPORTS ===" );
+            System.out.println ( "=== START - MAVEN EXPORTS ===" );
+            processor.getMavenExports ().stream ().forEach ( System.out::println );
+            System.out.println ( "===  END  - MAVEN EXPORTS ===" );
 
-        final List<String> errors = processor.getErrors ();
-        if ( !errors.isEmpty () )
-        {
-            System.out.println ( "=== START - ERRORS ===" );
-            System.out.flush ();
-            errors.stream ().forEach ( System.err::println );
-            System.err.flush ();
-            System.out.println ( "===  END  - ERRORS ===" );
+            final List<String> errors = processor.getErrors ();
+            if ( !errors.isEmpty () )
+            {
+                System.out.println ( "=== START - ERRORS ===" );
+                System.out.flush ();
+                errors.stream ().forEach ( System.err::println );
+                System.err.flush ();
+                System.out.println ( "===  END  - ERRORS ===" );
+            }
+
         }
 
         // default
