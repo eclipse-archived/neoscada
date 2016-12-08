@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data.model;
 
@@ -27,6 +28,8 @@ public class InstantChangeModel implements ChangeModel
         public void notifyChangeBoolean ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Boolean>> values );
 
         public void notifyChangeFloat ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Float>> values );
+
+        public void notifyChangeShort ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Short>> values );
     }
 
     private final static Logger logger = LoggerFactory.getLogger ( InstantChangeModel.class );
@@ -60,6 +63,10 @@ public class InstantChangeModel implements ChangeModel
         else if ( rawValue instanceof Float )
         {
             this.context.notifyChangeFloat ( asduAddress, informationObjectAddress, singletonList ( (Value<Float>)iecValue ) );
+        }
+        else if ( rawValue instanceof Short )
+        {
+            this.context.notifyChangeShort ( asduAddress, informationObjectAddress, singletonList ( (Value<Short>)iecValue ) );
         }
     }
 

@@ -171,6 +171,18 @@ public class MockDataListener implements DataListener
     }
 
     @Override
+    public void dataChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+    {
+        sequentialChange ( asduAddress, startAddress, values );
+    }
+
+    @Override
+    public void dataChangeShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+    {
+        change ( asduAddress, values );
+    }
+
+    @Override
     public void dataChangeFloat ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
     {
         sequentialChange ( asduAddress, startAddress, values );

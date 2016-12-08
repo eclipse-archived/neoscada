@@ -141,6 +141,12 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
                 ChangeDataModel.this.notifyChangeFloat ( asduAddress, startAddress, values );
             }
 
+            @Override
+            public void notifyChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+            {
+                ChangeDataModel.this.notifyChangeShort ( asduAddress, startAddress, values );
+            }
+
         } );
     }
 
@@ -158,6 +164,12 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
             public void notifyFloat ( final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
             {
                 ChangeDataModel.this.notifyChangeFloat ( asduAddress, values );
+            }
+
+            @Override
+            public void notifyShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+            {
+                ChangeDataModel.this.notifyChangeShort ( asduAddress, values );
             }
         }, this.executor, flushDelay );
     }

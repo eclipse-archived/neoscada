@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
 
@@ -53,6 +54,18 @@ public class DataListenerImpl implements DataListener
     public void dataChangeFloat ( final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
     {
         this.source.sendFloatValues ( new ASDUHeader ( this.cause, asduAddress ), values );
+    }
+
+    @Override
+    public void dataChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+    {
+        this.source.sendShortValues ( new ASDUHeader ( this.cause, asduAddress ), startAddress, values );
+    }
+
+    @Override
+    public void dataChangeShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+    {
+        this.source.sendShortValues ( new ASDUHeader ( this.cause, asduAddress ), values );
     }
 
 }

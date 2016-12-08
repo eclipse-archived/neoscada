@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
 
@@ -26,4 +27,8 @@ public interface DataListener
     public void dataChangeFloat ( ASDUAddress asduAddress, List<InformationEntry<Float>> values );
 
     public void dataChangeFloat ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Float>> values );
+
+    public void dataChangeShort ( ASDUAddress asduAddress, List<InformationEntry<Short>> values );
+
+    public void dataChangeShort ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Short>> values );
 }

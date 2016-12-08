@@ -33,6 +33,7 @@ import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
 import org.eclipse.neoscada.protocol.iec60870.server.data.event.EventQueue;
 import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleBooleanBuilder;
 import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleFloatBuilder;
+import org.eclipse.neoscada.protocol.iec60870.server.data.event.SimpleScaledBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -150,6 +151,8 @@ public class DataModuleMessageSource implements MessageSource
 
     private final EventQueue<Float> floatEventBuffer;
 
+    private final EventQueue<Short> shortEventBuffer;
+
     private final List<EventQueue<?>> buffers = new ArrayList<> ();
 
     /**
@@ -179,14 +182,16 @@ public class DataModuleMessageSource implements MessageSource
         this.backgroundScanPeriod = backgroundScanPeriod;
 
         // create the buffers - spontaneous
-        this.booleanEventBuffer = new EventQueue<Boolean> ( options.getSpontaneousDuplicates (), new SimpleBooleanBuilder ( options.isBooleansWithTimestamp () ) );
-        this.floatEventBuffer = new EventQueue<Float> ( options.getSpontaneousDuplicates (), new SimpleFloatBuilder ( options.isFloatsWithTimestamp () ) );
+        this.booleanEventBuffer = new EventQueue<> ( options.getSpontaneousDuplicates (), new SimpleBooleanBuilder ( options.isBooleansWithTimestamp () ) );
+        this.floatEventBuffer = new EventQueue<> ( options.getSpontaneousDuplicates (), new SimpleFloatBuilder ( options.isFloatsWithTimestamp () ) );
+        this.shortEventBuffer = new EventQueue<> ( options.getSpontaneousDuplicates (), new SimpleScaledBuilder ( options.isFloatsWithTimestamp () ) );
 
         // create initial instance
         createBackgroundScan ();
 
         this.buffers.add ( this.booleanEventBuffer );
         this.buffers.add ( this.floatEventBuffer );
+        this.buffers.add ( this.shortEventBuffer );
     }
 
     @Override
@@ -361,6 +366,8 @@ public class DataModuleMessageSource implements MessageSource
         return false;
     }
 
+    // boolean
+
     public synchronized void sendBooleanValue ( final ASDUHeader header, final InformationObjectAddress address, final Value<Boolean> value )
     {
         recordCause ( header.getAsduAddress (), header.getCauseOfTransmission () );
@@ -382,6 +389,8 @@ public class DataModuleMessageSource implements MessageSource
         this.writer.notifyMoreData ();
     }
 
+    // float
+
     public synchronized void sendFloatValue ( final ASDUHeader header, final InformationObjectAddress address, final Value<Float> value )
     {
         recordCause ( header.getAsduAddress (), header.getCauseOfTransmission () );
@@ -400,6 +409,29 @@ public class DataModuleMessageSource implements MessageSource
     {
         recordCause ( header.getAsduAddress (), header.getCauseOfTransmission () );
         this.floatEventBuffer.append ( header.getCauseOfTransmission (), header.getAsduAddress (), values );
+        this.writer.notifyMoreData ();
+    }
+
+    // short
+
+    public synchronized void sendShortValue ( final ASDUHeader header, final InformationObjectAddress address, final Value<Short> value )
+    {
+        recordCause ( header.getAsduAddress (), header.getCauseOfTransmission () );
+        this.shortEventBuffer.append ( header.getCauseOfTransmission (), header.getAsduAddress (), address, value );
+        this.writer.notifyMoreData ();
+    }
+
+    public synchronized void sendShortValues ( final ASDUHeader header, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+    {
+        recordCause ( header.getAsduAddress (), header.getCauseOfTransmission () );
+        this.shortEventBuffer.append ( header.getCauseOfTransmission (), header.getAsduAddress (), startAddress, values );
+        this.writer.notifyMoreData ();
+    }
+
+    public synchronized void sendShortValues ( final ASDUHeader header, final List<InformationEntry<Short>> values )
+    {
+        recordCause ( header.getAsduAddress (), header.getCauseOfTransmission () );
+        this.shortEventBuffer.append ( header.getCauseOfTransmission (), header.getAsduAddress (), values );
         this.writer.notifyMoreData ();
     }
 

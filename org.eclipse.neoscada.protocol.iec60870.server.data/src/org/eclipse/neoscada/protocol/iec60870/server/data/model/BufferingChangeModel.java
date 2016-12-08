@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
- *     Red Hat Inc - refactoring
+ *     Red Hat Inc - refactoring and enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data.model;
 
@@ -34,6 +34,8 @@ public class BufferingChangeModel implements ChangeModel
         public void notifyBoolean ( ASDUAddress key, List<InformationEntry<Boolean>> booleans );
 
         public void notifyFloat ( ASDUAddress key, List<InformationEntry<Float>> floats );
+
+        public void notifyShort ( ASDUAddress key, List<InformationEntry<Short>> shorts );
     }
 
     private final Context context;
@@ -161,6 +163,7 @@ public class BufferingChangeModel implements ChangeModel
         {
             List<InformationEntry<Boolean>> booleans = null;
             List<InformationEntry<Float>> floats = null;
+            List<InformationEntry<Short>> shorts = null;
 
             for ( final Map.Entry<InformationObjectAddress, Value<?>> valueEntry : entry.getValue ().entrySet () )
             {
@@ -175,6 +178,10 @@ public class BufferingChangeModel implements ChangeModel
                 {
                     floats = add ( floats, ioa, (Value<Float>)value );
                 }
+                else if ( value.getValue () instanceof Short )
+                {
+                    shorts = add ( shorts, ioa, (Value<Short>)value );
+                }
             }
 
             // send out what we have sorted out
@@ -186,6 +193,10 @@ public class BufferingChangeModel implements ChangeModel
             if ( floats != null )
             {
                 this.context.notifyFloat ( entry.getKey (), floats );
+            }
+            if ( shorts != null )
+            {
+                this.context.notifyShort ( entry.getKey (), shorts );
             }
         }
     }

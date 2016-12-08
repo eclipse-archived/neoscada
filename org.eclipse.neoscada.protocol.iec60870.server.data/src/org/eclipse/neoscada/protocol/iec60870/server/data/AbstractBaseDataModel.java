@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
- *     Red Hat Inc - minor enhancements
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
 
@@ -103,6 +103,22 @@ public abstract class AbstractBaseDataModel implements DataModel
         for ( final DefaultSubscription sub : this.subscriptions )
         {
             this.executor.execute ( () -> sub.notifyChangeFloat ( asduAddress, values ) );
+        }
+    }
+
+    protected synchronized void notifyChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+    {
+        for ( final DefaultSubscription sub : this.subscriptions )
+        {
+            this.executor.execute ( () -> sub.notifyChangeShort ( asduAddress, startAddress, values ) );
+        }
+    }
+
+    protected synchronized void notifyChangeShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+    {
+        for ( final DefaultSubscription sub : this.subscriptions )
+        {
+            this.executor.execute ( () -> sub.notifyChangeShort ( asduAddress, values ) );
         }
     }
 

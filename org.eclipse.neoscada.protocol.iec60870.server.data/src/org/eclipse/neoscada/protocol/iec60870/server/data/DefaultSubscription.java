@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data;
 
@@ -55,6 +56,16 @@ public class DefaultSubscription implements Subscription
     public void notifyChangeFloat ( final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
     {
         this.listener.dataChangeFloat ( asduAddress, values );
+    }
+
+    public void notifyChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+    {
+        this.listener.dataChangeShort ( asduAddress, startAddress, values );
+    }
+
+    public void notifyChangeShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+    {
+        this.listener.dataChangeShort ( asduAddress, values );
     }
 
 }
