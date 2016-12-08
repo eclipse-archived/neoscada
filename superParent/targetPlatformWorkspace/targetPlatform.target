@@ -6,6 +6,10 @@
       <repository location="http://download.eclipse.org/cbi/updates/license/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.apache.commons.logging.source" version="1.1.1.v201101211721"/>
+      <repository location="http://download.eclipse.org/eclipse/updates/4.6"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.12.0.v20160829-1338"/>
       <unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.10.0.201606071713"/>
       <unit id="org.eclipse.emf.sdk.feature.group" version="2.12.0.v20160526-0356"/>
