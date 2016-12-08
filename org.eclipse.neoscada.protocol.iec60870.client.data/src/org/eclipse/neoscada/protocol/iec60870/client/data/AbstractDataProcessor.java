@@ -34,6 +34,14 @@ public abstract class AbstractDataProcessor implements DataHandler
 {
     protected abstract void fireEntry ( final ASDUAddress asduAddress, final InformationObjectAddress address, final Value<?> value );
 
+    /**
+     * Test if this message should be ignored
+     * 
+     * @param msg
+     *            the message to check
+     * @return {@code true} if the message should be ignore, {@code false}
+     *         otherwise
+     */
     protected boolean checkIgnore ( final AbstractMessage msg )
     {
         return false;
