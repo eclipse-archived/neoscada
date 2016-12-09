@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
- *     Red Hat Inc - minor enhancements, allow creating an upload JAR
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
