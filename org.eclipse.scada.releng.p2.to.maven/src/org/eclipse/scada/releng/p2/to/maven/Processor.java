@@ -83,6 +83,10 @@ public class Processor implements AutoCloseable
         String email;
 
         String url;
+
+        String organization;
+
+        String organizationUrl;
     }
 
     private final boolean dryRun = Boolean.getBoolean ( "dryRun" );
@@ -169,6 +173,11 @@ public class Processor implements AutoCloseable
     private void loadDevelopers ()
     {
         final String devs = this.properties.getProperty ( "developers" );
+        if ( devs == null )
+        {
+            return;
+        }
+
         for ( final String dev : devs.split ( "\\s*,+\\s*" ) )
         {
             this.developers.add ( loadDeveloper ( dev ) );
@@ -182,6 +191,8 @@ public class Processor implements AutoCloseable
         result.name = this.properties.getProperty ( String.format ( "developer.%s.name", dev ) );
         result.email = this.properties.getProperty ( String.format ( "developer.%s.email", dev ) );
         result.url = this.properties.getProperty ( String.format ( "developer.%s.url", dev ) );
+        result.organization = this.properties.getProperty ( String.format ( "developer.%s.organization", dev ) );
+        result.organizationUrl = this.properties.getProperty ( String.format ( "developer.%s.organizationUrl", dev ) );
         return result;
     }
 
@@ -760,6 +771,8 @@ public class Processor implements AutoCloseable
             addElement ( devNode, "name", dev.name );
             addElement ( devNode, "email", dev.email );
             addElement ( devNode, "url", dev.url );
+            addElement ( devNode, "organization", dev.organization );
+            addElement ( devNode, "organizationUrl", dev.organizationUrl );
         }
     }
 
