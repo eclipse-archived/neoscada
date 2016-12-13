@@ -133,6 +133,10 @@ public class Processor implements AutoCloseable
 
     private Path tmpBndTools;
 
+    private final String organizationName = System.getProperty ( "pom.origanization.name", "Eclipse Foundation" );
+
+    private final String organizationUrl = System.getProperty ( "pom.origanization.url", "http://www.eclipse.org/" );
+
     public Processor ( final IProvisioningAgent agent, final File output, final URI repositoryLocation, final Properties properties ) throws Exception
     {
         this.mapping = makeMappingInstance ( properties );
@@ -682,6 +686,8 @@ public class Processor implements AutoCloseable
         addElement ( project, "name", name );
         addElement ( project, "description", description );
 
+        addOrganization ( project );
+
         addDevelopers ( project );
 
         // license
@@ -732,6 +738,25 @@ public class Processor implements AutoCloseable
         makeChecksum ( "SHA1", pomFile, versionBase.resolve ( ref.getArtifactId () + "-" + ref.getVersion () + ".pom.sha1" ) );
 
         addMetaDataVersion ( ref );
+    }
+
+    private void addOrganization ( final Element project )
+    {
+        if ( this.organizationName == null || this.organizationUrl == null )
+        {
+            return;
+        }
+        if ( this.organizationName.isEmpty () || this.organizationUrl.isEmpty () )
+        {
+            return;
+        }
+
+        final Document doc = project.getOwnerDocument ();
+        final Element orga = doc.createElement ( "organization" );
+        project.appendChild ( orga );
+
+        addElement ( orga, "name", this.organizationName );
+        addElement ( orga, "url", this.organizationUrl );
     }
 
     private void makeScm ( final Document doc, final Element project, final String scm )
