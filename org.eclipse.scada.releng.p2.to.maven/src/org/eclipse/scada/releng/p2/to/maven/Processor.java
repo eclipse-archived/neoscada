@@ -40,7 +40,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.jar.JarInputStream;
 import java.util.jar.JarOutputStream;
 import java.util.jar.Manifest;
 
@@ -91,6 +93,8 @@ public class Processor implements AutoCloseable
 
         String organizationUrl;
     }
+
+    private final boolean scrubJars;
 
     private final boolean dryRun = Boolean.getBoolean ( "dryRun" );
 
@@ -162,6 +166,8 @@ public class Processor implements AutoCloseable
         this.organizationUrl = properties.getProperty ( "pom.origanization.url", "http://www.eclipse.org/" );
 
         this.licenseProvider = new LicenseProvider ( this.properties );
+
+        this.scrubJars = Boolean.parseBoolean ( properties.getProperty ( "scrubJars" ) );
 
         loadDevelopers ();
         setupBndTools ();
@@ -960,16 +966,52 @@ public class Processor implements AutoCloseable
         }
 
         final Path jarFile = versionBase.resolve ( ref.toFileName () );
+        System.out.format ( "Storing to: %s%n", jarFile );
 
-        try ( OutputStream output = Files.newOutputStream ( jarFile ) )
+        if ( this.scrubJars && ref.getClassifier () == null )
         {
-            final IArtifactDescriptor desc = this.artRepo.createArtifactDescriptor ( art );
-            System.out.println ( "Storing to: " + jarFile );
-            this.artRepo.getArtifact ( desc, output, pm );
+            final Path tmp = Files.createTempFile ( null, ".jar" );
+            try
+            {
+                fetchArtifact ( art, pm, tmp );
+                try ( JarInputStream jin = new JarInputStream ( Files.newInputStream ( tmp ) );
+                      JarOutputStream jout = new JarOutputStream ( Files.newOutputStream ( jarFile ), jin.getManifest () ); )
+                {
+                    JarEntry entry;
+                    while ( ( entry = jin.getNextJarEntry () ) != null )
+                    {
+                        final String name = entry.getName ();
+                        if ( name.startsWith ( "META-INF/maven/" ) )
+                        {
+                            System.out.format ( "Scrubbing Maven information: %s%n", name );
+                            continue;
+                        }
+                        jout.putNextEntry ( entry );
+                        ByteStreams.copy ( jin, jout );
+                    }
+                }
+            }
+            finally
+            {
+                Files.deleteIfExists ( tmp );
+            }
+        }
+        else
+        {
+            fetchArtifact ( art, pm, jarFile );
         }
 
         makeChecksum ( "MD5", jarFile, versionBase.resolve ( ref.toFileName ( "md5" ) ) );
         makeChecksum ( "SHA1", jarFile, versionBase.resolve ( ref.toFileName ( "sha1" ) ) );
+    }
+
+    private void fetchArtifact ( final IArtifactKey art, final IProgressMonitor pm, final Path targetFile ) throws IOException
+    {
+        try ( OutputStream output = Files.newOutputStream ( targetFile ) )
+        {
+            final IArtifactDescriptor desc = this.artRepo.createArtifactDescriptor ( art );
+            this.artRepo.getArtifact ( desc, output, pm );
+        }
     }
 
     private void makeChecksum ( final String mdName, final Path sourceFile, final Path targetFile ) throws Exception
