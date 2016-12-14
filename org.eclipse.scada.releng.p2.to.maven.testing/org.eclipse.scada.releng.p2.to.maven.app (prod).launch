@@ -21,7 +21,7 @@
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DuseTychoVersion=false&#10;-DstripQualifier=true&#10;-DdryRun=false&#10;-DfakeForCentral=true&#10;-DXgroupIdPrefix=org.eclipse.scada:de.dentrassi.eclipse.neoscada&#10;-DgroupIdPrefix=org.eclipse.scada:org.eclipse.neoscada"/>
 <booleanAttribute key="pde.generated.config" value="false"/>
 <stringAttribute key="pde.version" value="3.3"/>
-<stringAttribute key="product" value="org.eclipse.b3.cli.product"/>
+<stringAttribute key="product" value="org.eclipse.scada.releng.p2.to.maven.product"/>
 <stringAttribute key="selected_target_plugins" value="com.google.guava*18.0.0@default:default,javax.servlet@default:default,javax.xml@default:default,org.apache.commons.codec*1.6.0.v201305230611@default:default,org.apache.commons.logging@default:default,org.apache.felix.gogo.command@default:default,org.apache.felix.gogo.runtime@default:default,org.apache.felix.gogo.shell@default:default,org.apache.httpcomponents.httpclient@default:default,org.apache.httpcomponents.httpcore@default:default,org.eclipse.ant.core@default:default,org.eclipse.core.contenttype@default:default,org.eclipse.core.jobs@default:default,org.eclipse.core.net@default:true,org.eclipse.core.runtime@default:true,org.eclipse.core.variables@default:default,org.eclipse.ecf.filetransfer@default:true,org.eclipse.ecf.identity@default:default,org.eclipse.ecf.provider.filetransfer.httpclient4.ssl@default:false,org.eclipse.ecf.provider.filetransfer.httpclient4@default:true,org.eclipse.ecf.provider.filetransfer.ssl@default:false,org.eclipse.ecf.provider.filetransfer@default:true,org.eclipse.ecf.ssl@default:false,org.eclipse.ecf@default:true,org.eclipse.equinox.app@default:default,org.eclipse.equinox.common@2:true,org.eclipse.equinox.console@default:default,org.eclipse.equinox.ds@1:true,org.eclipse.equinox.p2.artifact.repository@default:default,org.eclipse.equinox.p2.core@default:default,org.eclipse.equinox.p2.jarprocessor@default:default,org.eclipse.equinox.p2.metadata.repository@default:default,org.eclipse.equinox.p2.metadata@default:default,org.eclipse.equinox.p2.repository@default:default,org.eclipse.equinox.p2.transport.ecf@default:true,org.eclipse.equinox.preferences@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.equinox.security@default:default,org.eclipse.equinox.util@default:default,org.eclipse.osgi.services@default:default,org.eclipse.osgi@-1:true,org.tukaani.xz@default:default"/>
 <stringAttribute key="selected_workspace_plugins" value="org.eclipse.scada.releng.p2.to.maven@default:default"/>
 <booleanAttribute key="show_selected_only" value="false"/>
@@ -29,6 +29,6 @@
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfig" value="true"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<booleanAttribute key="useProduct" value="false"/>
+<booleanAttribute key="useProduct" value="true"/>
 <booleanAttribute key="usefeatures" value="false"/>
 </launchConfiguration>
