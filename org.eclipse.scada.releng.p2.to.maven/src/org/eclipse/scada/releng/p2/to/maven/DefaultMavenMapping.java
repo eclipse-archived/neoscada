@@ -12,7 +12,10 @@
 package org.eclipse.scada.releng.p2.to.maven;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
@@ -61,12 +64,11 @@ public class DefaultMavenMapping implements MavenMapping
     public DefaultMavenMapping ( final Properties properties )
     {
         this.properties = properties;
-
         this.defaultIgnores.add ( "a.jre.javase" );
     }
 
     @Override
-    public MavenReference makeReference ( final IInstallableUnit iu ) throws Exception
+    public List<MavenReference> makeReference ( final IInstallableUnit iu ) throws Exception
     {
         if ( this.defaultIgnores.contains ( iu.getId () ) )
         {
@@ -100,7 +102,7 @@ public class DefaultMavenMapping implements MavenMapping
         result.setVersion ( makeVersion ( iu, !STRIP_QUALIFIER ) );
         result.setClassifier ( makeClassifier ( iu ) );
 
-        return result;
+        return Collections.singletonList ( result );
     }
 
     private String makeClassifier ( final IInstallableUnit iu )
@@ -108,20 +110,31 @@ public class DefaultMavenMapping implements MavenMapping
         return iu.getProperty ( "maven-classifier" );
     }
 
-    private MavenReference fromValue ( final IInstallableUnit iu, final String value ) throws Exception
+    private List<MavenReference> fromValue ( final IInstallableUnit iu, final String value ) throws Exception
     {
-        final String[] toks = value.split ( "\\:" );
-        if ( toks.length == 3 )
+        final String[] segs = value.split ( "," );
+
+        final List<MavenReference> result = new ArrayList<> ( segs.length );
+
+        for ( final String seg : segs )
         {
-            final String version = MessageFormat.format ( toks[2], getSegments ( iu.getVersion () ) );
-            return new MavenReference ( toks[0], toks[1], version );
+            final String[] toks = seg.split ( "\\:" );
+            if ( toks.length == 3 )
+            {
+                final String version = MessageFormat.format ( toks[2], getSegments ( iu.getVersion () ) );
+                result.add ( new MavenReference ( toks[0], toks[1], version ) );
+            }
+            else if ( toks.length == 2 )
+            {
+                // automatic version
+                result.add ( new MavenReference ( toks[0], toks[1], makeVersion ( iu, false ) ) );
+            }
+            else
+            {
+                throw new IllegalArgumentException ( String.format ( "Maven reference has invalid syntax: %s", value ) );
+            }
         }
-        if ( toks.length == 2 )
-        {
-            // automatic version
-            return new MavenReference ( toks[0], toks[1], makeVersion ( iu, false ) );
-        }
-        throw new IllegalArgumentException ( String.format ( "Maven reference has invalid syntax: %s", value ) );
+        return result;
     }
 
     private Object[] getSegments ( final Version version )
@@ -145,13 +158,20 @@ public class DefaultMavenMapping implements MavenMapping
         final String groupId = makeGroupIdFromTycho ( iu );
         if ( groupId != null )
         {
-            return prefixGroupId ( groupId );
+            return prefixGroupId ( iu, groupId );
         }
-        return prefixGroupId ( makeGroupIdFromIU ( iu ) );
+        return prefixGroupId ( iu, makeGroupIdFromIU ( iu ) );
     }
 
-    private static String prefixGroupId ( final String groupId )
+    private String prefixGroupId ( final IInstallableUnit iu, String groupId )
     {
+        final String replacementGroupId = this.properties.getProperty ( String.format ( "map.group.id.by.iu.%s", iu.getId () ) );
+        if ( replacementGroupId != null )
+        {
+            // we still need to apply the global mapping
+            groupId = replacementGroupId;
+        }
+
         if ( groupId == null || REPLACE_GROUP_ID_PREFIX == null )
         {
             return groupId;

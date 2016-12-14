@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
- *     Red Hat Inc - show dependencies and exports
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
@@ -15,14 +15,17 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
+import org.osgi.framework.Version;
 
 public class Application implements IApplication
 {
@@ -32,6 +35,10 @@ public class Application implements IApplication
     {
         // final IProgressMonitor pm = new ConsoleProgressMonitor ( new PrintWriter ( System.out ) );
         final IProgressMonitor pm = new NullProgressMonitor ();
+
+        final Version version = context.getBrandingBundle ().getVersion ();
+
+        System.out.format ( "P2 to Maven 2 converter - Version: %s%n", version );
 
         final String[] args = (String[])context.getArguments ().get ( IApplicationContext.APPLICATION_ARGS );
 
@@ -68,24 +75,29 @@ public class Application implements IApplication
 
             processor.process ( pm );
 
-            System.out.println ( "=== START - MAVEN DEPENDENCIES ===" );
-            processor.getMavenDependencies ().stream ().forEach ( System.out::println );
-            System.out.println ( "===  END  - MAVEN DEPENDENCIES ===" );
-
             System.out.println ( "=== START - MAVEN EXPORTS ===" );
             processor.getMavenExports ().stream ().forEach ( System.out::println );
             System.out.println ( "===  END  - MAVEN EXPORTS ===" );
+
+            System.out.println ( "=== START - MAVEN EXTERNAL DEPENDENCIES ===" );
+            final Set<MavenDependency> deps = new LinkedHashSet<> ( processor.getMavenDependencies () );
+            processor.getMavenExports ().stream ().filter ( ref -> ref.getClassifier () == null ).map ( ref -> new MavenDependency ( ref.getGroupId (), ref.getArtifactId (), ref.getVersion (), false ) ).forEach ( deps::remove );
+            deps.stream ().forEach ( System.out::println );
+            System.out.println ( "===  END  - MAVEN EXTERNAL DEPENDENCIES ===" );
 
             final List<String> errors = processor.getErrors ();
             if ( !errors.isEmpty () )
             {
                 System.out.println ( "=== START - ERRORS ===" );
-                System.out.flush ();
-                errors.stream ().forEach ( System.err::println );
-                System.err.flush ();
+                errors.stream ().forEach ( System.out::println );
                 System.out.println ( "===  END  - ERRORS ===" );
             }
 
+            if ( !errors.isEmpty () )
+            {
+                System.out.println ( "Exiting with validation errors!" );
+                return 1;
+            }
         }
 
         // default

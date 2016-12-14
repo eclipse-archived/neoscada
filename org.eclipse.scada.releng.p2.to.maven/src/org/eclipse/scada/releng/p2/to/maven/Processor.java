@@ -11,6 +11,9 @@
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
+import static java.util.Collections.singletonList;
+import static org.eclipse.scada.releng.p2.to.maven.License.EPL;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -133,9 +136,11 @@ public class Processor implements AutoCloseable
 
     private Path tmpBndTools;
 
-    private final String organizationName = System.getProperty ( "pom.origanization.name", "Eclipse Foundation" );
+    private final String organizationName;
 
-    private final String organizationUrl = System.getProperty ( "pom.origanization.url", "http://www.eclipse.org/" );
+    private final String organizationUrl;
+
+    private final LicenseProvider licenseProvider;
 
     public Processor ( final IProvisioningAgent agent, final File output, final URI repositoryLocation, final Properties properties ) throws Exception
     {
@@ -152,6 +157,11 @@ public class Processor implements AutoCloseable
         this.documentBuilderFactor = DocumentBuilderFactory.newInstance ();
         this.documentBuilder = this.documentBuilderFactor.newDocumentBuilder ();
         this.transformerFactory = TransformerFactory.newInstance ();
+
+        this.organizationName = properties.getProperty ( "pom.origanization.name", "Eclipse Foundation" );
+        this.organizationUrl = properties.getProperty ( "pom.origanization.url", "http://www.eclipse.org/" );
+
+        this.licenseProvider = new LicenseProvider ( this.properties );
 
         loadDevelopers ();
         setupBndTools ();
@@ -480,7 +490,18 @@ public class Processor implements AutoCloseable
             System.out.println ( String.format ( "\t%s -> %s", entry.getKey (), entry.getValue () ) );
         }
 
-        final MavenReference ref = this.mapping.makeReference ( iu );
+        final List<MavenReference> refs = this.mapping.makeReference ( iu );
+
+        if ( refs == null )
+        {
+            throw new IllegalStateException ( "Exported artifact must be mappable" );
+        }
+        if ( refs.size () != 1 )
+        {
+            throw new IllegalStateException ( "Exported artifact must be mappable to exactly one Maven reference - currently: " + refs );
+        }
+
+        final MavenReference ref = refs.get ( 0 );
 
         System.out.println ( "POM : " + ref );
 
@@ -525,17 +546,17 @@ public class Processor implements AutoCloseable
             {
                 continue;
             }
-            final MavenDependency dep = makeDependency ( iu, (IRequiredCapability)req, pm );
-            if ( dep != null )
+            final List<MavenDependency> deps = makeDependency ( iu, (IRequiredCapability)req, pm );
+            if ( deps != null )
             {
-                result.add ( dep );
+                result.addAll ( deps );
             }
         }
 
         return result;
     }
 
-    private MavenDependency makeDependency ( final IInstallableUnit iu, final IRequiredCapability req, final IProgressMonitor pm ) throws Exception
+    private List<MavenDependency> makeDependency ( final IInstallableUnit iu, final IRequiredCapability req, final IProgressMonitor pm ) throws Exception
     {
         if ( ignoreDependency ( req ) )
         {
@@ -560,22 +581,29 @@ public class Processor implements AutoCloseable
             return null;
         }
 
-        final MavenReference ref = this.mapping.makeReference ( depIu );
+        final List<MavenReference> refs = this.mapping.makeReference ( depIu );
 
-        if ( ref == null )
+        if ( refs == null )
         {
             return null;
         }
 
-        final MavenDependency result = new MavenDependency ();
+        final List<MavenDependency> result = new ArrayList<> ( refs.size () );
 
-        result.setGroupId ( ref.getGroupId () );
-        result.setArtifactId ( ref.getArtifactId () );
-        result.setVersion ( ref.getVersion () );
+        for ( final MavenReference ref : refs )
+        {
+            final MavenDependency dep = new MavenDependency ();
 
-        result.setOptional ( req.getMin () <= 0 );
+            dep.setGroupId ( ref.getGroupId () );
+            dep.setArtifactId ( ref.getArtifactId () );
+            dep.setVersion ( ref.getVersion () );
 
-        System.out.println ( "\t\tResolve to: " + result );
+            dep.setOptional ( req.getMin () <= 0 );
+
+            result.add ( dep );
+
+            System.out.println ( "\t\tResolve to: " + result );
+        }
 
         return result;
     }
@@ -692,24 +720,21 @@ public class Processor implements AutoCloseable
 
         // license
 
-        if ( ref.getArtifactId ().startsWith ( "org.eclipse." ) )
+        final List<License> lics = this.licenseProvider.getLicenses ( iu );
+        if ( lics != null )
         {
-            addEpl ( project );
+            addLicense ( project, lics );
+        }
+        else if ( ref.getArtifactId ().startsWith ( "org.eclipse." ) )
+        {
+            addLicense ( project, singletonList ( EPL ) );
         }
         else
         {
             this.errors.add ( String.format ( "%s: no license information", ref ) );
         }
 
-        final String scm = loadScm ( versionBase, ref );
-        if ( scm == null )
-        {
-            this.errors.add ( String.format ( "%s: no scm information", ref ) );
-        }
-        else
-        {
-            makeScm ( doc, project, scm );
-        }
+        makeScm ( iu, doc, project, versionBase, ref );
 
         if ( !deps.isEmpty () )
         {
@@ -759,25 +784,44 @@ public class Processor implements AutoCloseable
         addElement ( orga, "url", this.organizationUrl );
     }
 
-    private void makeScm ( final Document doc, final Element project, final String scm )
+    private void makeScm ( final IInstallableUnit iu, final Document doc, final Element project, final Path versionBase, final MavenReference ref )
     {
-        final String[] scmToks = scm.split ( ";", 2 );
+        String scm = null;
+        String scmUrl = null;
+
+        // try override
+
+        scmUrl = this.properties.getProperty ( "scm.url." + iu.getId () );
+        scm = this.properties.getProperty ( "scm.ref." + iu.getId () );
+
+        // try load and map
+
+        if ( scmUrl == null )
+        {
+            scm = loadScm ( versionBase, ref );
+            if ( scm != null )
+            {
+                final String[] scmToks = scm.split ( ";", 2 );
+                if ( scmToks.length > 0 )
+                {
+                    final String key = "scm.url." + scmToks[0];
+                    scmUrl = this.properties.getProperty ( key );
+                }
+            }
+        }
+
+        if ( scmUrl == null )
+        {
+            this.errors.add ( String.format ( "%s: no SCM information", iu.getId () ) );
+            return;
+        }
 
         final Element scmEle = doc.createElement ( "scm" );
         project.appendChild ( scmEle );
         addElement ( scmEle, "connection", scm );
         addElement ( scmEle, "developerConnection", scm );
 
-        if ( scmToks.length > 0 )
-        {
-            final String key = "scm.url." + scmToks[0];
-            final String url = this.properties.getProperty ( key );
-            if ( url == null )
-            {
-                throw new IllegalStateException ( String.format ( "SCM URL missing for key '%s'", key ) );
-            }
-            addElement ( scmEle, "url", url );
-        }
+        addElement ( scmEle, "url", scmUrl );
     }
 
     private void addDevelopers ( final Element project )
@@ -803,6 +847,8 @@ public class Processor implements AutoCloseable
 
     private String loadScm ( final Path versionBase, final MavenReference ref )
     {
+        // Try reading SCM
+
         try
         {
             final Path jarFile = makeJarFile ( versionBase, ref );
@@ -841,19 +887,22 @@ public class Processor implements AutoCloseable
         return versionBase.resolve ( ref.getArtifactId () + "-" + ref.getVersion () + ".jar" );
     }
 
-    private void addEpl ( final Element project )
+    private void addLicense ( final Element project, final List<License> licenses )
     {
         final Document doc = project.getOwnerDocument ();
 
         final Element lics = doc.createElement ( "licenses" );
         project.appendChild ( lics );
 
-        final Element lic = doc.createElement ( "license" );
-        lics.appendChild ( lic );
+        for ( final License license : licenses )
+        {
+            final Element lic = doc.createElement ( "license" );
+            lics.appendChild ( lic );
 
-        addElement ( lic, "name", "The Eclipse Public License Version 1.0" );
-        addElement ( lic, "url", "http://www.eclipse.org/legal/epl-v10.html" );
-        addElement ( lic, "distribution", "repo" );
+            addElement ( lic, "name", license.getName () );
+            addElement ( lic, "url", license.getUrl () );
+            addElement ( lic, "distribution", "repo" );
+        }
     }
 
     private String makeProjectUrl ( final IInstallableUnit iu )

@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
- *     Red Hat Inc - implement comparator
+ *     Red Hat Inc - enhancements
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
@@ -24,6 +24,18 @@ public class MavenDependency
     private String version;
 
     private boolean optional;
+
+    public MavenDependency ()
+    {
+    }
+
+    public MavenDependency ( final String groupId, final String artifactId, final String version, final boolean optional )
+    {
+        this.groupId = groupId;
+        this.artifactId = artifactId;
+        this.version = version;
+        this.optional = optional;
+    }
 
     public String getGroupId ()
     {
