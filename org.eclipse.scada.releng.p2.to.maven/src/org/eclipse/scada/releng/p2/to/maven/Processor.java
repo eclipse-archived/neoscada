@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.scada.releng.p2.to.maven;
 
+import static java.lang.Integer.getInteger;
 import static java.util.Collections.singletonList;
 import static org.eclipse.scada.releng.p2.to.maven.License.EPL;
 
@@ -365,8 +366,9 @@ public class Processor implements AutoCloseable
         final HttpURLConnection con = (HttpURLConnection)url.openConnection ();
         con.setAllowUserInteraction ( false );
         con.setUseCaches ( false );
-        con.setConnectTimeout ( 10_000 );
-        con.setReadTimeout ( 10_000 );
+
+        con.setConnectTimeout ( getInteger ( "maven.central.connectTimeout", getInteger ( "maven.central.timeout", 0 ) ) );
+        con.setReadTimeout ( getInteger ( "maven.central.readTimeout", getInteger ( "maven.central.timeout", 0 ) ) );
 
         con.connect ();
 
