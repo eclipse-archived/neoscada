@@ -9,7 +9,7 @@ http://www.eclipse.org/legal/epl-v10.html
 
 Contributors:
     IBH SYSTEMS GmbH - initial implementation
-    Red Hat Inc - upgrade to p2tom2 0.3.0
+    Red Hat Inc - enhancements
 -->
 
 <!-- ====================================================================== 
@@ -30,7 +30,7 @@ Contributors:
     <property name="download.dir.p2" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
     
     <property name="p2tom2.file" location="p2tom2.properties"/>
-	<property name="p2tom2.version" value="0.4.1"/>
+	<property name="p2tom2.version" value="0.4.2"/>
     
     <!-- ================================= 
           target: default

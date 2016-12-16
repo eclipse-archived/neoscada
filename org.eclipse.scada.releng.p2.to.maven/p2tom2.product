@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="P2 to Maven Converter" uid="org.eclipse.scada.releng.p2.to.maven.app" id="org.eclipse.scada.releng.p2.to.maven.product" application="org.eclipse.scada.releng.p2.to.maven.app" version="0.4.1" useFeatures="true" includeLaunchers="false">
+<product name="P2 to Maven Converter" uid="org.eclipse.scada.releng.p2.to.maven.app" id="org.eclipse.scada.releng.p2.to.maven.product" application="org.eclipse.scada.releng.p2.to.maven.app" version="0.4.2" useFeatures="true" includeLaunchers="false">
+
 
    <configIni use="default">
    </configIni>
@@ -22,8 +23,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="javax.xml"/>
@@ -59,5 +62,12 @@
       <property name="gosh.args" value="--nointeractive" />
       <property name="osgi.console.enable.builtin" value="false" />
    </configurations>
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
 
 </product>
