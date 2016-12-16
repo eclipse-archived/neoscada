@@ -24,6 +24,8 @@ Contributors:
         <format property="buildTimestamp" pattern="yyyyMMddHHmm"/>
     </tstamp>
     
+	<property environment="env" />
+	
     <property file="default.properties"/>
 
     <property name="download.dir.maven" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/maven"/>
