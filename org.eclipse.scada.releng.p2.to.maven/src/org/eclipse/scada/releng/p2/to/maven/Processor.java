@@ -176,12 +176,16 @@ public class Processor implements AutoCloseable
     private void setupBndTools () throws IOException
     {
         this.tmpBndTools = Files.createTempFile ( "bndtools-", ".jar" );
-        final URL url = new URL ( "https://repo1.maven.org/maven2/biz/aQute/bnd/biz.aQute.bnd/3.3.0/biz.aQute.bnd-3.3.0.jar" );
+        final URL url = new URL ( "http://repo1.maven.org/maven2/biz/aQute/bnd/biz.aQute.bnd/3.3.0/biz.aQute.bnd-3.3.0.jar" );
+
+        System.out.format ( "Loading: %s...%n", url );
 
         try ( InputStream in = url.openStream (); OutputStream out = Files.newOutputStream ( this.tmpBndTools ); )
         {
             ByteStreams.copy ( in, out );
         }
+
+        System.out.format ( "Loading: %s... done!%n", url );
     }
 
     @Override

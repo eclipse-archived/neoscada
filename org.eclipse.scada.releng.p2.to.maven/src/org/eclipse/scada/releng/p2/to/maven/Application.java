@@ -64,6 +64,8 @@ public class Application implements IApplication
         final File p2temp = new File ( p.getProperty ( "path.p2temp", p.getProperty ( "path.output" ) ) );
         p2temp.mkdirs ();
 
+        System.out.format ( "Getting P2 agent: %s%n", p2temp );
+
         final IProvisioningAgent agent = Activator.getAgent ( p2temp.toURI () );
 
         try ( Processor processor = new Processor ( agent, output, new URI ( args[1] ), p ) )
