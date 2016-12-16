@@ -190,6 +190,8 @@ Contributors:
                 </fileset>
             </classpath>
             
+        	<jvmarg line="${env.JAVA_ARGS}"/>
+        	
             <arg value="-consoleLog" />
 
             <arg value="file:${p2tom2.file}" /> <!-- configuration -->
