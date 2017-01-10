@@ -24,6 +24,9 @@ import java.io.PrintWriter;
 import java.lang.ProcessBuilder.Redirect;
 import java.lang.reflect.Constructor;
 import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.Proxy.Type;
 import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -181,7 +184,8 @@ public class Processor implements AutoCloseable
 
         System.out.format ( "Loading: %s...%n", url );
 
-        try ( InputStream in = url.openStream (); OutputStream out = Files.newOutputStream ( this.tmpBndTools ); )
+        try ( InputStream in = openConnection ( url ).getInputStream ();
+              OutputStream out = Files.newOutputStream ( this.tmpBndTools ); )
         {
             ByteStreams.copy ( in, out );
         }
@@ -365,7 +369,7 @@ public class Processor implements AutoCloseable
         final String uri = String.format ( "http://central.maven.org/maven2/%s/%s/%s/%s", group, ref.getArtifactId (), ref.getVersion (), ref.toFileName () );
 
         final URL url = new URL ( uri );
-        final HttpURLConnection con = (HttpURLConnection)url.openConnection ();
+        final HttpURLConnection con = openConnection ( url );
         con.setAllowUserInteraction ( false );
 
         con.setConnectTimeout ( getInteger ( "maven.central.connectTimeout", getInteger ( "maven.central.timeout", 0 ) ) );
@@ -402,6 +406,22 @@ public class Processor implements AutoCloseable
         }
 
         return true;
+    }
+
+    private HttpURLConnection openConnection ( final URL url ) throws IOException
+    {
+        final String host = this.properties.getProperty ( "local.proxy.host" );
+        final String port = this.properties.getProperty ( "local.proxy.port" );
+
+        if ( host != null && port != null )
+        {
+            final Proxy proxy = new Proxy ( Type.HTTP, new InetSocketAddress ( host, Integer.parseInt ( port ) ) );
+            return (HttpURLConnection)url.openConnection ( proxy );
+        }
+        else
+        {
+            return (HttpURLConnection)url.openConnection ();
+        }
     }
 
     private void performBaselineCheck ( final Path newFile, final Path oldFile ) throws Exception
