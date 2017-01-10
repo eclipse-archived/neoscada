@@ -179,6 +179,8 @@
         <attribute name="platform" />
         <sequential>
             <exec executable="${curl.root}curl" failifexecutionfails="true" failonerror="true">
+            	<arg value="--proxy"/>
+            	<arg value="http://proxy.eclipse.org:9898"/>
                 <arg value="-o" />
                 <arg value="common_driver_${visibleVersion}_@{platform}.msi" />
                 <arg value="-F" />
