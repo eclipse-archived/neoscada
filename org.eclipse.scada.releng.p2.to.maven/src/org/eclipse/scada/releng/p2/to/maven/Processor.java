@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2017 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -255,7 +255,7 @@ public class Processor implements AutoCloseable
 
         for ( final URI uri : this.validationRepositoryUris )
         {
-            System.out.println ( "Loading validation repository: " + uri );
+            System.out.format ( "Loading validation repository: %s%n", uri );
             final IMetadataRepository repo = this.metaManager.loadRepository ( uri, pm );
             this.validationRepositories.put ( uri, repo );
             System.out.println ( "Done!" );
@@ -358,6 +358,8 @@ public class Processor implements AutoCloseable
 
     private boolean shouldUpload ( final MavenReference ref ) throws Exception
     {
+        System.out.format ( "baseline validation: %s%n", ref );
+
         final String group = ref.getGroupId ().replace ( '.', '/' );
 
         final String uri = String.format ( "http://central.maven.org/maven2/%s/%s/%s/%s", group, ref.getArtifactId (), ref.getVersion (), ref.toFileName () );
@@ -365,32 +367,38 @@ public class Processor implements AutoCloseable
         final URL url = new URL ( uri );
         final HttpURLConnection con = (HttpURLConnection)url.openConnection ();
         con.setAllowUserInteraction ( false );
-        con.setUseCaches ( false );
 
         con.setConnectTimeout ( getInteger ( "maven.central.connectTimeout", getInteger ( "maven.central.timeout", 0 ) ) );
         con.setReadTimeout ( getInteger ( "maven.central.readTimeout", getInteger ( "maven.central.timeout", 0 ) ) );
 
         con.connect ();
-
-        if ( con.getResponseCode () == 404 )
-        {
-            // file is not there ... upload
-            return true;
-        }
-
-        final Path tmp = Files.createTempFile ( null, ".jar" );
         try
         {
-            try ( InputStream in = con.getInputStream (); OutputStream out = Files.newOutputStream ( tmp ) )
+            if ( con.getResponseCode () == 404 )
             {
-                ByteStreams.copy ( in, out );
+                // file is not there ... upload
+                return true;
             }
 
-            performBaselineCheck ( makeJarFile ( makeVersionBase ( ref ), ref ), tmp );
+            final Path tmp = Files.createTempFile ( null, ".jar" );
+            try
+            {
+                try ( final InputStream in = con.getInputStream ();
+                      final OutputStream out = Files.newOutputStream ( tmp ) )
+                {
+                    ByteStreams.copy ( in, out );
+                }
+
+                performBaselineCheck ( makeJarFile ( makeVersionBase ( ref ), ref ), tmp );
+            }
+            finally
+            {
+                Files.deleteIfExists ( tmp );
+            }
         }
         finally
         {
-            Files.deleteIfExists ( tmp );
+            con.disconnect ();
         }
 
         return true;
@@ -689,6 +697,7 @@ public class Processor implements AutoCloseable
 
         try ( JarOutputStream jar = new JarOutputStream ( Files.newOutputStream ( file ) ) )
         {
+            // create an empty JAR
         }
 
         makeChecksum ( "MD5", file, versionBase.resolve ( name + ".md5" ) );
@@ -1025,7 +1034,7 @@ public class Processor implements AutoCloseable
         final MessageDigest md = MessageDigest.getInstance ( mdName );
         final byte[] buffer = new byte[4096];
 
-        try ( InputStream input = new BufferedInputStream ( Files.newInputStream ( sourceFile ) ) )
+        try ( final InputStream input = new BufferedInputStream ( Files.newInputStream ( sourceFile ) ) )
         {
             int len;
             while ( ( len = input.read ( buffer ) ) > 0 )
