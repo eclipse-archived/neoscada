@@ -201,8 +201,8 @@ Contributors:
             <!-- validation repos -->
             <arg value="http://download.eclipse.org/releases/neon"/>
             
-        	<sysproperty key="local.proxy.host" file="proxy.eclipse.org"/>
-        	<sysproperty key="local.proxy.port" file="9898"/>
+        	<sysproperty key="local.proxy.host" value="proxy.eclipse.org"/>
+        	<sysproperty key="local.proxy.port" value="9898"/>
         	
             <sysproperty key="path.p2temp" file="temp/p2tom2/tmp"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
