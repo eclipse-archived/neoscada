@@ -13,6 +13,7 @@ package org.eclipse.neoscada.da.server.exporter.iec60870;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -117,6 +118,8 @@ public class DataModelImpl extends ChangeDataModel
 
     private final Map<AddressKey, String> addressMap = new HashMap<> ();
 
+    private final Set<MappingEntry> entries;
+
     public DataModelImpl ( final HiveSource hiveSource, final Set<MappingEntry> entries, final Properties hiveProperties, final InformationBean info, final Long flushDelay, final boolean supportBackgroundScan )
     {
         super ( "org.eclipse.neoscada.da.server.exporter.iec60870.DataModel" );
@@ -131,10 +134,8 @@ public class DataModelImpl extends ChangeDataModel
             this.addressMap.put ( new AddressKey ( entry.getAsduAddress ().getAddress (), entry.getAddress ().getAddress () ), entry.getItemId () );
         }
 
+        this.entries = new HashSet<> ( entries );
         this.manager = new SingleSubscriptionManager ( this.executor, hiveSource, hiveProperties, "IEC60870/DataModel" );
-        this.manager.start ();
-
-        attach ( entries );
     }
 
     @Override
@@ -322,6 +323,16 @@ public class DataModelImpl extends ChangeDataModel
             default:
                 return new Value<> ( false, System.currentTimeMillis (), QualityInformation.INVALID );
         }
+    }
+
+    @Override
+    public synchronized void start ()
+    {
+        this.manager.start ();
+
+        super.start ();
+
+        attach ( this.entries );
     }
 
     @Override
