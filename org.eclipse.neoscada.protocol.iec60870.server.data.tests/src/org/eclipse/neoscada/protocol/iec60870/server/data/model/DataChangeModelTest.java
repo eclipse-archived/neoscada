@@ -45,7 +45,6 @@ public class DataChangeModelTest
     @Before
     public void before ()
     {
-        System.out.println ( "Before" );
         this.model = new MockChangeDataModel ( null );
         this.threads = Thread.getAllStackTraces ().keySet ().toArray ( new Thread[0] );
     }
@@ -53,8 +52,6 @@ public class DataChangeModelTest
     @After
     public void after () throws Exception
     {
-        System.out.println ( "After" );
-
         this.model.stop ().await ();
         this.model = null;
 
