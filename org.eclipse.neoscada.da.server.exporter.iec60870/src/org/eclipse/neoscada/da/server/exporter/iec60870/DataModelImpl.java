@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2017 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -333,20 +333,20 @@ public class DataModelImpl extends ChangeDataModel
 
     protected Action prepareCommand ( final WriteModel.Request<Boolean> request )
     {
-        return perpareWrite ( request, Variant.valueOf ( request.getValue () ) );
+        return prepareWrite ( request, Variant.valueOf ( request.getValue () ) );
     }
 
     protected Action prepareSetpointFloat ( final WriteModel.Request<Float> request )
     {
-        return perpareWrite ( request, Variant.valueOf ( request.getValue () ) );
+        return prepareWrite ( request, Variant.valueOf ( request.getValue () ) );
     }
 
     protected Action prepareSetpointScaled ( final WriteModel.Request<Short> request )
     {
-        return perpareWrite ( request, Variant.valueOf ( request.getValue () ) );
+        return prepareWrite ( request, Variant.valueOf ( request.getValue () ) );
     }
 
-    private synchronized Action perpareWrite ( final WriteModel.Request<?> request, final Variant value )
+    private synchronized Action prepareWrite ( final WriteModel.Request<?> request, final Variant value )
     {
         logger.debug ( "Request to write - request: {}, value: {}", request, value );
 
