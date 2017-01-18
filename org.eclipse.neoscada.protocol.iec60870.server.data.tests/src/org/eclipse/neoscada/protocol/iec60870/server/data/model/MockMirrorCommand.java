@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Red Hat Inc and others.
+ * Copyright (c) 2016, 2017 Red Hat Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,13 +21,13 @@ public final class MockMirrorCommand implements MirrorCommand
     private int termination;
 
     @Override
-    public void sendActivationTermination ()
+    public synchronized void sendActivationTermination ()
     {
         this.termination++;
     }
 
     @Override
-    public void sendActivationConfirm ( final boolean positive )
+    public synchronized void sendActivationConfirm ( final boolean positive )
     {
         if ( positive )
         {
@@ -39,17 +39,17 @@ public final class MockMirrorCommand implements MirrorCommand
         }
     }
 
-    public int getPositive ()
+    public synchronized int getPositive ()
     {
         return this.positive;
     }
 
-    public int getNegative ()
+    public synchronized int getNegative ()
     {
         return this.negative;
     }
 
-    public int getTermination ()
+    public synchronized int getTermination ()
     {
         return this.termination;
     }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Red Hat Inc and others.
+ * Copyright (c) 2016, 2017 Red Hat Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,10 +10,13 @@
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.server.data.model;
 
+import static java.util.Optional.ofNullable;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
@@ -88,9 +91,16 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
     }
 
     @Override
-    public void start ()
+    public synchronized void start ()
     {
+        if ( this.changeModel != null )
+        {
+            // second start
+            return;
+        }
+
         super.start ();
+
         this.changeModel = createChangeModel ();
         this.writeModel = createWriteModel ();
         this.backgroundModel = createBackgroundModel ();
@@ -104,18 +114,22 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
 
     private synchronized Stopping internalDispose ()
     {
-        final Runnable cmDispose = this.changeModel.dispose ();
-        final Runnable wmDispose = this.writeModel.dispose ();
-        final Runnable bmDispose = this.backgroundModel.dispose ();
+        final Optional<Runnable> cmDispose = ofNullable ( this.changeModel ).map ( ChangeModel::dispose );
+        final Optional<Runnable> wmDispose = ofNullable ( this.writeModel ).map ( WriteModel::dispose );
+        final Optional<Runnable> bmDispose = ofNullable ( this.backgroundModel ).map ( BackgroundModel::dispose );
+
+        this.changeModel = null;
+        this.writeModel = null;
+        this.backgroundModel = null;
 
         return new Stopping () {
 
             @Override
             public void await () throws Exception
             {
-                cmDispose.run ();
-                wmDispose.run ();
-                bmDispose.run ();
+                cmDispose.ifPresent ( Runnable::run );
+                wmDispose.ifPresent ( Runnable::run );
+                bmDispose.ifPresent ( Runnable::run );
             }
         };
     }
@@ -214,10 +228,13 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
         scheduleCommand ( new WriteModel.Request<> ( header, informationObjectAddress, value, type, execute ), mirrorCommand, WriteModel::prepareSetpointScaled );
     }
 
-    private <T> void scheduleCommand ( final Request<T> request, final MirrorCommand mirrorCommand, final BiFunction<WriteModel, Request<T>, Action> func )
+    private synchronized <T> void scheduleCommand ( final Request<T> request, final MirrorCommand mirrorCommand, final BiFunction<WriteModel, Request<T>, Action> func )
     {
+        // make a copy so that when we got stopped, we still have our reference
+        final WriteModel writeModel = this.writeModel;
+
         this.executor.execute ( () -> {
-            final Action action = func.apply ( this.writeModel, request );
+            final Action action = func.apply ( writeModel, request );
             if ( action == null )
             {
                 mirrorCommand.sendActivationConfirm ( false );

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016 Red Hat Inc and others.
+ * Copyright (c) 2016, 2017 Red Hat Inc and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -45,6 +45,7 @@ public class DataChangeModelTest
     @Before
     public void before ()
     {
+        System.out.println ( "Before" );
         this.model = new MockChangeDataModel ( null );
         this.threads = Thread.getAllStackTraces ().keySet ().toArray ( new Thread[0] );
     }
@@ -52,7 +53,10 @@ public class DataChangeModelTest
     @After
     public void after () throws Exception
     {
+        System.out.println ( "After" );
+
         this.model.stop ().await ();
+        this.model = null;
 
         Thread.sleep ( 50 ); // thread count grace period
 
@@ -79,6 +83,13 @@ public class DataChangeModelTest
         this.model.stop ();
 
         // double stop should not fail
+        this.model.stop ();
+    }
+
+    @Test
+    public void test1b ()
+    {
+        // no start, stop should not fail as well
         this.model.stop ();
     }
 

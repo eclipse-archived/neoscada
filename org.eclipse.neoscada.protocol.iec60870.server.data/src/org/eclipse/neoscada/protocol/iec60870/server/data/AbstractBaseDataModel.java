@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014, 2016 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2017 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -123,8 +123,14 @@ public abstract class AbstractBaseDataModel implements DataModel
     }
 
     @Override
-    public void start ()
+    public synchronized void start ()
     {
+        if ( this.executor != null )
+        {
+            // double start
+            return;
+        }
+
         this.executor = MoreExecutors.listeningDecorator ( Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( this.threadName, false, true ) ) );
     }
 
@@ -142,10 +148,7 @@ public abstract class AbstractBaseDataModel implements DataModel
         this.subscriptions.clear ();
         this.numberOfSubscriptions = 0;
 
-        if ( executor != null )
-        {
-            executor.shutdown ();
-        }
+        executor.shutdown ();
 
         return new Stopping () {
 
