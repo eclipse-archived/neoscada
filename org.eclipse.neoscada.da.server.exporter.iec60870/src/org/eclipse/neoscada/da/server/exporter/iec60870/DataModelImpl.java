@@ -112,13 +112,17 @@ public class DataModelImpl extends ChangeDataModel
 
     private final boolean supportBackgroundScan;
 
-    private final SingleSubscriptionManager manager;
+    private SingleSubscriptionManager manager;
 
     private final InformationBean info;
 
     private final Map<AddressKey, String> addressMap = new HashMap<> ();
 
+    private final HiveSource hiveSource;
+
     private final Set<MappingEntry> entries;
+
+    private final Properties hiveProperties;
 
     public DataModelImpl ( final HiveSource hiveSource, final Set<MappingEntry> entries, final Properties hiveProperties, final InformationBean info, final Long flushDelay, final boolean supportBackgroundScan )
     {
@@ -127,15 +131,16 @@ public class DataModelImpl extends ChangeDataModel
         this.flushDelay = flushDelay;
         this.supportBackgroundScan = supportBackgroundScan;
 
+        this.hiveSource = hiveSource;
+        this.entries = new HashSet<> ( entries );
+        this.hiveProperties = hiveProperties;
+
         this.info = info;
 
         for ( final MappingEntry entry : entries )
         {
             this.addressMap.put ( new AddressKey ( entry.getAsduAddress ().getAddress (), entry.getAddress ().getAddress () ), entry.getItemId () );
         }
-
-        this.entries = new HashSet<> ( entries );
-        this.manager = new SingleSubscriptionManager ( this.executor, hiveSource, hiveProperties, "IEC60870/DataModel" );
     }
 
     @Override
@@ -328,6 +333,7 @@ public class DataModelImpl extends ChangeDataModel
     @Override
     public synchronized void start ()
     {
+        this.manager = new SingleSubscriptionManager ( this.executor, this.hiveSource, this.hiveProperties, "IEC60870/DataModel" );
         this.manager.start ();
 
         super.start ();
