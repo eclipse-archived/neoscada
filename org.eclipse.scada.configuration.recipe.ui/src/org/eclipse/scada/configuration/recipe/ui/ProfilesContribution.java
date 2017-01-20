@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014, 2017 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - Fix possible NPE
  *******************************************************************************/
 package org.eclipse.scada.configuration.recipe.ui;
 
@@ -72,6 +73,10 @@ public class ProfilesContribution extends CompoundContributionItem implements IW
         {
             try
             {
+                if ( res == null || res.getContentDescription () == null || res.getContentDescription ().getContentType () == null )
+                {
+                    continue;
+                }
                 if ( !CONTENT_TYPE_ID.equals ( res.getContentDescription ().getContentType ().getId () ) )
                 {
                     continue;
@@ -110,7 +115,7 @@ public class ProfilesContribution extends CompoundContributionItem implements IW
             }
         }
     }
-    
+
     private void addFromObject ( final List<IContributionItem> defs, final ISelection sel )
     {
         for ( final Definition def : SelectionHelper.iterable ( sel, Definition.class ) )
