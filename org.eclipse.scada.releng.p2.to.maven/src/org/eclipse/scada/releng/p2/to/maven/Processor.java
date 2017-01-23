@@ -73,6 +73,8 @@ import org.eclipse.equinox.p2.repository.artifact.IArtifactRepositoryManager;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepository;
 import org.eclipse.equinox.p2.repository.metadata.IMetadataRepositoryManager;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+import org.osgi.framework.Version;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -82,6 +84,12 @@ import com.google.common.io.ByteStreams;
 public class Processor implements AutoCloseable
 {
     private static final SimpleDateFormat META_DF = new SimpleDateFormat ( "yyyyMMddHHmmss" );
+
+    @FunctionalInterface
+    private interface IOFunction<T, R>
+    {
+        R apply ( T t ) throws IOException;
+    }
 
     private static class Developer
     {
@@ -150,6 +158,8 @@ public class Processor implements AutoCloseable
 
     private final LicenseProvider licenseProvider;
 
+    private final boolean checkQualifier;
+
     public Processor ( final IProvisioningAgent agent, final File output, final URI repositoryLocation, final Properties properties ) throws Exception
     {
         this.mapping = makeMappingInstance ( properties );
@@ -172,6 +182,8 @@ public class Processor implements AutoCloseable
         this.licenseProvider = new LicenseProvider ( this.properties );
 
         this.scrubJars = Boolean.parseBoolean ( properties.getProperty ( "scrubJars" ) );
+
+        this.checkQualifier = Boolean.parseBoolean ( properties.getProperty ( "checkQualifier", "true" ) );
 
         loadDevelopers ();
         setupBndTools ();
@@ -433,6 +445,23 @@ public class Processor implements AutoCloseable
     private void performBaselineCheck ( final Path newFile, final Path oldFile ) throws Exception
     {
         System.out.format ( "Comparing - %s - %s%n", newFile, oldFile );
+
+        if ( this.checkQualifier )
+        {
+            final String oldQualifier = readQualifier ( oldFile );
+            final String newQualifier = readQualifier ( newFile );
+
+            System.out.format ( "Qualifier : %s -> %s", oldQualifier, newQualifier );
+
+            if ( oldQualifier != null && newQualifier != null )
+            {
+                if ( !oldQualifier.equals ( newQualifier ) )
+                {
+                    // we have the same base version, now check for the qualifier
+                    this.errors.add ( String.format ( "Qualifier change! %s -> %s", oldQualifier, newQualifier ) );
+                }
+            }
+        }
 
         // compare with downloaded version (which is the same version)
 
@@ -895,7 +924,7 @@ public class Processor implements AutoCloseable
         }
     }
 
-    private String loadScm ( final Path versionBase, final MavenReference ref )
+    private static String processJar ( final Path versionBase, final MavenReference ref, final IOFunction<Path, String> func )
     {
         // Try reading SCM
 
@@ -908,7 +937,7 @@ public class Processor implements AutoCloseable
                 return null;
             }
 
-            return readSourceReference ( jarFile );
+            return func.apply ( jarFile );
         }
         catch ( final Exception e )
         {
@@ -918,13 +947,28 @@ public class Processor implements AutoCloseable
         return null;
     }
 
-    private String readSourceReference ( final Path jarFile ) throws IOException
+    private static String loadScm ( final Path versionBase, final MavenReference ref )
     {
-        final Manifest mf = readManifest ( jarFile );
-        return mf.getMainAttributes ().getValue ( "Eclipse-SourceReferences" );
+        return processJar ( versionBase, ref, Processor::readSourceReference );
     }
 
-    private Manifest readManifest ( final Path jarFile ) throws IOException
+    private static String readSourceReference ( final Path jarFile ) throws IOException
+    {
+        return readManifest ( jarFile ).getMainAttributes ().getValue ( "Eclipse-SourceReferences" );
+    }
+
+    private static String readQualifier ( final Path jarFile ) throws IOException
+    {
+        final String version = readManifest ( jarFile ).getMainAttributes ().getValue ( Constants.BUNDLE_VERSION );
+        if ( version == null )
+        {
+            return version;
+        }
+
+        return Version.parseVersion ( version ).getQualifier ();
+    }
+
+    private static Manifest readManifest ( final Path jarFile ) throws IOException
     {
         try ( final JarFile jar = new JarFile ( jarFile.toFile () ) )
         {
