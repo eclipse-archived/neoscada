@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
+Copyright (c) 2013, 2017 IBH SYSTEMS GmbH and others.
 All rights reserved. This program and the accompanying materials
 are made available under the terms of the Eclipse Public License v1.0
 which accompanies this distribution, and is available at
@@ -178,6 +178,8 @@ Contributors:
         <mkdir dir="temp/p2tom2"/>
     	<mkdir dir="temp/p2tom2/tmp"/>
         
+    	<echo message="P2toM2: ${p2tom2.version}"/>
+    	
         <get src="http://download.eclipse.org/eclipsescada/releng/p2tom2-${p2tom2.version}.zip" dest="temp/p2tom2.zip" usetimestamp="true"/>
         <unzip src="temp/p2tom2.zip" dest="temp"/>
         
