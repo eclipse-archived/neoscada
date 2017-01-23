@@ -444,21 +444,21 @@ public class Processor implements AutoCloseable
 
     private void performBaselineCheck ( final Path newFile, final Path oldFile ) throws Exception
     {
-        System.out.format ( "Comparing - %s - %s%n", newFile, oldFile );
+        System.out.format ( "\tComparing - %s - %s%n", newFile, oldFile );
 
         if ( this.checkQualifier )
         {
             final String oldQualifier = readQualifier ( oldFile );
             final String newQualifier = readQualifier ( newFile );
 
-            System.out.format ( "Qualifier : %s -> %s", oldQualifier, newQualifier );
+            System.out.format ( "\tQualifier : %s -> %s%n", oldQualifier, newQualifier );
 
             if ( oldQualifier != null && newQualifier != null )
             {
                 if ( !oldQualifier.equals ( newQualifier ) )
                 {
                     // we have the same base version, now check for the qualifier
-                    this.errors.add ( String.format ( "Qualifier change! %s -> %s", oldQualifier, newQualifier ) );
+                    this.errors.add ( String.format ( "Qualifier change! %s : %s -> %s", newFile.getFileName (), oldQualifier, newQualifier ) );
                 }
             }
         }
