@@ -289,6 +289,8 @@ public class Processor implements AutoCloseable
 
         final Set<MavenReference> skips = new HashSet<> ();
 
+        // process only main artifacts as first step
+
         for ( final MavenReference export : exports )
         {
             if ( export.getClassifier () != null )
@@ -298,6 +300,7 @@ public class Processor implements AutoCloseable
 
             if ( !shouldUpload ( export ) )
             {
+                System.out.println ( "Skipping upload of: " + export );
                 skips.add ( export );
             }
         }
@@ -378,7 +381,9 @@ public class Processor implements AutoCloseable
         con.connect ();
         try
         {
-            if ( con.getResponseCode () == 404 )
+            final int rc = con.getResponseCode ();
+            System.out.format ( "\t%s -> %s%n", url, rc );
+            if ( rc == 404 )
             {
                 // file is not there ... upload
                 return true;
