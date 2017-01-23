@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2017 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - bugfixing
+ *     Red Hat Inc - bugfixing
  *******************************************************************************/
 package org.eclipse.scada.utils.concurrent;
 
@@ -41,7 +42,7 @@ public class ExecutorServiceExporterImpl implements ExecutorServiceExporterMXBea
 
         try
         {
-            final String escapedKey = key.replaceAll ( "[:=\\?]", "\\$" );
+            final String escapedKey = key.replaceAll ( "[:=\\?\\*]", "\\$" );
             this.name = new ObjectName ( "org.eclipse.scada.utils.concurrent", "executorService", escapedKey );
             this.mbs.registerMBean ( this, this.name );
             this.didRegister = true;
