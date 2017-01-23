@@ -405,7 +405,8 @@ public class Processor implements AutoCloseable
             con.disconnect ();
         }
 
-        return true;
+        // don't upload, since the bundle is already there
+        return false;
     }
 
     private HttpURLConnection openConnection ( final URL url ) throws IOException
@@ -428,6 +429,8 @@ public class Processor implements AutoCloseable
     {
         System.out.format ( "Comparing - %s - %s%n", newFile, oldFile );
 
+        // compare with downloaded version (which is the same version)
+
         final ProcessBuilder pb = new ProcessBuilder ( "java", "-jar", this.tmpBndTools.toString (), "baseline", newFile.toAbsolutePath ().toString (), oldFile.toAbsolutePath ().toString () );
         pb.redirectError ( Redirect.INHERIT );
 
@@ -444,6 +447,7 @@ public class Processor implements AutoCloseable
             {
                 if ( line.contains ( "MAJOR" ) || line.contains ( "MINOR" ) )
                 {
+                    // if versions are the same but bundles are incompatible, fail
                     this.errors.add ( String.format ( "Baseline validation failed for: %s - %s", newFile.getFileName (), String.join ( "\n", lines ) ) );
                 }
             }
