@@ -333,10 +333,12 @@ public class DataModelImpl extends ChangeDataModel
     @Override
     public synchronized void start ()
     {
+        super.start ();
+
+        // initialize after the executor has been initialized
+
         this.manager = new SingleSubscriptionManager ( this.executor, this.hiveSource, this.hiveProperties, "IEC60870/DataModel" );
         this.manager.start ();
-
-        super.start ();
 
         attach ( this.entries );
     }

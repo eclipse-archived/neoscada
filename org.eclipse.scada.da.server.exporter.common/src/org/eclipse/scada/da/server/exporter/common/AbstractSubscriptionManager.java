@@ -7,8 +7,11 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     Red Hat Inc - fixing bugs
  *******************************************************************************/
 package org.eclipse.scada.da.server.exporter.common;
+
+import static java.util.Objects.requireNonNull;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -110,7 +113,7 @@ public abstract class AbstractSubscriptionManager
     {
         this.properties = properties;
         this.hiveSource = hiveSource;
-        this.executor = executor;
+        this.executor = requireNonNull ( executor );
         this.logName = logName;
     }
 

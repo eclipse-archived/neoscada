@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.exporter.common;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -44,7 +46,7 @@ public class SingleSubscriptionManager extends AbstractSubscriptionManager
     public SingleSubscriptionManager ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties, final String logName )
     {
         super ( hiveSource, properties, executor, logName );
-        this.executor = executor;
+        this.executor = requireNonNull ( executor );
     }
 
     @Override
