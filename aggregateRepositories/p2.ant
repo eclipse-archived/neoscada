@@ -34,6 +34,9 @@ Contributors:
     
     <property name="p2tom2.file" location="p2tom2.properties"/>
 	<property name="p2tom2.version" value="0.4.5"/>
+	
+	<property name="local.proxy.host" value="proxy.eclipse.org"/>
+	<property name="local.proxy.port" value="9898"/>
     
     <!-- ================================= 
           target: default
@@ -204,8 +207,8 @@ Contributors:
             <!-- validation repos -->
             <arg value="http://download.eclipse.org/releases/neon"/>
             
-        	<sysproperty key="local.proxy.host" value="proxy.eclipse.org"/>
-        	<sysproperty key="local.proxy.port" value="9898"/>
+        	<sysproperty key="local.proxy.host" value="${local.proxy.host}"/>
+        	<sysproperty key="local.proxy.port" value="${local.proxy.port}"/>
         	
             <sysproperty key="path.p2temp" file="temp/p2tom2/tmp"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
