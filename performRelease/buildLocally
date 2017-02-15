@@ -40,6 +40,8 @@ mvn clean verify \
   -f org.eclipse.scada.releng/aggregator/pom.xml \
   -Prpm -Pdeb -Peclipse-hudson \
  '-P!nightly' "-P$TYPE" \
+  -Dlocal.proxy.host= \
+  -Dlocal.proxy.port= \
   -Ddownload.root=/tmp/my-download-test \
  '-Declipse.download.root=http://www.eclipse.org/downloads/download.php?r=1&file='
   
