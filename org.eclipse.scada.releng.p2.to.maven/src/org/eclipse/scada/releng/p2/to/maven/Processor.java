@@ -431,7 +431,7 @@ public class Processor implements AutoCloseable
         final String host = this.properties.getProperty ( "local.proxy.host" );
         final String port = this.properties.getProperty ( "local.proxy.port" );
 
-        if ( host != null && port != null )
+        if ( host != null && port != null && !host.isEmpty () && !port.isEmpty () )
         {
             final Proxy proxy = new Proxy ( Type.HTTP, new InetSocketAddress ( host, Integer.parseInt ( port ) ) );
             return (HttpURLConnection)url.openConnection ( proxy );
