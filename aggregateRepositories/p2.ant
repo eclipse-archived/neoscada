@@ -25,6 +25,7 @@ Contributors:
     </tstamp>
     
 	<property environment="env" />
+	<property name="env.JAVA_ARGS" value="" />
 	
     <property file="default.properties"/>
 
