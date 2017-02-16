@@ -16,8 +16,9 @@
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
 <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.eclipse.scada.web.generator.main.Generate"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="&quot;/home/jreimann/git/web-eclipsescada.git/website.xmi&quot; &quot;/home/jreimann/git/web-eclipsescada.git&quot; &quot;site.properties&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="&quot;/home/jreimann/Development/workspace-ens-4/eclipsescada/website.xmi&quot; &quot;/home/jreimann/Development/workspace-ens-4/eclipsescada&quot; &quot;site.properties&quot;"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.eclipse.scada.web.generator"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dsite.base=http://dentrassi.de/es"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-DXsite.base=http://dentrassi.de/es"/>
 </launchConfiguration>
