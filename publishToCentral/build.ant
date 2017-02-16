@@ -17,6 +17,9 @@
 	<property name="url.repo" value="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada/drops/${neoscada.version}/${neoscada.buildId}/p2/"/>
 	<property name="url.validationRepo" value="http://download.eclipse.org/releases/neon"/>
 	
+	<property environment="env" />
+	<property name="env.JAVA_ARGS" value="" />
+	
 	<property name="local.proxy.host" value="proxy.eclipse.org"/>
 	<property name="local.proxy.port" value="9898"/>
 	
@@ -58,12 +61,17 @@
                 </fileset>
             </classpath>
             
+        	<jvmarg line="${env.JAVA_ARGS}"/>
+        	
             <arg value="-consoleLog" />
 
             <arg value="file:${p2tom2.file}" /> <!-- configuration -->
             <arg value="${url.repo}" /> <!-- source repo -->
             <!-- validation repos -->
             <arg value="${url.validationRepo}"/>
+        	
+            <sysproperty key="local.proxy.host" value="${local.proxy.host}"/>
+            <sysproperty key="local.proxy.port" value="${local.proxy.port}"/>
             
             <sysproperty key="path.p2temp" file="temp/p2tom2/tmp"/>
             <sysproperty key="path.output" file="${download.dir.maven}"/>
