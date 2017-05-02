@@ -1,0 +1,11 @@
+function select () {
+	if ( request.isComponentClass ( "GlobalizeComponent" ) ) {
+		return false;
+	}
+	if ( request.isComponentClass ( "PingCheck" ) ) {
+		return true;
+	}
+	return false;
+}
+
+select (); // use return value

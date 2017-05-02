@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common" nsURI="http://eclipse.org/SCADA/Configuration/Component/Common"
+    nsPrefix="common">
+  <eClassifiers xsi:type="ecore:EClass" name="HeartbeatGenerator" abstract="true"
+      eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The generator period in milliseconds"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetItem" eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activeInput" eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is a input which activates or deactivates the heartbeat generator. If the input is set it must be &quot;true&quot; for the heartbeat generator to write its heartbeat."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToggleHeartbeatGenerator" eSuperTypes="#//HeartbeatGenerator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HeartbeatDetector" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeHeartbeatDetector" eSuperTypes="#//HeartbeatDetector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="10000">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The timeout of the detector in milliseconds."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkPeriod" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceItem" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimerAction" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The generator period in milliseconds"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetItem" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="$TIMER_ACTION"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CurrentTimeComponent" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="TIME"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="updatePeriod" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateFormat" eType="#//DateFormat"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DateFormat" instanceClassName="org.eclipse.scada.configuration.component.common.DateFormat"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ScaledValue" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceItem" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputMinimum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputMaximum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMinimum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMaximum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="1000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validateRange" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+  </eClassifiers>
+</ecore:EPackage>

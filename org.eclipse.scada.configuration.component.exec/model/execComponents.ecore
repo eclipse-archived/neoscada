@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="exec" nsURI="http://eclipse.org/SCADA/Configuration/Component/Exec"
+    nsPrefix="exec">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="Reports system information using &quot;vmstat&quot;."/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecJob" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent">
+    <eOperations name="hasExecDriver" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+      <eParameters name="context">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runsOn" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Driver"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LoadAverage" eSuperTypes="#//ExecJob"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LoadAverageConfiguration" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//Configuration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.scada.configuration.security/model/sec.ecore#//Pattern"
+        defaultValueLiteral="([0-9]+) users?.*averages?: +([0-9]+[,\\.][0-9]*),? +([0-9]+[,\\.][0-9]*),? +([0-9]+[,\\.][0-9]*)"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PingCheck" eSuperTypes="#//ExecJob">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" lowerBound="1" eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Node"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PingCheckConfiguration" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//Configuration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pingDelay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The delay between pings in milliseconds."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemInformationVMStat" eSuperTypes="#//ExecJob"/>
+</ecore:EPackage>

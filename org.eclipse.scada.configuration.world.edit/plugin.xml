@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated world -->
+      <factory
+            uri="http://eclipse.org/SCADA/Configuration/World"
+            class="org.eclipse.scada.configuration.world.provider.WorldItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated world -->
+      <factory
+            uri="http://eclipse.org/SCADA/Configuration/World/OSGi"
+            class="org.eclipse.scada.configuration.world.osgi.provider.OsgiItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated world -->
+      <factory
+            uri="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
+            class="org.eclipse.scada.configuration.world.osgi.profile.provider.ProfileItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated world -->
+      <factory
+            uri="http://eclipse.org/SCADA/Configuration/World/Deployment"
+            class="org.eclipse.scada.configuration.world.deployment.provider.DeploymentItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated world -->
+      <factory
+            uri="http://eclipse.org/SCADA/Configuration/World/Setup"
+            class="org.eclipse.scada.configuration.world.setup.provider.SetupItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
+   </extension>
+
+</plugin>

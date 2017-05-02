@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="memory" nsURI="http://eclipse.org/SCADA/Configuration/Memory"
+    nsPrefix="memory">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//Variable" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BitType" eSuperTypes="#//BaseScalarType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subIndex" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" interface="true">
+    <eOperations name="encode" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//ScalarType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Float32Type" eSuperTypes="#//BaseScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseScalarType" abstract="true" eSuperTypes="#//ScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UserDefinedType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TypeDefinition"
+        eKeys="#//TypeDefinition/name"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger16Type" eSuperTypes="#//OrderedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ScalarType" abstract="true" interface="true"
+      eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger32Type" eSuperTypes="#//OrderedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger8Type" eSuperTypes="#//BaseScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeSystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
+        eType="#//TypeDefinition" containment="true" eKeys="#//TypeDefinition/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="includes" ordered="false"
+        upperBound="-1" eType="#//TypeSystem" eKeys="#//TypeSystem/name"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ByteOrder">
+    <eLiterals name="BIG_ENDIAN"/>
+    <eLiterals name="LITTLE_ENDIAN" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrderedType" abstract="true" eSuperTypes="#//BaseScalarType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1" eType="#//ByteOrder"
+        defaultValueLiteral="BIG_ENDIAN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Float64Type" eSuperTypes="#//BaseScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignedInteger8Type" eSuperTypes="#//BaseScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignedInteger16Type" eSuperTypes="#//OrderedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignedInteger32Type" eSuperTypes="#//OrderedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignedInteger64Type" eSuperTypes="#//OrderedType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FixedLengthStringType" eSuperTypes="#//BaseScalarType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charset" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="UTF-8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FixedLengthBlobType" eSuperTypes="#//BaseScalarType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLength" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

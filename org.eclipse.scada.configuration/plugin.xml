@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.scada.configuration"
+            name="Eclipse NeoSCADA Configuration">
+      </category>
+      <category
+            id="org.eclipse.scada.configuration.models"
+            name="Models"
+            parentCategory="org.eclipse.scada.configuration">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               label="Eclipse NeoSCADA Configuration"
+               id="org.eclipse.scada.configuration">
+         </menu>
+      </menuContribution>         
+   </extension>
+
+</plugin>

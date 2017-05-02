@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.scada.configuration"
+      label="%featureName"
+      version="0.4.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.scada.license"
+      license-feature-version="0.1.0.qualifier">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.scada.configuration.arduino.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.neoscada.configuration.iec60870"
+         version="0.0.0"/>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.scada.da.server.common" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.da.server.exec" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.generator.component" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.component" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.ae.data"/>
+      <import plugin="org.eclipse.scada.sec.provider.plain.property"/>
+      <import plugin="org.eclipse.scada.utils"/>
+      <import plugin="org.slf4j.api"/>
+      <import plugin="org.eclipse.core.runtime" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.xml.resolver"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="org.eclipse.scada.da.server.exec.edit"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.scada.configuration.globalization.lib" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.globalization" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.ui.databinding"/>
+      <import plugin="org.eclipse.scada.configuration.infrastructure.lib" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console" version="3.5.200" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.ca.oscar"/>
+      <import plugin="org.eclipse.scada.ui.utils"/>
+      <import plugin="org.eclipse.scada.configuration.globalization.edit" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.world.edit" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.security.edit" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.infrastructure" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.validation" version="1.2.0" match="compatible"/>
+      <import plugin="org.eclipse.scada.configuration.item" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.security" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.item.edit" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.contenttype"/>
+      <import plugin="org.eclipse.wst.jsdt.core"/>
+      <import plugin="com.google.guava" version="18.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.core"/>
+      <import plugin="org.eclipse.scada.da.server.exec.edit" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf" version="2.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.da.server.exporter" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.ca"/>
+      <import plugin="org.eclipse.wst.jsdt.core" version="1.1.202" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.ui.ide" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.generator" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common.ui" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.validation.ocl" version="1.4.0"/>
+      <import plugin="org.eclipse.ocl" version="1.3.0"/>
+      <import plugin="org.eclipse.ocl.ecore" version="1.3.0"/>
+      <import plugin="org.eclipse.ui" version="3.105.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.expressions" version="3.4.500" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.world" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.utils" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="javax.inject"/>
+      <import plugin="org.junit"/>
+      <import plugin="org.eclipse.scada.configuration.component.exec" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.pde.ui"/>
+      <import plugin="org.eclipse.jface"/>
+      <import plugin="org.eclipse.scada.configuration.recipe" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.databinding"/>
+      <import plugin="org.eclipse.core.databinding.beans"/>
+      <import plugin="org.eclipse.core.databinding.observable"/>
+      <import plugin="org.eclipse.core.databinding.property"/>
+      <import plugin="org.eclipse.emf.databinding"/>
+      <import plugin="org.eclipse.jface.databinding"/>
+      <import plugin="org.eclipse.equinox.registry"/>
+      <import plugin="org.eclipse.scada.da.server.osgi.modbus"/>
+      <import plugin="org.eclipse.scada.configuration.modbus" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.memory.manager" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.wst.xml.core"/>
+      <import plugin="org.apache.commons.beanutils"/>
+      <import feature="org.eclipse.scada.ui.utils" version="0.1.0.qualifier"/>
+      <import feature="org.eclipse.scada.utils" version="0.1.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.scada.configuration"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.generator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.generator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.generator.component"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.generator.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.globalization.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.globalization"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.globalization.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.globalization.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.infrastructure.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.infrastructure"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.infrastructure.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.infrastructure.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.item"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.item.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.item.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.item.parser"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.world"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.world.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.world.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.world.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.security"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.security.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.security.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.security.utils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.ui.project"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.utils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.ui.component"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.exec"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.exec.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.exec.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.memory"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.memory.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.memory.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.memory.manager"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.memory.manager.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.modbus"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.modbus.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.modbus.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.memory.manager.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.recipe"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.recipe.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.recipe.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.recipe.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.recipe.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.common.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.common.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.script"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.script.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.dave"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.dave.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.dave.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.driver.parser"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.driver.parser.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.driver.parser.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.ecore.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.driver.jdbc"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.driver.jdbc.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.tools"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.setup.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.setup.common.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.setup.common.lib"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.component.common.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.setup.common.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.infrastructure.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.configuration.world.validation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.compress"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.packagedrone.utils.rpm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.tukani.xz"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="bcprov"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="bcpg"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

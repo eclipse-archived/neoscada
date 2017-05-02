@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.content_parser">
+      <parser
+            class="org.eclipse.scada.configuration.security.utils.JSScriptParser"
+            contentTypeIdentifier="org.eclipse.scada.script.js">
+      </parser>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.wst.jsdt.core.jsSource"
+            default-charset="UTF-8"
+            file-extensions="osjs"
+            id="org.eclipse.scada.script.js"
+            name="Eclipse NeoSCADA JavaScript File"
+            priority="high">
+      </content-type>
+   </extension>
+</plugin>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.utils.ecore.validation.handler">
+      <validationContext
+            contextId="org.eclipse.scada.configuration.infrastructure"
+            packageUri="http://eclipse.org/SCADA/Configuration/Infrastructure">
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.HttpServiceValidator">
+            <filterClass
+                  class="org.eclipse.scada.configuration.infrastructure.EventInjectorHttp">
+            </filterClass>
+            <filterClass
+                  class="org.eclipse.scada.configuration.infrastructure.WebAdminConsole">
+            </filterClass>
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.SystemPropertyUserServiceValidator"
+               filterClass="org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.OptionsValidator"
+               filterClass="org.eclipse.scada.configuration.infrastructure.Options">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.NodeValidator"
+               filterClass="org.eclipse.scada.configuration.infrastructure.Node">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.OracleVMSettingsValidator"
+               filterClass="org.eclipse.scada.configuration.infrastructure.OracleVMSettings">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.ExclusiveGroupValidator:applicationConfigurations"
+               filterClass="org.eclipse.scada.configuration.infrastructure.World">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.ExclusiveGroupValidator:modules"
+               filterClass="org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.ExclusiveGroupValidator:configurations"
+               filterClass="org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.DriverValidator"
+               filterClass="org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver">
+         </validator>
+         <validator
+               class="org.eclipse.scada.configuration.infrastructure.validation.EquinoxBaseValidator"
+               filterClass="org.eclipse.scada.configuration.infrastructure.EquinoxBase">
+         </validator>
+      </validationContext>
+   </extension>
+
+</plugin>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="org.eclipse.scada.hds.archive"
+            file-extensions="hds">
+      </file-association>
+      <content-type
+            file-extensions="hds"
+            id="org.eclipse.scada.hds.archive"
+            name="Eclipse NeoSCADA HDS Value Archive File"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.scada.ide.hd.hdsspy.editors.HDSEditor"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            extensions="hds"
+            icon="icons/content-hds.png"
+            id="org.eclipse.scada.ide.hd.hdsspy.editors.HDSEditor"
+            name="Eclipse NeoSCADA Value Archive Editor">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.scada.hds.archive">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="true"
+            class="org.eclipse.scada.ide.hd.hdsspy.decorators.TimeRangeDecorator"
+            id="org.eclipse.scada.ide.hd.hdsspy.decorators.TimeRangeDecorator"
+            label="HDS Time Frame"
+            lightweight="true"
+            state="true">
+         <enablement>
+             <objectClass
+                     name="org.eclipse.core.resources.IFile">
+			</objectClass>
+         </enablement>
+      </decorator>
+   </extension>
+
+</plugin>

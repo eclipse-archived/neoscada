@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_vkOB0BP0EeOOU6PNVQrq1A" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:id="_v5ZAkBP0EeOOU6PNVQrq1A" type="1001">
+    <children xmi:id="_v5aOsBP0EeOOU6PNVQrq1A" type="4001"/>
+    <children xmi:id="_v5aOsRP0EeOOU6PNVQrq1A" type="5001">
+      <children xmi:id="_BO130Br4EeOVsJwneBNBjA" type="2001">
+        <element href="modbus.ecore#//ModbusDevice/port"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_BO130Rr4EeOVsJwneBNBjA"/>
+      </children>
+      <children xmi:id="_EYgtUCBwEeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusDevice/protocolType"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_EYgtUSBwEeOLA4w2U3e-aw"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_v5aOshP0EeOOU6PNVQrq1A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_v5aOsxP0EeOOU6PNVQrq1A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_v5aOtBP0EeOOU6PNVQrq1A"/>
+    </children>
+    <children xmi:id="_v5a1wBP0EeOOU6PNVQrq1A" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_v5a1wRP0EeOOU6PNVQrq1A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_v5a1whP0EeOOU6PNVQrq1A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_v5a1wxP0EeOOU6PNVQrq1A"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_v5ZAkRP0EeOOU6PNVQrq1A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusDevice"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_v5ZAkhP0EeOOU6PNVQrq1A" x="240" y="420"/>
+  </children>
+  <children xmi:id="_52Bo0BP0EeOOU6PNVQrq1A" type="1001">
+    <children xmi:id="_52CP4BP0EeOOU6PNVQrq1A" type="4001"/>
+    <children xmi:id="_52C28BP0EeOOU6PNVQrq1A" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_52C28RP0EeOOU6PNVQrq1A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_52C28hP0EeOOU6PNVQrq1A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_52C28xP0EeOOU6PNVQrq1A"/>
+    </children>
+    <children xmi:id="_52C29BP0EeOOU6PNVQrq1A" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_52C29RP0EeOOU6PNVQrq1A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_52C29hP0EeOOU6PNVQrq1A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_52C29xP0EeOOU6PNVQrq1A"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_52Bo0RP0EeOOU6PNVQrq1A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusDriver"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_52Bo0hP0EeOOU6PNVQrq1A" x="-24" y="720"/>
+  </children>
+  <children xmi:id="_kGKnUCBvEeOLA4w2U3e-aw" type="1001">
+    <eAnnotations xmi:id="_kG94kCBvEeOLA4w2U3e-aw" source="Shortcut">
+      <details xmi:id="_kG94kSBvEeOLA4w2U3e-aw" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_kGjo4CBvEeOLA4w2U3e-aw" type="4001"/>
+    <children xmi:id="_kGjo4SBvEeOLA4w2U3e-aw" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_kGjo4iBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_kGjo4yBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_kGjo5CBvEeOLA4w2U3e-aw"/>
+    </children>
+    <children xmi:id="_kGjo5SBvEeOLA4w2U3e-aw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_kGjo5iBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_kGjo5yBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_kGjo6CBvEeOLA4w2U3e-aw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_kGKnUSBvEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/EquinoxApplication"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_kGKnUiBvEeOLA4w2U3e-aw" x="432" y="840"/>
+  </children>
+  <children xmi:id="_lSuhECBvEeOLA4w2U3e-aw" type="1001">
+    <eAnnotations xmi:id="_lS5gMCBvEeOLA4w2U3e-aw" source="Shortcut">
+      <details xmi:id="_lS5gMSBvEeOLA4w2U3e-aw" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_lSvIICBvEeOLA4w2U3e-aw" type="4001"/>
+    <children xmi:id="_lSvIISBvEeOLA4w2U3e-aw" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_lSvIIiBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_lSvIIyBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_lSvIJCBvEeOLA4w2U3e-aw"/>
+    </children>
+    <children xmi:id="_lSvIJSBvEeOLA4w2U3e-aw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_lSvIJiBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_lSvIJyBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_lSvIKCBvEeOLA4w2U3e-aw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_lSuhESBvEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_lSuhEiBvEeOLA4w2U3e-aw" x="432" y="720"/>
+  </children>
+  <children xmi:id="_znUBACBvEeOLA4w2U3e-aw" type="1001">
+    <children xmi:id="_znUoECBvEeOLA4w2U3e-aw" type="4001"/>
+    <children xmi:id="_znUoESBvEeOLA4w2U3e-aw" type="5001">
+      <children xmi:id="_45VQECB2EeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusSlave/id"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_45VQESB2EeOLA4w2U3e-aw"/>
+      </children>
+      <children xmi:id="_LS6BsCByEeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusSlave/unitAddress"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_LS6BsSByEeOLA4w2U3e-aw"/>
+      </children>
+      <children xmi:id="_BtRwEGDwEeOT2rDq00KK6A" type="2001">
+        <element href="modbus.ecore#//ModbusSlave/dataOrder"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_BtRwEWDwEeOT2rDq00KK6A"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_znUoEiBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_znUoEyBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_znUoFCBvEeOLA4w2U3e-aw"/>
+    </children>
+    <children xmi:id="_znVPICBvEeOLA4w2U3e-aw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_znVPISBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_znVPIiBvEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_znVPIyBvEeOLA4w2U3e-aw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_znUBASBvEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusSlave"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_znUBAiBvEeOLA4w2U3e-aw" x="264" y="564"/>
+  </children>
+  <children xmi:id="_J90wACBwEeOLA4w2U3e-aw" type="1001">
+    <children xmi:id="_J91-ICBwEeOLA4w2U3e-aw" type="4001"/>
+    <children xmi:id="_J91-ISBwEeOLA4w2U3e-aw" type="5001">
+      <children xmi:id="_3qoBQCB2EeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusMaster/id"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_3qoBQSB2EeOLA4w2U3e-aw"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_J91-IiBwEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_J91-IyBwEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_J91-JCBwEeOLA4w2U3e-aw"/>
+    </children>
+    <children xmi:id="_J92lMCBwEeOLA4w2U3e-aw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_J92lMSBwEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_J92lMiBwEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_J92lMyBwEeOLA4w2U3e-aw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_J90wASBwEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusMaster"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_J90wAiBwEeOLA4w2U3e-aw" x="-96" y="564"/>
+  </children>
+  <children xmi:id="_iX0kQCBxEeOLA4w2U3e-aw" type="1001">
+    <children xmi:id="_iX0kQyBxEeOLA4w2U3e-aw" type="4001"/>
+    <children xmi:id="_iX1LUCBxEeOLA4w2U3e-aw" type="5001">
+      <children xmi:id="_WEQSICB3EeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusBlock/id"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_WEQSISB3EeOLA4w2U3e-aw"/>
+      </children>
+      <children xmi:id="_9S6RsCBxEeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusBlock/blockType"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_9S6RsSBxEeOLA4w2U3e-aw"/>
+      </children>
+      <children xmi:id="_k_-OECB4EeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusBlock/startAddress"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_k_-OESB4EeOLA4w2U3e-aw"/>
+      </children>
+      <children xmi:id="_Bclc0CByEeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusBlock/count"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_Bclc0SByEeOLA4w2U3e-aw"/>
+      </children>
+      <children xmi:id="_FhdngCByEeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusBlock/period"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_FhdngSByEeOLA4w2U3e-aw"/>
+      </children>
+      <children xmi:id="_GTKxQCByEeOLA4w2U3e-aw" type="2001">
+        <element href="modbus.ecore#//ModbusBlock/timeout"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_GTKxQSByEeOLA4w2U3e-aw"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_iX1LUSBxEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_iX1LUiBxEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_iX1LUyBxEeOLA4w2U3e-aw"/>
+    </children>
+    <children xmi:id="_iX1LVCBxEeOLA4w2U3e-aw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_iX1LVSBxEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_iX1LViBxEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_iX1LVyBxEeOLA4w2U3e-aw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_iX0kQSBxEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusBlock"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_iX0kQiBxEeOLA4w2U3e-aw" x="504" y="540"/>
+  </children>
+  <children xmi:id="_4XVvkCBxEeOLA4w2U3e-aw" type="1004">
+    <children xmi:id="_4Xij4CBxEeOLA4w2U3e-aw" type="4008"/>
+    <children xmi:id="_4XjK8CBxEeOLA4w2U3e-aw" type="4009"/>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_4XVvkSBxEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//RequestType"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_4XVvkiBxEeOLA4w2U3e-aw" x="624" y="240"/>
+  </children>
+  <children xmi:id="_PLutYCByEeOLA4w2U3e-aw" type="1001">
+    <eAnnotations xmi:id="_PMIWACByEeOLA4w2U3e-aw" source="Shortcut">
+      <details xmi:id="_PMIWASByEeOLA4w2U3e-aw" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_PMBBQCByEeOLA4w2U3e-aw" type="4001"/>
+    <children xmi:id="_PMBBQSByEeOLA4w2U3e-aw" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_PMBBQiByEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_PMBBQyByEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_PMBBRCByEeOLA4w2U3e-aw"/>
+    </children>
+    <children xmi:id="_PMBoUCByEeOLA4w2U3e-aw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_PMBoUSByEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_PMBoUiByEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_PMBoUyByEeOLA4w2U3e-aw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_PLutYSByEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_PLutYiByEeOLA4w2U3e-aw" x="-48" y="456"/>
+  </children>
+  <children xmi:id="_TC6KkCCDEeOLA4w2U3e-aw" type="1001">
+    <eAnnotations xmi:id="_TDNskCCDEeOLA4w2U3e-aw" source="Shortcut">
+      <details xmi:id="_TDNskSCDEeOLA4w2U3e-aw" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_TDFwwCCDEeOLA4w2U3e-aw" type="4001"/>
+    <children xmi:id="_TDFwwSCDEeOLA4w2U3e-aw" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_TDFwwiCDEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_TDFwwyCDEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_TDFwxCCDEeOLA4w2U3e-aw"/>
+    </children>
+    <children xmi:id="_TDFwxSCDEeOLA4w2U3e-aw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_TDFwxiCDEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_TDFwxyCDEeOLA4w2U3e-aw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_TDFwyCCDEeOLA4w2U3e-aw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_TC6KkSCDEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.memory/model/memory.ecore#//TypeSystem"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_TC6KkiCDEeOLA4w2U3e-aw" x="312" y="252"/>
+  </children>
+  <children xmi:id="_4w6Q0EX6EeOZB5cG17JO2A" type="1005">
+    <children xmi:id="_4w97MEX6EeOZB5cG17JO2A" type="4010"/>
+    <children xmi:id="_4w97MUX6EeOZB5cG17JO2A" type="5008">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_4w-iQEX6EeOZB5cG17JO2A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_4w-iQUX6EeOZB5cG17JO2A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_4w-iQkX6EeOZB5cG17JO2A"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_4w6Q0UX6EeOZB5cG17JO2A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ProtocolType"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_4w6Q0kX6EeOZB5cG17JO2A" x="36" y="252"/>
+  </children>
+  <children xmi:id="_W61BwEuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_W64sIEuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_W64sIUuNEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_W64sIkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_W64sI0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_W64sJEuNEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_W64sJUuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_W64sJkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_W64sJ0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_W64sKEuNEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_W61BwUuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusExporter"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_W61BwkuNEeOlUItvRuKTjg" x="1140" y="840"/>
+  </children>
+  <children xmi:id="_llPnwEuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_llT5MEuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_llT5MUuNEeOlUItvRuKTjg" type="5001">
+      <children xmi:id="_7ka7cGDvEeOT2rDq00KK6A" type="2001">
+        <element href="modbus.ecore#//ModbusExporterDevice/slaveId"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_7ka7cWDvEeOT2rDq00KK6A"/>
+      </children>
+      <children xmi:id="_fDGakGDwEeOT2rDq00KK6A" type="2001">
+        <element href="modbus.ecore#//ModbusExporterDevice/dataOrder"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_fDGakWDwEeOT2rDq00KK6A"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_llT5MkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_llT5M0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_llT5NEuNEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_llT5NUuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_llT5NkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_llT5N0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_llT5OEuNEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_llPnwUuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusExporterDevice"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_llPnwkuNEeOlUItvRuKTjg" x="1116" y="720"/>
+  </children>
+  <children xmi:id="_nQMGoEuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_nQMtskuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_nQNUwEuNEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_nQNUwUuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_nQNUwkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_nQNUw0uNEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_nQNUxEuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_nQNUxUuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_nQNUxkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_nQNUx0uNEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_nQMtsEuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusExporterItem"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_nQMtsUuNEeOlUItvRuKTjg" x="1128" y="564" height="55"/>
+  </children>
+  <children xmi:id="_sAyu4EuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_sAzV8EuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_sAz9AEuNEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_sAz9AUuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_sAz9AkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_sAz9A0uNEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_sAz9BEuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_sAz9BUuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_sAz9BkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_sAz9B0uNEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_sAyu4UuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusDataType"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_sAyu4kuNEeOlUItvRuKTjg" x="1116" y="420" height="81"/>
+  </children>
+  <children xmi:id="_v0PyYEuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_v0QZcEuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_v0QZcUuNEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_v0QZckuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_v0QZc0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_v0QZdEuNEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_v0QZdUuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_v0QZdkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_v0QZd0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_v0QZeEuNEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_v0PyYUuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusDouble"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_v0PyYkuNEeOlUItvRuKTjg" x="1380" y="300"/>
+  </children>
+  <children xmi:id="_zR5lAEuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_zR6zIEuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_zR6zIUuNEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_zR6zIkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_zR6zI0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_zR6zJEuNEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_zR6zJUuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_zR6zJkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_zR6zJ0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_zR6zKEuNEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_zR5lAUuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusSInt16"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_zR5lAkuNEeOlUItvRuKTjg" x="1380" y="372"/>
+  </children>
+  <children xmi:id="_1SuNQEuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_1Su0UEuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_1Su0UUuNEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_1Su0UkuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_1Su0U0uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_1Su0VEuNEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_1Szs0EuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_1Szs0UuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_1Szs0kuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_1Szs00uNEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_1SuNQUuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusSInt32"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_1SuNQkuNEeOlUItvRuKTjg" x="1380" y="444"/>
+  </children>
+  <children xmi:id="_2u-v4EuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_2u_W8EuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_2u_W8UuNEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_2u_W8kuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_2u_W80uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_2u_W9EuNEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_2u_W9UuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_2u_W9kuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_2u_W90uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_2u_W-EuNEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_2u-v4UuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusUInt16"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_2u-v4kuNEeOlUItvRuKTjg" x="1380" y="516"/>
+  </children>
+  <children xmi:id="_4SJy0EuNEeOlUItvRuKTjg" type="1001">
+    <children xmi:id="_4SKZ4EuNEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_4SKZ4UuNEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_4SKZ4kuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_4SKZ40uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_4SKZ5EuNEeOlUItvRuKTjg"/>
+      <layoutConstraint xsi:type="notation:Ratio" xmi:id="_4u_f0EuNEeOlUItvRuKTjg" value="0.27906976744186046"/>
+    </children>
+    <children xmi:id="_4SKZ5UuNEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_4SKZ5kuNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_4SKZ50uNEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_4SKZ6EuNEeOlUItvRuKTjg"/>
+      <layoutConstraint xsi:type="notation:Ratio" xmi:id="_4u_f0UuNEeOlUItvRuKTjg" value="0.27906976744186046"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_4SJy0UuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusUInt32"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_4SJy0kuNEeOlUItvRuKTjg" x="1380" y="588"/>
+  </children>
+  <children xmi:id="_hkYvgEuPEeOlUItvRuKTjg" type="1001">
+    <eAnnotations xmi:id="_hk3QoEuPEeOlUItvRuKTjg" source="Shortcut">
+      <details xmi:id="_hk3QoUuPEeOlUItvRuKTjg" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_hkmK4EuPEeOlUItvRuKTjg" type="4001"/>
+    <children xmi:id="_hkmK4UuPEeOlUItvRuKTjg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_hkmK4kuPEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_hkmK40uPEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_hkmK5EuPEeOlUItvRuKTjg"/>
+    </children>
+    <children xmi:id="_hkmK5UuPEeOlUItvRuKTjg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_hkmK5kuPEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_hkmK50uPEeOlUItvRuKTjg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_hkmK6EuPEeOlUItvRuKTjg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_hkYvgUuPEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ApplicationModule"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_hkYvgkuPEeOlUItvRuKTjg" x="936" y="840"/>
+  </children>
+  <children xmi:id="_Dx9koGDwEeOT2rDq00KK6A" type="1005">
+    <children xmi:id="_Dx-LsGDwEeOT2rDq00KK6A" type="4010"/>
+    <children xmi:id="_Dx-LsWDwEeOT2rDq00KK6A" type="5008">
+      <children xmi:id="_Fry0EGDwEeOT2rDq00KK6A" type="2006">
+        <element href="modbus.ecore#//ByteOrder/BIG_ENDIAN"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_Fry0EWDwEeOT2rDq00KK6A"/>
+      </children>
+      <children xmi:id="_HWh3kGDwEeOT2rDq00KK6A" type="2006">
+        <element href="modbus.ecore#//ByteOrder/LITTLE_ENDIAN"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_HWh3kWDwEeOT2rDq00KK6A"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_Dx-LsmDwEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_Dx-Ls2DwEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_Dx-LtGDwEeOT2rDq00KK6A"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_Dx9koWDwEeOT2rDq00KK6A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ByteOrder"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_Dx9komDwEeOT2rDq00KK6A" x="624" y="336"/>
+  </children>
+  <children xmi:id="_nBmtkLsWEeOF3saO75bl9w" type="1001">
+    <eAnnotations xmi:id="_nBpJ1LsWEeOF3saO75bl9w" source="Shortcut">
+      <details xmi:id="_nBpJ1bsWEeOF3saO75bl9w" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_nBoiwLsWEeOF3saO75bl9w" type="4001"/>
+    <children xmi:id="_nBoiwbsWEeOF3saO75bl9w" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_nBoiwrsWEeOF3saO75bl9w"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_nBoiw7sWEeOF3saO75bl9w"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_nBoixLsWEeOF3saO75bl9w"/>
+    </children>
+    <children xmi:id="_nBpJ0LsWEeOF3saO75bl9w" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_nBpJ0bsWEeOF3saO75bl9w"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_nBpJ0rsWEeOF3saO75bl9w"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_nBpJ07sWEeOF3saO75bl9w"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_nBmtkbsWEeOF3saO75bl9w" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Item"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_nBmtkrsWEeOF3saO75bl9w" x="828" y="564"/>
+  </children>
+  <children xmi:id="_5VWDMNd8EeOHdLWi_9q-gQ" type="1001">
+    <children xmi:id="_5VWqQNd8EeOHdLWi_9q-gQ" type="4001"/>
+    <children xmi:id="_5VWqQdd8EeOHdLWi_9q-gQ" type="5001">
+      <children xmi:id="_wglXENd-EeOHdLWi_9q-gQ" type="2001">
+        <element href="modbus.ecore#//ModbusExporterModule/dataOrder"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_wglXEdd-EeOHdLWi_9q-gQ"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_5VWqQtd8EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_5VWqQ9d8EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_5VWqRNd8EeOHdLWi_9q-gQ"/>
+    </children>
+    <children xmi:id="_5VWqRdd8EeOHdLWi_9q-gQ" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_5VWqRtd8EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_5VWqR9d8EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_5VWqSNd8EeOHdLWi_9q-gQ"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_5VWDMdd8EeOHdLWi_9q-gQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusExporterModule"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_5VWDMtd8EeOHdLWi_9q-gQ" x="1380" y="1056"/>
+  </children>
+  <children xmi:id="_l15ygNd9EeOHdLWi_9q-gQ" type="1001">
+    <eAnnotations xmi:id="_l2Q-4Nd9EeOHdLWi_9q-gQ" source="Shortcut">
+      <details xmi:id="_l2Q-4dd9EeOHdLWi_9q-gQ" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_l2F_wNd9EeOHdLWi_9q-gQ" type="4001"/>
+    <children xmi:id="_l2F_wdd9EeOHdLWi_9q-gQ" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_l2F_wtd9EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_l2F_w9d9EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_l2F_xNd9EeOHdLWi_9q-gQ"/>
+    </children>
+    <children xmi:id="_l2Gm0Nd9EeOHdLWi_9q-gQ" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_l2Gm0dd9EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_l2Gm0td9EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_l2Gm09d9EeOHdLWi_9q-gQ"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_l15ygdd9EeOHdLWi_9q-gQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.component/model/component.ecore#//ItemInterceptor"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_l15ygtd9EeOHdLWi_9q-gQ" x="1008" y="1200"/>
+  </children>
+  <children xmi:id="_Fu_D8Nd-EeOHdLWi_9q-gQ" type="1001">
+    <children xmi:id="_FvMfUNd-EeOHdLWi_9q-gQ" type="4001"/>
+    <children xmi:id="_FvMfUdd-EeOHdLWi_9q-gQ" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_FvMfUtd-EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_FvMfU9d-EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_FvMfVNd-EeOHdLWi_9q-gQ"/>
+    </children>
+    <children xmi:id="_FvMfVdd-EeOHdLWi_9q-gQ" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_FvMfVtd-EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_FvMfV9d-EeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_FvMfWNd-EeOHdLWi_9q-gQ"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_Fu_D8dd-EeOHdLWi_9q-gQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="modbus.ecore#//ModbusExporterInterceptor"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_Fu_D8td-EeOHdLWi_9q-gQ" x="1368" y="1224"/>
+  </children>
+  <children xmi:id="_T1nJ8NeKEeOHdLWi_9q-gQ" type="1001">
+    <eAnnotations xmi:id="_T18hINeKEeOHdLWi_9q-gQ" source="Shortcut">
+      <details xmi:id="_T18hIdeKEeOHdLWi_9q-gQ" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_T1xiANeKEeOHdLWi_9q-gQ" type="4001"/>
+    <children xmi:id="_T1xiAdeKEeOHdLWi_9q-gQ" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_T1xiAteKEeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_T1xiA9eKEeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_T1xiBNeKEeOHdLWi_9q-gQ"/>
+    </children>
+    <children xmi:id="_T1xiBdeKEeOHdLWi_9q-gQ" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_T1xiBteKEeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_T1xiB9eKEeOHdLWi_9q-gQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_T1xiCNeKEeOHdLWi_9q-gQ"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_T1nJ8deKEeOHdLWi_9q-gQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.script/model/script.ecore#//Script"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_T1nJ8teKEeOHdLWi_9q-gQ" x="1368" y="1356"/>
+  </children>
+  <children xmi:id="_10raEBPbEeS5CvTfLN8rPw" type="1001">
+    <eAnnotations xmi:id="_10t2URPbEeS5CvTfLN8rPw" source="Shortcut">
+      <details xmi:id="_10t2UhPbEeS5CvTfLN8rPw" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_10tPQBPbEeS5CvTfLN8rPw" type="4001"/>
+    <children xmi:id="_10tPQRPbEeS5CvTfLN8rPw" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_10tPQhPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_10tPQxPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_10tPRBPbEeS5CvTfLN8rPw"/>
+    </children>
+    <children xmi:id="_10tPRRPbEeS5CvTfLN8rPw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_10tPRhPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_10tPRxPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_10t2UBPbEeS5CvTfLN8rPw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_10raERPbEeS5CvTfLN8rPw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_10raEhPbEeS5CvTfLN8rPw" x="708" y="1116"/>
+  </children>
+  <children xmi:id="_10udYBPbEeS5CvTfLN8rPw" type="1001">
+    <eAnnotations xmi:id="_10vrgBPbEeS5CvTfLN8rPw" source="Shortcut">
+      <details xmi:id="_10vrgRPbEeS5CvTfLN8rPw" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_10vEcBPbEeS5CvTfLN8rPw" type="4001"/>
+    <children xmi:id="_10vEcRPbEeS5CvTfLN8rPw" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_10vEchPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_10vEcxPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_10vEdBPbEeS5CvTfLN8rPw"/>
+    </children>
+    <children xmi:id="_10vEdRPbEeS5CvTfLN8rPw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_10vEdhPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_10vEdxPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_10vEeBPbEeS5CvTfLN8rPw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_10udYRPbEeS5CvTfLN8rPw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_10udYhPbEeS5CvTfLN8rPw" x="996" y="1044"/>
+  </children>
+  <children xmi:id="_10vrghPbEeS5CvTfLN8rPw" type="1001">
+    <eAnnotations xmi:id="_10w5pBPbEeS5CvTfLN8rPw" source="Shortcut">
+      <details xmi:id="_10w5pRPbEeS5CvTfLN8rPw" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_10wSkBPbEeS5CvTfLN8rPw" type="4001"/>
+    <children xmi:id="_10wSkRPbEeS5CvTfLN8rPw" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_10wSkhPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_10wSkxPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_10wSlBPbEeS5CvTfLN8rPw"/>
+    </children>
+    <children xmi:id="_10w5oBPbEeS5CvTfLN8rPw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_10w5oRPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_10w5ohPbEeS5CvTfLN8rPw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_10w5oxPbEeS5CvTfLN8rPw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_10vrgxPbEeS5CvTfLN8rPw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.component/model/component.ecore#//Container"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_10vrhBPbEeS5CvTfLN8rPw" x="720" y="1212"/>
+  </children>
+  <styles xsi:type="notation:DiagramStyle" xmi:id="_vkOB0RP0EeOOU6PNVQrq1A"/>
+  <element href="modbus.ecore#/"/>
+  <edges xmi:id="_6vYSsBP0EeOOU6PNVQrq1A" type="3003" source="_52Bo0BP0EeOOU6PNVQrq1A" target="_lSuhECBvEeOLA4w2U3e-aw">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_6vYSsRP0EeOOU6PNVQrq1A" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_6vYSshP0EeOOU6PNVQrq1A" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_6vYSsxP0EeOOU6PNVQrq1A" points="[55, 3, -349, -21]$[501, 23, 97, -1]"/>
+  </edges>
+  <edges xmi:id="_pH6C4CBvEeOLA4w2U3e-aw" type="3003" source="_52Bo0BP0EeOOU6PNVQrq1A" target="_kGKnUCBvEeOLA4w2U3e-aw">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_pH6C4SBvEeOLA4w2U3e-aw" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_pH6C4iBvEeOLA4w2U3e-aw" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_pH6C4yBvEeOLA4w2U3e-aw" points="[33, 21, -336, -208]$[293, 229, -76, 0]"/>
+  </edges>
+  <edges xmi:id="_MjDs4CBwEeOLA4w2U3e-aw" type="3002" source="_52Bo0BP0EeOOU6PNVQrq1A" target="_J90wACBwEeOLA4w2U3e-aw">
+    <children xmi:id="_MjDs5CBwEeOLA4w2U3e-aw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_MjDs5SBwEeOLA4w2U3e-aw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_MjET8CBwEeOLA4w2U3e-aw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_MjET8SBwEeOLA4w2U3e-aw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_MjDs4SBwEeOLA4w2U3e-aw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_MjDs4iBwEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusDriver/masters"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_MjDs4yBwEeOLA4w2U3e-aw" points="[2, -20, 1, 77]$[2, -104, 1, -7]"/>
+  </edges>
+  <edges xmi:id="_NzFxYCBwEeOLA4w2U3e-aw" type="3002" source="_J90wACBwEeOLA4w2U3e-aw" target="_znUBACBvEeOLA4w2U3e-aw">
+    <children xmi:id="_NzTMwCBwEeOLA4w2U3e-aw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_NzTMwSBwEeOLA4w2U3e-aw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_NzTMwiBwEeOLA4w2U3e-aw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_NzTMwyBwEeOLA4w2U3e-aw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_NzFxYSBwEeOLA4w2U3e-aw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_NzFxYiBwEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusMaster/slaves"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_NzFxYyBwEeOLA4w2U3e-aw" points="[58, -2, -214, -2]$[325, -2, 53, -2]"/>
+  </edges>
+  <edges xmi:id="_jQ0BwCBxEeOLA4w2U3e-aw" type="3002" source="_znUBACBvEeOLA4w2U3e-aw" target="_iX0kQCBxEeOLA4w2U3e-aw">
+    <children xmi:id="_jQ0o0CBxEeOLA4w2U3e-aw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_jQ0o0SBxEeOLA4w2U3e-aw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_jQ0o0iBxEeOLA4w2U3e-aw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_jQ0o0yBxEeOLA4w2U3e-aw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_jQ0BwSBxEeOLA4w2U3e-aw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_jQ0BwiBxEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusSlave/blocks"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_jQ0BwyBxEeOLA4w2U3e-aw" points="[55, -6, -124, 9]$[178, -35, -1, -20]"/>
+  </edges>
+  <edges xmi:id="_QGu9ECByEeOLA4w2U3e-aw" type="3002" source="_J90wACBwEeOLA4w2U3e-aw" target="_PLutYCByEeOLA4w2U3e-aw">
+    <children xmi:id="_QGu9FCByEeOLA4w2U3e-aw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_QGu9FSByEeOLA4w2U3e-aw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_QGu9FiByEeOLA4w2U3e-aw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_QGu9FyByEeOLA4w2U3e-aw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_QGu9ESByEeOLA4w2U3e-aw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_QGu9EiByEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusMaster/endpoint"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_QGu9EyByEeOLA4w2U3e-aw" points="[-57, -6, 189, 1]$[-245, -20, 1, -13]"/>
+  </edges>
+  <edges xmi:id="_TWGcECByEeOLA4w2U3e-aw" type="3002" source="_v5ZAkBP0EeOOU6PNVQrq1A" target="_znUBACBvEeOLA4w2U3e-aw">
+    <children xmi:id="_TWQ0ICByEeOLA4w2U3e-aw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_TWRbMCByEeOLA4w2U3e-aw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_TWRbMSByEeOLA4w2U3e-aw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_TWRbMiByEeOLA4w2U3e-aw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_TWGcESByEeOLA4w2U3e-aw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_TWGcEiByEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusDevice/slaves"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_TWGcEyByEeOLA4w2U3e-aw" points="[-12, 33, 41, -102]$[-50, 160, 3, 25]"/>
+  </edges>
+  <edges xmi:id="_TDKCMCCDEeOLA4w2U3e-aw" type="3002" source="_TC6KkCCDEeOLA4w2U3e-aw" target="_TC6KkCCDEeOLA4w2U3e-aw">
+    <children xmi:id="_TDKpQCCDEeOLA4w2U3e-aw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_TDKpQSCDEeOLA4w2U3e-aw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_TDKpQiCDEeOLA4w2U3e-aw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_TDKpQyCDEeOLA4w2U3e-aw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_TDKCMSCDEeOLA4w2U3e-aw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_TDKCMiCDEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="../../org.eclipse.scada.configuration.memory/model/memory.ecore#//TypeSystem/includes"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_TDKCMyCDEeOLA4w2U3e-aw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_VphAcCCDEeOLA4w2U3e-aw" type="3002" source="_v5ZAkBP0EeOOU6PNVQrq1A" target="_TC6KkCCDEeOLA4w2U3e-aw">
+    <children xmi:id="_VphngyCDEeOLA4w2U3e-aw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_VphnhCCDEeOLA4w2U3e-aw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_VphnhSCDEeOLA4w2U3e-aw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_VphnhiCDEeOLA4w2U3e-aw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_VphngCCDEeOLA4w2U3e-aw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_VphngSCDEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusDevice/typeSystem"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_VphngiCDEeOLA4w2U3e-aw" points="[7, -33, -48, 139]$[8, -201, -47, -29]"/>
+  </edges>
+  <edges xmi:id="_lleRQEuNEeOlUItvRuKTjg" type="3002" source="_W61BwEuNEeOlUItvRuKTjg" target="_llPnwEuNEeOlUItvRuKTjg">
+    <children xmi:id="_lleRREuNEeOlUItvRuKTjg" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_lleRRUuNEeOlUItvRuKTjg" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_lleRRkuNEeOlUItvRuKTjg" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_lleRR0uNEeOlUItvRuKTjg" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_lleRQUuNEeOlUItvRuKTjg" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_lleRQkuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusExporter/devices"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_lleRQ0uNEeOlUItvRuKTjg" points="[0, 0, 88, 60]$[-88, -60, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_nQg2wEuNEeOlUItvRuKTjg" type="3002" source="_llPnwEuNEeOlUItvRuKTjg" target="_nQMGoEuNEeOlUItvRuKTjg">
+    <children xmi:id="_nQhd0EuNEeOlUItvRuKTjg" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_nQhd0UuNEeOlUItvRuKTjg" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_nQhd0kuNEeOlUItvRuKTjg" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_nQhd00uNEeOlUItvRuKTjg" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_nQg2wUuNEeOlUItvRuKTjg" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_nQg2wkuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusExporterDevice/items"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_nQg2w0uNEeOlUItvRuKTjg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_sBAKQEuNEeOlUItvRuKTjg" type="3002" source="_nQMGoEuNEeOlUItvRuKTjg" target="_sAyu4EuNEeOlUItvRuKTjg">
+    <children xmi:id="_sBAKREuNEeOlUItvRuKTjg" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_sBAKRUuNEeOlUItvRuKTjg" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_sBAKRkuNEeOlUItvRuKTjg" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_sBAKR0uNEeOlUItvRuKTjg" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_sBAKQUuNEeOlUItvRuKTjg" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_sBAKQkuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusExporterItem/type"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_sBAKQ0uNEeOlUItvRuKTjg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_v0g4IEuNEeOlUItvRuKTjg" type="3003" source="_v0PyYEuNEeOlUItvRuKTjg" target="_sAyu4EuNEeOlUItvRuKTjg">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_v0g4IUuNEeOlUItvRuKTjg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_v0g4IkuNEeOlUItvRuKTjg" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_v0g4I0uNEeOlUItvRuKTjg" points="[-53, -9, 167, -147]$[-113, -9, 107, -147]$[-113, 109, 107, -29]$[-159, 109, 61, -29]"/>
+  </edges>
+  <edges xmi:id="_zSD9EEuNEeOlUItvRuKTjg" type="3003" source="_zR5lAEuNEeOlUItvRuKTjg" target="_sAyu4EuNEeOlUItvRuKTjg">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_zSD9EUuNEeOlUItvRuKTjg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_zSD9EkuNEeOlUItvRuKTjg" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_zSD9E0uNEeOlUItvRuKTjg" points="[-2, 2, 167, -73]$[-50, 2, 119, -73]$[-50, 60, 119, -15]$[-108, 60, 61, -15]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_9F-uMEuNEeOlUItvRuKTjg" id="(0.028037383177570093,0.28888888888888886)"/>
+  </edges>
+  <edges xmi:id="_1S9d0EuNEeOlUItvRuKTjg" type="3003" source="_1SuNQEuNEeOlUItvRuKTjg" target="_sAyu4EuNEeOlUItvRuKTjg">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_1S9d0UuNEeOlUItvRuKTjg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_1S9d0kuNEeOlUItvRuKTjg" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_1S9d00uNEeOlUItvRuKTjg" points="[-52, -9, 167, -3]$[-158, -9, 61, -3]"/>
+  </edges>
+  <edges xmi:id="_2vJvAEuNEeOlUItvRuKTjg" type="3003" source="_2u-v4EuNEeOlUItvRuKTjg" target="_sAyu4EuNEeOlUItvRuKTjg">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_2vJvAUuNEeOlUItvRuKTjg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_2vJvAkuNEeOlUItvRuKTjg" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_2vJvA0uNEeOlUItvRuKTjg" points="[-53, -9, 167, 69]$[-101, -9, 119, 69]$[-101, -69, 119, 9]$[-159, -69, 61, 9]"/>
+  </edges>
+  <edges xmi:id="_4SRuoEuNEeOlUItvRuKTjg" type="3003" source="_4SJy0EuNEeOlUItvRuKTjg" target="_sAyu4EuNEeOlUItvRuKTjg">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_4SRuoUuNEeOlUItvRuKTjg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_4SRuokuNEeOlUItvRuKTjg" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_4SRuo0uNEeOlUItvRuKTjg" points="[-53, -9, 167, 141]$[-113, -9, 107, 141]$[-113, -129, 107, 21]$[-159, -129, 61, 21]"/>
+  </edges>
+  <edges xmi:id="_hktfoEuPEeOlUItvRuKTjg" type="3002" source="_kGKnUCBvEeOLA4w2U3e-aw" target="_hkYvgEuPEeOlUItvRuKTjg">
+    <children xmi:id="_hkuGsEuPEeOlUItvRuKTjg" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_hkuGsUuPEeOlUItvRuKTjg" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_hkuGskuPEeOlUItvRuKTjg" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_hkuGs0uPEeOlUItvRuKTjg" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_hktfoUuPEeOlUItvRuKTjg" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_hktfokuPEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10"/>
+    <element href="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/EquinoxApplication/modules"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_hktfo0uPEeOlUItvRuKTjg" points="[-19, -31, 489, 841]$[-508, -871, 0, 1]"/>
+  </edges>
+  <edges xmi:id="_hkutwEuPEeOlUItvRuKTjg" type="3003" source="_W61BwEuNEeOlUItvRuKTjg" target="_hkYvgEuPEeOlUItvRuKTjg">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_hkutwUuPEeOlUItvRuKTjg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_hkutwkuPEeOlUItvRuKTjg" fontName="Cantarell"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_hkutw0uPEeOlUItvRuKTjg" points="[-62, 4, 133, -5]$[-123, 4, 72, -5]"/>
+  </edges>
+  <edges xmi:id="_nCGc0LsWEeOF3saO75bl9w" type="3002" source="_nQMGoEuNEeOlUItvRuKTjg" target="_nBmtkLsWEeOF3saO75bl9w">
+    <children xmi:id="_nCHD4LsWEeOF3saO75bl9w" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_nCHD4bsWEeOF3saO75bl9w" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_nCHD4rsWEeOF3saO75bl9w" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_nCHD47sWEeOF3saO75bl9w" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_nCGc0bsWEeOF3saO75bl9w" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_nCGc0rsWEeOF3saO75bl9w" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusExporterItem/source"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_nCGc07sWEeOF3saO75bl9w" points="[0, 0, 78, 73]$[-78, -73, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_G6w6kNd-EeOHdLWi_9q-gQ" type="3002" source="_Fu_D8Nd-EeOHdLWi_9q-gQ" target="_5VWDMNd8EeOHdLWi_9q-gQ">
+    <children xmi:id="_G6w6lNd-EeOHdLWi_9q-gQ" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_G6w6ldd-EeOHdLWi_9q-gQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_G6w6ltd-EeOHdLWi_9q-gQ" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_G6w6l9d-EeOHdLWi_9q-gQ" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_G6w6kdd-EeOHdLWi_9q-gQ" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_G6w6ktd-EeOHdLWi_9q-gQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusExporterInterceptor/settings"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_G6w6k9d-EeOHdLWi_9q-gQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_--YJgRPbEeS5CvTfLN8rPw" id="(0.5,0.0)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" xmi:id="_--YwkBPbEeS5CvTfLN8rPw" id="(0.49714285714285716,1.0)"/>
+  </edges>
+  <edges xmi:id="_IZ7AMNd-EeOHdLWi_9q-gQ" type="3003" source="_Fu_D8Nd-EeOHdLWi_9q-gQ" target="_l15ygNd9EeOHdLWi_9q-gQ">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_IZ7AMdd-EeOHdLWi_9q-gQ" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_IZ7AMtd-EeOHdLWi_9q-gQ" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_IZ7AM9d-EeOHdLWi_9q-gQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_UhyTcNeKEeOHdLWi_9q-gQ" type="3002" source="_Fu_D8Nd-EeOHdLWi_9q-gQ" target="_T1nJ8NeKEeOHdLWi_9q-gQ">
+    <children xmi:id="_UhyTdNeKEeOHdLWi_9q-gQ" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_UhyTddeKEeOHdLWi_9q-gQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_Uhy6gNeKEeOHdLWi_9q-gQ" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_Uhy6gdeKEeOHdLWi_9q-gQ" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_UhyTcdeKEeOHdLWi_9q-gQ" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_UhyTcteKEeOHdLWi_9q-gQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusExporterInterceptor/script"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_UhyTc9eKEeOHdLWi_9q-gQ" points="[98, 5, -170, -16]$[232, -16, -36, -37]"/>
+  </edges>
+  <edges xmi:id="_11ddMBPbEeS5CvTfLN8rPw" type="3002" source="_l15ygNd9EeOHdLWi_9q-gQ" target="_10raEBPbEeS5CvTfLN8rPw">
+    <children xmi:id="_11eEQBPbEeS5CvTfLN8rPw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_11eEQRPbEeS5CvTfLN8rPw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_11eEQhPbEeS5CvTfLN8rPw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_11eEQxPbEeS5CvTfLN8rPw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_11ddMRPbEeS5CvTfLN8rPw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_11ddMhPbEeS5CvTfLN8rPw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="../../org.eclipse.scada.configuration.component/model/component.ecore#//ItemInterceptor/masterOn"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_11ddMxPbEeS5CvTfLN8rPw" points="[0, 0, 74, 85]$[-74, -85, 0, 0]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" xmi:id="_12R8kRPbEeS5CvTfLN8rPw" id="(0.328,0.0)"/>
+  </edges>
+  <edges xmi:id="_11erUBPbEeS5CvTfLN8rPw" type="3002" source="_l15ygNd9EeOHdLWi_9q-gQ" target="_10udYBPbEeS5CvTfLN8rPw">
+    <children xmi:id="_11fSYBPbEeS5CvTfLN8rPw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_11fSYRPbEeS5CvTfLN8rPw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_11fSYhPbEeS5CvTfLN8rPw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_11fSYxPbEeS5CvTfLN8rPw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_11erURPbEeS5CvTfLN8rPw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_11erUhPbEeS5CvTfLN8rPw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="../../org.eclipse.scada.configuration.component/model/component.ecore#//ItemInterceptor/properties"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_11erUxPbEeS5CvTfLN8rPw" points="[0, 0, -74, 60]$[74, -60, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_11gggBPbEeS5CvTfLN8rPw" type="3002" source="_10vrghPbEeS5CvTfLN8rPw" target="_l15ygNd9EeOHdLWi_9q-gQ">
+    <children xmi:id="_11gghBPbEeS5CvTfLN8rPw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_11gghRPbEeS5CvTfLN8rPw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_11gghhPbEeS5CvTfLN8rPw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_11gghxPbEeS5CvTfLN8rPw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_11gggRPbEeS5CvTfLN8rPw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_11ggghPbEeS5CvTfLN8rPw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="../../org.eclipse.scada.configuration.component/model/component.ecore#//Container/itemInterceptors"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_11gggxPbEeS5CvTfLN8rPw" points="[0, 0, -188, 60]$[188, -60, 0, 0]"/>
+  </edges>
+  <edges xmi:id="_-9vQUBPbEeS5CvTfLN8rPw" type="3002" source="_5VWDMNd8EeOHdLWi_9q-gQ" target="_10udYBPbEeS5CvTfLN8rPw">
+    <children xmi:id="_-9vQVBPbEeS5CvTfLN8rPw" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_-9vQVRPbEeS5CvTfLN8rPw" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_-9vQVhPbEeS5CvTfLN8rPw" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_-9vQVxPbEeS5CvTfLN8rPw" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_-9vQURPbEeS5CvTfLN8rPw" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_-9vQUhPbEeS5CvTfLN8rPw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="modbus.ecore#//ModbusExporterModule/properties"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_-9vQUxPbEeS5CvTfLN8rPw" points="[0, 0, 66, 60]$[-66, -60, 0, 0]"/>
+  </edges>
+</notation:Diagram>

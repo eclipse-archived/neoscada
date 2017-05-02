@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jdbc" nsURI="http://eclipse.org/SCADA/Configuration/Driver/JDBC"
+    nsPrefix="jdbc">
+  <eClassifiers xsi:type="ecore:EClass" name="JdbcDriverInstance" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//CommonDriver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="ecore:EClass ../../org.eclipse.scada.da.server.jdbc/model/configuration.ecore#//RootType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateCommand" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue #//QueryBase">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
+        eType="#//UpdateMapping" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QueryComponent" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent #//QueryBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
+        eType="#//ColumnMapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The scheduling period of the query in milliseconds."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCustomizationTags"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultDataType" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/DataType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QueryBase" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//DatabaseSettings"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="queryTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The query timeout in seconds."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runsOn" lowerBound="1"
+        eType="#//JdbcDriver"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateMapping">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="namedParameter" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnMapping">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizationTags" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/DataType"
+        defaultValueLiteral="NULL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JdbcDriver" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//AbstractCommonDriver"/>
+</ecore:EPackage>

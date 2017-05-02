@@ -1,0 +1,4 @@
+if test "$1" = remove ; then
+	test -L "@@TARGET@@" && rm "@@TARGET@@"
+	dpkg-divert --remove --package "@@PKG@@" --rename --divert "@@TARGET@@.distrib" "@@TARGET@@"
+fi

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension
+         point="org.eclipse.scada.configuration.world.lib.generator">
+      <nodeElementProcessor
+            factoryClass="org.eclipse.scada.configuration.driver.jdbc.lib.DriverProcessorFactory">
+         <forClass
+               class="org.eclipse.scada.configuration.driver.jdbc.JdbcDriverInstance">
+         </forClass>
+     </nodeElementProcessor>
+ </extension>
+ <extension
+       point="org.eclipse.core.runtime.adapters">
+    <factory
+            adaptableType="org.eclipse.scada.configuration.driver.jdbc.UpdateCommand"
+            class="org.eclipse.scada.configuration.driver.jdbc.lib.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.configuration.generator.Generator">
+         </adapter>
+    </factory>
+     <factory
+            adaptableType="org.eclipse.scada.configuration.driver.jdbc.QueryComponent"
+            class="org.eclipse.scada.configuration.driver.jdbc.lib.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.configuration.generator.Generator">
+         </adapter>
+    </factory>
+         <factory
+            adaptableType="org.eclipse.scada.configuration.driver.jdbc.JdbcDriver"
+            class="org.eclipse.scada.configuration.driver.jdbc.lib.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.configuration.infrastructure.lib.DriverHandler">
+         </adapter>
+    </factory>
+ </extension>
+</plugin>

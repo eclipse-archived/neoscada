@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.component.exec/src" creationIcons="false"
+    modelPluginID="org.eclipse.scada.configuration.component.exec" modelName="ExecComponents"
+    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.scada.configuration.component/model/component.genmodel#//component ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization"
+    operationReflection="true" importOrganizing="true" pluginKey="exec">
+  <foreignModel>execComponents.ecore</foreignModel>
+  <genPackages prefix="ExecComponents" basePackage="org.eclipse.scada.configuration.component"
+      disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
+      childCreationExtenders="true" ecorePackage="execComponents.ecore#/">
+    <genClasses ecoreClass="execComponents.ecore#//ExecJob">
+      <genFeatures notify="false" createChild="false" propertyCategory="runtime" propertySortChoices="true"
+          ecoreFeature="ecore:EReference execComponents.ecore#//ExecJob/runsOn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute execComponents.ecore#//ExecJob/name"/>
+      <genOperations ecoreOperation="execComponents.ecore#//ExecJob/hasExecDriver">
+        <genParameters ecoreParameter="execComponents.ecore#//ExecJob/hasExecDriver/diagnostics"/>
+        <genParameters ecoreParameter="execComponents.ecore#//ExecJob/hasExecDriver/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="execComponents.ecore#//LoadAverage"/>
+    <genClasses ecoreClass="execComponents.ecore#//LoadAverageConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute execComponents.ecore#//LoadAverageConfiguration/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute execComponents.ecore#//LoadAverageConfiguration/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="execComponents.ecore#//PingCheck">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference execComponents.ecore#//PingCheck/node"/>
+    </genClasses>
+    <genClasses ecoreClass="execComponents.ecore#//PingCheckConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute execComponents.ecore#//PingCheckConfiguration/pingDelay"/>
+    </genClasses>
+    <genClasses ecoreClass="execComponents.ecore#//SystemInformationVMStat"/>
+  </genPackages>
+</genmodel:GenModel>

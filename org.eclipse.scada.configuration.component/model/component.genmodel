@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2015 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.component/src" creationIcons="false"
+    creationSubmenus="true" modelPluginID="org.eclipse.scada.configuration.component"
+    modelName="Component" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
+    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.11" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
+    operationReflection="true" importOrganizing="true" decoration="Live" styleProviders="true">
+  <foreignModel>component.ecore</foreignModel>
+  <genPackages prefix="Component" basePackage="org.eclipse.scada.configuration" resource="XMI"
+      disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
+      childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.component"
+      fileExtensions="escm" ecorePackage="component.ecore#/">
+    <genDataTypes ecoreDataType="component.ecore#//Notification"/>
+    <genClasses ecoreClass="component.ecore#//ComponentWorld">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/levels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/configurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/services"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/infrastructure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/defaultCustomizationPipeline"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/defaultArchiveSelector"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//Level">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//Level/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//Level/levels"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component.ecore#//Level/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Level/customizationPipeline"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Level/archiveSelector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//Level/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//Level/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//Component">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component.ecore#//Component/level"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="customization"
+          propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Component/customizationPipeline"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="customization"
+          propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Component/archiveSelector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//Component/properties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//DataComponent">
+      <genOperations ecoreOperation="component.ecore#//DataComponent/getMasterOn"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//Configuration"/>
+    <genClasses ecoreClass="component.ecore#//ConstantValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ConstantValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//MarkerConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//MarkerConfiguration/markers"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//Service"/>
+    <genClasses ecoreClass="component.ecore#//PersistentValue"/>
+    <genClasses ecoreClass="component.ecore#//DriverConnectionAnalyzer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DriverConnectionAnalyzer/driver"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//MasterImportConnectionAnalyzer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterImportConnectionAnalyzer/connection"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//SingleValue">
+      <genFeatures createChild="false" propertyCategory="naming" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/name"/>
+      <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/dataType"/>
+      <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/customizationTags"/>
+      <genOperations ecoreOperation="component.ecore#//SingleValue/isReadable"/>
+      <genOperations ecoreOperation="component.ecore#//SingleValue/isWritable"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//DataMapperAnalyzer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DataMapperAnalyzer/dataMapper"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//DataMapperService">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//DataMapperService/dataMapper"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DataMapperService/masterOn"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//MappedSourceValue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MappedSourceValue/mapper"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//MappedSourceValue/input"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//CalculationComponent">
+      <genFeatures notify="false" createChild="false" propertyCategory="core" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/implementation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/outputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/initProperties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//CalculationModule">
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//CalculationModule/knownInputs"/>
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//CalculationModule/knownOutputs"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//InputSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//InputSpecification/name"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//OutputSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//OutputSpecification/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//OutputSpecification/dataType"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//OutputDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//OutputDefinition/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//OutputDefinition/localTag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//OutputDefinition/customizationTags"/>
+      <genOperations ecoreOperation="component.ecore#//OutputDefinition/createReference"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//ItemReferenceInputDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ItemReferenceInputDefinition/itemId"/>
+      <genOperations ecoreOperation="component.ecore#//ItemReferenceInputDefinition/createReference"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//ItemReferenceOutputDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ItemReferenceOutputDefinition/itemId"/>
+      <genOperations ecoreOperation="component.ecore#//ItemReferenceOutputDefinition/createReference"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//InputDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//InputDefinition/name"/>
+      <genOperations ecoreOperation="component.ecore#//InputDefinition/createReference"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//ComponentReferenceInputDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentReferenceInputDefinition/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ComponentReferenceInputDefinition/localTag"/>
+      <genOperations ecoreOperation="component.ecore#//ComponentReferenceInputDefinition/createReference"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//FormulaModule">
+      <genFeatures property="None" createChild="true" ecoreFeature="ecore:EReference component.ecore#//FormulaModule/inputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//FormulaModule/update"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//FormulaModule/scriptEngine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//FormulaModule/init"/>
+      <genOperations ecoreOperation="component.ecore#//FormulaModule/getKnownInputs"/>
+      <genOperations ecoreOperation="component.ecore#//FormulaModule/customENotify">
+        <genParameters ecoreParameter="component.ecore#//FormulaModule/customENotify/notification"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//AverageModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//AverageModule/validSourcesRequired"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//DanglingItemReference"/>
+    <genClasses ecoreClass="component.ecore#//ScriptModule">
+      <genFeatures property="None" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/inputs"/>
+      <genFeatures property="None" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/outputs"/>
+      <genFeatures createChild="false" propertyCategory="script" ecoreFeature="ecore:EAttribute component.ecore#//ScriptModule/scriptEngine"/>
+      <genFeatures property="Readonly" children="true" createChild="true" propertyCategory="script"
+          propertyDescription="initScript" propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/initScript"/>
+      <genFeatures property="Readonly" children="true" createChild="true" propertyCategory="script"
+          propertyDescription="updateScript" propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/updateScript"/>
+      <genFeatures property="Readonly" children="true" createChild="true" propertyCategory="script"
+          propertyDescription="writeCommandScript" propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/writeCommandScript"/>
+      <genFeatures property="Readonly" children="true" createChild="true" propertyCategory="script"
+          propertyDescription="timerScript" propertyMultiLine="true" ecoreFeature="ecore:EReference component.ecore#//ScriptModule/timerScript"/>
+      <genOperations ecoreOperation="component.ecore#//ScriptModule/getKnownInputs"/>
+      <genOperations ecoreOperation="component.ecore#//ScriptModule/getKnownOutputs"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//Script">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute component.ecore#//Script/code"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//TimerScript">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//TimerScript/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//TimerScript/code"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//AbsoluteDanglingReference"/>
+    <genClasses ecoreClass="component.ecore#//ComponentDanglingReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ComponentDanglingReference/localTag"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentDanglingReference/component"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//ExternalValue">
+      <genFeatures notify="false" createChild="false" propertyCategory="external"
+          propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ExternalValue/connection"/>
+      <genFeatures createChild="false" propertyCategory="external" ecoreFeature="ecore:EAttribute component.ecore#//ExternalValue/sourceName"/>
+      <genFeatures createChild="false" propertyCategory="customization" propertyDescription="Whether the item is readable"
+          ecoreFeature="ecore:EAttribute component.ecore#//ExternalValue/readable"/>
+      <genFeatures createChild="false" propertyCategory="customization" propertyDescription="Whether the item is writable"
+          ecoreFeature="ecore:EAttribute component.ecore#//ExternalValue/writable"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//SummariesConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//SummariesConfiguration/itemThreshold"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//ItemInterceptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ItemInterceptor/properties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//Container/itemInterceptors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//Container/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//RestInterceptor">
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//RestInterceptor/selector"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="data" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//RestInterceptor/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//GlobalizeComponent">
+      <genFeatures notify="false" createChild="false" propertyCategory="data" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/components"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="runtime" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/sourceMaster"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="runtime"
+          ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/masterOn"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//TransientValue"/>
+    <genClasses ecoreClass="component.ecore#//MasterComponent"/>
+    <genClasses ecoreClass="component.ecore#//BufferedValue">
+      <genFeatures createChild="false" propertyCategory="naming" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/name"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="data"
+          ecoreFeature="ecore:EReference component.ecore#//BufferedValue/input"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/range"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/initialValue"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/persistence"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/trigger"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/triggerOnly"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//ChangeCounter">
+      <genFeatures notify="false" createChild="false" propertyCategory="data" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//ChangeCounter/buffer"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//ChangeCounter/type"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//ChangeCounter/values"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//ChangeCounter/onError"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//MovingAverageModule">
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//MovingAverageModule/nullRange"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//MovingAverageModule/range"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//MovingAverageModule/trigger"/>
+      <genFeatures createChild="false" propertyCategory="data" ecoreFeature="ecore:EAttribute component.ecore#//MovingAverageModule/triggerOnly"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//DeltaValue">
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="data"
+          propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DeltaValue/source"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//MasterAssigned">
+      <genFeatures notify="false" createChild="false" propertyCategory="core" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//MasterAssigned/masterOn"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//ComponentReferenceOutputDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentReferenceOutputDefinition/component"/>
+      <genOperations ecoreOperation="component.ecore#//ComponentReferenceOutputDefinition/createReference"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="component.ecore#//ReadOnlySingleValue">
+      <genOperations ecoreOperation="component.ecore#//ReadOnlySingleValue/isWritable"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

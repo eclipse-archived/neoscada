@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>org.eclipse.scada.ide-parent</artifactId>
+		<groupId>org.eclipse.scada.ide</groupId>
+		<version>0.4.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.scada.ide-parent</relativePath>
+	</parent>
+	
+	<groupId>org.eclipse.scada.ide</groupId>
+	<artifactId>org.eclipse.scada.ide.p2-incubation</artifactId>
+	<packaging>eclipse-repository</packaging>
+
+	<profiles>
+
+		<profile>
+			<id>eclipse-hudson</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>ant-post-proc</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<ant antfile="post.ant">
+											<property name="package" value="${project.artifactId}"/>
+											<property name="repo" value="${project.groupId}"/>
+										</ant>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
+<target name="Eclipse SCADA - Current" sequenceNumber="1414750926">
+  <locations>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.scada.core.common.feature.group" version="0.2.0.v20140901-1405"/>
+      <unit id="org.eclipse.scada.core.server.feature.group" version="0.2.0.v20141007-1308"/>
+      <unit id="org.eclipse.scada.core.protocols.feature.group" version="0.2.0.v20141007-1111"/>
+      <unit id="org.eclipse.scada.core.client.feature.group" version="0.2.0.v20141007-1136"/>
+      <unit id="org.eclipse.scada.deploy.console.feature.group" version="0.1.0.v20140304-1539"/>
+      <repository location="http://download.eclipse.org/eclipsescada/updates/milestone/0.2"/>
+    </location>
+  </locations>
+</target>

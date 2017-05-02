@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2013 IBH SYSTEMS GmbH.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated memoryManager -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/Memory/Manager"
+            class="org.eclipse.scada.configuration.memory.manager.MemoryManagerPackage"
+            genModel="model/memoryManager.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated memoryManager -->
+      <parser
+            type="memorymanager"
+            class="org.eclipse.scada.configuration.memory.manager.util.MemoryManagerResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

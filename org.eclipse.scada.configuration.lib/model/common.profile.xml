@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
+includes="fragments/ca.file.profile.xml#/ fragments/equinox.profile.xml#/ fragments/logback.profile.xml#/ fragments/console.profile.xml#/ fragments/sec.profile.xml#/"
+name="Common Equinox Application Setup">
+  	
+  <feature>org.eclipse.scada.external.feature.group</feature>
+  <feature>org.eclipse.scada.utils.feature.group</feature>
+  <feature>org.eclipse.scada.base.feature.group</feature>
+  <feature>org.eclipse.scada.protocols.feature.group</feature>
+  
+  <feature>org.eclipse.equinox.server.core.feature.group</feature>
+  <feature>org.eclipse.equinox.server.jetty.feature.group</feature>
+  <feature>org.eclipse.equinox.server.p2.feature.group</feature>
+  
+  <arg>-consoleLog</arg>
+</profile:profile>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>org.eclipse.scada.ide-parent</artifactId>
+		<groupId>org.eclipse.scada.ide</groupId>
+		<version>0.4.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.scada.ide-parent</relativePath>
+	</parent>
+
+	<groupId>org.eclipse.scada.ide</groupId>
+	<artifactId>org.eclipse.scada.ide.pde</artifactId>
+	<version>0.3.0-SNAPSHOT</version>
+	<packaging>eclipse-plugin</packaging>
+
+	<profiles>
+		<profile>
+			<id>target-platform-update</id>
+			
+			<activation>
+				<property>
+					<name>ide.update.target.platform</name>
+				</property>
+			</activation>
+
+			<!-- for being sure the versions are already updated -->
+			<dependencies>
+				<dependency>
+					<groupId>org.eclipse.scada.core.features</groupId>
+					<artifactId>org.eclipse.scada.core.sdk</artifactId>
+					<version>${project.version}</version>
+					<type>pom</type>
+				</dependency>
+				<dependency>
+					<groupId>org.eclipse.scada.deploy.features</groupId>
+					<artifactId>org.eclipse.scada.deploy.console</artifactId>
+					<version>${project.version}</version>
+					<type>pom</type>
+				</dependency>
+			</dependencies>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.scada.releng</groupId>
+						<artifactId>build-helper</artifactId>
+						<executions>
+							<execution>
+								<id>test</id>
+								<goals>
+									<goal>update-target-platform</goal>
+								</goals>
+								<configuration>
+									<sourceFile>es-current.target</sourceFile>
+									<targetFile>${project.build.directory}/es-fragment.target</targetFile>
+									<downloadUrl>http://download.eclipse.org/eclipsescada/updates/${buildTypeLong}/${release}/</downloadUrl>
+								</configuration>
+							</execution>
+
+							<execution>
+								<id>merge</id>
+								<goals>
+									<goal>merge-target-files</goal>
+								</goals>
+								<configuration>
+									<name>Eclipse SCADA - ${project.version} - Server Runtime
+									</name>
+									<sourceFiles>
+										<sourceFile>base.target</sourceFile>
+										<sourceFile>${project.build.directory}/es-fragment.target</sourceFile>
+									</sourceFiles>
+									<targetFile>${project.build.directory}/targets/es-current.target</targetFile>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-packaging-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<additionalFileSets>
+								<fileSet>
+									<directory>${project.build.directory}</directory>
+									<includes>
+										<include>targets/*.target</include>
+									</includes>
+								</fileSet>
+							</additionalFileSets>
+						</configuration>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

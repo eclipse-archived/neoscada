@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2013 IBH SYSTEMS GmbH.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated globalize -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/Globalization"
+            class="org.eclipse.scada.configuration.globalization.GlobalizePackage"
+            genModel="model/globalize.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated globalize -->
+      <parser
+            contentTypeIdentifier="org.eclipse.scada.configuration.globalization"
+            class="org.eclipse.scada.configuration.globalization.util.GlobalizeResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated globalize -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="globalize"
+            id="org.eclipse.scada.configuration.globalization"
+            name="%_UI_Globalize_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://eclipse.org/SCADA/Configuration/Globalization"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+</plugin>

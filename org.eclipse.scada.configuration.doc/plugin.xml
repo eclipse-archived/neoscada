@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ 	<extension
+             point="org.eclipse.help.toc">
+          <toc
+                file="toc/toc.xml"
+                primary="true">
+          </toc>
+          <toc
+                file="toc/tocreference.xml">
+          </toc>
+          <toc
+                file="toc/tocjavadoc.xml">
+          </toc>
+		  <toc
+          		file="content/basic/basic-toc.xml">
+          </toc>
+          <toc
+          		file="content/world/main-toc.xml">
+          </toc>
+       </extension>
+       
+       <extension point="org.eclipse.pde.core.javadoc">
+          <javadoc path="reference/api">
+                <plugin id="org.eclipse.scada.configuration" /> 
+          </javadoc>
+       </extension>
+</plugin>

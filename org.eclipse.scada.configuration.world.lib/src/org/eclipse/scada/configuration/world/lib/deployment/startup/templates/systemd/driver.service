@@ -1,0 +1,11 @@
+[Unit]
+Description=Eclipse SCADA @@driverName@@ driver
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/scada.driver.@@driverName@@.launcher
+StandardOutput=null
+User=eclipsescada
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc topic="content/basic/basic.html" label="basic">
+	<topic href="content/basic/basic.html" label="Introduction">
+		<topic href="content/basic/basic.html#Globalization" label="Globalization"></topic>
+	</topic>
+	<topic href="content/basic/basic.html#Basicconfiguration" label="Basic configuration">
+		<topic href="content/basic/basic.html#Createanewproject" label="Create a new project"></topic>
+		<topic href="content/basic/basic.html#Generatethedeployables" label="Generate the deployables"></topic>
+		<topic href="content/basic/basic.html#Createsomedeploymentmechanism" label="Create some deployment mechanism"></topic>
+	</topic>
+</toc>

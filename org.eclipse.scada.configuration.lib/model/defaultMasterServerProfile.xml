@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" includes="common.profile.xml#/" name="Default Master Server Profile">
+  <start>org.eclipse.scada.sec.audit.log.ae</start>
+  <start>org.eclipse.scada.da.buffer</start>
+  <start>org.eclipse.scada.da.server.exporter.ngp</start>
+  <start>org.eclipse.scada.da.client.ngp</start>
+  <start>org.eclipse.scada.da.client.sfp</start>
+  <start>org.eclipse.scada.da.server.common.osgi</start>
+  <start>org.eclipse.scada.da.connection.provider</start>
+  <start>org.eclipse.scada.da.client.connection.service</start>
+  <start>org.eclipse.scada.da.master.analyzer</start>
+  <start>org.eclipse.scada.da.master.common</start>
+  <start>org.eclipse.scada.da.datasource.script</start>
+  <start>org.eclipse.scada.da.datasource.formula</start>
+  <start>org.eclipse.scada.da.datasource.memory</start>
+  <start>org.eclipse.scada.da.datasource.proxy</start>
+  <start>org.eclipse.scada.da.datasource.item</start>
+  <start>org.eclipse.scada.da.datasource.sum</start>
+  <start>org.eclipse.scada.da.datasource.delta</start>
+  <start>org.eclipse.scada.da.datasource.ds</start>
+  <start>org.eclipse.scada.da.datasource.constant</start>
+  <start>org.eclipse.scada.da.datasource.average</start>
+  <start>org.eclipse.scada.da.datasource.changecounter</start>
+  <start>org.eclipse.scada.da.datasource.totalizer</start>
+  <start>org.eclipse.scada.da.datasource.movingaverage</start>
+  <start>org.eclipse.scada.da.mapper.osgi</start>
+  <start>org.eclipse.scada.da.master.mapper</start>
+  <start>org.eclipse.scada.da.server.osgi</start>
+  <start>org.eclipse.scada.da.server.osgi.summary</start>
+  <start>org.eclipse.scada.ae.client.ngp</start>
+  <start>org.eclipse.scada.ae.client.connection.service</start>
+  <start>org.eclipse.scada.ae.event.logger</start>
+  <start>org.eclipse.scada.ae.server.storage</start>
+  <start>org.eclipse.scada.ae.event</start>
+  <start>org.eclipse.scada.ae.monitor.datasource</start>
+  <start>org.eclipse.scada.ae.monitor.datasource.common</start>
+  <start>org.eclipse.scada.ae.server.exporter</start>
+  <start>org.eclipse.scada.ae.connection.provider</start>
+  <start>org.eclipse.scada.ae.server.common</start>
+  <start>org.eclipse.scada.ae.monitor.common</start>
+  <start>org.eclipse.scada.ae.server.common.monitor</start>
+  <start>org.eclipse.scada.ae.monitor.common</start>
+  <start>org.eclipse.scada.ae.monitor.script</start>
+  <start>org.eclipse.scada.ae.server.common.event</start>
+  <start>org.eclipse.scada.ae.server.info</start>
+  <start>org.eclipse.scada.ae.server.event.proxy</start>
+  <start>org.eclipse.scada.ae.server.monitor.proxy</start>
+  <start>org.eclipse.scada.ae.server.akn.proxy</start>
+  <start>org.eclipse.scada.ae.server.exporter.ngp</start>
+  <property key="osgi.console.ssh">2501</property>
+  <property key="org.eclipse.scada.ae.server.storage.jdbc.archiveDays">15</property>
+  
+  <feature>org.eclipse.scada.core.protocols.feature.group</feature>
+  <feature>org.eclipse.scada.core.server.feature.group</feature>
+  <feature>org.eclipse.scada.core.client.feature.group</feature>
+  <feature>org.eclipse.scada.core.common.feature.group</feature>
+</profile:profile>

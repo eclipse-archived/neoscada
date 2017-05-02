@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="item" nsURI="http://eclipse.org/SCADA/Configuration/Item" nsPrefix="item">
+  <eClassifiers xsi:type="ecore:EClass" name="CustomizationPipeline" abstract="true"
+      interface="true">
+    <eOperations name="customize">
+      <eParameters name="request" eType="#//CustomizationRequest"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptCustomizationPipeline" abstract="true"
+      eSuperTypes="#//CustomizationPipeline">
+    <eOperations name="getScriptEngine" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="CustomizationRequest" instanceClassName="org.eclipse.scada.configuration.item.CustomizationRequest"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositePipeline" eSuperTypes="#//CustomizationPipeline">
+    <eOperations name="customize">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="for ( Step step : getSteps () ) {&#xA;   step.execute ( request );&#xA;}"/>
+      </eAnnotations>
+      <eParameters name="request" eType="#//CustomizationRequest"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
+        eType="#//Step" containment="true" eOpposite="#//Step/containingPipeline"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//CompositePipeline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Call" eSuperTypes="#//Step">
+    <eOperations name="execute">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="getPipeline ().customize ( request );"/>
+      </eAnnotations>
+      <eParameters name="request" eType="#//CustomizationRequest"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pipeline" eType="#//CustomizationPipeline"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Step" abstract="true">
+    <eOperations name="execute">
+      <eParameters name="request" eType="#//CustomizationRequest"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containingPipeline" eType="#//CompositePipeline"
+        eOpposite="#//CompositePipeline/steps"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallSuper" eSuperTypes="#//Step">
+    <eOperations name="execute">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="getContainingPipeline().getParent().customize ( request );"/>
+      </eAnnotations>
+      <eParameters name="request" eType="#//CustomizationRequest"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Selector" abstract="true" interface="true">
+    <eOperations name="selected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eParameters name="request" eType="#//CustomizationRequest"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptSelector" abstract="true" eSuperTypes="#//Selector">
+    <eOperations name="getScriptEngine" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaScriptCustomizationPipeline" eSuperTypes="#//ScriptCustomizationPipeline">
+    <eOperations name="getScriptEngine" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return &quot;JavaScript&quot;;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomScriptCustomizationPipeline" eSuperTypes="#//ScriptCustomizationPipeline">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="JavaScript"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaScriptSelector" eSuperTypes="#//ScriptSelector">
+    <eOperations name="getScriptEngine" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return &quot;JavaScript&quot;;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomScriptSelector" eSuperTypes="#//ScriptSelector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="JavaScript"/>
+  </eClassifiers>
+</ecore:EPackage>

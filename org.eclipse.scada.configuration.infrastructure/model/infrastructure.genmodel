@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2015 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.infrastructure/src" creationIcons="false"
+    creationSubmenus="true" modelPluginID="org.eclipse.scada.configuration.infrastructure"
+    modelName="Infrastructure" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
+    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.11" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script"
+    operationReflection="true" importOrganizing="true" decoration="Live" styleProviders="true">
+  <foreignModel>infrastructure.ecore</foreignModel>
+  <genPackages prefix="Infrastructure" basePackage="org.eclipse.scada.configuration"
+      resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
+      extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.infrastructure"
+      fileExtensions="esim" ecorePackage="infrastructure.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="infrastructure.ecore#//SlaveStorageLayout">
+      <genEnumLiterals ecoreEnumLiteral="infrastructure.ecore#//SlaveStorageLayout/SINGLE"/>
+      <genEnumLiterals ecoreEnumLiteral="infrastructure.ecore#//SlaveStorageLayout/MULTI"/>
+    </genEnums>
+    <genClasses provider="Stateful" ecoreClass="infrastructure.ecore#//World">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/nodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/options"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultSecurityConfiguration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultMasterHandlerPriorities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultCredentials"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultMasterCustomizationProfile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultValueArchiveCustomizationProfile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultDriverPassword"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/applicationConfigurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultDriverAccessCredentials"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/configurations"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//Node">
+      <genFeatures createChild="false" propertyCategory="info" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Node/hostName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Node/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//MasterServer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterServer/authoratives"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterServer/importMaster"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterServer/driver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterServer/archiveTo"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//MasterImport">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterImport/importedMaster"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//MasterImport/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterImport/credentials"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterImport/master"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//Options">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Options/baseDaNgpPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Options/baseAeNgpPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Options/baseCaNgpPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Options/baseHdNgpPort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Options/monitorPools"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Options/eventPools"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Options/defaultUserService"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//EquinoxApplication">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/localCredentials"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//CommonDriver">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//CommonDriver/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//CommonDriver/portNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ExternalNode"/>
+    <genClasses ecoreClass="infrastructure.ecore#//SystemNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/deployment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/drivers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/masters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/valueArchives"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//SystemNode/applications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/services"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/valueSlaves"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//SystemPropertyUserService">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemPropertyUserService/users"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//UserEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//UserEntry/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//UserEntry/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//UserEntry/roles"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//UserService"/>
+    <genClasses ecoreClass="infrastructure.ecore#//JdbcUserService">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//JdbcUserService/implementation"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ValueArchiveServer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//ValueArchiveServer/defaultArchiveconfiguration"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//AbstractFactoryDriver">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//AbstractFactoryDriver/driverTypeId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//AbstractFactoryDriver/devices"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//Device">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference infrastructure.ecore#//Device/node"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//EquinoxDriver">
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxDriver/accessCredentials"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ExternalDriver">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ExternalDriver/portNumber"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//ExternalDriver/accessCredentials"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ExternalDriver/binding"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//Driver">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Driver/node"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Driver/protocolTypeTag"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ExternalDriverPlaceholder">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//ExternalDriverPlaceholder/endpoints"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ApplicationConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//ApplicationConfiguration/modules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//ApplicationConfiguration/configurations"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//Configurations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Configurations/configurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Configurations/settings"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//Module"/>
+    <genClasses ecoreClass="infrastructure.ecore#//HttpServiceModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//HttpServiceModule/port"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//RestExporterModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//RestExporterModule/contextId"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ValueArchiveSlave">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ValueArchiveSlave/storagePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ValueArchiveSlave/storageLayout"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//WebAdminConsole">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//WebAdminConsole/httpService"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//OracleVMSettings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//OracleVMSettings/initialHeapSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//OracleVMSettings/maximumHeapSize"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//GenericVMSettings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//GenericVMSettings/arguments"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//AbstractEquinoxDriver">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//AbstractEquinoxDriver/accessCredentials"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//EquinoxBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EquinoxBase/instanceNumber"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/userService"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/securityConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/modules"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/configuration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxBase/configurations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//AbstractCommonDriver">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//AbstractCommonDriver/portNumber"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//AbstractCommonDriver/password"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//EventInjectorHttp">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EventInjectorHttp/httpService"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//EventInjectorSyslog">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EventInjectorSyslog/bindAddress"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EventInjectorSyslog/port"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//JMXSettings">
+      <genFeatures createChild="false" propertyCategory="Oracle" propertyDescription="A specific port to use for JMX. Overrides the instance based port number."
+          ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/port"/>
+      <genFeatures createChild="false" propertyCategory="Oracle" propertyDescription="An offset to the instance number for generating a JMX port number"
+          ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/instancePortOffset"/>
+      <genFeatures createChild="false" propertyCategory="Oracle" ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/localOnly"/>
+      <genFeatures createChild="false" propertyCategory="Oracle" ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/authenticated"/>
+      <genFeatures createChild="false" propertyCategory="Oracle" ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/ssl"/>
+      <genFeatures createChild="false" propertyCategory="Common" propertyDescription="Assign the nodes hostname as JMX server hostname"
+          ecoreFeature="ecore:EAttribute infrastructure.ecore#//JMXSettings/assignNodeHostname"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//NamedApplication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//NamedApplication/name"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ConfigurationAdminFileBackend">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ConfigurationAdminFileBackend/path"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//EquinoxModule"/>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//JavaModule"/>
+    <genClasses ecoreClass="infrastructure.ecore#//DSFileBackend">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//DSFileBackend/path"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ConfigurationAdminSettings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ConfigurationAdminSettings/automaticMerge"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ConfigurationAdminSettings/settleTimeout"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

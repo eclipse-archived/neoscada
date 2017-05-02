@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_1w8tcGGeEeOT2rDq00KK6A" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:id="_2GvXQGGeEeOT2rDq00KK6A" type="1001">
+    <children xmi:id="_2Gv-UGGeEeOT2rDq00KK6A" type="4001"/>
+    <children xmi:id="_2Gv-UWGeEeOT2rDq00KK6A" type="5001">
+      <children xmi:id="_9Z2_kGGeEeOT2rDq00KK6A" type="2001">
+        <element href="commonComponents.ecore#//HeartbeatGenerator/period"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_9Z2_kWGeEeOT2rDq00KK6A"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_2Gv-UmGeEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_2Gv-U2GeEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_2Gv-VGGeEeOT2rDq00KK6A"/>
+    </children>
+    <children xmi:id="_2Gv-VWGeEeOT2rDq00KK6A" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_2Gv-VmGeEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_2Gv-V2GeEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_2Gv-WGGeEeOT2rDq00KK6A"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_2GvXQWGeEeOT2rDq00KK6A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="commonComponents.ecore#//HeartbeatGenerator"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_2GvXQmGeEeOT2rDq00KK6A" x="168" y="84"/>
+  </children>
+  <children xmi:id="_4krZUGGeEeOT2rDq00KK6A" type="1001">
+    <eAnnotations xmi:id="_4lTEYGGeEeOT2rDq00KK6A" source="Shortcut">
+      <details xmi:id="_4lTEYWGeEeOT2rDq00KK6A" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_4ksncGGeEeOT2rDq00KK6A" type="4001"/>
+    <children xmi:id="_4ksncWGeEeOT2rDq00KK6A" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_4ksncmGeEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_4ksnc2GeEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_4ksndGGeEeOT2rDq00KK6A"/>
+    </children>
+    <children xmi:id="_4ktOgGGeEeOT2rDq00KK6A" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_4ktOgWGeEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_4ktOgmGeEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_4ktOg2GeEeOT2rDq00KK6A"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_4krZUWGeEeOT2rDq00KK6A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.component/model/component.ecore#//DataComponent"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_4krZUmGeEeOT2rDq00KK6A" x="492" y="432"/>
+  </children>
+  <children xmi:id="_NbnWgGGgEeOT2rDq00KK6A" type="1001">
+    <children xmi:id="_NcF3oGGgEeOT2rDq00KK6A" type="4001"/>
+    <children xmi:id="_NcF3oWGgEeOT2rDq00KK6A" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_NcF3omGgEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_NcF3o2GgEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_NcF3pGGgEeOT2rDq00KK6A"/>
+    </children>
+    <children xmi:id="_NcGesGGgEeOT2rDq00KK6A" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_NcGesWGgEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_NcGesmGgEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_NcGes2GgEeOT2rDq00KK6A"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_NbnWgWGgEeOT2rDq00KK6A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="commonComponents.ecore#//ToggleHeartbeatGenerator"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_NbnWgmGgEeOT2rDq00KK6A" x="132" y="252"/>
+  </children>
+  <children xmi:id="_TUzy8GGqEeOT2rDq00KK6A" type="1001">
+    <eAnnotations xmi:id="_TVcFEGGqEeOT2rDq00KK6A" source="Shortcut">
+      <details xmi:id="_TVcFEWGqEeOT2rDq00KK6A" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_TU0aAGGqEeOT2rDq00KK6A" type="4001"/>
+    <children xmi:id="_TU0aAWGqEeOT2rDq00KK6A" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_TU0aAmGqEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_TU0aA2GqEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_TU0aBGGqEeOT2rDq00KK6A"/>
+    </children>
+    <children xmi:id="_TU1BEGGqEeOT2rDq00KK6A" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_TU1BEWGqEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_TU1BEmGqEeOT2rDq00KK6A"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_TU1BE2GqEeOT2rDq00KK6A"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_TUzy8WGqEeOT2rDq00KK6A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_TUzy8mGqEeOT2rDq00KK6A" x="96" y="-60"/>
+  </children>
+  <children xmi:id="_MJ24wGMWEeO0k-m0GB1KNg" type="1001">
+    <children xmi:id="_MJ4G4GMWEeO0k-m0GB1KNg" type="4001"/>
+    <children xmi:id="_MJ4G4WMWEeO0k-m0GB1KNg" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_MJ4G4mMWEeO0k-m0GB1KNg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_MJ4G42MWEeO0k-m0GB1KNg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_MJ4G5GMWEeO0k-m0GB1KNg"/>
+    </children>
+    <children xmi:id="_MJ5VAGMWEeO0k-m0GB1KNg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_MJ5VAWMWEeO0k-m0GB1KNg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_MJ5VAmMWEeO0k-m0GB1KNg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_MJ5VA2MWEeO0k-m0GB1KNg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_MJ24wWMWEeO0k-m0GB1KNg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="commonComponents.ecore#//HeartbeatDetector"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_MJ24wmMWEeO0k-m0GB1KNg" x="720" y="96"/>
+  </children>
+  <children xmi:id="_PGGncGMWEeO0k-m0GB1KNg" type="1001">
+    <children xmi:id="_PGH1kGMWEeO0k-m0GB1KNg" type="4001"/>
+    <children xmi:id="_PGH1kWMWEeO0k-m0GB1KNg" type="5001">
+      <children xmi:id="_TyI4wGMWEeO0k-m0GB1KNg" type="2001">
+        <element href="commonComponents.ecore#//ChangeHeartbeatDetector/timeout"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_TyI4wWMWEeO0k-m0GB1KNg"/>
+      </children>
+      <children xmi:id="_icXRgGMWEeO0k-m0GB1KNg" type="2001">
+        <element href="commonComponents.ecore#//ChangeHeartbeatDetector/checkPeriod"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_icXRgWMWEeO0k-m0GB1KNg"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_PGH1kmMWEeO0k-m0GB1KNg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_PGH1k2MWEeO0k-m0GB1KNg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_PGH1lGMWEeO0k-m0GB1KNg"/>
+    </children>
+    <children xmi:id="_PGIcoGMWEeO0k-m0GB1KNg" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_PGIcoWMWEeO0k-m0GB1KNg"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_PGIcomMWEeO0k-m0GB1KNg"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_PGIco2MWEeO0k-m0GB1KNg"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_PGGncWMWEeO0k-m0GB1KNg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="commonComponents.ecore#//ChangeHeartbeatDetector"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_PGGncmMWEeO0k-m0GB1KNg" x="696" y="-60"/>
+  </children>
+  <children xmi:id="_nYZs4GNGEeO9EKVyUKzxnQ" type="1001">
+    <eAnnotations xmi:id="_nY74YGNGEeO9EKVyUKzxnQ" source="Shortcut">
+      <details xmi:id="_nY74YWNGEeO9EKVyUKzxnQ" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:id="_nYo9cGNGEeO9EKVyUKzxnQ" type="4001"/>
+    <children xmi:id="_nYo9cWNGEeO9EKVyUKzxnQ" type="5001">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_nYo9cmNGEeO9EKVyUKzxnQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_nYo9c2NGEeO9EKVyUKzxnQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_nYo9dGNGEeO9EKVyUKzxnQ"/>
+    </children>
+    <children xmi:id="_nYo9dWNGEeO9EKVyUKzxnQ" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_nYo9dmNGEeO9EKVyUKzxnQ"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_nYo9d2NGEeO9EKVyUKzxnQ"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_nYo9eGNGEeO9EKVyUKzxnQ"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_nYZs4WNGEeO9EKVyUKzxnQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_nYZs4mNGEeO9EKVyUKzxnQ" x="519" y="267"/>
+  </children>
+  <children xmi:id="_eRzIsLA9EeO-DcQmAckYIw" type="1001">
+    <children xmi:id="_eRzvwLA9EeO-DcQmAckYIw" type="4001"/>
+    <children xmi:id="_eRzvwbA9EeO-DcQmAckYIw" type="5001">
+      <children xmi:id="_V4yZ4LA-EeO-DcQmAckYIw" type="2001">
+        <element href="commonComponents.ecore#//CurrentTimeComponent/name"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_V4yZ4bA-EeO-DcQmAckYIw"/>
+      </children>
+      <children xmi:id="_j-mTcLA9EeO-DcQmAckYIw" type="2001">
+        <element href="commonComponents.ecore#//CurrentTimeComponent/dateFormat"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_j-mTcbA9EeO-DcQmAckYIw"/>
+      </children>
+      <children xmi:id="_hTk3oLA9EeO-DcQmAckYIw" type="2001">
+        <element href="commonComponents.ecore#//CurrentTimeComponent/updatePeriod"/>
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_hTk3obA9EeO-DcQmAckYIw"/>
+      </children>
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_eRzvwrA9EeO-DcQmAckYIw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_eRzvw7A9EeO-DcQmAckYIw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_eRzvxLA9EeO-DcQmAckYIw"/>
+    </children>
+    <children xmi:id="_eRzvxbA9EeO-DcQmAckYIw" type="5002">
+      <styles xsi:type="notation:DrawerStyle" xmi:id="_eRzvxrA9EeO-DcQmAckYIw"/>
+      <styles xsi:type="notation:SortingStyle" xmi:id="_eRzvx7A9EeO-DcQmAckYIw"/>
+      <styles xsi:type="notation:FilteringStyle" xmi:id="_eRzvyLA9EeO-DcQmAckYIw"/>
+    </children>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_eRzIsbA9EeO-DcQmAckYIw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="commonComponents.ecore#//CurrentTimeComponent"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_eRzIsrA9EeO-DcQmAckYIw" x="936" y="96"/>
+  </children>
+  <children xmi:id="_optXsLA9EeO-DcQmAckYIw" type="1004">
+    <children xmi:id="_opt-wLA9EeO-DcQmAckYIw" type="4008"/>
+    <children xmi:id="_opt-wbA9EeO-DcQmAckYIw" type="4009"/>
+    <styles xsi:type="notation:ShapeStyle" xmi:id="_optXsbA9EeO-DcQmAckYIw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element href="commonComponents.ecore#//DateFormat"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_optXsrA9EeO-DcQmAckYIw" x="984" y="-60"/>
+  </children>
+  <styles xsi:type="notation:DiagramStyle" xmi:id="_1w8tcWGeEeOT2rDq00KK6A"/>
+  <element href="commonComponents.ecore#/"/>
+  <edges xmi:id="_5AzUoGGeEeOT2rDq00KK6A" type="3003" source="_2GvXQGGeEeOT2rDq00KK6A" target="_nYZs4GNGEeO9EKVyUKzxnQ">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_5AzUoWGeEeOT2rDq00KK6A" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_5AzUomGeEeOT2rDq00KK6A" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_5AzUo2GeEeOT2rDq00KK6A" points="[75, -6, -219, 12]$[353, 11, 59, 29]"/>
+  </edges>
+  <edges xmi:id="_PCKdkGGgEeOT2rDq00KK6A" type="3003" source="_NbnWgGGgEeOT2rDq00KK6A" target="_2GvXQGGeEeOT2rDq00KK6A">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_PCKdkWGgEeOT2rDq00KK6A" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_PCKdkmGgEeOT2rDq00KK6A" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_PCKdk2GgEeOT2rDq00KK6A" points="[22, -20, -63, 57]$[91, -101, 6, -24]"/>
+  </edges>
+  <edges xmi:id="_Xo9vwGGqEeOT2rDq00KK6A" type="3002" source="_2GvXQGGeEeOT2rDq00KK6A" target="_TUzy8GGqEeOT2rDq00KK6A">
+    <children xmi:id="_XpoeIGGqEeOT2rDq00KK6A" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_XpoeIWGqEeOT2rDq00KK6A" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_XppFMGGqEeOT2rDq00KK6A" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_XppFMWGqEeOT2rDq00KK6A" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_Xo9vwWGqEeOT2rDq00KK6A" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_Xo9vwmGqEeOT2rDq00KK6A" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="commonComponents.ecore#//HeartbeatGenerator/targetItem"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_Xo9vw2GqEeOT2rDq00KK6A" points="[-3, -24, -10, 107]$[-15, -168, -22, -37]"/>
+  </edges>
+  <edges xmi:id="_Nr3eEGMWEeO0k-m0GB1KNg" type="3003" source="_MJ24wGMWEeO0k-m0GB1KNg" target="_nYZs4GNGEeO9EKVyUKzxnQ">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_Nr3eEWMWEeO0k-m0GB1KNg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_Nr3eEmMWEeO0k-m0GB1KNg" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_Nr3eE2MWEeO0k-m0GB1KNg" points="[-71, -8, 161, -2]$[-167, -8, 65, -2]"/>
+  </edges>
+  <edges xmi:id="_QUDoUGMWEeO0k-m0GB1KNg" type="3003" source="_PGGncGMWEeO0k-m0GB1KNg" target="_MJ24wGMWEeO0k-m0GB1KNg">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_QUDoUWMWEeO0k-m0GB1KNg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_QUDoUmMWEeO0k-m0GB1KNg" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_QUDoU2MWEeO0k-m0GB1KNg" points="[-8, -20, -1, 55]$[-8, -95, -1, -20]"/>
+  </edges>
+  <edges xmi:id="_KPzxmWMXEeO0k-m0GB1KNg" type="3002" source="_PGGncGMWEeO0k-m0GB1KNg" target="_TUzy8GGqEeOT2rDq00KK6A">
+    <children xmi:id="_KP0YlmMXEeO0k-m0GB1KNg" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_KP0YmGMXEeO0k-m0GB1KNg" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_KP0YqWMXEeO0k-m0GB1KNg" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_KP0YqmMXEeO0k-m0GB1KNg" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_KPzxm2MXEeO0k-m0GB1KNg" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_KPzxnWMXEeO0k-m0GB1KNg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="commonComponents.ecore#//ChangeHeartbeatDetector/sourceItem"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_KPzxnmMXEeO0k-m0GB1KNg" points="[-94, -3, 445, -7]$[-384, -3, 155, -7]"/>
+  </edges>
+  <edges xmi:id="_nYz8kGNGEeO9EKVyUKzxnQ" type="3003" source="_nYZs4GNGEeO9EKVyUKzxnQ" target="_4krZUGGeEeOT2rDq00KK6A">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_nYz8kWNGEeO9EKVyUKzxnQ" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_nYz8kmNGEeO9EKVyUKzxnQ" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_nYz8k2NGEeO9EKVyUKzxnQ" points="[-12, 29, -27, -140]$[-12, 136, -27, -33]"/>
+  </edges>
+  <edges xmi:id="_zqZhUHg_EeOnu99lvUIkKg" type="3002" source="_2GvXQGGeEeOT2rDq00KK6A" target="_TUzy8GGqEeOT2rDq00KK6A">
+    <children xmi:id="_zqbWgHg_EeOnu99lvUIkKg" type="4011">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_zqbWgXg_EeOnu99lvUIkKg" x="-10" y="-10"/>
+    </children>
+    <children xmi:id="_zqb9kHg_EeOnu99lvUIkKg" type="4012">
+      <layoutConstraint xsi:type="notation:Location" xmi:id="_zqb9kXg_EeOnu99lvUIkKg" x="10" y="10"/>
+    </children>
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_zqZhUXg_EeOnu99lvUIkKg" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_zqZhUng_EeOnu99lvUIkKg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element href="commonComponents.ecore#//HeartbeatGenerator/activeInput"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_zqZhU3g_EeOnu99lvUIkKg" points="[-14, -24, 75, 115]$[-81, -168, 8, -29]"/>
+  </edges>
+  <edges xmi:id="_fiWxoLA9EeO-DcQmAckYIw" type="3003" source="_eRzIsLA9EeO-DcQmAckYIw" target="_nYZs4GNGEeO9EKVyUKzxnQ">
+    <styles xsi:type="notation:ConnectorStyle" xmi:id="_fiWxobA9EeO-DcQmAckYIw" routing="Rectilinear" lineColor="4210752"/>
+    <styles xsi:type="notation:FontStyle" xmi:id="_fiWxorA9EeO-DcQmAckYIw" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" xmi:id="_fiWxo7A9EeO-DcQmAckYIw" points="[-87, 9, 187, 5]$[-266, 33, 8, 29]"/>
+  </edges>
+</notation:Diagram>

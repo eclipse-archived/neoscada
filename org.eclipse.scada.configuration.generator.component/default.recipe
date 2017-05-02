@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recipe:Definition id="default" name="Default Configuration Recipe" xmlns:recipe="http://eclipse.org/SCADA/Configuration/Recipe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/Recipe ../org.eclipse.scada.configuration.recipe/model/RecipeXML.xsd ">
+
+<task order="100000" name="WorldGenerator">
+	<execute name="bundle-class://org.eclipse.scada.configuration.infrastructure.lib/org.eclipse.scada.configuration.infrastructure.lib.WorldGenerator#generate">
+		<output localName="globalize" contextName="globalizationModel"/>
+		<output localName="world" contextName="worldModel"/>
+		<output localName="worldGenerator"/>
+		<inputReference name="infrastructureModel" expression="componentModel.infrastructure"/>
+	</execute>
+</task>
+
+<task order="200000" name="GlobalizationProcessor#pre">
+	<execute name="bundle-class://org.eclipse.scada.configuration.globalization.lib/org.eclipse.scada.configuration.globalization.lib.GlobalizationProcessor#preProcess"/>
+</task>
+
+<task order="300000" name="GeneratorProcessor">
+	<execute name="bundle-class://org.eclipse.scada.configuration.generator.component/org.eclipse.scada.configuration.generator.component.app.GeneratorProcessor#process">
+		<mapInput localName="content" contextName="componentModel"/>
+	</execute>
+</task>
+
+<task order="400000" name="ProcessMain">
+    <execute name="bundle-class://org.eclipse.scada.configuration.generator.component/org.eclipse.scada.configuration.generator.component.app.SummariesProcessor#process"/>
+	<execute name="bundle-class://org.eclipse.scada.configuration.generator.component/org.eclipse.scada.configuration.generator.component.app.SummariesCompressor#process"/>
+	<execute name="bundle-class://org.eclipse.scada.configuration.generator.component/org.eclipse.scada.configuration.generator.component.app.SummariesItemsGenerator#process"/>
+	
+	<execute name="bundle-class://org.eclipse.scada.configuration.generator.component/org.eclipse.scada.configuration.generator.component.app.MarkerGroupGeneratorProcessor#process"/>
+	<execute name="bundle-class://org.eclipse.scada.configuration.generator.component/org.eclipse.scada.configuration.generator.component.app.AlarmsInformationProcessor#process"/>
+</task>
+
+<task order="500000" name="GlobalizationProcessor#post">
+	<execute name="bundle-class://org.eclipse.scada.configuration.globalization.lib/org.eclipse.scada.configuration.globalization.lib.GlobalizationProcessor#postProcess"/>
+</task>
+
+<task order="600000" name="WorldRunner">
+	<execute name="bundle-class://org.eclipse.scada.configuration.world.lib/org.eclipse.scada.configuration.world.lib.WorldRunner#process">
+		<inputValue name="phase" xsi:type="recipe:StringInputValue" value="process"/>
+	</execute>
+</task>
+
+<task order="700000" name="WorldRunner">
+	<execute name="bundle-class://org.eclipse.scada.configuration.world.lib/org.eclipse.scada.configuration.world.lib.WorldRunner#process">
+		<inputValue name="phase" xsi:type="recipe:StringInputValue" value="package"/>
+	</execute>
+</task>
+
+</recipe:Definition>

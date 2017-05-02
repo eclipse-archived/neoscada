@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.security/src" modelPluginID="org.eclipse.scada.configuration.security"
+    modelName="Security" nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="7.0" copyrightFields="false" tableProviders="true"
+    importOrganizing="true">
+  <foreignModel>sec.ecore</foreignModel>
+  <genPackages prefix="Security" basePackage="org.eclipse.scada.configuration" disposableProviderFactory="true"
+      generateModelWizard="false" extensibleProviderFactory="true" childCreationExtenders="true"
+      ecorePackage="sec.ecore#/">
+    <genDataTypes ecoreDataType="sec.ecore#//Pattern"/>
+    <genClasses image="false" ecoreClass="sec.ecore#//Rule">
+      <genFeatures createChild="false" propertyCategory="main" ecoreFeature="ecore:EAttribute sec.ecore#//Rule/id"/>
+      <genFeatures createChild="false" propertyCategory="filter" ecoreFeature="ecore:EAttribute sec.ecore#//Rule/idFilter"/>
+      <genFeatures createChild="false" propertyCategory="filter" ecoreFeature="ecore:EAttribute sec.ecore#//Rule/actionFilter"/>
+      <genFeatures createChild="false" propertyCategory="filter" ecoreFeature="ecore:EAttribute sec.ecore#//Rule/typeFilter"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="filter" propertySortChoices="true"
+          ecoreFeature="ecore:EReference sec.ecore#//Rule/filterScript"/>
+      <genOperations ecoreOperation="sec.ecore#//Rule/getRuleType"/>
+    </genClasses>
+    <genClasses ecoreClass="sec.ecore#//ScriptRule">
+      <genFeatures notify="false" createChild="false" propertyCategory="script" propertySortChoices="true"
+          ecoreFeature="ecore:EReference sec.ecore#//ScriptRule/script"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="script" propertySortChoices="true"
+          ecoreFeature="ecore:EReference sec.ecore#//ScriptRule/callbackScript"/>
+    </genClasses>
+    <genClasses ecoreClass="sec.ecore#//LogonRule"/>
+    <genClasses ecoreClass="sec.ecore#//SignatureRule">
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="signature"
+          ecoreFeature="ecore:EReference sec.ecore#//SignatureRule/trustedCertificationAuthority"/>
+      <genFeatures createChild="false" propertyCategory="signature" ecoreFeature="ecore:EAttribute sec.ecore#//SignatureRule/indentXml"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="signature"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sec.ecore#//SignatureRule/postProcessor"/>
+      <genFeatures createChild="false" propertyCategory="signature" propertyDescription="The period time in milliseconds when the CAs will be reloaded"
+          ecoreFeature="ecore:EAttribute sec.ecore#//SignatureRule/reloadPeriod"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="sec.ecore#//Script">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute sec.ecore#//Script/source"/>
+      <genOperations ecoreOperation="sec.ecore#//Script/getType"/>
+    </genClasses>
+    <genClasses ecoreClass="sec.ecore#//JavaScript"/>
+    <genClasses ecoreClass="sec.ecore#//GenericScript">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sec.ecore#//GenericScript/type"/>
+    </genClasses>
+    <genClasses ecoreClass="sec.ecore#//Configuration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sec.ecore#//Configuration/scripts"/>
+    </genClasses>
+    <genClasses ecoreClass="sec.ecore#//Rules">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sec.ecore#//Rules/rules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sec.ecore#//Rules/name"/>
+    </genClasses>
+    <genClasses ecoreClass="sec.ecore#//CA">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sec.ecore#//CA/certificateUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sec.ecore#//CA/crlUrl"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

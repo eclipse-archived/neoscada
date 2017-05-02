@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" name="Base Security Profile">
+
+  <start>org.eclipse.scada.sec.osgi.manager</start>
+  <start>org.eclipse.scada.sec.auth.logon</start>
+  <start>org.eclipse.scada.sec.authn.osgi.cfg.priority</start>
+  <start>org.eclipse.scada.sec.authz.signature</start>
+  <start>org.eclipse.scada.sec.provider.script</start>
+  <start>org.eclipse.scada.sec.provider.jdbc</start>
+
+  <property key="org.eclipse.scada.sec.callback.defaultTimeout">60000</property>
+
+</profile:profile>

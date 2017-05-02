@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.scada.configuration.infrastructure.lib" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.scada.configuration.infrastructure.lib" id="driver" name="Driver Extension Point"/>
+      </appinfo>
+      <documentation>
+         An extension point for creating drivers in the world model.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="driverFactory"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="driverFactory">
+      <annotation>
+         <documentation>
+            Defines a driver factory that creates driver configuration instances for the &quot;world&quot; model.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="typeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The driver type id for which this factory creates instances.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="factoryClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The factory class that created drivers instances for the &quot;world&quot; configuration model.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.infrastructure.lib.DriverFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         0.1.0
+      </documentation>
+   </annotation>
+
+
+
+
+
+</schema>

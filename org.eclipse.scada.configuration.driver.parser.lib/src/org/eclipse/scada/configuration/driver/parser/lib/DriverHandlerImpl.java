@@ -1,0 +1,33 @@
+/*******************************************************************************
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.configuration.driver.parser.lib;
+
+import java.util.Map;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.scada.configuration.driver.parser.ParserComponentHost;
+import org.eclipse.scada.configuration.driver.parser.ParserDriver;
+import org.eclipse.scada.configuration.driver.parser.ParserFactory;
+import org.eclipse.scada.configuration.infrastructure.Node;
+import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverHandler;
+
+public class DriverHandlerImpl extends AbstractEquinoxDriverHandler<ParserComponentHost, ParserDriver>
+{
+    @Override
+    protected ParserDriver createDriver ( final ParserComponentHost driver, final Map<Node, org.eclipse.scada.configuration.world.Node> nodes )
+    {
+        final ParserDriver result = ParserFactory.eINSTANCE.createParserDriver ();
+
+        result.getComponents ().addAll ( EcoreUtil.copyAll ( driver.getComponents () ) );
+
+        return result;
+    }
+}

@@ -1,0 +1,2 @@
+active = evalActive ();
+currentState ();

@@ -1,0 +1,103 @@
+/*******************************************************************************
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.configuration.arduino.tests;
+
+import junit.framework.TestCase;
+import junit.textui.TestRunner;
+
+import org.eclipse.scada.configuration.arduino.ArduinoDevice;
+import org.eclipse.scada.configuration.arduino.ArduinoFactory;
+
+/**
+ * <!-- begin-user-doc -->
+ * A test case for the model object '<em><b>Device</b></em>'.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class ArduinoDeviceTest extends TestCase
+{
+
+    /**
+     * The fixture for this Device test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ArduinoDevice fixture = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( ArduinoDeviceTest.class );
+    }
+
+    /**
+     * Constructs a new Device test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ArduinoDeviceTest ( String name )
+    {
+        super ( name );
+    }
+
+    /**
+     * Sets the fixture for this Device test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( ArduinoDevice fixture )
+    {
+        this.fixture = fixture;
+    }
+
+    /**
+     * Returns the fixture for this Device test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ArduinoDevice getFixture ()
+    {
+        return fixture;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( ArduinoFactory.eINSTANCE.createArduinoDevice () );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
+
+} //ArduinoDeviceTest

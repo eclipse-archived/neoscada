@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
+	xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
+	includes="common.profile.xml#/ driver.plain.osgi.profile.xml#/"
+	name="Common Equinox Driver Setup">
+
+	<!-- start the default OSGi Hive -->
+	<start>org.eclipse.scada.da.server.osgi</start>
+	
+</profile:profile>

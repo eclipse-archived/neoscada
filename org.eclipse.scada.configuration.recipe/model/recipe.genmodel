@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.recipe/src" creationSubmenus="true"
+    modelPluginID="org.eclipse.scada.configuration.recipe" modelName="Recipe" generateSchema="true"
+    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
+    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.11" operationReflection="true"
+    importOrganizing="true" decoration="Manual" styleProviders="true">
+  <foreignModel>recipe.ecore</foreignModel>
+  <genPackages prefix="Recipe" basePackage="org.eclipse.scada.configuration" resource="XML"
+      disposableProviderFactory="true" generateModelWizard="false" contentTypeIdentifier="org.eclipse.scada.configuration.recipe"
+      ecorePackage="recipe.ecore#/">
+    <genClasses ecoreClass="recipe.ecore#//Definition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Definition/task"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference recipe.ecore#//Definition/import"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Definition/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Definition/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Definition/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Definition/profiles"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//Task">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Task/execute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Task/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference recipe.ecore#//Task/definition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Task/order"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//Execute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Execute/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference recipe.ecore#//Execute/task"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Execute/mapInput"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Execute/inputValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Execute/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Execute/inputReference"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//MapInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//MapInput/localName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//MapInput/contextName"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//InputValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//InputValue/name"/>
+      <genOperations ecoreOperation="recipe.ecore#//InputValue/getValue"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//StringInputValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//StringInputValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//CaptureOutput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//CaptureOutput/localName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//CaptureOutput/contextName"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//InputReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//InputReference/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//InputReference/name"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//PropertyEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//PropertyEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//PropertyEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//Profile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Profile/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Profile/properties"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.releng</groupId>
+		<artifactId>superParent</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.eclipse.scada.ide</groupId>
+	<artifactId>org.eclipse.scada.ide-parent</artifactId>
+	<version>0.4.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.ide.git</tycho.scmUrl>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>repo.eclipse.scada.org</id>
+			<name>Eclipse NeoSCADA Repository</name>
+			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<profiles>
+		<profile>
+			<id>nightly</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.utils</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.base</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.protocols</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.core</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.core-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.hmi</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.deploy</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.deploy-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+
+	<modules>
+		<module>../org.eclipse.scada.ide-p2</module> <!-- holds the p2 build -->
+
+		<module>../org.eclipse.scada.ide.feature</module>
+		<module>../org.eclipse.scada.ide.sdk.feature</module>
+		
+		<module>../org.eclipse.scada.ide</module>
+
+		<module>../org.eclipse.scada.configuration.feature</module>
+		<module>../org.eclipse.scada.configuration.doc.feature</module>
+		<module>../org.eclipse.scada.configuration.sdk.feature</module>
+		<module>../org.eclipse.neoscada.configuration.iec60870.feature</module>
+
+		<module>../org.eclipse.scada.ide.protocol.ngp.feature</module>
+
+		<module>../org.eclipse.scada.ide.da.server.ui.feature</module>
+		
+		<module>../org.eclipse.neoscada.configuration.iec60870</module>
+		<module>../org.eclipse.neoscada.configuration.iec60870.edit</module>
+		<module>../org.eclipse.neoscada.configuration.iec60870.lib</module>
+
+		<module>../org.eclipse.scada.configuration</module>
+		<module>../org.eclipse.scada.configuration.arduino</module>
+		<module>../org.eclipse.scada.configuration.arduino.edit</module>
+		<module>../org.eclipse.scada.configuration.arduino.feature</module>
+		<module>../org.eclipse.scada.configuration.component</module>
+		<module>../org.eclipse.scada.configuration.component.edit</module>
+		<module>../org.eclipse.scada.configuration.component.editor</module>
+		<module>../org.eclipse.scada.configuration.component.exec</module>
+		<module>../org.eclipse.scada.configuration.component.exec.edit</module>
+		<module>../org.eclipse.scada.configuration.component.exec.lib</module>
+		<module>../org.eclipse.scada.configuration.component.generator</module>
+		<module>../org.eclipse.scada.configuration.component.lib</module>
+		<module>../org.eclipse.scada.configuration.component.tools</module>
+		<module>../org.eclipse.scada.configuration.component.validation</module>
+		<module>../org.eclipse.scada.configuration.generator</module>
+		<module>../org.eclipse.scada.configuration.generator.component</module>
+		<module>../org.eclipse.scada.configuration.generator.ui</module>
+		<module>../org.eclipse.scada.configuration.globalization</module>
+		<module>../org.eclipse.scada.configuration.globalization.edit</module>
+		<module>../org.eclipse.scada.configuration.globalization.editor</module>
+		<module>../org.eclipse.scada.configuration.globalization.lib</module>
+		<module>../org.eclipse.scada.configuration.infrastructure</module>
+		<module>../org.eclipse.scada.configuration.infrastructure.edit</module>
+		<module>../org.eclipse.scada.configuration.infrastructure.editor</module>
+		<module>../org.eclipse.scada.configuration.infrastructure.lib</module>
+		<module>../org.eclipse.scada.configuration.infrastructure.validation</module>
+		<module>../org.eclipse.scada.configuration.item</module>
+		<module>../org.eclipse.scada.configuration.item.edit</module>
+		<module>../org.eclipse.scada.configuration.item.editor</module>
+		<module>../org.eclipse.scada.configuration.item.parser</module>
+		<module>../org.eclipse.scada.configuration.lib</module>
+		<module>../org.eclipse.scada.configuration.memory</module>
+		<module>../org.eclipse.scada.configuration.memory.edit</module>
+		<module>../org.eclipse.scada.configuration.memory.editor</module>
+		<module>../org.eclipse.scada.configuration.memory.manager</module>
+		<module>../org.eclipse.scada.configuration.memory.manager.edit</module>
+		<module>../org.eclipse.scada.configuration.modbus</module>
+		<module>../org.eclipse.scada.configuration.modbus.edit</module>
+		<module>../org.eclipse.scada.configuration.modbus.lib</module>
+		<module>../org.eclipse.scada.configuration.security</module>
+		<module>../org.eclipse.scada.configuration.security.edit</module>
+		<module>../org.eclipse.scada.configuration.security.editor</module>
+		<module>../org.eclipse.scada.configuration.security.utils</module>
+		<module>../org.eclipse.scada.configuration.ui.component</module>
+		<module>../org.eclipse.scada.configuration.ui.project</module>
+		<module>../org.eclipse.scada.configuration.utils</module>
+		<module>../org.eclipse.scada.configuration.world</module>
+		<module>../org.eclipse.scada.configuration.world.edit</module>
+		<module>../org.eclipse.scada.configuration.world.editor</module>
+		<module>../org.eclipse.scada.configuration.world.lib</module>
+		<module>../org.eclipse.scada.configuration.world.validation</module>
+
+		<module>../org.eclipse.scada.configuration.script</module>
+		<module>../org.eclipse.scada.configuration.script.edit</module>
+		
+		<module>../org.eclipse.scada.configuration.memory.manager.lib</module>
+		<module>../org.eclipse.scada.configuration.recipe</module>
+		<module>../org.eclipse.scada.configuration.recipe.edit</module>
+		<module>../org.eclipse.scada.configuration.recipe.editor</module>
+		<module>../org.eclipse.scada.configuration.recipe.lib</module>
+		<module>../org.eclipse.scada.configuration.recipe.ui</module>
+		<module>../org.eclipse.scada.configuration.doc</module>
+		<module>../org.eclipse.scada.configuration.component.common</module>
+		<module>../org.eclipse.scada.configuration.component.common.edit</module>
+		<module>../org.eclipse.scada.configuration.component.common.lib</module>
+		<module>../org.eclipse.scada.configuration.component.common.validation</module>
+
+		<module>../org.eclipse.scada.protocol.ngp.model.additions</module>
+		<module>../org.eclipse.scada.da.server.ui</module>
+		<module>../org.eclipse.scada.da.server.ui.launcher</module>
+		<module>../org.eclipse.scada.ide.server.test</module>
+		
+		<module>../org.eclipse.scada.configuration.dave</module>
+		<module>../org.eclipse.scada.configuration.dave.edit</module>
+		<module>../org.eclipse.scada.configuration.dave.lib</module>
+		
+		<module>../org.eclipse.scada.ide.hd.hdsspy</module>
+		<module>../org.eclipse.scada.ide.pde</module>
+		<module>../org.eclipse.scada.ide.vi.preview.editor</module>
+		
+		<!-- still some strange error
+		<module>../org.eclipse.scada.configuration.world.lib.test</module>
+		-->
+		 
+	 	<module>../org.eclipse.scada.configuration.driver.jdbc</module>
+		<module>../org.eclipse.scada.configuration.driver.jdbc.edit</module>
+		<module>../org.eclipse.scada.configuration.driver.jdbc.lib</module>
+		 
+		<module>../org.eclipse.scada.configuration.driver.parser</module>
+		<module>../org.eclipse.scada.configuration.driver.parser.edit</module>
+		<module>../org.eclipse.scada.configuration.driver.parser.lib</module>
+		
+		<module>../org.eclipse.scada.configuration.ecore.ui</module>
+		
+		<module>../org.eclipse.scada.configuration.setup.common</module>
+		<module>../org.eclipse.scada.configuration.setup.common.edit</module>
+		<module>../org.eclipse.scada.configuration.setup.common.lib</module>
+		<module>../org.eclipse.scada.configuration.setup.common.validation</module>
+		
+	</modules>
+
+</project>

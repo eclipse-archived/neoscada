@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" name="CA File Fragment">
+  <start>org.eclipse.scada.ca.server.exporter.ngp</start>
+  <start>org.eclipse.scada.ca.server.osgi</start>
+  <start>org.eclipse.scada.ca.servlet</start>
+  <start>org.eclipse.scada.ca.console</start>
+  <start>org.eclipse.scada.ca.file</start>
+</profile:profile>

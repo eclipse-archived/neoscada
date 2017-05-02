@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="component" nsURI="http://eclipse.org/SCADA/Configuration/Component"
+    nsPrefix="component">
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentWorld" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
+        eType="#//Level" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="#//Configuration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//Service" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="infrastructure" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//World"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultCustomizationPipeline"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//CustomizationPipeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultArchiveSelector"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Level" eSuperTypes="#//Container">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Component" containment="true" eOpposite="#//Component/level"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
+        eType="#//Level" containment="true" eOpposite="#//Level/parent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Level"
+        eOpposite="#//Level/levels"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customizationPipeline"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//CustomizationPipeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="archiveSelector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="level" eType="#//Level"
+        eOpposite="#//Level/components"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customizationPipeline"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//CustomizationPipeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="archiveSelector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataComponent" abstract="true" eSuperTypes="#//Component">
+    <eOperations name="getMasterOn" upperBound="-1" eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantValue" eSuperTypes="#//ReadOnlySingleValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MarkerConfiguration" eSuperTypes="#//Configuration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="markers" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/MarkerEntry"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PersistentValue" eSuperTypes="#//SingleValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DriverConnectionAnalyzer" eSuperTypes="#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="driver" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Driver"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MasterImportConnectionAnalyzer" eSuperTypes="#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterImport"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SingleValue" abstract="true" eSuperTypes="#//MasterComponent">
+    <eOperations name="isReadable" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return true;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="isWritable" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return true;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizationTags" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataMapperAnalyzer" eSuperTypes="#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataMapper" lowerBound="1"
+        eType="#//DataMapperService"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataMapperService" eSuperTypes="#//Service">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataMapper" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/DataMapper"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappedSourceValue" eSuperTypes="#//SingleValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" lowerBound="1"
+        eType="#//DataMapperService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//InputDefinition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalculationComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" lowerBound="1"
+        eType="#//CalculationModule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+        eType="#//OutputDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+        eType="#//InputDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initProperties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalculationModule" abstract="true" eSuperTypes="#//Service">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knownInputs" upperBound="-1"
+        eType="#//InputSpecification" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="knownOutputs" upperBound="-1"
+        eType="#//OutputSpecification" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputSpecification">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" lowerBound="1"
+        eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/DataType"
+        defaultValueLiteral="VARIANT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputDefinition">
+    <eOperations name="createReference" lowerBound="1" eType="#//DanglingItemReference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localTag" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizationTags" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemReferenceInputDefinition" eSuperTypes="#//InputDefinition">
+    <eOperations name="createReference" lowerBound="1" eType="#//DanglingItemReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="final org.eclipse.scada.configuration.component.AbsoluteDanglingReference danglingRef = org.eclipse.scada.configuration.component.ComponentFactory.eINSTANCE.createAbsoluteDanglingReference ();&#xA;danglingRef.setName ( getItemId () );&#xA;return danglingRef;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemReferenceOutputDefinition" eSuperTypes="#//OutputDefinition">
+    <eOperations name="createReference" lowerBound="1" eType="#//DanglingItemReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="final org.eclipse.scada.configuration.component.AbsoluteDanglingReference danglingRef = org.eclipse.scada.configuration.component.ComponentFactory.eINSTANCE.createAbsoluteDanglingReference ();&#xA;danglingRef.setName ( getItemId () );&#xA;return danglingRef;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputDefinition" abstract="true">
+    <eOperations name="createReference" lowerBound="1" eType="#//DanglingItemReference"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentReferenceInputDefinition" eSuperTypes="#//InputDefinition">
+    <eOperations name="createReference" lowerBound="1" eType="#//DanglingItemReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="final org.eclipse.scada.configuration.component.ComponentDanglingReference danglingRef = org.eclipse.scada.configuration.component.ComponentFactory.eINSTANCE.createComponentDanglingReference ();&#xA;danglingRef.getLocalTag ().addAll ( getLocalTag () );&#xA;danglingRef.setComponent ( getComponent () );&#xA;return danglingRef;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localTag" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormulaModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//CalculationModule">
+    <eOperations name="getKnownInputs" upperBound="-1" eType="#//InputSpecification">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return getInputs ();"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="customENotify">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="&#x9;if ( notification.getFeature ().equals ( ComponentPackage.Literals.FORMULA_MODULE__INPUTS ) )&#xA;        {&#xA;            super.eNotify ( new org.eclipse.emf.ecore.impl.ENotificationImpl ( this, notification.getEventType (), ComponentPackage.CALCULATION_MODULE__KNOWN_INPUTS, notification.getOldValue (), notification.getNewValue () ) );&#xA;        }&#xA;        super.eNotify ( notification );"/>
+      </eAnnotations>
+      <eParameters name="notification" eType="#//Notification"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+        eType="#//InputSpecification" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="update" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="JavaScript"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" upperBound="-1" eType="#//Script"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AverageModule" eSuperTypes="#//CalculationModule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validSourcesRequired" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DanglingItemReference" abstract="true"
+      eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Item"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Notification" instanceClassName="org.eclipse.emf.common.notify.Notification"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//CalculationModule">
+    <eOperations name="getKnownInputs" upperBound="-1" eType="#//InputSpecification">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return getInputs ();"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getKnownOutputs" upperBound="-1" eType="#//OutputSpecification">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return getOutputs();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+        eType="#//InputSpecification" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+        eType="#//OutputSpecification" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="JavaScript"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initScript" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="updateScript" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="writeCommandScript" eType="#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timerScript" eType="#//TimerScript"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Script">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimerScript">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbsoluteDanglingReference" eSuperTypes="#//DanglingItemReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentDanglingReference" eSuperTypes="#//DanglingItemReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localTag" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalValue" eSuperTypes="#//SingleValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Driver"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readable" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="writable" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SummariesConfiguration" eSuperTypes="#//Configuration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemThreshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemInterceptor" abstract="true" interface="true"
+      eSuperTypes="#//MasterAssigned">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemInterceptors" upperBound="-1"
+        eType="#//ItemInterceptor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RestInterceptor" eSuperTypes="#//ItemInterceptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//RestExporterModule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="#//DataComponent ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//DataComponent">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMaster" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterImport"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransientValue" eSuperTypes="#//SingleValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MasterComponent" eSuperTypes="#//DataComponent #//MasterAssigned"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BufferedValue" eSuperTypes="#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//InputDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistence" lowerBound="1"
+        eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Persistence"
+        defaultValueLiteral="NONE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeCounter" eSuperTypes="#//ReadOnlySingleValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" eType="#//BufferedValue"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ChangeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+        eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onError" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ErrorHandling"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MovingAverageModule" eSuperTypes="#//CalculationModule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullRange" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="30">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The amount of time (seconds) that is required to be valid to produce a valid output value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="60">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The time range in seconds for which this average will be calculated."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The update time period in seconds."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerOnly" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Whether value changes or only timed triggers will update the value."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeltaValue" eSuperTypes="#//ReadOnlySingleValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//InputDefinition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MasterAssigned" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentReferenceOutputDefinition"
+      eSuperTypes="#//OutputDefinition">
+    <eOperations name="createReference" lowerBound="1" eType="#//DanglingItemReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="        final org.eclipse.scada.configuration.component.ComponentDanglingReference danglingRef = org.eclipse.scada.configuration.component.ComponentFactory.eINSTANCE.createComponentDanglingReference ();&#xA;        danglingRef.getLocalTag ().addAll ( getLocalTag () );&#xA;        danglingRef.setComponent ( getComponent () );&#xA;        return danglingRef;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReadOnlySingleValue" abstract="true"
+      eSuperTypes="#//SingleValue">
+    <eOperations name="isWritable" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return false;"/>
+      </eAnnotations>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

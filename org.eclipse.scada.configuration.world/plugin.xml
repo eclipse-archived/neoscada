@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2013 IBH SYSTEMS GmbH.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated world -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/World"
+            class="org.eclipse.scada.configuration.world.WorldPackage"
+            genModel="model/configuration.genmodel"/>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated world -->
+      <parser
+            contentTypeIdentifier="org.eclipse.scada.configuration.world"
+            class="org.eclipse.scada.configuration.world.util.WorldResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated world -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="eswm"
+            id="org.eclipse.scada.configuration.world"
+            name="%_UI_World_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://eclipse.org/SCADA/Configuration/World"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated world -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/World/OSGi"
+            class="org.eclipse.scada.configuration.world.osgi.OsgiPackage"
+            genModel="model/configuration.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated world -->
+      <parser
+            type="osgi"
+            class="org.eclipse.scada.configuration.world.osgi.util.OsgiResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated world -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
+            class="org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage"
+            genModel="model/configuration.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated world -->
+      <parser
+            contentTypeIdentifier="org.eclipse.scada.configuration.world.osgi.profile"
+            class="org.eclipse.scada.configuration.world.osgi.profile.util.ProfileResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated world -->
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="xml"
+            id="org.eclipse.scada.configuration.world.osgi.profile"
+            name="%_UI_Profile_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"/>
+         </describer>
+      </content-type>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated world -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/World/Deployment"
+            class="org.eclipse.scada.configuration.world.deployment.DeploymentPackage"
+            genModel="model/configuration.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated world -->
+      <parser
+            contentTypeIdentifier="org.eclipse.scada.configuration.deployment"
+            class="org.eclipse.scada.configuration.world.deployment.util.DeploymentResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated world -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="esdi"
+            id="org.eclipse.scada.configuration.deployment"
+            name="%_UI_Deployment_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://eclipse.org/SCADA/Configuration/World/Deployment"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated world -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/World/Setup"
+            class="org.eclipse.scada.configuration.world.setup.SetupPackage"
+            genModel="model/configuration.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated world -->
+      <parser
+            type="setup"
+            class="org.eclipse.scada.configuration.world.setup.util.SetupResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

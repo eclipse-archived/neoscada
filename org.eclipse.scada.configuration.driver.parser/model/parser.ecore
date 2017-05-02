@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="parser" nsURI="http://eclipse.org/SCADA/Configuration/Driver/Parser"
+    nsPrefix="parserDriver">
+  <eClassifiers xsi:type="ecore:EClass" name="ParserDriver" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/EquinoxApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.da.server.component.parser.factory/model/configuration.ecore#//Component"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParserComponentHost" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//AbstractEquinoxDriver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.da.server.component.parser.factory/model/configuration.ecore#//Component"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

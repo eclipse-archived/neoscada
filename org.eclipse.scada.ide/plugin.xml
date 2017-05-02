@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.scada.ide.ScadaPerspectiveFactory"
+            icon="icons/perspective.png"
+            id="org.eclipse.scada.ide.scada"
+            name="SCADA">
+         <description>
+            Providing a perspective for configuring SCADA related projects.
+         </description>
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <perspectiveShortcut
+               id="org.eclipse.scada.ide.scada">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.ide.scada">
+         <view
+               id="org.eclipse.ui.console.ConsoleView"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.views.TaskList">
+         </view>
+         <view
+               id="org.eclipse.scada.da.server.ui.ServersView"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.views.ContentOutline">
+         </view>
+         <newWizardShortcut
+               id="org.eclipse.scada.core.ui.connection.AddConnection">
+         </newWizardShortcut>
+         <view
+               id="org.eclipse.ui.views.PropertySheet"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.views.TaskList">
+         </view>
+         <newWizardShortcut
+               id="org.eclipse.ui.wizards.new.folder">
+         </newWizardShortcut>
+      </perspectiveExtension>
+   </extension>
+
+</plugin>

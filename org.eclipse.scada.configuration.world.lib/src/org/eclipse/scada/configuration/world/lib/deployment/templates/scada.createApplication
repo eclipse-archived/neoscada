@@ -1,0 +1,136 @@
+#!/bin/bash
+
+###############################################################################
+# Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+#
+# Contributors:
+#     IBH SYSTEMS GmbH - initial API and implementation
+###############################################################################
+
+set -e
+
+application="$$appName$$"
+
+usage() {
+cat << EOF
+usage: $0 [-b=<instances>|-d|-i]
+
+This script creates an Eclipse SCADA OSGi based application instance
+
+OPTIONS:
+    -h              Show this message
+    -i              Ignore existing applications
+    -b=instances    If the application already exists,
+                    keep the instance, but not more than #instances
+    -d              If the application already exists,
+                    delete the instance first
+	
+If neither -b nor -d is specified and the application was already created it will not be upgraded.
+If the -i parameter is specified then this situation will be ignored, otherwise it is an error.
+ 
+EOF
+}
+
+IGNORE=
+DELETE=
+BACKUP=
+while getopts "hidb:" OPTION
+do
+	case $OPTION in
+		i)
+			IGNORE=1
+			;;
+		d)
+			DELETE=1
+			;;
+		b)
+			BACKUP="$OPTARG"
+			;;
+		h | ?)
+			usage
+			exit 1
+			;;
+     esac
+done
+
+o=0
+
+[ -n "$IGNORE" ] && let "o += 1"
+[ -n "$DELETE" ] && let "o += 1"
+[ -n "$BACKUP" ] && let "o += 1"
+
+if [ -n "$BACKUP" ]; then 
+	if [ "$BACKUP" -lt 1 ]; then
+		echo "-b must have an integer value greater than zero (is $BACKUP)"
+		exit 2
+	fi
+fi
+
+if [ "$o" -gt 1 ]; then
+	echo "Only one of -d, -b, -i may be present" >&2
+	exit 1
+fi
+
+
+shift $(($OPTIND -1))
+
+dir=~eclipsescada/"$application"
+
+if [ -d "$dir" ]; then
+
+	if [ -n "$DELETE" ]; then
+	
+		echo Deleting $dir
+		rm -Rf "$dir"
+		
+	elif [ -n "$BACKUP" ]; then
+	
+		pushd ~eclipsescada >/dev/null
+		
+		for i in `find . -maxdepth 1 -and -type d | sort -ur | egrep "${application}\.[0-9]+"`; do
+			idx=$(echo $i | sed -e s/\.\\/${application}\.// )
+			nidx=$idx
+			let "nidx += 1"
+			echo -n "Moving $application.$idx -> $application.$nidx ... "
+			mv $application.$idx $application.$nidx
+			echo "done!"
+		done
+		
+		echo -n "Moving $application -> ${application}.1 ... "
+		mv "$application" "${application}.1"
+		echo "done!"
+		
+		for i in `find . -maxdepth 1 -and -type d | sort -ur | egrep "${application}\.[0-9]+" | head -n -$BACKUP`; do
+		   echo -n "Deleting $i ... "
+		   rm -Rf "$i"
+		   echo "done!"
+		done
+		
+		popd >/dev/null
+		
+	else
+	
+		echo "Application already exists at $dir"
+		echo "If you want to re-create the application you need to manually delete or move the directory first"
+		echo "Or use the -b or -d parameter"
+		
+		test -n "$IGNORE" && exit 0 || exit 1
+		
+	fi
+fi
+
+pushd ~eclipsescada >/dev/null
+
+if [ "$UID" == 0 ]; then
+	su -s /bin/bash -c "p2.fromTemplate \"$application\" \"$application\"" - eclipsescada
+	echo Start the instance using: start \"scada.app.$application\"
+else
+	p2.fromTemplate "$application" "$application"
+	echo Start the instance using: sudo start \"scada.app.$application\"
+fi
+
+popd >/dev/null

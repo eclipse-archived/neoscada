@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="generation" name="Component Generation" schema="schema/generation.exsd"/>
+   <extension
+         point="org.eclipse.scada.configuration.component.lib.generation">
+      <resolver
+            class="org.eclipse.scada.configuration.component.lib.internal.AbsoluteResolver">
+      </resolver>
+      <resolver
+            class="org.eclipse.scada.configuration.component.lib.internal.ComponentResolver">
+      </resolver>
+     
+   </extension>
+
+</plugin>

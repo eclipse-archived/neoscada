@@ -1,0 +1,527 @@
+/*******************************************************************************
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.configuration.world.impl;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.Node;
+import org.eclipse.scada.configuration.world.ServiceBinding;
+import org.eclipse.scada.configuration.world.WorldPackage;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Endpoint</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getShortDescription <em>Short Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getNode <em>Node</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getPortNumber <em>Port Number</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getBoundService <em>Bound Service</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class EndpointImpl extends MinimalEObjectImpl.Container implements Endpoint
+{
+    /**
+     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getShortDescription()
+     * @generated
+     * @ordered
+     */
+    protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getShortDescription()
+     * @generated
+     * @ordered
+     */
+    protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPortNumber()
+     * @generated
+     * @ordered
+     */
+    protected static final int PORT_NUMBER_EDEFAULT = 0;
+
+    /**
+     * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPortNumber()
+     * @generated
+     * @ordered
+     */
+    protected int portNumber = PORT_NUMBER_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getBoundService() <em>Bound Service</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBoundService()
+     * @generated
+     * @ordered
+     */
+    protected ServiceBinding boundService;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EndpointImpl ()
+    {
+        super ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return WorldPackage.Literals.ENDPOINT;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getShortDescription ()
+    {
+        return shortDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setShortDescription ( String newShortDescription )
+    {
+        String oldShortDescription = shortDescription;
+        shortDescription = newShortDescription;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getName ()
+    {
+        return name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName ( String newName )
+    {
+        String oldName = name;
+        name = newName;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__NAME, oldName, name ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Node getNode ()
+    {
+        if ( eContainerFeatureID () != WorldPackage.ENDPOINT__NODE )
+            return null;
+        return (Node)eContainer ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Node basicGetNode ()
+    {
+        if ( eContainerFeatureID () != WorldPackage.ENDPOINT__NODE )
+            return null;
+        return (Node)eInternalContainer ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetNode ( Node newNode, NotificationChain msgs )
+    {
+        msgs = eBasicSetContainer ( (InternalEObject)newNode, WorldPackage.ENDPOINT__NODE, msgs );
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setNode ( Node newNode )
+    {
+        if ( newNode != eInternalContainer () || ( eContainerFeatureID () != WorldPackage.ENDPOINT__NODE && newNode != null ) )
+        {
+            if ( EcoreUtil.isAncestor ( this, newNode ) )
+                throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () ); //$NON-NLS-1$
+            NotificationChain msgs = null;
+            if ( eInternalContainer () != null )
+                msgs = eBasicRemoveFromContainer ( msgs );
+            if ( newNode != null )
+                msgs = ( (InternalEObject)newNode ).eInverseAdd ( this, WorldPackage.NODE__ENDPOINTS, Node.class, msgs );
+            msgs = basicSetNode ( newNode, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__NODE, newNode, newNode ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getPortNumber ()
+    {
+        return portNumber;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setPortNumber ( int newPortNumber )
+    {
+        int oldPortNumber = portNumber;
+        portNumber = newPortNumber;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__PORT_NUMBER, oldPortNumber, portNumber ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ServiceBinding getBoundService ()
+    {
+        if ( boundService != null && boundService.eIsProxy () )
+        {
+            InternalEObject oldBoundService = (InternalEObject)boundService;
+            boundService = (ServiceBinding)eResolveProxy ( oldBoundService );
+            if ( boundService != oldBoundService )
+            {
+                InternalEObject newBoundService = (InternalEObject)boundService;
+                NotificationChain msgs = oldBoundService.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.ENDPOINT__BOUND_SERVICE, null, null );
+                if ( newBoundService.eInternalContainer () == null )
+                {
+                    msgs = newBoundService.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.ENDPOINT__BOUND_SERVICE, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, WorldPackage.ENDPOINT__BOUND_SERVICE, oldBoundService, boundService ) );
+            }
+        }
+        return boundService;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ServiceBinding basicGetBoundService ()
+    {
+        return boundService;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetBoundService ( ServiceBinding newBoundService, NotificationChain msgs )
+    {
+        ServiceBinding oldBoundService = boundService;
+        boundService = newBoundService;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__BOUND_SERVICE, oldBoundService, newBoundService );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBoundService ( ServiceBinding newBoundService )
+    {
+        if ( newBoundService != boundService )
+        {
+            NotificationChain msgs = null;
+            if ( boundService != null )
+                msgs = ( (InternalEObject)boundService ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.ENDPOINT__BOUND_SERVICE, null, msgs );
+            if ( newBoundService != null )
+                msgs = ( (InternalEObject)newBoundService ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.ENDPOINT__BOUND_SERVICE, null, msgs );
+            msgs = basicSetBoundService ( newBoundService, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__BOUND_SERVICE, newBoundService, newBoundService ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.ENDPOINT__NODE:
+                if ( eInternalContainer () != null )
+                    msgs = eBasicRemoveFromContainer ( msgs );
+                return basicSetNode ( (Node)otherEnd, msgs );
+        }
+        return super.eInverseAdd ( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.ENDPOINT__NODE:
+                return basicSetNode ( null, msgs );
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                return basicSetBoundService ( null, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
+    {
+        switch ( eContainerFeatureID () )
+        {
+            case WorldPackage.ENDPOINT__NODE:
+                return eInternalContainer ().eInverseRemove ( this, WorldPackage.NODE__ENDPOINTS, Node.class, msgs );
+        }
+        return super.eBasicRemoveFromContainerFeature ( msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.ENDPOINT__SHORT_DESCRIPTION:
+                return getShortDescription ();
+            case WorldPackage.ENDPOINT__NAME:
+                return getName ();
+            case WorldPackage.ENDPOINT__NODE:
+                if ( resolve )
+                    return getNode ();
+                return basicGetNode ();
+            case WorldPackage.ENDPOINT__PORT_NUMBER:
+                return getPortNumber ();
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                if ( resolve )
+                    return getBoundService ();
+                return basicGetBoundService ();
+        }
+        return super.eGet ( featureID, resolve, coreType );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eSet ( int featureID, Object newValue )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.ENDPOINT__SHORT_DESCRIPTION:
+                setShortDescription ( (String)newValue );
+                return;
+            case WorldPackage.ENDPOINT__NAME:
+                setName ( (String)newValue );
+                return;
+            case WorldPackage.ENDPOINT__NODE:
+                setNode ( (Node)newValue );
+                return;
+            case WorldPackage.ENDPOINT__PORT_NUMBER:
+                setPortNumber ( (Integer)newValue );
+                return;
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                setBoundService ( (ServiceBinding)newValue );
+                return;
+        }
+        super.eSet ( featureID, newValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.ENDPOINT__SHORT_DESCRIPTION:
+                setShortDescription ( SHORT_DESCRIPTION_EDEFAULT );
+                return;
+            case WorldPackage.ENDPOINT__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
+            case WorldPackage.ENDPOINT__NODE:
+                setNode ( (Node)null );
+                return;
+            case WorldPackage.ENDPOINT__PORT_NUMBER:
+                setPortNumber ( PORT_NUMBER_EDEFAULT );
+                return;
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                setBoundService ( (ServiceBinding)null );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.ENDPOINT__SHORT_DESCRIPTION:
+                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
+            case WorldPackage.ENDPOINT__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case WorldPackage.ENDPOINT__NODE:
+                return basicGetNode () != null;
+            case WorldPackage.ENDPOINT__PORT_NUMBER:
+                return portNumber != PORT_NUMBER_EDEFAULT;
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                return boundService != null;
+        }
+        return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (shortDescription: " ); //$NON-NLS-1$
+        result.append ( shortDescription );
+        result.append ( ", name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ", portNumber: " ); //$NON-NLS-1$
+        result.append ( portNumber );
+        result.append ( ')' );
+        return result.toString ();
+    }
+
+} //EndpointImpl

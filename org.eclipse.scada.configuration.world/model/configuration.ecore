@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="world" nsURI="http://eclipse.org/SCADA/Configuration/World"
+    nsPrefix="world">
+  <eClassifiers xsi:type="ecore:EClass" name="World">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="#//Node" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//Options"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//NamedDocumentable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" upperBound="-1"
+        eType="#//Endpoint" containment="true" eOpposite="#//Endpoint/node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deployments" upperBound="-1"
+        eType="#//deployment/DeploymentMechanism" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationNode" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
+        eType="#//Application" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//Service" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Documentable" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Application" abstract="true" interface="true"
+      eSuperTypes="#//NamedDocumentable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Driver" abstract="true" interface="true"
+      eSuperTypes="#//Application">
+    <eOperations name="getEndpoints" upperBound="-1" eType="#//Endpoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Endpoint" eSuperTypes="#//NamedDocumentable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" lowerBound="1" eType="#//Node"
+        eOpposite="#//Node/endpoints" eKeys="#//Node/hostName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundService" eType="#//ServiceBinding"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecDriver" eSuperTypes="#//CommonDriver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="ecore:EClass ../../org.eclipse.scada.da.server.exec/model/configuration.ecore#//RootType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommonDriver" abstract="true" eSuperTypes="#//Driver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="password" eType="#//PasswordCredentials"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" upperBound="-1"
+        eType="#//Endpoint" eKeys="#//Endpoint/portNumber"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Pattern" instanceClassName="java.util.regex.Pattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HandlerPriorityRule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factoryId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configurationFilter" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MasterHandlerPriorities" eSuperTypes="#//NamedDocumentable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//HandlerPriorityRule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Options">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterHandlerPriorities"
+        eType="#//MasterHandlerPriorities"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UsernamePasswordCredentials" eSuperTypes="#//Credentials">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PasswordCredentials" eSuperTypes="#//Credentials">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Credentials" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true"
+      eSuperTypes="#//NamedDocumentable">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This interface allows declaring generic service objects which apply to a node. This can be used for declaring custom service types which also might get references by custom model extensions.&#xA;&#xA;For example could this be a VPN connection to another system."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedDocumentable" abstract="true" interface="true"
+      eSuperTypes="#//Documentable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceBinding" abstract="true" interface="true">
+    <eOperations name="getService" lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainedServiceBinding" eSuperTypes="#//ServiceBinding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferencedServiceBinding" eSuperTypes="#//ServiceBinding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Settings" abstract="true" interface="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A generic marker interface for settings elements. Like database settings.&#xA;&#xA;Settings objects should be referenced when required and contained in some sort of settings container."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatabaseSettings" abstract="true" interface="true"
+      eSuperTypes="#//Settings">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An interface for JDBC based database settings.&#xA;&#xA;Implementations may provide specific attributes and provide the name using the properties. If they also allow to enter arbitrary properties in addition, then the specifc entries should override the generic attributes. (e.g. if the user specifies a username and a property &quot;username&quot;, then the specific attribute &quot;username&quot; should win over the generic properties entry for &quot;username&quot;)."/>
+    </eAnnotations>
+    <eOperations name="getDriverName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getProperties" upperBound="-1" eType="#//PropertyEntry"/>
+    <eOperations name="getUrl" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getLoginTimeout" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EIntegerObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The login timeout in milliseconds."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getBundles" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericSettingsContainer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A generic settings container. It can be use to host all kinds of settings in a dedicated resource (file) since the World itself has not container for settings."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="settings" eType="#//Settings"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericDatabaseSettings" eSuperTypes="#//AbstractGenericDatabaseSettings">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverName" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bundles" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractGenericDatabaseSettings" abstract="true"
+      eSuperTypes="#//DatabaseSettings">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loginTimeout" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" upperBound="-1"
+        eType="#//PropertyEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PostgresDatabaseSettings" eSuperTypes="#//AbstractGenericDatabaseSettings"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ValidationContext" instanceClassName="org.eclipse.scada.utils.ecore.validation.ValidationContext"
+      serializable="false"/>
+  <eSubpackages name="osgi" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi"
+      nsPrefix="osgi">
+    <eClassifiers xsi:type="ecore:EEnum" name="AverageReferenceType">
+      <eLiterals name="MIN" literal="min"/>
+      <eLiterals name="MAX" value="1" literal="max"/>
+      <eLiterals name="MEAN" value="2" literal="mean"/>
+      <eLiterals name="MEDIAN" value="3" literal="median"/>
+      <eLiterals name="DEVIATION" value="4" literal="deviation"/>
+      <eLiterals name="SUM" value="5" literal="sum"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="MovingAverageReferenceType">
+      <eLiterals name="MIN" literal="min"/>
+      <eLiterals name="MAX" value="1" literal="max"/>
+      <eLiterals name="MEDIAN" value="2" literal="median"/>
+      <eLiterals name="ARITHMETIC" value="3" literal="arithmetic"/>
+      <eLiterals name="WEIGHTED" value="4" literal="weighted"/>
+      <eLiterals name="DEVIATION_ARITHMETIC" value="5" literal="deviationArithmetic"/>
+      <eLiterals name="DEVIATION_WEIGHTED" value="6" literal="deviationWeighted"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EquinoxApplication" abstract="true"
+        interface="true" eSuperTypes="#//Application">
+      <eOperations name="getProfile" lowerBound="1" eType="#//osgi/profile/Profile"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connections" upperBound="-1"
+          eType="#//osgi/Connection" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exporter" upperBound="-1"
+          eType="#//osgi/Exporter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="customizationProfile"
+          eType="#//osgi/profile/Profile" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="securityConfiguration"
+          lowerBound="1" eType="ecore:EClass ../../org.eclipse.scada.configuration.security/model/sec.ecore#//Configuration"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+          eType="#//osgi/ApplicationModule" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true" eSuperTypes="#//NamedDocumentable">
+      <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="getPossibleEndpoints" upperBound="-1" eType="#//Endpoint">
+        <eParameters name="exporter" eType="#//osgi/Exporter"/>
+      </eOperations>
+      <eOperations name="makeUri" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="localhost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eOperations name="getMatchingEndpoint" eType="#//Endpoint">
+        <eParameters name="exporter" eType="#//osgi/Exporter"/>
+      </eOperations>
+      <eOperations name="getFactoryId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return getTypeTag () + &quot;.connection&quot;;"/>
+        </eAnnotations>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+          eType="#//Endpoint" eKeys="#//Endpoint/portNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpointLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          changeable="false" volatile="true" transient="true" derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="credentials" eType="#//Credentials"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Exporter" abstract="true" eSuperTypes="#//NamedDocumentable">
+      <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" upperBound="-1"
+          eType="#//Endpoint" eKeys="#//Endpoint/portNumber"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataAccessConnection" eSuperTypes="#//osgi/Connection">
+      <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return &quot;da&quot;;"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="makeUri" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return super.makeBasicUri ( localhost, &quot;da&quot;, &quot;ngp&quot; );"/>
+        </eAnnotations>
+        <eParameters name="localhost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataAccessExporter" eSuperTypes="#//osgi/Exporter">
+      <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return &quot;da&quot;;"/>
+        </eAnnotations>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exports" upperBound="-1"
+          eType="#//osgi/ItemExport" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Item" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="information" eType="#//osgi/ItemInformation"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="itemFeatures" upperBound="-1"
+          eType="#//osgi/ItemFeatureEntry" containment="true" eOpposite="#//osgi/ItemFeatureEntry/item"
+          eKeys="#//osgi/ItemFeatureEntry/name"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SourceItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connection" lowerBound="1"
+          eType="#//osgi/DataAccessConnection"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemExport">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exportName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemInformation">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="system" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" lowerBound="1"
+          eType="#//osgi/DataType" defaultValueLiteral="VARIANT"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ioDirections" upperBound="-1"
+          eType="#//osgi/IODirection"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LevelMonitor" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="preset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cap" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" lowerBound="1"
+          eType="#//osgi/Severity"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerOk" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="includedOk" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="demotePrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="suppressEvents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="requireAck" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="monitorType" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemFeatureEntry" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
+          eType="#//osgi/Item" eOpposite="#//osgi/Item/itemFeatures"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ScriptItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+          eType="#//osgi/ItemReference" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initScript" eType="#//osgi/CodeFragment"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="updateScript" eType="#//osgi/CodeFragment"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timer" eType="#//osgi/ScriptTimer"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="JavaScript"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
+          eType="#//osgi/ItemReference" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="writeCommandScript" eType="#//osgi/CodeFragment"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initProperties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ImportItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="export" lowerBound="1"
+          eType="#//osgi/ItemExport"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SummaryGroup">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subGroups" upperBound="-1"
+          eType="#//osgi/SummaryGroup" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//osgi/Item"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MarkerGroup">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="markers" upperBound="-1"
+          eType="#//osgi/MarkerEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Markers">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="markerGroups" upperBound="-1"
+          eType="#//osgi/MarkerGroup" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConstantItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SummaryItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="group" lowerBound="1"
+          eType="#//osgi/SummaryGroup"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MarkerEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ManualOverride" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Severity" instanceClassName="org.eclipse.scada.ae.data.Severity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MasterServer" abstract="true" eSuperTypes="#//osgi/EquinoxApplication">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="summaryGroups" upperBound="-1"
+          eType="#//osgi/SummaryGroup" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//osgi/Item" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="markers" eType="#//osgi/Markers"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="aeServerInformationPrefix"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="ae.server.info"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="monitorPools" upperBound="-1"
+          eType="#//osgi/MonitorPool" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventPools" upperBound="-1"
+          eType="#//osgi/EventPool" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataMapper" upperBound="-1"
+          eType="#//osgi/DataMapper" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="externalEventMonitors"
+          upperBound="-1" eType="#//osgi/ExternalEventMonitor" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="externalEventFilters"
+          upperBound="-1" eType="#//osgi/ExternalEventFilter" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="averages" upperBound="-1"
+          eType="#//osgi/Average" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="movingAverages" upperBound="-1"
+          eType="#//osgi/MovingAverage" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bufferedValues" upperBound="-1"
+          eType="#//osgi/BufferedValue" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueArchiveServer" abstract="true"
+        eSuperTypes="#//osgi/EquinoxApplication">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="archives" upperBound="-1"
+          eType="#//osgi/ValueArchive" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultArchiveConfiguration"
+          eType="#//osgi/ArchiveConfiguration" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DefaultMasterServer" eSuperTypes="#//osgi/MasterServer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CustomMasterServer" eSuperTypes="#//osgi/MasterServer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="profile" lowerBound="1"
+          eType="#//osgi/profile/Profile"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ApplicationModule" abstract="true"
+        interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AttributesSummary" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributes" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The attribute groups to summarize."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputPrefix" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventLogger" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="logAttributesChange"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="logValueChange" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="logSubscriptionChange"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="logWrites" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MonitorPool" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventPool" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataMapper" abstract="true" eSuperTypes="#//NamedDocumentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleDataMapper" eSuperTypes="#//osgi/DataMapper">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="#//osgi/DataMapperEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JdbcDataMapper" eSuperTypes="#//osgi/DataMapper">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcDriver" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sql" unique="false" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataMapperEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueMapper" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataMapper" lowerBound="1"
+          eType="#//osgi/DataMapper"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PersistentItem" eSuperTypes="#//osgi/Item"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProxyItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//osgi/Item"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Scale" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
+          defaultValueLiteral="1.0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
+          defaultValueLiteral="0.0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Negate" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Rounding" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//osgi/RoundingType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="RoundingType">
+      <eLiterals name="NONE" literal="NONE"/>
+      <eLiterals name="ROUND" value="1"/>
+      <eLiterals name="CEIL" value="2"/>
+      <eLiterals name="FLOOR" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalEventMonitor" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalEventFilter" abstract="true"
+        eSuperTypes="#//NamedDocumentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StaticExternalEventFilter" eSuperTypes="#//osgi/ExternalEventFilter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleExternalEventFilter" eSuperTypes="#//osgi/ExternalEventFilter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+      <eLiterals name="VARIANT"/>
+      <eLiterals name="NULL" value="1"/>
+      <eLiterals name="INT32" value="2"/>
+      <eLiterals name="INT64" value="3"/>
+      <eLiterals name="FLOAT" value="4"/>
+      <eLiterals name="STRING" value="5"/>
+      <eLiterals name="BOOLEAN" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypedItemReference" eSuperTypes="#//osgi/ItemReference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//osgi/DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CodeFragment">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ScriptTimer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
+          eType="#//osgi/CodeFragment" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemReference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormulaItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initScripts" upperBound="-1"
+          eType="#//osgi/CodeFragment" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outbound" eType="#//osgi/FormulaItemOutbound"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inbound" eType="#//osgi/FormulaItemInbound"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initProperties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormulaItemOutbound">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="output" lowerBound="1"
+          eType="#//osgi/TypedItemReference" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputFormula" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="writeValueVariableName"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormulaItemInbound">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" lowerBound="1"
+          upperBound="-1" eType="#//osgi/TypedItemReference" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputFormula" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanMonitor" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="demotePrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" lowerBound="1"
+          eType="#//osgi/Severity"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="suppressEvents" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="requireAck" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ListMonitor" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultAck" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultSeverity" lowerBound="1"
+          eType="#//osgi/Severity" defaultValueLiteral="ALARM"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="monitorType" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="LIST"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="demotePrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="#//osgi/ListMonitorEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ListMonitorEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="#//osgi/Variant"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="requireAck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//osgi/Severity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Variant" instanceClassName="org.eclipse.scada.core.Variant"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Average" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourcesRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MovingAverage" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The number of seconds the average will be calculated for."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullRange" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The number of seconds the average must have recorded valid data in order to provide a valid (non-error) value."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A period time in seconds when the average will be updated although no value has changed."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          defaultValueLiteral="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A flag which decides if the average is only updated by time (true) or also by value change (false)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AverageItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//osgi/Average"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//osgi/AverageReferenceType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MovingAverageItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//osgi/MovingAverage"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//osgi/MovingAverageReferenceType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Blockings" eSuperTypes="#//NamedDocumentable #//osgi/ApplicationModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
+          eType="#//osgi/BlockGroup" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BlockGroup" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
+          eType="#//osgi/BlockHandler" eOpposite="#//osgi/BlockHandler/group"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BlockHandler" eSuperTypes="#//osgi/ItemFeatureEntry">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="group" lowerBound="1"
+          eType="#//osgi/BlockGroup" eOpposite="#//osgi/BlockGroup/handlers"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//osgi/ItemFeatureEntry"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GlobalSummaryItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WeakReferenceDataSourceItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataSourceId" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AlarmsEventsExporter" eSuperTypes="#//osgi/Exporter">
+      <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return &quot;ae&quot;;"/>
+        </eAnnotations>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AlarmsEventsConnection" eSuperTypes="#//osgi/Connection">
+      <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return &quot;ae&quot;;"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="makeUri" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return super.makeBasicUri ( localhost, &quot;ae&quot;, &quot;ngp&quot; );"/>
+        </eAnnotations>
+        <eParameters name="localhost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MonitorPoolProxy" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="local" upperBound="-1"
+          eType="#//osgi/MonitorPool"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="remote" upperBound="-1"
+          eType="#//osgi/MonitorPool"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventPoolProxy" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="local" upperBound="-1"
+          eType="#//osgi/EventPool"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="remote" upperBound="-1"
+          eType="#//osgi/EventPool"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AlarmsEventsModule" eSuperTypes="#//osgi/ApplicationModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="monitorPoolProxies" upperBound="-1"
+          eType="#//osgi/MonitorPoolProxy" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventPoolProxies" upperBound="-1"
+          eType="#//osgi/EventPoolProxy" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="aknProxies" upperBound="-1"
+          eType="#//osgi/AknProxy" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pullEvents" upperBound="-1"
+          eType="#//osgi/PullEvents" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AknProxy">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" lowerBound="1"
+          eType="#//Pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connection" lowerBound="1"
+          eType="#//osgi/AlarmsEventsConnection"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="authorative" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PullEvents" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="customSelectSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="customDeleteSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+          eType="#//DatabaseSettings"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JdbcUserServiceModule" eSuperTypes="#//osgi/ApplicationModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="userServices" upperBound="-1"
+          eType="#//osgi/JdbcUserService" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PasswordType">
+      <eLiterals name="PLAIN"/>
+      <eLiterals name="PLAIN_IGNORE_CASE" value="1"/>
+      <eLiterals name="MD5_HEX" value="2"/>
+      <eLiterals name="SHA1_HEX" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JdbcUserService" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcPropeties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcDriver" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="authorative" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="findUserSql" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Find the user and its password."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="findRolesForUserSql"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Find all roles for the user."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="updatePasswordSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="An optional SQL statement to update the password for the user."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="userIdColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="An optional user id column name. If the column name is not specified the provided user id will be used instead of the user id re-read from the database."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordColumnName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="password">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The name of the password column."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="passwordType" lowerBound="1"
+          eType="#//osgi/PasswordType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DefaultValueArchiveServer" eSuperTypes="#//osgi/ValueArchiveServer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="HistoricalDataExporter" eSuperTypes="#//osgi/Exporter">
+      <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return &quot;hd&quot;;"/>
+        </eAnnotations>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueArchive" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="archiveconfiguration"
+          eType="#//osgi/ArchiveConfiguration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConfigurationAdministratorExporter"
+        eSuperTypes="#//osgi/Exporter">
+      <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="return &quot;ca&quot;;"/>
+        </eAnnotations>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReferenceItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//osgi/Item"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventStorage" abstract="true" interface="true"
+        eSuperTypes="#//osgi/IndependentConfiguration">
+      <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
+        <details key="groupId" value="ae.storage"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventStorageJdbc" eSuperTypes="#//osgi/AbstractEventStorageJdbc">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxFieldLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queryFetchSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventStoragePostgres" eSuperTypes="#//osgi/AbstractEventStorageJdbc">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="batchSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ReplicationDataFormat">
+      <eLiterals name="BLOB" literal="BLOB"/>
+      <eLiterals name="BYTES" value="1" literal="BYTES"/>
+      <eLiterals name="JSON" value="2" literal="JSON"/>
+      <eLiterals name="ARRAY" value="3" literal="ARRAY"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractEventStorageJdbc" abstract="true"
+        eSuperTypes="#//osgi/EventStorage">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="An optional database schema."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="default"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableReplication" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="archiveDays" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cleanupPeriodSeconds"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+          eType="#//DatabaseSettings"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicationDataFormat"
+          eType="#//osgi/ReplicationDataFormat" defaultValueLiteral="JSON"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ApplicationConfiguration" abstract="true"
+        interface="true" eSuperTypes="#//osgi/ApplicationModule">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This interface is intended as a marker interface for modules that bring on configuration parts for modules which should also be used in higher level modules when configuring the application instance."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RestExporter" eSuperTypes="#//osgi/ApplicationModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hiveProperties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HttpService" eSuperTypes="#//osgi/ApplicationConfiguration">
+      <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
+        <details key="groupId" value="http.service"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+          eType="#//Endpoint"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IndependentConfiguration" abstract="true"
+        interface="true" eSuperTypes="#//osgi/ApplicationConfiguration">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is a marker interface for standalone configuration elements that can be used directly in the infrastructure model.&#xA;&#xA;Modules which can be configured without the reference to any other world model object can use this interface. This allows the direct use of this model without the need to provide a transformation from the Component/Infrastructure model to the World model."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TransientItem" eSuperTypes="#//osgi/Item"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DefaultEquinoxApplication" eSuperTypes="#//osgi/EquinoxApplication">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="profile" lowerBound="1"
+          eType="#//osgi/profile/Profile"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ChangeCounterItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" eType="#//osgi/BufferedValue"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//osgi/ChangeType"
+          defaultValueLiteral="DELTA"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="onError" eType="#//osgi/ErrorHandling"
+          defaultValueLiteral="ERROR"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
+          upperBound="-1" eType="#//osgi/Variant"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BufferedValue" eSuperTypes="#//NamedDocumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
+          eType="#//osgi/ItemReference" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="#//osgi/Variant"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The number of seconds the average will be calculated for."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A period time in seconds when the average will be updated although no value has changed."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          defaultValueLiteral="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A flag which decides if the average is only updated by time (true) or also by value change (false)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistence" eType="#//osgi/Persistence"
+          defaultValueLiteral="NONE"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Persistence">
+      <eLiterals name="NONE" literal="NONE"/>
+      <eLiterals name="LAZY" value="1" literal="LAZY"/>
+      <eLiterals name="REQUIRED" value="2" literal="REQUIRED"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ErrorHandling">
+      <eLiterals name="IGNORE" literal="IGNORE"/>
+      <eLiterals name="COUNT" value="1" literal="COUNT"/>
+      <eLiterals name="ERROR" value="2" literal="ERROR"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ChangeType">
+      <eLiterals name="DELTA" literal="DELTA"/>
+      <eLiterals name="SET" value="1" literal="SET"/>
+      <eLiterals name="DIRECTION" value="2" literal="DIRECTION"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TelnetConsole" eSuperTypes="#//osgi/IndependentConfiguration">
+      <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
+        <details key="groupId" value="telnet.console"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="localhost"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjector" abstract="true" eSuperTypes="#//osgi/IndependentConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+          eType="#//DatabaseSettings"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loopDelay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicationSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deleteFailed" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjectorPostgres" eSuperTypes="#//osgi/EventInjector">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="limit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjectorJdbc" eSuperTypes="#//osgi/EventInjector">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deleteSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="existsSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProfileConfiguration" eSuperTypes="#//osgi/IndependentConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="startBundles" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="installBundles" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjectorSyslog" eSuperTypes="#//osgi/ApplicationConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+          eType="#//Endpoint"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="bindAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjectorManager" eSuperTypes="#//osgi/IndependentConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="handler" upperBound="-1"
+          eType="#//osgi/EventHandler" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventHandler" abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DefaultStorageHandler" eSuperTypes="#//osgi/EventHandler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FilterEventHandler" abstract="true"
+        eSuperTypes="#//osgi/EventHandler">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IncludeEventFilter" eSuperTypes="#//osgi/FilterEventHandler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExcludeEventFilter" eSuperTypes="#//osgi/FilterEventHandler"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ScriptEventHandler" eSuperTypes="#//osgi/EventHandler">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
+          eType="ecore:EClass ../../org.eclipse.scada.configuration.script/model/script.ecore#//JavaScript"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MailEventHandler" eSuperTypes="#//osgi/EventHandler">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sessionProperties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" lowerBound="1" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SfpDataAccessConnection" eSuperTypes="#//osgi/DataAccessConnection"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DeltaItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//osgi/Item"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="IODirection">
+      <eLiterals name="INPUT"/>
+      <eLiterals name="OUTPUT" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArchiveConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileSizeInMilliseconds"
+          eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
+          defaultValueLiteral="3600000"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFiles" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELong"
+          defaultValueLiteral="2160">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value="numberOfFiles"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
+        nsPrefix="profile">
+      <eClassifiers xsi:type="ecore:EClass" name="Profile">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value="profile"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="installationUnits"
+            upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="kind" value="element"/>
+            <details key="name" value="feature"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="jvmArguments" upperBound="-1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="name" value="argument"/>
+            <details key="kind" value="element"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="start" upperBound="-1"
+            eType="#//osgi/profile/StartBundle" containment="true" eKeys="#//osgi/profile/StartBundle/name"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="setbsl" upperBound="-1"
+            eType="#//osgi/profile/BundleStartLevel" containment="true">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="kind" value="element"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+            eType="#//osgi/profile/SystemProperty" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="notes" upperBound="-1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="name" value="note"/>
+            <details key="kind" value="element"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="profile" upperBound="-1"
+            eType="#//osgi/profile/SubProfile" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="includes" upperBound="-1"
+            eType="#//osgi/profile/Profile"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="kind" value="attribute"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="arguments" upperBound="-1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="name" value="arg"/>
+            <details key="kind" value="element"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="Program arguments"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="StartBundle">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="simple"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+            iD="true">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="name" value=":0"/>
+            <details key="kind" value="simple"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SystemProperty">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="simple"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="kind" value="attribute"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="kind" value="simple"/>
+            <details key="name" value=":0"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="eval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+            defaultValueLiteral="false">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="kind" value="attribute"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SubProfile">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+            eType="#//osgi/profile/SystemProperty" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="BundleStartLevel">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="name" value="BundleStartLevel"/>
+          <details key="kind" value="simple"/>
+        </eAnnotations>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="kind" value="attribute"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+            <details key="name" value=":0"/>
+            <details key="kind" value="simple"/>
+          </eAnnotations>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="deployment" nsURI="http://eclipse.org/SCADA/Configuration/World/Deployment"
+      nsPrefix="deployment">
+    <eClassifiers xsi:type="ecore:EClass" name="DeploymentMechanism" abstract="true"
+        interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DebianDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Author">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RedhatDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="license" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="other">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The value of the license field that will be inserted into the template &quot;spec&quot; file."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DeploymentInformation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="authors" upperBound="-1"
+          eType="#//deployment/Author" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CommonDeploymentMechanism" abstract="true"
+        eSuperTypes="#//deployment/DeploymentMechanism">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="changes" lowerBound="1"
+          upperBound="-1" eType="#//deployment/ChangeEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="maintainer" lowerBound="1"
+          eType="#//deployment/Author" eKeys="#//deployment/Author/email"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalDependencies"
+          ordered="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="startupMechanism" eType="#//deployment/StartupMechanism"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiUserScreen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Wether to enable the multiuser functionality of the &quot;screen&quot; command for the Eclipse SCADA user."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operatingSystem" eType="#//setup/OperatingSystemDescriptor"
+          eKeys="#//setup/OperatingSystemDescriptor/id"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="automaticCreate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recreateBackups" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="setup" eType="#//setup/SetupModuleContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="additionalSetupModules"
+          upperBound="-1" eType="#//setup/SetupModule" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"
+          eType="#//deployment/Author" eKeys="#//deployment/Author/email"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NodeMappings" eSuperTypes="#//deployment/Mappings"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExpressionNodeMappingEntry" eSuperTypes="#//deployment/MappingEntry">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Replace the hostname with an case insensitive regular expression. The replacement string may reference capture groups using the dollar ($) sign. See also java.util.regex.Matcher.replaceAll - http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#replaceAll%28java.lang.String%29"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" lowerBound="1"
+          eType="#//Pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="replacement" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MappingEntry" abstract="true" interface="true">
+      <eOperations name="map" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="hostname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleNodeMappingEntry" eSuperTypes="#//deployment/MappingEntry">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Replace a hostname by matching it against the fromHostName field and replacing it with the toHostName field if it matches. It is compared case insensitive."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromHostName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="toHostName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreCase" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FallbackMappingMode">
+      <eLiterals name="FAIL"/>
+      <eLiterals name="IGNORE" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MsiDeploymentMechanism" eSuperTypes="#//deployment/DeploymentMechanism">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="upgradeCode" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="manufacturer" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="Eclipse SCADA"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sharedPlatform" eType="#//deployment/P2Platform"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localPlatform" eType="#//deployment/P2Platform"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="architecture" lowerBound="1"
+          eType="#//deployment/Architecture" defaultValueLiteral="i386"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableFirewall" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableUserInterface"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="licenseFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="P2Platform">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositories" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Architecture">
+      <eLiterals name="i386"/>
+      <eLiterals name="amd64" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="StartupMechanism">
+      <eLiterals name="DEFAULT"/>
+      <eLiterals name="UPSTART" value="1"/>
+      <eLiterals name="REDHAT_SYSV" value="2"/>
+      <eLiterals name="LSB_SYSV" value="3"/>
+      <eLiterals name="SYSTEMD" value="4" literal="SYSTEMD"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Mappings">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="#//deployment/MappingEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fallbackMode" lowerBound="1"
+          eType="#//deployment/FallbackMappingMode" defaultValueLiteral="FAIL"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="setup" nsURI="http://eclipse.org/SCADA/Configuration/World/Setup"
+      nsPrefix="setup">
+    <eClassifiers xsi:type="ecore:EClass" name="OperatingSystemDescriptor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//setup/OperatingSystemDescriptor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//PropertyEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetupModuleContainer">
+      <eOperations name="validateOperatingSystem">
+        <eParameters name="descriptor" eType="#//setup/OperatingSystemDescriptor"/>
+        <eParameters name="context" eType="#//ValidationContext"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+          eType="#//setup/SetupModule" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetupModule" abstract="true" interface="true">
+      <eOperations name="validateOperatingSystem">
+        <eParameters name="descriptor" eType="#//setup/OperatingSystemDescriptor"/>
+        <eParameters name="context" eType="#//ValidationContext"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubContainerModule" eSuperTypes="#//setup/SetupModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//setup/SetupModuleContainer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetupDefinitions">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="containers" upperBound="-1"
+          eType="#//setup/SetupModuleContainer" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operationSystemDefinitions"
+          upperBound="-1" eType="#//setup/OperatingSystemDescriptor" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Status" instanceClassName="org.eclipse.core.runtime.IStatus"
+        serializable="false"/>
+  </eSubpackages>
+</ecore:EPackage>

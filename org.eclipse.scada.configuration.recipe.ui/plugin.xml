@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+     <menuContribution
+            locationURI="popup:org.eclipse.scada.configuration">
+            <dynamic
+                  class="org.eclipse.scada.configuration.recipe.ui.ProfilesContribution"
+                  id="org.eclipse.scada.configuration.recipe.ui.profiles">
+               <visibleWhen
+                     checkEnabled="false">
+                  <reference
+                        definitionId="org.eclipse.scada.configuration.recipe.ui.definition">
+                  </reference>
+               </visibleWhen>
+            </dynamic>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="org.eclipse.scada.configuration.recipe.ui.definition">
+         <with
+               variable="selection">
+            <iterate
+                  ifEmpty="false"
+                  operator="and">
+               <or>
+                  <adapt
+                        type="org.eclipse.core.resources.IResource">
+                     <test
+                           property="org.eclipse.core.resources.contentTypeId"
+                           value="org.eclipse.scada.configuration.recipe">
+                     </test>
+                  </adapt>
+               </or>
+            </iterate>
+         </with>
+      </definition>
+   </extension>
+
+</plugin>

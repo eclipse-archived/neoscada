@@ -1,0 +1,84 @@
+/*******************************************************************************
+ * Copyright (c) 2013, 2016 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.configuration.world.lib.utils;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
+import java.util.regex.Pattern;
+
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.utils.str.StringReplacer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.io.ByteStreams;
+import com.google.common.io.CharStreams;
+import com.google.common.io.Files;
+
+public class Helper
+{
+    private final static Logger logger = LoggerFactory.getLogger ( Helper.class );
+
+    private final static Pattern PATTERN = Pattern.compile ( "\\$\\$(.*?)\\$\\$" );
+
+    public static void createFile ( final File file, final InputStream resource, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
+    {
+        createFile ( file, resource, replacements, monitor, PATTERN );
+    }
+
+    protected static void createFile ( final File file, final InputStream resource, final Map<String, String> replacements, final IProgressMonitor monitor, final Pattern pattern ) throws Exception
+    {
+        try
+        {
+            String str = CharStreams.toString ( new InputStreamReader ( resource, StandardCharsets.UTF_8 ) );
+
+            str = StringReplacer.replace ( str, StringReplacer.newSource ( replacements ), pattern );
+
+            createFile ( file, str, monitor );
+        }
+        finally
+        {
+            resource.close ();
+        }
+    }
+
+    public static void createFile ( final File file, final InputStream resource, final IProgressMonitor monitor, final boolean exec ) throws Exception
+    {
+        file.getParentFile ().mkdirs ();
+
+        try
+        {
+            try ( FileOutputStream fos = new FileOutputStream ( file ) )
+            {
+                ByteStreams.copy ( resource, fos );
+            }
+            file.setExecutable ( exec );
+        }
+        finally
+        {
+            resource.close ();
+        }
+    }
+
+    public static void createFile ( final File file, final String data, final IProgressMonitor monitor ) throws Exception
+    {
+        logger.debug ( "Writing string data file: {}", file );
+
+        file.getParentFile ().mkdirs ();
+
+        Files.write ( data, file, Charset.forName ( "UTF-8" ) );
+    }
+}

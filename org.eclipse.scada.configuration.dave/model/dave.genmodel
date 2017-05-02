@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.dave/src" creationSubmenus="true"
+    modelPluginID="org.eclipse.scada.configuration.dave" modelName="Dave" nonNLSMarkers="true"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="7.0"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.memory/model/memory.genmodel#//memory ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>dave.ecore</foreignModel>
+  <genPackages prefix="Dave" basePackage="org.eclipse.scada.configuration" resource="XMI"
+      disposableProviderFactory="true" extensibleProviderFactory="true" childCreationExtenders="true"
+      ecorePackage="dave.ecore#/">
+    <genClasses ecoreClass="dave.ecore#//DaveDevice">
+      <genFeatures createChild="false" propertyCategory="connection" ecoreFeature="ecore:EAttribute dave.ecore#//DaveDevice/port"/>
+      <genFeatures createChild="false" propertyCategory="connection" ecoreFeature="ecore:EAttribute dave.ecore#//DaveDevice/rack"/>
+      <genFeatures createChild="false" propertyCategory="connection" ecoreFeature="ecore:EAttribute dave.ecore#//DaveDevice/slot"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="data"
+          ecoreFeature="ecore:EReference dave.ecore#//DaveDevice/blocks"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="data" propertySortChoices="true"
+          ecoreFeature="ecore:EReference dave.ecore#//DaveDevice/typeSystem"/>
+      <genFeatures createChild="false" propertyCategory="connection" ecoreFeature="ecore:EAttribute dave.ecore#//DaveDevice/readTimeout"/>
+    </genClasses>
+    <genClasses ecoreClass="dave.ecore#//DaveDriver">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dave.ecore#//DaveDriver/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="dave.ecore#//DaveCommunicationProcessor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dave.ecore#//DaveCommunicationProcessor/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dave.ecore#//DaveCommunicationProcessor/blocks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveCommunicationProcessor/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveCommunicationProcessor/rack"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveCommunicationProcessor/slot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveCommunicationProcessor/readTimeout"/>
+    </genClasses>
+    <genClasses ecoreClass="dave.ecore#//DaveRequestBlock">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dave.ecore#//DaveRequestBlock/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveRequestBlock/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveRequestBlock/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveRequestBlock/area"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveRequestBlock/block"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveRequestBlock/offset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveRequestBlock/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveRequestBlock/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dave.ecore#//DaveRequestBlock/enableStatistics"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dave.ecore#//DaveRequestBlock/device"/>
+    </genClasses>
+    <genClasses ecoreClass="dave.ecore#//DaveBlockDefinition">
+      <genFeatures createChild="false" propertyCategory="address" ecoreFeature="ecore:EAttribute dave.ecore#//DaveBlockDefinition/block"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dave.ecore#//DaveBlockDefinition/device"/>
+      <genFeatures createChild="false" propertyCategory="address" ecoreFeature="ecore:EAttribute dave.ecore#//DaveBlockDefinition/offset"/>
+      <genFeatures createChild="false" propertyCategory="request" ecoreFeature="ecore:EAttribute dave.ecore#//DaveBlockDefinition/period"/>
+      <genFeatures createChild="false" propertyCategory="request" ecoreFeature="ecore:EAttribute dave.ecore#//DaveBlockDefinition/enableStatistics"/>
+      <genFeatures createChild="false" propertyCategory="request" propertySortChoices="true"
+          ecoreFeature="ecore:EReference dave.ecore#//DaveBlockDefinition/type"/>
+      <genFeatures createChild="false" propertyCategory="address" ecoreFeature="ecore:EAttribute dave.ecore#//DaveBlockDefinition/area"/>
+      <genFeatures createChild="false" propertyCategory="main" ecoreFeature="ecore:EAttribute dave.ecore#//DaveBlockDefinition/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

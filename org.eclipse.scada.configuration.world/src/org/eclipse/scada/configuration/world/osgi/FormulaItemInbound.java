@@ -1,0 +1,77 @@
+/*******************************************************************************
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.configuration.world.osgi;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Formula Item Inbound</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.FormulaItemInbound#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.FormulaItemInbound#getInputFormula <em>Input Formula</em>}</li>
+ * </ul>
+ *
+ * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getFormulaItemInbound()
+ * @model
+ * @generated
+ */
+public interface FormulaItemInbound extends EObject
+{
+    /**
+     * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.TypedItemReference}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Inputs</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Inputs</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getFormulaItemInbound_Inputs()
+     * @model containment="true" resolveProxies="true" required="true"
+     * @generated
+     */
+    EList<TypedItemReference> getInputs ();
+
+    /**
+     * Returns the value of the '<em><b>Input Formula</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Input Formula</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Input Formula</em>' attribute.
+     * @see #setInputFormula(String)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getFormulaItemInbound_InputFormula()
+     * @model
+     * @generated
+     */
+    String getInputFormula ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.FormulaItemInbound#getInputFormula <em>Input Formula</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Input Formula</em>' attribute.
+     * @see #getInputFormula()
+     * @generated
+     */
+    void setInputFormula ( String value );
+
+} // FormulaItemInbound

@@ -1,0 +1,18 @@
+// Import for org.eclipse.scada.configuration.lib.DefaultFeatures
+
+importPackage(org.eclipse.scada.configuration.lib);
+
+// the script gets passed a global variable called "request"
+// request is an instanceof "org.eclipse.scada.configuration.item.CustomizationRequest"
+
+// FIXME: add some more customization logic
+
+// Always add a manual override for inputs
+
+if ( request.hasTag ( "input" ) ) {
+	request.addFeature ( DefaultFeatures.MANUAL_OVERRIDE(null) );
+}
+
+// Always add the Attributes Summary
+
+request.addFeature ( DefaultFeatures.ASUM() );

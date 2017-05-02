@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common" nsURI="http://eclipse.org/SCADA/Configuration/Setup/Common"
+    nsPrefix="setupCommon">
+  <eClassifiers xsi:type="ecore:EClass" name="PostgresSetupModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//setup/SetupModule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PostgresDatabaseSettings"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postgresUser" lowerBound="1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostBasedAccessFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="configurationFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SerialToNetworkSetupModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//setup/SetupModule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
+        eType="#//SerialToNetworkMapping" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SerialToNetworkMapping">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="device" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tcpPort" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="2000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="30"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baudRate" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="9600"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parity" lowerBound="1"
+        eType="#//Parity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xonxoff" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtscts" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataBits" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="8"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stopBits" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modemControl" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="break" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Parity">
+    <eLiterals name="NONE"/>
+    <eLiterals name="EVEN" value="1"/>
+    <eLiterals name="ODD" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

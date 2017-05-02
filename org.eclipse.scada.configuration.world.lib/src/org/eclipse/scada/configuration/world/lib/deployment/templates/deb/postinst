@@ -1,0 +1,36 @@
+#!/bin/sh
+# postinst script
+
+set -e
+
+multiuserScreen="$$multiuserScreen$$"
+
+case "$1" in
+    configure)
+$$create.apps$$
+
+	if [ ! -f ~eclipsescada/.screenrc ]; then
+		test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~eclipsescada/.screenrc
+	fi
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+$$stop.apps$$
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+$$postinst.scripts$$
+
+# start apps last
+case "$1" in
+	configure)
+	$$start.apps$$
+	;;
+esac
+
+exit 0
