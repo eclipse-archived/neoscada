@@ -1,0 +1,41 @@
+buildType=R
+
+release=0.4
+microVersion=0
+qualifier=
+buildHelperVersion=0.0.18
+
+branch="$release.x-release"
+unqualifiedVersion=$release.$microVersion
+
+repos="external utils chart protocols base core hmi ide deploy releng"
+
+version="$unqualifiedVersion"
+[ ! -z "$qualifier" ] && version="$unqualifiedVersion$qualifier"
+
+tag="$buildType$version"
+
+function die {
+        echo "$@" 1>&2 # echo to stderr
+        exit 1
+}
+
+if [ -z "$ECLIPSE_COMMITTER" ]; then
+	die "You must set ECLIPSE_COMMITTER to your Eclipse NeoSCADA committer name (e.g. adent)"
+fi
+
+function cloneRepository {
+    local r="$1"
+    local b="$2"
+    if [ -z "$b" ]; then
+		git clone ssh://$ECLIPSE_COMMITTER@git.eclipse.org:29418/eclipsescada/$r
+	else
+		git clone ssh://$ECLIPSE_COMMITTER@git.eclipse.org:29418/eclipsescada/$r -b "$b"
+	fi
+}
+
+function section {
+	echo "==========================================================================="
+	echo "    $@"
+	echo "==========================================================================="
+}

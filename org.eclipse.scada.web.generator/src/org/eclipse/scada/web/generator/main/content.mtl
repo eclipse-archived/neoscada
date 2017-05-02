@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[module content('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::release /]
+[import org::eclipse::scada::web::generator::main::gallery /]
+[import org::eclipse::scada::web::generator::main::social /]
+
+[template public processContainer(container : Container, base: String)]
+[for (content : Content | container.content)]
+[processContent(content, base)/]
+[/for]
+[/template]
+
+[template public processContent(content : Content, base: String)]
+[/template]
+
+[template public processContent(content : HtmlContent, base: String)]
+[content.data/]
+[/template]
+
+[template public processContent(content : SocialBar, base: String)]
+[socialBar(content)/]
+[/template]
+
+[template public processContent(content : GalleryContent, base: String)]
+[generateGallery(content.gallery, base)/]
+[/template]
+
+[template public processContent(content : ReleaseSection, base: String)]
+[generateRelease ( content.release, base ) /]
+[/template]

@@ -1,0 +1,40 @@
+[comment encoding = UTF-8 /]
+[module rss('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::news /]
+[import org::eclipse::scada::web::generator::main::common /]
+[import org::eclipse::scada::web::generator::main::content /]
+
+[template public generateFeed(site : Site)]
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>[site.name.encodeHtml()/]</title>
+		<link>[getProperty('site.base')/]</link>
+		<description>[site.description.encodeHtml()/]</description>
+		<lastBuildDate>[formatDate('EEE, dd MMM yyyy HH:mm:ss Z', null)/]</lastBuildDate>
+		<atom:link href="[getProperty('site.base')/]/feed.xml" rel="self" type="application/rss+xml" />
+		<language>en-US</language>
+		<generator>http://eclipse.org/eclipsescada?v=3</generator>
+
+[for (news : NewsEntry | site.news)]
+<item>
+	<title>[news.title.encodeHtml()/]</title>
+	<guid isPermaLink="true">[news.absolutePermaLink()/]</guid>
+	<link>[news.absolutePermaLink()/]</link>
+	<pubDate>[formatDate('EEE, dd MMM yyyy HH:mm:ss Z', news.date)/]</pubDate>
+[description(news)/]
+</item>
+[/for]
+	</channel>
+</rss>
+[/template]
+
+[template public description(news : NewsEntry)]
+[if news.content->size()>0]
+	<description>
+[descriptionContent(news)/]
+</description>[/if]
+[/template]
+
+

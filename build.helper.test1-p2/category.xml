@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/build.helper.test1_0.1.0.qualifier.jar" id="build.helper.test1" version="0.1.0.qualifier">
+      <category name="build.helper.test1.category"/>
+   </feature>
+   <feature url="features/build.helper.test1.sdk_0.1.0.qualifier.jar" id="build.helper.test1.sdk" version="0.1.0.qualifier">
+      <category name="build.helper.test1.sdk.category"/>
+   </feature>
+   <category-def name="build.helper.test1.category" label="Test1"/>
+   <category-def name="build.helper.test1.sdk.category" label="SDK"/>
+</site>

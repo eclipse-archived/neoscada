@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+	 Build all repositories
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+        Build all repositories
+    </description>
+
+    <tstamp>
+        <format property="buildTimestamp" pattern="yyyyMMddHHmm" />
+    </tstamp>
+
+    <property file="default.properties" />
+	
+    <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${release}" />
+    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
+	
+	<condition property="doJavadoc">
+		<or>
+			<equals arg1="milestone" arg2="${buildTypeLong}"/>
+			<equals arg1="release" arg2="${buildTypeLong}"/>
+		</or>
+	</condition>
+	
+	<!--
+	  - for javadoc we explicity only have one directory (for nightly, milestone, release)
+	  -->
+	<property name="javadoc.base" location="${download.root}/javadoc/${release}" />
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="phase1,phase2">
+    </target>
+    
+    <!-- ================================= 
+          target: phase1
+         ================================= -->
+    <target name="phase1" depends="clean.repo,build.repo,build.update">
+    </target>
+    
+    <!-- ================================= 
+          target: phase2
+         ================================= -->
+    <target name="phase2" depends="link,index">
+    </target>
+
+    <!-- ================================= 
+          target: clean.repo
+         ================================= -->
+    <target name="clean.repo">
+        <delete dir="${repo.base}" />
+    </target>
+
+    <!-- ================================= 
+          target: build.repo
+         ================================= -->
+    <target name="build.repo" unless="skip.build.repo">
+        <ant antfile="deb.ant" inheritall="true" />
+        <ant antfile="yum.ant" inheritall="true" />
+    </target>
+
+    <!-- ================================= 
+          target: build.update
+         ================================= -->
+    <target name="build.update" unless="skip.build.update">
+        <ant antfile="p2.ant" inheritall="true" />
+    </target>
+
+    <!-- ================================= 
+          target: link
+         ================================= -->
+    <target name="link" depends="link.javadoc">
+        <!-- symlinks won't work on download.eclipse.org -->
+        <mkdir dir="${repo.base}" />
+        <copy todir="${repo.base}">
+            <fileset dir="${download.base.dir}/repos">
+            </fileset>
+        </copy>
+    	
+    	<!-- updates are handled by repgen -->
+    </target>
+	
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: link.javadoc                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="link.javadoc" if="doJavadoc">
+    	<mkdir dir="${javadoc.base}"/>
+    	<copy todir="${javadoc.base}">
+    		<fileset dir="${download.base.dir}/javadoc">
+            </fileset>
+		</copy>
+    </target>
+
+    <!-- =================================
+          target: index
+         ================================= -->
+    <target name="index">
+        <copy todir="${download.base.dir}">
+            <fileset dir="index">
+            </fileset>
+            <filterset>
+                <filter token="buildTypeLong" value="${buildTypeLong}" />
+                <filter token="buildType" value="${buildType}" />
+                <filter token="buildTimestamp" value="${buildTimestamp}" />
+            	<filter token="version" value="${version}" />
+                <filter token="release" value="${release}" />
+            </filterset>
+        </copy>
+    </target>
+
+</project>

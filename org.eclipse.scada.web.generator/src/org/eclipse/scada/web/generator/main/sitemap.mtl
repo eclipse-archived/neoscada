@@ -1,0 +1,47 @@
+[comment encoding = UTF-8 /]
+[module sitemap('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::news /]
+[import org::eclipse::scada::web::generator::main::common /]
+[import org::eclipse::scada::web::generator::main::author /]
+
+[template public generateSitemap(site : Site)]
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
+>
+[for (page : Page | site.pages)]
+<url>
+	<loc>[page.toUrl().toAbsolute()/]</loc>[sitemapPage(page)/]
+</url>
+[/for]
+[for (author : Author | site.author)]
+<url>
+	<loc>[author.authorFile().toAbsolute()/]</loc>
+</url>
+[/for]
+[for (news : NewsEntry | site.news)]
+<url>
+	<loc>[news.absolutePermaLink()/]</loc>
+</url>
+[/for]
+</urlset>
+[/template]
+
+[template public sitemapPage(page : Page)]
+[/template]
+
+[template public sitemapPage(page : ContentPage)][for (content : Content | page.content)][sitemapContent()/][/for][/template]
+
+[template public sitemapContent(content : Content)][/template]
+
+[template public sitemapContent(content : GalleryContent)]
+
+[for (image : Image | content.gallery.images)]
+		<image:image>
+			<image:loc>[image.src.toAbsolute()/]</image:loc>
+			<image:title>[image.label.encodeHtml()/]</image:title>
+			<image:license>http://www.eclipse.org/legal/epl-v10.html</image:license>
+		</image:image>
+[/for]
+[/template]

@@ -1,0 +1,44 @@
+[comment encoding = UTF-8 /]
+[module author('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::common /]
+[import org::eclipse::scada::web::generator::main::html /]
+
+[template public generateAuthors(site : Site)]
+[for (author : Author | site.author)]
+[file (authorFile(author), false, 'UTF-8')]
+[header(site, author.name, null, authorFile(author))/]
+
+<table>
+
+<tr>
+<td><img src="https://secure.gravatar.com/avatar/[author.email.md5()/].jpg"/></td>
+
+<td class="author-social">
+<h3>Find more about me on:</h3>
+<ul>
+[if (not author.plusLink->isEmpty()) ]
+<li>
+	<img src="[relative(authorFile(author), 'images/icons/application-plus-black.png')/]"/>
+	<a href="[author.plusLink/]" rel="me" title="Follow me on Googleplus">Google Plus</a>
+</li>
+[/if]
+</ul>
+</td>
+
+</tr>
+
+</table>
+
+[footer(site, authorFile(author))/]
+[/file]
+[/for]
+[/template]
+
+[query public authorFile(author:Author) : String =
+'authors/' + author.email + '.html'
+/]
+
+[query public md5(string : String ) : String =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'md5(java.lang.String)', Sequence { string })
+/]

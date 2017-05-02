@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.eclipse.scada.releng</groupId>
+	<artifactId>superParent</artifactId>
+	<version>0.4.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<organization>
+		<name>Eclipse NeoSCADA Project</name>
+	</organization>
+
+	<distributionManagement>
+		<repository>
+			<id>repo.eclipse.org</id>
+			<name>Eclipse NeoSCADA Repository - Releases</name>
+			<url>https://repo.eclipse.org/content/repositories/eclipsescada-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>repo.eclipse.org</id>
+			<name>Eclipse NeoSCADA Repository - Snapshots</name>
+			<url>https://repo.eclipse.org/content/repositories/eclipsescada-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<properties>
+		<buildType>N</buildType>
+		<buildTypeLong>nightly</buildTypeLong>
+				
+		<release>0.4</release>
+		<eclipse.scada.version>${project.version}</eclipse.scada.version>
+				
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<tycho-version>0.26.0</tycho-version>
+		<tycho-extras-version>0.26.0</tycho-extras-version>
+		<build-helper-version>0.0.19</build-helper-version>
+
+		<eclipse.orbit.version>R20150124073747</eclipse.orbit.version>
+
+		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+		<buildTimestamp>${maven.build.timestamp}</buildTimestamp>
+		<!-- the following property is used by the tycho JGit timestamp provider -->
+		<reactorBuildTimestampProperty>${maven.build.timestamp}</reactorBuildTimestampProperty>
+		
+		<external.p2.wrapper.url>file:${basedir}/../../org.eclipse.scada.external/org.eclipse.scada.external-repo/repo</external.p2.wrapper.url>
+	</properties>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>repo.eclipse.scada.org</id>
+			<name>Eclipse NeoSCADA Repository</name>
+			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.scada.releng</groupId>
+				<artifactId>build-helper</artifactId>
+				<version>${build-helper-version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>version-property</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>org.eclipse.scada.releng</groupId>
+							<artifactId>targetPlatform</artifactId>
+							<version>${project.parent.version}</version>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+			<!-- build qualifier -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-buildtimestamp-jgit</artifactId>
+						<version>${tycho-extras-version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-sourceref-jgit</artifactId>
+						<version>${tycho-extras-version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<timestampProvider>jgit</timestampProvider>
+					<jgit.ignore>
+						pom.xml
+						CHANGES.txt
+						target/
+					</jgit.ignore>
+					<format>'v'yyyyMMdd-HHmm</format>
+					<sourceReferences>
+						<generate>true</generate>
+					</sourceReferences>
+				</configuration>
+			</plugin>
+
+
+			<!-- source bundles -->
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>rpm-maven-plugin</artifactId>
+					<version>2.1-alpha-3</version>
+				</plugin>
+				<plugin>
+					<artifactId>jdeb</artifactId>
+					<groupId>org.vafer</groupId>
+					<version>1.3</version>
+					<configuration>
+						<snapshotExpand>true</snapshotExpand>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.6</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho.extras</groupId>
+					<artifactId>tycho-document-bundle-plugin</artifactId>
+					<version>${tycho-extras-version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<modules>
+		<module>targetPlatform</module>
+		<module>targetPlatformSdk</module>
+	</modules>
+
+	<profiles>
+
+		<profile>
+			<id>nightly</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<buildType>N</buildType>
+				<buildTypeLong>nightly</buildTypeLong>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>integration</id>
+			<properties>
+				<buildType>I</buildType>
+				<buildTypeLong>integration</buildTypeLong>
+				<ide.update.target.platform>true</ide.update.target.platform>
+			</properties>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external.wrapper</id>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
+					<layout>p2</layout>
+					<url>${external.p2.wrapper.url}</url>
+				</repository>
+			</repositories>
+		</profile>
+
+		<profile>
+			<id>milestone</id>
+			<properties>
+				<buildType>S</buildType>
+				<buildTypeLong>milestone</buildTypeLong>
+				<ide.update.target.platform>true</ide.update.target.platform>
+			</properties>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external.wrapper</id>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
+					<layout>p2</layout>
+					<url>${external.p2.wrapper.url}</url>
+				</repository>
+			</repositories>
+		</profile>
+		
+		<profile>
+			<id>maintenance</id>
+			<properties>
+				<buildType>M</buildType>
+				<buildTypeLong>milestone</buildTypeLong>
+				<ide.update.target.platform>true</ide.update.target.platform>
+			</properties>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external.wrapper</id>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
+					<layout>p2</layout>
+					<url>${external.p2.wrapper.url}</url>
+				</repository>
+			</repositories>
+		</profile>
+
+		<profile>
+			<id>release</id>
+			<properties>
+				<buildType>R</buildType>
+				<buildTypeLong>release</buildTypeLong>
+				<ide.update.target.platform>true</ide.update.target.platform>
+			</properties>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external.wrapper</id>
+					<name>Eclipse NeoSCADA Externals Wrapper</name>
+					<layout>p2</layout>
+					<url>${external.p2.wrapper.url}</url>
+				</repository>
+			</repositories>
+		</profile>
+
+		<profile>
+			<id>eclipse-sign</id>
+
+			<pluginRepositories>
+				<pluginRepository>
+					<id>eclipse.cbi</id>
+					<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
+				</pluginRepository>
+			</pluginRepositories>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<includePackedArtifacts>false</includePackedArtifacts>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200a-plugin</artifactId>
+						<version>${tycho-extras-version}</version>
+						<executions>
+							<execution>
+								<id>pack200-normalize</id>
+								<goals>
+									<goal>normalize</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.cbi.maven.plugins</groupId>
+						<artifactId>eclipse-jarsigner-plugin</artifactId>
+						<version>1.1.2</version>
+						<executions>
+							<execution>
+								<id>sign</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-pack200b-plugin</artifactId>
+						<version>${tycho-extras-version}</version>
+						<executions>
+							<execution>
+								<id>pack200-pack</id>
+								<goals>
+									<goal>pack</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<executions>
+							<execution>
+								<id>p2-metadata</id>
+								<goals>
+									<goal>p2-metadata</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+
+						<!-- FIXME: not sure if this is really needed -->
+						<!-- <configuration> <defaultP2Metadata>false</defaultP2Metadata> </configuration> -->
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>update-branding-plugins-about.mappings</id>
+			<activation>
+				<file>
+					<exists>${basedir}/about.mappings</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>process-about.mappings</id>
+								<phase>prepare-package</phase>
+								<configuration>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+									<overwrite>true</overwrite>
+									<resources>
+										<resource>
+											<directory>${basedir}</directory>
+											<includes>
+												<include>about.mappings</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-packaging-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<additionalFileSets>
+								<fileSet>
+									<directory>${project.build.directory}</directory>
+									<includes>
+										<include>about.mappings</include>
+									</includes>
+								</fileSet>
+							</additionalFileSets>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+section Merge from master
+
+[ -d workspace ] || die "Workspace does not exists"
+pushd workspace
+
+test -d logs || mkdir logs
+
+# merge changes from master
+
+section Merging
+
+for i in $repos; do
+  repo="org.eclipse.scada.${i}"
+  echo $repo
+  pushd "$repo" &>/dev/null
+  git fetch origin
+  set +e
+  git merge origin/master >../logs/merge.${repo}.log || echo "WARNING: Failed to merge: $i"
+  set -e
+  popd &>/dev/null
+done
+
+echo
+echo
+echo Now apply the version using "applyVersion"

@@ -1,0 +1,59 @@
+[comment encoding = UTF-8 /]
+[module generate('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::html /]
+[import org::eclipse::scada::web::generator::main::release /]
+[import org::eclipse::scada::web::generator::main::gallery /]
+[import org::eclipse::scada::web::generator::main::rss /]
+[import org::eclipse::scada::web::generator::main::sitemap /]
+[import org::eclipse::scada::web::generator::main::news /]
+[import org::eclipse::scada::web::generator::main::author /]
+[import org::eclipse::scada::web::generator::main::content /]
+[import org::eclipse::scada::web::generator::main::downloads /]
+[import org::eclipse::scada::web::generator::main::common /]
+
+[template public generateElement(site : Site)]
+[comment @main/]
+
+[generateAuthors(site)/]
+[generateNews(site)/]
+[generateReleases(site)/]
+
+[file ('feed.rss', false, 'UTF-8')]
+[generateFeed(site)/]
+[/file]
+[file ('feed.xml', false, 'UTF-8')]
+[generateFeed(site)/]
+[/file]
+
+[file ('sitemap.xml', false, 'UTF-8')]
+[generateSitemap(site)/]
+[/file]
+
+[for (page : Page | site.pages)]
+[file (page.toUrl(), false, 'UTF-8')]
+[generatePage(page, page.toUrl())/]
+[/file]
+[/for]
+[/template]
+
+[template public generatePage(page : Page, base: String)]
+[/template]
+
+[template public generatePage(page : NewsFeedPage, base: String)]
+[header(page.site, page.name, null, base)/]
+[for ( entry: NewsEntry | page.site.news->subOrderedSet(1, 10.min(page.site.news->size())) ) ]
+[processNewsEntry(entry, base)/]
+[/for]
+For older posts, see <a href="[relative(base, 'news/index.html')/]">the archive</a>…
+[footer(page.site, base)/]
+[/template]
+
+[template public generatePage(page : ContentPage, base: String)]
+[header(page.site, page.name, null, base)/]
+<header>
+<h1 class="header">[page.name.encodeHtml()/]</h1>
+</header>
+[processContainer(page, base)/]
+[footer(page.site,base)/]
+[/template]

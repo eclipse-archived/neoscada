@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     Publish to maven central 
+     ====================================================================== -->
+<project name="project" default="default">
+
+	<property file="local.properties" />
+	
+    <property name="p2tom2.file" location="../aggregateRepositories/p2tom2.properties"/>
+	<property name="p2tom2.version" value="0.4.6"/>
+	
+	<property name="neoscada.version" value="0.4.0"/>
+	<property name="neoscada.buildId" value="R201702150943"/>
+	
+	<property name="download.dir.maven" location="m2"/>
+	
+	<property name="url.repo" value="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada/drops/${neoscada.version}/${neoscada.buildId}/p2/"/>
+	<property name="url.validationRepo" value="http://download.eclipse.org/releases/neon"/>
+	
+	<property environment="env" />
+	<property name="env.JAVA_ARGS" value="" />
+	
+	<property name="local.proxy.host" value="proxy.eclipse.org"/>
+	<property name="local.proxy.port" value="9898"/>
+	
+	<condition property="shouldUpload">
+		<isfalse value="${dryRun}"/>
+	</condition>
+	
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="prepare,generate,publish">
+    </target>
+
+    <!-- ================================= 
+          target: prepare
+         ================================= -->
+    <target name="prepare">
+        <mkdir dir="${download.dir.maven}"/>
+        
+        <mkdir dir="temp/p2tom2"/>
+    	<mkdir dir="temp/p2tom2/tmp"/>
+        
+        <get src="http://download.eclipse.org/eclipsescada/releng/p2tom2-${p2tom2.version}.zip" dest="temp/p2tom2.zip" usetimestamp="true"/>
+        <unzip src="temp/p2tom2.zip" dest="temp"/>
+    </target>
+	
+	<!-- ================================= 
+          target: generate
+         ================================= -->
+    <target name="generate" depends="prepare">
+        <java classname="org.eclipse.equinox.launcher.Main"
+            fork="true"
+           	failonerror="true"
+        	dir="temp/p2tom2"
+            >
+            <classpath>
+                <fileset dir="temp/p2tom2/plugins/">
+                    <include name="org.eclipse.equinox.launcher_*.jar" />
+                </fileset>
+            </classpath>
+            
+        	<jvmarg line="${env.JAVA_ARGS}"/>
+        	
+            <arg value="-consoleLog" />
+
+            <arg value="file:${p2tom2.file}" /> <!-- configuration -->
+            <arg value="${url.repo}" /> <!-- source repo -->
+            <!-- validation repos -->
+            <arg value="${url.validationRepo}"/>
+        	
+            <sysproperty key="local.proxy.host" value="${local.proxy.host}"/>
+            <sysproperty key="local.proxy.port" value="${local.proxy.port}"/>
+            
+            <sysproperty key="path.p2temp" file="temp/p2tom2/tmp"/>
+            <sysproperty key="path.output" file="${download.dir.maven}"/>
+        	<sysproperty key="stripQualifier" value="true"/>
+        	<sysproperty key="fakeForCentral" value="true"/>
+        	<sysproperty key="groupIdPrefix" value="${groupIdPrefix}"/>
+        </java>
+    </target>
+
+	<!-- ================================= 
+          target: publish
+         ================================= -->
+    <target name="publish" if="shouldUpload">
+    		<chmod perm="0700" file="${download.dir.maven}/upload.sh" />
+    		<exec
+    			dir="${download.dir.maven}"
+    			executable="./upload.sh"
+    			failifexecutionfails="true" failonerror="true">
+    		</exec>
+    </target>
+	
+</project>

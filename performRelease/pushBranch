@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+section Push branch: $branch
+
+[ -d workspace ] || die "Workspace does not exists"
+pushd workspace
+
+# push the branch
+  
+for i in $repos; do
+  repo="org.eclipse.scada.${i}"
+  
+  echo Pushing $repo
+  pushd "$repo" &>/dev/null
+  git push origin $branch
+  popd &>/dev/null
+  
+  echo
+done 
+
+popd
+
+rm -Rf workspace # completed that task

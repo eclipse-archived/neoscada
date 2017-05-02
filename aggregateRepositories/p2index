@@ -1,0 +1,159 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+Copyright (c) 2013, 2015 IBH SYSTEMS GmbH and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBH SYSTEMS GmbH - initial implementation
+"""
+
+import os
+import os.path
+import sys
+import shutil
+import time
+from optparse import OptionParser
+
+version=os.getenv('VERSION','0.1.0')
+buildType=os.getenv('BUILD_TYPE','N')
+buildTypeLong=os.getenv('BUILD_TYPE_LONG','nightly')
+buildTypeLabel=buildTypeLong.title()
+
+index_html = """<!DOCTYPE html>
+<html>
+<head>
+  <title>Eclipse NeoSCADA Update Site (Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds)</title>
+</head>
+
+<body style="font-family:sans-serif, Arial; font-size:small;">
+
+<h1>Eclipse NeoSCADA Update Site (Eclipse NeoSCADA %(version)s %(buildTypeLabel)s Builds)</h1>
+
+<p>For information about Eclipse NeoSCADA, see their <a href="http://www.eclipse.org/eclipsescada">homepage</a> or 
+  <a href="http://wiki.eclipse.org/EclipseSCADA">wiki</a>.</p>
+
+<p>For information about installing or updating Eclipse software, see the
+  <a href="http://help.eclipse.org/topic/org.eclipse.platform.doc.user/tasks/tasks-124.htm">Eclipse Platform Help</a>.</p>
+<p>This is an Eclipse <b>Update site/p2 repository</b>; you must access it from Eclipse
+  (<a href="http://help.eclipse.org/topic/org.eclipse.platform.doc.user/tasks/tasks-127.htm">see how</a>).</p>
+
+<h3>Contents</h3>
+<ul>
+%(drop_links)s
+</ul>
+</body>
+</html>"""
+
+def find_drop_dirs(downloads_dir):
+    """
+    from base path, every directory which in turn has a drops directory is
+    considered a
+    """
+    result = []
+    for d in os.listdir(downloads_dir):
+        dd = os.path.join(downloads_dir, d)
+        print "Checking repo: %s" % dd
+        if os.path.isdir(dd) and 'drops' in os.listdir(dd):
+            ddd = os.path.join(dd, 'drops', version)
+            print "Checking drops: %s" % ddd
+            if os.path.isdir(ddd):
+            	print "Content: %s" % os.listdir(ddd)
+                result.append(ddd)
+    return result
+
+
+def p2index(base_dir):
+    """
+    does the actual indexing
+    """
+    drop_dirs = find_drop_dirs(os.path.join(base_dir, 'downloads'))
+    last_integration_build = []
+    for drop_dir in drop_dirs:
+        builds = []
+        for d in os.listdir(drop_dir):
+            artifact_path = os.path.join(drop_dir, d)
+            if d.startswith(buildType) and os.path.isdir(artifact_path) and 'content.jar' in os.listdir(artifact_path):
+                builds.append(artifact_path)
+        builds.sort()
+        if len(builds) > 0:
+            last_integration_build.append(builds[-1])
+
+    repo_dir = os.path.join(base_dir, 'updates', buildTypeLong, version)
+    # 1.) write dynamic content
+    params = {}
+    params['buildTypeLong'] = buildTypeLong;
+    params['buildTypeLabel'] = buildTypeLabel;
+    params['version'] = version;
+    params['children_size'] = len(last_integration_build)
+    params['children'] = ''
+    params['drop_links'] = ''
+    params['timestamp'] = "%s" % time.time()
+    for l in last_integration_build:
+        params['children'] += """    <child location="%s" />\n""" \
+            % l.replace(base_dir, '../../..')
+        params['drop_links'] += """    <li><a href="%s">%s</a>\n""" \
+            % (l.replace(base_dir, '../../..'), l.replace(base_dir, ''))
+    # 2.) write index.html
+    # -- disable for the moment
+    # f = open(os.path.join(repo_dir, 'index.html'), 'wb')
+    # f.write(index_html % params)
+    # f.close()
+    
+    # 3.) write EclipseSCADA.build.b3aggr
+    f = open('./EclipseSCADA.b3aggr', 'rb')
+    b3aggr = f.read()
+    f.close()
+    for l in last_integration_build:
+        target = l
+        
+        module = l.replace(base_dir, '')
+        module = module.split(os.path.sep)[2]
+        
+        source = "https://hudson.eclipse.org/eclipsescada/job/%s-master/lastSuccessfulBuild/artifact/output/p2/" % module
+        target = "file:" + target
+        print "replace '%s' -> '%s'" % ( source, target )
+        
+        b3aggr = b3aggr.replace(source, target)
+    f = open('./EclipseSCADA.build.b3aggr', 'wb')
+    f.write(b3aggr)
+    f.close()
+
+def main():
+    """
+    main method gets called on script execution
+    """
+    base_dir = os.getenv('BASE_DIR',
+        '/home/data/httpd/download.eclipse.org/eclipsescada')
+
+    if not os.path.exists(base_dir):
+        print "path '%s' does not exist" % base_dir
+        sys.exit(1)
+    if not os.path.isdir(base_dir):
+        print "path '%s' is not a directory" % base_dir
+        sys.exit(1)
+    if not os.access(base_dir, os.W_OK | os.X_OK):
+        print "path '%s' is not writable" % base_dir
+        sys.exit(1)
+
+    print "base directory = %s" % base_dir
+
+    try:
+        p2index(base_dir)
+    except Exception, e:
+        import traceback
+        print traceback.format_exc()
+        sys.exit(1)
+
+
+if __name__ == '__main__':
+    parser = OptionParser()
+    parser.add_option("-v", "--verbose",
+                  action="store_true", dest="verbose", default=False,
+                  help="verbose output")
+    (options, args) = parser.parse_args()
+    main()

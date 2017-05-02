@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated web -->
+      <package
+            uri="http://eclipse.org/eclipsescada"
+            class="org.eclipse.scada.web.WebPackage"
+            genModel="model/web.genmodel"/>
+   </extension>
+
+</plugin>

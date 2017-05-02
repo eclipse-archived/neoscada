@@ -1,0 +1,77 @@
+[comment encoding = UTF-8 /]
+[module social('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::common /]
+
+[template public startSocialBar()]
+<div class="social">
+[/template]
+
+[template public endSocialBar()]
+</div>
+[/template]
+
+[template public socialPlus(url : String)]
+<div
+	class="g-plusone"
+	data-size="medium"
+[if url<>null]
+	data-href="[url/]"
+[/if]
+	>
+</div>
+[/template]
+
+[template public socialTwitter (url : String, title:String)]
+<a
+	href="https://twitter.com/share"
+	class="twitter-share-button"
+[if url<>null]
+	data-url="[url/]"
+[/if]
+[if title<>null]
+	data-text="[title.encodeHtml()/]"
+[/if]
+	data-related="eclipsescada"
+>Tweet</a>
+[/template]
+
+[template public socialFacebook(url : String)]
+<div
+	class="fb-like"
+[if url<>null]
+	data-href="[url/]"
+[/if]
+	data-layout="button_count"
+	data-action="like"
+	data-show-faces="true">
+</div>
+[/template]
+
+[template public socialRssFeed(base:String)]
+<a href="[relative(base, 'feed.rss')/]" target="_blank"><img src="[relative(base,'images/icons/feed.png')/]"/></a>
+[/template]
+
+[template public socialBar(url:String, title:String)]
+[startSocialBar()/]
+[socialPlus(url)/]
+[socialTwitter(url, title)/]
+[socialFacebook(url)/]
+[endSocialBar()/]
+[/template]
+
+[template public socialBar(social : SocialBar)]
+[if social.information.oclIsUndefined()][socialBar(null, null)/][/if]
+[if not social.information.oclIsUndefined()]
+[startSocialBar()/]
+[socialPlus(optionalUrl(social.information.url, social.information.plusUrl))/]
+[socialTwitter(optionalUrl(social.information.url, social.information.twitterUrl), null)/]
+[socialFacebook(optionalUrl(social.information.url,social.information.facebookUrl))/]
+[endSocialBar()/]
+[/if]
+[/template]
+
+[query public optionalUrl(url1 : String, url2 : String) : String =
+if ( url2.oclIsUndefined() or url2.size()<=0) then url1 else url2 endif 
+ /]
+

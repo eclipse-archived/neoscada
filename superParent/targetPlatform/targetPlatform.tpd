@@ -1,0 +1,8 @@
+target "Eclipse NeoSCADA Target Platform"
+
+include "base.tpd"
+include "rap.tpd"
+
+environment JavaSE-1.8
+
+with source 

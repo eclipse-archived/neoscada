@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+      Build YUM repository
+     ====================================================================== -->
+<project name="yumRepository" default="default">
+    <description>
+            Build YUM repository
+    </description>
+
+    <property file="default.properties"/>
+    
+    <!-- the target -->
+    <property name="download.yum.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/repos/yum"/>
+    
+    <!-- ================================= 
+         target: default
+         ================================= -->
+    <target name="default" depends="echo,clean,copy,build">
+    </target>
+
+    <!-- ================================= 
+         target: clean
+         ================================= -->
+    <target name="clean" unless="skip.clean">
+        <delete dir="${download.yum.dir}" />
+    </target>
+
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build" depends="init">
+        <exec executable="createrepo" dir="${download.yum.dir}">
+            <arg value="." />
+        </exec>
+    </target>
+
+    <!-- ================================= 
+         target: copy
+         ================================= -->
+    <target name="copy">
+		<copyArch arch="noarch"/>
+        <copyArch arch="i386"/>
+        <copyArch arch="x86_64"/>
+    </target>
+    
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: copyArch          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="copyArch">
+        <attribute name="arch" />
+        <sequential>
+	        <copy todir="${download.yum.dir}/@{arch}" preservelastmodified="true">
+	            <fileset dir="${download.root}/downloads">
+	                <include name="*/drops/${version}/${buildType}*/packages/*.@{arch}.rpm" />
+	            </fileset>
+	            <mapper type="flatten" />
+	        </copy>
+        </sequential>
+    </macrodef>
+
+    <target name="echo">
+        <echo message="download.yum.dir = ${download.yum.dir}" />
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+        <mkdir dir="${download.yum.dir}" />
+        <mkdir dir="${download.yum.dir}/noarch" />
+        <mkdir dir="${download.yum.dir}/x86_64" />
+        <mkdir dir="${download.yum.dir}/i386" />
+    </target>
+
+</project>

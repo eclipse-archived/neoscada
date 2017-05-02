@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+      Build deb repository
+     ====================================================================== -->
+<project name="deb" default="default">
+    <description>
+            Build deb repository
+    </description>
+
+    <property file="default.properties" />
+
+    <!-- the target -->
+    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
+    <property name="download.deb.dir" location="${download.base.dir}/repos/deb" />
+    <property name="download.apt.dir" location="${download.base.dir}/repos/apt" />
+    
+    <property name="maven.exec" value="mvn"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="echo,clean,copy,build">
+    </target>
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean" unless="skip.clean">
+        <delete dir="${download.deb.dir}" />
+        <delete dir="${download.apt.dir}" />
+    </target>
+
+    <!-- ================================= 
+          target: copy
+         ================================= -->
+    <target name="copy">
+        <copy todir="${download.deb.dir}" preservelastmodified="true">
+            <fileset dir="${download.root}/downloads">
+                <include name="*/drops/${version}/${buildType}*/packages/*.deb" />
+                <include name="*/drops/${version}/${buildType}*/packages/*.changes" />
+            </fileset>
+            <mapper type="flatten" />
+        </copy>
+
+        <fileset dir="${download.deb.dir}" id="deb.files">
+            <include name="*.deb" />
+        </fileset>
+
+        <pathconvert pathsep="${line.separator}" property="deb.file.list" refid="deb.files" >
+            <map from="${download.root}" to="eclipsescada"/>
+        </pathconvert>
+        <echo file="${download.deb.dir}/files.list">${deb.file.list}</echo>
+    </target>
+
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build" unless="skip.deb.build">
+        <exec executable="${maven.exec}" dir="apt" failifexecutionfails="true" failonerror="true">
+            <arg value="clean"/>
+            <arg value="package"/>
+            <arg value="-DsourceDirectory=${download.deb.dir}"/>
+            <arg value="-DoutputDirectory=${download.apt.dir}"/>
+        </exec>
+        
+        <!-- we delete the plain debian result here to save space -->
+        <delete dir="${download.deb.dir}"/>
+    </target>
+
+    <target name="echo">
+        <echo message="download.deb.dir = ${download.deb.dir}" />
+        <echo message="download.apt.dir = ${download.apt.dir}" />
+    </target>
+
+</project>

@@ -1,0 +1,125 @@
+target "Eclipse NeoSCADA Target Platform (Base Fragment)"
+
+with source
+
+location "http://download.eclipse.org/cbi/updates/license/" {
+	org.eclipse.license.feature.group [1.0.1,1.0.2)
+}
+
+location "http://download.eclipse.org/eclipse/updates/4.6" {
+	org.apache.commons.logging.source [1.1.1,1.1.2)
+}
+
+location "http://download.eclipse.org/releases/neon" {
+	org.eclipse.equinox.sdk.feature.group
+	
+	org.eclipse.emf.validation.sdk.feature.group
+	org.eclipse.emf.sdk.feature.group
+	
+	org.eclipse.ecf.core.feature.group
+	org.eclipse.ocl.all.sdk.feature.group
+	
+	org.eclipse.platform.feature.group
+	org.eclipse.pde.feature.group
+	
+	org.eclipse.wst.common.fproj.feature.group
+	org.eclipse.wst.web_core.feature.feature.group
+	org.eclipse.wst.web_ui.feature.feature.group
+	org.eclipse.acceleo.feature.group
+	
+	org.eclipse.gef.sdk.feature.group
+	org.eclipse.jdt.feature.group
+	
+	org.eclipse.ecf.core.feature.feature.group
+	org.eclipse.equinox.p2.core.feature.feature.group
+	org.eclipse.ecf.core.ssl.feature.feature.group
+	org.eclipse.ecf.filetransfer.ssl.feature.feature.group
+	org.eclipse.ecf.filetransfer.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group
+	org.eclipse.equinox.p2.rcp.feature.feature.group
+}
+
+location "http://download.eclipse.org/paho/" {
+	org.eclipse.paho.client.mqttv3
+}
+
+location "http://packagedrone.eclipse.org/p2/neoscada-0.4-deps" {
+	com.google.guava [18.0.0,18.0.1)
+	com.google.guava.source [18.0.0,18.0.1)
+	org.apache.commons.compress [1.9.0,1.9.1)
+	org.apache.commons.compress.source [1.9.0,1.9.1)
+	org.tukani.xz [1.5.0,1.5.1)
+	bcprov [1.52.0,1.52.1)
+	bcpg [1.52.0,1.52.1)
+	
+	org.eclipse.packagedrone.utils.rpm[0.14.0,0.14.1)
+} 
+
+location "http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/" {
+
+/*
+ * We do have CQs for specific versions. So we need to fix them.
+ * On the other hand the qualifier is irrelevant to us. So what
+ * we actually want is "a.b.c.*" which is "[a.b.c,a.b.c+1)".
+ */
+
+	org.apache.commons.beanutils[1.8.0,1.8.1)
+	org.apache.commons.beanutils.source[1.8.0,1.8.1)
+	org.apache.commons.codec[1.4.0,1.4.1)
+	org.apache.commons.codec.source[1.4.0,1.4.1)
+	org.apache.commons.collections [3.2.2,3.2.3)
+	org.apache.commons.collections.source [3.2.2,3.2.3)
+	
+	org.apache.commons.dbcp[1.4.0,1.4.1)
+	org.apache.commons.dbcp.source[1.4.0,1.4.1)
+	org.apache.commons.pool[1.6.0,1.6.1)
+	org.apache.commons.pool.source[1.6.0,1.6.1)
+	org.apache.commons.httpclient[3.1.0,3.1.1)
+	org.apache.commons.httpclient.source[3.1.0,3.1.1)
+	
+	org.apache.poi[3.9.0,3.9.1)
+	org.apache.poi.source[3.9.0,3.9.1)
+	org.apache.mina.core[2.0.7,2.0.8)
+	org.apache.mina.core.source[2.0.7,2.0.8)
+	org.apache.mina.filter.compression[2.0.7,2.0.8)
+	org.apache.mina.filter.compression.source[2.0.7,2.0.8)
+
+	com.google.gson[2.2.4,2.2.5)
+	com.google.gson.source[2.2.4,2.2.5)
+
+	org.junit[4.12.0,4.12.1)
+	org.junit.source [4.12.0,4.12.1)
+	com.jcraft.jzlib[1.1.1,1.1.2)
+	com.jcraft.jzlib.source[1.1.1,1.1.2)
+	
+	org.slf4j.api[1.7.2,1.7.3)
+	org.slf4j.api.source[1.7.2,1.7.3)
+	org.slf4j.ext[1.7.2,1.7.3)
+	org.slf4j.ext.source[1.7.2,1.7.3)
+	
+	ch.qos.logback.classic[1.0.7,1.0.8)
+	ch.qos.logback.classic.source[1.0.7,1.0.8)
+	ch.qos.logback.core[1.0.7,1.0.8)
+	ch.qos.logback.core.source[1.0.7,1.0.8)
+	ch.qos.logback.slf4j[1.0.7,1.0.8)
+	ch.qos.logback.slf4j.source[1.0.7,1.0.8)
+	
+	javax.annotation [1.2.0,1.2.1)
+	javax.annotation.source [1.2.0,1.2.1)
+	javax.inject[1.0.0,1.0.1)
+	javax.inject.source[1.0.0,1.0.1)
+	javax.ws.rs[1.1.1,1.1.2)
+	javax.ws.rs.source[1.1.1,1.1.2)
+	javax.mail.glassfish[1.4.1,1.4.2)
+	javax.mail.glassfish.source[1.4.1,1.4.2)
+	javax.activation[1.1.0,1.1.1)
+	javax.activation.source[1.1.0,1.1.1)
+	
+	osgi.enterprise[4.2.0,4.2.1)
+	osgi.enterprise.source[4.2.0,4.2.1)
+}
+
+location "http://download.eclipse.org/gemini/updates/dbaccess/1.1.0" {
+	org.eclipse.gemini.dbaccess.h2.feature.feature.group
+}

@@ -1,0 +1,48 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+usage() { echo "Usage: $0 [-rms]" 1>&2; exit 1; }
+
+TYPE=milestone
+
+while getopts ":rms" o; do
+   case "$o" in
+      r)
+         TYPE=release
+         ;;
+      m)
+         TYPE=maintenance
+         ;;
+      s)
+         TYPE=milestone
+         ;;
+      *)
+         usage
+         ;;
+   esac
+done
+shift $((OPTIND-1))
+
+[ -d workspace ] || die "Workspace does not exists"
+
+pushd workspace
+
+section Build superParent - $TYPE
+
+mvn clean install -f org.eclipse.scada.releng/superParent/pom.xml
+
+section "Main Build (this might take A WHILE)"
+
+mvn clean verify \
+  -f org.eclipse.scada.releng/aggregator/pom.xml \
+  -Prpm -Pdeb -Peclipse-hudson \
+ '-P!nightly' "-P$TYPE" \
+  -Dlocal.proxy.host= \
+  -Dlocal.proxy.port= \
+  -Ddownload.root=/tmp/my-download-test \
+ '-Declipse.download.root=http://www.eclipse.org/downloads/download.php?r=1&file='
+  
+popd # workspace

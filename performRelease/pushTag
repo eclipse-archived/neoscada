@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+section Push tag: $tag
+
+[ -d workspace ] || die "Workspace does not exists"
+pushd workspace
+
+for i in $repos; do
+  repo="org.eclipse.scada.${i}"
+
+  pushd "$repo"
+    git push origin refs/heads/$branch refs/tags/$tag
+  popd
+done
+
+popd # workspace
+rm -Rf workspace

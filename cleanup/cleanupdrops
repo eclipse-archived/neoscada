@@ -1,0 +1,126 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBH SYSTEMS GmbH - initial implementation
+"""
+
+import os
+import os.path
+import sys
+import shutil
+from optparse import OptionParser
+
+def rmtree_error(function, path, excinfo):
+    """
+    """
+    print "'%s' could not be removed" % path
+
+
+def find_drop_dirs(base_dir):
+    """
+    from base path, every directory which in turn has a drops directory is
+    considered a
+    """
+    result = []
+    for d in os.listdir(base_dir):
+        dd = os.path.join(base_dir, d)
+        if os.path.isdir(dd) and 'drops' in os.listdir(dd):
+            result.append(os.path.join(dd, 'drops'))
+    return result
+
+
+def cleanup_drop_dir(drop_dir, version, keep, prefixes):
+    """
+    """
+    if options.verbose:
+        print "consider '%s' as drop dir" % drop_dir
+    repo_by_prefix = {}
+    for c in prefixes:
+        repo_by_prefix[c] = []
+    for d in os.listdir(os.path.join(drop_dir, version)):
+        for c in prefixes:
+            artifact_path = os.path.join(drop_dir, version, d)
+            if d.startswith(c) and os.path.isdir(artifact_path):
+                repo_by_prefix[c].append(artifact_path)
+    for c in prefixes:
+        repo_by_prefix[c].sort()
+        dirs_to_retain = repo_by_prefix[c][-keep:]
+        dirs_to_remove = repo_by_prefix[c][:-keep]
+        if options.verbose:
+            for d in dirs_to_retain:
+                print "  keeping %s" % d
+            for d in dirs_to_remove:
+                print "  removing %s" % d
+        if not options.dryrun:
+            for d in dirs_to_remove:
+                shutil.rmtree(d, True, rmtree_error)
+
+
+def cleanup(base_dir, version, keep, prefixes):
+    """
+    does the actual cleanup
+    """
+    drop_dirs = find_drop_dirs(base_dir)
+    for d in drop_dirs:
+        cleanup_drop_dir(d, version, keep, prefixes)
+
+
+def main():
+    """
+    main method gets called on script execution
+    """
+    if not os.path.exists(options.base_dir):
+        print "path '%s' does not exist" % options.base_dir
+        sys.exit(1)
+    if not os.path.isdir(options.base_dir):
+        print "path '%s' is not a directory" % options.base_dir
+        sys.exit(1)
+    if not os.access(options.base_dir, os.W_OK | os.X_OK):
+        print "path '%s' is not writable" % options.base_dir
+        sys.exit(1)
+    if options.keep < 0:
+        print "parameter -k --keep-num must >= 0: '%s'" % options.keep
+        sys.exit(2)
+    if len(options.prefixes) == 0:
+        print "parameter -p --prefixes must not be empty"
+        sys.exit(3)
+
+    print "base directory = %s" % options.base_dir
+    print "number of drops to retain = %s" % options.keep
+    print "prefixes to clean up = %s" % options.prefixes
+    if options.dryrun:
+        print "dry run, do not actually delete directories"
+    cleanup(options.base_dir, options.version, options.keep, options.prefixes)
+
+
+if __name__ == '__main__':
+    parser = OptionParser()
+    parser.add_option("-d", "--base-dir", default='/home/data/httpd/'
+                    'download.eclipse.org/eclipsescada/downloads',
+                  action="store", dest="base_dir",
+                  help="based")
+    parser.add_option("-k", "--keep-num",
+                  action="store", dest="keep", default=2, type='int',
+                  help="number of builds to keep")
+    parser.add_option("-p", "--prefixes",
+                  action="store", dest="prefixes", default='IN',
+                  help="prefixes to consider for removal")
+    parser.add_option("-r", "--release",
+                  action="store", dest="version", default='0.1.0',
+                  help="version to consider")
+    parser.add_option("-v", "--verbose",
+                  action="store_true", dest="verbose", default=False,
+                  help="verbose output")
+    parser.add_option("-n", "--dry-run",
+                  action="store_true", dest="dryrun", default=False,
+                  help="do not actually execute deletions")
+    (options, args) = parser.parse_args()
+    main()

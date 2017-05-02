@@ -1,0 +1,202 @@
+[comment encoding = UTF-8 /]
+[module html('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import org::eclipse::scada::web::generator::main::social /]
+[import org::eclipse::scada::web::generator::main::common /]
+
+[template public header(site : Site, title : String, description : String, fileName : String)]
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/Blog">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width" />
+
+<meta property="og:title" content="[title.encodeHtml()/]"/>
+<meta property="og:image" content="[toAbsolute('images/og_icon_v1.png')/]"/>
+
+<meta itemprop="name" content="[title.encodeHtml()/]">
+<meta itemprop="image" content="[toAbsolute('images/og_icon_v1.png')/]">
+
+<link rel="shortcut icon" href="[relative(fileName,'images/icon.ico')/]" />
+
+[if description<>null]
+<meta property="og:description" content="[description.encodeHtml()/]"/>
+<meta itemprop="description" content="[description.encodeHtml()/]">
+[/if]
+
+<title>[site.name.encodeHtml()/] – [title.encodeHtml()/]</title>
+
+<link rel="alternate" type="application/rss+xml" title="[site.name.encodeHtml()/] Feed" href="[getProperty('site.base')/]/feed.xml" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i[ '[' /]'GoogleAnalyticsObject'[ ']' /]=r;i[ '[' /]r[ ']' /]=i[ '[' /]r[ ']' /]||function(){
+  (i[ '[' /]r[ ']' /].q=i[ '[' /]r[ ']' /].q||[ '[' /][ ']' /]).push(arguments)},i[ '[' /]r[ ']' /].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[ '[' /]0[ ']' /];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48015579-1', 'auto');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var track = function(url, category, action) {
+   ga('send', 'event', category, action, url, {'hitCallback':
+     function () {
+     	document.location = url;
+     }
+   });
+  return false;
+}
+</script> 
+
+</head>
+<body>
+
+<nav id="navbar">
+<h3>Eclipse NeoSCADA™</h3>
+
+	<ul class="header">
+[for (page : Page | site.pages)]
+		<li class="menuitem"><a href="[relative(fileName,page.id)/].html">[page.name.encodeHtml()/]</a></li>
+[/for]
+	</ul>
+
+	<h3>Links</h3>
+
+	<ul class="header">
+[for (link : Link | site.links)]
+		<li class="menuitem"><a href="[link.target/]">[link.toLabel()/]</a></li>
+[/for]
+	</ul>
+
+	<h3>Recent posts</h3>
+	<ul class="header">
+[for (news : NewsEntry | site.news->subOrderedSet(1, 5.min(site.news->size()) ))]
+		<li class="menuitem postitem"><a href="[relative(fileName,news.permaLink())/]">[news.title.encodeHtml()/]</a></li>
+[/for]
+	</ul>
+
+	<h3>Archive</h3>
+	<ul class="header">
+[for ( index : Integer | site.news->collect(e|e.date.getIndex())->asOrderedSet()->sortedBy(i|-i) ) ]
+		<li class="menuitem postitem"><a href="[relative(fileName,'news/' + archiveLink(index))/]">[index.makeArchiveLabel()/]</a></li>
+[/for]
+		<li><a href="[relative(fileName, 'news/index.html')/]">Full archive…</a></li>
+	</ul>
+
+</nav>
+
+<div id="content">
+[/template]
+
+[template public footer(site : Site, fileName : String )]
+
+<footer id="footer">
+	<div>
+		<ul id="footernav">
+[for (entry : FooterEntry | site.footer)]
+	        <li><a href="[entry.link/]">[entry.name.encodeHtml()/]</a></li>
+[/for]
+		</ul>
+	</div>
+    <div style="text-align: right;">
+		Copyright © [currentYear()/], IBH SYSTEMS GmbH and others. All rights reserved.
+	</div>
+</footer>
+
+</div>
+
+<aside id="logo" style="z-index: -1000;">
+	<img width="400" height="136" src="[relative(fileName, 'images/logo.png' )/]"/>
+</aside>
+
+<aside id="sidebar-right">
+	<div id="gsearch">
+		<gcse:search></gcse:search>
+	</div>
+    <div id="eclipse-foundation" style="text-align: right;">
+        <a href="https://eclipse.org" target="_blank"><img width="200" height="47" src="[relative(fileName, 'images/Eclipse2014_RGB_cropped.svg' )/]" /></a>
+    </div>
+<div id="sidebar-right-lower">
+	<div id="sidebar-social">
+[startSocialBar()/]
+[socialRssFeed(fileName)/]
+[socialPlus('https://plus.google.com/115299777840108730794')/]
+[socialFacebook('https://www.facebook.com/eclipse.scada')/]
+[endSocialBar()/]
+	</div>
+    <div id="sidebar-releases">
+[sidebarReleases(site, fileName)/]
+    </div>
+	<div id="incubation">
+			<div class="header">Incubation</div>
+			<div align="center">
+				<a href="/projects/what-is-incubation.php">
+					<img align="middle" width="98" height="128"
+					src="[relative(fileName, 'images/egg-incubation.png' )/]" border="0" alt="Incubation" /></a>
+			</div>
+	</div>
+</div>
+</aside>
+
+<link rel="stylesheet" href="[relative(fileName, 'style/default.css' )/]">
+
+<!-- google -->
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js?onload=onLoadCallback';
+    var s = document.getElementsByTagName('script')[ '[' /]0[ ']' /]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<script>
+  (function() {
+	var cx = '009962854270831632871:uvgagf5bwgw';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[ '[' /]0[ ']' /];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+
+<!-- facebook -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[ '[' /]0[ ']' /];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[ '[' /]0[ ']' /],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<script type="text/javascript" src="[relative(fileName, 'js/default.js' )/]"></script>
+
+</body>
+</html>
+[/template]
+
+[template public sidebarReleases(site : Site, fileName : String)]
+<h3><a href="[relative(fileName, 'releases')/]">Recent Releases</a></h3>
+<dl>
+[for (version : Version | site.versions->reverse())]
+<dt>[version.state.asLabel()/]</dt>
+[for (release : Release | version.releases->first())]
+<dd><a href="[relative(fileName,'releases/' + release.version.name + '/' + release.buildId + '.html')/]">[release.name/]</a></dd>
+[/for]
+[/for]
+</dl>
+[/template]
+

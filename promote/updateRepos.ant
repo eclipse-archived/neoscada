@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+	 Update P2 repositories 
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+    	Update P2 repositories
+    </description>
+	
+	<property name="buildTypeShort" value="N"/>
+	<property name="buildTypeLong" value="nightly"/>
+	<property name="release" value="0.2"/>
+	<property name="downloads.base" location="/home/data/httpd/download.eclipse.org"/>
+	<property name="downloads.project.prefix" value="/eclipsescada"/>
+	
+	<property name="buildDir" location="build"/>
+	
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="clean,compile,run">
+    </target>
+	
+	<!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+    	<delete dir="${buildDir}"/>
+    </target>
+	
+	<!-- ================================= 
+          target: compile              
+         ================================= -->
+    <target name="compile">
+    	<mkdir dir="build"/>
+    	<javac
+    		source="1.7"
+    		target="1.7"
+    		encoding="UTF-8"
+    		destdir="${buildDir}">
+    		
+    		<src path="../repgen/src"/>
+    	</javac>
+    </target>
+	
+	<!-- ================================= 
+          target: run
+         ================================= -->
+    <target name="run" depends="compile">
+    	<java
+    		classpath="${buildDir}"
+    		failonerror="true"
+    		classname="org.eclipse.scada.releng.repgen.Application"
+    		fork="true"
+    		>
+    		
+    		<!--
+    			we need to fork since otherwise we have issues with
+    			the document builder factory on hudson
+			-->
+    		
+    		<sysproperty key="buildTypeShort" value="${buildTypeShort}"/>
+    		<sysproperty key="buildTypeLong" value="${buildTypeLong}"/>
+    		<sysproperty key="release" value="${release}"/>
+    		<sysproperty key="downloads.base" value="${downloads.base}"/>
+    		<sysproperty key="downloads.project.prefix" value="${downloads.project.prefix}"/>
+    		<sysproperty key="drops.dir" value="/downloads/org.eclipse.scada/drops"/>
+			<sysproperty key="updates.prefix" value="/updates"/>
+    	</java>
+    </target>
+
+
+</project>

@@ -1,0 +1,24 @@
+[comment encoding = UTF-8 /]
+[module gallery('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::common /]
+
+[template public generateGallery(gallery : Gallery, fileName: String)]
+
+<h3>[gallery.label/]</h3>
+
+<div class="gallery">
+
+[for (image : Image | gallery.images)]
+
+<figure>
+	<a href="[relative(fileName,image.src)/]" onclick="return track('[image.src/]','screenshot','view');">
+		<img src="[relative(fileName,image.src)/]" title="[image.label.encodeHtml()/]" alt="[image.label.encodeHtml()/]"/>
+	</a>
+	<figcaption>[image.label.encodeHtml()/]</figcaption>
+</figure>
+
+[/for]
+
+</div>
+[/template]

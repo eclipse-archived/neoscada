@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+section Create tag: $tag
+
+[ -d workspace ] || die "Workspace does not exists"
+pushd workspace
+
+test -d logs || mkdir logs
+
+# commit and tag the changes
+
+section Create tag: $tag
+
+for i in $repos; do
+  repo="org.eclipse.scada.${i}"
+
+  (
+    pushd "$repo" 
+    git tag -f  -a "$tag" -m "Tag version - $version"
+    popd
+  ) >> logs/tag.log
+  
+done
+
+popd # workspace
+
+echo
+echo
+echo Now build the tag locally using "buildLocally"
