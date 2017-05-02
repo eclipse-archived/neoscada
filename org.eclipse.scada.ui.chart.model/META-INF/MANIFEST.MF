@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.scada.ui.chart.model;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.scada.ui.chart.model;version="0.2.0",
+ org.eclipse.scada.ui.chart.model.impl;version="0.2.0",
+ org.eclipse.scada.ui.chart.model.util;version="0.2.0"
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.swt;bundle-version="3.7.2"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

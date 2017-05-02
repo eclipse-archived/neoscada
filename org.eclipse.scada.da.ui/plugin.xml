@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.eclipse.scada.da.ui.category"
+            name="%category.da.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.eclipse.scada.da.ui.category"
+            name="%category.da.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.scada.da.ui.category"
+            name="%category.da.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+	<menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <menu
+               id="org.eclipse.scada.da.ui"
+               label="Eclipse SCADA DA">
+            <separator
+                  name="additions"
+                  visible="false">
+            </separator>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

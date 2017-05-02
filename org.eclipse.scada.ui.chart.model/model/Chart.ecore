@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://eclipse.org/SCADA/UI/Chart" nsPrefix="chart">
+  <eClassifiers xsi:type="ecore:EClass" name="Chart">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showCurrentTimeRuler" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundColor" lowerBound="1"
+        eType="#//RGB" defaultValueLiteral="#FFFFFF">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="backgroundColor"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bottom" upperBound="-1"
+        eType="#//XAxis" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="top" upperBound="-1" eType="#//XAxis"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" upperBound="-1" eType="#//YAxis"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
+        eType="#//YAxis" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedYAxis" upperBound="-1"
+        eType="#//YAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedXAxis" upperBound="-1"
+        eType="#//XAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
+        eType="#//DataSeries" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutable" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controllers" upperBound="-1"
+        eType="#//Controller" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hoverable" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profiles" upperBound="-1"
+        eType="#//Profile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activeProfile" eType="#//Profile"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="profileSwitcherType" lowerBound="1"
+        eType="#//ProfileSwitcherType" defaultValueLiteral="BUTTON"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timeRulerAxis" eType="#//XAxis"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="RGB" instanceClassName="org.eclipse.swt.graphics.RGB"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XAxis" eSuperTypes="#//Axis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="YAxis" eSuperTypes="#//Axis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="-100.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="100.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Axis" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value="label"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textPadding" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="10"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//RGB" defaultValueLiteral="#000000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelVisible" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSeries" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="x" lowerBound="1" eType="#//XAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="y" lowerBound="1" eType="#//YAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataItemSeries" eSuperTypes="#//ItemDataSeries">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lineProperties" lowerBound="1"
+        eType="#//LineProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArchiveSeries" eSuperTypes="#//ItemDataSeries">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="channels" upperBound="-1"
+        eType="#//ArchiveChannel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lineProperties" lowerBound="1"
+        eType="#//LineProperties" containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="wildcards" value=""/>
+        <details key="name" value="lineProperties"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreFuture" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UriItem" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectionUri" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdItem" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectionId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemDataSeries" abstract="true" eSuperTypes="#//DataSeries">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1" eType="#//Item"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArchiveChannel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lineProperties" lowerBound="1"
+        eType="#//LineProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LineProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" lowerBound="1" eType="#//RGB"
+        defaultValueLiteral="#000000"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptSeries" eSuperTypes="#//DataSeries">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lineProperties" lowerBound="1"
+        eType="#//LineProperties" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Controller" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CurrentTimeController" eSuperTypes="#//XAxisController">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diff" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignDateFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A SimpleDateFormat which will be formatted and re-parsed in order to align the timestamp."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timespan" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Profile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controllers" upperBound="-1"
+        eType="#//Controller" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProfileSwitcherType">
+    <eLiterals name="CHECK"/>
+    <eLiterals name="RADIO" value="1"/>
+    <eLiterals name="BUTTON" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeShiftAction" eSuperTypes="#//XAxisController">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diff" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeNowAction" eSuperTypes="#//XAxisController"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XAxisController" abstract="true" eSuperTypes="#//Controller">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="axis" upperBound="-1" eType="#//XAxis"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScaleAction" eSuperTypes="#//XAxisController">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timespan" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SeparatorController" eSuperTypes="#//Controller"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MouseController" eSuperTypes="#//Controller"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResetController" eSuperTypes="#//Controller"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeArchiveQualitySeries" eSuperTypes="#//DataSeries">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LegendController" eSuperTypes="#//Controller">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestampFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

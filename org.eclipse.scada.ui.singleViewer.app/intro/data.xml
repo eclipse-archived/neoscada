@@ -1,0 +1,23 @@
+<extensions>
+   <page id="overview">
+      <group path="page-content/top-left">
+          <extension id="org.eclipse.scada.othala.application" importance="high"/>
+      </group>
+      <group path="page-content/top-right">
+           <extension id="foo3" importance="low"/>
+           <extension id="foo4" importance="low"/>
+           <extension id="foo5" importance="callout"/>
+      </group>
+      <hidden>
+            <extension id="foo6"/>
+            <extension id="foo7"/>
+      </hidden>
+   </page>
+   
+   <page id="whatsnew">
+    <group path="page-content/top-left">
+      <extension id="org.eclipse.scada.othala.application.whatsnew" importance="high"/>
+      <extension id="org.eclipse.scada.ae.client.test.whatsnew" importance="high"/>
+    </group>
+   </page>
+</extensions>

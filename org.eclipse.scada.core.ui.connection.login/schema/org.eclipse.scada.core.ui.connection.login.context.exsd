@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.scada.core.ui.connection.login" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.scada.core.ui.connection.login" id="context" name="Login Context"/>
+      </appinfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <choice>
+            <element ref="context" minOccurs="0" maxOccurs="unbounded"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="context">
+      <annotation>
+         <documentation>
+            A login context the user can connect to.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="connection"/>
+            <element ref="factory"/>
+            <element ref="property"/>
+         </choice>
+         <attribute name="label" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The label shown to end users when showing the login context.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The ID of the login context. Used for referencing.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="connection">
+      <annotation>
+         <documentation>
+            A connection entry that is part of the login context. 
+
+Actually the connection entry should be outside the context and be located by the factory itself. Still this connection element is here due to history.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="registration"/>
+         </choice>
+         <attribute name="uri" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="servicePid" type="string">
+            <annotation>
+               <documentation>
+                  A persistent service id the connection service will be registered with in OSGi.
+
+If the connection should be registered with different PIDs use the registration element.
+
+If this attribute is set and the registration element is used all service PIDs will be used for registration.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="autoReconnectDelay" type="string" use="default" value="10000">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="servicePriority" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="mode" use="default" value="NORMAL">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="NORMAL">
+                  </enumeration>
+                  <enumeration value="OPTIONAL">
+                  </enumeration>
+                  <enumeration value="LAZY">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="authUseCallbacks" type="boolean" use="required">
+            <annotation>
+               <documentation>
+                  Choose if the client connection will provide the user information that was entered using the initial session parameters or by registering callback handlers on the client side.
+
+For &quot;NET&quot; connections this must be set to &quot;false&quot; since the &quot;NET&quot; protocol does not support callbacks at the moment.
+
+For &quot;NGP&quot; this should be set to true since allows the prtocol to send the passwords as a hash instead of plain text.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="factory">
+      <annotation>
+         <documentation>
+            A factory which is part of the login context.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="property">
+      <annotation>
+         <documentation>
+            Properties that belong to this login context. Once the login context is activated these properties may be read using the SessionManager.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="key" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="value" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="registration">
+      <annotation>
+         <documentation>
+            A persistent service id the connection service will be registered with in OSGi.
+
+If the &quot;servicePid&quot; attribute is set and the registration element is used all service PIDs will be used for registration.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="servicePid" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+
+
+
+
+
+</schema>

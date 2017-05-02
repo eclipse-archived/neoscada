@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.eclipse.scada.vi.details.model.presentation.DetailViewModelWizardID"
+            name="%_UI_DetailViewModelWizard_label"
+            class="org.eclipse.scada.vi.details.model.presentation.DetailViewModelWizard"
+            category="org.eclipse.scada.hmi"
+            icon="icons/full/obj16/DetailViewModelFile.gif">
+         <description>%_UI_DetailViewModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.scada.vi.details.model.presentation.DetailViewEditorID"
+            name="%_UI_DetailViewEditor_label"
+            icon="icons/full/obj16/DetailViewModelFile.gif"
+            extensions="detailview"
+            class="org.eclipse.scada.vi.details.model.presentation.DetailViewEditor"
+            contributorClass="org.eclipse.scada.vi.details.model.presentation.DetailViewActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <file-association
+            content-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="detailview">
+      </file-association>
+   </extension>
+
+</plugin>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.core.ui.connection.discoverer">
+      <discoverer
+            class="org.eclipse.scada.core.ui.connection.discoverer.file.DefaultFileResourceDiscoverer"
+            description="%discoverer.defaultFileSource.description"
+            icon="icons/tree_explorer.gif"
+            id="org.eclipse.scada.core.ui.connection.discoverer.file.DefaultFileResourceDiscoverer"
+            name="%discoverer.defaultFileSource.name">
+      </discoverer>
+   </extension>
+
+</plugin>

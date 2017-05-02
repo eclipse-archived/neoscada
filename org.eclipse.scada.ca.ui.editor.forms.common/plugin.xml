@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.ca.ui.editor.form">
+      <form
+            class="org.eclipse.scada.ca.ui.editor.forms.common.connection.ConnectionEditorForm"
+            factoryId="da.connection"
+            label="Connection">
+      </form>
+      <form
+            class="org.eclipse.scada.ca.ui.editor.forms.common.ae.MonitorQueryEditorForm"
+            factoryId="ae.monitor.query"
+            label="Monitor Query">
+      </form>
+      <form
+            class="org.eclipse.scada.ca.ui.editor.forms.common.level.LevelEditorForm"
+            factoryId="org.eclipse.scada.ae.monitor.level"
+            label="Level Monitor">
+      </form>
+      <form
+            class="org.eclipse.scada.ca.ui.editor.forms.common.mapper.MapperEditorForm"
+            factoryId="org.eclipse.scada.da.mapper.osgi.configuredMapper"
+            label="Configured Mapper">
+      </form>
+      <form
+            class="org.eclipse.scada.ca.ui.editor.forms.common.mapper.MapperHandlerEditorForm"
+            factoryId="org.eclipse.scada.da.master.mapper"
+            label="Mapper Master Handler">
+      </form>
+      <form
+            class="org.eclipse.scada.ca.ui.editor.forms.common.marker.MarkerEditorForm"
+            factoryId="org.eclipse.scada.da.master.common.marker"
+            label="Marker">
+      </form>
+   </extension>
+
+</plugin>

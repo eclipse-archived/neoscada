@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.eclipse.scada.ca.ui.editor.form" name="CA Editor Form" schema="schema/org.eclipse.scada.ca.ui.editor.form.exsd"/>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.scada.ca.ui.editor.config.BasicEditor"
+            default="false"
+            id="org.eclipse.scada.ca.ui.connection.editors.BasicEditor"
+            name="Configuration Editor">
+      </editor>
+      <editor
+            class="org.eclipse.scada.ca.ui.editor.config.MultiConfigurationEditor"
+            default="false"
+            id="org.eclipse.scada.ca.ui.connection.editors.MultiConfigurationEditor"
+            name="Multi Configuration Editor">
+      </editor>
+      <editor
+            class="org.eclipse.scada.ca.ui.editor.factory.FactoryEditor"
+            default="false"
+            id="org.eclipse.scada.ca.ui.connection.editors.FactoryEditor"
+            name="Factory Editor">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.scada.ca.oscar">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="org.eclipse.scada.ca.ui.editor.editorContribution1"
+            targetID="org.eclipse.scada.ca.ui.connection.editors.FactoryEditor">
+         <action
+               class="org.eclipse.scada.ca.ui.editor.factory.InsertAction"
+               definitionId="org.eclipse.ui.edit.text.toggleInsertMode"
+               icon="icons/add.gif"
+               id="org.eclipse.scada.ca.ui.editor.factory.InsertAction"
+               label="Insert"
+               style="push"
+               toolbarPath="additions">
+         </action>
+		<action
+        class="org.eclipse.scada.ca.ui.editor.factory.DeleteAction"
+        definitionId="org.eclipse.ui.edit.delete"
+        icon="icons/delete.gif"
+        id="org.eclipse.scada.ca.ui.editor.factory.DeleteAction"
+        label="Delete"
+        style="push"
+        toolbarPath="additions">
+         </action>
+  <action
+        class="org.eclipse.scada.ca.ui.editor.factory.RefreshAction"
+        definitionId="org.eclipse.ui.file.refresh"
+        icon="icons/refresh.gif"
+        id="org.eclipse.scada.ca.ui.editor.RefreshAction"
+        label="Refresh"
+        style="push"
+        toolbarPath="additions">
+  </action>
+      </editorContribution>
+      <editorContribution
+            id="org.eclipse.scada.ca.ui.editor.editorContribution1"
+            targetID="org.eclipse.scada.ca.ui.connection.editors.MultiConfigurationEditor">
+         <action
+               class="org.eclipse.scada.ca.ui.editor.config.InsertAction"
+               definitionId="org.eclipse.ui.edit.text.toggleInsertMode"
+               icon="icons/add.gif"
+               id="org.eclipse.scada.ca.ui.editor.config.InsertAction"
+               label="Insert"
+               style="push"
+               toolbarPath="additions">
+         </action>
+         <action
+               class="org.eclipse.scada.ca.ui.editor.config.RefreshAction"
+               definitionId="org.eclipse.ui.file.refresh"
+               icon="icons/refresh.gif"
+               id="org.eclipse.scada.ca.ui.editor.RefreshAction"
+               label="Refresh"
+               style="push"
+               toolbarPath="additions">
+         </action>
+      </editorContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            file-extensions="oscar"
+            id="org.eclipse.scada.ca.oscar"
+            name="Eclipse SCADA Configuration Archive"
+            priority="normal">
+      </content-type>
+   </extension>
+</plugin>

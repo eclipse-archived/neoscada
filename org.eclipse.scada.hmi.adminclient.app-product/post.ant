@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+      Post process build
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+Things to do after the main build
+        
+Called fromt he pom.xml when the profile "eclipse-hudson"
+is active.
+    </description>
+	    
+    <property name="output" location="../output"/>
+    
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    
+    <!-- the base where drops will be placed for this repository -->
+    <property name="download.base" location="${download.root}/downloads/${repo}/drops"/>
+    
+    <!-- the actual drop directory -->
+    <property name="download.dir" location="${download.base}/${unqualifiedVersion}/${buildType}${buildTimestamp}"/>
+    
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="build,copy">
+    </target>
+    
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <mkdir dir="${output}"/>
+        <mkdir dir="${output}/products/${productName}"/>
+            
+        <move todir="${output}/products/${productName}">
+            <fileset dir="target/products">
+                <include name="*.tar.gz"/>
+                <include name="*.zip"/>
+            </fileset>
+            <mapper type="flatten"/>
+        </move>
+    </target>
+    
+    <!-- ================================= 
+          target: copy
+         ================================= -->
+    <target name="copy" unless="skip.copy">
+        <echo message="Download Directory: ${download.dir}"/>
+        
+        <mkdir dir="${download.dir}/products/${productName}"/>
+
+        <copy todir="${download.dir}/products/${productName}">
+            <fileset dir="${output}/products/${productName}" />
+        </copy>
+    </target>
+
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+
+  <extensionContent id="org.eclipse.scada.hmi.admin.client.app" name="Extra"
+    alt-style="css/swt.properties" style="css/overview.css"
+    path="whatsnew/@">
+    <group style-id="content-group" id="content-group">
+      <link label="Connections"
+        url="http://org.eclipse.ui.intro/showPage?id=connections"
+        style-id="content-link" id="extra-connections">
+        <text>Creating connections</text>
+      </link>
+      <anchor id="additions"/>
+    </group>
+  </extensionContent>
+
+</introContent>

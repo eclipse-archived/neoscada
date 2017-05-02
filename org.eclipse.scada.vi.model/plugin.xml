@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated VisualInterface -->
+      <package
+            uri="http://eclipse.org/SCADA/VisualInterface"
+            class="org.eclipse.scada.vi.model.VisualInterfacePackage"
+            genModel="model/VisualInterface.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated VisualInterface -->
+      <parser
+            contentTypeIdentifier="org.eclipse.scada.hmi.vi"
+            class="org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated VisualInterface -->
+      <content-type
+            base-type="org.eclipse.emf.ecore.xmi"
+            file-extensions="vi"
+            id="org.eclipse.scada.hmi.vi"
+            name="%_UI_VisualInterface_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://eclipse.org/SCADA/VisualInterface"/>
+            <parameter name="kind" value="xmi"/>
+         </describer>
+      </content-type>
+   </extension>
+
+</plugin>

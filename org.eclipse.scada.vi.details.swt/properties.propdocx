@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.vi.details.swt">
+    <properties:properties properties:name="org.eclipse.scada.vi.details.swt.widgets.roles.suppressConfirm">
+      <properties:defaultValue>developer</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.vi.details.swt.impl.roles.realtimeList">
+      <properties:defaultValue>admin</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.vi.details.swt.defaultEnhancedTabs" properties:dataType="BOOLEAN" properties:shortDescription="Enable the enhanced tabs by default">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.developer" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.vi.details.swt.widgets.roles.detailsDialog">
+      <properties:defaultValue>admin</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="vi.debug" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

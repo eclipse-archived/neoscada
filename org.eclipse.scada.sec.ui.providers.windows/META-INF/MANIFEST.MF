@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Security Provider UI for Windows Certificates (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.sec.ui.providers.windows;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Activator: org.eclipse.scada.sec.ui.providers.windows.Activator
+Bundle-Vendor: Eclipse NeoSCADA Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.scada.sec.ui.providers;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Eclipse-PlatformFilter: (osgi.os=win32)
+Import-Package: org.eclipse.core.databinding.observable,
+ org.eclipse.core.databinding.observable.list,
+ org.eclipse.scada.sec.callback;version="0.1.0",
+ org.eclipse.scada.ui.utils.status;version="0.1.0",
+ org.eclipse.scada.utils.beans;version="0.1.0"
+Bundle-ActivationPolicy: lazy

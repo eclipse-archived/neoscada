@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Common DA UI Components (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.da.ui.common
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.da.ui.common.internal.Activator
+Bundle-Vendor: Eclipse NeoSCADA Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.scada.da.ui.common;version="0.1.0"
+Import-Package: org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.da.ui.connection.data;version="0.1.0"

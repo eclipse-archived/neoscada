@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="view" name="Visual Interface View" schema="schema/view.exsd"/>
+   <extension-point id="viewer" name="VI Viewer Extensions" schema="schema/viewer.exsd"/>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="org.eclipse.scada.vi.ui.category"
+            class="org.eclipse.scada.vi.ui.user.SingleVisualInterfaceViewPart"
+            id="org.eclipse.scada.vi.ui.user.SingleVisualInterfaceView"
+            name="Single Visual Interface"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.eclipse.scada.vi.ui.user.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.scada.vi.ui.user.SingleVisualInterfaceView">
+         <command
+               commandId="org.eclipse.scada.vi.ui.user.showSummaries"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Dumps the current summaries state to the console"
+            id="org.eclipse.scada.vi.ui.user.showSummaries"
+            name="Dump Summaries to Console">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.eclipse.scada.vi.ui.user.showSummaries">
+         <class
+               class="org.eclipse.scada.vi.ui.user.debug.ShowSummariesHandler">
+         </class>
+      </handler>
+   </extension>
+
+</plugin>

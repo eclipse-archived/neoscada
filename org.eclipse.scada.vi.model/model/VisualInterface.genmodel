@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation"
+    modelDirectory="/org.eclipse.scada.vi.model/src" editDirectory="/org.eclipse.scada.vi.model.edit/src"
+    editorDirectory="/org.eclipse.scada.vi.model.editor/src" modelPluginID="org.eclipse.scada.vi.model"
+    modelName="VisualInterface" modelPluginClass="" nonNLSMarkers="true" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    editorPluginID="org.eclipse.scada.vi.model.editor" runtimeVersion="2.9" language=""
+    interfaceNamePattern="" classNamePattern="" importOrganizing="true">
+  <foreignModel>VisualInterface.ecore</foreignModel>
+  <genPackages prefix="VisualInterface" basePackage="org.eclipse.scada.vi" disposableProviderFactory="true"
+      generateModelWizard="false" extensibleProviderFactory="true" childCreationExtenders="true"
+      contentTypeIdentifier="org.eclipse.scada.hmi.vi" fileExtensions="vi" ecorePackage="VisualInterface.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//Alignment">
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/TOP"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/BOTTOM"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//Orientation">
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Orientation/NORTH"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Orientation/SOUTH"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Orientation/EAST"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Orientation/WEST"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//SystemCursorType">
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//SystemCursorType/ARROW"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//SystemCursorType/HAND"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//GridAlignment">
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//GridAlignment/CENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//GridAlignment/FILL"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//GridAlignment/BEGINNING"/>
+      <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//GridAlignment/END"/>
+    </genEnums>
+    <genClasses ecoreClass="VisualInterface.ecore#//Symbol">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/properties"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onInit"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onDispose"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/onUpdate"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/scriptModules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/cursors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/backgroundColor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/designSize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/connections"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Symbol/backgroundImage"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive">
+      <genFeatures createChild="false" propertyCategory="common" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Container"/>
+    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Shape">
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/lineWidth"/>
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/antialias"/>
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/alpha"/>
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/fill"/>
+      <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/outline"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Rectangle"/>
+    <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//model/Text/text">
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/text"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/labelAlignment"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/iconAlignment"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textAlignment"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/textPlacement"/>
+      <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontName"/>
+      <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontSize"/>
+      <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontBold"/>
+      <genFeatures createChild="false" propertyCategory="font" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/fontItalic"/>
+      <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/alpha"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Child">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>
+      <genFeatures createChild="false" propertyCategory="common" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Child/name"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//XYChild">
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="layout"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/position"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="layout"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/dimension"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//XYContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYContainer/children"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Position/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Position/y"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Line">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Line/points"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Figure">
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/foregroundColor"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/backgroundColor"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="figure"
+          propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/size"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onClick"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onDoubleClick"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="figure" propertySortChoices="true"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//Figure/cursor"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/visible"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/border"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/opaque"/>
+      <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/toolTip"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onMouseIn"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onMouseOut"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onMouseMove"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onMouseHover"/>
+      <genFeatures createChild="false" propertyCategory="handler" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/onMouseDrag"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
+      <genFeatures createChild="false" propertyCategory="reference" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
+      <genFeatures createChild="false" propertyCategory="reference" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/zoom"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="reference"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//SymbolReference/properties"/>
+      <genFeatures createChild="false" propertyCategory="reference" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/onCreateProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//StringToStringMap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//StringToStringMap/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//StringToStringMap/value"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Dimension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Dimension/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Dimension/height"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="VisualInterface.ecore#//Cursor"/>
+    <genClasses ecoreClass="VisualInterface.ecore#//SystemCursor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SystemCursor/type"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//GridContainer">
+      <genFeatures createChild="false" propertyCategory="basic" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/columns"/>
+      <genFeatures createChild="false" propertyCategory="basic" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/equalWidth"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//GridContainer/children"/>
+      <genFeatures createChild="false" propertyCategory="spacing" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/horizontalSpacing"/>
+      <genFeatures createChild="false" propertyCategory="spacing" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/verticalSpacing"/>
+      <genFeatures createChild="false" propertyCategory="spacing" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/marginWidth"/>
+      <genFeatures createChild="false" propertyCategory="spacing" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridContainer/marginHeight"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//BorderContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//BorderContainer/children"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderContainer/verticalSpacing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderContainer/horizontalSpacing"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//BorderChild">
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//BorderChild/alignment"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//GridChild">
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/horizontalAlignment"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/verticalAlignment"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabHorizontalSpace"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/grabVerticalSpace"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanCols"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/spanRows"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/widthHint"/>
+      <genFeatures createChild="false" propertyCategory="layout" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//GridChild/heightHint"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//FigureContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//FigureContainer/content"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Image" labelFeature="#//model/Image/uri">
+      <genFeatures createChild="false" propertyCategory="image" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/uri"/>
+      <genFeatures createChild="false" propertyCategory="image" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/imageAlignment"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Ellipse"/>
+    <genClasses ecoreClass="VisualInterface.ecore#//Arc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Arc/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Arc/length"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Connection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Connection/start"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Connection/end"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//StackContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//StackContainer/children"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//Polygon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Polygon/points"/>
+    </genClasses>
+    <genClasses ecoreClass="VisualInterface.ecore#//RoundedRectangle">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//RoundedRectangle/corner"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

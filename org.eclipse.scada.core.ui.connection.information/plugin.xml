@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            category="org.eclipse.scada.core.ui.category"
+            class="org.eclipse.scada.core.ui.connection.information.InformationViewPart"
+            id="org.eclipse.scada.core.ui.connection.information.informationView"
+            name="Connections Information"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="org.eclipse.scada.core.ui.category"
+            class="org.eclipse.scada.core.ui.connection.information.details.ConnectionDetailsView"
+            id="org.eclipse.scada.core.ui.connection.information.DetailsView"
+            name="Connection Details"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?before=additions">
+         <command
+               commandId="org.eclipse.ui.views.showView"
+               label="Show Connection Details View"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                     <iterate
+                           ifEmpty="false"
+                           operator="and">
+                           <or>
+		                     <adapt
+		                           type="org.eclipse.scada.core.connection.provider.ConnectionService">
+		                     </adapt>
+		                     <instanceof
+		                           value="org.eclipse.scada.core.connection.provider.ConnectionService">
+		                     </instanceof>
+                     
+                  			</or>
+                     </iterate>
+               </with>
+            </visibleWhen>
+            <parameter
+                  name="org.eclipse.ui.views.showView.viewId"
+                  value="org.eclipse.scada.core.ui.connection.information.DetailsView">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

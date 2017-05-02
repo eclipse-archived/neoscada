@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.vi.ui.draw2d.viewElementFactory">
+      <factory
+            class="org.eclipse.scada.vi.ui.chart.draw2d.ViewElementFactory">
+         <supports
+               modelClass="org.eclipse.scada.vi.chart.model.ChartView">
+         </supports>
+      </factory>
+   </extension>
+
+</plugin>

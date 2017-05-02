@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.scada.da.ui.widgets.realtime.ListEntry"
+            class="org.eclipse.scada.da.ui.widgets.internal.ListEntryAdapterFactory">
+         <adapter
+               type="org.eclipse.scada.da.ui.connection.data.Item">
+         </adapter>
+      </factory>
+   </extension>
+</plugin>

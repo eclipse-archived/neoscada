@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Chart -->
+      <package
+            uri="http://eclipse.org/SCADA/UI/Chart"
+            class="org.eclipse.scada.ui.chart.model.ChartPackage"
+            genModel="model/Chart.genmodel"/>
+   </extension>
+
+</plugin>

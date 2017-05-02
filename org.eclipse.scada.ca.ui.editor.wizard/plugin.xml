@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.scada.ca.ui.category"
+            class="org.eclipse.scada.ca.ui.editor.wizard.NewArchiveWizard"
+            icon="icons/sample.gif"
+            id="org.eclipse.scada.ca.ui.editor.wizard.NewArchiveWizard"
+            name="Eclipse SCADA Configuration Archive">
+      </wizard>
+   </extension>
+
+</plugin>

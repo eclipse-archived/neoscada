@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.core.ui.connection.creator">
+      <creator
+            class="org.eclipse.scada.ca.ui.connection.creator.jaxws.ConnectionCreatorImpl"
+            driver="jaxws"
+            id="org.eclipse.scada.ca.ui.connection.creator.jaxws.creator"
+            interface="ca">
+      </creator>
+   </extension>
+
+</plugin>

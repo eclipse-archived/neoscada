@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="detailView" name="detailView" schema="schema/detailView.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.scada.vi.details"
+            id="org.eclipse.scada.vi.details.showDetailDialog"
+            name="Show Detail Dialog">
+         <commandParameter
+               id="org.eclipse.scada.vi.details.showDetailDialog.id"
+               name="Detail View ID"
+               optional="false">
+         </commandParameter>
+         <commandParameter
+               id="org.eclipse.scada.vi.details.showDetailDialog.parameters"
+               name="Parameters"
+               optional="true"
+               typeId="org.eclipse.scada.vi.details.properties">
+         </commandParameter>
+      </command>
+      <commandParameterType
+            converter="org.eclipse.scada.vi.details.handler.ParameterConverter"
+            id="org.eclipse.scada.vi.details.properties"
+            type="java.util.Map">
+      </commandParameterType>
+      <category
+            id="org.eclipse.scada.vi.details"
+            name="VI Details">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.scada.vi.details.handler.ShowDetailDialog"
+            commandId="org.eclipse.scada.vi.details.showDetailDialog">
+      </handler>
+   </extension>
+
+</plugin>

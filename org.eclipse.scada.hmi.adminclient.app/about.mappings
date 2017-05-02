@@ -1,0 +1,2 @@
+0=${buildType}${buildTimestamp}
+1=${unqualifiedVersion}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.releng</groupId>
+		<artifactId>superParent</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.eclipse.scada.hmi</groupId>
+	<artifactId>org.eclipse.scada.hmi-parent</artifactId>
+	<version>0.4.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.hmi.git</tycho.scmUrl>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>repo.eclipse.scada.org</id>
+			<name>Eclipse SCADA Repository</name>
+			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<profiles>
+		<profile>
+			<id>nightly</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.utils</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.base</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.chart</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.chart-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.protocols</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.core</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.core-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+
+	<modules>
+		<module>../org.eclipse.scada.hmi-p2</module> <!-- holds the p2 repository -->
+
+		<module>../org.eclipse.scada.hmi.feature</module>
+		<module>../org.eclipse.scada.hmi.sdk.feature</module>
+		
+		<module>../org.eclipse.scada.vi.editors.feature</module>
+
+		<module>../org.eclipse.scada.ae.ui</module>
+		<module>../org.eclipse.scada.ae.ui.connection</module>
+		<module>../org.eclipse.scada.ae.ui.connection.creator.ngp</module>
+		<module>../org.eclipse.scada.ae.ui.testing</module>
+		<module>../org.eclipse.scada.ae.ui.views</module>
+		<module>../org.eclipse.scada.ae.ui.views.export.excel</module>
+		<module>../org.eclipse.scada.chart.ui</module>
+		<module>../org.eclipse.scada.core.ui</module>
+		<module>../org.eclipse.scada.core.ui.connection</module>
+		<module>../org.eclipse.scada.core.ui.connection.creator</module>
+		<module>../org.eclipse.scada.core.ui.connection.discoverer.file</module>
+		<module>../org.eclipse.scada.core.ui.connection.discoverer.osgi</module>
+		<module>../org.eclipse.scada.core.ui.connection.discoverer.prefs</module>
+		<module>../org.eclipse.scada.core.ui.connection.information</module>
+		<module>../org.eclipse.scada.core.ui.connection.login</module>
+		<module>../org.eclipse.scada.core.ui.connection.provider</module>
+		<module>../org.eclipse.scada.core.ui.styles</module>
+		<module>../org.eclipse.scada.da.ui</module>
+		<module>../org.eclipse.scada.da.ui.client.dataitem.details</module>
+		<module>../org.eclipse.scada.da.ui.client.dataitem.details.chart</module>
+		<module>../org.eclipse.scada.da.ui.client.dataitem.details.chart.nl1</module>
+		<module>../org.eclipse.scada.da.ui.client.dataitem.details.extra</module>
+		<module>../org.eclipse.scada.da.ui.client.signalgenerator</module>
+		<module>../org.eclipse.scada.da.ui.client.test</module>
+		<module>../org.eclipse.scada.da.ui.common</module>
+		<module>../org.eclipse.scada.da.ui.connection</module>
+		<module>../org.eclipse.scada.da.ui.connection.creator.ngp</module>
+		<module>../org.eclipse.scada.da.ui.connection.creator.sfp</module>
+		<module>../org.eclipse.scada.da.ui.styles</module>
+		<module>../org.eclipse.scada.da.ui.summary.explorer</module>
+		<module>../org.eclipse.scada.da.ui.widgets</module>
+		<module>../org.eclipse.scada.hd.ui</module>
+		<module>../org.eclipse.scada.hd.ui.connection</module>
+		<module>../org.eclipse.scada.hd.ui.connection.creator.ngp</module>
+		<module>../org.eclipse.scada.hd.ui.printing</module>
+		<module>../org.eclipse.scada.hmi</module>
+		<module>../org.eclipse.scada.hmi.doc.isv</module>
+		<module>../org.eclipse.scada.sec.ui</module>
+		<module>../org.eclipse.scada.sec.ui.providers</module>
+		<module>../org.eclipse.scada.sec.ui.providers.pkcs12</module>
+		<module>../org.eclipse.scada.sec.ui.providers.windows</module>
+		<module>../org.eclipse.scada.swt</module>
+		<module>../org.eclipse.scada.ui.chart</module>
+		<module>../org.eclipse.scada.ui.chart.model</module>
+		<module>../org.eclipse.scada.ui.chart.model.edit</module>
+		<module>../org.eclipse.scada.ui.chart.model.editor</module>
+		<module>../org.eclipse.scada.ui.chart.model.tests</module>
+		<module>../org.eclipse.scada.ui.chart.view</module>
+		<module>../org.eclipse.scada.ui.databinding.item</module>
+		<module>../org.eclipse.scada.vi</module>
+		<module>../org.eclipse.scada.vi.chart.model</module>
+		<module>../org.eclipse.scada.vi.chart.model.edit</module>
+		<module>../org.eclipse.scada.vi.chart.model.tests</module>
+		<module>../org.eclipse.scada.vi.details</module>
+		<module>../org.eclipse.scada.vi.details.model</module>
+		<module>../org.eclipse.scada.vi.details.model.edit</module>
+		<module>../org.eclipse.scada.vi.details.model.editor</module>
+		<module>../org.eclipse.scada.vi.details.model.tests</module>
+		<module>../org.eclipse.scada.vi.details.swt</module>
+		<module>../org.eclipse.scada.vi.model</module>
+		<module>../org.eclipse.scada.vi.model.edit</module>
+		<module>../org.eclipse.scada.vi.model.editor</module>
+		<module>../org.eclipse.scada.vi.model.tests</module>
+		<module>../org.eclipse.scada.vi.ui</module>
+		<module>../org.eclipse.scada.vi.ui.chart.draw2d</module>
+		<module>../org.eclipse.scada.vi.ui.draw2d</module>
+		<module>../org.eclipse.scada.vi.ui.user</module>
+		<module>../org.eclipse.scada.vi.ui.viewer.ext</module>
+		<module>../org.eclipse.scada.ca.ui</module>
+		<module>../org.eclipse.scada.ca.ui.connection</module>
+		<module>../org.eclipse.scada.ca.ui.connection.creator.jaxws</module>
+		<module>../org.eclipse.scada.ca.ui.connection.creator.ngp</module>
+		<module>../org.eclipse.scada.ca.ui.editor</module>
+		<module>../org.eclipse.scada.ca.ui.editor.forms.arduino</module>
+		<module>../org.eclipse.scada.ca.ui.editor.forms.common</module>
+		<module>../org.eclipse.scada.ca.ui.editor.wizard</module>
+		<module>../org.eclipse.scada.ca.ui.exporter</module>
+		<module>../org.eclipse.scada.ca.ui.importer</module>
+
+		<!-- product - admin client -->
+
+		<module>../org.eclipse.scada.hmi.adminclient.app</module>
+		<module>../org.eclipse.scada.hmi.adminclient.app.feature</module>
+		<module>../org.eclipse.scada.hmi.adminclient.app-product</module>
+
+		<!-- product - single viewer -->
+
+		<module>../org.eclipse.scada.ui.singleViewer.app</module>
+		<module>../org.eclipse.scada.ui.singleViewer.app.feature</module>
+		<module>../org.eclipse.scada.ui.singleViewer.app-product</module>
+
+	</modules>
+</project>

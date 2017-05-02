@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.scada.vi.ui.user" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.scada.vi.ui.user" id="view" name="Visual Interface View"/>
+      </appinfo>
+      <documentation>
+         A view in the view manager.
+      </documentation>
+   </annotation>
+
+   <include schemaLocation="schema://org.eclipse.core.expressions/schema/expressionLanguage.exsd"/>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="viewInstance"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="viewInstance">
+      <annotation>
+         <documentation>
+            Either uri or resource must be set.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="visibility" minOccurs="0" maxOccurs="1"/>
+            <element ref="defaultInstance" minOccurs="0" maxOccurs="1"/>
+            <element ref="laziness" minOccurs="0" maxOccurs="1"/>
+            <element ref="property" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="parent" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="org.eclipse.scada.vi.ui.user.view/viewInstance/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="uri" type="string">
+            <annotation>
+               <documentation>
+                  A URI to a view to load. May also be &lt;q&gt;platform:/...&lt;/q&gt;. The &lt;q&gt;uri&lt;/q&gt; attribute is preferred over the &lt;q&gt;resource&lt;/q&gt; attribute.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="resource" type="string">
+            <annotation>
+               <documentation>
+                  A name of a view resource in the current bundle. Instead of the &lt;q&gt;resource&lt;/q&gt; attribute the &lt;q&gt;uri&lt;/q&gt; attribute may be used for defining the target.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="zooming" type="boolean">
+            <annotation>
+               <documentation>
+                  Selecting zooming mode. May be &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;. If it is not set it is determined by the global preference.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="order" type="string">
+            <annotation>
+               <documentation>
+                  Sort order of the views in the toolbar. Starting with lower, ending with higher.
+
+If the view is never visible the sort order is not relevant.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="defaultInstance" type="boolean">
+            <annotation>
+               <documentation>
+                  Simple marker if this is a default instance.
+
+It is also possible to use a more complex expression using the child element &lt;q&gt;defaultElement&lt;/q&gt;.
+
+If both are specified this field is used.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="factoryClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The factory which implements the view.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.scada.vi.ui.user.viewer.ViewInstanceFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="summaryItem" type="string">
+            <annotation>
+               <documentation>
+                  Define a summary item in the form of &quot;connectionId#itemId&quot;. This item is used for summary information instead of the summary information of the view. Also this summary will be shown independent of the lazy and active state of the view.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="mainView" type="boolean" use="required">
+            <annotation>
+               <documentation>
+                  Check if this view is a main entry point. This might bring up the view e.g. in the toolbar navigator.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="property">
+      <complexType>
+         <attribute name="key" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="value" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="visibility">
+      <annotation>
+         <documentation>
+            Define if a view is visible or not.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice>
+            <element ref="not"/>
+            <element ref="and"/>
+            <element ref="or"/>
+            <element ref="instanceof"/>
+            <element ref="test"/>
+            <element ref="systemTest"/>
+            <element ref="equals"/>
+            <element ref="count"/>
+            <element ref="with"/>
+            <element ref="resolve"/>
+            <element ref="reference"/>
+            <element ref="adapt"/>
+            <element ref="iterate"/>
+         </choice>
+      </complexType>
+   </element>
+
+   <element name="laziness">
+      <annotation>
+         <documentation>
+            Define is a view is lazy, and will drop its subscriptions when not active, or not.
+         </documentation>
+      </annotation>
+      <complexType>
+         <choice>
+            <element ref="not"/>
+            <element ref="and"/>
+            <element ref="or"/>
+            <element ref="instanceof"/>
+            <element ref="test"/>
+            <element ref="systemTest"/>
+            <element ref="equals"/>
+            <element ref="count"/>
+            <element ref="with"/>
+            <element ref="resolve"/>
+            <element ref="reference"/>
+            <element ref="adapt"/>
+            <element ref="iterate"/>
+         </choice>
+      </complexType>
+   </element>
+
+   <element name="defaultInstance">
+      <complexType>
+         <choice>
+            <element ref="not"/>
+            <element ref="and"/>
+            <element ref="or"/>
+            <element ref="instanceof"/>
+            <element ref="test"/>
+            <element ref="systemTest"/>
+            <element ref="equals"/>
+            <element ref="count"/>
+            <element ref="with"/>
+            <element ref="resolve"/>
+            <element ref="reference"/>
+            <element ref="adapt"/>
+            <element ref="iterate"/>
+         </choice>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         0.17.0
+      </documentation>
+   </annotation>
+
+
+
+
+
+</schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+
+  <extensionContent id="org.eclipse.scada.othala.application.whatsnew" name="ostc"
+    alt-style="css/swt.properties" style="css/whatsnew.css"
+    path="whatsnew/@">
+    <group style-id="content-group" id="content-group">
+      <link label="Perspectives"
+        url="http://org.eclipse.ui.intro/showPage?id=perspectivesOverviewNew"
+        style-id="content-link" id="ostc">
+        <text>Explaining the perspectives</text>
+      </link>
+    </group>
+  </extensionContent>
+
+  <page id="perspectivesOverviewNew" style="$theme$/html/whatsnew.css"
+    style-id="page">
+    <title style-id="intro-header">$introTitle$</title>
+    <group id="extra-group1" filteredFrom="swt" />
+    <include path="whatsnew/navigation-links" />
+    <group id="page-content">
+      <group id="content-header" label="PERSPECTIVE OVERVIEW" filteredFrom="swt">
+      </group>
+      <text style-id="page-title" id="page-title" filteredFrom="html">
+        PERSPECTIVE OVERVIEW
+      </text>
+      <text style-id="page-description" id="page-description">
+        Explaining the perspectives
+      </text>
+      <html src="html/perspectivesOverview.html" type="inline"></html>
+    </group>
+  </page>
+</introContent>
