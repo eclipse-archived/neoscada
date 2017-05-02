@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Syslog Protocol Stack (Incubuation)
+Bundle-SymbolicName: org.eclipse.scada.protocol.relp
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: io.netty.buffer;version="4.0.19",
+ io.netty.channel;version="4.0.19",
+ io.netty.channel.socket;version="4.0.19",
+ io.netty.handler.codec;version="4.0.19",
+ io.netty.handler.codec.string;version="4.0.19",
+ io.netty.util;version="4.0.19.Final",
+ io.netty.util.concurrent;version="4.0.19",
+ io.netty.util.internal;version="4.0.19",
+ org.eclipse.scada.protocol.syslog;version="0.2.0",
+ org.eclipse.scada.protocol.syslog.time;version="0.2.0",
+ org.slf4j;version="1.7.2"
+Export-Package: org.eclipse.scada.protocol.relp;version="0.2.0";uses:="io.netty.channel,io.netty.buffer",
+ org.eclipse.scada.protocol.relp.data;version="0.2.0"

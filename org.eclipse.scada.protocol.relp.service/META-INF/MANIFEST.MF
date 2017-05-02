@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Services based on RELP
+Bundle-SymbolicName: org.eclipse.scada.protocol.relp.service;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: io.netty.bootstrap;version="4.0.19",
+ io.netty.buffer;version="4.0.19",
+ io.netty.channel;version="4.0.19",
+ io.netty.channel.nio;version="4.0.19",
+ io.netty.channel.socket;version="4.0.19",
+ io.netty.channel.socket.nio;version="4.0.19",
+ io.netty.util.concurrent;version="4.0.19",
+ io.netty.util.internal.logging;version="4.0.19",
+ org.eclipse.scada.protocol.relp;version="0.2.0",
+ org.eclipse.scada.protocol.relp.data;version="0.2.0",
+ org.eclipse.scada.protocol.syslog;version="0.2.0",
+ org.eclipse.scada.protocol.syslog.time;version="0.2.0",
+ org.slf4j;version="1.7.0"
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.scada.protocol.relp.service;version="0.2.0";uses:="org.eclipse.scada.protocol.syslog,io.netty.channel.socket"

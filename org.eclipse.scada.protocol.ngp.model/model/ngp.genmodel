@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 IBH SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation&#xA;"
+    modelDirectory="/org.eclipse.scada.protocol.ngp.model/src" editDirectory="/org.eclipse.scada.protocol.ngp.model.edit/src"
+    editorDirectory="/org.eclipse.scada.protocol.ngp.model.editor/src" modelPluginID="org.eclipse.scada.protocol.ngp.model"
+    modelName="NextGenerationProtocol" modelPluginClass="" nonNLSMarkers="true" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="7.0"
+    copyrightFields="false" editPluginID="org.eclipse.scada.protocol.ngp.model.edit"
+    editorPluginID="org.eclipse.scada.protocol.ngp.model.editor" runtimeVersion="2.9"
+    importOrganizing="true">
+  <foreignModel>ngp.ecore</foreignModel>
+  <genPackages prefix="Protocol" basePackage="org.eclipse.scada.protocol.ngp.model"
+      resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
+      ecorePackage="ngp.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ngp.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="ngp.ecore#//Type/SCALAR"/>
+      <genEnumLiterals ecoreEnumLiteral="ngp.ecore#//Type/OPTIONAL"/>
+      <genEnumLiterals ecoreEnumLiteral="ngp.ecore#//Type/ORDERED"/>
+      <genEnumLiterals ecoreEnumLiteral="ngp.ecore#//Type/UNIQUE"/>
+    </genEnums>
+    <genClasses ecoreClass="ngp.ecore#//Message">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Message/code"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ngp.ecore#//Message/protocol"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ngp.ecore#//Message/interfaces"/>
+    </genClasses>
+    <genClasses ecoreClass="ngp.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Attribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Attribute/fieldNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Attribute/equality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Attribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Attribute/transient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Attribute/deleted"/>
+    </genClasses>
+    <genClasses ecoreClass="ngp.ecore#//Protocol">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ngp.ecore#//Protocol/messages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Protocol/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ngp.ecore#//Protocol/structures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Protocol/packagePrefix"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ngp.ecore#//Protocol/includedProtocols"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ngp.ecore#//Protocol/licenseHeader"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ngp.ecore#//Protocol/enums"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ngp.ecore#//Protocol/interfaces"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Protocol/version"/>
+    </genClasses>
+    <genClasses ecoreClass="ngp.ecore#//Structure">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ngp.ecore#//Structure/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="ngp.ecore#//StringAttribute"/>
+    <genClasses ecoreClass="ngp.ecore#//BooleanAttribute"/>
+    <genClasses ecoreClass="ngp.ecore#//StructureAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ngp.ecore#//StructureAttribute/structure"/>
+    </genClasses>
+    <genClasses ecoreClass="ngp.ecore#//VariantAttribute"/>
+    <genClasses ecoreClass="ngp.ecore#//IntegerAttribute"/>
+    <genClasses ecoreClass="ngp.ecore#//LongAttribute"/>
+    <genClasses ecoreClass="ngp.ecore#//FloatAttribute"/>
+    <genClasses ecoreClass="ngp.ecore#//VariantMapAttribute"/>
+    <genClasses ecoreClass="ngp.ecore#//PropertiesAttribute"/>
+    <genClasses ecoreClass="ngp.ecore#//Enum">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//Enum/name"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute ngp.ecore#//Enum/literals"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ngp.ecore#//Enum/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="ngp.ecore#//EnumAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ngp.ecore#//EnumAttribute/enumType"/>
+    </genClasses>
+    <genClasses ecoreClass="ngp.ecore#//Interface">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ngp.ecore#//Interface/protocol"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ngp.ecore#//AttributeStructure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ngp.ecore#//AttributeStructure/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ngp.ecore#//AttributeStructure/attributes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ngp.ecore#//DocumentedElement">
+      <genFeatures createChild="false" propertyCategory="documentation" propertyDescription="A longer, multiline description."
+          propertyMultiLine="true" ecoreFeature="ecore:EAttribute ngp.ecore#//DocumentedElement/description"/>
+      <genFeatures createChild="false" propertyCategory="documentation" propertyDescription="A short, possible one lined, description"
+          ecoreFeature="ecore:EAttribute ngp.ecore#//DocumentedElement/shortDescription"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

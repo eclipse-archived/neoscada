@@ -1,0 +1,112 @@
+[comment encoding = UTF-8 /]
+[module common('urn:eclipse:scada:protocol:ngp')]
+
+
+[query public fqn ( structure : Structure ) : String =
+	packageDataPrefix ( structure.protocol ) + '.' + structure.name
+/]
+
+[query public fqnEnum ( enum : Enum ) : String =
+	packageDataPrefix ( enum.protocol ) + '.' + enum.name
+/]
+
+[query public fqnMessage ( message : Message ) : String =
+	packageDataPrefix ( message.protocol) + '.message.' + message.name
+/]
+
+[query public className(fullQualifiedClassName : String ) : String =
+	fullQualifiedClassName.tokenize('.')->last()
+/]
+
+[query public packageName(fullQualifiedClassName : String ) : String =
+	fullQualifiedClassName.substring(1,fullQualifiedClassName.lastIndex('.')-1)
+/]
+
+[query public packageCodecPrefix ( protocol : Protocol ) : String =
+	protocol.packagePrefix + '.' + protocol.name + '.protocol.ngp.codec'
+/] 
+
+[query public packageDataPrefix ( protocol : Protocol ) : String =
+	protocol.packagePrefix + '.' + protocol.name + '.data'
+/]
+
+[query public packagePath( packageName : String ) : String =
+	packageName.replaceAll('\\.','/')
+/]
+
+[query public fullClassFileName ( fullQualifiedClassName : String ) : String =
+	fullQualifiedClassName.replaceAll('\\.','/') + '.java'
+/]
+
+[query public typeName ( attribute : Attribute ) : String =
+	if attribute.type = Type::ORDERED then
+		'java.util.List<' + baseTypeName(attribute) + '>'
+	else if attribute.type = Type::UNIQUE then
+		'java.util.Set<' + baseTypeName(attribute) + '>'
+	else
+		baseTypeName(attribute)
+	endif endif
+/]
+
+[query public baseTypeName ( attribute : Attribute  ) : String =
+	if attribute.oclIsTypeOf(StringAttribute) then
+		'String'
+
+	else if attribute.oclIsTypeOf(IntegerAttribute) then
+		intTypeName(attribute)
+
+	else if attribute.oclIsTypeOf(LongAttribute) then
+		longTypeName(attribute)
+
+	else if attribute.oclIsTypeOf(FloatAttribute) then
+		floatTypeName(attribute)
+
+	else if attribute.oclIsTypeOf(BooleanAttribute) then
+		booleanTypeName(attribute)
+
+	else if attribute.oclIsTypeOf(StructureAttribute) then
+ 		fqn(attribute.oclAsType(StructureAttribute).structure)
+
+	else if attribute.oclIsTypeOf(VariantAttribute) then
+		'org.eclipse.scada.core.Variant'
+
+	else if attribute.oclIsTypeOf(VariantMapAttribute) then
+		'java.util.Map<String, org.eclipse.scada.core.Variant>'
+
+	else if attribute.oclIsTypeOf(PropertiesAttribute) then
+		'java.util.Map<String, String>'
+
+	else if attribute.oclIsTypeOf(EnumAttribute) then
+		fqnEnum ( attribute.oclAsType(EnumAttribute).enumType )
+
+	else
+		'xxx'
+	
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+/]
+
+[query public intTypeName ( attribute : Attribute ) : String =
+	if ( attribute.type <> Type::SCALAR ) then 'Integer' else 'int' endif
+/]
+[query public booleanTypeName ( attribute : Attribute ) : String =
+	if ( attribute.type <> Type::SCALAR ) then 'Boolean' else 'boolean' endif
+/]
+[query public longTypeName ( attribute : Attribute ) : String =
+	if ( attribute.type <> Type::SCALAR ) then 'Long' else 'long' endif
+/]
+[query public floatTypeName ( attribute : Attribute ) : String =
+	if ( attribute.type <> Type::SCALAR ) then 'Double' else 'double' endif
+/]
+
+[query public persistentAttributes ( attributes : OrderedSet(Attribute) ) : OrderedSet(Attribute) =
+	attributes->select(attribute:Attribute|not ( attribute.transient or attribute.deleted ))
+/]

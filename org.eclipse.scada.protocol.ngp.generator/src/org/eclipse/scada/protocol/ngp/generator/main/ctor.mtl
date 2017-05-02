@@ -1,0 +1,23 @@
+[comment encoding = UTF-8 /]
+[module ctor('urn:eclipse:scada:protocol:ngp')]
+
+[import common/]
+
+[comment constructor /]
+
+[template public generateConstructor(className : String, attributes : OrderedSet(Attribute))]
+public [className/] ( [for (attribute : Attribute | attributes) separator (', ')][generateAttributeConstructorArgument(attribute)/][/for] )
+{
+[for (attribute : Attribute | attributes)]
+	[generateAttributeConstructorAssign(attribute)/]
+[/for]
+}
+[/template]
+
+[comment constructor - argument /]
+
+[template private generateAttributeConstructorArgument ( attribute : Attribute )]final [typeName(attribute)/] [attribute.name/][/template]
+
+[comment constructor - assign /]
+
+[template private generateAttributeConstructorAssign ( attribute : Attribute )]this.[attribute.name/] = [attribute.name/];[/template]

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.protocol.ngp.common">
+    <properties:properties properties:name="org.eclipse.scada.protocol.ngp.logger.raw" properties:dataType="BOOLEAN" properties:shortDescription="Enable the logger which logs all raw events (before any processing)">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.protocol.ngp.disableStats" properties:dataType="BOOLEAN" properties:shortDescription="Disable the statistics generation">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.protocol.ngp.logger" properties:dataType="BOOLEAN" properties:shortDescription="Enable the logger after basic processing (SSL, ZIP, …)">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="user.home"/>
+    <properties:properties properties:name="org.eclipse.scada.protocol.ngp.common.mc.maxTimeoutSeconds" properties:dataType="INTEGER" properties:shortDescription="The maximum allowed timeout for the communication in milliseconds">
+      <properties:defaultValue>600</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.protocol.ngp.common.mc.minTimeoutSeconds" properties:dataType="INTEGER" properties:shortDescription="The minimim allowed timeout for the communication in milliseconds">
+      <properties:defaultValue>10</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.protocol.ngp.common.mc.handshake.disableCompression" properties:dataType="BOOLEAN" properties:shortDescription="Allow disabling the compression module">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.protocol.ngp.common.handshakeTimeout" properties:dataType="INTEGER" properties:shortDescription="The timeout for the handshake phase in milliseconds">
+      <properties:defaultValue>10000</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>
