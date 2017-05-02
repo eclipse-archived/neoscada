@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+      Post process build
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+Things to do after the main build
+        
+Called fromt he pom.xml when the profile "eclipse-hudson"
+is active.
+    </description>
+
+    <property name="output" location="../output" />
+
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
+
+    <!-- the base where drops will be placed for this repository -->
+    <property name="download.base" location="${download.root}/downloads/${repo}/drops"/>
+        
+    <!-- the actual drop directory -->
+    <property name="download.dir" location="${download.base}/${unqualifiedVersion}/${buildType}${buildTimestamp}/packages"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="clean,build,file,copy">
+    </target>
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="${output}" />
+    </target>
+
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <mkdir dir="${output}" />
+
+        <move todir="${output}">
+            <fileset dir=".">
+                <include name="target/products/${repo}*.zip" />
+                <include name="target/rpm/**/${repo}*.rpm" />
+                <include name="target/**/${repo}*.deb" />
+                <include name="target/**/${repo}*.changes" />
+            </fileset>
+            <mapper type="flatten" />
+        </move>
+    </target>
+
+    <!-- ================================= 
+          target: file
+         ================================= -->
+    <target name="file">
+        <fileset id="rpms" dir="${output}">
+            <include name="*.rpm" />
+        </fileset>
+
+        <pathconvert property="rpmsText" refid="rpms" pathsep="\n">
+            <mapper type="flatten" />
+        </pathconvert>
+
+        <echo message="${repo}.rpmFileName=${rpmsText}" />
+        
+        <echo file="${output}/rpm.properties">${repo}.rpmFileName=${rpmsText}</echo>
+    </target>
+
+    <!-- ================================= 
+            target: copy
+           ================================= -->
+    <target name="copy" if="download.dir" unless="skip.copy">
+        <echo message="Download Directory: ${download.dir}" />
+
+        <delete dir="${download.dir}"/>
+        <mkdir dir="${download.dir}" />
+
+        <copy todir="${download.dir}">
+            <fileset dir="${output}" includes="*.rpm" />
+            <fileset dir="${output}" includes="*.deb" />
+            <fileset dir="${output}" includes="*.changes" />
+        </copy>
+    </target>
+
+</project>

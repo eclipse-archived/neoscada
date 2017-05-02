@@ -1,0 +1,4 @@
+* Thu Feb 13 2014 Jens Reimann <jens.reimann@ibh-systems.com> - 0.1.0-2
+- Split up distribution dependent packages
+* Fri Oct 18 2013 Jens Reimann <jens.reimann@ibh-systems.com> - 0.1.0-1
+- Initial version

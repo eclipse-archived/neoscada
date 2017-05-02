@@ -1,0 +1,45 @@
+﻿<?xml version="1.0"?>
+
+<?include $(sys.CURRENTDIR)\Include.wxi?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*"
+		Name="$(var.ProductName)"
+		Language="1033"
+		Version="0.1.0.$(var.BuildNumber)"
+		UpgradeCode="162FFF07-FB32-467C-8D74-7DF670609E3C"
+		Manufacturer="Eclipse NeoSCADA Project">
+		
+		<Package Description="The Eclipse NeoSCADA Admin Client"
+			InstallerVersion="300"
+	        Manufacturer="Eclipse NeoSCADA Project"        
+			InstallScope="perMachine"
+		    InstallPrivileges="elevated"
+			Compressed="yes"/>
+		
+		<!-- the setup icon -->
+		<Icon Id="icon.ico" SourceFile="resources\icon.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="icon.ico" />
+		
+		<MajorUpgrade
+			AllowDowngrades="yes"/>
+	
+		<!-- Installation directory and files are defined in Files.wxs -->
+		<Directory Id="TARGETDIR" Name="SourceDir">
+		</Directory>
+		
+		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
+		
+		<?include $(sys.CURRENTDIR)\$(var.Platform).wxi?>
+		
+		<Feature Id="Complete"
+		         Title="$(var.ProductName)"
+		         Description="The $(var.ProductName)"
+		         Level="1">
+		         <ComponentRef Id="MainComponent"/>
+				 <ComponentRef Id="ApplicationShortcut"/>
+				 <ComponentGroupRef Id="ScanComponent"/>
+		</Feature>
+	
+	</Product>
+</Wix>

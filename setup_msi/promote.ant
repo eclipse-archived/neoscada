@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+        Copy the MSI files from the global hudson to the download area
+    </description>
+    
+    <!--
+    
+      This is a two step approach in order to only update the files
+      if they could be successfully downloaded from the global hudson
+      instance.
+    
+      -->
+
+    <property file="local.properties" />
+    <property file="common.properties" />
+    
+    <property name="global.hudson.buildNumber" value="lastSuccessfulBuild"/>
+    
+    <property name="global.hudson.root" value="https://hudson.eclipse.org/shared"/>
+    <property name="global.hudson.job" value="EclipseSCADA-Installer-Windows"/>
+    <property name="global.hudson.download" value="${global.hudson.root}/job/${global.hudson.job}/${global.hudson.buildNumber}/artifact"/>
+    
+    <property name="download.root" location="/tmp"/>
+    <property name="download.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildId}/msi"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="clean,promote">
+    </target>
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="fetch" />
+    </target>
+
+	<!-- ================================= 
+          target: fetch
+         ================================= -->
+    <target name="fetch" description="Fetch signed MSI files from global hudson">
+        <mkdir dir="fetch"/>
+        
+        <get dest="fetch" src="${global.hudson.download}/setup_esac/setup_esac/esac_${version}${versionSuffix}_x64.msi" />
+        <get dest="fetch" src="${global.hudson.download}/setup_esac/setup_esac/esac_${version}${versionSuffix}_x86.msi" />
+        
+        <get dest="fetch" src="${global.hudson.download}/setup_server/common_driver/common_driver_${version}${versionSuffix}_x64.msi" />
+        <get dest="fetch" src="${global.hudson.download}/setup_server/common_driver/common_driver_${version}${versionSuffix}_x86.msi" />
+    </target>
+    
+    <!-- ================================= 
+          target: promote
+         ================================= -->
+    <target name="promote" depends="fetch" description="Promote to downloads directory">
+        <mkdir dir="${download.dir}"/>
+        <move todir="${download.dir}/">
+            <fileset dir="fetch">
+            	<include name="*.msi"/>
+            </fileset>
+        </move>
+    </target>
+
+</project>

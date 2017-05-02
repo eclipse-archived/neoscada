@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+      Post process build
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+Things to do after the main build
+        
+Called from the pom.xml when the profile "eclipse-hudson"
+is active.
+    </description>
+
+    <property name="output" location="../../output" />
+
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
+
+    <!-- the base where drops will be placed for this repository -->
+    <property name="download.base" location="${download.root}/downloads/${repo}/drops"/>
+        
+    <!-- the actual drop directory -->
+    <property name="download.dir" location="${download.base}/${unqualifiedVersion}/${buildType}${buildTimestamp}/packages"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="build,copy">
+        <!--
+        we get called by an outside script that already cleared "output"
+        and filled it, so we don't clean by default.
+        -->
+    </target>
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="${output}" />
+    </target>
+
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <mkdir dir="${output}" />
+
+        <move todir="${output}">
+            <fileset dir="..">
+                <include name="**/*.rpm" />
+                <include name="**/*.deb" />
+                <include name="**/*.changes" />
+            </fileset>
+            <mapper type="flatten" />
+        </move>
+    </target>
+
+    <!-- ================================= 
+            target: copy
+           ================================= -->
+    <target name="copy" if="download.dir" unless="skip.copy">
+        <echo message="Download Directory: ${download.dir}" />
+
+        <delete dir="${download.dir}"/>
+        <mkdir dir="${download.dir}" />
+
+        <copy todir="${download.dir}">
+            <fileset dir="${output}" includes="*.rpm" />
+            <fileset dir="${output}" includes="*.deb" />
+            <fileset dir="${output}" includes="*.changes" />
+        </copy>
+    </target>
+
+</project>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+        MSI Setup build for Eclipse NeoSCADA Common Server
+    </description>
+
+    <property file="../local.properties" />
+    <property file="../common.properties" />
+    
+	<script language="javascript"><![CDATA[
+	var suffix = project.getProperty ( "versionSuffix" );
+	if ( suffix != null ) {
+		project.setProperty ( "versionSuffix2", suffix.replace ( /^\-/, "." ) );
+	}
+	]]></script>
+	
+    <property name="visibleVersion" value="${version}${versionSuffix}" />
+    
+    <property environment="env" />
+    
+    <property name="buildNumber" value="${env.BUILD_NUMBER}"/>
+
+    <property name="wix.root" value="${env.WIX}" />
+	
+	<property name="buildId.external" value="${buildId}"/>
+	<property name="buildId.utils" value="${buildId}"/>
+	<property name="buildId.protocols" value="${buildId}"/>
+	<property name="buildId.base" value="${buildId}"/>
+	<property name="buildId.core" value="${buildId}"/>
+	
+	<property name="fullVersion.external" value="${version}${versionSuffix2}"/>
+	<property name="fullVersion.utils" value="${version}${versionSuffix2}"/>
+	<property name="fullVersion.protocols" value="${version}${versionSuffix2}"/>
+	<property name="fullVersion.base" value="${version}${versionSuffix2}"/>
+	<property name="fullVersion.core" value="${version}${versionSuffix2}"/>
+	
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="dump,clean,fetch,unpack,heat,build,sign">
+    </target>
+
+	<!-- ================================= 
+          target: dump
+         ================================= -->
+    <target name="dump">
+    	<echo message="VersionSuffix: ${versionSuffix}"/>
+    	<echo message="VersionSuffix2: ${versionSuffix2}"/>
+    </target>
+
+	
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="fetch" />
+		<delete dir="unpack" />
+
+        <delete dir=".">
+            <include name="*.msi" />
+            <include name="*.wixobj" />
+            <include name="Scan.*.wxs" />
+        </delete>
+    </target>
+
+    <!-- ================================= 
+          target: fetch
+         ================================= -->
+    <target name="fetch">
+        <mkdir dir="fetch" />
+		
+		<get usetimestamp="true" src="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada.external/drops/${version}/${buildId.external}/pack/org.eclipse.scada.external.p2-incubation-${fullVersion.external}.zip" dest="fetch"/>
+		<get usetimestamp="true" src="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada.utils/drops/${version}/${buildId.utils}/pack/org.eclipse.scada.utils.p2-incubation-${fullVersion.utils}.zip" dest="fetch"/>
+		<get usetimestamp="true" src="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada.base/drops/${version}/${buildId.base}/pack/org.eclipse.scada.base.p2-incubation-${fullVersion.base}.zip" dest="fetch"/>
+		<get usetimestamp="true" src="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada.protocols/drops/${version}/${buildId.protocols}/pack/org.eclipse.scada.protocols.p2-incubation-${fullVersion.protocols}.zip" dest="fetch"/>
+		<get usetimestamp="true" src="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada.core/drops/${version}/${buildId.core}/pack/org.eclipse.scada.core.p2-incubation-${fullVersion.core}.zip" dest="fetch"/>
+		
+		<get usetimestamp="true" src="http://download.eclipse.org/modeling/emf/emf/downloads/drops/2.9.2/R201402031126/emf-xsd-Update-2.9.2.zip" dest="fetch"/>
+    </target>
+
+    <!-- ================================= 
+          target: unpack
+         ================================= -->
+    <target name="unpack">
+        <mkdir dir="unpack/common_driver/jar" />
+
+		<unzip dest="unpack/common_driver/jar">
+			<fileset dir="fetch">
+				<include name="*.zip"/>
+			</fileset>
+			<patternset>
+				<include name="plugins/*.jar"/>
+				<exclude name="**/*.source_*.jar"/>
+			</patternset>
+			<mapper type="flatten"/>
+		</unzip>
+    </target>
+
+    <macrodef name="heat">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${wix.root}/bin/heat.exe" dir="unpack/common_driver" failifexecutionfails="true" failonerror="true">
+                <arg value="dir" />
+                <arg value="." />
+                <arg value="-gg" />
+                <arg value="-cg" />
+                <arg value="ScanComponent" />
+                <arg value="-sfrag" />
+                <arg value="-sreg" />
+                <arg value="-scom" />
+                <arg value="-suid" />
+                <arg value="-dr" />
+                <arg value="INSTALLDIR" />
+                <arg value="-var" />
+                <arg value="var.UnpackDir" />
+                <arg value="-out" />
+                <arg file="Scan.jar.wxs" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- ================================= 
+          target: heat
+         ================================= -->
+    <target name="heat">
+        <heat platform="any" />
+    </target>
+
+    <property name="unpack.dir" location="unpack" />
+
+    <macrodef name="build">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${wix.root}/bin/candle.exe" dir="." failifexecutionfails="true" failonerror="true">
+                <arg value="-dUnpackDir=${unpack.dir}\common_driver" />
+                <arg value="-dPlatform=@{platform}" />
+				<arg value="-dVersion=${version}" />
+				<arg value="-dBuildNumber=${buildNumber}" />
+                <arg value="-arch" />
+                <arg value="@{platform}" />
+                <arg value="Setup.wxs" />
+                <arg value="Service.wxs" />
+                <arg value="Scan.jar.wxs" />
+            </exec>
+            <exec executable="${wix.root}/bin/light.exe" dir="." failifexecutionfails="true" failonerror="true">
+                <arg value="Setup.wixobj" />
+                <arg value="Service.wixobj" />
+                <arg value="Scan.jar.wixobj" />
+
+                <arg value="-out" />
+                <arg value="common_driver_${visibleVersion}_@{platform}_unsigned.msi" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <build platform="x86" />
+        <build platform="x64" />
+    </target>
+    
+    <!-- ================================= 
+          target: sign
+         ================================= -->
+    <target name="sign" unless="skipSign">
+        <sign platform="x86" />
+        <sign platform="x64" />
+        <delete dir=".">
+            <include name="*_unsigned.msi" />
+        </delete>
+    </target>
+
+    <macrodef name="sign">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${curl.root}curl" failifexecutionfails="true" failonerror="true">
+            	<arg value="--proxy"/>
+            	<arg value="http://proxy.eclipse.org:9898"/>
+                <arg value="-o" />
+                <arg value="common_driver_${visibleVersion}_@{platform}.msi" />
+                <arg value="-F" />
+                <arg value="filedata=@common_driver_${visibleVersion}_@{platform}_unsigned.msi" />
+                <arg value="http://build.eclipse.org:31338/winsign.php" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+</project>

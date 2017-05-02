@@ -1,0 +1,103 @@
+﻿<?xml version="1.0"?>
+
+<?include $(sys.CURRENTDIR)\common.wxi?>
+
+<?define ServiceName = "EclipseNeoSCADACommon" ?>
+<?define ServiceExe = "common.driver_prunsrv.exe" ?>
+<?define ExporterConfiguration = "exporter.xml" ?>
+
+<Wix
+	xmlns="http://schemas.microsoft.com/wix/2006/wi"
+>
+	
+	<Fragment>
+		
+		<DirectoryRef Id="INSTALLDIR">
+			<Directory Id="bin" Name="bin">
+				
+				<Component Id="$(var.ServiceExe)" Guid="*">
+					
+					<File Source="..\common\resources\$(var.ArchTag)\prunsrv.exe" Name="$(var.ServiceExe)"/>
+					
+					<RegistryKey
+						Root="HKLM"
+						Key="SYSTEM\CurrentControlSet\services\$(var.ServiceName)"
+					>
+						<RegistryKey
+							ForceCreateOnInstall="yes"
+							Key="Parameters">
+						</RegistryKey>
+					</RegistryKey>
+
+					<File Source="resources\$(var.ExporterConfiguration)" Id="$(var.ExporterConfiguration)"/>
+					
+					<RegistryKey
+						Root="HKLM"
+						Key="$(var.ApacheRegBase)\$(var.ServiceName)"
+					>
+						<RegistryKey
+							Key="Parameters">
+							<RegistryKey Key="Java">
+								<RegistryValue Type="string" Name="Jvm" Value="auto"/>
+								<RegistryValue Type="string" Name="Classpath" Value="[INSTALLDIR]\common_driver\jar\*;[INSTALLDIR]\common_driver\extra-jars\*"/>
+							</RegistryKey>
+							<RegistryKey Key="Log">
+								<RegistryValue Type="string" Name="Prefix" Value="common-driver"/>
+							</RegistryKey>
+							<RegistryKey Key="Start">
+								<RegistryValue Type="string" Name="Class" Value="org.eclipse.scada.da.server.exporter.Application"/>
+								<RegistryValue Type="string" Name="Method" Value="main"/>
+								<RegistryValue Type="string" Name="Mode" Value="jvm"/>
+								<RegistryValue Type="multiString" Name="Params">
+									<MultiStringValue>[#$(var.ExporterConfiguration)]</MultiStringValue>
+								</RegistryValue>
+							</RegistryKey>
+							<RegistryKey Key="Stop">
+								<RegistryValue Type="string" Name="Class" Value="org.eclipse.scada.da.server.exporter.Application"/>
+								<RegistryValue Type="string" Name="Method" Value="stop"/>
+								<RegistryValue Type="string" Name="Mode" Value="jvm"/>
+							</RegistryKey>
+						</RegistryKey>
+					</RegistryKey>
+					
+					<ServiceInstall
+						Id="DefaultExporter"
+						DisplayName="Eclipse NeoSCADA Common Driver"
+						Description="The Eclipse NeoSCADA Common Driver Service"
+						Name="$(var.ServiceName)"
+						Type="ownProcess"
+						Start="demand"
+						ErrorControl="normal"
+						Vital="no"
+						Arguments="//RS//$(var.ServiceName)"
+					>
+						
+						<ServiceDependency Id="tcpip"/>
+					
+					</ServiceInstall>
+					<ServiceControl
+						Id="$(var.ServiceName)Control"
+						Name="$(var.ServiceName)"
+						Stop="both"
+						Remove="uninstall"
+						Wait="yes"
+					>
+					</ServiceControl>
+					
+<?ifdef $(var.HasFirewall) ?>
+					<firewall:FirewallException
+						xmlns:firewall="http://schemas.microsoft.com/wix/FirewallExtension"
+						Id="$(var.ServiceName)ControlFW"
+						Name="$(var.ProductName) - Common Server"
+						Scope="any"
+						Description="The aggregated common driver instance."
+						Program="[#$(var.ServiceExe)]">
+					</firewall:FirewallException>
+<?endif?>
+				
+				</Component>
+			</Directory>
+		</DirectoryRef>
+	
+	</Fragment>
+</Wix>

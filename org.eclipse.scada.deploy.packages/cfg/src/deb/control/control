@@ -1,0 +1,9 @@
+Package: [[name]]
+Version: [[version]]
+Section: misc
+Priority: optional
+Architecture: all
+Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
+Description: [[description]]
+Distribution: default
+Depends: oracle-java7-jdk | java7-runtime-headless | java7-runtime

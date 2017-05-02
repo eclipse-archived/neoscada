@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+##################################################################################
+# Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - add P2_ARCH support
+##################################################################################
+
+. p2.functions || exit 1
+
+PROFILE="SDKProfile"
+FLAVOR="tooling"
+
+TARGET="$1"
+shift
+
+UNITS="$1"
+while shift; do
+	[ ! -z "$UNITS" ] && UNITS="$UNITS,"
+	UNITS="${UNITS}$1"
+done
+
+if [ ! -d "$TARGET/p2" ]; then
+	echo "Failed to detect P2 installation"
+	exit 1
+fi
+
+if [ -d "$PWD/p2" ]; then
+	echo "You are inside a P2 installation. Please step back!"
+	exit 1
+fi 
+
+p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch "$P2_ARCH" -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"

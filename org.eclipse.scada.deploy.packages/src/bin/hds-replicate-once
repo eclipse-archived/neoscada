@@ -1,0 +1,64 @@
+#!/usr/bin/env perl
+# -*- mode: perl; tab-width: 4; indent-tabs-mode: nil -*-
+
+##################################################################################
+# Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#      TH4 SYSTEMS GmbH - initial API and implementation
+##################################################################################
+
+use strict;
+use Carp;
+
+my $HDS_SLAVE_DIR="/var/lib/eclipsescada/hds.slave";
+my $HDS_PULL_FILE="/etc/eclipsescada/hds.pull.conf";
+
+$HDS_SLAVE_DIR = $ENV{HDS_SLAVE_DIR} if exists $ENV{HDS_SLAVE_DIR}; 
+$HDS_PULL_FILE = $ENV{HDS_PULL_FILE} if exists $ENV{HDS_PULL_FILE};
+
+sub debug
+{
+    print @_;
+    print "\n";
+}
+
+sub callSystem
+{
+    debug " --> ", join ( ' ' , @_ );
+    return system @_;
+}
+
+sub processSite ($$$@)
+{
+    my $name = shift;
+    my $host = shift;
+    my $path = shift;
+    my @args = @_;
+    debug ( "Processing $name using $host..." );
+    my $result = callSystem ( "rsync", @args, "$host:$path/",  "$HDS_SLAVE_DIR/$name/");
+    debug ( "Result : $result " );
+    carp ( "Replication failed : rc = $result") unless $result == 0;
+}
+
+debug ( "Using HDS Slave directory: " . $HDS_SLAVE_DIR );
+debug ( "Using HDS Pull configuration file: " . $HDS_PULL_FILE );
+
+die "Directory '$HDS_SLAVE_DIR' does not exists" unless -d "$HDS_SLAVE_DIR";
+die "Configuration file does not exists: $HDS_PULL_FILE" unless -r "$HDS_PULL_FILE";
+
+open ( FILE, $HDS_PULL_FILE );
+LINE: while ( <FILE> ) {
+    chomp;
+    next LINE if /^#/;
+    next LINE if /^$/;
+    my ( $name, $host, $path, $args ) = split ( /:/ );
+    if ( $name and $host and $path) {
+        processSite ( $name, $host, $path, split ( ' ', $args )  );
+    }
+}
+close ( FILE );

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.releng</groupId>
+		<artifactId>superParent</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.eclipse.scada.deploy</groupId>
+	<artifactId>org.eclipse.scada.deploy.p2director-incubation</artifactId>
+	<version>0.4.0-SNAPSHOT</version>
+	<packaging>eclipse-repository</packaging>
+	
+	<organization>
+		<name>Eclipse NeoSCADA Project</name>
+	</organization>
+
+	<description>
+		The Eclipse P2 director application packaged for the Eclipse NeoSCADA system.
+	</description>
+
+	<repositories>
+		<repository>
+			<id>repo.eclipse.scada.org</id>
+			<name>Eclipse NeoSCADA Repository</name>
+			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>all</os>
+							<ws>all</ws>
+							<arch>all</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>jdeb</artifactId>
+				<groupId>org.vafer</groupId>
+
+				<configuration>
+					<attach>false</attach>
+				</configuration>
+
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jdeb</goal>
+						</goals>
+						<configuration>
+							<dataSet>
+								<data>
+									<src>target/products/org.eclipse.scada.deploy.p2director/all/all/all</src>
+									<type>directory</type>
+									<excludes>p2director</excludes>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/${project.artifactId}/product</prefix>
+									</mapper>
+								</data>
+								<data>
+									<src>src/p2director</src>
+									<type>file</type>
+									<includes>p2director</includes>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/${project.artifactId}/product</prefix>
+										<filemode>0755</filemode>
+									</mapper>
+								</data>
+								<data>
+									<type>link</type>
+									<linkName>/usr/bin/p2director</linkName>
+									<linkTarget>/usr/share/${project.artifactId}/product/p2director</linkTarget>
+									<symlink>true</symlink>
+								</data>
+							</dataSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+
+	<profiles>
+
+		<profile>
+
+			<!--rpm must be a profile since it requires 'rpmbuild' on the target machine -->
+
+			<id>rpm</id>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+
+						<configuration>
+							<copyright>EPL</copyright>
+							<distribution>Eclipse NeoSCADA ${project.version} (Incubation)</distribution>
+							<group>Application/Misc</group>
+							<changelogFile>rpm/changelog</changelogFile>
+
+							<defineStatements>
+								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
+							</defineStatements>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>rpm-release-version</id>
+								<goals>
+									<goal>version</goal>
+								</goals>
+							</execution>
+							<execution>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+								<configuration>
+									<requires>
+										<require>jre &gt;= 1.7.0</require>
+									</requires>
+									<mappings>
+										<mapping>
+											<directory>/usr/share/${project.artifactId}/product</directory>
+											<username>root</username>
+											<groupname>root</groupname>
+											<sources>
+												<source>
+													<location>target/products/org.eclipse.scada.deploy.p2director/all/all/all</location>
+												</source>
+											</sources>
+										</mapping>
+										<mapping>
+											<directory>/usr/share/${project.artifactId}/product</directory>
+											<username>root</username>
+											<groupname>root</groupname>
+											<filemode>0755</filemode>
+											<sources>
+												<source>
+													<location>src/p2director</location>
+												</source>
+											</sources>
+										</mapping>
+										<mapping>
+											<directory>/usr/bin</directory>
+											<filemode>0755</filemode>
+											<username>root</username>
+											<groupname>root</groupname>
+											<sources>
+												<softlinkSource>
+													<location>/usr/share/${project.artifactId}/product/p2director</location>
+												</softlinkSource>
+											</sources>
+										</mapping>
+									</mappings>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile> <!-- rpm -->
+
+		<profile>
+			<id>eclipse-hudson</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>ant-post-proc</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<ant antfile="post.ant">
+											<property name="repo" value="${project.artifactId}"/>
+										</ant>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+</project>

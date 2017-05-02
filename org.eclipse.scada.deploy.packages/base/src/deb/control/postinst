@@ -1,0 +1,38 @@
+#!/bin/sh
+
+USER=eclipsescada
+
+set -e
+
+case "$1" in
+	configure)
+
+# create $USER user if it isn't already there ...
+		if ! getent passwd "$USER" >/dev/null; then
+	        adduser --system --group --home "/var/lib/$USER" "$USER" --quiet --gecos "Eclipse NeoSCADA User"
+		fi
+
+# create the home "/var/lib/$USER", just in case ...
+        mkdir -p "/var/lib/$USER"
+
+# fix permissions "/var/lib/$USER", just in case ...
+        chown -R "$USER:$USER" "/var/lib/$USER"
+
+        ;;
+esac
+
+# if the log directory exists, change the group and permissions
+
+if [ -d "/var/log/$USER" ]; then
+	chgrp "$USER" "/var/log/$USER"
+	chmod 0770 "/var/log/$USER"
+fi
+
+if [ -d "/var/run/$USER" ]; then
+	chgrp "$USER" "/var/run/$USER"
+	chmod 0775 "/var/run/$USER"
+fi
+
+#DEBHELPER#
+
+exit 0

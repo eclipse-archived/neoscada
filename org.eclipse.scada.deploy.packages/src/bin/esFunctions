@@ -1,0 +1,55 @@
+#!/bin/bash
+
+##################################################################################
+# Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - try to detect java
+##################################################################################
+
+# Reading system configuration
+
+[ -r /etc/sysconfig/eclipsescada ] && . /etc/sysconfig/eclipsescada
+[ -r /etc/default/eclipsescada ] && . /etc/default/eclipsescada
+
+[ -z "$ECLIPSE_SCADA_HOME" ] && ECLIPSE_SCADA_HOME="/usr"
+export ECLIPSE_SCADA_HOME
+
+[ -z "$ECLIPSE_SCADA_CONFIGURATION_ROOT" ] && ECLIPSE_SCADA_CONFIGURATION_ROOT="/etc/eclipsescada"
+export ECLIPSE_SCADA_CONFIGURATION_ROOT
+
+# try to locate JAVA_HOME by a "java" command on the path
+
+if [ -z "$JAVA_HOME" ]; then
+	javacmd="$(readlink -sf "$(which java)")"
+	if [ -x "$javacmd" ]; then
+		dir=$(dirname "$javacmd")
+		test "$(basename "$dir")" = "bin" && dir=$(dirname "$dir") # cut off "bin"
+		test -d "$dir" && JAVA_HOME=$dir
+	fi
+fi
+
+[ -n "$JAVA_HOME" ] && export JAVA_HOME
+
+export PATH="$PATH:$ECLIPSE_SCADA_HOME/bin"
+
+user () {
+	if [ -z "$ECLIPSE_SCADA_USER" ]; then
+		echo "";
+	else
+		echo "--user=$ECLIPSE_SCADA_USER";
+	fi
+}
+
+startModule () {
+	action $"Starting $1: " "$1"
+}
+
+stopModule () {
+	action $"Shutting down $1: " "$1" -stop
+}

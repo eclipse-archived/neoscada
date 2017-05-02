@@ -1,0 +1,259 @@
+#!/usr/bin/env python
+# -*- mode: Python; tab-width: 4; indent-tabs-mode: nil -*-
+
+##################################################################################
+# Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - allow IUs to use the tag "iu"
+##################################################################################
+
+import sys
+import os
+import subprocess
+
+from os import pathsep
+from xml.dom.minidom import parse
+
+if len(sys.argv) != 3:
+    sys.stderr.write("p2.fromTemplate has to be called with parameters <profile> <target>!\n")
+    sys.exit(-1)
+    
+profilesDir = os.environ.get ( "PROFILES_DIR", "/usr/share/eclipsescada/profiles" )
+profileName = sys.argv[1]
+target = sys.argv[2]
+TARGET_DIR = os.path.abspath ( target ) # for the eval() calls
+debug = "debug" in os.environ
+
+if os.path.exists(target):
+    sys.stderr.write("target directory already exists.")
+    sys.exit(-2)
+
+class Profile:
+    """A class holding profile information"""
+    def __init__(self):
+        self.features=[]
+        self.arguments=[]
+        self.bundleStartLevels={}
+        self.properties={}
+        self.profiles={}
+        self.defaultProfileName=None
+        self.dataDirectories=[]
+        self.notes=[]
+        self.abstractDefinition=False
+
+def findProfileFile ( template ):
+    if not os.path.exists(profilesDir):
+        sys.stderr.write ("'" + profilesDir + "' does not exist\n")
+        sys.exit(-3)
+
+    templateFile = "%s%s%s.profile.xml" % (profilesDir, os.sep, template)
+
+    if not os.path.exists ( templateFile ):
+        sys.stderr.write ("'" + templateFile + "' does not exist\n")
+        sys.exit(-4)
+
+    return templateFile    
+
+def findDataDir ( name ):
+    dirName = profilesDir + os.sep + name
+
+    if not os.path.exists(dirName):
+        return None
+
+    if os.path.isdir ( dirName ):
+        return dirName
+
+    return None
+
+def loadProfile ( template, initial=False ):
+    return loadProfileFile ( template, findProfileFile ( template ), initial )
+
+
+def getText(nodelist):
+    rc = []
+    for node in nodelist:
+        if node.nodeType == node.TEXT_NODE:
+            rc.append(node.data)
+    return ''.join(rc)
+
+
+def readProperties ( properties, elements, context = ""):
+    for node in elements:
+        key = node.attributes["key"].value
+
+        if "unset" in node.attributes.keys():
+            properties.remove ( key )
+            if debug: print "property[%s]: %s -> UNSET" % ( context, key )
+        else:
+            value = getText(node.childNodes)
+            useEval = "eval" in node.attributes.keys()
+            if useEval:
+                properties[key] = eval ( value )
+            else:
+                properties[key] = value
+            if debug: print "property[%s]: %s -> %s" % ( context, key, properties[key] )
+
+def findNodes ( element, tag ):
+    result = []
+
+    for child in element.childNodes:
+    	if ( child.nodeType != element.ELEMENT_NODE ):
+    		continue
+        if ( child.tagName == tag ):
+            result.append ( child )
+
+    return result
+
+def performLoad ( templateName, p, templateFile, initial=False ):
+    print "Loading: " + templateFile
+
+    dataDir = findDataDir ( templateName )
+    if dataDir:
+        p.dataDirectories.append ( dataDir )
+
+    dom = parse ( templateFile )
+    profile = dom.documentElement
+
+    # print profile.toprettyxml()
+
+    if "parent" in profile.attributes.keys():
+        parentName = profile.attributes["parent"].value
+        performLoad ( parentName, p,  findProfileFile ( parentName ) )
+        
+    if "abstract" in profile.attributes.keys():
+    	if profile.attributes["abstract"].value == "true":
+    	    if initial:
+    	        p.abstractDefinition = True
+
+    for node in profile.getElementsByTagName("note"):
+        value = getText ( node.childNodes )
+        if "eval" in node.attributes.keys():
+            value = eval ( value )
+        p.notes.append ( value )
+
+    for node in profile.getElementsByTagName("feature"):
+        feature = getText(node.childNodes)
+        if debug: print "Feature: %s" % feature
+        p.features.append ( feature )
+        
+    for node in profile.getElementsByTagName("iu"):
+        feature = getText(node.childNodes)
+        if debug: print "Feature: %s" % feature
+        p.features.append ( feature )
+
+    for node in profile.getElementsByTagName("start"):
+        bundle = getText(node.childNodes)
+        if debug: print "Start: %s" % bundle
+        p.bundleStartLevels[bundle] = "-1"
+
+    for node in profile.getElementsByTagName("setbsl"):
+        bundle = getText(node.childNodes)
+        level = node.attributes["level"].value
+        if debug: print "BSL: %s -> %s" % ( bundle, level )
+        p.bundleStartLevels[bundle] = level
+
+    readProperties ( p.properties, findNodes ( profile, "property" ) )
+
+    for node in profile.getElementsByTagName("argument"):
+        argument = getText(node.childNodes)
+        if debug: print "Argument: %s" % argument
+        p.arguments.append ( argument )
+
+    for node in profile.getElementsByTagName("profile"):
+        name = node.attributes["name"].value
+
+        if "default" in node.attributes.keys():
+            p.defaultProfileName = name
+
+        if not name in p.profiles:
+            p.profiles[name]={}
+
+        if "parent" in node.attributes.keys():
+            parentProfile = node.attributes["parent"].value
+            # add all properties from parent profile
+            for key,value in p.profiles[parentProfile].items():
+                if debug: print "Import %s from profile %s: %s" % (key,parentProfile,value)
+                p.profiles[name][key] = value
+
+        readProperties ( p.profiles[name], findNodes ( node, "property" ), name )
+
+
+def loadProfileFile ( name, templateFile, initial=False ):
+    p = Profile()
+    performLoad ( name, p, templateFile, initial )
+    return p
+
+def writeArguments(fileName, arguments):
+    if len(arguments):
+        f = open ( fileName, "w" )    
+        for arg in arguments:
+            f.write ( arg + "\n" )
+        f.close ()
+
+def writeStartLevels(fileName, bundleStartLevels):
+    if len(bundleStartLevels.keys()):
+        f = open ( fileName, "w" )    
+        for key in bundleStartLevels.keys():
+            f.write ( "%s=%s\n" % ( key, bundleStartLevels[key]) )
+        f.close ()
+
+def writeDefaultProfile ( fileName, defaultProfileName ):
+    if defaultProfileName:
+        f = open ( fileName, "w" )    
+        f.write ( defaultProfileName + "\n" )
+        f.close ()
+
+def writeProperties(fileName, properties, force = True):
+    if len(properties.keys()) or force:
+        f = open ( fileName, "w" )    
+        for key in sorted(properties.keys()):
+            f.write ( "%s=%s\n" % ( key, properties[key]) )
+        f.close ()
+
+def writeProfiles(target, profiles):
+    for key in profiles.keys():
+        writeProperties ( target + os.sep + "launcher." + key + ".properties", profiles[key] )
+
+def copyData ( target, dataDirs ):
+    for dirName in dataDirs:
+        subprocess.call ( "cp -av \"%s\"/* -t \"%s\"" % ( dirName, target ), shell=True)
+
+def showNotes ( notes ):
+    if notes:
+        print "\n===================== NOTES ==================="
+    i = 0
+    for note in notes:
+        if i: print "----------------------------------------"
+        print "\nNOTE: " + note + "\n"
+        i = i + 1
+    if notes:
+        print "===================== NOTES ===================\n"
+
+
+def createInstance ( target, p ):
+	if p.abstractDefinition:
+		raise Exception("You cannot create an abstract definition")
+	
+	if len(p.features) < 1:
+		raise Exception("Configuration does not provide any installable unit")
+	
+	subprocess.check_call ( ["p2.create", target] )
+	subprocess.check_call ( ["p2.install", target ] + p.features )
+	
+	writeArguments ( target + os.sep + "launcher.args", p.arguments )
+	writeProperties ( target + os.sep + "launcher.properties", p.properties, False )
+	writeStartLevels ( target + os.sep + "startLevels.properties", p.bundleStartLevels )
+	writeProfiles ( target, p.profiles )
+	writeDefaultProfile ( target + os.sep + "activeProfile", p.defaultProfileName )
+	copyData ( target, p.dataDirectories )
+	showNotes ( p.notes )
+
+if __name__=='__main__':
+    createInstance ( target, loadProfile(profileName, True) )
+

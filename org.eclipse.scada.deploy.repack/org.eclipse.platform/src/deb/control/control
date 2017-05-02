@@ -1,0 +1,11 @@
+Package: [[name]]
+Version: [[version]]
+Section: misc
+Priority: optional
+Architecture: all
+Depends: org.eclipse.scada.p2
+Conflicts: org.eclipse.platform-4.3.0, org.eclipse.platform-4.3.2
+Replaces: org.eclipse.platform-4.3.0, org.eclipse.platform-4.3.2
+Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
+Description: Eclipse NeoSCADA repack of [[artifactId]]
+Distribution: development

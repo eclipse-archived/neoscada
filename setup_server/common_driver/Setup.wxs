@@ -1,0 +1,86 @@
+﻿<?xml version="1.0"?>
+
+<?include $(sys.CURRENTDIR)\common.wxi?>
+
+<Wix
+	xmlns="http://schemas.microsoft.com/wix/2006/wi"
+	xmlns:firewall="http://schemas.microsoft.com/wix/FirewallExtension"
+	xmlns:dep="http://schemas.microsoft.com/wix/DependencyExtension"
+>
+	
+	<Product Id="*"
+	         Name="Eclipse NeoSCADA Common Drivers"
+	         Language="1033"
+	         Version="0.1.0.$(var.BuildNumber)"
+	         UpgradeCode="25DBFC70-57F2-4C8B-9D38-3BB5E153569E"
+	         Manufacturer="$(var.Manufacturer)">
+		
+		<Package
+			InstallScope="perMachine"
+			InstallPrivileges="elevated"
+			InstallerVersion="301"
+			Compressed="yes"
+		/>
+		
+		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="none"/>
+		
+		<!-- the setup icon -->
+		<Icon Id="icon.ico" SourceFile="..\common\resources\icon.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="icon.ico" />
+		
+		<MajorUpgrade
+			AllowDowngrades="yes"
+		/>
+		
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="$(var.PlatformProgramFilesFolder)" Name="PFiles">
+				<Directory Id="INSTALLDIR" Name="$(var.ProductName)">
+				</Directory>
+			</Directory>
+		</Directory>
+		
+		<DirectoryRef Id="common_driver">
+			<Directory Id="ExtraJars" Name="extra-jars">
+				<Component Id="org.eclipse.common.driver.extra.jars" Guid="674735BD-AB86-44D6-B6FF-4589E58CB7A5">
+					<CreateFolder/>
+					<RemoveFolder Id="remove.extra.jars" On="uninstall" />
+					<RegistryKey
+						Root="HKLM"
+						Key="SOFTWARE\$(var.ProductName)"
+					>
+						<RegistryValue Name="ExtraJarPath" Type="string" Value="[INSTALLDIR]\common_driver\extra-jars"/>
+					</RegistryKey>
+				</Component>
+			</Directory>
+		</DirectoryRef>
+		
+		<DirectoryRef Id="jar">
+			<Component Id="org.eclipse.common.driver.jars" Guid="47AC2FA8-A8A9-4A65-BB3B-95A56C315051">
+				<RegistryKey
+					Root="HKLM"
+					Key="SOFTWARE\$(var.ProductName)"
+				>
+					<RegistryValue Name="JarPath" Type="string" Value="[INSTALLDIR]\common_driver\jar"/>
+				</RegistryKey>
+			</Component>
+		</DirectoryRef>
+		
+		<DirectoryRef Id="common_driver">
+			<Component Id="LicenseComponent" Guid="61C96898-D824-46B4-8E84-B59553F5095B" DiskId="1">
+				<File Id="LicenseFile" Name="license.rtf" Source="..\common\resources\license.rtf"/>
+				<File Id="EPL" Name="epl-v10.html" Source="..\common\resources\epl-v10.html"/>
+			</Component>
+		</DirectoryRef>
+		
+		<Feature Id="Complete"
+		         Title="$(var.ProductName)"
+		         Description="The $(var.ProductName)"
+		         Level="1">
+			<ComponentGroupRef Id="ScanComponent"/>
+			<ComponentRef Id="common.driver_prunsrv.exe"/>
+			<ComponentRef Id="org.eclipse.common.driver.jars"/>
+			<ComponentRef Id="org.eclipse.common.driver.extra.jars"/>
+			<ComponentRef Id="LicenseComponent"/>
+		</Feature>
+	</Product>
+</Wix>

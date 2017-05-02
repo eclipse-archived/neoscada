@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+        MSI Setup build for Eclipse NeoSCADA Admin Client
+    </description>
+
+    <property file="local.properties" />
+    <property file="common.properties" />
+
+    <property environment="env" />
+    
+    <property name="buildNumber" value="${env.BUILD_NUMBER}"/>
+    <property name="visibleVersion" value="${version}${versionSuffix}" />
+    
+    <property name="wix.root" value="${env.WIX}" />
+	
+	<property name="heat.transform" location="setup_esac/heat.xsl"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="clean,fetch,unpack,heat,build,sign">
+    </target>
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="fetch" />
+        <delete dir="unpack" />
+
+        <delete dir="setup_esac">
+            <include name="*.msi" />
+            <include name="*.wixobj" />
+            <include name="Scan.*.wxs" />
+        </delete>
+    </target>
+
+    <!-- ================================= 
+          target: fetch
+         ================================= -->
+    <target name="fetch">
+        <mkdir dir="fetch" />
+        <get usetimestamp="true" src="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada.hmi/drops/${version}/${buildId}/products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86.zip" dest="fetch" />
+        <get usetimestamp="true" src="http://download.eclipse.org/eclipsescada/downloads/org.eclipse.scada.hmi/drops/${version}/${buildId}/products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86_64.zip" dest="fetch" />
+    </target>
+
+    <!-- ================================= 
+          target: unpack
+         ================================= -->
+    <target name="unpack">
+        <mkdir dir="unpack" />
+
+        <mkdir dir="unpack/x86/product" />
+        <unzip src="fetch/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86.zip" dest="unpack/x86/product" />
+        <mkdir dir="unpack/x64/product" />
+        <unzip src="fetch/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86_64.zip" dest="unpack/x64/product" />
+    </target>
+
+    <macrodef name="heat">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${wix.root}/bin/heat.exe" dir="unpack/@{platform}/product" failifexecutionfails="true" failonerror="true">
+                <arg value="dir" />
+                <arg value="." />
+                <arg value="-ag" />
+                <arg value="-cg" />
+                <arg value="ScanComponent" />
+                <arg value="-sfrag" />
+                <arg value="-sreg" />
+                <arg value="-scom" />
+                <arg value="-suid" />
+                <arg value="-dr" />
+                <arg value="INSTALLDIR" />
+                <arg value="-var" />
+                <arg value="var.UnpackDir" />
+                <arg value="-platform" />
+                <arg value="@{platform}" />
+                <arg value="-out" />
+                <arg file="setup_esac/Scan.@{platform}.wxs" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- ================================= 
+          target: heat
+         ================================= -->
+    <target name="heat">
+        <heat platform="x86" />
+        <heat platform="x64" />
+    </target>
+
+    <property name="unpack.dir" location="unpack" />
+
+    <macrodef name="build">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${wix.root}/bin/candle.exe" dir="setup_esac" failifexecutionfails="true" failonerror="true">
+                <arg value="-dUnpackDir=${unpack.dir}\@{platform}\product" />
+                <arg value="-dBuildNumber=${buildNumber}" />
+                <arg value="-dPlatform=@{platform}" />
+                <arg value="-arch" />
+                <arg value="@{platform}" />
+                <arg value="Setup.wxs" />
+                <arg value="Files.wxs" />
+                <arg value="Scan.@{platform}.wxs" />
+            </exec>
+            <exec executable="${wix.root}/bin/light.exe" dir="setup_esac" failifexecutionfails="true" failonerror="true">
+                <arg value="Setup.wixobj" />
+                <arg value="Files.wixobj" />
+                <arg value="Scan.@{platform}.wixobj" />
+
+                <arg value="-out" />
+                <arg value="esac_${visibleVersion}_@{platform}_unsigned.msi" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <build platform="x86" />
+        <build platform="x64" />
+    </target>
+
+    <!-- ================================= 
+          target: sign
+         ================================= -->
+    <target name="sign" unless="skipSign">
+        <sign platform="x86" />
+        <sign platform="x64" />
+        <delete dir="setup_esac">
+            <include name="*_unsigned.msi" />
+        </delete>
+    </target>
+
+    <macrodef name="sign">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${curl.root}curl" failifexecutionfails="true" failonerror="true" dir="setup_esac">
+            	<arg value="--proxy"/>
+            	<arg value="http://proxy.eclipse.org:9898"/>
+                <arg value="-o" />
+                <arg value="esac_${visibleVersion}_@{platform}.msi" />
+                <arg value="-F" />
+                <arg value="filedata=@esac_${visibleVersion}_@{platform}_unsigned.msi" />
+                <arg value="http://build.eclipse.org:31338/winsign.php" />
+            </exec>
+        </sequential>
+    </macrodef>
+
+</project>

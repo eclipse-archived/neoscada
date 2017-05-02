@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.deploy</groupId>
+		<artifactId>org.eclipse.scada-suse</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<groupId>org.eclipse.scada.deploy</groupId>
+	<artifactId>org.eclipse.scada-suse.i386</artifactId>
+	<packaging>pom</packaging>
+
+	<profiles>
+
+		<profile>
+
+			<!--rpm must be a profile since it requires 'rpmbuild' on the target machine -->
+
+			<id>rpm</id>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+
+						<executions>
+							<execution>
+								<id>generate-rpm-i386</id>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+								<phase>compile</phase>
+								<configuration>
+									<needarch>i386</needarch>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile> <!-- rpm -->
+
+	</profiles>
+
+</project>

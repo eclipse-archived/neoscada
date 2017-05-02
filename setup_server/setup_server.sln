@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.4
+Project("{CFEE4113-1246-4D54-95CB-156813CB8593}") = "common_driver", "common_driver\common_driver.wixproj", "{C1CE88F4-DCE2-413B-A21B-BBE419DC73EA}"
+EndProject
+Project("{CFEE4113-1246-4D54-95CB-156813CB8593}") = "common_driver_sample_ext", "common_driver_sample_ext\common_driver_sample_ext.wixproj", "{85D19209-0181-4F1F-9215-EAD3379179FA}"
+EndProject
+Project("{CFEE4113-1246-4D54-95CB-156813CB8593}") = "common", "common\common.wixproj", "{A352FF2F-C191-44C4-B3B1-F67B255CBFE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1CE88F4-DCE2-413B-A21B-BBE419DC73EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1CE88F4-DCE2-413B-A21B-BBE419DC73EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1CE88F4-DCE2-413B-A21B-BBE419DC73EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1CE88F4-DCE2-413B-A21B-BBE419DC73EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85D19209-0181-4F1F-9215-EAD3379179FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85D19209-0181-4F1F-9215-EAD3379179FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85D19209-0181-4F1F-9215-EAD3379179FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85D19209-0181-4F1F-9215-EAD3379179FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A352FF2F-C191-44C4-B3B1-F67B255CBFE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A352FF2F-C191-44C4-B3B1-F67B255CBFE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A352FF2F-C191-44C4-B3B1-F67B255CBFE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A352FF2F-C191-44C4-B3B1-F67B255CBFE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

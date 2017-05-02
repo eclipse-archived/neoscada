@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.deploy</groupId>
+		<artifactId>org.eclipse.scada.deploy.packages.common</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+		<relativePath>../common</relativePath>
+	</parent>
+
+	<groupId>org.eclipse.scada.deploy</groupId>
+	<artifactId>org.eclipse.scada.p2</artifactId>
+	<packaging>pom</packaging>
+
+	<description>
+		Eclipse NeoSCADA P2 base package
+	</description>
+
+	<properties>
+		<srcBase>${baseDir}/../../src</srcBase>
+		<srcBase.rpm>${basedir}/../src</srcBase.rpm>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>jdeb</artifactId>
+				<groupId>org.vafer</groupId>
+
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jdeb</goal>
+						</goals>
+						<configuration>
+							<skipPOMs>false</skipPOMs>
+							<dataSet>
+								<data>
+									<type>template</type>
+									<paths>
+										<path>/usr/share/eclipsescada/profiles</path>
+										<path>/usr/share/eclipsescada/p2</path>
+									</paths>
+								</data>
+								<data>
+									<src>${srcBase}/bin</src>
+									<includes>p2.*</includes>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/bin</prefix>
+										<filemode>0755</filemode>
+									</mapper>
+								</data>
+							</dataSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>rpm</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+
+						<configuration>
+							<copyright>EPL</copyright>
+							<distribution>Eclipse NeoSCADA %{version} (Incubation)</distribution>
+							<group>System Environment/Base</group>
+							<changelogFile>rpm/changelog</changelogFile>
+							<requires>
+								<require>org.eclipse.scada &gt;= %{version}</require>
+								<require>org.eclipse.scada.deploy.p2director-incubation</require>
+							</requires>
+							
+							<defaultUsername>root</defaultUsername>
+							<defaultGroupname>root</defaultGroupname>
+							
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>generate-rpm</id>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+								<phase>compile</phase>
+								<configuration>
+									<mappings>
+										<mapping>
+											<directory>/usr/share/eclipsescada/profiles</directory>
+											<filemode>0755</filemode>
+										</mapping>
+										<mapping>
+											<directory>/usr/share/eclipsescada/p2</directory>
+											<filemode>0755</filemode>
+										</mapping>
+										<mapping>
+											<directory>/usr/bin</directory>
+											<directoryIncluded>false</directoryIncluded>
+											<username>root</username>
+											<groupname>root</groupname>
+											<filemode>0755</filemode>
+											<sources>
+												<source>
+													<location>${srcBase.rpm}/bin</location>
+													<includes>
+														<include>p2.*</include>
+													</includes>
+												</source>
+											</sources>
+										</mapping>
+									</mappings>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

@@ -1,0 +1,91 @@
+#!/bin/bash
+
+quiet=0
+
+while getopts "q" opt; do
+  case $opt in
+    q)
+      quiet=1
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
+shift $(( OPTIND - 1 ))
+
+dbName="$1"
+username="$2"
+password="$3"
+
+templateFile="/usr/share/eclipsescada/sql/create.postgres.sql"
+
+test -z "$dbName" && { echo "$0: [-q] <dbName> <username> <password>"; exit 1; } 
+test -z "$username" && { echo "$0: [-q] <dbName> <username> <password>"; exit 1; }
+test -z "$password" && { echo "$0: [-q] <dbName> <username> <password>"; exit 1; }
+
+
+set -e
+
+function hasUser () {
+	test "exists" = "$(psql -A -q -t -c "SELECT 'exists' FROM pg_roles WHERE rolname='$username';")"
+	return $?
+}
+
+function hasDatabase () {
+	test "exists" = "$(psql -A -q -t -c "SELECT 'exists' from pg_database WHERE datname='$dbName';")"
+	return $?
+}
+
+function hasTables () {
+	# for now this has to do
+	false
+	return $?
+}
+
+function sql () {
+	if [ $quiet -ne 0 ]; then
+		psql "$@" &>/dev/null
+	else
+		psql "$@"
+	fi
+}
+
+function createUser () {
+	sql -c "CREATE USER $username WITH PASSWORD '$password';"
+}
+
+function createDatabase () {
+	sql -c "CREATE DATABASE $dbName WITH OWNER $username TEMPLATE template0 ENCODING 'UTF-8' lc_ctype='en_US.utf8' lc_collate='en_US.utf8';"
+}
+
+function createTables () {
+	sql -d eclipsescada -q -f "$templateFile"
+	sql -d eclipsescada -c "ALTER TABLE es_ae_events_hstore OWNER TO $username;"
+	sql -d eclipsescada -c "ALTER TABLE es_ae_rep OWNER TO $username;"
+}
+
+echo "Database: $dbName"
+echo "User: $username"
+
+echo -n "Check user: "
+hasUser && echo "OK" || {
+	echo -n "creating... "
+	createUser
+	echo "done!"
+}
+
+echo -n "Check database: "
+hasDatabase && echo "OK" || {
+	echo -n "creating... "
+	createDatabase
+	echo "done!"
+}
+
+echo -n "Check tables: "
+hasTables && echo "OK" || {
+	createTables
+	echo "done!"
+}

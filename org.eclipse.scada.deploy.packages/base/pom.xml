@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.deploy</groupId>
+		<artifactId>org.eclipse.scada.deploy.packages.common</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+		<relativePath>../common</relativePath>
+	</parent>
+
+	<groupId>org.eclipse.scada.deploy</groupId>
+	<artifactId>org.eclipse.scada</artifactId>
+	<packaging>pom</packaging>
+
+	<description>
+		Eclipse NeoSCADA base package
+	</description>
+
+	<properties>
+		<srcBase>${basedir}/../src</srcBase>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>jdeb</artifactId>
+				<groupId>org.vafer</groupId>
+
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jdeb</goal>
+						</goals>
+						<configuration>
+							<skipPOMs>false</skipPOMs>
+							<dataSet>
+								<data>
+									<type>template</type>
+									<paths>
+										<path>/etc/eclipsescada</path>
+										<path>/etc/eclipsescada/schema</path>
+										<path>/etc/eclipsescada/jarcfg</path>
+										<path>/usr/jar</path>
+										<path>/usr/share/eclipsescada</path>
+										<path>/usr/share/eclipsescada/sql</path>
+										<path>/var/log/eclipsescada</path>
+										<path>/usr/share/perl5/EclipseSCADA</path>
+										<path>/var/run/eclipsescada</path>
+									</paths>
+								</data>
+								<data>
+									<src>${srcBase}/bin</src>
+									<includes>hds-replicate-once</includes>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/bin</prefix>
+										<filemode>0755</filemode>
+									</mapper>
+								</data>
+								
+								<data>
+									<src>${srcBase}/bin</src>
+									<includes>es*</includes>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/bin</prefix>
+										<filemode>0755</filemode>
+									</mapper>
+								</data>
+								
+								<data>
+									<src>${srcBase}/share</src>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/eclipsescada</prefix>
+										<filemode>0644</filemode>
+									</mapper>
+								</data>
+
+								<data>
+									<src>${srcBase}/perl</src>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/perl5</prefix>
+									</mapper>
+								</data>
+								<data>
+									<src>${srcBase}/default/eclipsescada.sh</src>
+									<type>file</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/etc/profile.d</prefix>
+									</mapper>
+								</data>
+							</dataSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<profiles>
+	</profiles>
+
+</project>

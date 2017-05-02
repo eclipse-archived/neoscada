@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exporter:configuration
+	xmlns:exporter="http://eclipse.org/SCADA/DA/Server/Exporter"
+	xmlns:exec="http://eclipse.org/SCADA/DA/Exec/Configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:opc="http://eclipse.org/SCADA/DA/OPC/Configuration"
+	xmlns:snmp="http://eclipse.org/SCADA/DA/SNMP/Configuration"
+	xmlns:proxy="http://eclipse.org/SCADA/DA/Proxy/Configuration"
+	xmlns:jdbc="http://eclipse.org/SCADA/DA/JDBC/Configuration"
+	xmlns:chain="http://eclipse.org/SCADA/DA/Hive/ItemChain"
+	xsi:schemaLocation="
+	http://eclipse.org/SCADA/DA/Server/Exporter schema/exporter.xsd
+	http://eclipse.org/SCADA/DA/Exec/Configuration schema/exec.xsd
+	http://eclipse.org/SCADA/DA/OPC/Configuration schema/opc.xsd
+	http://eclipse.org/SCADA/DA/SNMP/Configuration schema/snmp.xsd
+	http://eclipse.org/SCADA/DA/Proxy/Configuration schema/proxy.xsd
+	http://eclipse.org/SCADA/DA/JDBC/Configuration schema/jdbc.xsd
+	http://eclipse.org/SCADA/DA/Hive/ItemChain schema/ItemChain.xsd
+	">
+	
+	
+	<!--
+	  - 
+	  - Exec Driver
+	  - 
+	  -->
+	
+	<exporter:hive ref="org.eclipse.scada.da.server.exec.Hive">
+		<exporter:configuration>
+			<exec:root xmlns:exec="http://eclipse.org/SCADA/DA/Exec/Configuration" >
+			
+<!--
+  - periodic queue #1 
+  -->			
+<exec:queue name="Q1">
+
+    <!--
+      - run "date" command 
+      -->
+	<exec:command id="DATE" period="1000">
+		<exec:process exec="cmd.exe">
+			<exec:argument>/c</exec:argument>
+			<exec:argument>date</exec:argument>
+			<exec:argument>/t</exec:argument>
+		</exec:process>
+		<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>
+	</exec:command>
+	
+    <!--
+      - run "time" command 
+      -->
+	<exec:command id="TIME" period="1000">
+		<exec:process exec="cmd.exe">
+			<exec:argument>/c</exec:argument>
+			<exec:argument>time</exec:argument>
+			<exec:argument>/t</exec:argument>
+		</exec:process>
+		<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>
+	</exec:command>
+	
+	<!--
+	  - count users from "who" command 
+	  -->
+	<!--
+	<exec:command id="WHO_COUNT" period="1000">
+		<exec:process exec="/bin/bash">
+			<exec:argument>-c</exec:argument>
+			<exec:argument>who | wc</exec:argument>
+		</exec:process>
+		<exec:extractor name="DEFAULT" xsi:type="exec:SplitterExtractorType"
+			splitExpression="[ \t]+">
+			<exec:field name="COUNT" variantType="INTEGER"/>
+		</exec:extractor>
+	</exec:command>
+	-->
+	
+	<!--
+	  - use nagios plugin 
+	  -->
+	<!--
+	<exec:command id="NAGIOS_USERS">
+		<exec:process exec="/usr/lib/nagios/plugins/check_users">
+			<exec:argument>-w</exec:argument>
+			<exec:argument>20</exec:argument>
+			<exec:argument>-c</exec:argument>
+			<exec:argument>30</exec:argument>
+		</exec:process>
+		<exec:extractor name="NAGIOS" xsi:type="exec:NagiosReturnCodeExtractorType"/>
+		<exec:extractor name="STREAM" xsi:type="exec:PlainStreamExtractorType"/>
+	</exec:command>
+	-->
+	
+</exec:queue>
+
+<!--
+  - periodic queue #2 
+  -->
+<exec:queue name="Q2">
+	<!--
+	  - interpret output from the "uptime" command 
+	  -->
+	<!--
+	<exec:command id="uptime" period="1000">
+		<exec:process exec="uptime"/>
+		<exec:extractor name="A" xsi:type="exec:RegExExtractorType" requireFullMatch="false">
+
+			<exec:field/>
+			<exec:field name="users" variantType="INTEGER"/>
+			<exec:field name="loadAvg1" variantType="DOUBLE"/>
+			<exec:field name="loadAvg5" variantType="DOUBLE"/>
+			<exec:field name="loadAvg15" variantType="DOUBLE"/>
+			 
+			<exec:expression><![CDATA[([0-9]+) users?.*averages?: +([0-9]+[,\.][0-9]*),? +([0-9]+[,\.][0-9]*),? +([0-9]+[,\.][0-9]*)]]></exec:expression>
+		</exec:extractor>
+	</exec:command>
+	-->
+</exec:queue>
+		
+<!--
+  - comment in if you have the openscada_ping command at the specified
+  - location 
+  -->
+<!-- 		
+<exec:hiveProcess id="PING"
+	restartDelay="10000"
+ 	maxInputBuffer="10000">
+	<exec:process exec="./openscada_ping">
+		<exec:argument>google.com</exec:argument>
+		<exec:argument>yahoo.com</exec:argument>
+		<exec:argument>ibm.com</exec:argument>
+	</exec:process>
+</exec:hiveProcess>
+-->
+
+<!--
+  - continuously running command - vmstate 
+  -->
+<!--
+<exec:command restartDelay="1000" id="vmstat" ignoreStartLines="2" maxInputBuffer="2000">
+	<exec:process exec="vmstat">
+		<exec:argument>-n</exec:argument>
+		<exec:argument>1</exec:argument>
+	</exec:process>
+	<exec:extractor name="B" xsi:type="exec:SplitterExtractorType" splitExpression=" ">
+		<exec:field name="procs.read" variantType="LONG"/>
+		<exec:field name="procs.write" variantType="LONG"/>
+		<exec:field name="memory.swapped" variantType="LONG"/>
+		<exec:field name="memory.free" variantType="LONG"/>
+		<exec:field name="memory.buffers" variantType="LONG"/>
+		<exec:field name="memory.caches" variantType="LONG"/>
+		<exec:field name="swap.in" variantType="LONG"/>
+		<exec:field name="swap.out" variantType="LONG"/>
+		<exec:field name="io.blockIn" variantType="LONG"/>
+		<exec:field name="io.blockOut" variantType="LONG"/>
+		<exec:field name="system.interrupts" variantType="LONG"/>
+		<exec:field name="system.cs" variantType="LONG"/>
+		<exec:field name="cpu.user" variantType="LONG"/>
+		<exec:field name="cpu.system" variantType="LONG"/>
+		<exec:field name="cpu.idle" variantType="LONG"/>
+		<exec:field name="cpu.wait" variantType="LONG"/>
+	</exec:extractor>
+	<exec:splitter type="newline"/>
+</exec:command>
+-->
+
+<!--
+  - A trigger that acts when a value is written to the dataitem
+  -->
+
+<exec:trigger id="TRIGGER1"
+	argumentPlaceholder="__VALUE__"
+	fork="false"
+	skipIfNull="true"
+	>
+	<exec:process exec="cmd">
+		<exec:argument>/c</exec:argument>
+		<exec:argument>echo</exec:argument>
+		<exec:argument>Hello: __VALUE__</exec:argument>
+	</exec:process>
+	<exec:extractor name="DEFAULT" xsi:type="exec:PlainStreamExtractorType"/>
+	<exec:extractor name="RC" xsi:type="exec:ReturnCodeExtractorType"/>
+</exec:trigger>
+
+			</exec:root>
+			
+		</exporter:configuration>
+		
+		<!--
+		  - the communication endpoint 
+		  -->
+		<exporter:export uri="da:ngp://0.0.0.0:2104"/>
+	</exporter:hive>
+	
+	<!--
+	  - 
+	  - JDBC Driver
+	  - 
+	  -->
+	
+	<exporter:hive ref="org.eclipse.scada.da.server.jdbc.Hive">
+		<exporter:configuration>
+			<jdbc:root>
+				<jdbc:connection
+					id="JDBC1"
+					connectionClass="org.hsqldb.jdbcDriver"
+					uri="jdbc:hsqldb:mem:test"
+					username="SA"
+					password=""
+					timeout="1000">
+					
+					<jdbc:query period="100" id="TIME">
+						<jdbc:sql><![CDATA[call CURRENT_TIMESTAMP]]></jdbc:sql>
+						<jdbc:columnMapping columnNumber="1" aliasName="CURRENT_TIMESTAMP"/>
+					</jdbc:query>
+					
+				</jdbc:connection>
+			</jdbc:root>
+		</exporter:configuration>
+		<exporter:export uri="da:ngp://0.0.0.0:2106"/>
+	</exporter:hive>
+	
+</exporter:configuration>

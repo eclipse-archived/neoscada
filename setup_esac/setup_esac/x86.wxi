@@ -1,0 +1,7 @@
+﻿<?xml version="1.0"?>
+<Include xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Property Id="JAVA_CURRENT_VERSION">
+		<RegistrySearch Id="JRE_CURRENT_VERSION_REGSEARCH" Root="HKLM" Key="SOFTWARE\JavaSoft\Java Runtime Environment" Name="CurrentVersion" Type="raw" Win64="no" />
+	</Property>
+	<Condition Message="This software needs an installed Java Runtime Environment (32 Bit) version 7 or later."><![CDATA[Installed OR (JAVA_CURRENT_VERSION >= "1.7")]]></Condition>
+</Include>
