@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA NextGenerationProtcol Core Codec (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.core.protocol.ngp.codec
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Export-Package: org.eclipse.scada.core.protocol.ngp.codec;version="0.1.0";
+  uses:="org.eclipse.scada.protocol.ngp.common.mc.protocol,
+   org.eclipse.scada.protocol.ngp.common.utils,
+   org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp,
+   org.apache.mina.core.buffer,
+   org.eclipse.scada.core.data"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.mina.core;version="[2.0.4,3.0.0)",
+ org.apache.mina.core.buffer;version="[2.0.4,3.0.0)",
+ org.apache.mina.core.session;version="[2.0.4,3.0.0)",
+ org.apache.mina.filter.codec;version="[2.0.4,3.0.0)",
+ org.eclipse.scada.core.data;version="0.1.0",
+ org.eclipse.scada.core.data.message;version="0.1.0",
+ org.eclipse.scada.core.ngp.common.codec.osbp;version="0.1.0",
+ org.eclipse.scada.protocol.ngp.common.mc.protocol;version="0.1.0",
+ org.eclipse.scada.protocol.ngp.common.utils;version="0.1.0",
+ org.slf4j;version="1.6.0"

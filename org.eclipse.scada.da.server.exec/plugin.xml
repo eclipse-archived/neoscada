@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated exec -->
+      <package
+            uri="http://eclipse.org/SCADA/DA/Exec/Configuration"
+            class="org.eclipse.scada.da.exec.configuration.ConfigurationPackage"
+            genModel="model/exec.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated exec -->
+      <parser
+            type="configuration"
+            class="org.eclipse.scada.da.exec.configuration.util.ConfigurationResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

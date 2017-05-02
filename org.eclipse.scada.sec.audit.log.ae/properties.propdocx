@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.sec.audit.log.ae">
+    <properties:properties properties:name="org.eclipse.scada.sec.audit.log.ae.debug" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.sec.audit.log.ae.logAll" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

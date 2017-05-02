@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.scada.da.server.test">
+   <implementation class="org.eclipse.scada.da.server.test.HiveCreatorImpl"/>
+   <service>
+      <provide interface="org.eclipse.scada.da.core.server.HiveCreator"/>
+   </service>
+   <property name="service.vendor" type="String" value="openSCADA.org"/>
+   <property name="service.description" type="String" value="openSCADA Test Hive Creator"/>
+   <property name="eclipse.scada.hiveReferenceType" type="String" value="org.eclipse.scada.da.server.test.Hive"/>
+</scr:component>

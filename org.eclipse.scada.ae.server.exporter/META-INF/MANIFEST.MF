@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA A&E Server Plug-in (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.ae.server.exporter
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Export-Package: org.eclipse.scada.ae.server.exporter;version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.ae.server;version="0.1.0",
+ org.eclipse.scada.ae.server.exporter;version="0.1.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.core.server;version="0.1.0",
+ org.eclipse.scada.utils.lifecycle;version="0.1.0"

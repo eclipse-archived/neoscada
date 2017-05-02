@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration" nsURI="http://eclipse.org/SCADA/DA/Server/Parser"
+    nsPrefix="parser">
+  <eClassifiers xsi:type="ecore:EClass" name="Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//InputDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extractors" upperBound="-1"
+        eType="#//ExtractorDefinition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputDefinition" abstract="true" interface="true">
+    <eOperations name="createInput" lowerBound="1" eType="#//Input">
+      <eParameters name="creationContext" eType="#//CreationContext"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformers" upperBound="-1"
+        eType="#//TransformerDefinition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Input" instanceClassName="org.eclipse.scada.base.extractor.input.Input"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="CreationContext" instanceClassName="org.eclipse.scada.da.server.component.parser.factory.CreationContext"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FileInput" eSuperTypes="#//AbstractPeriodInput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorDefinition" abstract="true"
+      interface="true">
+    <eOperations name="createExtractor" lowerBound="1" eType="#//Extractor">
+      <eParameters name="creationContext" eType="#//CreationContext"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlainText" eSuperTypes="#//ExtractorDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueConverter" eType="#//ValueConverterDefinition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Extractor" instanceClassName="org.eclipse.scada.base.extractor.extract.Extractor"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractPeriodInput" abstract="true"
+      eSuperTypes="#//AbstractInput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UrlInput" eSuperTypes="#//AbstractPeriodInput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probeCharacterSet" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SinglePattern" eSuperTypes="#//ExtractorDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" lowerBound="1"
+        eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullMatch" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//ValueDescriptor"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Pattern" instanceClassName="java.util.regex.Pattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueDescriptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryValue" eType="#//Field"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//AttributeValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Field" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//VariantType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VariantType">
+    <eLiterals name="DEFAULT"/>
+    <eLiterals name="STRING" value="1"/>
+    <eLiterals name="INT32" value="2"/>
+    <eLiterals name="INT64" value="3"/>
+    <eLiterals name="DOUBLE" value="4"/>
+    <eLiterals name="BOOLEAN" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//Field"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainGroupField" eSuperTypes="#//Field"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringGroupField" eSuperTypes="#//Field">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericGroupField" eSuperTypes="#//Field">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SplitTable" eSuperTypes="#//ExtractorDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineSeparatorPattern" lowerBound="1"
+        eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldSeparatorPattern"
+        lowerBound="1" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idColumn" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fields" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines the names of the fields. Of none are set, then the first row will be used instead."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueConverter" eType="#//ValueConverterDefinition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransformerDefinition" abstract="true"
+      interface="true">
+    <eOperations name="createTransformer" lowerBound="1" eType="#//Transformer">
+      <eParameters name="creationContext" eType="#//CreationContext"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringTransformer" eSuperTypes="#//TransformerDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charset" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="UTF-8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MqttInput" eSuperTypes="#//AbstractInput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverUri" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topic" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qos" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Transformer" instanceClassName="org.eclipse.scada.base.extractor.transform.Transformer"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractInput" abstract="true" eSuperTypes="#//InputDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueConverterDefinition" abstract="true"
+      interface="true">
+    <eOperations name="createConverter" lowerBound="1" eType="#//ValueConverter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ValueConverter" instanceClassName="org.eclipse.scada.base.extractor.convert.ValueConverter"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleValueConverter" eSuperTypes="#//ValueConverterDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanSetValueConverter" eSuperTypes="#//ValueConverterDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="trueValues" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="falseValues" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherwise" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreCase" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+</ecore:EPackage>

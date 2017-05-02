@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://eclipse.org/SCADA/DA/Proxy/Configuration"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:proxy="http://eclipse.org/SCADA/DA/Proxy/Configuration" xmlns:hive="http://openscada.org/DA/Hive">
+
+	
+	<annotation></annotation>
+	<element name="root" type="proxy:RootType"></element>
+
+	<complexType name="RootType">
+		<sequence>
+			<element name="proxy" type="proxy:ProxyType"
+				maxOccurs="unbounded" minOccurs="1">
+			</element>
+		</sequence>
+		<attribute name="separator" type="string" use="optional"
+			default=".">
+		</attribute>
+	</complexType>
+
+
+
+	<complexType name="ProxyType">
+		<sequence>
+			<element name="connection" type="proxy:ConnectionType"
+				minOccurs="1" maxOccurs="unbounded">
+			</element>
+        </sequence>
+		<attribute name="prefix" type="string" use="required"></attribute>
+		<attribute name="wait" type="int" default="0" use="optional"></attribute>
+	</complexType>
+
+	<complexType name="ConnectionType">
+		<sequence minOccurs="0" maxOccurs="1">
+			<element name="folder" type="proxy:FolderType"></element>
+		</sequence>
+		<attribute name="id" type="string" use="required"></attribute>
+		<attribute name="prefix" type="string" use="required"></attribute>
+		<attribute name="uri" type="string" use="required"></attribute>
+		<attribute name="className" type="string" use="required"></attribute>
+	</complexType>
+
+
+
+	<complexType name="FolderType">
+		<sequence minOccurs="0" maxOccurs="unbounded">
+			<element name="location" type="string"></element>
+		</sequence>
+	</complexType>
+</schema>

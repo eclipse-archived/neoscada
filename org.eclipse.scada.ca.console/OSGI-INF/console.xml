@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.scada.ca.console.Console">
+   <implementation class="org.eclipse.scada.ca.console.Console"/>
+   <property name="osgi.command.scope" type="String" value="ca"/>
+   <property name="osgi.command.function" type="String">create
+delete
+update
+set
+showfactories
+factories
+show
+listfactory
+mergeFile
+diffFile
+export
+</property>
+   <service>
+      <provide interface="org.eclipse.scada.ca.console.Console"/>
+   </service>
+   <reference bind="setAdmin" cardinality="1..1" interface="org.eclipse.scada.ca.ConfigurationAdministrator" name="ConfigurationAdministrator" policy="static"/>
+</scr:component>

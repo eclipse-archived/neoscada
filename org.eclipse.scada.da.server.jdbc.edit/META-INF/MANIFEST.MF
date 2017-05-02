@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.scada.da.server.jdbc.edit;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.scada.da.server.jdbc.configuration.provider.JdbcEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.eclipse.scada.da.server.jdbc.configuration.provider;uses:="org.eclipse.emf.ecore,  org.eclipse.scada.da.server.jdbc.configuration.util,  org.eclipse.emf.common.util,  org.eclipse.emf.common,  org.eclipse.emf.edit.provider,  org.eclipse.emf.common.notify";version="0.2.0"
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.scada.da.server.jdbc;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

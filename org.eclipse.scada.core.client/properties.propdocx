@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.core.client">
+    <properties:properties properties:name="org.eclipse.scada.core.client.defaultReconnectDelay" properties:dataType="LONG" properties:shortDescription="The default amount of time in milliseconds that has to be passed between reconnect attempts">
+      <properties:defaultValue>10000</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.core.client.AutoReconnectController.disableZombieMode" properties:dataType="BOOLEAN" properties:shortDescription="Disable the detection of stuck connections">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

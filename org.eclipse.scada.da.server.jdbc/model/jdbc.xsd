@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://eclipse.org/SCADA/DA/JDBC/Configuration"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:jdbc="http://eclipse.org/SCADA/DA/JDBC/Configuration">
+
+	<element name="root" type="jdbc:RootType"></element>
+
+	<complexType name="RootType">
+		<sequence>
+			<element name="connection" type="jdbc:ConnectionType"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType abstract="true" name="AbstractQueryType">
+		<sequence>
+			<element name="sql" type="string" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="columnMapping" type="jdbc:ColumnMappingType"
+				minOccurs="0" maxOccurs="unbounded">
+			</element>
+		</sequence>
+		<attribute name="id" type="string" use="required"></attribute>
+		<attribute name="period" type="int" use="required"></attribute>
+		<attribute name="sql" type="string" use="optional"></attribute>
+		<attribute name="timeout" type="positiveInteger"></attribute>
+	</complexType>
+
+	<complexType name="QueryType">
+		<complexContent>
+			<extension base="jdbc:AbstractQueryType">
+				<sequence>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TabularQueryType">
+		<complexContent>
+			<extension base="jdbc:AbstractQueryType">
+				<sequence>
+					<element name="updateColumns"
+						type="jdbc:UpdateColumnsType" minOccurs="0"
+						maxOccurs="unbounded">
+						<annotation>
+							<documentation>
+								Define all columns that are updateable.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="defaultUpdateSql" type="string"
+						minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
+								This value needs to have one %s
+								parameter which will be replaced by the
+								columnName from the UpdateColumnsType
+								attribute and one JDBC parameter (?)
+								which will then receive the value.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="commands" type="jdbc:CommandsType" minOccurs="0" maxOccurs="unbounded"></element>
+				</sequence>
+				<attribute name="idColumn" type="int" use="required">
+                	<annotation>
+                		<documentation>The number (starting with 1) of the id column.</documentation>
+                	</annotation></attribute>
+                <attribute name="defaultUpdateSql" type="string"
+					use="optional">
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="ConnectionType">
+		<sequence>
+			<element name="property" type="jdbc:PropertyEntry" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="query" type="jdbc:QueryType" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="tabularQuery" type="jdbc:TabularQueryType"
+				minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="update" type="jdbc:UpdateType" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="id" type="string" use="required"></attribute>
+		<attribute name="connectionClass" type="string"></attribute>
+		<attribute name="uri" type="string" use="required"></attribute>
+		<attribute name="username" type="string"></attribute>
+		<attribute name="password" type="string"></attribute>
+		<attribute name="timeout" type="int"></attribute>
+	</complexType>
+
+	<complexType name="UpdateType">
+		<sequence>
+			<element name="sql" type="string" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="mapping" type="jdbc:UpdateMappingType"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="id" type="string" use="required"></attribute>
+		<attribute name="sql" type="string"></attribute>
+		<attribute name="timeout" type="positiveInteger"></attribute>
+	</complexType>
+
+	<complexType name="UpdateMappingType">
+		<attribute name="name" type="string" use="optional"></attribute>
+		<attribute name="namedParameter" type="string" use="required"></attribute>
+	</complexType>
+	
+	<complexType name="PropertyEntry">
+		<attribute name="key" type="string" use="required"></attribute>
+		<attribute name="value" type="string" use="optional"></attribute>
+	</complexType>
+
+	<complexType name="ColumnMappingType">
+		<attribute name="columnNumber" use="required">
+			<simpleType>
+				<restriction base="int">
+					<minInclusive value="1"></minInclusive>
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="aliasName" use="required">
+			<simpleType>
+				<restriction base="string">
+					<minLength value="1"></minLength>
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+
+
+
+
+
+	<complexType name="UpdateColumnsType">
+		<attribute name="columnName" type="string" use="required"></attribute>
+		<attribute name="customUpdateSql" type="string" use="optional">
+			<annotation>
+				<documentation>This SQL needs to have exactly one parameter. The value.</documentation>
+			</annotation></attribute>
+	</complexType>
+
+	<complexType name="CommandsType">
+		<sequence>
+			<element name="sql" type="string" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+		<attribute name="localName" type="string" use="required"></attribute>
+		<attribute name="sql" type="string" use="optional"></attribute>
+	</complexType>
+</schema>

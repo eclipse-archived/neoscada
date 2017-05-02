@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.ca.jdbc">
+    <properties:properties properties:name="org.eclipse.scada.ca.jdbc.initialConfigurationHashSize" properties:dataType="INTEGER" properties:shortDescription="The initial hash size for configuration instances">
+      <properties:defaultValue>4</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ca.jdbc.disableIntern" properties:dataType="BOOLEAN" properties:shortDescription="Wether to disable string interning">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ca.jdbc.table" properties:shortDescription="The name of the CA data table">
+      <properties:defaultValue>ca_data</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ca.jdbc.chunksize" properties:dataType="INTEGER">
+      <properties:defaultValue>0</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ca.jdbc.fixnull" properties:dataType="BOOLEAN" properties:shortDescription="Wether to fix null entries to empty strings">
+      <properties:defaultValue>false</properties:defaultValue>
+      <properties:customDataTypeDescription>This needs to be activated for databases which convert empty strings automatically to NULL, like Oracle.</properties:customDataTypeDescription>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ca.jdbc.instance" properties:shortDescription="The instance name of this CA instance">
+      <properties:defaultValue>default</properties:defaultValue>
+      <properties:longDescription>When multiple instances of CAs are working on the same database and table this is the way to distinguish them from another.</properties:longDescription>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

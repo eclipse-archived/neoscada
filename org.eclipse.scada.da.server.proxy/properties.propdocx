@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.da.server.proxy">
+    <properties:properties properties:name="org.eclipse.scada.da.server.proxy.asyncListener" properties:dataType="BOOLEAN" properties:shortDescription="Wether to use the async listener mode">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.da.server.proxy.switchLockTimeout" properties:dataType="INTEGER" properties:shortDescription="Timeout for switching connections">
+      <properties:defaultValue>2000</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

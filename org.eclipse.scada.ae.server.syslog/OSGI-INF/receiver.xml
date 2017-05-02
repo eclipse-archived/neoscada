@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" deactivate="dispose" name="org.eclipse.scada.ae.server.syslog">
+   <implementation class="org.eclipse.scada.ae.server.syslog.ReceiverServiceFactory"/>
+   <property name="factoryId" type="String" value="org.eclipse.scada.ae.server.syslog.receiver"/>
+   <service>
+      <provide interface="org.eclipse.scada.ca.ConfigurationFactory"/>
+   </service>
+   <property name="service.vendor" type="String" value="Eclipse SCADA Project"/>
+   <property name="service.description" type="String" value="Syslog Receiver Endpoints (RELP)"/>
+</scr:component>

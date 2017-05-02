@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA NextGenerationProtocol CA Common (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.ca.common.ngp
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Export-Package: org.eclipse.scada.ca.common.ngp;version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.ca.data;version="0.1.0",
+ org.eclipse.scada.ca.data.message;version="0.1.0",
+ org.eclipse.scada.ca.protocol.ngp.codec;version="0.1.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.core.data;version="0.1.0",
+ org.eclipse.scada.core.data.message;version="0.1.0",
+ org.eclipse.scada.core.ngp.common;version="0.1.0",
+ org.eclipse.scada.protocol.ngp.common;version="0.1.0"

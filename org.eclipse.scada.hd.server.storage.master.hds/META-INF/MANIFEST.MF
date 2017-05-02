@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA HDS Master Storage (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.hd.server.storage.master.hds
+Bundle-Version: 0.3.0.qualifier
+Bundle-Activator: org.eclipse.scada.hd.server.storage.master.hds.Activator
+Bundle-Vendor: Eclipse NeoSCADA Project
+Require-Bundle: org.apache.felix.gogo.runtime;bundle-version="0.8.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.da.client;version="0.1.0",
+ org.eclipse.scada.hd;version="0.1.0",
+ org.eclipse.scada.hd.data;version="0.1.0",
+ org.eclipse.scada.hd.server;version="0.1.0",
+ org.eclipse.scada.hd.server.common;version="0.1.0",
+ org.eclipse.scada.hd.server.storage.common;version="0.1.0",
+ org.eclipse.scada.hd.server.storage.hds;version="0.1.0",
+ org.eclipse.scada.hds;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.3.0",
+ org.eclipse.scada.utils.io;version="0.3.0",
+ org.eclipse.scada.utils.lang;version="0.1.0",
+ org.eclipse.scada.utils.str;version="0.1.0",
+ org.osgi.framework;version="1.6.0",
+ org.slf4j;version="1.5.0"

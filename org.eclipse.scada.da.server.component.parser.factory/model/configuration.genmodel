@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation"
+    modelDirectory="/org.eclipse.scada.da.server.component.parser.factory/src" creationIcons="false"
+    creationSubmenus="true" modelPluginID="org.eclipse.scada.da.server.component.parser.factory"
+    modelName="Configuration" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true"
+    decoration="Live">
+  <foreignModel>configuration.ecore</foreignModel>
+  <genPackages prefix="Parser" basePackage="org.eclipse.scada.da.server.component.parser.factory"
+      disposableProviderFactory="true" extensibleProviderFactory="true" childCreationExtenders="true"
+      ecorePackage="configuration.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//VariantType">
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/DEFAULT"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/INT32"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/INT64"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/BOOLEAN"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="configuration.ecore#//Input"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//CreationContext"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//Extractor"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//Pattern"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//Transformer"/>
+    <genClasses ecoreClass="configuration.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Component/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Component/input"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Component/extractors"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//InputDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//InputDefinition/transformers"/>
+      <genOperations ecoreOperation="configuration.ecore#//InputDefinition/createInput">
+        <genParameters ecoreParameter="configuration.ecore#//InputDefinition/createInput/creationContext"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//FileInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//FileInput/fileName"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//ExtractorDefinition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ExtractorDefinition/prefix"/>
+      <genOperations ecoreOperation="configuration.ecore#//ExtractorDefinition/createExtractor">
+        <genParameters ecoreParameter="configuration.ecore#//ExtractorDefinition/createExtractor/creationContext"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//PlainText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PlainText/trim"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//AbstractPeriodInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractPeriodInput/period"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//UrlInput" labelFeature="#//configuration/UrlInput/url">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UrlInput/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UrlInput/probeCharacterSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UrlInput/charset"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//SinglePattern">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SinglePattern/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SinglePattern/fullMatch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//SinglePattern/value"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ValueDescriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ValueDescriptor/primaryValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ValueDescriptor/attributes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Field/type"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//AttributeValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AttributeValue/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//AttributeValue/field"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MainGroupField"/>
+    <genClasses ecoreClass="configuration.ecore#//StringGroupField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//StringGroupField/groupName"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//NumericGroupField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//NumericGroupField/groupNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//SplitTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitTable/lineSeparatorPattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitTable/fieldSeparatorPattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitTable/idColumn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitTable/fields"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//TransformerDefinition">
+      <genOperations ecoreOperation="configuration.ecore#//TransformerDefinition/createTransformer">
+        <genParameters ecoreParameter="configuration.ecore#//TransformerDefinition/createTransformer/creationContext"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//StringTransformer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//StringTransformer/charset"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MqttInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MqttInput/serverUri"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MqttInput/clientId"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//AbstractInput"/>
+  </genPackages>
+</genmodel:GenModel>

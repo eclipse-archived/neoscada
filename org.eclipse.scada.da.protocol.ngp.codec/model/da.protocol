@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol:Protocol
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:protocol="urn:eclipse:scada:protocol:ngp"
+    description="The Eclipse SCADA DA (Data Access) protocol allows a client to access current value data from the server, subscribe to data items&#xA;and start write requests. In addition browse the item namespace."
+    shortDescription="Eclipse SCADA DA Protocol"
+    name="da"
+    packagePrefix="org.eclipse.scada"
+    licenseHeader="/*******************************************************************************&#xA; * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.&#xA; * All rights reserved. This program and the accompanying materials&#xA; * are made available under the terms of the Eclipse Public License v1.0&#xA; * which accompanies this distribution, and is available at&#xA; * http://www.eclipse.org/legal/epl-v10.html&#xA; *&#xA; * Contributors:&#xA; *     TH4 SYSTEMS GmbH - initial API and implementation&#xA; *     Jens Reimann - implement security callback system&#xA; *******************************************************************************/"
+    version="1">
+  <messages
+      description="Request an item subscription at the server. If granted the server will start sending ItemDataUpdate and ItemStateUpdate messages until&#xA;the Unsubscribe message is sent from the client.&#xA;&#xA;If the server does not allow subscribing to the item an ItemStateUpdate message with the state DISCONNECTED is sent once."
+      shortDescription="Subscribe to an item on the server."
+      name="SubscribeItem"
+      code="4097">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        name="itemId"
+        fieldNumber="1"/>
+  </messages>
+  <messages
+      shortDescription="Ask the server to stop sending updates for a data item."
+      name="UnsubscibeItem"
+      code="4098">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        name="itemId"
+        fieldNumber="1"/>
+  </messages>
+  <messages
+      description="It a subscribed item changes this message is sent from the server to the client to inform it of the value change.&#xA;&#xA;Note that the server sends only differential updates unless the &quot;cacheValue&quot; flag is set."
+      shortDescription="The server sends a data update for an item to the client."
+      name="ItemDataUpdate"
+      code="4099">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        shortDescription="The id of the item that changed."
+        name="itemId"
+        fieldNumber="1"/>
+    <attributes
+        xsi:type="protocol:VariantAttribute"
+        shortDescription="The new value of the item or NULL if the value did not change."
+        name="value"
+        fieldNumber="2"
+        type="OPTIONAL"/>
+    <attributes
+        xsi:type="protocol:VariantMapAttribute"
+        description=""
+        shortDescription="Attributes that were added or removed."
+        name="addedOrUpdated"
+        fieldNumber="3"
+        type="OPTIONAL"/>
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        shortDescription="Attributes that were removed."
+        name="removed"
+        fieldNumber="4"
+        type="UNIQUE"/>
+    <attributes
+        xsi:type="protocol:BooleanAttribute"
+        shortDescription="Indicates a real differential change or a full transmission from the cache."
+        name="cacheValue"
+        fieldNumber="5"/>
+  </messages>
+  <messages
+      shortDescription="Update from the server about a subscribed item's state."
+      name="ItemStateUpdate"
+      code="4100">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        shortDescription="The id of the item that changed."
+        name="itemId"
+        fieldNumber="1"/>
+    <attributes
+        xsi:type="protocol:EnumAttribute"
+        description="If the subscription state changed to DISCONNECTED the item is considered unsubscribed."
+        shortDescription="The new subscription state."
+        name="subscriptionState"
+        fieldNumber="2">
+      <enumType
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#SubscriptionState"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        shortDescription="The error information if the item gets disconnected."
+        name="errorInformation"
+        fieldNumber="3"
+        type="OPTIONAL">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#ErrorInformation"/>
+    </attributes>
+  </messages>
+  <messages
+      shortDescription="Request the server to write a value to an item."
+      name="StartWriteValue"
+      code="4353">
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="request"
+        fieldNumber="1">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#Request"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        shortDescription="The id ot the item to write to."
+        name="itemId"
+        fieldNumber="2"/>
+    <attributes
+        xsi:type="protocol:VariantAttribute"
+        name="value"
+        fieldNumber="3"/>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="operationParameters"
+        fieldNumber="4"
+        type="OPTIONAL">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#OperationParameters"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:LongAttribute"
+        shortDescription="The callback handler id."
+        name="callbackHandlerId"
+        fieldNumber="5"
+        type="OPTIONAL"/>
+    <interfaces
+        href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#RequestMessage"/>
+  </messages>
+  <messages
+      shortDescription="The result from the server to a write value request."
+      name="WriteValueResult"
+      code="4354">
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="response"
+        fieldNumber="1">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#Response"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="errorInformation"
+        fieldNumber="2"
+        type="OPTIONAL">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#ErrorInformation"/>
+    </attributes>
+    <interfaces
+        href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#ResponseMessage"/>
+  </messages>
+  <messages
+      shortDescription="Request the server to write attributes to an item."
+      name="StartWriteAttributes"
+      code="4369">
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="request"
+        fieldNumber="1">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#Request"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        shortDescription="The id ot the item to write to."
+        name="itemId"
+        fieldNumber="2"/>
+    <attributes
+        xsi:type="protocol:VariantMapAttribute"
+        name="attributes"
+        fieldNumber="3"/>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="operationParameters"
+        fieldNumber="4"
+        type="OPTIONAL">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#OperationParameters"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:LongAttribute"
+        shortDescription="The callback handler id."
+        name="callbackHandlerId"
+        fieldNumber="5"
+        type="OPTIONAL"/>
+    <interfaces
+        href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#RequestMessage"/>
+  </messages>
+  <messages
+      shortDescription="The result from the server to a write attributes request."
+      name="WriteAttributesResult"
+      code="4370">
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="response"
+        fieldNumber="1">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#Response"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="attributeResults"
+        fieldNumber="2"
+        type="ORDERED"
+        structure="AttributeWriteResultEntry"/>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="errorInformation"
+        fieldNumber="3"
+        type="OPTIONAL">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#ErrorInformation"/>
+    </attributes>
+    <interfaces
+        href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#ResponseMessage"/>
+  </messages>
+  <messages
+      description="This is a request from the client to the server to receive updates for a folder.&#xA;It is used for browing the data item namespace of the server.&#xA;&#xA;Only the referenced folder is subscribed not the upper hierarchy.&#xA;&#xA;Since there is not state update for the folder, the only way to know if the subscribed folder is still&#xA;active is to also subscribe to the parent folder and check if the sub-folder was removed."
+      shortDescription="Subscribe to a folder."
+      name="SubscribeFolder"
+      code="4609">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        name="location"
+        fieldNumber="1"
+        type="ORDERED"/>
+  </messages>
+  <messages
+      shortDescription="Stop receiving updates for a folder."
+      name="UnsubscribeFolder"
+      code="4610">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        name="location"
+        fieldNumber="1"
+        type="ORDERED"/>
+  </messages>
+  <messages
+      shortDescription="A message from the server to inform the client about a folder data change."
+      name="FolderDataUpdate"
+      code="4611">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        name="location"
+        fieldNumber="1"
+        type="ORDERED"/>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="addedOrModified"
+        fieldNumber="2"
+        type="ORDERED"
+        structure="BrowserEntry"/>
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        name="removed"
+        fieldNumber="3"
+        type="UNIQUE"/>
+    <attributes
+        xsi:type="protocol:BooleanAttribute"
+        name="full"
+        fieldNumber="4"/>
+  </messages>
+  <messages
+      description="This lists a folder contents only once and no subscription is established.&#xA;&#xA;It is not recommended to use this method since many server do update their folder structures during runtime&#xA;and therefore the client would miss some updates and would need to do a full refresh manually."
+      shortDescription="Request a single read on a folder."
+      name="BrowseFolder"
+      code="4625">
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="request"
+        fieldNumber="1">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#Request"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        name="location"
+        fieldNumber="2"
+        type="ORDERED"/>
+    <interfaces
+        href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#RequestMessage"/>
+  </messages>
+  <messages
+      shortDescription="The result of the folder browse/read request."
+      name="BrowseResult"
+      code="4626">
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="response"
+        fieldNumber="1">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#Response"/>
+    </attributes>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="browserData"
+        fieldNumber="2"
+        type="ORDERED"
+        structure="BrowserEntry"/>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="errorInformation"
+        fieldNumber="3"
+        type="OPTIONAL">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#ErrorInformation"/>
+    </attributes>
+    <interfaces
+        href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#ResponseMessage"/>
+  </messages>
+  <structures
+      description=""
+      name="AttributeWriteResultEntry">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        name="attribute"
+        fieldNumber="1"/>
+    <attributes
+        xsi:type="protocol:StructureAttribute"
+        name="errorInformation"
+        fieldNumber="2"
+        type="OPTIONAL">
+      <structure
+          href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#ErrorInformation"/>
+    </attributes>
+  </structures>
+  <structures
+      description="A folder entry is like a directory entry in a file system. A folder has serveral named entries which point to actual files. Yet&#xA;the name of the folder entry and the item id (file) must not be the same."
+      shortDescription="An entry in a folder."
+      name="BrowserEntry">
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        shortDescription="The name of the folder entry."
+        name="name"
+        fieldNumber="1"/>
+    <attributes
+        xsi:type="protocol:EnumAttribute"
+        name="entryType"
+        fieldNumber="2"
+        enumType="FolderEntryType"/>
+    <attributes
+        xsi:type="protocol:StringAttribute"
+        shortDescription="The item id the folder entry is pointing to."
+        name="itemId"
+        fieldNumber="3"
+        type="OPTIONAL"/>
+    <attributes
+        xsi:type="protocol:VariantMapAttribute"
+        name="attributes"
+        fieldNumber="4"
+        type="OPTIONAL"/>
+    <attributes
+        xsi:type="protocol:EnumAttribute"
+        name="ioDirection"
+        fieldNumber="5"
+        type="UNIQUE"
+        enumType="IODirection"/>
+  </structures>
+  <includedProtocols
+      href="../../org.eclipse.scada.core.protocol.ngp.codec/model/core.protocol#/"/>
+  <enums name="FolderEntryType">
+    <literals>ITEM</literals>
+    <literals>FOLDER</literals>
+  </enums>
+  <enums name="IODirection">
+    <literals>INPUT</literals>
+    <literals>OUTPUT</literals>
+  </enums>
+</protocol:Protocol>

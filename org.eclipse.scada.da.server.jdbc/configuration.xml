@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc:root xmlns:jdbc="http://openscada.org/DA/JDBC/Configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://openscada.org/DA/JDBC/Configuration schema/configuration.xsd ">
+	<jdbc:connection id="CON1" connectionClass="oracle.jdbc.driver.OracleDriver"
+		uri="jdbc:oracle:thin:@172.16.223.130:1521:db" username="oracle" password="oracle" timeout="5000">
+		<jdbc:query period="1000" id="QUERY1">
+			<jdbc:sql>
+<![CDATA[select 1 as field from dual]]>
+			</jdbc:sql>
+		</jdbc:query>
+	</jdbc:connection>
+</jdbc:root>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HTTP Client for HTTP Exporter HD (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.hd.exporter.http.client
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Import-Package: com.google.gson;version="1.4.0",
+ org.apache.commons.httpclient;version="3.0.0",
+ org.apache.commons.httpclient.methods;version="3.0.0",
+ org.apache.commons.httpclient.params;version="3.0.0",
+ org.eclipse.scada.hd.exporter.http;version="0.1.0",
+ org.osgi.framework;version="1.7.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

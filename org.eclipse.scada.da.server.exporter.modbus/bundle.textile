@@ -1,0 +1,89 @@
+h1. Configuration
+
+h2. CA factory 'org.eclipse.scada.da.server.exporter.modbus.device'
+
+This factory create new modbus exporters that each attach to a TCP port and export the configured items using registers on modbus tcp.
+
+|_. Name |_. Value Type |_. Default |_. Description |
+| port | unsigned short | 502 | TCP port number to bind to |
+| slaveId | unsgined short | 1 | The modbus slave ID the device will listen to |
+| item.* | | | All items prefixed with "item." will be used for register mapping |
+| properties.* | | | Properties for the session creation of the internal hive instance. This is required since the modbus tcp protocol does not offer any way to transport username and password. So there is one default set of session properties that will be used. |
+
+h3. Mapping configuration format
+
+All key value pairs starting with "item." will be used for mapping. The part after "item." is used as item id that will provide the source value. The value is used as arguments and is a string split by " : " (colon).
+
+Note that all addresses in the configuration are byte aligned, but modbus is using 16bit/world alignment for its registers.
+
+|_. Argument # |_. Description |
+| 0 | Offset in the target byte buffer (in bytes) |
+| 1 | Type: DOUBLE, INT16, INT32, UINT16, UINT32, … |
+| 2 | Optional - Scaling factor |
+
+So the following entry:
+
+@item.ItemID1=0:INT16:10@
+ 
+Would result in a subscription to "ItemID1", start at byte #0 in the memory buffer and render as a 16 bit signed integer with a scaling factor of 10; 
+
+h2. System properties
+
+The following system properties can be used:
+
+|_. Name |_. Value Type |_. Default |_. Description |
+| @org.eclipse.scada.da.server.exporter.modbus.acceptor.backlog@ | integer, positive | 5 |The number backlog of the TCP server socket  |
+
+h1. Functionality
+
+h2. Modbus mapping data format
+
+Each data item that is mapped to modbus registers is encoded in the following format:
+
+|_. # |_. Data type |_. Name |_. Description |
+| 0 | 16 bit unsigned integer | state | Status information |
+| 1 | 64 bit signed integer | timestamp | Unix timestamp (in milliseconds) of the last change, UTC based |
+| 5 | ... | value | The actual value, encoded depending on the mapped type |
+
+The following data types are available 
+
+h3. Double (64bit floating point)
+
+| 5 | 64bit floating point | value | The value encoded as 64 bit floating point | 
+
+h3. Integer (32bit signed integer)
+
+| 5 | 32bit signed integer | value | The value encoded as 32bit signed integer |
+
+h3. Short (16bit signed integer)
+
+| 5 | 16bit signed integer | value | The value encoded as 16bit signed integer |
+
+h3. Unsigned Short (16bit unsigned integer)
+
+| 5 | 16bit unsigned integer | value | The value encoded as 16bit unsigned integer |
+
+h2. Status information
+
+The status information is actually two bytes:
+
+h3. First byte – Quality state
+
+The first byte defines the state of the quality. If the byte is anything else than
+zero, the item is in an invalid state.
+
+|_. Bit |_. Description |_. off | _. on |
+| 0 | Connection state  | source is connected | source is disconnected |
+| 1 | Error state | value is ok | value error |
+
+h3. Second byte – Common flags
+
+|_. Bit |_. Description |_. off | _. on |
+| 0 | Alarm | value has no alarm state | value has an alarm state | 
+| 1 | Warning | value has no warning state | value has warning state | 
+| 2 | Manual | value is not overridden | value is overridden |
+| 3 | Blocked | commands are not blocked | commands are blocked |
+
+h2. Scaling
+
+Depending on the configuration of the modbus mapping values may be scaled.

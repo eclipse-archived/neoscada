@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol:Protocol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:protocol="urn:eclipse:scada:protocol:ngp" description="The core protocol acts as a base for all other protocols. It contains the session handling and callbacks." shortDescription="The core protocol which acts as base for all others" name="core" packagePrefix="org.eclipse.scada" licenseHeader="/*******************************************************************************&#xA; * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.&#xA; * All rights reserved. This program and the accompanying materials&#xA; * are made available under the terms of the Eclipse Public License v1.0&#xA; * which accompanies this distribution, and is available at&#xA; * http://www.eclipse.org/legal/epl-v10.html&#xA; *&#xA; * Contributors:&#xA; *     TH4 SYSTEMS GmbH - initial API and implementation&#xA; *     Jens Reimann - implement security callback system&#xA; *******************************************************************************/" version="1">
+  <messages description="Used by the client to request a new session from the server.&#xA;&#xA;This message must only be sent once after the connection was&#xA;established. The server has to respond either using the&#xA;SessionAccepted or SessionRejected message." shortDescription="Request a new session from the server" name="CreateSession" code="1">
+    <attributes xsi:type="protocol:PropertiesAttribute" description="This is purely application specific." shortDescription="The properties the client wants this session to have." name="properties" fieldNumber="1"/>
+    <attributes xsi:type="protocol:LongAttribute" shortDescription="An optional callback handler id which will receive callback requests if required." name="callbackHandlerId" fieldNumber="2" type="OPTIONAL"/>
+  </messages>
+  <messages description="Sent from the server to the client after receiving the CreateSession message when the server accepted the session creation request.&#xA;&#xA;This message must only be sent once after the CreateSession message was received from the client and only if the SessionRejected message was not sent." shortDescription="The session was created by the server" name="SessionAccepted" code="2">
+    <attributes xsi:type="protocol:PropertiesAttribute" description="This is purely application specific." shortDescription="The properties the server granted the session." name="properties" fieldNumber="1"/>
+  </messages>
+  <messages description="Sent from the server to the client when the session was requested using the CreateSession message but could not be granted.&#xA;&#xA;This message must only be sent once after the CreateSession message was received from the client and only if the SessionAccepted message was not sent." shortDescription="The session creation was rejected by the server" name="SessionRejected" code="3">
+    <attributes xsi:type="protocol:StringAttribute" shortDescription="The error message why the session was rejected." name="errorReason" fieldNumber="1"/>
+  </messages>
+  <messages description="This message is sent from the server to the client when the session privilges have changed." shortDescription="A change in privileges for the session" name="SessionPrivilegesChanged" code="17">
+    <attributes xsi:type="protocol:StringAttribute" description="Contains all granted session privileges. The full set is transmitted." shortDescription="The granted privileges of the session" name="granted" fieldNumber="1" type="UNIQUE"/>
+  </messages>
+  <messages description="The server sends this message in order to request additional information from the client." shortDescription="Request callbacks from the client" name="RequestCallbacks" code="257" interfaces="RequestMessage">
+    <attributes xsi:type="protocol:StructureAttribute" name="request" fieldNumber="1" structure="Request"/>
+    <attributes xsi:type="protocol:LongAttribute" shortDescription="The callback handler id this request is directed to." name="callbackHandlerId" fieldNumber="2"/>
+    <attributes xsi:type="protocol:StructureAttribute" name="callbacks" fieldNumber="3" type="ORDERED" structure="CallbackRequest"/>
+    <attributes xsi:type="protocol:LongAttribute" shortDescription="The callback timeout in milliseconds." name="timeoutMillis" fieldNumber="4" type="OPTIONAL"/>
+  </messages>
+  <messages description="The clients answers a previous RequestCallbacks message, providing the results." shortDescription="Provide response to callbacks request" name="RespondCallbacks" code="258" interfaces="ResponseMessage">
+    <attributes xsi:type="protocol:StructureAttribute" name="response" fieldNumber="1" structure="Response"/>
+    <attributes xsi:type="protocol:StructureAttribute" shortDescription="A result entry for each request entry." name="callbacks" fieldNumber="2" type="ORDERED" structure="CallbackResponse"/>
+    <attributes xsi:type="protocol:StructureAttribute" description="This error information is optional. If everything was fine it must be null." shortDescription="Some error information" name="errorInformation" fieldNumber="3" type="OPTIONAL" structure="ErrorInformation"/>
+  </messages>
+  <structures name="ErrorInformation">
+    <attributes xsi:type="protocol:LongAttribute" shortDescription="An error code." name="code" fieldNumber="1" type="OPTIONAL"/>
+    <attributes xsi:type="protocol:StringAttribute" shortDescription="A human readable error message." name="message" fieldNumber="2"/>
+    <attributes xsi:type="protocol:StringAttribute" shortDescription="Some technical diagnostic information." name="diagnosticInformation" fieldNumber="3"/>
+  </structures>
+  <structures name="Request">
+    <attributes xsi:type="protocol:LongAttribute" name="requestId" fieldNumber="1" equality="true"/>
+  </structures>
+  <structures name="Response">
+    <attributes xsi:type="protocol:StructureAttribute" name="request" fieldNumber="1" structure="Request"/>
+  </structures>
+  <structures shortDescription="A user information" name="UserInformation">
+    <attributes xsi:type="protocol:StringAttribute" shortDescription="The name of the user" name="name" fieldNumber="1"/>
+  </structures>
+  <structures name="OperationParameters">
+    <attributes xsi:type="protocol:StructureAttribute" name="userInformation" fieldNumber="1" type="OPTIONAL" structure="UserInformation"/>
+    <attributes xsi:type="protocol:PropertiesAttribute" name="properties" fieldNumber="2"/>
+  </structures>
+  <structures name="CallbackRequest">
+    <attributes xsi:type="protocol:StringAttribute" name="type" fieldNumber="1"/>
+    <attributes xsi:type="protocol:PropertiesAttribute" name="attributes" fieldNumber="2"/>
+  </structures>
+  <structures name="CallbackResponse">
+    <attributes xsi:type="protocol:BooleanAttribute" name="canceled" fieldNumber="1"/>
+    <attributes xsi:type="protocol:PropertiesAttribute" name="attributes" fieldNumber="2"/>
+  </structures>
+  <enums name="SubscriptionState">
+    <literals>DISCONNECTED</literals>
+    <literals>GRANTED</literals>
+    <literals>CONNECTED</literals>
+  </enums>
+  <interfaces name="RequestMessage">
+    <attributes xsi:type="protocol:StructureAttribute" name="request" structure="Request"/>
+  </interfaces>
+  <interfaces name="ResponseMessage">
+    <attributes xsi:type="protocol:StructureAttribute" name="response" structure="Response"/>
+  </interfaces>
+</protocol:Protocol>
