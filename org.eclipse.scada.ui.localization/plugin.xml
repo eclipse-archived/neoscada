@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.eclipse.scada.ui.localization.configuration" name="%extension-point.configuration.name" schema="schema/configuration.exsd"/>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.scada.core.ui.preferences"
+            class="org.eclipse.scada.ui.localization.timezone.TimeZonePreferencePage"
+            id="org.eclipse.scada.ui.localization.preferencepage.timezone"
+            name="%page.timeZone.name">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.equinox.preferences.preferences">
+      <initializer
+            class="org.eclipse.scada.ui.localization.timezone.TimeZoneInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

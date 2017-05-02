@@ -1,0 +1,35 @@
+/*******************************************************************************
+ * Copyright (c) 2006, 2010 TH4 SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     TH4 SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.utils.filter;
+
+/**
+ * @author jrose
+ */
+public class FilterParseException extends RuntimeException
+{
+
+    private static final long serialVersionUID = -1979082977928327370L;
+
+    public FilterParseException ( final String message, final Throwable cause )
+    {
+        super ( message, cause );
+    }
+
+    public FilterParseException ( final String message )
+    {
+        super ( message );
+    }
+
+    public FilterParseException ( final Throwable cause )
+    {
+        super ( cause );
+    }
+}

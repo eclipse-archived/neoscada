@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.releng</groupId>
+		<artifactId>superParent</artifactId>
+		<version>0.4.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.eclipse.scada.utils</groupId>
+	<artifactId>org.eclipse.scada.utils-parent</artifactId>
+	<version>0.4.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.utils.git</tycho.scmUrl>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>repo.eclipse.scada.org</id>
+			<name>Eclipse NeoSCADA Repository</name>
+			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<profiles>
+		<profile>
+			<id>nightly</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+
+	<modules>
+		<module>../org.eclipse.scada.utils-p2</module> <!-- holds the p2 repository -->
+
+		<module>../org.eclipse.scada.license.feature</module>
+
+		<module>../org.eclipse.scada.utils.feature</module>
+		<module>../org.eclipse.scada.utils.sdk.feature</module>
+
+		<module>../org.eclipse.scada.ui.utils.feature</module>
+
+		<module>../org.eclipse.scada.utils</module>
+		
+		<module>../org.eclipse.scada.utils.core.runtime</module>
+		<module>../org.eclipse.scada.utils.ecore.validation</module>
+
+		<module>../org.eclipse.scada.utils.filter</module>
+		<module>../org.eclipse.scada.utils.osgi</module>
+		<module>../org.eclipse.scada.utils.osgi.autostart</module>
+		<module>../org.eclipse.scada.utils.osgi.exporter</module>
+		<module>../org.eclipse.scada.utils.osgi.jaxws</module>
+		<module>../org.eclipse.scada.utils.osgi.jdbc</module>
+		<module>../org.eclipse.scada.utils.osgi.jdbc.pool</module>
+		<module>../org.eclipse.scada.utils.pkg.deb</module>
+		<module>../org.eclipse.scada.utils.propertyeditors</module>
+		<module>../org.eclipse.scada.utils.stats</module>
+
+		<module>../org.eclipse.scada.utils.test</module>
+		<module>../org.eclipse.scada.utils.filter.test</module>
+
+		<module>../org.eclipse.scada.ui.blink</module>
+		<module>../org.eclipse.scada.ui.databinding</module>
+		<module>../org.eclipse.scada.ui.localization</module>
+		<module>../org.eclipse.scada.ui.utils</module>
+		<module>../org.eclipse.scada.ui.utils.handler</module>
+
+		<module>../org.eclipse.scada.utils.doc.isv</module>
+		<module>../org.eclipse.scada.utils.osgi.daemon</module>
+		
+		<module>../org.eclipse.scada.utils.ui.server.feature</module>
+		<module>../org.eclipse.scada.utils.ui.server.sdk.feature</module>
+		<module>../org.eclipse.scada.utils.ui.server</module>
+	</modules>
+</project>

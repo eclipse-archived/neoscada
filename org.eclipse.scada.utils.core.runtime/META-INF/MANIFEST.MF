@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Utilities to the Eclipse Core Runtime System
+Bundle-SymbolicName: org.eclipse.scada.utils.core.runtime
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.eclipse.scada.utils.core.runtime;version="0.2.0"
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.100"

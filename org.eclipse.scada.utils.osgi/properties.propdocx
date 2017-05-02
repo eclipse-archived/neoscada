@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.utils.osgi">
+    <properties:properties properties:name="org.eclipse.scada.osgi.objectPool.defaultPriority" properties:dataType="INTEGER">
+      <properties:defaultValue>0</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

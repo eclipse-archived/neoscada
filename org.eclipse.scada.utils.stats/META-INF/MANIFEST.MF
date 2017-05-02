@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Statistic Information (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.utils.stats
+Bundle-Version: 0.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Eclipse NeoSCADA Project
+Import-Package: org.eclipse.scada.utils.lang;version="0.1.0"
+Export-Package: org.eclipse.scada.utils.stats;version="0.1.0"

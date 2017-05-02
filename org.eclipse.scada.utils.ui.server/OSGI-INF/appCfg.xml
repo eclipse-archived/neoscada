@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.scada.utils.ui.server.applicationConfiguration">
+   <implementation class="org.eclipse.scada.utils.ui.server.internal.app.BasicApplicationConfiguration"/>
+   <service>
+      <provide interface="org.eclipse.rap.rwt.application.ApplicationConfiguration"/>
+   </service>
+</scr:component>
