@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="start" deactivate="stop" name="org.eclipse.scada.base.pipe">
+   <implementation class="org.eclipse.scada.base.pipe.internal.PipeServiceImpl"/>
+   <service>
+      <provide interface="org.eclipse.scada.base.pipe.PipeService"/>
+   </service>
+   <property name="osgi.command.scope" type="String" value="pipe"/>
+   <property name="osgi.command.function" type="String">pipes
+list
+startTestWorker
+closeTestWorker
+testPublish
+drop
+</property>
+</scr:component>

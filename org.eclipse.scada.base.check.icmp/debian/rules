@@ -1,0 +1,7 @@
+#!/usr/bin/make -f
+
+DEB_FIXPERMS_EXCLUDE_ALL:=debian/eclipse-scada-ping/usr/bin/eclipse_scada_ping
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+include /usr/share/cdbs/1/rules/autoreconf.mk

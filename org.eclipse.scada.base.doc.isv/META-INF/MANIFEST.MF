@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.pde.core
+Bundle-Vendor: Eclipse NeoSCADA Project
+Bundle-Version: 0.4.0.qualifier
+Bundle-Name: Documentation (Incubation)
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.scada.base.doc.isv;singleton:=true
+

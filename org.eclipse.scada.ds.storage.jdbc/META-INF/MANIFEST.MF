@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-Vendor: Eclipse NeoSCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA DS JDBC Storage (Incubation)
+Bundle-Activator: org.eclipse.scada.ds.storage.jdbc.Activator
+Bundle-ManifestVersion: 2
+Import-Package: javax.management,
+ org.apache.commons.codec.binary;version="1.4.0",
+ org.eclipse.scada.ds;version="0.1.0",
+ org.eclipse.scada.ds.storage;version="0.1.0",
+ org.eclipse.scada.utils;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.osgi;version="0.1.0",
+ org.eclipse.scada.utils.osgi.jdbc;version="0.1.0",
+ org.eclipse.scada.utils.osgi.jdbc.pool;version="0.1.0",
+ org.eclipse.scada.utils.osgi.jdbc.task;version="0.1.0",
+ org.osgi.framework;version="1.3.0",
+ org.osgi.service.jdbc;version="1.0.0",
+ org.slf4j;version="[1.5.0,2.0.0)"
+Bundle-SymbolicName: org.eclipse.scada.ds.storage.jdbc
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

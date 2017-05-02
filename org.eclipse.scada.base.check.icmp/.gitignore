@@ -1,0 +1,16 @@
+/autom4te.cache
+/aclocal.m4
+/config.log
+/config.status
+/configure
+/depcomp
+/eclipse-scada-ping.spec
+/INSTALL
+/install-sh
+/Makefile
+/Makefile.in
+/missing
+
+*~
+*.tar.gz
+*.o

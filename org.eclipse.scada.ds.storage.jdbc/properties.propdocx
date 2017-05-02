@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.ds.storage.jdbc">
+    <properties:properties properties:name="org.eclipse.scada.ds.storage.jdbc.encoder" properties:dataType="CUSTOM" properties:shortDescription="The type of encoding to use for converting binary blobs to a database type">
+      <properties:customDataTypeDescription>This is a case insensitive enum an can be either BLOB or BASE64</properties:customDataTypeDescription>
+      <properties:defaultValue>blob</properties:defaultValue>
+      <properties:longDescription>This property chooses how the module will store the binary blobs into the database. It can either be BLOB, which will use
+      the direct database blob type. Or it can be BASE64 which will make a BASE64 encoded string from the blob.
+      
+      See also "org.eclipse.scada.ds.storage.jdbc.chunkSize".</properties:longDescription>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ds.storage.jdbc.disableBuffer" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ds.storage.jdbc.disableCache" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ds.storage.jdbc.cleanUpCacheDelay" properties:dataType="LONG">
+      <properties:defaultValue>600</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ds.storage.jdbc.table">
+      <properties:defaultValue>datastore</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ds.storage.jdbc.instance" properties:shortDescription="The instance name for entries">
+      <properties:defaultValue>default</properties:defaultValue>
+      <properties:longDescription>This is used when multiple instances act on the same database table.</properties:longDescription>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ds.storage.jdbc.chunkSize" properties:dataType="INTEGER" properties:shortDescription="The size of BASE64 encoded chunks">
+      <properties:defaultValue>0</properties:defaultValue>
+      <properties:longDescription>
+      If the values get stored using BASE64 encoding the will optionally get split up into chunks in order to store them in database VARCHAR fields with a size limit.
+      The chunk size will only be applied when writing the data, reading can cope with any chunk size as read data is simply concatenated.
+      </properties:longDescription>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

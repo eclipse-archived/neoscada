@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.scada.base.sdk"
+      label="%featureName"
+      version="0.4.0.qualifier"
+      provider-name="%providerName"
+      plugin="org.eclipse.scada.core"
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes
+         id="org.eclipse.scada.base"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.scada.base.source"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.scada.sec.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.scada.ds.sdk"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.scada.base.doc.isv"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

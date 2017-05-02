@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.sec.provider.dummy">
+    <properties:properties properties:name="org.eclipse.scada.sec.provider.dummy.priority" properties:dataType="INTEGER">
+      <properties:defaultValue>0</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.sec.provider.dummy.authentication.priority" properties:dataType="INTEGER"/>
+    <properties:properties properties:name="org.eclipse.scada.sec.provider.dummy.authorization.priority" properties:dataType="INTEGER"/>
+  </properties:groups>
+</properties:properties>

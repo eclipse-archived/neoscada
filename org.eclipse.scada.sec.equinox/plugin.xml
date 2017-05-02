@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="id1"
+         point="org.eclipse.equinox.security.loginModule">
+      <loginModule
+            class="org.eclipse.scada.sec.equinox.LoginModule">
+      </loginModule>
+   </extension>
+
+</plugin>
