@@ -5,5 +5,5 @@ Bundle-SymbolicName: org.eclipse.neoscada.protocol.iec60870.tests
 Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Eclipse NeoSCADA
-Fragment-Host: org.eclipse.neoscada.protocol.iec60870;bundle-version="0.4.0"
+Fragment-Host: org.eclipse.neoscada.protocol.iec60870;bundle-version="0.5.0"
 Require-Bundle: org.junit;bundle-version="4.11.0"

@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA ISO 8073 (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.iso8073
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.protocol.iso8073;version="0.1.0";
+Export-Package: org.eclipse.scada.protocol.iso8073;version="0.5.0";
   uses:="org.apache.mina.core.session,
    org.apache.mina.core.buffer,
    org.apache.mina.core.filterchain,

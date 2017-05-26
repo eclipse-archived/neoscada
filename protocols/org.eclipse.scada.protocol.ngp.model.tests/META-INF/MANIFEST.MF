@@ -7,9 +7,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.eclipse.scada.protocol.ngp.model.Protocol.tests;uses:="org.eclipse.scada.protocol.ngp.model.Protocol,junit.framework,org.eclipse.emf.common.util";version="1.0.0"
+Export-Package: org.eclipse.scada.protocol.ngp.model.Protocol.tests;
+ version="0.5.0";
+  uses:="org.eclipse.scada.protocol.ngp.model.Protocol,
+   junit.framework,org.eclipse.emf.common.util"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.scada.protocol.ngp.model;visibility:=reexport;bundle-version="0.1.0",
- org.eclipse.emf.ecore.xmi;visibility:=reexport;bundle-version="2.8.0",
- org.junit;visibility:=reexport;bundle-version="4.8.0"
+ org.eclipse.scada.protocol.ngp.model;bundle-version="0.5.0";visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;bundle-version="2.8.0";visibility:=reexport,
+ org.junit;bundle-version="4.8.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

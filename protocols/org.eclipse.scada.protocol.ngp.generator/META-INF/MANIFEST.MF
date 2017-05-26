@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.acceleo.model;bundle-version="3.1.2",
  org.eclipse.acceleo.profiler;bundle-version="3.1.2",
  org.eclipse.acceleo.engine;bundle-version="3.1.2",
- org.eclipse.scada.protocol.ngp.model;bundle-version="0.1.0"
+ org.eclipse.scada.protocol.ngp.model;bundle-version="0.5.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true

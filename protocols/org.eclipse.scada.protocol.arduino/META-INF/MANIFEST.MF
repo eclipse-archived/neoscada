@@ -4,11 +4,11 @@ Bundle-Name: Arduino Protocol (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.arduino
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.protocol.arduino;version="0.2.0";
+Export-Package: org.eclipse.scada.protocol.arduino;version="0.5.0";
   uses:="org.apache.mina.core.session,
    org.apache.mina.core.buffer,
-   org.apache.mina.core.service,
-   org.apache.mina.filter.codec"
+   org.apache.mina.filter.codec,
+   org.apache.mina.core.service"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.mina.core;version="[2.0.7,3.0.0)",
  org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
@@ -29,6 +29,6 @@ Import-Package: org.apache.mina.core;version="[2.0.7,3.0.0)",
  org.apache.mina.transport.socket;version="[2.0.7,3.0.0)",
  org.apache.mina.transport.socket.nio;version="[2.0.7,3.0.0)",
  org.apache.mina.util;version="[2.0.7,3.0.0)",
- org.eclipse.scada.utils;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.3.0",
+ org.eclipse.scada.utils;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
  org.slf4j;version="1.5.0"

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.eclipse.neoscada</groupId>
+        <artifactId>org.eclipse.neoscada-parent</artifactId>
+        <version>0.5.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+    
+    <name>/protocols/org.eclipse.neoscada.protocols-parent</name>
+    <artifactId>org.eclipse.neoscada.protocols-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+    	<module>org.eclipse.scada.protocols</module>
+    	<module>org.eclipse.scada.protocol.utils</module>
+    	<module>org.eclipse.scada.protocol.common</module>
+
+    	<module>org.eclipse.scada.protocol.arduino</module>
+
+    	<module>org.eclipse.scada.protocol.modbus</module>
+
+    	<module>org.eclipse.scada.protocol.iso8073</module>
+    	<module>org.eclipse.scada.protocol.dave</module>
+    	<module>org.eclipse.scada.protocol.tkpt</module>
+
+    	<module>org.eclipse.scada.protocol.syslog</module>
+    	<module>org.eclipse.scada.protocol.relp</module>
+    	<module>org.eclipse.scada.protocol.relp.service</module>
+    	<module>org.eclipse.scada.protocol.relp.service.main</module>
+
+    	<module>org.eclipse.neoscada.protocol.iec60870</module>
+    	<module>org.eclipse.neoscada.protocol.iec60870.client</module>
+    	<module>org.eclipse.neoscada.protocol.iec60870.client.data</module>
+    	<module>org.eclipse.neoscada.protocol.iec60870.server</module>
+    	<module>org.eclipse.neoscada.protocol.iec60870.server.data</module>
+    	<module>org.eclipse.neoscada.protocol.iec60870.server.data.tests</module>
+    	<module>org.eclipse.neoscada.protocol.iec60870.tests</module>
+    	<module>org.eclipse.neoscada.protocol.iec60870.feature</module>
+
+    	<module>org.eclipse.scada.protocol.ngp.model</module>
+    	<module>org.eclipse.scada.protocol.ngp.model.edit</module>
+    	<module>org.eclipse.scada.protocol.ngp.model.editor</module>
+    	<module>org.eclipse.scada.protocol.ngp.generator</module>
+    	<module>org.eclipse.scada.protocol.ngp.generator.ui</module>
+    	<module>org.eclipse.scada.protocol.ngp.common</module>
+    	<module>org.eclipse.scada.protocol.ngp.common.test</module>
+	</modules>
+
+</project>

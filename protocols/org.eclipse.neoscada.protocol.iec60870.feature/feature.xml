@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.neoscada.protocol.iec60870"
+      id="org.eclipse.neoscada.protocol.iec60870.feature"
       label="%featureName"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
-      license-feature="org.eclipse.scada.license"
-      license-feature-version="0.1.0.qualifier">
+      plugin="org.eclipse.scada.protocols"
+      license-feature="org.eclipse.scada.license.feature"
+      license-feature-version="0.5.0.qualifier">
 
    <description>
       %description
@@ -49,6 +50,13 @@
 
    <plugin
          id="org.eclipse.neoscada.protocol.iec60870.client.data"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.scada.protocols"
          download-size="0"
          install-size="0"
          version="0.0.0"

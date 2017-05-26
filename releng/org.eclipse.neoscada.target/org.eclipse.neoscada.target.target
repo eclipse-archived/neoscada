@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse NeoSCADA Target Platform (Base Fragment)" sequenceNumber="1495792627">
+<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1495827866">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
@@ -27,19 +27,25 @@
       <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/emf/updates/2.13milestones/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.3.0.v20170522-1736"/>
+      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/mdt/ocl/updates/milestones/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.acceleo.sdk.feature.group" version="3.7.1.201705121344"/>
+      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/acceleo/updates/milestones/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.paho.client.mqttv3" version="1.0.2"/>
       <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/paho/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="com.google.guava" version="18.0.0"/>
-      <unit id="com.google.guava.source" version="18.0.0"/>
-      <unit id="org.apache.commons.compress" version="1.9.0"/>
-      <unit id="org.apache.commons.compress.source" version="1.9.0"/>
-      <unit id="org.tukani.xz" version="1.5.0.20151105-1627"/>
-      <unit id="bcprov" version="1.52.0"/>
-      <unit id="bcpg" version="1.52.0"/>
-      <unit id="org.eclipse.packagedrone.utils.rpm" version="0.14.0.201606271302"/>
-      <repository location="http://packagedrone.eclipse.org/p2/neoscada-0.4-deps"/>
+      <unit id="io.netty.buffer" version="4.1.11.Final"/>
+      <unit id="io.netty.common" version="4.1.11.Final"/>
+      <unit id="io.netty.codec" version="4.1.11.Final"/>
+      <unit id="io.netty.resolver" version="4.1.11.Final"/>
+      <unit id="io.netty.handler" version="4.1.11.Final"/>
+      <unit id="io.netty.transport" version="4.1.11.Final"/>
+      <repository location="http://thedrone.packagedrone.org/p2/neoscada-05-dependencies/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
@@ -64,6 +70,8 @@
       <unit id="org.apache.mina.filter.compression.source" version="2.0.7.v201401141305"/>
       <unit id="com.google.gson" version="2.2.4.v201311231704"/>
       <unit id="com.google.gson.source" version="2.2.4.v201311231704"/>
+      <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
+      <unit id="com.google.guava.source" version="21.0.0.v20170206-1425"/>
       <unit id="org.junit" version="4.12.0.v201504281640"/>
       <unit id="org.junit.source" version="4.12.0.v201504281640"/>
       <unit id="com.jcraft.jzlib" version="1.1.1.v201205102305"/>

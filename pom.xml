@@ -30,6 +30,7 @@
 		<module>releng/org.eclipse.neoscada.target</module>
 		<module>utils/org.eclipse.scada.license.feature</module>
 		<module>utils</module>
+		<module>protocols</module>
 	</modules>
 
 
@@ -106,7 +107,7 @@
 					<jgit.ignore>
 						pom.xml
 					</jgit.ignore>
-					<!-- FIXME: leave this in until new build is finished, then remove -->
+					<!-- FIXME: leave this in until new build is finished, then remove --> 
 					<jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
 				</configuration>
 			</plugin>
