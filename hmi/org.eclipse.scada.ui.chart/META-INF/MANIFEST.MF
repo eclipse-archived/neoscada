@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Client Chart (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ui.chart;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.ui.chart.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ui.chart.configuration;version="0.2.0";uses:="org.eclipse.scada.ui.chart.model,org.eclipse.osgi.util,org.eclipse.scada.da.ui.connection.data",
@@ -88,7 +88,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.scada.ui.chart.model.edit;bundle-version="0.1.0",
  org.eclipse.emf.edit.ui;bundle-version="2.7.0",
  org.eclipse.core.databinding.property;bundle-version="1.4.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.subscription;version="0.1.0",
  org.eclipse.scada.hd.data;version="0.1.0",

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol CA (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.protocol.ngp.codec
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ca.protocol.ngp.codec;version="0.1.0";
   uses:="org.eclipse.scada.protocol.ngp.common.mc.protocol,
@@ -10,7 +10,7 @@ Export-Package: org.eclipse.scada.ca.protocol.ngp.codec;version="0.1.0";
    org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp,
    org.apache.mina.core.buffer,
    org.eclipse.scada.ca.data"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
  org.eclipse.scada.ca.data;version="0.1.0",
  org.eclipse.scada.ca.data.message;version="0.1.0",

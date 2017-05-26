@@ -5,5 +5,5 @@ Priority: optional
 Architecture: all
 Depends: org.eclipse.scada, org.eclipse.scada.external.p2-incubation
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
-Description: Eclipse SCADA P2 Repository - [[artifactId]]
+Description: Eclipse NeoSCADA P2 Repository - [[artifactId]]
 Distribution: development

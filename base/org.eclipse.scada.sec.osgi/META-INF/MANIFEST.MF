@@ -7,7 +7,7 @@ Export-Package: org.eclipse.scada.sec.osgi;version="0.1.0";
    org.osgi.framework,
    org.eclipse.scada.sec"
 Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Name: Eclipse SCADA Security OSGi (Incubation)
 Bundle-ManifestVersion: 2
 Import-Package: org.eclipse.scada.sec;version="0.1.0",
@@ -23,5 +23,5 @@ Import-Package: org.eclipse.scada.sec;version="0.1.0",
  org.osgi.util.tracker;version="1.5.0",
  org.slf4j;version="1.5.0"
 Bundle-SymbolicName: org.eclipse.scada.sec.osgi
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

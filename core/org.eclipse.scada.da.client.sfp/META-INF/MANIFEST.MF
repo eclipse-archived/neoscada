@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Small Footprint Protocol (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.client.sfp
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.client.sfp.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.client.sfp;version="0.2.0";
@@ -13,7 +13,7 @@ Export-Package: org.eclipse.scada.da.client.sfp;version="0.2.0";
    org.apache.mina.core.service,
    org.osgi.framework,
    org.openscada.core"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
  org.apache.mina.core.service;version="[2.0.2,3.0.0)",
  org.apache.mina.core.session;version="[2.0.2,3.0.0)",

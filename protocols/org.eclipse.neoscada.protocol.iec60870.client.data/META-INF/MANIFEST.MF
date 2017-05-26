@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA IEC60870-5-104 Data Client
 Bundle-SymbolicName: org.eclipse.neoscada.protocol.iec60870.client.data
-Bundle-Version: 0.4.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.netty.bootstrap;version="[4.0.0,5.0.0)",
  io.netty.buffer;version="[4.0.0,5.0.0)",
  io.netty.channel;version="[4.0.0,5.0.0)",

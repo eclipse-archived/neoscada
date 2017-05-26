@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
-Export-Package: org.eclipse.scada.utils.osgi.exporter;version="0.1.0";uses:="org.osgi.framework"
+Export-Package: org.eclipse.scada.utils.osgi.exporter;version="0.5.0";uses:="org.osgi.framework"
 Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Name: Eclipse SCADA Service Exporter (Incubation)
 Bundle-ManifestVersion: 2
 Import-Package: org.osgi.framework;version="1.6.0",org.slf4j;version="
  1.5.0"
 Bundle-SymbolicName: org.eclipse.scada.utils.osgi.exporter
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

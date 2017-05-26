@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol DA Common (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.common.ngp
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.common.ngp;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.ngp.common;version="0.1.0",
  org.eclipse.scada.da.protocol.ngp.codec;version="0.1.0",

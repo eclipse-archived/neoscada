@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Component Configuration Library (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.lib;singleton:=true
-Bundle-Version: 0.3.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.component.lib.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.configuration.component.lib;version="0.3.0";
@@ -22,7 +22,7 @@ Export-Package: org.eclipse.scada.configuration.component.lib;version="0.3.0";
    org.eclipse.scada.configuration.item,
    org.slf4j"
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.xml.resolver.apps;version="1.2.0",
  org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,

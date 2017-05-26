@@ -4,11 +4,11 @@
   <parent>
     <artifactId>org.eclipse.scada.hmi-parent</artifactId>
     <groupId>org.eclipse.scada.hmi</groupId>
-    <version>0.4.0-SNAPSHOT</version>
+    <version>0.5.0-SNAPSHOT</version>
     <relativePath>../org.eclipse.scada.hmi-parent</relativePath>
   </parent>
   <groupId>org.eclipse.scada.hmi</groupId>
   <artifactId>org.eclipse.scada.vi.model.edit</artifactId>
-  <version>0.2.0-SNAPSHOT</version>
+  <version>0.5.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 </project>

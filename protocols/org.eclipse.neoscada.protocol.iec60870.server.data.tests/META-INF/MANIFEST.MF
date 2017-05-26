@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Unit Tests for org.eclipse.neoscada.protocol.iec60870.server.data
 Bundle-SymbolicName: org.eclipse.neoscada.protocol.iec60870.server.data.tests
-Bundle-Version: 0.4.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Fragment-Host: org.eclipse.neoscada.protocol.iec60870.server.data;bundle-version="0.4.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.netty.channel.local;version="[4.0.0,5.0.0)",

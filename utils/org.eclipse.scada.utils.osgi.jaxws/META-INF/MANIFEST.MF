@@ -1,13 +1,16 @@
 Manifest-Version: 1.0
-Export-Package: org.eclipse.scada.utils.osgi.jaxws;version="0.1.0";uses:="org.osgi.framework,org.eclipse.scada.utils.osgi.exporter"
+Export-Package: org.eclipse.scada.utils.osgi.jaxws;version="0.5.0";
+ uses:="org.osgi.framework,org.eclipse.scada.utils.osgi.exporter"
 Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Name: Eclipse SCADA Utils OSGi JAX-WS Exporter (Incubation)
 Bundle-Activator: org.eclipse.scada.utils.osgi.jaxws.Activator
 Bundle-ManifestVersion: 2
-Import-Package: javax.jws,javax.xml.ws,org.eclipse.scada.utils.osgi.ex
- porter;version="0.1.0",org.osgi.framework;version="1.6.0",org.slf4j;v
- ersion="1.5.0"
+Import-Package: javax.jws,
+ javax.xml.ws,
+ org.eclipse.scada.utils.osgi.exporter;version="0.5.0",
+ org.osgi.framework;version="1.6.0",
+ org.slf4j;version="1.5.0"
 Bundle-SymbolicName: org.eclipse.scada.utils.osgi.jaxws
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

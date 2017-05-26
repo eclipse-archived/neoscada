@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Require-Bundle: org.eclipse.equinox.security;bundle-version="1.1.0"
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-ActivationPolicy: lazy
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Name: Eclipse SCADA Security Equinox JAAS Integration (Incubation)
 Bundle-Activator: org.eclipse.scada.sec.equinox.Activator
 Bundle-ManifestVersion: 2
@@ -17,5 +17,5 @@ Import-Package: javax.security.auth,
  org.eclipse.scada.utils.statuscodes;version="0.1.0",
  org.osgi.framework;version="1.7.0"
 Bundle-SymbolicName: org.eclipse.scada.sec.equinox;singleton:=true
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

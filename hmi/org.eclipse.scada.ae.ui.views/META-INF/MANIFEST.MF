@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.scada.ae.ui.views;singleton:=true
-Bundle-Version: 0.3.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.ui.views.Activator
 Bundle-Vendor: %Bundle-Vendor
 Export-Package: org.eclipse.scada.ae.ui.views.contributions;version="0.2.0",
@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.6.0",
  org.eclipse.core.databinding.property;bundle-version="1.2.0",
  org.eclipse.core.expressions;bundle-version="3.4.0",
  org.eclipse.scada.core.ui;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.google.common.base;version="15.0.0",
  com.google.gson;version="1.4.0",
  com.google.gson.reflect;version="1.4.0",

@@ -30,7 +30,7 @@ Export-Package: org.eclipse.scada.da.ui.widgets;version="0.2.0";
 Require-Bundle: org.eclipse.ui;bundle-version="3.5.0",
  org.eclipse.core.runtime;bundle-version="3.5.0",
  org.eclipse.ui.views;bundle-version="3.4.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.ibm.icu.text;version="50.1.0",
  org.eclipse.core.expressions,
  org.eclipse.scada.core;version="0.1.0",

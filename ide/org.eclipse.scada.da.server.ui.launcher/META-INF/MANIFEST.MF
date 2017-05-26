@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse NeoSCADA DA Hive Launcher (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.ui.launcher;singleton:=true
-Bundle-Version: 0.3.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.ui.launcher.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui;bundle-version="3.8.0",
@@ -25,7 +25,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.8.0",
  org.eclipse.pde.launching;bundle-version="3.6.101",
  org.eclipse.jdt.launching;bundle-version="3.7.0",
  org.eclipse.pde.core
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.core.resources,
  org.eclipse.core.variables,
  org.eclipse.scada.core;version="0.1.0",

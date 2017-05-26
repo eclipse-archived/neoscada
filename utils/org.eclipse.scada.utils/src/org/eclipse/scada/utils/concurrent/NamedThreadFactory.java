@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2017 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,6 +18,12 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * use guava instead
+ * 
+ * @author Juergen Rose <juergen.rose@ibh-systems.com>
+ */
+@Deprecated
 public class NamedThreadFactory implements ThreadFactory
 {
 

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Name: Eclipse SCADA DS JDBC Storage (Incubation)
 Bundle-Activator: org.eclipse.scada.ds.storage.jdbc.Activator
 Bundle-ManifestVersion: 2
@@ -18,5 +18,5 @@ Import-Package: javax.management,
  org.osgi.service.jdbc;version="1.0.0",
  org.slf4j;version="[1.5.0,2.0.0)"
 Bundle-SymbolicName: org.eclipse.scada.ds.storage.jdbc
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

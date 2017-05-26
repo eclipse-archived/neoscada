@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Component Generator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.generator;singleton:=true
-Bundle-Version: 0.3.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.configuration.component.generator;version="0.3.0";
   uses:="org.eclipse.emf.ecore,
@@ -21,7 +21,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.generator.component;bundle-version="0.1.0",
  org.eclipse.scada.configuration.component;bundle-version="0.3.0",
  org.eclipse.scada.configuration.utils;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.scada.ae.data;version="0.1.0",
  org.eclipse.scada.configuration.component.lib;version="0.3.0",
  org.eclipse.scada.configuration.component.lib.create;version="0.3.0",

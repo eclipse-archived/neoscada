@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Request Signature Module (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.authz.signature
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.sec.authz.signature;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.script,
  javax.xml.crypto,
  javax.xml.crypto.dsig,

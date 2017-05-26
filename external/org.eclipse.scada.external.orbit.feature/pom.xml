@@ -4,13 +4,13 @@
 	<parent>
 		<artifactId>org.eclipse.scada.external-parent</artifactId>
 		<groupId>org.eclipse.scada.external</groupId>
-		<version>0.4.0-SNAPSHOT</version>
+		<version>0.5.0-SNAPSHOT</version>
 		<relativePath>../org.eclipse.scada.external-parent</relativePath>
 	</parent>
 
 	<groupId>org.eclipse.scada.external.features</groupId>
 	<artifactId>org.eclipse.scada.external.orbit</artifactId>
-	<version>0.4.0-SNAPSHOT</version>
+	<version>0.5.0-SNAPSHOT</version>
 	<packaging>eclipse-feature</packaging>
 
 	<!-- source features -->

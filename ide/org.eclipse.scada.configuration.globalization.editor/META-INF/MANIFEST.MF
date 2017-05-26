@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.globalization.editor;singleton:=true
-Bundle-Version: 0.3.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.globalization.presentation.GlobalizeEditorPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -46,5 +46,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.da.server.exec.edit;visibility:=reexport,
  org.eclipse.scada.configuration.security.edit;bundle-version="0.1.0";visibility:=reexport,
  org.eclipse.scada.configuration;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

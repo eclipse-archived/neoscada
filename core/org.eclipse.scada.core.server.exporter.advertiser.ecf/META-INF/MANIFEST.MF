@@ -8,7 +8,7 @@ Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ecf.discovery;bundle-version="3.0.0",
  org.eclipse.ecf;bundle-version="3.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.server.exporter;version="0.1.0",
  org.eclipse.scada.utils.concurrent;version="0.1.0",

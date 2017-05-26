@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.ui.client.test;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.ui.client.test.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-Localization: plugin
@@ -22,7 +22,7 @@ Require-Bundle: org.eclipse.rcp,
  org.eclipse.scada.core;bundle-version="0.1.0",
  org.eclipse.scada.da.ui.widgets;bundle-version="0.1.0",
  org.eclipse.ui.console;bundle-version="3.5.200"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: com.ibm.icu.lang;version="50.1.1",
  com.ibm.icu.text;version="50.1.1",

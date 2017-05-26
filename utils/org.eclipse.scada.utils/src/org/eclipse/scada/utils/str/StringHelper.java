@@ -18,9 +18,12 @@ import org.eclipse.scada.utils.lang.Apply;
 
 /**
  * A helper class for string operations
- *
+ * 
+ * use guava instead
+ * 
  * @author Jens Reimann
  */
+@Deprecated
 public class StringHelper
 {
     /**

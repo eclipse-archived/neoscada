@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA HD Performance Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.perf.test;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.perf.test.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.ui,
@@ -14,7 +14,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.scada.core.connection.provider;bundle-version="0.1.0",
  org.eclipse.scada.utils;bundle-version="0.1.0",
  org.eclipse.scada.core;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.scada.hd.data;version="0.1.0",
  org.slf4j;version="1.5.0"
 Bundle-ActivationPolicy: lazy

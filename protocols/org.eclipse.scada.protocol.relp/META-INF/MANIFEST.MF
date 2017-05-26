@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Syslog Protocol Stack (Incubuation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.relp
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: io.netty.buffer;version="4.0.19",
  io.netty.channel;version="4.0.19",
  io.netty.channel.socket;version="4.0.19",

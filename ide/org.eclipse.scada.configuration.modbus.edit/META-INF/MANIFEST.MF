@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.modbus.edit;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.modbus.provider.ModbusEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -50,4 +50,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.security.edit;visibility:=reexport
 Import-Package: org.eclipse.scada.da.server.osgi.modbus;version="0.1.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

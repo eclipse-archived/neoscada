@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.license"
+      id="org.eclipse.scada.license.feature"
       label="Eclipse NeoSCADA License Feature (Incubation)"
-      version="0.1.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="Eclipse NeoSCADA Project">
 
    <description>
-      The Eclipse SCADA License Feature
+      The Eclipse NeoSCADA License Feature
    </description>
 
    <copyright>

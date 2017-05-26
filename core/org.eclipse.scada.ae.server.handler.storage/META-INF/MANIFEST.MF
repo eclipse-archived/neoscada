@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Event Storage Handler (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.handler.storage
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.scada.ae;version="0.2.0",
  org.eclipse.scada.ae.event;version="0.1.0",
  org.eclipse.scada.ae.server.handler,

@@ -4,11 +4,11 @@
   <parent>
     <artifactId>org.eclipse.scada.utils-parent</artifactId>
     <groupId>org.eclipse.scada.utils</groupId>
-		<version>0.4.0-SNAPSHOT</version>
-		<relativePath>../org.eclipse.scada.utils-parent</relativePath>
+		<version>0.5.0-SNAPSHOT</version>
+		<relativePath>../</relativePath>
   </parent>
   <groupId>org.eclipse.scada.utils.features</groupId>
   <artifactId>org.eclipse.scada.utils.ui.server.sdk</artifactId>
-  <version>0.4.0-SNAPSHOT</version>
+  <version>0.5.0-SNAPSHOT</version>
   <packaging>eclipse-feature</packaging>
 </project>

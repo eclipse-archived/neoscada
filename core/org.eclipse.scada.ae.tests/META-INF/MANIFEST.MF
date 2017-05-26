@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: AE Tests (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.tests
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Fragment-Host: org.eclipse.scada.ae;bundle-version="0.1.0"
 Import-Package: org.eclipse.scada.ae;version="0.1.0",
@@ -11,5 +11,5 @@ Import-Package: org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.server.storage;version="0.1.0",
  org.eclipse.scada.ae.server.storage.memory;version="0.1.0",
  org.eclipse.scada.core;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.junit;bundle-version="4.8.0"

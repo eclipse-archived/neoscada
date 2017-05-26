@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.utils_0.4.0.qualifier.jar" id="org.eclipse.scada.utils" version="0.4.0.qualifier">
+   <feature url="features/org.eclipse.scada.utils.feature_0.5.0.qualifier.jar" id="org.eclipse.scada.utils.feature" version="0.5.0.qualifier">
       <category name="org.eclipse.scada.utils.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.utils.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.utils.sdk" version="0.4.0.qualifier">
+   <feature url="features/org.eclipse.scada.ui.utils.feature_0.5.0.qualifier.jar" id="org.eclipse.scada.ui.utils.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.scada.ui.utils.category"/>
+   </feature>
+   <feature url="features/org.eclipse.scada.utils.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.scada.utils.sdk.feature" version="0.5.0.qualifier">
       <category name="org.eclipse.scada.utils.sdk.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ui.utils_0.4.0.qualifier.jar" id="org.eclipse.scada.ui.utils" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.utils.category"/>
-   </feature>
-   <feature url="features/org.eclipse.scada.utils.ui.server_0.4.0.qualifier.jar" id="org.eclipse.scada.utils.ui.server" version="0.4.0.qualifier">
+   <!-- 
+   <feature url="features/org.eclipse.scada.utils.ui.server_0.5.0.qualifier.jar" id="org.eclipse.scada.utils.ui.server" version="0.5.0.qualifier">
       <category name="org.eclipse.scada.utils.ui.server.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.utils.ui.server.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.utils.ui.server.sdk" version="0.4.0.qualifier">
+   <feature url="features/org.eclipse.scada.utils.ui.server.sdk_0.5.0.qualifier.jar" id="org.eclipse.scada.utils.ui.server.sdk" version="0.5.0.qualifier">
       <category name="org.eclipse.scada.utils.ui.server.sdk.category"/>
    </feature>
+    -->
    <category-def name="org.eclipse.scada.utils.category" label="Eclipse NeoSCADA Utils (Incubation)">
       <description>
          Non-UI utilities.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.scada.ui.utils.category" label="Eclipse NeoSCADA UI Utils (Incubation)">
+      <description>
+         UI utilities.
       </description>
    </category-def>
    <category-def name="org.eclipse.scada.utils.sdk.category" label="Eclipse NeoSCADA Utils SDK (Incubation)">
@@ -25,6 +32,7 @@
          Binaries and sources to all Eclipse NeoSCADA Utils modules.
       </description>
    </category-def>
+   <!-- 
    <category-def name="org.eclipse.scada.utils.ui.server.category" label="Eclipse NeoSCADA Server User Interface (Incubuation)">
       <description>
          Modules to create a server side user interface.
@@ -35,4 +43,5 @@
          Binaries and sources to the server side UI components.
       </description>
    </category-def>
+    -->
 </site>

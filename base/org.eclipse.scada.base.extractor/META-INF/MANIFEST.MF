@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Extractor Framework
 Bundle-SymbolicName: org.eclipse.scada.base.extractor
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.scada.base.extractor.convert;version="0.2.0";uses:="org.eclipse.scada.core",
  org.eclipse.scada.base.extractor.extract;version="0.2.0";uses:="org.eclipse.scada.base.extractor.convert,org.eclipse.scada.core,org.eclipse.scada.base.extractor.input",
  org.eclipse.scada.base.extractor.extract.pattern;version="0.2.0";uses:="org.eclipse.scada.base.extractor.convert,org.eclipse.scada.core,org.eclipse.scada.base.extractor.extract",

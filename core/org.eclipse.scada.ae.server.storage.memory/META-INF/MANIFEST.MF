@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA AE Storage In Memory Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.storage.memory
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.storage.memory.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.ae.server.storage.memory;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.filter;version="0.1.0",
  org.eclipse.scada.ae.filter.internal;version="0.1.0",

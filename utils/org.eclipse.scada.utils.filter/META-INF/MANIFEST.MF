@@ -1,13 +1,14 @@
 Manifest-Version: 1.0
-Export-Package: org.eclipse.scada.utils.filter;version="1.0.0",org.ecl
- ipse.scada.utils.filter.bean;version="1.0.0";uses:="org.eclipse.scada
- .utils.filter,org.eclipse.scada.utils.propertyeditors"
+Export-Package: org.eclipse.scada.utils.filter;version="0.5.0",
+ org.eclipse.scada.utils.filter.bean;version="0.5.0";
+ uses:="org.eclipse.scada.utils.propertyeditors,
+ org.eclipse.scada.utils.filter"
 Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Name: Eclipse SCADA Filter (Incubation)
 Bundle-ManifestVersion: 2
-Import-Package: org.eclipse.scada.utils.propertyeditors;version="0.1.0",
+Import-Package: org.eclipse.scada.utils.propertyeditors;version="0.5.0",
  org.slf4j;version="[1.5.0,2.0.0)"
 Bundle-SymbolicName: org.eclipse.scada.utils.filter
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 

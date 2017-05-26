@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.scada.da.ui.client.dataitem.details.extra;singleton:=true
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.client.dataitem.details.extra.Activator
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Localization: plugin
@@ -22,7 +22,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.scada.ui.utils;bundle-version="0.1.0",
  org.eclipse.scada.core.ui.styles;bundle-version="0.1.0",
  org.eclipse.scada.da.ui.styles;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.sec.callback;version="0.1.0",

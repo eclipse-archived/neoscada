@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.utils"
+      id="org.eclipse.scada.utils.feature"
       label="%featureName"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.scada.utils"
       license-feature="org.eclipse.license"
@@ -21,7 +21,7 @@
    </license>
 
    <includes
-         id="org.eclipse.scada.license"
+         id="org.eclipse.scada.license.feature"
          version="0.0.0"/>
 
    <requires>
@@ -111,18 +111,20 @@
          version="0.0.0"
          unpack="false"/>
 
+	<!-- use version from packagedrone
+   <plugin
+         id="org.eclipse.scada.utils.pkg.deb"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+         -->
+
    <plugin
          id="org.eclipse.scada.utils.core.runtime"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.utils.pkg.deb"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
 
    <plugin
          id="org.eclipse.scada.utils.ecore.validation"

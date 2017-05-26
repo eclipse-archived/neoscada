@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Server Sysinfo (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.sysinfo
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Export-Package: org.eclipse.scada.da.server.sysinfo;version="0.1.0",
  org.eclipse.scada.da.server.sysinfo.items;version="0.1.0",
  org.eclipse.scada.da.server.sysinfo.utils;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.server;version="0.1.0",
