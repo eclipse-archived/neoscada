@@ -33,12 +33,12 @@
       </description>
    </category-def>
    <!-- 
-   <category-def name="org.eclipse.scada.utils.ui.server.category" label="Eclipse NeoSCADA Server User Interface (Incubuation)">
+   <category-def name="org.eclipse.scada.utils.ui.server.category" label="Eclipse NeoSCADA Server User Interface (Incubation)">
       <description>
          Modules to create a server side user interface.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.utils.ui.server.sdk.category" label="Eclipse NeoSCADA Server User Interface SDK (Incubuation)">
+   <category-def name="org.eclipse.scada.utils.ui.server.sdk.category" label="Eclipse NeoSCADA Server User Interface SDK (Incubation)">
       <description>
          Binaries and sources to the server side UI components.
       </description>
