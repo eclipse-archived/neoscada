@@ -5,8 +5,8 @@
       version="0.5.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.scada.protocols"
-      license-feature="org.eclipse.scada.license.feature"
-      license-feature-version="0.5.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
 
    <description>
       %description
@@ -19,6 +19,18 @@
    <license url="%licenseURL">
       %license
    </license>
+
+   <requires>
+      <import plugin="com.google.guava"/>
+      <import plugin="io.netty.buffer"/>
+      <import plugin="io.netty.transport"/>
+      <import plugin="io.netty.codec"/>
+      <import plugin="io.netty.common"/>
+      <import plugin="org.eclipse.scada.utils"/>
+      <import plugin="org.slf4j.api"/>
+      <import plugin="io.netty.handler"/>
+      <import feature="org.eclipse.license" version="1.0.1"/>
+   </requires>
 
    <plugin
          id="org.eclipse.neoscada.protocol.iec60870"

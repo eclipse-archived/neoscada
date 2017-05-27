@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.protocols"
+      id="org.eclipse.neoscada.protocols.feature"
       label="%featureName"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.license"
       license-feature-version="1.0.1.qualifier">
@@ -20,7 +20,7 @@
    </license>
 
    <includes
-         id="org.eclipse.neoscada.protocol.iec60870"
+         id="org.eclipse.neoscada.protocol.iec60870.feature"
          version="0.0.0"/>
 
    <requires>
@@ -31,7 +31,13 @@
       <import plugin="com.google.guava"/>
       <import plugin="org.apache.mina.filter.compression"/>
       <import plugin="org.eclipse.scada.utils.stats"/>
-      <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
+      <import plugin="org.junit"/>
+      <import plugin="io.netty.buffer"/>
+      <import plugin="io.netty.transport"/>
+      <import plugin="io.netty.codec"/>
+      <import plugin="io.netty.common"/>
+      <import plugin="org.eclipse.equinox.app"/>
+      <import feature="org.eclipse.license" version="1.0.1"/>
    </requires>
 
    <plugin

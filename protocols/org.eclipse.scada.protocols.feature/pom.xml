@@ -1,24 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<artifactId>org.eclipse.neoscada.protocols-parent</artifactId>
 		<groupId>org.eclipse.neoscada</groupId>
 		<version>0.5.0-SNAPSHOT</version>
 		<relativePath>../</relativePath>
-	</parent><name>/protocols/org.eclipse.scada.protocols</name>
-	<artifactId>org.eclipse.scada.protocols</artifactId>
-	<packaging>eclipse-feature</packaging>
 
-	<!-- source features -->
+	</parent>
+
+	<name>/protocols/org.eclipse.scada.protocols.feature</name>
+	<artifactId>org.eclipse.neoscada.protocols.feature</artifactId>
+	<packaging>eclipse-feature</packaging>
 
 	<build>
 		<plugins>
-
 			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-source-feature-plugin</artifactId>
-				<version>${tycho-extras-version}</version>
+				<version>${tycho.extras.version}</version>
 				<executions>
 					<execution>
 						<id>source-feature</id>
@@ -35,7 +37,7 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-plugin</artifactId>
-				<version>${tycho-version}</version>
+				<version>${tycho.version}</version>
 				<executions>
 					<execution>
 						<id>attach-p2-metadata</id>

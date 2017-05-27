@@ -48,6 +48,11 @@
     	<module>org.eclipse.scada.protocol.ngp.generator.ui</module>
     	<module>org.eclipse.scada.protocol.ngp.common</module>
     	<module>org.eclipse.scada.protocol.ngp.common.test</module>
+
+    	<module>org.eclipse.scada.protocols.feature</module>
+    	<module>org.eclipse.scada.protocols.editors.feature</module>
+    	<module>org.eclipse.neoscada.protocols.doc.isv</module>
+    	<module>org.eclipse.scada.protocols.sdk.feature</module>
 	</modules>
 
 </project>
