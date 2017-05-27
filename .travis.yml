@@ -16,7 +16,8 @@ before_script:
   - export PATH=$PWD/maven/bin:${PATH}
   - hash -r
 
-script: ./travis.sh
+script:
+  - bash travis.sh
 
 # The following upgrades Java during the build in
 # order to work around an older Java 8 compiler issue
