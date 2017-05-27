@@ -1,0 +1,1 @@
+use original Eclipse License feature instead
