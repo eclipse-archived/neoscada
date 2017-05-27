@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.protocols_0.4.0.qualifier.jar" id="org.eclipse.scada.protocols" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.protocols.category"/>
+   <feature url="features/org.eclipse.neoscada.protocols.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.protocols.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.protocols.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.protocols.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.protocols.sdk" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.protocols.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.protocols.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.protocols.sdk.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.protocols.sdk.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.protocols.editors_0.4.0.qualifier.jar" id="org.eclipse.scada.protocols.editors" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.protocols.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.protocols.editors.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.protocols.editors.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.protocols.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.protocols.category" label="Eclipse SCADA Protocols (Incubation)">
+   <category-def name="org.eclipse.neoscada.protocols.category" label="Eclipse SCADA Protocols (Incubation)">
       <description>
          Various protocol implementations.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.protocols.sdk.category" label="Eclipse SCADA Protocols SDK (Incubation)">
+   <category-def name="org.eclipse.neoscada.protocols.sdk.category" label="Eclipse SCADA Protocols SDK (Incubation)">
       <description>
          Binaries and sources to all Eclipse NeoSCADA Protocols modules.
       </description>
