@@ -4,6 +4,9 @@ set -e
 
 ### Build output file setup
 
+mvn -version
+exit 0
+
 export OUTPUT=build.txt
 touch $OUTPUT
 
