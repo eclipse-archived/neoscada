@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.utils.feature_0.5.0.qualifier.jar" id="org.eclipse.scada.utils.feature" version="0.5.0.qualifier">
-      <category name="org.eclipse.scada.utils.category"/>
+   <feature url="features/org.eclipse.neoscada.utils.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.utils.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.utils.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ui.utils.feature_0.5.0.qualifier.jar" id="org.eclipse.scada.ui.utils.feature" version="0.5.0.qualifier">
-      <category name="org.eclipse.scada.ui.utils.category"/>
+   <feature url="features/org.eclipse.neoscada.ui.utils.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.ui.utils.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.ui.utils.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.utils.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.scada.utils.sdk.feature" version="0.5.0.qualifier">
-      <category name="org.eclipse.scada.utils.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.utils.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.utils.sdk.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.utils.sdk.category"/>
    </feature>
    <!-- 
    <feature url="features/org.eclipse.scada.utils.ui.server_0.5.0.qualifier.jar" id="org.eclipse.scada.utils.ui.server" version="0.5.0.qualifier">
@@ -17,17 +17,17 @@
       <category name="org.eclipse.scada.utils.ui.server.sdk.category"/>
    </feature>
     -->
-   <category-def name="org.eclipse.scada.utils.category" label="Eclipse NeoSCADA Utils (Incubation)">
+   <category-def name="org.eclipse.neoscada.utils.category" label="Eclipse NeoSCADA Utils (Incubation)">
       <description>
          Non-UI utilities.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.ui.utils.category" label="Eclipse NeoSCADA UI Utils (Incubation)">
+   <category-def name="org.eclipse.neoscada.ui.utils.category" label="Eclipse NeoSCADA UI Utils (Incubation)">
       <description>
          UI utilities.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.utils.sdk.category" label="Eclipse NeoSCADA Utils SDK (Incubation)">
+   <category-def name="org.eclipse.neoscada.utils.sdk.category" label="Eclipse NeoSCADA Utils SDK (Incubation)">
       <description>
          Binaries and sources to all Eclipse NeoSCADA Utils modules.
       </description>

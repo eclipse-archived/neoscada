@@ -17,13 +17,13 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.eclipse.neoscada</groupId>
-			<artifactId>org.eclipse.scada.utils.feature</artifactId>
+			<artifactId>org.eclipse.neoscada.utils.feature</artifactId>
 			<version>${project.version}</version>
 			<type>eclipse-feature</type>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.neoscada</groupId>
-			<artifactId>org.eclipse.scada.ui.utils.feature</artifactId>
+			<artifactId>org.eclipse.neoscada.ui.utils.feature</artifactId>
 			<version>${project.version}</version>
 			<type>eclipse-feature</type>
 		</dependency>

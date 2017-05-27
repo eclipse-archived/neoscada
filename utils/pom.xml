@@ -15,8 +15,6 @@
     <packaging>pom</packaging>
 
     <modules>
-    	<!-- license feature is created by top module! -->
-    	
     	<!-- Non UI bundles -->
 		<module>org.eclipse.scada.utils</module>
 		<module>org.eclipse.scada.utils.test</module>

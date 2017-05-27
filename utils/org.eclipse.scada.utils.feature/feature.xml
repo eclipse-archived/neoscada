@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.utils.feature"
+      id="org.eclipse.neoscada.utils.feature"
       label="%featureName"
       version="0.5.0.qualifier"
       provider-name="%providerName"
@@ -20,19 +20,21 @@
       %license
    </license>
 
-   <includes
-         id="org.eclipse.scada.license.feature"
-         version="0.0.0"/>
-
    <requires>
-      <import plugin="com.google.guava"/>
-      <import plugin="org.apache.commons.beanutils"/>
       <import plugin="org.slf4j.api"/>
+      <import plugin="org.apache.commons.beanutils"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="javax.inject"/>
+      <import plugin="com.google.guava"/>
       <import plugin="osgi.enterprise"/>
       <import plugin="org.apache.commons.dbcp"/>
       <import plugin="org.apache.commons.pool"/>
+      <import feature="org.eclipse.license" version="1.0.1"/>
+      <import plugin="org.apache.felix.gogo.command"/>
+      <import plugin="org.eclipse.core.runtime" version="3.13.0" match="greaterOrEqual"/>
+      <import plugin="com.ibm.icu"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
    </requires>
 
    <plugin
@@ -110,14 +112,6 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
-	<!-- use version from packagedrone
-   <plugin
-         id="org.eclipse.scada.utils.pkg.deb"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
-         -->
 
    <plugin
          id="org.eclipse.scada.utils.core.runtime"

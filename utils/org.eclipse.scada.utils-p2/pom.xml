@@ -11,7 +11,7 @@
 	</parent>
 
 	<name>/utils/org.eclipse.scada.utils.p2-incubation</name>
-	<artifactId>org.eclipse.scada.utils.p2-incubation</artifactId>
+	<artifactId>org.eclipse.neoscada.utils.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
 
 	<build>
@@ -34,7 +34,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2/org.eclipse.scada.utils</prefix>
+										<prefix>/usr/share/eclipsescada/p2/org.eclipse.neoscada.utils</prefix>
 									</mapper>
 								</data>
 							</dataSet>
@@ -73,7 +73,7 @@
 							</rulesets>
 							<entries>
 								<entry>
-									<name>/usr/share/eclipsescada/p2/org.eclipse.scada.utils</name>
+									<name>/usr/share/eclipsescada/p2/org.eclipse.neoscada.utils</name>
 									<collect>
 										<from>target/repository</from>
 										<directories>true</directories>

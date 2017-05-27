@@ -11,7 +11,7 @@
 	</parent>
 
 	<name>/utils/org.eclipse.scada.utils.feature</name>
-	<artifactId>org.eclipse.scada.utils.feature</artifactId>
+	<artifactId>org.eclipse.neoscada.utils.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
 	<build>
