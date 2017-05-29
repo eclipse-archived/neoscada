@@ -2,7 +2,7 @@ language: java
 jdk:
   - oraclejdk8
 
-before_script:
+install:
   - echo ==== Setting up toolchain.xml ====
   - ls /usr/lib/jvm
   - ls
@@ -17,7 +17,7 @@ before_script:
   - hash -r
 
 script:
-  - bash travis.sh
+  - mvn -version
 
 # The following upgrades Java during the build in
 # order to work around an older Java 8 compiler issue
