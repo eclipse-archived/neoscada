@@ -8,7 +8,14 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh "mvn clean install"
+				sh 'mvn clean install'
+			}
+		}
+		stage('Archive') {
+			steps {
+				archive '**/*-p2/target/*p2-*.zip'
+				archive '**/*-p2/target/*p2-*.deb'
+				archive '**/*-p2/target/*p2-*.rpm'
 			}
 		}
 		stage('Deploy') {
