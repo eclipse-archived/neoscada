@@ -7,7 +7,6 @@ pipeline {
 		        maven: 'M3',
 			    )
  			sh "mvn clean install"
-    		}
         }
         stage('Deploy') {
             steps {
