@@ -6,7 +6,6 @@ install:
   - echo ==== Setting up toolchain.xml ====
   - ls /usr/lib/jvm
   - ls
-  - cp build-tools/src/main/toolchains/travis-ci.xml ~/.m2/toolchains.xml
   - echo ==== Setting up Maven 3.3 for Travis ====
   - wget -O maven.tar.gz http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
   - mkdir maven
@@ -17,7 +16,7 @@ install:
   - hash -r
 
 script:
-  - mvn -version
+  - travis_wait mvn clean install
 
 # The following upgrades Java during the build in
 # order to work around an older Java 8 compiler issue
