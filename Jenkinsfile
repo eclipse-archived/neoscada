@@ -1,19 +1,16 @@
 pipeline {
-    agent any
+	agent any
 
-    stages {
-        stage('Build') {
+	stages {
+		stage('Build') {
 			steps {
-				withMaven(
-			        maven: 'M3',
-				    )
- 				sh "mvn clean install"
- 			}
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
+				sh "mvn clean install"
+			}
+		}
+		stage('Deploy') {
+			steps {
+				echo 'Deploying....'
+			}
+		}
+	}
 }
