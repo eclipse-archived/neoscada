@@ -1,15 +1,17 @@
 Manifest-Version: 1.0
-Export-Package: org.eclipse.scada.ds;version="0.1.0";uses:="org.eclipse.scada.utils.concurrent,org.osgi.framework"
-Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.5.0.qualifier
-Bundle-Name: Eclipse SCADA DA (Incubation)
 Bundle-ManifestVersion: 2
-Import-Package: com.google.common.io;version="10.0.1",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
- org.eclipse.scada.utils.concurrent.task;version="0.1.0",
- org.eclipse.scada.utils.lang;version="0.1.0",
- org.eclipse.scada.utils.osgi;version="0.1.0",
- org.osgi.framework;version="1.6.0";resolution:=optional
+Bundle-Name: Eclipse SCADA DA (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ds
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-
+Export-Package: org.eclipse.scada.ds;version="0.5.0";
+  uses:="org.eclipse.scada.utils.concurrent,
+   org.osgi.framework"
+Import-Package: com.google.common.io;version="21.0.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.eclipse.scada.utils.concurrent.task;version="0.5.0",
+ org.eclipse.scada.utils.lang;version="0.5.0",
+ org.eclipse.scada.utils.osgi;version="0.5.0",
+ org.osgi.framework;
+  resolution:=optional

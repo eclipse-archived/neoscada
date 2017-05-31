@@ -1,33 +1,41 @@
 Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Common Utilities (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.utils
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.scada.utils;version="0.5.0",
  org.eclipse.scada.utils.beans;version="0.5.0",
- org.eclipse.scada.utils.collection;version="0.5.0";uses:="org.eclipse.scada.utils.lang",
+ org.eclipse.scada.utils.collection;version="0.5.0";
+  uses:=org.eclipse.scada.utils.lang,
  org.eclipse.scada.utils.concurrent;version="0.5.0",
- org.eclipse.scada.utils.concurrent.task;version="0.5.0";uses:="org.eclipse.scada.utils.concurrent",
+ org.eclipse.scada.utils.concurrent.task;version="0.5.0";
+  uses:=org.eclipse.scada.utils.concurrent,
  org.eclipse.scada.utils.init;version="0.5.0",
  org.eclipse.scada.utils.inject;version="0.5.0",
- org.eclipse.scada.utils.interner;version="0.5.0";uses:="com.google.common.collect",
+ org.eclipse.scada.utils.interner;version="0.5.0";
+  uses:=com.google.common.collect,
  org.eclipse.scada.utils.io;version="0.5.0",
  org.eclipse.scada.utils.lang;version="0.5.0",
  org.eclipse.scada.utils.lifecycle;version="0.5.0",
  org.eclipse.scada.utils.progress;version="0.5.0",
  org.eclipse.scada.utils.reflect;version="0.5.0",
- org.eclipse.scada.utils.script;version="0.5.0";uses:="javax.script",
+ org.eclipse.scada.utils.script;version="0.5.0";
+  uses:=javax.script,
  org.eclipse.scada.utils.sql;version="0.5.0",
  org.eclipse.scada.utils.statuscodes;version="0.5.0",
- org.eclipse.scada.utils.str;version="0.5.0";uses:="org.eclipse.scada.utils.lang"
-Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.5.0.qualifier
-Bundle-Name: Eclipse SCADA Common Utilities (Incubation)
-Bundle-ManifestVersion: 2
-Bundle-Description: Utility classes for use throughout the Eclipse SCA
- DA project
-Bundle-SymbolicName: org.eclipse.scada.utils
-Import-Package: com.google.common.collect;version="10.0.0";resolution:=optional,
- javax.inject;version="1.0.0";resolution:=optional,
- javax.management;resolution:=optional,
- javax.script;resolution:=optional,
- org.apache.commons.beanutils;version="1.8.0";resolution:=optional,
- org.slf4j;version="[1.5.0,2.0.0)"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-
+ org.eclipse.scada.utils.str;version="0.5.0";
+  uses:=org.eclipse.scada.utils.lang
+Import-Package: com.google.common.collect;version="21.0.0";
+  resolution:=optional,
+ javax.inject;version="1.0.0";
+  resolution:=optional,
+ javax.management;
+  resolution:=optional,
+ javax.script;
+  resolution:=optional,
+ org.apache.commons.beanutils;version="1.8.0";
+  resolution:=optional,
+ org.slf4j;version="[1.7.2,2.0.0)"
+Bundle-Description: Utility classes for use throughout the Eclipse SCADA project

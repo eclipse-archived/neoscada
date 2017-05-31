@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
-Require-Bundle: org.junit;bundle-version="4.8.0"
-Bundle-Vendor: Eclipse NeoSCADA Project
-Fragment-Host: org.eclipse.scada.utils;bundle-version="0.5.0"
-Bundle-Version: 0.5.0.qualifier
-Bundle-Name: Eclipse SCADA Utils Testing (Incubation)
 Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Utils Testing (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.utils.test
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Fragment-Host: org.eclipse.scada.utils;bundle-version="0.5.0"
 Import-Package: javax.script
-
+Require-Bundle: org.junit

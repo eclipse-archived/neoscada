@@ -1,9 +1,8 @@
 Manifest-Version: 1.0
-Export-Package: org.eclipse.scada.sec.utils.password;version="0.5.0"
-Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.5.0.qualifier
-Bundle-Name: Security Utilities (Incubation)
 Bundle-ManifestVersion: 2
+Bundle-Name: Security Utilities (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.utils
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-
+Export-Package: org.eclipse.scada.sec.utils.password;version="0.5.0"

@@ -4,6 +4,6 @@ Bundle-Name: Security Utilities Unit Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.utils.test
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Fragment-Host: org.eclipse.scada.sec.utils;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.junit;bundle-version="4.8.0"
+Fragment-Host: org.eclipse.scada.sec.utils;bundle-version="0.1.0"
+Require-Bundle: org.junit

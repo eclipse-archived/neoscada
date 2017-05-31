@@ -1,25 +1,35 @@
 Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Security (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.sec
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.scada.sec;version="0.5.0";
   uses:="org.eclipse.scada.utils.concurrent,
    org.eclipse.scada.sec.authz,
    org.eclipse.scada.utils.statuscodes,
    org.eclipse.scada.sec.callback,
    org.eclipse.scada.sec.authn",
- org.eclipse.scada.sec.audit;version="0.5.0";uses:="org.eclipse.scada.sec.authz,org.eclipse.scada.sec",
- org.eclipse.scada.sec.authn;version="0.5.0";uses:="org.eclipse.scada.sec.utils.password,org.eclipse.scada.sec.callback,org.eclipse.scada.sec",
- org.eclipse.scada.sec.authz;version="0.5.0";uses:="org.eclipse.scada.utils.concurrent,org.eclipse.scada.sec.callback,org.eclipse.scada.sec",
- org.eclipse.scada.sec.callback;version="0.5.0";uses:="org.eclipse.scada.utils.concurrent,javax.security.auth.callback,org.eclipse.scada.sec.utils.password"
-Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.5.0.qualifier
-Bundle-Name: Eclipse SCADA Security (Incubation)
-Bundle-ManifestVersion: 2
+ org.eclipse.scada.sec.audit;version="0.5.0";
+  uses:="org.eclipse.scada.sec.authz,
+   org.eclipse.scada.sec",
+ org.eclipse.scada.sec.authn;version="0.5.0";
+  uses:="org.eclipse.scada.sec.utils.password,
+   org.eclipse.scada.sec.callback,
+   org.eclipse.scada.sec",
+ org.eclipse.scada.sec.authz;version="0.5.0";
+  uses:="org.eclipse.scada.utils.concurrent,
+   org.eclipse.scada.sec.callback,
+   org.eclipse.scada.sec",
+ org.eclipse.scada.sec.callback;version="0.5.0";
+  uses:="org.eclipse.scada.utils.concurrent,
+   javax.security.auth.callback,
+   org.eclipse.scada.sec.utils.password"
 Import-Package: javax.security.auth.callback,
  org.eclipse.scada.sec.utils.password;version="0.5.0",
  org.eclipse.scada.utils.concurrent;version="0.5.0",
  org.eclipse.scada.utils.lang;version="0.5.0",
  org.eclipse.scada.utils.statuscodes;version="0.5.0",
  org.eclipse.scada.utils.str;version="0.5.0",
- org.slf4j;version="1.6.0"
-Bundle-SymbolicName: org.eclipse.scada.sec
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-
+ org.slf4j;version="[1.7.2,2.0.0)"
