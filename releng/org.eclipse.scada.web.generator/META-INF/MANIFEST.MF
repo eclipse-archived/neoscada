@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Acceleo Generator Module Runtime Plug-in
+Bundle-Name: Acceleo Generator Module Runtime Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.web.generator
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.scada.web.generator.Activator
-Bundle-Vendor: Eclipse Modeling Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.core.runtime, 
  org.eclipse.emf.ecore, 
  org.eclipse.emf.ecore,

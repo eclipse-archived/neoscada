@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Visual Interface Preview Editor
+Bundle-Name: Eclipse SCADA Visual Interface Preview Editor (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ide.vi.preview.editor;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.ide.vi.preview.editor.Activator

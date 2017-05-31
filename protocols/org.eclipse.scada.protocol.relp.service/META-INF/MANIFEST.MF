@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Services based on RELP
+Bundle-Name: Services based on RELP (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.relp.service;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project

@@ -1,53 +1,28 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.eclipse.neoscada</groupId>
-		<artifactId>org.eclipse.neoscada.base-parent</artifactId>
-		<version>0.5.0-SNAPSHOT</version>
-	</parent><name>/base/org.eclipse.scada.base-parent</name>
+    <parent>
+        <groupId>org.eclipse.neoscada</groupId>
+        <artifactId>org.eclipse.neoscada-parent</artifactId>
+        <version>0.5.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+    
+    <name>/base/org.eclipse.neoscada.base-parent</name>
+    <artifactId>org.eclipse.neoscada.base-parent</artifactId>
+    <packaging>pom</packaging>
 
-	<artifactId>org.eclipse.scada.base-parent</artifactId>
-	<packaging>pom</packaging>
-
-	<properties>
-		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.base.git</tycho.scmUrl>
-	</properties>
-
-	<repositories>
-		<repository>
-			<id>repo.eclipse.scada.org</id>
-			<name>Eclipse SCADA Repository</name>
-			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
-	<profiles>
-		<profile>
-			<id>nightly</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<repositories>
-				<repository>
-					<id>eclipse.scada.utils</id>
-					<layout>p2</layout>
-					<url>https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2</url>
-				</repository>
-			</repositories>
-		</profile>
-	</profiles>
-
-	<modules>
-
-		<module>../org.eclipse.scada.base-p2</module> <!-- holds the p2 repository -->
+    <modules>
+    	<module>org.eclipse.scada.sec.utils</module>
+    	<module>org.eclipse.scada.sec</module>
+    
+    	<module>org.eclipse.scada.core</module>
+    	<module>org.eclipse.scada.core.test</module>
+    
+    <!-- 
+		<module>../org.eclipse.scada.base-p2</module> 
 
 		<module>../org.eclipse.scada.base.feature</module>
 		<module>../org.eclipse.scada.base.sdk.feature</module>
@@ -86,5 +61,7 @@
 
 		<module>../org.eclipse.scada.base.json</module>
 		<module>../org.eclipse.scada.base.json.test</module>
+     -->
 	</modules>
+
 </project>

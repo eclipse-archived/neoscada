@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: IEC60870-5-104 Hive
+Bundle-Name: IEC60870-5-104 Hive (Incubation)
 Bundle-SymbolicName: org.eclipse.neoscada.da.server.iec60870
 Bundle-Version: 0.5.0.qualifier
-Bundle-Vendor: Eclipse NeoSCADA
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.google.common.util.concurrent;version="15.0.0",
  org.eclipse.neoscada.core.common.iec60870;version="0.4.0",

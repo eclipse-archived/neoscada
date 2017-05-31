@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Testing Tools for IEC60870
+Bundle-Name: Testing Tools for IEC60870 (Incubation)
 Bundle-SymbolicName: org.eclipse.neoscada.protocol.iec60870.server.testing
 Bundle-Version: 0.5.0.qualifier
-Bundle-Vendor: Eclipse NeoSCADA
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.neoscada.protocol.iec60870;bundle-version="0.5.0",
  ch.qos.logback.classic;bundle-version="1.0.7",

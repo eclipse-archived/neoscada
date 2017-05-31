@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Utilities to the Eclipse Core Runtime System
+Bundle-Name: Utilities to the Eclipse Core Runtime System (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.utils.core.runtime
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project

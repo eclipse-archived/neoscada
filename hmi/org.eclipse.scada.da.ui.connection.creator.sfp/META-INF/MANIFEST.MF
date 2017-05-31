@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Small Footprint Protocol Connection Creator
+Bundle-Name: Small Footprint Protocol Connection Creator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.ui.connection.creator.sfp;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project

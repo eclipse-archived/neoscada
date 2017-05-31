@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Script Event Handler
+Bundle-Name: Script Event Handler (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.handler.script
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project

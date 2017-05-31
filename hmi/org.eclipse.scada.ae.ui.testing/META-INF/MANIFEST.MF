@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Testing Plug-in
+Bundle-Name: Testing Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.ui.testing;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.ui.testing.Activator

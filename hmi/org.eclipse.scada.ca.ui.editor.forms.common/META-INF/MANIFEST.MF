@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: CA Common Editor Forms
+Bundle-Name: CA Common Editor Forms (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.ui.editor.forms.common;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.ui.editor.forms.common.internal.Activator

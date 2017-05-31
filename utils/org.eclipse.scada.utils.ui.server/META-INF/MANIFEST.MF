@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Server UI Utilities
+Bundle-Name: Server UI Utilities (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.utils.ui.server
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project

@@ -1,5 +1,5 @@
 Bundle-ManifestVersion: 2
-Bundle-Name: Test
+Bundle-Name: Testing Plugin for datasource (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.changecounter.test
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: org.eclipse.scada.da.datasource.changecounter;bundle-version="0.1.0"

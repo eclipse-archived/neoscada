@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: VI End User UI
+Bundle-Name: VI End User UI (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.vi.ui.user;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-Activator: org.eclipse.scada.vi.ui.user.Activator

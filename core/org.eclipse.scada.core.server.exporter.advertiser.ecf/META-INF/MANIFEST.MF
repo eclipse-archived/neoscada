@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA ECF Advertiser (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.server.exporter.advertiser.ecf
 Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.core.server.exporter.advertiser.ecf.Activator
-Bundle-Vendor: Eclipse SCADA Project
+Bundle-Vendor: Eclipse NeoSCADA Project
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ecf.discovery;bundle-version="3.0.0",
  org.eclipse.ecf;bundle-version="3.0.0"

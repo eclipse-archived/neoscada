@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA IEC60870 Client
+Bundle-Name: Eclipse SCADA IEC60870 Client (Incubation)
 Bundle-SymbolicName: org.eclipse.neoscada.protocol.iec60870.client
 Bundle-Version: 0.5.0.qualifier
-Bundle-Vendor: Eclipse NeoSCADA
+Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.neoscada.protocol.iec60870.client;version="0.5.0";
   uses:="org.eclipse.neoscada.protocol.iec60870,
