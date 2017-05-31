@@ -4,26 +4,38 @@ Bundle-Name: Eclipse SCADA NextGenerationProtocol Common (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.ngp.common
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.protocol.ngp.common;version="0.1.0";
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.protocol.ngp.common;version="0.5.0";
   uses:="org.apache.mina.filter.ssl,
    org.apache.mina.core.session,
    org.eclipse.scada.protocol.ngp.common.mc.handshake,
    org.apache.mina.core.filterchain,
    org.eclipse.scada.protocol.common",
- org.eclipse.scada.protocol.ngp.common.mc;version="0.1.0";
+ org.eclipse.scada.protocol.ngp.common.mc;version="0.5.0";
   uses:="org.eclipse.scada.protocol.ngp.common.mc.protocol,
    org.apache.mina.core.session,
    org.apache.mina.filter.keepalive,
    org.apache.mina.core.filterchain,
    org.apache.mina.core.write",
- org.eclipse.scada.protocol.ngp.common.mc.frame;version="0.1.0";uses:="org.apache.mina.core.session,org.apache.mina.core.buffer,org.apache.mina.filter.codec",
- org.eclipse.scada.protocol.ngp.common.mc.handshake;version="0.1.0";uses:="org.apache.mina.core.session,org.apache.mina.core.filterchain,org.eclipse.scada.protocol.ngp.common",
- org.eclipse.scada.protocol.ngp.common.mc.message;version="0.1.0";uses:="org.apache.mina.core.buffer",
- org.eclipse.scada.protocol.ngp.common.mc.protocol;version="0.1.0";uses:="org.apache.mina.core.session,org.eclipse.scada.protocol.ngp.common.mc.message",
- org.eclipse.scada.protocol.ngp.common.mc.protocol.serialize;version="0.1.0";uses:="org.eclipse.scada.protocol.ngp.common.mc.protocol,org.apache.mina.core.session,org.eclipse.scada.protocol.ngp.common.mc.message",
- org.eclipse.scada.protocol.ngp.common.utils;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.google.common.collect;version="10.0.0",
+ org.eclipse.scada.protocol.ngp.common.mc.frame;version="0.5.0";
+  uses:="org.apache.mina.core.session,
+   org.apache.mina.core.buffer,
+   org.apache.mina.filter.codec",
+ org.eclipse.scada.protocol.ngp.common.mc.handshake;version="0.5.0";
+  uses:="org.apache.mina.core.session,
+   org.apache.mina.core.filterchain,
+   org.eclipse.scada.protocol.ngp.common",
+ org.eclipse.scada.protocol.ngp.common.mc.message;version="0.5.0";
+  uses:=org.apache.mina.core.buffer,
+ org.eclipse.scada.protocol.ngp.common.mc.protocol;version="0.5.0";
+  uses:="org.apache.mina.core.session,
+   org.eclipse.scada.protocol.ngp.common.mc.message",
+ org.eclipse.scada.protocol.ngp.common.mc.protocol.serialize;version="0.5.0";
+  uses:="org.eclipse.scada.protocol.ngp.common.mc.protocol,
+   org.apache.mina.core.session,
+   org.eclipse.scada.protocol.ngp.common.mc.message",
+ org.eclipse.scada.protocol.ngp.common.utils;version="0.5.0"
+Import-Package: com.google.common.collect;version="21.0.0",
  javax.net.ssl,
  org.apache.mina.core;version="[2.0.7,3.0.0)",
  org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
@@ -41,9 +53,9 @@ Import-Package: com.google.common.collect;version="10.0.0",
  org.apache.mina.filter.logging;version="[2.0.7,3.0.0)",
  org.apache.mina.filter.ssl;version="[2.0.7,3.0.0)",
  org.apache.mina.filter.util;version="[2.0.7,3.0.0)",
- org.eclipse.scada.protocol.common;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
- org.eclipse.scada.utils.interner;version="0.1.0",
- org.eclipse.scada.utils.lang;version="0.1.0",
- org.eclipse.scada.utils.str;version="0.1.0",
- org.slf4j;version="1.5.0"
+ org.eclipse.scada.protocol.common;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.eclipse.scada.utils.interner;version="0.5.0",
+ org.eclipse.scada.utils.lang;version="0.5.0",
+ org.eclipse.scada.utils.str;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"

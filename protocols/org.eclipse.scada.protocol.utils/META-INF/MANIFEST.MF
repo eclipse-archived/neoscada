@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.eclipse.scada.protocol.utils
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.google.common.io;version="12.0.0",
- org.apache.mina.core.buffer;version="[2.0.2,3.0.0)",
- org.slf4j;version="1.6.0"
 Export-Package: org.eclipse.scada.protocol.utils;version="0.5.0"
+Import-Package: com.google.common.io;version="21.0.0",
+ org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
+ org.slf4j;version="[1.7.2,2.0.0)"

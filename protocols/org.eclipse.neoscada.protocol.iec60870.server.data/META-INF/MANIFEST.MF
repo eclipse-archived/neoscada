@@ -5,21 +5,6 @@ Bundle-SymbolicName: org.eclipse.neoscada.protocol.iec60870.server.data
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.google.common.base;version="12.0.0",
- com.google.common.collect;version="12.0.0",
- com.google.common.util.concurrent;version="12.0.0",
- io.netty.channel;version="[4.0.0,5.0.0)",
- io.netty.channel.socket;version="[4.0.0,5.0.0)",
- io.netty.util.concurrent;version="[4.0.0,5.0.0)",
- org.eclipse.neoscada.protocol.iec60870;version="0.5.0",
- org.eclipse.neoscada.protocol.iec60870.apci;version="0.5.0",
- org.eclipse.neoscada.protocol.iec60870.asdu;version="0.5.0",
- org.eclipse.neoscada.protocol.iec60870.asdu.message;version="0.5.0",
- org.eclipse.neoscada.protocol.iec60870.asdu.types;version="0.5.0",
- org.eclipse.neoscada.protocol.iec60870.io;version="0.5.0",
- org.eclipse.neoscada.protocol.iec60870.server;version="0.5.0",
- org.eclipse.scada.utils.concurrent;version="0.5.0",
- org.slf4j;version="1.7.2"
 Export-Package: org.eclipse.neoscada.protocol.iec60870.server.data;version="0.5.0";
   uses:="com.google.common.base,
    com.google.common.util.concurrent,
@@ -32,7 +17,7 @@ Export-Package: org.eclipse.neoscada.protocol.iec60870.server.data;version="0.5.
    org.eclipse.neoscada.protocol.iec60870.apci,
    io.netty.channel.socket",
  org.eclipse.neoscada.protocol.iec60870.server.data.event;version="0.5.0";
-  uses:="org.eclipse.neoscada.protocol.iec60870.asdu.types",
+  uses:=org.eclipse.neoscada.protocol.iec60870.asdu.types,
  org.eclipse.neoscada.protocol.iec60870.server.data.model;version="0.5.0";
   uses:="org.eclipse.neoscada.protocol.iec60870.asdu.types,
    org.eclipse.neoscada.protocol.iec60870.io,
@@ -45,3 +30,18 @@ Export-Package: org.eclipse.neoscada.protocol.iec60870.server.data;version="0.5.
    com.google.common.util.concurrent,
    org.eclipse.neoscada.protocol.iec60870.asdu,
    org.eclipse.neoscada.protocol.iec60870.server.data"
+Import-Package: com.google.common.base;version="21.0.0",
+ com.google.common.collect;version="21.0.0",
+ com.google.common.util.concurrent;version="21.0.0",
+ io.netty.channel;version="[4.0.0,5.0.0)",
+ io.netty.channel.socket;version="[4.0.0,5.0.0)",
+ io.netty.util.concurrent;version="[4.0.0,5.0.0)",
+ org.eclipse.neoscada.protocol.iec60870;version="0.5.0",
+ org.eclipse.neoscada.protocol.iec60870.apci;version="0.5.0",
+ org.eclipse.neoscada.protocol.iec60870.asdu;version="0.5.0",
+ org.eclipse.neoscada.protocol.iec60870.asdu.message;version="0.5.0",
+ org.eclipse.neoscada.protocol.iec60870.asdu.types;version="0.5.0",
+ org.eclipse.neoscada.protocol.iec60870.io;version="0.5.0",
+ org.eclipse.neoscada.protocol.iec60870.server;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"

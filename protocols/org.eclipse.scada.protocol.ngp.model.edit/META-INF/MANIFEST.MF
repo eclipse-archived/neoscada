@@ -1,15 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.protocol.ngp.model.edit;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.scada.protocol.ngp.model.Protocol.provider.
- NextGenerationProtocolEditPlugin$Implementation
 Bundle-Vendor: %providerName
-Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.protocol.ngp.model.Protocol.provider;
- version="0.5.0";
+Bundle-Activator: org.eclipse.scada.protocol.ngp.model.Protocol.provider.NextGenerationProtocolEditPlugin$Implementation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.protocol.ngp.model.Protocol.provider;version="0.5.0";
   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.common.util,
    org.eclipse.scada.protocol.ngp.model.Protocol.util,
@@ -17,8 +15,9 @@ Export-Package: org.eclipse.scada.protocol.ngp.model.Protocol.provider;
    org.eclipse.emf.edit.provider,
    org.eclipse.emf.common.notify"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.scada.protocol.ngp.model;bundle-version="0.5.0";
+ org.eclipse.emf.edit;
   visibility:=reexport,
- org.eclipse.emf.edit;bundle-version="2.8.0";visibility:=reexport
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+ org.eclipse.scada.protocol.ngp.model;
+  visibility:=reexport
+Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy

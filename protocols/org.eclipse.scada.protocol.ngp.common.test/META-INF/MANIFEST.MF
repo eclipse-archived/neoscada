@@ -5,12 +5,12 @@ Bundle-SymbolicName: org.eclipse.scada.protocol.ngp.common.test
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.google.common.io;version="12.0.0",
+Import-Package: com.google.common.io;version="21.0.0",
  org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
  org.apache.mina.core.filterchain;version="[2.0.7,3.0.0)",
  org.apache.mina.core.service;version="[2.0.7,3.0.0)",
  org.apache.mina.core.session;version="[2.0.7,3.0.0)",
  org.apache.mina.filter.codec;version="[2.0.7,3.0.0)",
- org.eclipse.scada.protocol.utils;version="0.1.0",
- org.junit;version="4.8.0"
-Require-Bundle: org.eclipse.scada.protocol.ngp.common;bundle-version="0.1.0"
+ org.eclipse.scada.protocol.utils;version="0.5.0",
+ org.junit;version="4.12.0"
+Require-Bundle: org.eclipse.scada.protocol.ngp.common

@@ -5,17 +5,18 @@ Bundle-SymbolicName: org.eclipse.scada.protocol.relp
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: io.netty.buffer;version="4.0.19",
- io.netty.channel;version="4.0.19",
- io.netty.channel.socket;version="4.0.19",
- io.netty.handler.codec;version="4.0.19",
- io.netty.handler.codec.string;version="4.0.19",
- io.netty.util;version="4.0.19.Final",
- io.netty.util.concurrent;version="4.0.19",
- io.netty.util.internal;version="4.0.19",
+Export-Package: org.eclipse.scada.protocol.relp;version="0.5.0";
+  uses:="io.netty.channel,
+   io.netty.buffer",
+ org.eclipse.scada.protocol.relp.data;version="0.5.0"
+Import-Package: io.netty.buffer;version="[4.0.0,5.0.0)",
+ io.netty.channel;version="[4.0.0,5.0.0)",
+ io.netty.channel.socket;version="[4.0.0,5.0.0)",
+ io.netty.handler.codec;version="[4.0.0,5.0.0)",
+ io.netty.handler.codec.string;version="[4.0.0,5.0.0)",
+ io.netty.util;version="[4.0.0,5.0.0)",
+ io.netty.util.concurrent;version="[4.0.0,5.0.0)",
+ io.netty.util.internal;version="[4.0.0,5.0.0)",
  org.eclipse.scada.protocol.syslog;version="0.5.0",
  org.eclipse.scada.protocol.syslog.time;version="0.5.0",
- org.slf4j;version="1.7.2"
-Export-Package: org.eclipse.scada.protocol.relp;version="0.5.0";
- uses:="io.netty.channel,io.netty.buffer",
- org.eclipse.scada.protocol.relp.data;version="0.5.0"
+ org.slf4j;version="[1.7.2,2.0.0)"

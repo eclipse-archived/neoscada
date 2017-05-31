@@ -4,14 +4,14 @@ Bundle-Name: Eclipse SCADA ISO 8073 (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.iso8073
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.scada.protocol.iso8073;version="0.5.0";
   uses:="org.apache.mina.core.session,
    org.apache.mina.core.buffer,
    org.apache.mina.core.filterchain,
    org.apache.mina.core.write"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.apache.mina.core.buffer;version="[2.0.2,3.0.0)",
- org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
- org.apache.mina.core.session;version="[2.0.2,3.0.0)",
- org.apache.mina.core.write;version="[2.0.2,3.0.0)",
- org.slf4j;version="1.7.0"
+Import-Package: org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
+ org.apache.mina.core.filterchain;version="[2.0.7,3.0.0)",
+ org.apache.mina.core.session;version="[2.0.7,3.0.0)",
+ org.apache.mina.core.write;version="[2.0.7,3.0.0)",
+ org.slf4j;version="[1.7.2,2.0.0)"
