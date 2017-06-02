@@ -16,7 +16,16 @@
 
     <modules>
     	<module>org.eclipse.scada.sec.utils</module>
+    	<module>org.eclipse.scada.sec.utils.test</module>
     	<module>org.eclipse.scada.sec</module>
+    	<module>org.eclipse.scada.sec.osgi</module>
+    	<module>org.eclipse.scada.sec.equinox</module>
+    	<module>org.eclipse.scada.sec.audit.log.slf4j</module>
+    	<module>org.eclipse.scada.sec.auth.logon</module>
+    	<module>org.eclipse.scada.sec.authn.osgi.cfg.priority</module>
+
+    	<module>org.eclipse.scada.sec.feature</module>
+    	<module>org.eclipse.scada.sec.sdk.feature</module>
     
     	<module>org.eclipse.scada.core</module>
     	<module>org.eclipse.scada.core.test</module>
@@ -37,6 +46,10 @@
 		
 		<module>org.eclipse.scada.base.pipe</module>
 
+		<module>org.eclipse.scada.sec.provider.dummy</module>
+		<module>org.eclipse.scada.sec.provider.plain.property</module>
+		<module>org.eclipse.scada.sec.provider.plain.property.test</module>
+		
     <!-- 
 		<module>../org.eclipse.scada.base-p2</module> 
 
