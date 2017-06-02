@@ -21,6 +21,22 @@
     	<module>org.eclipse.scada.core</module>
     	<module>org.eclipse.scada.core.test</module>
     
+		<module>org.eclipse.scada.base.json</module>
+		<module>org.eclipse.scada.base.json.test</module>
+
+		<module>org.eclipse.scada.hds</module>
+
+		<module>org.eclipse.scada.ds</module>
+		<module>org.eclipse.scada.ds.storage</module>
+		<module>org.eclipse.scada.ds.storage.file</module>
+		<module>org.eclipse.scada.ds.storage.jdbc</module>
+
+		<module>org.eclipse.scada.base.extractor</module>
+		<module>org.eclipse.scada.base.extractor.test</module>
+		<module>org.eclipse.scada.base.extractor.mqtt</module>
+		
+		<module>org.eclipse.scada.base.pipe</module>
+
     <!-- 
 		<module>../org.eclipse.scada.base-p2</module> 
 

@@ -82,6 +82,7 @@ location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/orbit/R-builds/R
  * we actually want is "a.b.c.*" which is "[a.b.c,a.b.c+1)".
  */
 
+	// FIXME: CQs for the current versions, cross check with manifest files
 	org.apache.commons.beanutils[1.8.0,1.8.1)
 	org.apache.commons.beanutils.source[1.8.0,1.8.1)
 	org.apache.commons.codec [1.9.0,2.0.0)
@@ -106,10 +107,9 @@ location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/orbit/R-builds/R
 	org.apache.mina.filter.compression[2.0.7,2.0.8)
 	org.apache.mina.filter.compression.source[2.0.7,2.0.8)
 
-	com.google.gson[2.2.4,2.2.5)
-	com.google.gson.source[2.2.4,2.2.5)
+	com.google.gson[2.7.0,3.0.0)
+	com.google.gson.source[2.7.0,3.0.0)
 	
-	// FIXME: CQs for the current version
 	com.google.guava [21.0.0,22.0.0)
 	com.google.guava.source [21.0.0,22.0.0)
 
