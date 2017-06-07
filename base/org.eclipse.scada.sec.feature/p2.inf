@@ -1,2 +1,2 @@
 properties.0.name=download.stats
-properties.0.value=org.eclipse.scada.sec.feature
+properties.0.value=org.eclipse.neoscada.sec.feature

@@ -11,7 +11,7 @@
 	</parent>
 	
 	<name>/base/org.eclipse.scada.sec.feature</name>
-	<artifactId>org.eclipse.scada.sec.feature</artifactId>
+	<artifactId>org.eclipse.neoscada.sec.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 
 	<build>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.sec.sdk.feature"
+      id="org.eclipse.neoscada.sec.sdk.feature"
       label="%featureName"
       version="0.5.0.qualifier"
       provider-name="%providerName"
@@ -20,11 +20,11 @@
    </license>
 
    <includes
-         id="org.eclipse.scada.sec.feature"
+         id="org.eclipse.neoscada.sec.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.scada.sec.feature.source"
+         id="org.eclipse.neoscada.sec.feature.source"
          version="0.0.0"/>
 
 </feature>
