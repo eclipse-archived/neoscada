@@ -31,6 +31,7 @@
 		<module>utils</module>
 		<module>protocols</module>
 		<module>base</module>
+		<module>chart</module>
 	</modules>
 
 
