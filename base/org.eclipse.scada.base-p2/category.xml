@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.base_0.4.0.qualifier.jar" id="org.eclipse.scada.base" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.base.category"/>
+   <feature url="features/org.eclipse.neoscada.base.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.base.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.base.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.base.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.base.sdk" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.base.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.base.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.base.sdk.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.base.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.base.category" label="Eclipse NeoSCADA Base (Incubation)"/>
-   <category-def name="org.eclipse.scada.base.sdk.category" label="Eclipse NeoSCADA Base SDK (Incubation)"/>
+   <category-def name="org.eclipse.neoscada.base.category" label="Eclipse NeoSCADA Base (Incubation)"/>
+   <category-def name="org.eclipse.neoscada.base.sdk.category" label="Eclipse NeoSCADA Base SDK (Incubation)"/>
 </site>

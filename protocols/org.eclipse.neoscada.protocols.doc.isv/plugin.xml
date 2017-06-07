@@ -19,4 +19,10 @@
       </toc>
    </extension>
    
+   <extension point="org.eclipse.pde.core.javadoc">
+      <javadoc path="reference/api">
+            <plugin id="org.eclipse.scada.protocols" /> 
+      </javadoc>
+   </extension>
+   
 </plugin>

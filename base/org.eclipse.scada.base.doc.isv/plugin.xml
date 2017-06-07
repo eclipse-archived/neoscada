@@ -21,7 +21,7 @@
    
    <extension point="org.eclipse.pde.core.javadoc">
       <javadoc path="reference/api">
-            <plugin id="org.eclipse.scada.utils" /> 
+            <plugin id="org.eclipse.scada.base" /> 
       </javadoc>
    </extension>
 
