@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.chart_0.4.0.qualifier.jar" id="org.eclipse.scada.chart" version="0.4.0.qualifier"/>
-   <feature url="features/org.eclipse.scada.chart.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.chart.sdk" version="0.4.0.qualifier"/>
+   <feature url="features/org.eclipse.neoscada.chart.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.chart.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.chart.category"/>
+   </feature>
+   <feature url="features/org.eclipse.neoscada.chart.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.chart.sdk.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.chart.sdk.category"/>
+   </feature>
+   <category-def name="org.eclipse.neoscada.chart.category" label="Eclipse SCADA chart (Incubation)">
+      <description>
+         A chart implementations.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.neoscada.chart.sdk.category" label="Eclipse SCADA chart SDK (Incubation)">
+      <description>
+         Binaries and sources to all Eclipse NeoSCADA chart modules.
+      </description>
+   </category-def>
 </site>

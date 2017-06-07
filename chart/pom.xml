@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.eclipse.neoscada</groupId>
+        <artifactId>org.eclipse.neoscada-parent</artifactId>
+        <version>0.5.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+    
+    <name>/chart/org.eclipse.neoscada.chart-parent</name>
+    <artifactId>org.eclipse.neoscada.chart-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+    	<module>org.eclipse.scada.chart</module>
+    	<module>org.eclipse.scada.chart.swt</module>
+    	<module>org.eclipse.scada.chart.swt.sample</module>
+
+    	<module>org.eclipse.scada.chart.feature</module>
+    	<module>org.eclipse.neoscada.chart.doc.isv</module>
+    	<module>org.eclipse.scada.chart.sdk.feature</module>
+    	
+    	<module>org.eclipse.scada.chart-p2</module>
+	</modules>
+
+</project>
