@@ -14,6 +14,8 @@ pipeline {
 		stage('Archive') {
 			steps {
 				archive '**/*-p2/target/*p2-*.zip'
+				archive '**/*-product/target/products/*.tar.gz'
+				archive '**/*-product/target/products/*.zip'
 				archive '**/*-p2/target/*p2-*.deb'
 				archive '**/*-p2/target/*p2-*.rpm'
 			}
