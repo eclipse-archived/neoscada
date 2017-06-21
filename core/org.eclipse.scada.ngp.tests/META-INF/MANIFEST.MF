@@ -4,7 +4,6 @@ Bundle-Name: Eclipse SCADA NGP Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ngp.tests
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Require-Bundle: org.junit;bundle-version="4.8.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.mina.core;version="[2.0.7,3.0.0)",
  org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
@@ -18,7 +17,8 @@ Import-Package: org.apache.mina.core;version="[2.0.7,3.0.0)",
  org.apache.mina.filter.compression;version="[2.0.7,3.0.0)",
  org.apache.mina.filter.stream;version="[2.0.7,3.0.0)",
  org.apache.mina.filter.util;version="[2.0.7,3.0.0)",
- org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.core.data.message;version="0.1.0",
- org.eclipse.scada.hd.data;version="0.1.0",
- org.eclipse.scada.hd.data.message;version="0.1.0"
+ org.eclipse.scada.core.data;version="0.5.0",
+ org.eclipse.scada.core.data.message;version="0.5.0",
+ org.eclipse.scada.hd.data;version="0.5.0",
+ org.eclipse.scada.hd.data.message;version="0.5.0"
+Require-Bundle: org.junit

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.core.common"
+      id="org.eclipse.neoscada.core.common.feature"
       label="%featureName"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.scada.core"
-      license-feature="org.eclipse.scada.license"
-      license-feature-version="0.1.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
 
    <description>
       %description
@@ -21,8 +21,8 @@
    </license>
 
    <requires>
-      <import feature="org.eclipse.scada.core.protocols" version="0.1.0.qualifier"/>
-      <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
+      <import feature="org.eclipse.license" version="1.0.1"/>
+      <import feature="org.eclipse.neoscada.core.protocols.feature" version="0.5.0.qualifier"/>
    </requires>
 
    <plugin

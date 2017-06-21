@@ -3,9 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol DA Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.client.ngp
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.da.client.ngp.internal.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.da.client.ngp;version="0.2.0";
+Bundle-Activator: org.eclipse.scada.da.client.ngp.internal.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.da.client.ngp;version="0.5.0";
   uses:="org.eclipse.scada.utils.concurrent,
    org.eclipse.scada.core.client.ngp,
    org.eclipse.scada.core,
@@ -15,33 +16,32 @@ Export-Package: org.eclipse.scada.da.client.ngp;version="0.2.0";
    org.apache.mina.transport.socket,
    org.eclipse.scada.core.data,
    org.eclipse.scada.da.core",
- org.eclipse.scada.da.client.ngp.internal;version="0.2.0";
+ org.eclipse.scada.da.client.ngp.internal;version="0.5.0";
   uses:="org.eclipse.scada.da.data,
    org.eclipse.scada.da.core.browser,
    org.osgi.framework,
-   org.eclipse.scada.core.client";x-friends:="org.eclipse.scada.da.ui.connection.creator.ngp"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
+   org.eclipse.scada.core.client";x-friends:=org.eclipse.scada.da.ui.connection.creator.ngp
+Import-Package: org.apache.mina.core.filterchain;version="[2.0.7,3.0.0)",
  org.apache.mina.core.service;version="[2.0.7,3.0.0)",
  org.apache.mina.transport.socket;version="[2.0.7,3.0.0)",
  org.apache.mina.transport.socket.nio;version="[2.0.7,3.0.0)",
- org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.client;version="0.1.0",
- org.eclipse.scada.core.client.common;version="0.1.0",
- org.eclipse.scada.core.client.ngp;version="0.1.0",
- org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.core.ngp.common;version="0.1.0",
- org.eclipse.scada.da.client;version="0.1.0",
- org.eclipse.scada.da.common.ngp;version="0.1.0",
- org.eclipse.scada.da.core;version="0.1.0",
- org.eclipse.scada.da.core.browser;version="0.1.0",
- org.eclipse.scada.da.data;version="0.1.0",
- org.eclipse.scada.da.data.message;version="0.1.0",
- org.eclipse.scada.protocol.ngp.common;version="0.1.0",
- org.eclipse.scada.sec;version="0.1.0",
- org.eclipse.scada.sec.callback;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
- org.eclipse.scada.utils.stats;version="0.1.0",
- org.osgi.framework;version="1.3.0",
- org.slf4j;version="1.5.0"
+ org.eclipse.scada.core;version="0.5.0",
+ org.eclipse.scada.core.client;version="0.5.0",
+ org.eclipse.scada.core.client.common;version="0.5.0",
+ org.eclipse.scada.core.client.ngp;version="0.5.0",
+ org.eclipse.scada.core.data;version="0.5.0",
+ org.eclipse.scada.core.ngp.common;version="0.5.0",
+ org.eclipse.scada.da.client;version="0.5.0",
+ org.eclipse.scada.da.common.ngp;version="0.5.0",
+ org.eclipse.scada.da.core;version="0.5.0",
+ org.eclipse.scada.da.core.browser;version="0.5.0",
+ org.eclipse.scada.da.data;version="0.5.0",
+ org.eclipse.scada.da.data.message;version="0.5.0",
+ org.eclipse.scada.protocol.ngp.common;version="0.5.0",
+ org.eclipse.scada.sec;version="0.5.0",
+ org.eclipse.scada.sec.callback;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.eclipse.scada.utils.stats;version="0.5.0",
+ org.osgi.framework,
+ org.slf4j;version="[1.7.2,2.0.0)"
 Bundle-ActivationPolicy: lazy

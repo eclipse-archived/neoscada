@@ -4,9 +4,9 @@ Bundle-Name: Eclipse SCADA Monitor Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.monitor
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.ae.monitor;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.scada.ae;version="0.1.0",
- org.eclipse.scada.ae.data;version="0.1.0",
- org.eclipse.scada.sec;version="0.1.0",
- org.osgi.framework;version="1.7.0"
+Export-Package: org.eclipse.scada.ae.monitor;version="0.5.0"
+Import-Package: org.eclipse.scada.ae;version="0.5.0",
+ org.eclipse.scada.ae.data;version="0.5.0",
+ org.eclipse.scada.sec;version="0.5.0",
+ org.osgi.framework

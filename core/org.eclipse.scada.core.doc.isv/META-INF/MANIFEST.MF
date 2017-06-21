@@ -1,8 +1,7 @@
 Manifest-Version: 1.0
-Require-Bundle: org.eclipse.pde.core
-Bundle-Vendor: Eclipse NeoSCADA Project
-Bundle-Version: 0.5.0.qualifier
-Bundle-Name: Core Documentation (Incubation)
 Bundle-ManifestVersion: 2
+Bundle-Name: Core Documentation (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.doc.isv;singleton:=true
-
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: Eclipse NeoSCADA Project
+Require-Bundle: org.eclipse.pde.core

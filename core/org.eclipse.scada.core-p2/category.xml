@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.core_0.4.0.qualifier.jar" id="org.eclipse.scada.core" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.core.category"/>
+   <feature url="features/org.eclipse.neoscada.core.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.core.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.core.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.core.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.core.sdk" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.core.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.core.feature.sdk_0.5.0.qualifier.jar" id="org.eclipse.neoscada.core.sdk.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.core.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.core.category" label="Eclipse NeoSCADA Core System (Incubation)">
+   <category-def name="org.eclipse.neoscada.core.category" label="Eclipse NeoSCADA Core System (Incubation)">
       <description>
          The core of the Eclipse NeoSCADA system.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.core.sdk.category" label="Eclipse NeoSCADA Core System SDK (Incubation)">
+   <category-def name="org.eclipse.neoscada.core.sdk.category" label="Eclipse NeoSCADA Core System SDK (Incubation)">
       <description>
          Binaries and sources of the Eclipse NeoSCADA core system.
       </description>

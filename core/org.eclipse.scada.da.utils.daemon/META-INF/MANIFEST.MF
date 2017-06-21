@@ -4,8 +4,8 @@ Bundle-Name: Common Daemon Utilities (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.utils.daemon
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.da.utils.daemon;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.da.utils.daemon;version="0.5.0"
 Import-Package: org.apache.commons.daemon;version="1.0.5",
- org.eclipse.scada.da.server.exporter;version="0.1.0",
- org.slf4j;version="1.5.0"
+ org.eclipse.scada.da.server.exporter;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"

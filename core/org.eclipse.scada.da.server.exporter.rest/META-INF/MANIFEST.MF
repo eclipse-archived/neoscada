@@ -5,24 +5,23 @@ Bundle-SymbolicName: org.eclipse.scada.da.server.exporter.rest
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.google.common.io;version="12.0.0",
- com.google.gson;version="2.1.0",
- com.google.gson.stream;version="2.1.0",
+Import-Package: com.google.common.io;version="21.0.0",
+ com.google.gson;version="2.7.0",
+ com.google.gson.stream;version="2.7.0",
  javax.ws.rs;version="1.1.1",
  javax.ws.rs.core;version="1.1.1",
  javax.ws.rs.ext;version="1.1.1",
- org.eclipse.scada.base.json;version="0.1.0",
- org.eclipse.scada.ca;version="0.1.0",
- org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.da.client;version="0.1.0",
- org.eclipse.scada.da.core;version="0.1.0",
- org.eclipse.scada.da.server.exporter.common;version="0.3.0",
- org.eclipse.scada.sec;version="0.1.0",
- org.eclipse.scada.utils;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
- org.eclipse.scada.utils.str;version="0.1.0",
- org.osgi.framework;version="1.7.0",
- org.slf4j;version="1.7.2"
-Service-Component: OSGI-INF/item-resource.xml,OSGI-INF/configuration-factory.xml,
- OSGI-INF/variant-provider.xml, OSGI-INF/div-provider.xml
+ org.eclipse.scada.base.json;version="0.5.0",
+ org.eclipse.scada.ca;version="0.5.0",
+ org.eclipse.scada.core;version="0.5.0",
+ org.eclipse.scada.core.data;version="0.5.0",
+ org.eclipse.scada.da.client;version="0.5.0",
+ org.eclipse.scada.da.core;version="0.5.0",
+ org.eclipse.scada.da.server.exporter.common;version="0.5.0",
+ org.eclipse.scada.sec;version="0.5.0",
+ org.eclipse.scada.utils;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.eclipse.scada.utils.str;version="0.5.0",
+ org.osgi.framework,
+ org.slf4j;version="[1.7.2,2.0.0)"
+Service-Component: OSGI-INF/item-resource.xml,OSGI-INF/configuration-factory.xml,OSGI-INF/variant-provider.xml, OSGI-INF/div-provider.xml

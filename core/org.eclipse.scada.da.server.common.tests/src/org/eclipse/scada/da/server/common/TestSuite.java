@@ -12,13 +12,12 @@ package org.eclipse.scada.da.server.common;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith ( Suite.class )
-@SuiteClasses ( {
+@Suite.SuiteClasses ( {
         BrowserTest1.class,
         BrowserTest2.class
 } )
-public class AllTests
+public class TestSuite
 {
 }

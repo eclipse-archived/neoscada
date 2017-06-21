@@ -4,6 +4,7 @@ Bundle-Name: Eclipse SCADA Core Data (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.data
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.core.data.message;version="0.1.0";uses:="org.eclipse.scada.core.data"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.core.data;version="0.5.0",
+ org.eclipse.scada.core.data.message;version="0.5.0";
+  uses:=org.eclipse.scada.core.data

@@ -1,23 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
-		<artifactId>org.eclipse.scada.core-parent</artifactId>
-		<groupId>org.eclipse.scada.core</groupId>
+		<artifactId>org.eclipse.neoscada.core-parent</artifactId>
+		<groupId>org.eclipse.neoscada</groupId>
 		<version>0.5.0-SNAPSHOT</version>
-		<relativePath>../org.eclipse.scada.core-parent</relativePath>
+		<relativePath>../</relativePath>
 	</parent>
-	<groupId>org.eclipse.scada.core</groupId>
+
+	<name>/core/org.eclipse.scada.core.doc.isv</name>
 	<artifactId>org.eclipse.scada.core.doc.isv</artifactId>
-	<version>0.5.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
-	
+
 	<dependencies>
 		<dependency>
-  			<groupId>org.eclipse.scada.core.features</groupId>
-  			<artifactId>org.eclipse.scada.core</artifactId>
-			<version>0.5.0-SNAPSHOT</version>
-			<type>pom</type>
+			<groupId>org.eclipse.neoscada</groupId>
+			<artifactId>org.eclipse.neoscada.core.feature</artifactId>
+			<version>${project.version}</version>
+			<type>eclipse-feature</type>
 		</dependency>
 	</dependencies>
 
@@ -38,8 +40,9 @@
 							<tocFile>${basedir}/toc/tocjavadoc.xml</tocFile>
 							<javadocOptions>
 								<additionalArguments>
-									<additionalArgument>-linkoffline http://docs.oracle.com/javase/7/docs/api/ ${basedir}/input/javase-7</additionalArgument>
-									<additionalArgument>-linkoffline http://www.osgi.org/javadoc/r4v43/ ${basedir}/input/osgi-r4v43</additionalArgument>
+									<additionalArgument><![CDATA[-linkoffline http://docs.oracle.com/javase/8/docs/api/ ${basedir}/input/javase-8]]></additionalArgument>
+									<additionalArgument><![CDATA[-linkoffline https://osgi.org/javadoc/r6/core/ ${basedir}/input/osgi-r6-core]]></additionalArgument>
+									<additionalArgument><![CDATA[-linkoffline https://osgi.org/javadoc/r6/enterprise/ ${basedir}/input/osgi-r6-enterprise]]></additionalArgument>
 								</additionalArguments>
 							</javadocOptions>
 						</configuration>
@@ -48,5 +51,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 </project>

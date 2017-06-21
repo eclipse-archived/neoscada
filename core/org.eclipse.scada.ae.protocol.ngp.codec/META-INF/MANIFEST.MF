@@ -4,21 +4,21 @@ Bundle-Name: Eclipse SCADA NextGenerationProtocol AE (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.protocol.ngp.codec
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.ae.protocol.ngp.codec;version="0.1.0";
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.ae.protocol.ngp.codec;version="0.5.0";
   uses:="org.eclipse.scada.protocol.ngp.common.mc.protocol,
    org.eclipse.scada.protocol.ngp.common.utils,
    org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp,
    org.apache.mina.core.buffer,
    org.eclipse.scada.ae.data"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
- org.eclipse.scada.ae.data;version="0.1.0",
- org.eclipse.scada.ae.data.message;version="0.1.0",
- org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.core.ngp.common.codec.osbp;version="0.1.0",
- org.eclipse.scada.core.protocol.ngp.codec;version="0.1.0",
- org.eclipse.scada.protocol.ngp.common;version="0.1.0",
- org.eclipse.scada.protocol.ngp.common.mc.protocol;version="0.1.0",
- org.eclipse.scada.protocol.ngp.common.utils;version="0.1.0",
- org.slf4j;version="1.6.0"
+ org.eclipse.scada.ae.data;version="0.5.0",
+ org.eclipse.scada.ae.data.message;version="0.5.0",
+ org.eclipse.scada.core;version="0.5.0",
+ org.eclipse.scada.core.data;version="0.5.0",
+ org.eclipse.scada.core.ngp.common.codec.osbp;version="0.5.0",
+ org.eclipse.scada.core.protocol.ngp.codec;version="0.5.0",
+ org.eclipse.scada.protocol.ngp.common;version="0.5.0",
+ org.eclipse.scada.protocol.ngp.common.mc.protocol;version="0.5.0",
+ org.eclipse.scada.protocol.ngp.common.utils;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"

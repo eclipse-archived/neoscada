@@ -4,29 +4,40 @@ Bundle-Name: Common DA Server Components (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.common
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.da.server.browser.common;version="0.1.0";uses:="org.eclipse.scada.da.core.browser,org.eclipse.scada.da.server.common,org.eclipse.scada.da.core",
- org.eclipse.scada.da.server.browser.common.query;version="0.1.0";uses:="org.eclipse.scada.da.server.common,org.eclipse.scada.da.server.browser.common",
- org.eclipse.scada.da.server.common;version="0.1.0";
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.da.server.browser.common;version="0.5.0";
+  uses:="org.eclipse.scada.da.core.browser,
+   org.eclipse.scada.da.server.common,
+   org.eclipse.scada.da.core",
+ org.eclipse.scada.da.server.browser.common.query;version="0.5.0";
+  uses:="org.eclipse.scada.da.server.common,
+   org.eclipse.scada.da.server.browser.common",
+ org.eclipse.scada.da.server.common;version="0.5.0";
   uses:="org.eclipse.scada.utils.concurrent,
    org.eclipse.scada.core.server,
    org.eclipse.scada.core,
    org.eclipse.scada.da.core",
- org.eclipse.scada.da.server.common.chain;version="0.1.0";
+ org.eclipse.scada.da.server.common.chain;version="0.5.0";
   uses:="org.eclipse.scada.utils.concurrent,
    org.eclipse.scada.da.data,
    org.eclipse.scada.core.server,
    org.eclipse.scada.core,
    org.eclipse.scada.da.server.common,
    org.eclipse.scada.da.core",
- org.eclipse.scada.da.server.common.chain.item;version="0.1.0";uses:="org.eclipse.scada.core,org.eclipse.scada.da.server.common.chain",
- org.eclipse.scada.da.server.common.exporter;version="0.1.0";
+ org.eclipse.scada.da.server.common.chain.item;version="0.5.0";
+  uses:="org.eclipse.scada.core,
+   org.eclipse.scada.da.server.common.chain",
+ org.eclipse.scada.da.server.common.exporter;version="0.5.0";
   uses:="org.eclipse.scada.core,
    org.eclipse.scada.da.server.common.chain,
    org.eclipse.scada.da.server.common.item.factory,
    org.eclipse.scada.utils.lang",
- org.eclipse.scada.da.server.common.factory;version="0.1.0",
- org.eclipse.scada.da.server.common.hive;version="0.1.0";uses:="org.eclipse.scada.utils.concurrent,org.eclipse.scada.core.server,org.eclipse.scada.core",
- org.eclipse.scada.da.server.common.impl;version="0.4.0";
+ org.eclipse.scada.da.server.common.factory;version="0.5.0",
+ org.eclipse.scada.da.server.common.hive;version="0.5.0";
+  uses:="org.eclipse.scada.utils.concurrent,
+   org.eclipse.scada.core.server,
+   org.eclipse.scada.core",
+ org.eclipse.scada.da.server.common.impl;version="0.5.0";
   uses:="org.eclipse.scada.da.server.common.factory,
    org.eclipse.scada.core.server.common.session,
    org.eclipse.scada.da.server.common.impl.stats,
@@ -43,38 +54,38 @@ Export-Package: org.eclipse.scada.da.server.browser.common;version="0.1.0";uses:
    org.eclipse.scada.sec,
    org.eclipse.scada.da.core,
    org.eclipse.scada.da.core.server.browser",
- org.eclipse.scada.da.server.common.impl.stats;version="0.1.0";
+ org.eclipse.scada.da.server.common.impl.stats;version="0.5.0";
   uses:="org.eclipse.scada.core.server.common.session,
    org.eclipse.scada.core,
    org.eclipse.scada.da.server.common.impl,
    org.eclipse.scada.da.core.server,
    org.eclipse.scada.da.server.common,
    org.eclipse.scada.da.server.browser.common",
- org.eclipse.scada.da.server.common.item.factory;version="0.1.0";
+ org.eclipse.scada.da.server.common.item.factory;version="0.5.0";
   uses:="org.eclipse.scada.da.server.common.impl,
    org.eclipse.scada.da.server.common,
    org.eclipse.scada.da.server.common.chain,
    org.eclipse.scada.da.server.browser.common"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: javax.management;
+  resolution:=optional,
+ org.eclipse.scada.core;version="0.5.0",
+ org.eclipse.scada.core.data;version="0.5.0",
+ org.eclipse.scada.core.server;version="0.5.0",
+ org.eclipse.scada.core.server.common;version="0.5.0",
+ org.eclipse.scada.core.server.common.session;version="0.5.0",
+ org.eclipse.scada.core.subscription;version="0.5.0",
+ org.eclipse.scada.da.core;version="0.5.0",
+ org.eclipse.scada.da.core.browser;version="0.5.0",
+ org.eclipse.scada.da.core.server;version="0.5.0",
+ org.eclipse.scada.da.core.server.browser;version="0.5.0",
+ org.eclipse.scada.da.data;version="0.5.0",
+ org.eclipse.scada.sec;version="0.5.0",
+ org.eclipse.scada.sec.callback;version="0.5.0",
+ org.eclipse.scada.utils.collection;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.eclipse.scada.utils.lang;version="0.5.0",
+ org.eclipse.scada.utils.lifecycle;version="0.5.0",
+ org.eclipse.scada.utils.statuscodes;version="0.5.0",
+ org.eclipse.scada.utils.str;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"
 Bundle-ActivationPolicy: lazy
-Import-Package: javax.management;resolution:=optional,
- org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.core.server;version="0.2.0",
- org.eclipse.scada.core.server.common;version="0.2.0",
- org.eclipse.scada.core.server.common.session;version="0.1.0",
- org.eclipse.scada.core.subscription;version="0.1.0",
- org.eclipse.scada.da.core;version="0.1.0",
- org.eclipse.scada.da.core.browser;version="0.1.0",
- org.eclipse.scada.da.core.server;version="0.1.0",
- org.eclipse.scada.da.core.server.browser;version="0.1.0",
- org.eclipse.scada.da.data;version="0.1.0",
- org.eclipse.scada.sec;version="0.1.0",
- org.eclipse.scada.sec.callback;version="0.1.0",
- org.eclipse.scada.utils.collection;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.3.0",
- org.eclipse.scada.utils.lang;version="0.1.0",
- org.eclipse.scada.utils.lifecycle;version="0.1.0",
- org.eclipse.scada.utils.statuscodes;version="0.1.0",
- org.eclipse.scada.utils.str;version="0.1.0",
- org.slf4j;version="1.5.0"

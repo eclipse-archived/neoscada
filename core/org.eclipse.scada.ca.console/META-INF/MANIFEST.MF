@@ -4,13 +4,13 @@ Bundle-Name: Eclipse SCADA CA Console Handler (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.console
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Require-Bundle: org.apache.felix.gogo.runtime;bundle-version="0.10.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.scada.ca;version="0.1.0",
- org.eclipse.scada.ca.data;version="0.1.0",
- org.eclipse.scada.ca.oscar;version="0.3.0",
- org.eclipse.scada.ca.updater;version="0.3.0",
- org.eclipse.scada.sec;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
- org.eclipse.scada.utils.str;version="0.1.0"
+Import-Package: org.eclipse.scada.ca;version="0.5.0",
+ org.eclipse.scada.ca.data;version="0.5.0",
+ org.eclipse.scada.ca.oscar;version="0.5.0",
+ org.eclipse.scada.ca.updater;version="0.5.0",
+ org.eclipse.scada.sec;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.eclipse.scada.utils.str;version="0.5.0"
+Require-Bundle: org.apache.felix.gogo.runtime
 Service-Component: OSGI-INF/freezableConsole.xml,OSGI-INF/console.xml

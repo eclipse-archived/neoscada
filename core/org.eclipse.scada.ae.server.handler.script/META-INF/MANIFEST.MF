@@ -5,12 +5,12 @@ Bundle-SymbolicName: org.eclipse.scada.ae.server.handler.script
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.scada.ae;version="0.2.0",
- org.eclipse.scada.ae.server.handler;version="0.2.0",
- org.eclipse.scada.ae.server.injector;version="0.2.0",
- org.eclipse.scada.ca;version="0.2.0",
- org.eclipse.scada.utils.script;version="0.2.0",
- org.osgi.framework;version="1.7.0",
- org.slf4j;version="1.7.2"
+Import-Package: org.eclipse.scada.ae;version="0.5.0",
+ org.eclipse.scada.ae.server.handler;version="0.5.0",
+ org.eclipse.scada.ae.server.injector;version="0.5.0",
+ org.eclipse.scada.ca;version="0.5.0",
+ org.eclipse.scada.utils.script;version="0.5.0",
+ org.osgi.framework,
+ org.slf4j;version="[1.7.2,2.0.0)"
 Service-Component: OSGI-INF/handler.xml
 Bundle-ActivationPolicy: lazy

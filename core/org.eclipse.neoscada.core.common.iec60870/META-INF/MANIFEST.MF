@@ -5,7 +5,9 @@ Bundle-SymbolicName: org.eclipse.neoscada.core.common.iec60870
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.neoscada.protocol.iec60870;version="0.4.0",
- org.eclipse.scada.ca;version="0.2.0",
- org.eclipse.scada.utils.beans;version="0.2.0"
-Export-Package: org.eclipse.neoscada.core.common.iec60870;version="0.4.0";uses:="org.eclipse.neoscada.protocol.iec60870,org.eclipse.scada.ca"
+Export-Package: org.eclipse.neoscada.core.common.iec60870;version="0.5.0";
+  uses:="org.eclipse.neoscada.protocol.iec60870,
+   org.eclipse.scada.ca"
+Import-Package: org.eclipse.neoscada.protocol.iec60870;version="0.5.0",
+ org.eclipse.scada.ca;version="0.5.0",
+ org.eclipse.scada.utils.beans;version="0.5.0"

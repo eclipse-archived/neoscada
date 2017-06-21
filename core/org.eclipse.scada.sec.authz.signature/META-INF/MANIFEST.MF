@@ -4,8 +4,8 @@ Bundle-Name: Eclipse SCADA Request Signature Module (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.authz.signature
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.sec.authz.signature;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.sec.authz.signature;version="0.5.0"
 Import-Package: javax.script,
  javax.xml.crypto,
  javax.xml.crypto.dsig,
@@ -13,13 +13,13 @@ Import-Package: javax.script,
  javax.xml.transform,
  javax.xml.transform.dom,
  javax.xml.transform.stream,
- org.eclipse.scada.ca;version="0.1.0",
- org.eclipse.scada.sec;version="0.1.0",
- org.eclipse.scada.sec.audit;version="0.1.0",
- org.eclipse.scada.sec.authz;version="0.1.0",
- org.eclipse.scada.sec.callback;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
- org.eclipse.scada.utils.script;version="0.1.0",
- org.eclipse.scada.utils.statuscodes;version="0.1.0",
- org.slf4j;version="1.6.0"
+ org.eclipse.scada.ca;version="0.5.0",
+ org.eclipse.scada.sec;version="0.5.0",
+ org.eclipse.scada.sec.audit;version="0.5.0",
+ org.eclipse.scada.sec.authz;version="0.5.0",
+ org.eclipse.scada.sec.callback;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.eclipse.scada.utils.script;version="0.5.0",
+ org.eclipse.scada.utils.statuscodes;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"
 Service-Component: OSGI-INF/service.xml
