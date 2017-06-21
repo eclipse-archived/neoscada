@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA CA UI Importer Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.ui.importer.testing
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Fragment-Host: org.eclipse.scada.ca.ui.importer;bundle-version="0.1.0"
-Require-Bundle: org.junit;bundle-version="4.8.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.scada.ca.data;version="0.1.0"
+Fragment-Host: org.eclipse.scada.ca.ui.importer;bundle-version="0.1.0"
+Import-Package: org.eclipse.scada.ca.data;version="0.5.0"
+Require-Bundle: org.junit

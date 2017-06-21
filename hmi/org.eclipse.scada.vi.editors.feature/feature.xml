@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.vi.editors"
+      id="org.eclipse.neoscada.vi.editors.feature"
       label="%featureName"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.scada.hmi"
-      license-feature="org.eclipse.scada.license"
-      license-feature-version="0.1.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
 
    <description>
       %description
@@ -19,6 +19,10 @@
    <license url="%licenseURL">
       %license
    </license>
+
+   <requires>
+      <import feature="org.eclipse.license" version="1.0.1"/>
+   </requires>
 
    <plugin
          id="org.eclipse.scada.vi.details.model.editor"

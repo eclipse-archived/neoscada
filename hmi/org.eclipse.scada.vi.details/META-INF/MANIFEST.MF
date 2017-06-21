@@ -3,18 +3,18 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA VI Details (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.vi.details;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.vi.details.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.vi.details;version="0.1.0"
-Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",
- org.eclipse.core.runtime;bundle-version="3.7.0",
- org.eclipse.scada.ui.databinding;bundle-version="0.1.0",
- org.eclipse.scada.ui.utils;bundle-version="0.1.0"
+Bundle-Activator: org.eclipse.scada.vi.details.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: com.google.gson;version="1.4.0",
- com.google.gson.annotations;version="1.4.0",
- com.google.gson.reflect;version="1.4.0",
- org.eclipse.scada.core.ui.connection.login;version="0.1.0",
- org.eclipse.scada.utils;version="0.1.0",
- org.slf4j;version="1.5.0"
+Export-Package: org.eclipse.scada.vi.details;version="0.5.0"
+Import-Package: com.google.gson;version="2.7.0",
+ com.google.gson.annotations;version="2.7.0",
+ com.google.gson.reflect;version="2.7.0",
+ org.eclipse.scada.core.ui.connection.login;version="0.5.0",
+ org.eclipse.scada.utils;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.scada.ui.databinding,
+ org.eclipse.scada.ui.utils,
+ org.eclipse.ui
 Bundle-ActivationPolicy: lazy

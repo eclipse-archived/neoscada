@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Eclipse SCADA Admin Client (Incubating)" uid="org.eclipse.scada.hmi.products.adminclient.app" id="org.eclipse.scada.hmi.adminclient.app.product" application="org.eclipse.scada.hmi.adminclient.app.application" version="0.4.0" useFeatures="true" includeLaunchers="true">
+<product name="Eclipse NeoSCADA Admin Client (Incubating)" uid="org.eclipse.scada.hmi.products.adminclient.app" id="org.eclipse.scada.hmi.adminclient.app.product" application="org.eclipse.scada.hmi.adminclient.app.application" version="0.5.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.scada.hmi.adminclient.app/branding/about.png"/>
@@ -14,7 +14,7 @@
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.7
+      <vmArgs>-Dosgi.requiredJavaVersion=1.8
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -139,7 +139,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <features>
       <feature id="org.eclipse.rcp"/>
-      <feature id="org.eclipse.scada.hmi.adminclient.app"/>
+      <feature id="org.eclipse.neoscada.hmi.adminclient.app.feature"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.emf.common"/>
       <feature id="org.eclipse.e4.rcp"/>

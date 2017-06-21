@@ -3,19 +3,19 @@ Bundle-ManifestVersion: 2
 Bundle-Name: CA Common Editor Forms (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.ui.editor.forms.common;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.ca.ui.editor.forms.common.internal.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.ca.ui.editor.forms.common;version="0.3.0"
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.scada.ca.ui.editor;bundle-version="0.1.0",
- org.eclipse.ui.forms;bundle-version="3.5.100",
- org.eclipse.core.databinding;bundle-version="1.4.0",
- org.eclipse.core.databinding.observable;bundle-version="1.4.0",
- org.eclipse.jface.databinding;bundle-version="1.7.0",
- org.eclipse.scada.ui.databinding;bundle-version="0.1.0",
- org.eclipse.core.databinding.property;bundle-version="1.5.0"
+Bundle-Activator: org.eclipse.scada.ca.ui.editor.forms.common.internal.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.scada.ae;version="0.1.0",
- org.eclipse.scada.ae.data;version="0.1.0"
+Export-Package: org.eclipse.scada.ca.ui.editor.forms.common;version="0.5.0"
+Import-Package: org.eclipse.scada.ae;version="0.5.0",
+ org.eclipse.scada.ae.data;version="0.5.0"
+Require-Bundle: org.eclipse.core.databinding,
+ org.eclipse.core.databinding.observable,
+ org.eclipse.core.databinding.property,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.databinding,
+ org.eclipse.scada.ca.ui.editor,
+ org.eclipse.scada.ui.databinding,
+ org.eclipse.ui,
+ org.eclipse.ui.forms
 Bundle-ActivationPolicy: lazy

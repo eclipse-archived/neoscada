@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.hmi_0.4.0.qualifier.jar" id="org.eclipse.scada.hmi" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.hmi.category"/>
+   <feature url="features/org.eclipse.neoscada.hmi.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.hmi.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.hmi.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.hmi.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.hmi.sdk" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.hmi.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.hmi.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.hmi.sdk.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.hmi.sdk.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.vi.editors_0.4.0.qualifier.jar" id="org.eclipse.scada.vi.editors" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.hmi.category"/>
+   <feature url="features/org.eclipse.neoscada.vi.editors.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.vi.editors.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.hmi.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.hmi.category" label="Eclipse NeoSCADA Human Machine Interface (Incubation)">
+   <category-def name="org.eclipse.neoscada.hmi.category" label="Eclipse NeoSCADA Human Machine Interface (Incubation)">
       <description>
          The Eclipse NeoSCADA Human Machine Interface
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.hmi.sdk.category" label="Eclipse NeoSCADA Human Machine Interface SDK (Incubation)">
+   <category-def name="org.eclipse.neoscada.hmi.sdk.category" label="Eclipse NeoSCADA Human Machine Interface SDK (Incubation)">
       <description>
          Binaries and sources of the The Eclipse NeoSCADA Human Machine Interface
       </description>

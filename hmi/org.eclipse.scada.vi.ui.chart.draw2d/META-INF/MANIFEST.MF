@@ -3,22 +3,21 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Draw2d View Element (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.vi.ui.chart.draw2d;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.vi.ui.chart.draw2d.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.vi.ui.chart.draw2d.view;version="0.2.0"
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.scada.vi.chart.model;bundle-version="0.1.0",
- org.eclipse.scada.vi.ui.draw2d;bundle-version="0.1.0",
- org.eclipse.draw2d;bundle-version="3.7.0",
- org.eclipse.scada.chart.swt;bundle-version="0.2.0",
- org.eclipse.scada.ui.chart.model;bundle-version="0.2.0",
- org.eclipse.scada.chart;bundle-version="0.2.0",
- org.eclipse.scada.utils;bundle-version="0.1.0",
- org.eclipse.scada.ui.chart.model;bundle-version="0.1.0",
- org.eclipse.scada.vi.ui.user;bundle-version="0.1.0",
- org.eclipse.scada.ui.chart;bundle-version="0.2.0"
+Bundle-Activator: org.eclipse.scada.vi.ui.chart.draw2d.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.scada.ui.utils;version="0.1.0",
- org.eclipse.scada.ui.utils.layout;version="0.1.0"
+Export-Package: org.eclipse.scada.vi.ui.chart.draw2d.view;version="0.5.0"
+Import-Package: org.eclipse.scada.ui.utils;version="0.5.0",
+ org.eclipse.scada.ui.utils.layout;version="0.5.0"
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.draw2d,
+ org.eclipse.scada.chart,
+ org.eclipse.scada.chart.swt,
+ org.eclipse.scada.ui.chart,
+ org.eclipse.scada.ui.chart.model,
+ org.eclipse.scada.utils,
+ org.eclipse.scada.vi.chart.model,
+ org.eclipse.scada.vi.ui.draw2d,
+ org.eclipse.scada.vi.ui.user,
+ org.eclipse.ui
 Bundle-ActivationPolicy: lazy

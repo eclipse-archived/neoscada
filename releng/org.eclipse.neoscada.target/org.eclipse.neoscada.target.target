@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1498035216">
+<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1498060487">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
@@ -29,6 +29,10 @@
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.3.0.v20170607-1133"/>
       <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/mdt/ocl/updates/milestones/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.draw2d.sdk.feature.group" version="3.10.100.201606061308"/>
+      <repository location="https://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/gef/updates/releases/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.sdk.feature.group" version="3.7.1.201705121344"/>

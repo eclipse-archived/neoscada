@@ -44,6 +44,10 @@ location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/mdt/ocl/updat
 	org.eclipse.ocl.all.sdk.feature.group
 }
 
+location "https://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/gef/updates/releases/" {
+	org.eclipse.draw2d.sdk.feature.group
+}
+
 location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/acceleo/updates/milestones/" {
 	org.eclipse.acceleo.sdk.feature.group
 }

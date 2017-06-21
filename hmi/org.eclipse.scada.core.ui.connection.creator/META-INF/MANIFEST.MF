@@ -3,11 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Core UI Connection Creator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.ui.connection.creator;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.core.ui.connection.creator.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.core.ui.connection.creator;version="0.1.0"
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.scada.core.connection.provider;bundle-version="0.1.0"
+Bundle-Activator: org.eclipse.scada.core.ui.connection.creator.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.scada.core;version="0.1.0"
+Export-Package: org.eclipse.scada.core.ui.connection.creator;version="0.5.0"
+Import-Package: org.eclipse.scada.core;version="0.5.0"
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.scada.core.connection.provider
 Bundle-ActivationPolicy: lazy

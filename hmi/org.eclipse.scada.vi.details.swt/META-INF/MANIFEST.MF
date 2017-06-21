@@ -3,9 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA VI SWT Details Views (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.vi.details.swt;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.vi.details.swt.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.vi.details.swt;version="0.2.0";
+Bundle-Activator: org.eclipse.scada.vi.details.swt.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.vi.details.swt;version="0.5.0";
   uses:="org.eclipse.core.databinding.observable.set,
    org.eclipse.jface.resource,
    org.eclipse.scada.vi.details.swt.impl.visibility,
@@ -13,7 +14,7 @@ Export-Package: org.eclipse.scada.vi.details.swt;version="0.2.0";
    org.osgi.framework,
    org.eclipse.swt.widgets,
    org.eclipse.scada.vi.data",
- org.eclipse.scada.vi.details.swt.impl;version="0.2.0";
+ org.eclipse.scada.vi.details.swt.impl;version="0.5.0";
   uses:="org.eclipse.scada.vi.details,
    org.eclipse.core.runtime,
    org.eclipse.scada.vi.details.swt.impl.visibility,
@@ -28,12 +29,12 @@ Export-Package: org.eclipse.scada.vi.details.swt;version="0.2.0";
    org.eclipse.scada.vi.details.swt.source,
    org.eclipse.swt.widgets,
    org.eclipse.scada.vi.data",
- org.eclipse.scada.vi.details.swt.impl.tab;version="0.2.0";
+ org.eclipse.scada.vi.details.swt.impl.tab;version="0.5.0";
   uses:="org.eclipse.jface.action,
    org.eclipse.scada.core.ui.styles,
    org.eclipse.swt.widgets,
    org.eclipse.scada.vi.data",
- org.eclipse.scada.vi.details.swt.impl.visibility;version="0.2.0";
+ org.eclipse.scada.vi.details.swt.impl.visibility;version="0.5.0";
   uses:="org.eclipse.core.databinding.observable.set,
    org.eclipse.scada.vi.details.swt.impl.tab,
    org.eclipse.scada.core.ui.connection.login,
@@ -44,44 +45,43 @@ Export-Package: org.eclipse.scada.vi.details.swt;version="0.2.0";
    org.eclipse.swt.widgets,
    org.eclipse.scada.vi.data,
    javax.script"
-Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",
- org.eclipse.core.runtime;bundle-version="3.7.0",
- org.eclipse.scada.vi.details;bundle-version="0.1.0",
- org.eclipse.emf.ecore;bundle-version="2.7.0",
- org.eclipse.scada.vi.details.model;bundle-version="0.2.0",
- org.eclipse.emf.ecore.xmi;bundle-version="2.7.0",
- org.eclipse.scada.da.ui.widgets;bundle-version="0.1.0",
- org.eclipse.scada.da.ui.client.dataitem.details;bundle-version="0.1.0",
- org.eclipse.core.databinding;bundle-version="1.4.0",
- org.eclipse.core.databinding.beans;bundle-version="1.2.100",
- org.eclipse.core.databinding.observable;bundle-version="1.4.0",
- org.eclipse.scada.swt;bundle-version="0.1.0",
- org.eclipse.ui.views;bundle-version="3.6.100"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.eclipse.scada.ae;version="0.1.0",
- org.eclipse.scada.ae.client;version="0.1.0",
- org.eclipse.scada.ae.connection.provider;version="0.1.0",
- org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.client;version="0.1.0",
- org.eclipse.scada.core.connection.provider;version="0.1.0",
- org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.core.subscription;version="0.1.0",
- org.eclipse.scada.core.ui.connection.login;version="0.1.0",
- org.eclipse.scada.core.ui.styles;version="0.1.0",
- org.eclipse.scada.da.client;version="0.1.0",
- org.eclipse.scada.da.client.connection.service;version="0.1.0",
- org.eclipse.scada.da.connection.provider;version="0.1.0",
- org.eclipse.scada.da.core;version="0.1.0",
- org.eclipse.scada.da.ui.connection.data;version="0.1.0",
- org.eclipse.scada.da.ui.connection.dnd;version="0.1.0",
- org.eclipse.scada.sec;version="0.1.0",
- org.eclipse.scada.sec.callback;version="0.1.0",
- org.eclipse.scada.sec.ui;version="0.1.0",
- org.eclipse.scada.ui.blink;version="0.1.0",
- org.eclipse.scada.ui.utils;version="0.1.0",
- org.eclipse.scada.utils.concurrent;version="0.3.0",
- org.eclipse.scada.utils.script;version="0.1.0",
- org.eclipse.scada.utils.str;version="0.1.0",
- org.eclipse.scada.vi.data;version="0.1.0",
- org.slf4j;version="1.5.0"
+Import-Package: org.eclipse.scada.ae;version="0.5.0",
+ org.eclipse.scada.ae.client;version="0.5.0",
+ org.eclipse.scada.ae.connection.provider;version="0.5.0",
+ org.eclipse.scada.core;version="0.5.0",
+ org.eclipse.scada.core.client;version="0.5.0",
+ org.eclipse.scada.core.connection.provider;version="0.5.0",
+ org.eclipse.scada.core.data;version="0.5.0",
+ org.eclipse.scada.core.subscription;version="0.5.0",
+ org.eclipse.scada.core.ui.connection.login;version="0.5.0",
+ org.eclipse.scada.core.ui.styles;version="0.5.0",
+ org.eclipse.scada.da.client;version="0.5.0",
+ org.eclipse.scada.da.client.connection.service;version="0.5.0",
+ org.eclipse.scada.da.connection.provider;version="0.5.0",
+ org.eclipse.scada.da.core;version="0.5.0",
+ org.eclipse.scada.da.ui.connection.data;version="0.5.0",
+ org.eclipse.scada.da.ui.connection.dnd;version="0.5.0",
+ org.eclipse.scada.sec;version="0.5.0",
+ org.eclipse.scada.sec.callback;version="0.5.0",
+ org.eclipse.scada.sec.ui;version="0.5.0",
+ org.eclipse.scada.ui.blink;version="0.5.0",
+ org.eclipse.scada.ui.utils;version="0.5.0",
+ org.eclipse.scada.utils.concurrent;version="0.5.0",
+ org.eclipse.scada.utils.script;version="0.5.0",
+ org.eclipse.scada.utils.str;version="0.5.0",
+ org.eclipse.scada.vi.data;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"
+Require-Bundle: org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.core.databinding.observable,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.scada.da.ui.client.dataitem.details,
+ org.eclipse.scada.da.ui.widgets,
+ org.eclipse.scada.swt,
+ org.eclipse.scada.vi.details,
+ org.eclipse.scada.vi.details.model,
+ org.eclipse.ui,
+ org.eclipse.ui.views
 Bundle-ActivationPolicy: lazy

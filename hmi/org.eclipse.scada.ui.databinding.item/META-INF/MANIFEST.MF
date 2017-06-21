@@ -4,13 +4,13 @@ Bundle-Name: Eclipse SCADA Databinding Item (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ui.databinding.item
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.ui.databinding.item;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.ui.databinding.item;version="0.5.0"
 Import-Package: org.eclipse.core.databinding.conversion,
  org.eclipse.core.databinding.observable,
  org.eclipse.core.databinding.observable.value,
- org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.connection.provider;version="0.1.0",
- org.eclipse.scada.da.client;version="0.1.0",
- org.eclipse.scada.da.connection.provider;version="0.1.0",
- org.osgi.framework;version="1.7.0"
+ org.eclipse.scada.core;version="0.5.0",
+ org.eclipse.scada.core.connection.provider;version="0.5.0",
+ org.eclipse.scada.da.client;version="0.5.0",
+ org.eclipse.scada.da.connection.provider;version="0.5.0",
+ org.osgi.framework
