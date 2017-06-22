@@ -8,7 +8,8 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh 'mvn -Dmaven.test.failure.ignore=true clean install'
+				sh 'mvn clean'
+				sh 'mvn -Xms1024m -Xmx3072m -XX:PermSize=512m -Dmaven.test.failure.ignore=true install'
 			}
 		}
 		stage('Archive') {
