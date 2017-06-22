@@ -9,7 +9,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh 'mvn clean'
-				sh 'mvn -Xms1024m -Xmx3072m -XX:PermSize=512m -Dmaven.test.failure.ignore=true install'
+				sh 'MAVEN_OPTS="-Xms1024m -Xmx3072m -XX:PermSize=512m" mvn -Dmaven.test.failure.ignore=true install'
 			}
 		}
 		stage('Archive') {
