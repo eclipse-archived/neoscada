@@ -13,10 +13,11 @@ install:
   - chmod a+x maven/bin/mvn
   - export M2_HOME=$PWD/maven
   - export PATH=$PWD/maven/bin:${PATH}
+  - export MAVEN_OPTS="-Dmaven.repo.local=$HOME/.m2/repository -Xms1024m -Xmx3072m -XX:PermSize=512m"
   - hash -r
 
 script:
-  - travis_wait mvn -Dmaven.test.failure.ignore=true clean install
+  - travis_wait mvn 30 -Dmaven.test.failure.ignore=true clean install
 
 # The following upgrades Java during the build in
 # order to work around an older Java 8 compiler issue
