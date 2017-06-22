@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1498060487">
+<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1498124759">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
@@ -23,20 +23,30 @@
       <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/eclipse/updates/4.7milestones/S-4.7RC4a-201706120950"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.emf.sdk.feature.group" version="2.13.0.v20170504-0807"/>
-      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/emf/updates/2.13milestones/"/>
+      <unit id="org.eclipse.emf.sdk.feature.group" version="2.13.0.v20170609-0928"/>
+      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/emf/updates/2.13/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.11.0.201706061352"/>
+      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/validation/updates/releases/R201706061352/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.ocl.all.sdk.feature.group" version="5.3.0.v20170607-1133"/>
-      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/mdt/ocl/updates/milestones/"/>
+      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/mdt/ocl/updates/releases/6.3.0/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.draw2d.sdk.feature.group" version="3.10.100.201606061308"/>
       <repository location="https://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/gef/updates/releases/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.acceleo.sdk.feature.group" version="3.7.1.201705121344"/>
-      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/acceleo/updates/milestones/"/>
+      <unit id="org.eclipse.wst.common.fproj.sdk.feature.group" version="3.7.0.v201505072140"/>
+      <unit id="org.eclipse.wst.web_core.feature.feature.group" version="3.9.0.v201705172051"/>
+      <unit id="org.eclipse.wst.web_ui.feature.feature.group" version="3.9.0.v201705172051"/>
+      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/webtools/repository/oxygen/"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.acceleo.sdk.feature.group" version="3.7.0.201610150614"/>
+      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/acceleo/updates/releases/3.7/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.paho.client.mqttv3" version="1.0.2"/>
@@ -50,6 +60,13 @@
       <unit id="io.netty.handler" version="4.1.11.Final"/>
       <unit id="io.netty.transport" version="4.1.11.Final"/>
       <unit id="org.apache.commons.daemon" version="1.0.5.v20111129-0900"/>
+      <unit id="org.apache.commons.compress" version="1.9.0"/>
+      <unit id="org.eclipse.packagedrone.utils" version="1.0.0.20170407-0726"/>
+      <unit id="org.eclipse.packagedrone.utils.security" version="1.0.1.20170407-0727"/>
+      <unit id="org.eclipse.packagedrone.utils.rpm" version="0.14.1.20170407-0726"/>
+      <unit id="org.eclipse.packagedrone.utils.deb" version="1.0.0.20170407-0726"/>
+      <unit id="bcpg" version="1.52.0"/>
+      <unit id="bcprov" version="1.52.0"/>
       <repository location="http://thedrone.packagedrone.org/p2/neoscada-05-dependencies/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
@@ -67,6 +84,8 @@
       <unit id="org.apache.commons.pool.source" version="1.6.0.v201204271246"/>
       <unit id="org.apache.commons.httpclient" version="3.1.0.v201012070820"/>
       <unit id="org.apache.commons.httpclient.source" version="3.1.0.v201012070820"/>
+      <unit id="org.apache.commons.io" version="2.2.0.v201405211200"/>
+      <unit id="org.apache.commons.io.source" version="2.2.0.v201405211200"/>
       <unit id="org.apache.poi" version="3.9.0.v201405241750"/>
       <unit id="org.apache.poi.source" version="3.9.0.v201405241750"/>
       <unit id="org.apache.mina.core" version="2.0.7.v201401071602"/>
@@ -77,6 +96,10 @@
       <unit id="com.google.gson.source" version="2.7.0.v20170129-0911"/>
       <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
       <unit id="com.google.guava.source" version="21.0.0.v20170206-1425"/>
+      <unit id="com.google.javascript" version="0.0.20160315.v20161124-1903"/>
+      <unit id="com.google.javascript.source" version="0.0.20160315.v20161124-1903"/>
+      <unit id="com.google.protobuf" version="2.4.0.v201105131100"/>
+      <unit id="com.google.protobuf.source" version="2.4.0.v201105131100"/>
       <unit id="org.junit" version="4.12.0.v201504281640"/>
       <unit id="org.junit.source" version="4.12.0.v201504281640"/>
       <unit id="com.jcraft.jzlib" version="1.1.1.v201205102305"/>

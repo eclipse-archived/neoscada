@@ -36,11 +36,15 @@ location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/eclipse/updates/4.7mil
 	org.eclipse.equinox.p2.rcp.feature.feature.group
 }
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/emf/updates/2.13milestones/" {
+location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/emf/updates/2.13/" {
 	org.eclipse.emf.sdk.feature.group
 }
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/mdt/ocl/updates/milestones/" {
+location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/validation/updates/releases/R201706061352/" {
+	org.eclipse.emf.validation.sdk.feature.group
+}
+
+location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/mdt/ocl/updates/releases/6.3.0/" {
 	org.eclipse.ocl.all.sdk.feature.group
 }
 
@@ -48,7 +52,13 @@ location "https://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/gef/updates/rel
 	org.eclipse.draw2d.sdk.feature.group
 }
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/acceleo/updates/milestones/" {
+location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/webtools/repository/oxygen/" {
+	org.eclipse.wst.common.fproj.sdk.feature.group
+	org.eclipse.wst.web_core.feature.feature.group
+	org.eclipse.wst.web_ui.feature.feature.group
+}
+
+location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/acceleo/updates/releases/3.7/" {
 	org.eclipse.acceleo.sdk.feature.group
 }
 
@@ -77,6 +87,13 @@ location "http://thedrone.packagedrone.org/p2/neoscada-05-dependencies/" {
 	io.netty.handler [4.1.11,5.0.0)
 	io.netty.transport [4.1.11,5.0.0)
 	org.apache.commons.daemon[1.0.5,1.0.6)
+	org.apache.commons.compress [1.9.0,1.9.1)
+	org.eclipse.packagedrone.utils [1.0.0,1.1.0)
+	org.eclipse.packagedrone.utils.security [1.0.1,1.1.0)
+	org.eclipse.packagedrone.utils.rpm [0.14.0,1.0.0)
+	org.eclipse.packagedrone.utils.deb [1.0.0,1.1.0)
+	bcpg [1.52.0,1.52.1)
+	bcprov [1.52.0,1.52.1)
 } 
 
 location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/orbit/R-builds/R20170516192513/repository/" {
@@ -104,6 +121,8 @@ location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/orbit/R-builds/R
 	org.apache.commons.pool.source[1.6.0,1.6.1)
 	org.apache.commons.httpclient[3.1.0,3.1.1)
 	org.apache.commons.httpclient.source[3.1.0,3.1.1)
+	org.apache.commons.io [2.2.0,2.5.0)
+	org.apache.commons.io.source [2.2.0,2.5.0)
 		
 	org.apache.poi[3.9.0,3.9.1)
 	org.apache.poi.source[3.9.0,3.9.1)
@@ -117,6 +136,12 @@ location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/orbit/R-builds/R
 	
 	com.google.guava [21.0.0,22.0.0)
 	com.google.guava.source [21.0.0,22.0.0)
+	
+	com.google.javascript [0.0.20160315,0.0.20160316)
+	com.google.javascript.source [0.0.20160315,0.0.20160316)
+	
+	com.google.protobuf [2.4.0,2.4.1)
+	com.google.protobuf.source [2.4.0,2.4.1)
 
 	org.junit[4.12.0,4.12.1)
 	org.junit.source [4.12.0,4.12.1)
