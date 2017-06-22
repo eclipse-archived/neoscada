@@ -3,9 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Component Configuration Library (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.lib;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.configuration.component.lib.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.configuration.component.lib;version="0.3.0";
+Bundle-Activator: org.eclipse.scada.configuration.component.lib.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.configuration.component.lib;version="0.5.0";
   uses:="org.eclipse.core.runtime,
    org.eclipse.scada.configuration.world.osgi,
    org.eclipse.scada.configuration.generator,
@@ -13,7 +14,7 @@ Export-Package: org.eclipse.scada.configuration.component.lib;version="0.3.0";
    org.eclipse.scada.configuration.component,
    org.osgi.framework,
    org.eclipse.scada.configuration.item",
- org.eclipse.scada.configuration.component.lib.create;version="0.3.0";
+ org.eclipse.scada.configuration.component.lib.create;version="0.5.0";
   uses:="org.eclipse.core.runtime,
    org.eclipse.scada.configuration.world.osgi,
    org.eclipse.scada.configuration.generator,
@@ -21,24 +22,23 @@ Export-Package: org.eclipse.scada.configuration.component.lib;version="0.3.0";
    org.eclipse.scada.configuration.component,
    org.eclipse.scada.configuration.item,
    org.slf4j"
-Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.apache.xml.resolver.apps;version="1.2.0",
+Import-Package: org.apache.xml.resolver.apps,
  org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
- org.eclipse.scada.configuration.component;version="0.2.0",
- org.eclipse.scada.configuration.generator;version="0.1.0",
- org.eclipse.scada.configuration.globalization;version="0.1.0",
- org.eclipse.scada.configuration.infrastructure;version="0.2.0",
- org.eclipse.scada.configuration.item;version="0.1.0",
- org.eclipse.scada.configuration.lib;version="0.1.0",
- org.eclipse.scada.configuration.world;version="0.2.0",
- org.eclipse.scada.configuration.world.lib;version="0.2.0",
- org.eclipse.scada.configuration.world.osgi;version="0.2.0",
- org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.ui.databinding;version="0.1.0",
- org.eclipse.scada.utils.core.runtime;version="0.2.0",
- org.eclipse.scada.utils.str;version="0.1.0",
- org.osgi.framework;version="1.7.0",
- org.slf4j;version="1.7.2"
+ org.eclipse.scada.configuration.component;version="0.5.0",
+ org.eclipse.scada.configuration.generator;version="0.5.0",
+ org.eclipse.scada.configuration.globalization;version="0.5.0",
+ org.eclipse.scada.configuration.infrastructure;version="0.5.0",
+ org.eclipse.scada.configuration.item;version="0.5.0",
+ org.eclipse.scada.configuration.lib;version="0.5.0",
+ org.eclipse.scada.configuration.world;version="0.5.0",
+ org.eclipse.scada.configuration.world.lib;version="0.5.0",
+ org.eclipse.scada.configuration.world.osgi;version="0.5.0",
+ org.eclipse.scada.core;version="0.5.0",
+ org.eclipse.scada.ui.databinding;version="0.5.0",
+ org.eclipse.scada.utils.core.runtime;version="0.5.0",
+ org.eclipse.scada.utils.str;version="0.5.0",
+ org.osgi.framework,
+ org.slf4j;version="[1.7.2,2.0.0)"
+Require-Bundle: org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy

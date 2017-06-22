@@ -15,7 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.eclipse.scada.utils.pkg.deb.ContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.ContentProvider;
 
 import com.google.common.io.ByteStreams;
 

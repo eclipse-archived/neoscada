@@ -3,9 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DA Server UI Components (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.ui;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.da.server.ui.HivesPlugin
 Bundle-Vendor: Eclipse NeoSCADA Project
-Export-Package: org.eclipse.scada.da.server.ui;version="0.2.0";
+Bundle-Activator: org.eclipse.scada.da.server.ui.HivesPlugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.da.server.ui;version="0.5.0";
   uses:="org.eclipse.core.databinding.observable.set,
    org.eclipse.jface.resource,
    org.eclipse.emf.common.util,
@@ -16,7 +17,7 @@ Export-Package: org.eclipse.scada.da.server.ui;version="0.2.0";
    org.osgi.framework,
    org.eclipse.swt.widgets,
    org.eclipse.scada.da.server.exporter",
- org.eclipse.scada.da.server.ui.util;version="0.2.0";
+ org.eclipse.scada.da.server.ui.util;version="0.5.0";
   uses:="org.eclipse.core.databinding.observable.set,
    org.eclipse.scada.utils.beans,
    org.eclipse.core.runtime,
@@ -26,29 +27,28 @@ Export-Package: org.eclipse.scada.da.server.ui;version="0.2.0";
    org.eclipse.scada.da.server.ui,
    org.eclipse.swt.widgets,
    org.eclipse.scada.da.server.exporter"
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.core.databinding;bundle-version="1.4.1",
- org.eclipse.core.databinding.observable;bundle-version="1.4.1",
- org.eclipse.core.databinding.beans;bundle-version="1.2.200",
- org.eclipse.core.databinding.property;bundle-version="1.4.200",
- org.eclipse.jface.databinding;bundle-version="1.7.0",
- org.eclipse.core.expressions,
- org.eclipse.emf;bundle-version="2.6.0",
- org.eclipse.emf.ecore;bundle-version="2.9.0",
- org.eclipse.emf.ecore.xmi;bundle-version="2.9.0",
- org.eclipse.scada.da.server.exporter;bundle-version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.core.resources,
- org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.server;version="0.1.0",
- org.eclipse.scada.da.core.server;version="0.1.0",
- org.eclipse.scada.ui.databinding;version="0.2.0",
- org.eclipse.scada.ui.utils;version="0.1.0",
- org.eclipse.scada.ui.utils.status;version="0.1.0",
- org.eclipse.scada.utils;version="0.1.0",
- org.eclipse.scada.utils.beans;version="0.1.0",
- org.eclipse.scada.utils.core.runtime;version="0.2.0",
- org.eclipse.scada.utils.lifecycle;version="0.1.0",
- org.slf4j;version="1.7.2"
+ org.eclipse.scada.core;version="0.5.0",
+ org.eclipse.scada.core.server;version="0.5.0",
+ org.eclipse.scada.da.core.server;version="0.5.0",
+ org.eclipse.scada.ui.databinding;version="0.5.0",
+ org.eclipse.scada.ui.utils;version="0.5.0",
+ org.eclipse.scada.ui.utils.status;version="0.5.0",
+ org.eclipse.scada.utils;version="0.5.0",
+ org.eclipse.scada.utils.beans;version="0.5.0",
+ org.eclipse.scada.utils.core.runtime;version="0.5.0",
+ org.eclipse.scada.utils.lifecycle;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"
+Require-Bundle: org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.core.databinding.observable,
+ org.eclipse.core.databinding.property,
+ org.eclipse.core.expressions,
+ org.eclipse.core.runtime,
+ org.eclipse.emf,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.jface.databinding,
+ org.eclipse.scada.da.server.exporter,
+ org.eclipse.ui
 Bundle-ActivationPolicy: lazy

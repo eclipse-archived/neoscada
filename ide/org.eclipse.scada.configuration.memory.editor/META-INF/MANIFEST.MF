@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.memory.editor;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.scada.configuration.memory.presentation.MemoryEditorPlugin$Implementation
 Bundle-Vendor: %providerName
-Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.configuration.memory.presentation;version="0.1.0";
+Bundle-Activator: org.eclipse.scada.configuration.memory.presentation.MemoryEditorPlugin$Implementation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.configuration.memory.presentation;version="0.5.0";
   uses:="org.eclipse.jface.action,
    org.eclipse.emf.common.ui,
    org.eclipse.ui.dialogs,
@@ -34,11 +34,16 @@ Export-Package: org.eclipse.scada.configuration.memory.presentation;version="0.1
    org.eclipse.emf.common.notify,
    org.eclipse.emf.edit.ui.provider,
    org.eclipse.emf.ecore.util"
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.core.resources;visibility:=reexport,
- org.eclipse.scada.configuration.memory.edit;bundle-version="0.2.0";visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.resources;
+  visibility:=reexport,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore.xmi;
+  visibility:=reexport,
+ org.eclipse.emf.edit.ui;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.memory.edit;
+  visibility:=reexport,
+ org.eclipse.ui.ide;
+  visibility:=reexport
+Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy

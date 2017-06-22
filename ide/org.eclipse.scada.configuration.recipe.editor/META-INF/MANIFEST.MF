@@ -1,14 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.recipe.editor;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.scada.configuration.recipe.presentation.RecipeEditorPlugin$Implementation
 Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-Activator: org.eclipse.scada.configuration.recipe.presentation.RecipeEditorPlugin$Implementation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: org.eclipse.scada.configuration.recipe.presentation;version="0.1.0";
+Export-Package: org.eclipse.scada.configuration.recipe.presentation;version="0.5.0";
   uses:="org.eclipse.jface.wizard,
    org.eclipse.scada.configuration.recipe,
    org.eclipse.core.runtime,
@@ -35,11 +34,17 @@ Export-Package: org.eclipse.scada.configuration.recipe.presentation;version="0.1
    org.eclipse.swt.widgets,
    org.eclipse.emf.common.ui,
    org.eclipse.emf.edit.domain"
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.core.resources;visibility:=reexport,
- org.eclipse.scada.configuration.recipe.edit;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+Import-Package: org.eclipse.scada.ui.utils;version="0.5.0"
+Require-Bundle: org.eclipse.core.resources;
+  visibility:=reexport,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore.xmi;
+  visibility:=reexport,
+ org.eclipse.emf.edit.ui;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.recipe.edit;
+  visibility:=reexport,
+ org.eclipse.ui.ide;
+  visibility:=reexport
+Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.ui.utils;version="0.1.0"

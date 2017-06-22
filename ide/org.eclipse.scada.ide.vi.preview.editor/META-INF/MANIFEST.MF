@@ -3,20 +3,20 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Visual Interface Preview Editor (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ide.vi.preview.editor;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.ide.vi.preview.editor.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.emf.common;bundle-version="2.9.2",
- org.eclipse.emf.edit;bundle-version="2.9.0",
- org.eclipse.ui.ide,
- org.eclipse.core.resources,
- org.eclipse.scada.vi.model;bundle-version="0.2.0",
- org.eclipse.scada.vi.ui.draw2d;bundle-version="0.2.0"
+Bundle-Activator: org.eclipse.scada.ide.vi.preview.editor.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.eclipse.scada.ui.databinding;version="0.5.0",
+ org.eclipse.scada.ui.utils;version="0.5.0",
+ org.eclipse.scada.ui.utils.status;version="0.5.0",
+ org.eclipse.scada.utils;version="0.5.0",
+ org.slf4j;version="[1.7.2,2.0.0)"
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.common,
+ org.eclipse.emf.edit,
+ org.eclipse.scada.vi.model,
+ org.eclipse.scada.vi.ui.draw2d,
+ org.eclipse.ui,
+ org.eclipse.ui.ide
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.ui.databinding;version="0.2.0",
- org.eclipse.scada.ui.utils;version="0.1.0",
- org.eclipse.scada.ui.utils.status;version="0.1.0",
- org.eclipse.scada.utils;version="0.2.0",
- org.slf4j;version="1.7.2"

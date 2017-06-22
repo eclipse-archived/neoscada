@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import org.eclipse.packagedrone.utils.deb.build.StaticContentProvider;
 import org.eclipse.scada.configuration.setup.common.SerialToNetwork;
 import org.eclipse.scada.configuration.setup.common.SerialToNetworkMapping;
 import org.eclipse.scada.configuration.setup.common.SerialToNetworkSetupModule;
@@ -29,7 +30,6 @@ import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
 import org.eclipse.scada.configuration.world.lib.deployment.OperatingSystemDescriptors;
 import org.eclipse.scada.configuration.world.lib.setup.SetupModuleHandler;
 import org.eclipse.scada.configuration.world.setup.OperatingSystemDescriptor;
-import org.eclipse.scada.utils.pkg.deb.StaticContentProvider;
 import org.eclipse.scada.utils.str.StringHelper;
 import org.eclipse.scada.utils.str.StringReplacer;
 

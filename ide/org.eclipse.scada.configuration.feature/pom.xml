@@ -1,27 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<parent>
-		<artifactId>org.eclipse.scada.ide-parent</artifactId>
-		<groupId>org.eclipse.scada.ide</groupId>
+		<artifactId>org.eclipse.neoscada.ide-parent</artifactId>
+		<groupId>org.eclipse.neoscada</groupId>
 		<version>0.5.0-SNAPSHOT</version>
-		<relativePath>../org.eclipse.scada.ide-parent</relativePath>
+		<relativePath>../</relativePath>
 	</parent>
-	<groupId>org.eclipse.scada.ide.features</groupId>
-	<artifactId>org.eclipse.scada.configuration</artifactId>
-	<version>0.5.0-SNAPSHOT</version>
+	
+	<name>/ide/org.eclipse.scada.configuration</name>
+	<artifactId>org.eclipse.neoscada.configuration.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
-
-	<!-- source features -->
 
 	<build>
 		<plugins>
-
 			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-source-feature-plugin</artifactId>
-				<version>${tycho-extras-version}</version>
 				<executions>
 					<execution>
 						<id>source-feature</id>
@@ -34,7 +31,11 @@
 				<configuration>
 					<labelSuffix> (Source)</labelSuffix>
 					<excludes>
+						<plugin id="org.eclipse.packagedrone.utils" />
+						<plugin id="org.eclipse.packagedrone.utils.security" />
 						<plugin id="org.eclipse.packagedrone.utils.rpm" />
+						<plugin id="org.eclipse.packagedrone.utils.deb" />
+						<plugin id="org.apache.commons.compress" />
 						<plugin id="org.tukani.xz" />
 						<plugin id="bcprov" />
 						<plugin id="bcpg" />
@@ -44,7 +45,6 @@
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-plugin</artifactId>
-				<version>${tycho-version}</version>
 				<executions>
 					<execution>
 						<id>attach-p2-metadata</id>

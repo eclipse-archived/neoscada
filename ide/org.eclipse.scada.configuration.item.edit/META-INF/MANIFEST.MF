@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.item.edit;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.scada.configuration.item.provider.ItemEditPlugin$Implementation
 Bundle-Vendor: %providerName
-Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.configuration.item.provider;version="0.1.0";
+Bundle-Activator: org.eclipse.scada.configuration.item.provider.ItemEditPlugin$Implementation
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.configuration.item.provider;version="0.5.0";
   uses:="org.eclipse.emf.ecore,
    org.eclipse.scada.configuration.item.util,
    org.eclipse.emf.common.util,
@@ -15,7 +15,9 @@ Export-Package: org.eclipse.scada.configuration.item.provider;version="0.1.0";
    org.eclipse.emf.edit.provider,
    org.eclipse.emf.common.notify"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.scada.configuration.item;visibility:=reexport;bundle-version="0.1.0",
- org.eclipse.emf.edit;visibility:=reexport
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+ org.eclipse.emf.edit;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.item;
+  visibility:=reexport
+Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy

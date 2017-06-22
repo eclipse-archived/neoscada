@@ -38,8 +38,8 @@ import org.eclipse.scada.configuration.world.lib.deployment.startup.UpstartHandl
 import org.eclipse.scada.configuration.world.lib.setup.SubModuleHandler;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
-import org.eclipse.scada.utils.pkg.deb.FileContentProvider;
-import org.eclipse.scada.utils.pkg.deb.StaticContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.FileContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.StaticContentProvider;
 import org.eclipse.scada.utils.str.StringHelper;
 
 public abstract class CommonPackageHandler extends CommonHandler

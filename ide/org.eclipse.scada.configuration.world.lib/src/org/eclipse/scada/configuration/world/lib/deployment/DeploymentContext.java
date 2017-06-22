@@ -13,7 +13,7 @@ package org.eclipse.scada.configuration.world.lib.deployment;
 import java.io.IOException;
 import java.io.Reader;
 
-import org.eclipse.scada.utils.pkg.deb.ContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.ContentProvider;
 
 /**
  * Allow access to the context of the deployment <br/>

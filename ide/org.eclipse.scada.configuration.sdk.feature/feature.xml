@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.configuration.sdk"
+      id="org.eclipse.neoscada.configuration.sdk.feature"
       label="%featureName"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
-      license-feature="org.eclipse.scada.license"
-      license-feature-version="0.1.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
 
    <description>
       %description
@@ -20,11 +20,11 @@
    </license>
 
    <includes
-         id="org.eclipse.scada.configuration"
+         id="org.eclipse.neoscada.configuration.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.scada.configuration.source"
+         id="org.eclipse.neoscada.configuration.feature.source"
          version="0.0.0"/>
 
 </feature>

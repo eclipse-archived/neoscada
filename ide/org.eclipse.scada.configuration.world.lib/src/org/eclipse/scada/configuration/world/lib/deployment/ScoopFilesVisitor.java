@@ -20,8 +20,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.scada.utils.pkg.deb.FileContentProvider;
-import org.eclipse.scada.utils.pkg.deb.TextFileContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.FileContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.TextFileContentProvider;
 
 public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
 {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.ide"
+      id="org.eclipse.neoscada.ide.feature"
       label="%featureName"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
-      license-feature="org.eclipse.scada.license"
-      license-feature-version="0.1.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
 
    <description>
       %description
@@ -19,8 +19,12 @@
       %license
    </license>
 
+   <requires>
+      <import feature="org.eclipse.license" version="1.0.1"/>
+   </requires>
+
    <includes
-         id="org.eclipse.scada.ide.da.server.ui"
+         id="org.eclipse.neoscada.ide.da.server.ui.feature"
          version="0.0.0"/>
 
    <plugin

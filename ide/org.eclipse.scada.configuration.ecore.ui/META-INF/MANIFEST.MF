@@ -3,14 +3,14 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Ecore UI Extensions (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.ecore.ui
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.configuration.ecore.ui.internal.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.emf.edit;bundle-version="2.9.0",
- org.eclipse.ui.ide;bundle-version="3.9.2",
- org.eclipse.emf.edit.ui;bundle-version="2.9.0",
- org.eclipse.ui.views
+Bundle-Activator: org.eclipse.scada.configuration.ecore.ui.internal.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.configuration.ecore.ui;version="0.5.0"
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.edit,
+ org.eclipse.emf.edit.ui,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.views
 Bundle-ActivationPolicy: lazy
-Export-Package: org.eclipse.scada.configuration.ecore.ui;version="0.2.0"

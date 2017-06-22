@@ -20,7 +20,7 @@ import java.util.Map;
 
 import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageDeploymentContext;
 import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
-import org.eclipse.scada.utils.pkg.deb.ContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.ContentProvider;
 
 import com.google.common.io.ByteStreams;
 

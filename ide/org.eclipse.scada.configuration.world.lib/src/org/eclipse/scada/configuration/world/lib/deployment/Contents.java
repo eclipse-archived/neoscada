@@ -17,8 +17,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import org.eclipse.scada.utils.pkg.deb.ContentProvider;
-import org.eclipse.scada.utils.pkg.deb.StaticContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.ContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.StaticContentProvider;
 import org.eclipse.scada.utils.str.StringReplacer;
 
 import com.google.common.io.CharStreams;

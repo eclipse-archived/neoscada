@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.configuration"
+      id="org.eclipse.neoscada.configuration.feature"
       label="%featureName"
-      version="0.4.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
-      license-feature="org.eclipse.scada.license"
-      license-feature-version="0.1.0.qualifier">
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
 
    <description>
       %description
@@ -20,14 +20,15 @@
    </license>
 
    <includes
-         id="org.eclipse.scada.configuration.arduino.feature"
+         id="org.eclipse.neoscada.configuration.arduino.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.eclipse.neoscada.configuration.iec60870"
+         id="org.eclipse.neoscada.configuration.iec60870.feature"
          version="0.0.0"/>
 
    <requires>
+      <import feature="org.eclipse.license" version="1.0.1"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.osgi"/>
@@ -105,8 +106,6 @@
       <import plugin="org.eclipse.scada.configuration.memory.manager" version="0.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.wst.xml.core"/>
       <import plugin="org.apache.commons.beanutils"/>
-      <import feature="org.eclipse.scada.ui.utils" version="0.1.0.qualifier"/>
-      <import feature="org.eclipse.scada.utils" version="0.1.0.qualifier"/>
    </requires>
 
    <plugin
@@ -626,6 +625,13 @@
          unpack="false"/>
 
    <plugin
+         id="org.apache.commons.io"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
          id="org.eclipse.packagedrone.utils.rpm"
          download-size="0"
          install-size="0"
@@ -633,12 +639,34 @@
          unpack="false"/>
 
    <plugin
-         id="org.tukani.xz"
+         id="org.eclipse.packagedrone.utils"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.eclipse.packagedrone.utils.security"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.packagedrone.utils.deb"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+<!-- FIXME: find out if tukani is still needed
+   <plugin
+         id="org.tukani.xz"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+-->
    <plugin
          id="bcprov"
          download-size="0"

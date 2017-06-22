@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.configuration_0.4.0.qualifier.jar" id="org.eclipse.scada.configuration" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.configuration.category"/>
+   <feature url="features/org.eclipse.neoscada.configuration.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.configuration.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.configuration.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.configuration.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.configuration.sdk" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.configuration.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.configuration.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.configuration.sdk.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.configuration.sdk.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ide.protocol.ngp_0.4.0.qualifier.jar" id="org.eclipse.scada.ide.protocol.ngp" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.configuration.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.ide.protocol.ngp.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.ide.protocol.ngp.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.configuration.sdk.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ide.da.server.ui_0.4.0.qualifier.jar" id="org.eclipse.scada.ide.da.server.ui" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.configuration.category"/>
+   <feature url="features/org.eclipse.neoscada.ide.da.server.ui.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.ide.da.server.ui.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.configuration.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.configuration.doc_0.4.0.qualifier.jar" id="org.eclipse.scada.configuration.doc" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.configuration.category"/>
+   <feature url="features/org.eclipse.neoscada.configuration.doc.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.configuration.doc.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.configuration.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ide_0.4.0.qualifier.jar" id="org.eclipse.scada.ide" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.configuration.category"/>
+   <feature url="features/org.eclipse.neoscada.ide.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.ide.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.configuration.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ide.sdk_0.4.0.qualifier.jar" id="org.eclipse.scada.ide.sdk" version="0.4.0.qualifier">
-      <category name="org.eclipse.scada.configuration.sdk.category"/>
+   <feature url="features/org.eclipse.neoscada.ide.sdk.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.ide.sdk.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.neoscada.configuration.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.configuration.category" label="Eclipse NeoSCADA Configuration (Incubation)">
+   <category-def name="org.eclipse.neoscada.configuration.category" label="Eclipse NeoSCADA Configuration (Incubation)">
       <description>
          The Eclipse NeoSCADA IDE Configuration System Components.
 
 Install this if you want to creation configuration projects for using Eclipse NeoSCADA setups.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.configuration.sdk.category" label="Eclipse NeoSCADA IDE Development">
+   <category-def name="org.eclipse.neoscada.configuration.sdk.category" label="Eclipse NeoSCADA IDE Development">
       <description>
          The SDK and additional development features for the IDE based configuration system.
       </description>

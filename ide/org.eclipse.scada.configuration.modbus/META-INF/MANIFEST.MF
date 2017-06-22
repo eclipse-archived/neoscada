@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.modbus;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-ClassPath: .
 Bundle-Vendor: %providerName
-Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.configuration.modbus;version="0.2.0";
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.scada.configuration.modbus;version="0.5.0";
   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.common.util,
    org.eclipse.scada.configuration.script,
@@ -16,7 +16,7 @@ Export-Package: org.eclipse.scada.configuration.modbus;version="0.2.0";
    org.eclipse.scada.configuration.world.osgi,
    org.eclipse.scada.configuration.memory,
    org.eclipse.scada.configuration.infrastructure",
- org.eclipse.scada.configuration.modbus.impl;version="0.2.0";
+ org.eclipse.scada.configuration.modbus.impl;version="0.5.0";
   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.ecore.impl,
    org.eclipse.scada.configuration.world,
@@ -30,7 +30,7 @@ Export-Package: org.eclipse.scada.configuration.modbus;version="0.2.0";
    org.eclipse.scada.da.server.osgi.modbus,
    org.eclipse.emf.common.notify,
    org.eclipse.scada.configuration.security",
- org.eclipse.scada.configuration.modbus.util;version="0.2.0";
+ org.eclipse.scada.configuration.modbus.util;version="0.5.0";
   uses:="org.eclipse.emf.ecore,
    org.eclipse.scada.configuration.world,
    org.eclipse.emf.ecore.resource.impl,
@@ -44,18 +44,29 @@ Export-Package: org.eclipse.scada.configuration.modbus;version="0.2.0";
    org.eclipse.emf.ecore.resource,
    org.eclipse.emf.ecore.util,
    org.eclipse.scada.configuration.infrastructure"
+Import-Package: org.eclipse.scada.da.server.osgi.modbus;version="0.5.0"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.scada.configuration.component;visibility:=reexport,
- org.eclipse.scada.configuration.world;bundle-version="0.2.0";visibility:=reexport,
- org.eclipse.scada.da.server.exec;visibility:=reexport,
- org.eclipse.scada.configuration.globalization;visibility:=reexport,
- org.eclipse.scada.configuration.infrastructure;visibility:=reexport,
- org.eclipse.scada.configuration.item;visibility:=reexport,
- org.eclipse.scada.configuration.memory;visibility:=reexport,
- org.eclipse.scada.configuration.script;visibility:=reexport,
- org.eclipse.scada.configuration.security;visibility:=reexport
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+ org.eclipse.emf.ecore;
+  visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.component;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.globalization;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.infrastructure;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.item;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.memory;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.script;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.security;
+  visibility:=reexport,
+ org.eclipse.scada.configuration.world;
+  visibility:=reexport,
+ org.eclipse.scada.da.server.exec;
+  visibility:=reexport
+Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.da.server.osgi.modbus;version="0.1.0"

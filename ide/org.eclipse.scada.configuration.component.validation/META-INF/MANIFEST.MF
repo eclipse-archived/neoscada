@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.eclipse.scada.configuration.component.validation;single
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.scada.utils.ecore.validation,
- org.eclipse.scada.configuration.component;bundle-version="0.2.0"
+Import-Package: org.eclipse.scada.configuration.component.lib.create;version="0.5.0"
+Require-Bundle: org.eclipse.scada.configuration.component,
+ org.eclipse.scada.utils.ecore.validation
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.configuration.component.lib.create

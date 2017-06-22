@@ -3,10 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse NeoSCADA PDE Extensions (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ide.pde;singleton:=true
 Bundle-Version: 0.5.0.qualifier
-Bundle-Activator: org.eclipse.scada.configuration.ui.pde.Activator
 Bundle-Vendor: Eclipse NeoSCADA Project
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- org.eclipse.pde.core
+Bundle-Activator: org.eclipse.scada.configuration.ui.pde.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.pde.core,
+ org.eclipse.ui
 Bundle-ActivationPolicy: lazy

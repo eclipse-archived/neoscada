@@ -43,8 +43,8 @@ import org.eclipse.scada.configuration.world.lib.deployment.Contents;
 import org.eclipse.scada.configuration.world.lib.deployment.ScoopFilesVisitor;
 import org.eclipse.scada.configuration.world.lib.deployment.ScriptMaker;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
-import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
-import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
+import org.eclipse.packagedrone.utils.deb.build.DebianPackageWriter;
+import org.eclipse.packagedrone.utils.deb.control.BinaryPackageControlFile;
 import org.eclipse.scada.utils.str.StringHelper;
 
 import com.google.common.io.CharStreams;
@@ -94,7 +94,9 @@ public class DebianHandler extends CommonPackageHandler
         packageControlFile.setPriority ( "required" ); //$NON-NLS-1$
         packageControlFile.setSection ( "misc" ); //$NON-NLS-1$
         packageControlFile.setMaintainer ( String.format ( "%s <%s>", this.deploy.getMaintainer ().getName (), this.deploy.getMaintainer ().getEmail () ) ); //$NON-NLS-1$
-        packageControlFile.setDescription ( String.format ( "Configuration package for %s", Nodes.makeName ( this.applicationNode ) ), "This is an automatically generated configuration package" );
+        // packageControlFile.setDescription ( String.format ( "Configuration package for %s", Nodes.makeName ( this.applicationNode ) ), "This is an automatically generated configuration package" );
+        // FIXME: use multiline option again at some point, but has to be implemented in package drone first
+        packageControlFile.setDescription ( String.format ( "Configuration package for %s", Nodes.makeName ( this.applicationNode ) ) + "\n\nThis is an automatically generated configuration package" );
 
         packageControlFile.set ( BinaryPackageControlFile.Fields.CONFLICTS, "org.openscada.drivers.common, org.openscada" ); //$NON-NLS-1$
 

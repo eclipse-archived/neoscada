@@ -22,9 +22,9 @@ import java.util.Map;
 import org.eclipse.scada.configuration.world.lib.deployment.CommonPackageDeploymentContext;
 import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
 import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
-import org.eclipse.scada.utils.pkg.deb.ContentProvider;
-import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
-import org.eclipse.scada.utils.pkg.deb.EntryInformation;
+import org.eclipse.packagedrone.utils.deb.build.ContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.DebianPackageWriter;
+import org.eclipse.packagedrone.utils.deb.build.EntryInformation;
 
 import com.google.common.io.ByteStreams;
 
