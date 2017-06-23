@@ -24,11 +24,13 @@
       <import feature="org.eclipse.neoscada.configuration.feature" version="0.5.0" />
    </requires>
 
+<!-- FIXME: comment in again when build is finished
    <plugin
          id="org.eclipse.scada.configuration.doc"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
+-->
 
 </feature>

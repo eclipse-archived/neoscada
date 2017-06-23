@@ -17,7 +17,7 @@ install:
   - hash -r
 
 script:
-  - travis_wait 45 mvn -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true clean install
+  - travis_wait 45 mvn -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true -T 4 clean install
 
 # The following upgrades Java during the build in
 # order to work around an older Java 8 compiler issue
