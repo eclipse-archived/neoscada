@@ -10,7 +10,7 @@ pipeline {
 			steps {
 				sh "rm -rf ~/.m2/repository/org/eclipse/scada"
 				sh "rm -rf ~/.m2/repository/org/eclipse/neoscada"
-				sh 'MAVEN_OPTS="-Xms1024m -Xmx3072m -XX:PermSize=512m" mvn -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true -T 4 clean install'
+				sh 'MAVEN_OPTS="-Xms1024m -Xmx3072m" mvn -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true -T 4 clean install'
 			}
 		}
 		stage('Archive') {

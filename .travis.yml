@@ -14,7 +14,7 @@ install:
   - export M2_HOME=$PWD/maven
   - export PATH=$PWD/maven/bin:${PATH}
   - export MAVEN_SKIP_RC=true
-  - export MAVEN_OPTS="-Dmaven.repo.local=$HOME/.m2/repository -Xms1024m -Xmx3072m -XX:PermSize=512m" 
+  - export MAVEN_OPTS="-Dmaven.repo.local=$HOME/.m2/repository -Xms1024m -Xmx3072m" 
   - hash -r
 
 script:
