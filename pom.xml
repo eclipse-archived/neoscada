@@ -28,6 +28,7 @@
 
 	<modules>
 		<module>releng/org.eclipse.neoscada.target</module>
+		<module>external</module>
 		<module>utils</module>
 		<module>protocols</module>
 		<module>base</module>

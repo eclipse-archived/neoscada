@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Core Client (Incubation)
+Bundle-Name: Eclipse NeoSCADA Core Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.client
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project

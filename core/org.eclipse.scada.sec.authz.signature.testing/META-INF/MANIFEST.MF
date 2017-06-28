@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.eclipse.scada.sec.authz.signature.testing
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Fragment-Host: org.eclipse.scada.sec.authz.signature;bundle-version="0.1.0"
+Fragment-Host: org.eclipse.scada.sec.authz.signature;bundle-version="0.5.0"
 Import-Package: javax.script,
  javax.security.auth.x500,
  javax.xml.crypto,

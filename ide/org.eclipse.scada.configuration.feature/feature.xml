@@ -32,10 +32,10 @@
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.osgi"/>
-      <import plugin="org.eclipse.scada.da.server.common" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.da.server.exec" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.generator.component" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.component" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.da.server.common"/>
+      <import plugin="org.eclipse.scada.da.server.exec"/>
+      <import plugin="org.eclipse.scada.configuration.generator.component"/>
+      <import plugin="org.eclipse.scada.configuration.component"/>
       <import plugin="org.eclipse.scada.ae.data"/>
       <import plugin="org.eclipse.scada.sec.provider.plain.property"/>
       <import plugin="org.eclipse.scada.utils"/>
@@ -50,50 +50,50 @@
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="org.eclipse.scada.configuration.globalization.lib" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.globalization" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.globalization.lib"/>
+      <import plugin="org.eclipse.scada.configuration.globalization"/>
       <import plugin="org.eclipse.scada.ui.databinding"/>
-      <import plugin="org.eclipse.scada.configuration.infrastructure.lib" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.infrastructure.lib"/>
       <import plugin="org.eclipse.ui.console" version="3.5.200" match="greaterOrEqual"/>
       <import plugin="org.eclipse.scada.ca.oscar"/>
       <import plugin="org.eclipse.scada.ui.utils"/>
-      <import plugin="org.eclipse.scada.configuration.globalization.edit" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.world.edit" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.security.edit" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.infrastructure" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.globalization.edit"/>
+      <import plugin="org.eclipse.scada.configuration.world.edit"/>
+      <import plugin="org.eclipse.scada.configuration.security.edit"/>
+      <import plugin="org.eclipse.scada.configuration"/>
+      <import plugin="org.eclipse.scada.configuration.infrastructure"/>
       <import plugin="org.eclipse.emf.validation" version="1.2.0" match="compatible"/>
-      <import plugin="org.eclipse.scada.configuration.item" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.security" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.item.edit" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.item"/>
+      <import plugin="org.eclipse.scada.configuration.security"/>
+      <import plugin="org.eclipse.scada.configuration.item.edit"/>
       <import plugin="org.eclipse.core.contenttype"/>
       <import plugin="org.eclipse.wst.jsdt.core"/>
       <import plugin="com.google.guava" version="18.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore" version="2.9.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.scada.core"/>
-      <import plugin="org.eclipse.scada.da.server.exec.edit" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.da.server.exec.edit"/>
       <import plugin="org.eclipse.emf" version="2.6.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.da.server.exporter" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.da.server.exporter"/>
       <import plugin="org.eclipse.emf.ecore" version="2.8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.scada.ca"/>
       <import plugin="org.eclipse.wst.jsdt.core" version="1.1.202" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.workbench"/>
       <import plugin="org.eclipse.ui.ide" version="3.9.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.generator" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.generator"/>
       <import plugin="org.eclipse.emf.common.ui" version="2.8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.validation.ocl" version="1.4.0"/>
       <import plugin="org.eclipse.ocl" version="1.3.0"/>
       <import plugin="org.eclipse.ocl.ecore" version="1.3.0"/>
       <import plugin="org.eclipse.ui" version="3.105.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.expressions" version="3.4.500" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.world" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.utils" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.world"/>
+      <import plugin="org.eclipse.scada.configuration.utils"/>
       <import plugin="javax.inject"/>
       <import plugin="org.junit"/>
-      <import plugin="org.eclipse.scada.configuration.component.exec" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.component.exec"/>
       <import plugin="org.eclipse.pde.ui"/>
       <import plugin="org.eclipse.jface"/>
-      <import plugin="org.eclipse.scada.configuration.recipe" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.recipe"/>
       <import plugin="org.eclipse.core.databinding"/>
       <import plugin="org.eclipse.core.databinding.beans"/>
       <import plugin="org.eclipse.core.databinding.observable"/>
@@ -102,8 +102,8 @@
       <import plugin="org.eclipse.jface.databinding"/>
       <import plugin="org.eclipse.equinox.registry"/>
       <import plugin="org.eclipse.scada.da.server.osgi.modbus"/>
-      <import plugin="org.eclipse.scada.configuration.modbus" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.scada.configuration.memory.manager" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.configuration.modbus"/>
+      <import plugin="org.eclipse.scada.configuration.memory.manager"/>
       <import plugin="org.eclipse.wst.xml.core"/>
       <import plugin="org.apache.commons.beanutils"/>
    </requires>

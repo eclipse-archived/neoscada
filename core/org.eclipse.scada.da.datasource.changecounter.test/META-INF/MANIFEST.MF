@@ -1,8 +1,8 @@
 Bundle-ManifestVersion: 2
 Bundle-Name: Testing Plugin for datasource (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.changecounter.test
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Eclipse NeoSCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Fragment-Host: org.eclipse.scada.da.datasource.changecounter;bundle-version="0.1.0"
+Fragment-Host: org.eclipse.scada.da.datasource.changecounter;bundle-version="0.5.0"
 Require-Bundle: org.junit
