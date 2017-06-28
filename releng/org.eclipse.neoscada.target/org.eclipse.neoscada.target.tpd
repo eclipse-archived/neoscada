@@ -2,81 +2,45 @@ target "Eclipse NeoSCADA Target Platform"
 
 with source
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/cbi/updates/license/" {
-	org.eclipse.license.feature.group [1.0.1,1.0.2)
-}
-
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/eclipse/updates/4.7milestones/S-4.7RC4a-201706120950" {
+location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/releases/oxygen/" {
 	org.eclipse.equinox.sdk.feature.group
-	
-//	org.eclipse.emf.validation.sdk.feature.group
-//	org.eclipse.emf.sdk.feature.group
-	
-//	org.eclipse.ecf.core.feature.group
-//	org.eclipse.ocl.all.sdk.feature.group
-	
+	org.eclipse.equinox.p2.core.feature.feature.group
+	org.eclipse.equinox.p2.rcp.feature.feature.group
 	org.eclipse.platform.feature.group
 	org.eclipse.pde.feature.group
-	
-//	org.eclipse.wst.common.fproj.feature.group
-//	org.eclipse.wst.web_core.feature.feature.group
-//	org.eclipse.wst.web_ui.feature.feature.group
-//	org.eclipse.acceleo.feature.group
-	
-//	org.eclipse.gef.sdk.feature.group
 	org.eclipse.jdt.feature.group
-	
 	org.eclipse.ecf.core.feature.feature.group
-	org.eclipse.equinox.p2.core.feature.feature.group
 	org.eclipse.ecf.core.ssl.feature.feature.group
 	org.eclipse.ecf.filetransfer.ssl.feature.feature.group
 	org.eclipse.ecf.filetransfer.feature.feature.group
 	org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group
 	org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group
-	org.eclipse.equinox.p2.rcp.feature.feature.group
-}
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/emf/updates/2.13/" {
 	org.eclipse.emf.sdk.feature.group
-}
-
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/emf/validation/updates/releases/R201706061352/" {
 	org.eclipse.emf.validation.sdk.feature.group
-}
-
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/modeling/mdt/ocl/updates/releases/6.3.0/" {
 	org.eclipse.ocl.all.sdk.feature.group
-}
-
-location "https://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/gef/updates/releases/" {
 	org.eclipse.draw2d.sdk.feature.group
-}
-
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/webtools/repository/oxygen/" {
-	org.eclipse.wst.common.fproj.sdk.feature.group
+	org.eclipse.wst.common.fproj.feature.group
 	org.eclipse.wst.web_core.feature.feature.group
 	org.eclipse.wst.web_ui.feature.feature.group
+	org.eclipse.acceleo.engine
+	org.eclipse.acceleo.common
+	org.eclipse.acceleo.model
+	org.eclipse.acceleo.profiler
+	// org.eclipse.acceleo.sdk.feature.group
 }
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/acceleo/updates/releases/3.7/" {
-	org.eclipse.acceleo.sdk.feature.group
+location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/cbi/updates/license/" {
+	org.eclipse.license.feature.group [1.0.1,1.0.2)
+}
+
+location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/gemini/updates/dbaccess/1.1.0" {
+	org.eclipse.gemini.dbaccess.h2.feature.feature.group
 }
 
 location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/paho/" {
 	org.eclipse.paho.client.mqttv3
 }
-
-//location "http://packagedrone.eclipse.org/p2/neoscada-0.4-deps" {
-//	com.google.guava [18.0.0,18.0.1)
-//	com.google.guava.source [18.0.0,18.0.1)
-//	org.apache.commons.compress [1.9.0,1.9.1)
-//	org.apache.commons.compress.source [1.9.0,1.9.1)
-//	org.tukani.xz [1.5.0,1.5.1)
-//	bcprov [1.52.0,1.52.1)
-//	bcpg [1.52.0,1.52.1)
-//	
-//	org.eclipse.packagedrone.utils.rpm[0.14.0,0.14.1)
-//}
 
 location "http://thedrone.packagedrone.org/p2/neoscada-05-dependencies/" {
 	// FIXME: we need CQs for the current version! Also Orbit?
@@ -174,8 +138,4 @@ location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/orbit/R-builds/R
 	
 	osgi.enterprise[4.2.0,4.2.1)
 	osgi.enterprise.source[4.2.0,4.2.1)
-}
-
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/gemini/updates/dbaccess/1.1.0" {
-	org.eclipse.gemini.dbaccess.h2.feature.feature.group
 }
