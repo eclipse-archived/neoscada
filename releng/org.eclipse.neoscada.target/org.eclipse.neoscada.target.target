@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1498641456">
+<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1498641948">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.13.0.v20170531-1133"/>
@@ -27,19 +27,20 @@
       <unit id="org.eclipse.acceleo.common" version="3.7.1.201705121344"/>
       <unit id="org.eclipse.acceleo.model" version="3.7.1.201705121344"/>
       <unit id="org.eclipse.acceleo.profiler" version="3.7.1.201705121344"/>
-      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/releases/oxygen/"/>
+      <unit id="org.eclipse.acceleo.parser" version="3.7.1.201705121344"/>
+      <repository location="http://download.eclipse.org/releases/oxygen/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
-      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/cbi/updates/license/"/>
+      <repository location="http://download.eclipse.org/cbi/updates/license/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.gemini.dbaccess.h2.feature.feature.group" version="1.1.0.RELEASE"/>
-      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/gemini/updates/dbaccess/1.1.0"/>
+      <repository location="http://download.eclipse.org/gemini/updates/dbaccess/1.1.0"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.paho.client.mqttv3" version="1.0.2"/>
-      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/paho/"/>
+      <repository location="http://download.eclipse.org/paho/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="io.netty.buffer" version="4.1.11.Final"/>
@@ -114,7 +115,7 @@
       <unit id="javax.activation.source" version="1.1.0.v201211130549"/>
       <unit id="osgi.enterprise" version="4.2.0.v201108120515"/>
       <unit id="osgi.enterprise.source" version="4.2.0.v201108120515"/>
-      <repository location="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/orbit/R-builds/R20170516192513/repository/"/>
+      <repository location="http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository/"/>
     </location>
   </locations>
 </target>

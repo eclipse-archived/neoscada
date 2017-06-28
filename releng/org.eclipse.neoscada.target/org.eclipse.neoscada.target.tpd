@@ -2,7 +2,7 @@ target "Eclipse NeoSCADA Target Platform"
 
 with source
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/releases/oxygen/" {
+location "http://download.eclipse.org/releases/oxygen/" {
 	org.eclipse.equinox.sdk.feature.group
 	org.eclipse.equinox.p2.core.feature.feature.group
 	org.eclipse.equinox.p2.rcp.feature.feature.group
@@ -27,18 +27,18 @@ location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/releases/oxygen/" {
 	org.eclipse.acceleo.common
 	org.eclipse.acceleo.model
 	org.eclipse.acceleo.profiler
-	// org.eclipse.acceleo.sdk.feature.group
+	org.eclipse.acceleo.parser
 }
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/cbi/updates/license/" {
+location "http://download.eclipse.org/cbi/updates/license/" {
 	org.eclipse.license.feature.group [1.0.1,1.0.2)
 }
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/gemini/updates/dbaccess/1.1.0" {
+location "http://download.eclipse.org/gemini/updates/dbaccess/1.1.0" {
 	org.eclipse.gemini.dbaccess.h2.feature.feature.group
 }
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/paho/" {
+location "http://download.eclipse.org/paho/" {
 	org.eclipse.paho.client.mqttv3
 }
 
@@ -60,7 +60,7 @@ location "http://thedrone.packagedrone.org/p2/neoscada-05-dependencies/" {
 	bcprov [1.52.0,1.52.1)
 } 
 
-location "http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/tools/orbit/R-builds/R20170516192513/repository/" {
+location "http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository/" {
 
 /*
  * We do have CQs for specific versions. So we need to fix them.
