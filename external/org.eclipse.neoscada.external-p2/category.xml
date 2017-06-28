@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.neoscada.external.feature_0.5.0.qualifier.jar" id="org.eclipse.neoscada.external.feature" version="0.5.0.qualifier">
+      <category name="org.eclipse.scada.external.category"/>
+   </feature>
+   <category-def name="org.eclipse.scada.external.category" label="3rd party libraries used by Eclipse NeoSCADA (Incubation)"/>
+</site>

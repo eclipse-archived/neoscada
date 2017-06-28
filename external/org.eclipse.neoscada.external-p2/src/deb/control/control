@@ -1,0 +1,8 @@
+Package: [[name]]
+Version: [[version]]
+Section: misc
+Priority: optional
+Architecture: all
+Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
+Description: Eclipse NeoSCADA P2 Repository - [[artifactId]]
+Distribution: development

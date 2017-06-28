@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<artifactId>org.eclipse.neoscada.external-parent</artifactId>
+		<groupId>org.eclipse.neoscada</groupId>
+		<version>0.5.0-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+	
+	<name>/external/org.eclipse.neoscada.external-p2</name>
+	<artifactId>org.eclipse.neoscada.external.p2-incubation</artifactId>
+	<packaging>eclipse-repository</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>jdeb</artifactId>
+				<groupId>org.vafer</groupId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>jdeb</goal>
+						</goals>
+						<configuration>
+							<snapshotExpand>true</snapshotExpand>
+							<snapshotEnv>qualifiedVersion</snapshotEnv>
+							<dataSet>
+								<data>
+									<src>target/repository</src>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/eclipsescada/p2/org.eclipse.neoscada.external</prefix>
+									</mapper>
+								</data>
+							</dataSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>de.dentrassi.maven</groupId>
+				<artifactId>rpm</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>rpm</goal>
+						</goals>
+						<configuration>
+							<forceRelease>true</forceRelease>
+							<release>${buildQualifier}</release>
+							<version>${unqualifiedVersion}</version>
+							<attach>true</attach>
+							<skipSigning>true</skipSigning>
+							<group>Application/Misc</group>
+							<rulesets>
+								<ruleset>
+									<id>default-rule</id>
+									<rules>
+										<rule>
+											<when>
+												<type>directory</type>
+											</when>
+											<mode>0755</mode>
+										</rule>
+									</rules>
+								</ruleset>
+							</rulesets>
+							<entries>
+								<entry>
+									<name>/usr/share/eclipsescada/p2/org.eclipse.neoscada.external</name>
+									<collect>
+										<from>target/repository</from>
+										<directories>true</directories>
+									</collect>
+									<ruleset>default-rule</ruleset>
+								</entry>
+							</entries>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
