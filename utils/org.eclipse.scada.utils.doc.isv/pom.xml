@@ -42,6 +42,8 @@
 						</goals>
 						<phase>generate-resources</phase>
 						<configuration>
+							<!-- FIXME: remove that at a later point in time -->
+							<cleanFirst>false</cleanFirst>
 							<outputDirectory>${basedir}/reference/api</outputDirectory>
 							<tocFile>${basedir}/toc/tocjavadoc.xml</tocFile>
 							<javadocOptions>
