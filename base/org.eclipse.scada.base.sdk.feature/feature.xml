@@ -44,10 +44,12 @@
       <import feature="org.eclipse.license" version="1.0.1"/>
    </requires>
 
+<!--
    <plugin
          id="org.eclipse.scada.base.doc.isv"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+         -->
 
 </feature>

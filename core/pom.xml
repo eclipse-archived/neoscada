@@ -219,7 +219,9 @@
 		<module>org.eclipse.scada.core.client.feature</module>
 		<module>org.eclipse.scada.core.ui.editors.feature</module>
 		<module>org.eclipse.scada.core.feature</module>
+		<!-- 
 		<module>org.eclipse.scada.core.doc.isv</module>
+		 -->
 		<module>org.eclipse.scada.core.sdk.feature</module>
 		
 		<module>org.eclipse.scada.core-p2</module>

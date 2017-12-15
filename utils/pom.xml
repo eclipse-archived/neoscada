@@ -46,7 +46,9 @@
 		<module>org.eclipse.scada.ui.utils.feature</module>
 		
 		<!-- SDK and P2 -->
+		<!-- 
 		<module>org.eclipse.scada.utils.doc.isv</module>
+		 -->
 		<module>org.eclipse.scada.utils.sdk.feature</module>
 		<module>org.eclipse.scada.utils-p2</module>
 	</modules>

@@ -51,7 +51,9 @@
 
     	<module>org.eclipse.scada.protocols.feature</module>
     	<module>org.eclipse.scada.protocols.editors.feature</module>
+    	<!-- 
     	<module>org.eclipse.neoscada.protocols.doc.isv</module>
+    	 -->
     	<module>org.eclipse.scada.protocols.sdk.feature</module>
 
     	<module>org.eclipse.scada.protocols-p2</module>
