@@ -60,8 +60,8 @@
 				</fileset>
 			</copy>
 			<copy todir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}/pack">
-				<fileset dir="@{project-dir}/target/@{feature-name}@{feature-qualifier}-${pom.version}.zip">
-					<include name="**/*"/>
+				<fileset dir="@{project-dir}/target/">
+					<include name="@{feature-name}@{feature-qualifier}-${pom.version}.zip"/>
 				</fileset>
 			</copy>
 		</sequential>
