@@ -33,7 +33,7 @@
 		<!-- STEP 1 -->
 		<!-- copy features to drops directory -->
 		<echo>${publish.assemble.path}</echo>
-		<copy-feature base-name="external" />
+		<copy-feature base-name="external" project-dir="../../external/org.eclipse.neoscada.external-p2" />
 		<copy-feature base-name="utils" />
 		<copy-feature base-name="base" />
 		<copy-feature base-name="chart" />
