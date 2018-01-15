@@ -11,18 +11,45 @@
 	<description>
         assembles all build artifacts
     </description>
-	
+
 	<property file="${project.build.directory}/classes/buildinfo.properties" />
+	<property name="full.version" value="${release}.${micro}" />
 
 	<!-- ================================= 
           target: default              
          ================================= -->
 	<target name="run" description="description">
-		<echo>hello from ant file</echo>
-		<echo>version: ${version}</echo>
-		<echo>build: ${build.timestamp}</echo>
-		<echo>assemble path: ${publish.assemble.path}</echo>
-		<echo>publish path: ${publish.target.path}</echo>
+
+		<!-- 
+			we want to fail the build if there is any discrepancy between the pom version and the 
+			official release we want to publish this under
+		-->
+
+		<condition property="version.does.match">
+			<matches pattern="${full.version}.*" string="${pom.version}" />
+		</condition>
+		<fail unless="version.does.match" message="pom version doesn't match release version!" />
+
+		<!-- STEP 1 -->
+		<!-- copy features to drops directory -->
+		<echo>${publish.assemble.path}</echo>
+		<copy-feature project-dir="../org.eclipse.neoscada.utils-parent/org.eclipse.scada.utils-p2" feature-name="org.eclipse.neoscada.utils" target-dir="${publish.target.path}/downloads" />
+
 	</target>
 
+
+	<macrodef name="copy-feature">
+		<attribute name="project-dir" />
+		<attribute name="feature-name" />
+		<attribute name="feature-qualifier" default=".p2-incubation" />
+		<attribute name="target-dir" />
+		<sequential>
+			<mkdir dir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}" />
+			<copy todir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}">
+				<fileset dir="@{project-dir}/target/repository">
+					<include name="**/*"/>
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
 </project>
