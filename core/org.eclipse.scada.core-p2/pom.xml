@@ -26,7 +26,6 @@
 						</goals>
 						<configuration>
 							<snapshotExpand>true</snapshotExpand>
-							<snapshotEnv>qualifiedVersion</snapshotEnv>
 							<dataSet>
 								<data>
 									<src>target/repository</src>
@@ -52,7 +51,7 @@
 						</goals>
 						<configuration>
 							<forceRelease>true</forceRelease>
-							<release>${buildQualifier}</release>
+							<release>${buildTimestamp}</release>
 							<version>${unqualifiedVersion}</version>
 							<attach>true</attach>
 							<skipSigning>true</skipSigning>
