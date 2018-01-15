@@ -33,16 +33,20 @@
 		<!-- STEP 1 -->
 		<!-- copy features to drops directory -->
 		<echo>${publish.assemble.path}</echo>
-		<copy-feature project-dir="../../utils/org.eclipse.scada.utils-p2" feature-name="org.eclipse.neoscada.utils" target-dir="${publish.target.path}/downloads" />
+		<copy-feature base-name="utils" />
+		<!--
+		project-dir="../../utils/org.eclipse.scada.utils-p2" feature-name="org.eclipse.neoscada.utils"   target-dir="${publish.target.path}/downloads"
+		-->
 
 	</target>
 
 
 	<macrodef name="copy-feature">
-		<attribute name="project-dir" />
-		<attribute name="feature-name" />
+		<attribute name="base-name" />
+		<attribute name="project-dir" default="../../utils/org.eclipse.scada.@{base-name}-p2" />
+		<attribute name="feature-name" default="org.eclipse.neoscada.@{base-name}" />
 		<attribute name="feature-qualifier" default=".p2-incubation" />
-		<attribute name="target-dir" />
+		<attribute name="target-dir" default="${publish.target.path}/downloads" />
 		<sequential>
 			<mkdir dir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}" />
 			<copy todir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}">
