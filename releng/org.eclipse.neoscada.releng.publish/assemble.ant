@@ -33,7 +33,14 @@
 		<!-- STEP 1 -->
 		<!-- copy features to drops directory -->
 		<echo>${publish.assemble.path}</echo>
+		<copy-feature base-name="external" />
 		<copy-feature base-name="utils" />
+		<copy-feature base-name="base" />
+		<copy-feature base-name="chart" />
+		<copy-feature base-name="protocols" />
+		<copy-feature base-name="core" />
+		<copy-feature base-name="hmi" />
+		<copy-feature base-name="ide" />
 		<!--
 		project-dir="../../utils/org.eclipse.scada.utils-p2" feature-name="org.eclipse.neoscada.utils"   target-dir="${publish.target.path}/downloads"
 		-->
@@ -48,9 +55,15 @@
 		<attribute name="feature-qualifier" default=".p2-incubation" />
 		<attribute name="target-dir" default="${publish.target.path}/downloads" />
 		<sequential>
-			<mkdir dir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}" />
+			<mkdir dir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}/pack" />
+			<mkdir dir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}/packages" />
 			<copy todir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}">
 				<fileset dir="@{project-dir}/target/repository">
+					<include name="**/*"/>
+				</fileset>
+			</copy>
+			<copy todir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}/pack">
+				<fileset dir="@{project-dir}/target/@{feature-name}@{feature-qualifier}-${pom.version}.zip">
 					<include name="**/*"/>
 				</fileset>
 			</copy>
