@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     12.01.2018 12:59:54                                                        
+
+     project    
+     description
+                   
+     jrose                                                                
+     ====================================================================== -->
+<project name="artifact assembly" default="run">
+	<description>
+        assembles all build artifacts
+    </description>
+	
+	<property file="${project.build.directory}/classes/buildinfo.properties" />
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="run" description="description">
+		<echo>hello from ant file</echo>
+		<echo>version: ${version}</echo>
+		<echo>build: ${build.timestamp}</echo>
+		<echo>assemble path: ${publish.assemble.path}</echo>
+		<echo>publish path: ${publish.target.path}</echo>
+	</target>
+
+</project>

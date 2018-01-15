@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>/releng/org.eclipse.neoscada.releng.publish</name>
+
+	<parent>
+		<groupId>org.eclipse.neoscada</groupId>
+		<artifactId>org.eclipse.neoscada-parent</artifactId>
+		<version>0.5.0-SNAPSHOT</version>
+		<relativePath>../../</relativePath>
+	</parent>
+
+	<artifactId>org.eclipse.neoscada.releng.publish</artifactId>
+	<packaging>jar</packaging>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>buildinfo.properties</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<properties>
+				<publish.assemble.path>${java.io.tmpdir}/neoscada/assemble</publish.assemble.path>
+				<!-- this path has to be overidden for actual publishing -->
+				<publish.target.path>${java.io.tmpdir}/neoscada/publish</publish.target.path>
+			</properties>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<configuration>
+									<target name="run">
+										<ant antfile="assemble.ant" />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>travis</id>
+		</profile>
+		<profile>
+			<id>jenkins</id>
+		</profile>
+	</profiles>
+
+</project>
