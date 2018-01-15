@@ -33,7 +33,7 @@
 		<!-- STEP 1 -->
 		<!-- copy features to drops directory -->
 		<echo>${publish.assemble.path}</echo>
-		<copy-feature project-dir="../org.eclipse.neoscada.utils-parent/org.eclipse.scada.utils-p2" feature-name="org.eclipse.neoscada.utils" target-dir="${publish.target.path}/downloads" />
+		<copy-feature project-dir="../../org.eclipse.neoscada.utils-parent/org.eclipse.scada.utils-p2" feature-name="org.eclipse.neoscada.utils" target-dir="${publish.target.path}/downloads" />
 
 	</target>
 
