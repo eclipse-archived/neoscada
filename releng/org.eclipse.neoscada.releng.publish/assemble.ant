@@ -41,19 +41,16 @@
 		<copy-feature base-name="core" />
 		<copy-feature base-name="hmi" />
 		<copy-feature base-name="ide" />
-		<!--
-		project-dir="../../utils/org.eclipse.scada.utils-p2" feature-name="org.eclipse.neoscada.utils"   target-dir="${publish.target.path}/downloads"
-		-->
 
 	</target>
 
 
 	<macrodef name="copy-feature">
 		<attribute name="base-name" />
-		<attribute name="project-dir" default="../../utils/org.eclipse.scada.@{base-name}-p2" />
+		<attribute name="project-dir" default="../../@{base-name}/org.eclipse.scada.@{base-name}-p2" />
 		<attribute name="feature-name" default="org.eclipse.neoscada.@{base-name}" />
 		<attribute name="feature-qualifier" default=".p2-incubation" />
-		<attribute name="target-dir" default="${publish.target.path}/downloads" />
+		<attribute name="target-dir" default="${publish.assemble.path}/downloads" />
 		<sequential>
 			<mkdir dir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}/pack" />
 			<mkdir dir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}/packages" />
