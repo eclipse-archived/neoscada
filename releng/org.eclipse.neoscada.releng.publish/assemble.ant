@@ -66,8 +66,8 @@
 			</copy>
 			<copy todir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}/packages">
 				<fileset dir="@{project-dir}/target/">
-					<include name="@{feature-name}@{feature-qualifier}_${full.version}.*.deb"/>
-					<include name="@{feature-name}@{feature-qualifier}-${full.version}.*.rpm"/>
+					<include name="@{feature-name}@{feature-qualifier}_.*.deb"/>
+					<include name="@{feature-name}@{feature-qualifier}-.*.rpm"/>
 				</fileset>
 			</copy>
 		</sequential>
