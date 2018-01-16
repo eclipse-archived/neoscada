@@ -64,6 +64,12 @@
 					<include name="@{feature-name}@{feature-qualifier}-${pom.version}.zip"/>
 				</fileset>
 			</copy>
+			<copy todir="@{target-dir}/@{feature-name}/drops/${full.version}/${buildType}${build.timestamp}/packages">
+				<fileset dir="@{project-dir}/target/">
+					<include name="@{feature-name}@{feature-qualifier}-${pom.version}.*.deb"/>
+					<include name="@{feature-name}@{feature-qualifier}-${pom.version}.*.rpm"/>
+				</fileset>
+			</copy>
 		</sequential>
 	</macrodef>
 </project>
