@@ -36,6 +36,7 @@
 		<module>core</module>
 		<module>hmi</module>
 		<module>ide</module>
+		<module>deploy</module>
 		<module>releng/org.eclipse.neoscada.releng.publish</module>
 	</modules>
 
