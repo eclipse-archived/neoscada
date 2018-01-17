@@ -64,7 +64,7 @@
 								<require>apache-commons-daemon-jsvc</require>
 								<require>openssh</require>
 								<require>perl-base</require>
-								<require>jre &gt;= 1.7.0</require>
+								<require>jre &gt;= 1.8.0</require>
 							</requires>
 
 							<mappings>

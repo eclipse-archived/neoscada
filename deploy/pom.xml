@@ -16,6 +16,7 @@
 
     <modules>
     	<module>org.eclipse.scada.deploy.p2director</module>
+    	<module>org.eclipse.scada.deploy.repack</module>
 	</modules>
 
 </project>
