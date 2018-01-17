@@ -1,0 +1,5 @@
+publish.properties
+apt/
+deb/
+yum/
+rpm/

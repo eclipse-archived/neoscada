@@ -24,6 +24,12 @@
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
 		<buildTimestamp>${maven.build.timestamp}</buildTimestamp>
 		<reactorBuildTimestampProperty>${maven.build.timestamp}</reactorBuildTimestampProperty>
+
+		<release.buildType>N</release.buildType>
+		<release.buildTypeLong>nightly</release.buildTypeLong>
+		<release.major.minor>0.5</release.major.minor>
+		<release.micro>0</release.micro>
+		<release.fullVersion>${release.major.minor}.${release.micro}</release.fullVersion>
 	</properties>
 
 	<modules>
@@ -69,13 +75,8 @@
 					<artifactId>tycho-p2-repository-plugin</artifactId>
 					<version>${tycho.version}</version>
 				</plugin>
-				<!-- 
-				<plugin>
-					<groupId>org.eclipse.tycho.extras</groupId>
-					<artifactId>tycho-document-bundle-plugin</artifactId>
-					<version>${tycho.extras.version}</version>
-				</plugin>
-				 -->
+				<!-- <plugin> <groupId>org.eclipse.tycho.extras</groupId> <artifactId>tycho-document-bundle-plugin</artifactId> 
+					<version>${tycho.extras.version}</version> </plugin> -->
 				<plugin>
 					<groupId>org.eclipse.tycho.extras</groupId>
 					<artifactId>tycho-source-feature-plugin</artifactId>
@@ -90,6 +91,16 @@
 					<groupId>de.dentrassi.maven</groupId>
 					<artifactId>rpm</artifactId>
 					<version>0.10.0</version>
+				</plugin>
+				<plugin>
+					<groupId>de.dentrassi.build</groupId>
+					<artifactId>apt-repo</artifactId>
+					<version>0.0.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.7</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -179,6 +190,38 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho.version}</version>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<inherited>false</inherited>
+				<executions>
+					<execution>
+						<id>create-build-identifiers</id>
+						<phase>compile</phase>
+						<configuration>
+							<target name="run">
+								<propertyfile file="${project.build.directory}/buildinfo.properties">
+									<entry key="release.buildType" value="${release.buildType}" />
+									<entry key="release.buildTypeLong" value="${release.buildTypeLong}" />
+									<entry key="release.major.minor" value="${release.major.minor}" />
+									<entry key="release.micro" value="${release.micro}" />
+									<entry key="release.fullVersion" value="${release.major.minor}.${release.micro}" />
+									<entry key="build.imestamp" value="${buildTimestamp}" />
+									<entry key="jgit.buildQualifier" value="${buildQualifier}" />
+									<entry key="jgit.unqualifiedVersion" value="${unqualifiedVersion}" />
+									<entry key="jgit.qualifiedVersion" value="${qualifiedVersion}" />
+									<entry key="pom.version" value="${project.version}" />
+								</propertyfile>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 

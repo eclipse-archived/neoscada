@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>/releng/org.eclipse.neoscada.releng.publish.step02</name>
+
+	<parent>
+		<groupId>org.eclipse.neoscada</groupId>
+		<artifactId>org.eclipse.neoscada-parent</artifactId>
+		<version>0.5.0-SNAPSHOT</version>
+		<relativePath>../../../</relativePath>
+	</parent>
+
+	<artifactId>org.eclipse.neoscada.releng.publish.step02</artifactId>
+	<packaging>pom</packaging>
+
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>de.dentrassi.build</groupId>
+				<artifactId>apt-repo</artifactId>
+				<version>0.0.2</version>
+
+				<executions>
+					<execution>
+						<id>step-02</id>
+						<phase>package</phase>
+						<goals>
+							<goal>apt</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${project.basedir}/../generated/src/main/resources/deb</sourceDirectory>
+							<outputDirectory>${project.basedir}/../generated/src/main/resources/apt</outputDirectory>
+							<description>The Eclipse NeoSCADA repository</description>
+							<distributionName>default</distributionName>
+							<distributionLabel>The default distribution for this release</distributionLabel>
+							<componentLabel>The main component</componentLabel>
+							<origin>Eclipse NeoSCADA Project</origin>
+							<architectures>
+								<architecture>i386</architecture>
+								<architecture>amd64</architecture>
+								<architecture>armhf</architecture>
+								<architecture>armel</architecture>
+							</architectures>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>de.dentrassi.maven</groupId>
+				<artifactId>rpm</artifactId>
+
+				<executions>
+					<execution>
+						<id>step-03</id>
+						<phase>package</phase>
+						<goals>
+							<goal>yum-repository</goal>
+						</goals>
+						<configuration>
+							<directories>${project.basedir}/../generated/src/main/resources/rpm</directories>
+							<outputDirectory>${project.basedir}/../generated/src/main/resources/yum</outputDirectory>
+							<skipDependencies>true</skipDependencies>
+							<skipSigning>true</skipSigning>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

@@ -25,6 +25,8 @@
 							<goal>jdeb</goal>
 						</goals>
 						<configuration>
+							<name>neoscada.core.p2</name>
+							<deb>${project.build.directory}/neoscada.core.p2_${release.fullVersion}~${buildTimestamp}.deb</deb>
 							<snapshotExpand>true</snapshotExpand>
 							<dataSet>
 								<data>
@@ -50,9 +52,10 @@
 							<goal>rpm</goal>
 						</goals>
 						<configuration>
-							<forceRelease>true</forceRelease>
+							<packageName>neoscada.core.p2</packageName>
+							<forceRelease>true</forceRelease>							
 							<release>${buildTimestamp}</release>
-							<version>${unqualifiedVersion}</version>
+							<version>${release.fullVersion}</version>
 							<attach>true</attach>
 							<skipSigning>true</skipSigning>
 							<group>Application/Misc</group>

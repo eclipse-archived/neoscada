@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>/releng/org.eclipse.neoscada.releng.publish.step00</name>
+
+	<parent>
+		<groupId>org.eclipse.neoscada</groupId>
+		<artifactId>org.eclipse.neoscada-parent</artifactId>
+		<version>0.5.0-SNAPSHOT</version>
+		<relativePath>../../../</relativePath>
+	</parent>
+
+	<artifactId>org.eclipse.neoscada.releng.publish.step00</artifactId>
+	<packaging>pom</packaging>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<properties>
+				<publish.target.path>${java.io.tmpdir}/neoscada/publish</publish.target.path>
+			</properties>
+
+		</profile>
+
+		<profile>
+			<id>travis</id>
+		</profile>
+
+		<profile>
+			<id>jenkins</id>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>step-00</id>
+						<phase>package</phase>
+						<configuration>
+							<target name="run">
+								<propertyfile file="${project.basedir}/../generated/src/main/resources/publish.properties">
+									<entry key="publish.target.path" value="${publish.target.path}" />
+								</propertyfile>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

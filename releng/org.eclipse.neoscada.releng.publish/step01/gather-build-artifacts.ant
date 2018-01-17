@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     12.01.2018 12:59:54                                                        
+
+     project    
+     description
+                   
+     jrose                                                                
+     ====================================================================== -->
+<project name="artifact assembly" default="run">
+	<description>
+        assembles all build artifacts
+    </description>
+
+	<property file="${basedir}/../../../target/buildinfo.properties" prefix="imported" />
+	<property file="${basedir}/../generated/src/main/resources/publish.properties" />
+	<property name="collect.dir" value="${basedir}/../generated/src/main/resources" />
+
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="run" description="description">
+
+		<!-- 
+			we want to fail the build if there is any discrepancy between the pom version and the 
+			official release we want to publish this under
+		-->
+		<echo>loaded properties from: ${basedir}/../../../target/buildinfo.properties</echo>
+		<echo>pom version:            ${build.pom.version}</echo>
+		<echo>release full version:   ${build.release.fullVersion}</echo>
+		<condition property="version.does.match">
+			<matches pattern="${imported.release.fullVersion}.*" string="${imported.pom.version}" />
+		</condition>
+		<fail unless="version.does.match" message="pom version doesn't match release version!" />
+
+		<echo>Creating distribution in: ${publish.target.path}</echo>
+
+		<!-- STEP 1 -->
+		<!-- copy features to drops directory -->
+		<echo>collect p2 repos, deb and rpm files</echo>
+		<copy-feature base-name="external" project-dir="../../../external/org.eclipse.neoscada.external-p2" />
+		<copy-feature base-name="utils" />
+		<copy-feature base-name="base" />
+		<copy-feature base-name="chart" />
+		<copy-feature base-name="protocols" />
+		<copy-feature base-name="core" />
+		<copy-feature base-name="hmi" />
+		<copy-feature base-name="ide" />
+		
+		<copy-packages project-dir="../../../deploy/org.eclipse.scada.deploy.p2director" feature-name="org.eclipse.neoscada.deploy" />
+		<copy-packages project-dir="../../../deploy/org.eclipse.scada.deploy.repack" feature-name="org.eclipse.neoscada.deploy" />
+		
+	</target>
+
+
+	<macrodef name="copy-feature">
+		<attribute name="base-name" />
+		<attribute name="project-dir" default="../../../@{base-name}/org.eclipse.scada.@{base-name}-p2" />
+		<attribute name="feature-name" default="org.eclipse.neoscada.@{base-name}" />
+		<attribute name="feature-qualifier" default=".p2-incubation" />
+		<attribute name="target-dir" default="${publish.target.path}/downloads" />
+		<sequential>
+			<mkdir dir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/pack" />
+			<mkdir dir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/packages" />
+			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}">
+				<fileset dir="@{project-dir}/target/repository">
+					<include name="**/*"/>
+				</fileset>
+			</copy>
+			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/pack">
+				<fileset dir="@{project-dir}/target/">
+					<include name="@{feature-name}@{feature-qualifier}-${imported.pom.version}.zip"/>
+				</fileset>
+			</copy>
+			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/packages">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.deb"/>
+					<include name="*.rpm"/>
+				</fileset>
+			</copy>
+			<mkdir dir="${collect.dir}/deb"/>
+			<copy todir="${collect.dir}/deb">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.deb"/>
+				</fileset>
+			</copy>
+			<mkdir dir="${collect.dir}/rpm"/>
+			<copy todir="${collect.dir}/rpm">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.rpm"/>
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="copy-packages">
+		<attribute name="project-dir" />
+		<attribute name="feature-name" />
+		<attribute name="target-dir" default="${publish.target.path}/downloads" />
+		<sequential>
+			<mkdir dir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/packages" />
+			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/packages">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.deb"/>
+					<include name="*.rpm"/>
+				</fileset>
+			</copy>
+			<mkdir dir="${collect.dir}/deb"/>
+			<copy todir="${collect.dir}/deb">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.deb"/>
+				</fileset>
+			</copy>
+			<mkdir dir="${collect.dir}/rpm"/>
+			<copy todir="${collect.dir}/rpm">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.rpm"/>
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+</project>

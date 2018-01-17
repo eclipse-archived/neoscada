@@ -10,7 +10,7 @@
 		<relativePath>../</relativePath>
 	</parent>
 
-	<artifactId>neoscada.deploy.p2director</artifactId>
+	<artifactId>org.eclipse.neoscada.deploy.p2director</artifactId>
 	<version>0.5.0-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 
@@ -72,6 +72,8 @@
 							<goal>jdeb</goal>
 						</goals>
 						<configuration>
+							<name>neoscada.deploy.p2director</name>
+							<deb>${project.build.directory}/neoscada.deploy.p2director_${release.fullVersion}~${buildTimestamp}.deb</deb>
 							<snapshotExpand>true</snapshotExpand>
 							<dataSet>
 								<data>
@@ -114,9 +116,10 @@
 							<goal>rpm</goal>
 						</goals>
 						<configuration>
-							<forceRelease>true</forceRelease>
+							<packageName>neoscada.deploy.p2director</packageName>
+							<forceRelease>true</forceRelease>							
 							<release>${buildTimestamp}</release>
-							<version>${unqualifiedVersion}</version>
+							<version>${release.fullVersion}</version>
 							<attach>true</attach>
 							<skipSigning>true</skipSigning>
 							<group>Application/Misc</group>
