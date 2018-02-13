@@ -13,8 +13,8 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh "rm -rf ~/.m2/repository/org/eclipse/scada"
-				sh "rm -rf ~/.m2/repository/org/eclipse/neoscada"
+				sh 'rm -rf ~/.m2/repository/org/eclipse/scada'
+				sh 'rm -rf ~/.m2/repository/org/eclipse/neoscada'
 				sh 'MAVEN_OPTS="-Xms1024m -Xmx3072m" mvn -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true clean install'
 			}
 		}
@@ -29,8 +29,7 @@ pipeline {
 		}
 		stage('Deploy') {
 			steps {
-				sh "find $WORKSPACE/b/assemble"
-				sh "tree -d $WORKSPACE/b/assemble"
+				sh 'find $WORKSPACE/b/assemble'
 			}
 		}
 	}

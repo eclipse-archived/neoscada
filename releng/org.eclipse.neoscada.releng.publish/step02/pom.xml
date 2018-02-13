@@ -24,7 +24,7 @@
 
 				<executions>
 					<execution>
-						<id>step-02</id>
+						<id>step-02-apt</id>
 						<phase>package</phase>
 						<goals>
 							<goal>apt</goal>
@@ -54,7 +54,7 @@
 
 				<executions>
 					<execution>
-						<id>step-03</id>
+						<id>step-02-yum</id>
 						<phase>package</phase>
 						<goals>
 							<goal>yum-repository</goal>

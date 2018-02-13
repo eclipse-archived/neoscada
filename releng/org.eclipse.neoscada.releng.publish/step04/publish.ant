@@ -21,16 +21,8 @@
          ================================= -->
 	<target name="run" description="description">
 
-		<mkdir dir="${assemble.target.path}/repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/apt" />
-		<copy todir="${assemble.target.path}/repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/apt">
-			<fileset dir="${tmp.target.path}/apt">
-				<include name="**/*" />
-			</fileset>
-		</copy>
-
-		<mkdir dir="${assemble.target.path}/repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/yum" />
-		<copy todir="${assemble.target.path}/repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/yum">
-			<fileset dir="${tmp.target.path}/yum">
+		<copy todir="${publish.target.path}/">
+			<fileset dir="${assemble.target.path}">
 				<include name="**/*" />
 			</fileset>
 		</copy>

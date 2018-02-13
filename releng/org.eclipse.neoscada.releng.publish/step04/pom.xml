@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>/releng/org.eclipse.neoscada.releng.publish.step01</name>
+	<name>/releng/org.eclipse.neoscada.releng.publish.step04</name>
 
 	<parent>
 		<groupId>org.eclipse.neoscada</groupId>
@@ -12,7 +12,7 @@
 		<relativePath>../../../</relativePath>
 	</parent>
 
-	<artifactId>org.eclipse.neoscada.releng.publish.step01</artifactId>
+	<artifactId>org.eclipse.neoscada.releng.publish.step04</artifactId>
 	<packaging>pom</packaging>
 
 	<build>
@@ -22,26 +22,11 @@
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>step-01-clean</id>
-						<phase>clean</phase>
-						<configuration>
-							<target name="run">
-								<delete dir="${project.basedir}/../generated/src/main/resources/deb"/>
-								<delete dir="${project.basedir}/../generated/src/main/resources/rpm"/>
-								<delete dir="${project.basedir}/../generated/src/main/resources/apt"/>
-								<delete dir="${project.basedir}/../generated/src/main/resources/yum"/>
-							</target>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>step-01-package</id>
+						<id>step-04</id>
 						<phase>package</phase>
 						<configuration>
 							<target name="run">
-								<ant antfile="gather-build-artifacts.ant" />
+								<ant antfile="publish.ant" />
 							</target>
 						</configuration>
 						<goals>
