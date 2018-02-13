@@ -34,6 +34,7 @@
 
 	<modules>
 		<module>releng/org.eclipse.neoscada.target</module>
+		<module>releng/org.eclipse.neoscada.buildinfo</module>
 		<module>external</module>
 		<module>utils</module>
 		<module>protocols</module>
@@ -190,37 +191,6 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho.version}</version>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<inherited>false</inherited>
-				<executions>
-					<execution>
-						<id>create-build-identifiers</id>
-						<phase>compile</phase>
-						<configuration>
-							<target name="run">
-								<propertyfile file="${project.build.directory}/buildinfo.properties">
-									<entry key="release.buildType" value="${release.buildType}" />
-									<entry key="release.buildTypeLong" value="${release.buildTypeLong}" />
-									<entry key="release.major.minor" value="${release.major.minor}" />
-									<entry key="release.micro" value="${release.micro}" />
-									<entry key="release.fullVersion" value="${release.major.minor}.${release.micro}" />
-									<entry key="build.imestamp" value="${buildTimestamp}" />
-									<entry key="jgit.buildQualifier" value="${buildQualifier}" />
-									<entry key="jgit.unqualifiedVersion" value="${unqualifiedVersion}" />
-									<entry key="jgit.qualifiedVersion" value="${qualifiedVersion}" />
-									<entry key="pom.version" value="${project.version}" />
-								</propertyfile>
-							</target>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
 		</plugins>
 	</build>
 

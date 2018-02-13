@@ -12,7 +12,7 @@
         assembles all build artifacts
     </description>
 
-	<property file="${basedir}/../../../target/buildinfo.properties" prefix="imported" />
+	<property file="${basedir}/../generated/src/main/resources/buildinfo.properties" prefix="imported" />
 	<property file="${basedir}/../generated/src/main/resources/publish.properties" />
 
 

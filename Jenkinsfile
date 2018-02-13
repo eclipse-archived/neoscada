@@ -11,7 +11,6 @@ pipeline {
 	}
 	
 	stages {
-		/*
 		stage('Build') {
 			steps {
 				sh "rm -rf ~/.m2/repository/org/eclipse/scada"
@@ -20,18 +19,18 @@ pipeline {
 			}
 		}
 		stage('Archive') {
-			steps {*/
-				// archive '**/*-p2/target/*p2-*.zip'
-				// archive '**/*-product/target/products/*.tar.gz'
-				// archive '**/*-product/target/products/*.zip'
-				// archive '**/*-p2/target/*p2_*.deb'
-				// archive '**/*-p2/target/*p2-*.rpm'
-				/*
+			steps {
+				archive '**/*-p2/target/*p2-*.zip'
+				archive '**/*-product/target/products/*.tar.gz'
+				archive '**/*-product/target/products/*.zip'
+				archive '**/*-p2/target/*p2_*.deb'
+				archive '**/*-p2/target/*p2-*.rpm'
 			}
-		}*/
+		}
 		stage('Deploy') {
 			steps {
 				sh "find $WORKSPACE/b/assemble"
+				sh "tree -d $WORKSPACE/b/assemble"
 			}
 		}
 	}
