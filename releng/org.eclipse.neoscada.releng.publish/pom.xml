@@ -14,12 +14,12 @@
 
 	<artifactId>org.eclipse.neoscada.releng.publish</artifactId>
 	<packaging>pom</packaging>
-	
+
 	<modules>
 		<module>step00</module>
 		<module>step01</module>
 		<module>step02</module>
-		<module>step03</module>
+		<!-- <module>step03</module> -->
 	</modules>
 
 </project>

@@ -1,5 +1,10 @@
 pipeline {
 	agent any
+	
+	environment {
+	    CI = 'JENKINS'
+	}
+
 
 	tools {
 		maven 'apache-maven-latest'

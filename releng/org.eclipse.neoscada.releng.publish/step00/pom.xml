@@ -15,29 +15,6 @@
 	<artifactId>org.eclipse.neoscada.releng.publish.step00</artifactId>
 	<packaging>pom</packaging>
 
-	<profiles>
-		<profile>
-			<id>local</id>
-
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-
-			<properties>
-				<publish.target.path>${java.io.tmpdir}/neoscada/publish</publish.target.path>
-			</properties>
-
-		</profile>
-
-		<profile>
-			<id>travis</id>
-		</profile>
-
-		<profile>
-			<id>jenkins</id>
-		</profile>
-	</profiles>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -46,13 +23,45 @@
 				<version>1.7</version>
 				<executions>
 					<execution>
-						<id>step-00</id>
+						<id>step-00-prepare-config</id>
 						<phase>package</phase>
 						<configuration>
 							<target name="run">
-								<propertyfile file="${project.basedir}/../generated/src/main/resources/publish.properties">
+								<propertyfile
+									file="${project.basedir}/../generated/src/main/resources/publish.properties">
+									<entry key="tmp.target.path" value="${tmp.target.path}" />
 									<entry key="publish.target.path" value="${publish.target.path}" />
+									<entry key="assemble.target.path" value="${assemble.target.path}" />
 								</propertyfile>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>step-00-prepare-assemble</id>
+						<phase>package</phase>
+						<configuration>
+							<target name="run">
+								<ant antfile="gather-published-artifacts.ant" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>step-00-clean</id>
+						<phase>clean</phase>
+						<configuration>
+							<target name="run">
+								<delete includeemptydirs="true" failonerror="false">
+									<fileset dir="${tmp.target.path}" includes="**/*" />
+								</delete>
+								<delete includeemptydirs="true" failonerror="false">
+									<fileset dir="${assemble.target.path}" includes="**/*" />
+								</delete>
 							</target>
 						</configuration>
 						<goals>

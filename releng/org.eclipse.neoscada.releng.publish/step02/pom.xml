@@ -15,8 +15,6 @@
 	<artifactId>org.eclipse.neoscada.releng.publish.step02</artifactId>
 	<packaging>pom</packaging>
 
-
-
 	<build>
 		<plugins>
 			<plugin>
@@ -32,8 +30,8 @@
 							<goal>apt</goal>
 						</goals>
 						<configuration>
-							<sourceDirectory>${project.basedir}/../generated/src/main/resources/deb</sourceDirectory>
-							<outputDirectory>${project.basedir}/../generated/src/main/resources/apt</outputDirectory>
+							<sourceDirectory>${tmp.target.path}/deb</sourceDirectory>
+							<outputDirectory>${tmp.target.path}/apt</outputDirectory>
 							<description>The Eclipse NeoSCADA repository</description>
 							<distributionName>default</distributionName>
 							<distributionLabel>The default distribution for this release</distributionLabel>
@@ -62,8 +60,8 @@
 							<goal>yum-repository</goal>
 						</goals>
 						<configuration>
-							<directories>${project.basedir}/../generated/src/main/resources/rpm</directories>
-							<outputDirectory>${project.basedir}/../generated/src/main/resources/yum</outputDirectory>
+							<directories>${tmp.target.path}/rpm</directories>
+							<outputDirectory>${tmp.target.path}/yum</outputDirectory>
 							<skipDependencies>true</skipDependencies>
 							<skipSigning>true</skipSigning>
 						</configuration>

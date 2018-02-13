@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     12.01.2018 12:59:54                                                        
+
+     project    
+     description
+                   
+     jrose                                                                
+     ====================================================================== -->
+<project name="artifact assembly" default="run">
+	<description>
+        assembles all build artifacts
+    </description>
+
+	<property file="${basedir}/../../../target/buildinfo.properties" prefix="imported" />
+	<property file="${basedir}/../generated/src/main/resources/publish.properties" />
+
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="run" description="description">
+
+		<!-- 
+			we want to fail the build if there is any discrepancy between the pom version and the 
+			official release we want to publish this under
+		-->
+		<!--
+		<echo>loaded properties from: ${basedir}/../../../target/buildinfo.properties</echo>
+		-->
+		<echo>pom version:            ${imported.pom.version}</echo>
+		<echo>release full version:   ${imported.release.fullVersion}</echo>
+		<condition property="version.does.match">
+			<matches pattern="${imported.release.fullVersion}.*" string="${imported.pom.version}" />
+		</condition>
+		<fail unless="version.does.match" message="pom version doesn't match release version!" />
+
+		<echo>Retrieving existing distribution from: ${publish.target.path}</echo>
+		<echo>Assemble new distribution in:          ${assemble.target.path}</echo>
+
+		<!--
+		    we need - at least for the nightly - to get all the existing deb and rpm files
+		    because we have to collect them together with the new ones
+		-->
+
+		<!-- this just ensures that the target directory actually exists -->
+		<mkdir dir="${publish.target.path}" />
+		<mkdir dir="${assemble.target.path}" />
+		<mkdir dir="${tmp.target.path}/deb" />
+		<mkdir dir="${tmp.target.path}/rpm" />
+
+		<copy todir="${tmp.target.path}/deb" flatten="true">
+			<fileset dir="${publish.target.path}">
+				<include name="repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/**/*.deb" />
+			</fileset>
+		</copy>
+		<copy todir="${tmp.target.path}/rpm" flatten="true">
+			<fileset dir="${publish.target.path}">
+				<include name="repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/**/*.rpm" />
+			</fileset>
+		</copy>
+
+	</target>
+</project>

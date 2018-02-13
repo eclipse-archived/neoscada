@@ -193,7 +193,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
 				<inherited>false</inherited>
 				<executions>
 					<execution>
@@ -224,5 +223,60 @@
 
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+
+			<activation>
+				<property>
+					<name>!env.CI</name>
+				</property>
+			</activation>
+
+			<properties>
+				<tmp.target.path>${java.io.tmpdir}/neoscada/tmp</tmp.target.path>
+				<publish.target.path>${java.io.tmpdir}/neoscada/publish</publish.target.path>
+				<assemble.target.path>${java.io.tmpdir}/neoscada/assemble</assemble.target.path>
+			</properties>
+
+		</profile>
+
+		<profile>
+			<id>travis</id>
+
+			<activation>
+				<property>
+					<name>env.CI</name>
+					<value>TRAVIS</value>
+				</property>
+			</activation>
+
+			<properties>
+				<tmp.target.path>${java.io.tmpdir}/neoscada/tmp</tmp.target.path>
+				<publish.target.path>${java.io.tmpdir}/neoscada/publish</publish.target.path>
+				<assemble.target.path>${java.io.tmpdir}/neoscada/assemble</assemble.target.path>
+			</properties>
+
+		</profile>
+
+		<profile>
+			<id>jenkins</id>
+
+			<activation>
+				<property>
+					<name>env.CI</name>
+					<value>JENKINS</value>
+				</property>
+			</activation>
+
+			<properties>
+				<tmp.target.path>${env.WORKSPACE}/b/tmp</tmp.target.path>
+				<publish.target.path>/home/data/httpd/download.eclipse.org/eclipsescada</publish.target.path>
+				<assemble.target.path>${env.WORKSPACE}/b/assemble</assemble.target.path>
+			</properties>
+
+		</profile>
+	</profiles>
 
 </project>
