@@ -1,39 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.eclipse.scada.web.generator">
-    <property name="ECLIPSE_HOME" value="../../../../../committers-latest-released/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../.."/>
+    <property name="ECLIPSE_HOME" value="../../../../../../NEOSCADA-05-WEBSITE/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../NEOSCADA-05-WEBSITE/ws"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.eclipse.scada.web.generator.libraryclasspath">
         <pathelement location="${ECLIPSE_WORKSPACE}/org.eclipse.scada.web.generator/bin"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.runtime_3.12.0.v20160606-1342.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/javax.inject_1.0.0.v20091030.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.osgi_3.11.1.v20160708-1632.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.region_1.3.1.v20160816-1331.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.osgi.compatibility.state_1.0.200.v20160504-1419.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.transforms.hook_1.1.0.v20131021-1933.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.weaving.hook_1.1.200.v20150730-1648.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.wst.jsdt.nashorn.extension_1.0.0.v201605131737.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.common_3.8.0.v20160509-1230.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.jobs_3.8.0.v20160509-0411.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.registry_3.6.100.v20160223-2218.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.preferences_3.6.1.v20160815-1406.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.contenttype_3.5.100.v20160418-1621.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.app_1.3.400.v20150715-1528.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.ecore_2.12.0.v20160420-0247.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.common_2.12.0.v20160420-0247.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.ecore.xmi_2.12.0.v20160420-0247.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl_3.6.0.v20160523-1914.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl.common_1.4.0.v20160521-2033.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl.ecore_3.6.0.v20160523-1914.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.common_3.6.5.201608301456.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.model_3.6.5.201608301456.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.profiler_3.6.5.201608301456.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.engine_3.6.5.201608301456.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.codegen.ecore_2.12.0.v20160526-0356.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.codegen_2.11.0.v20160526-0356.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/com.google.guava_18.0.0.jar"/>
     </path>
 
     <path id="org.eclipse.scada.web.generator.classpath">

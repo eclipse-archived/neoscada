@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.Link#getTarget <em>Target</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Link#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.web.WebPackage#getLink()
  * @model

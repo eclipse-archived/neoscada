@@ -19,13 +19,13 @@ import java.util.Date;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.NewsEntry#getTitle <em>Title</em>}</li>
  *   <li>{@link org.eclipse.scada.web.NewsEntry#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.scada.web.NewsEntry#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.eclipse.scada.web.NewsEntry#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.web.WebPackage#getNewsEntry()
  * @model

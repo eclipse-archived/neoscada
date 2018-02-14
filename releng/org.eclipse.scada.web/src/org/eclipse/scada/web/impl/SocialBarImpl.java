@@ -28,10 +28,10 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.SocialBarImpl#getInformation <em>Information</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

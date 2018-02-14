@@ -26,11 +26,11 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.FooterEntryImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.FooterEntryImpl#getLink <em>Link</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

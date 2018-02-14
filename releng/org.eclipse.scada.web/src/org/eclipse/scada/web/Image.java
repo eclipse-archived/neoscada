@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.Image#getLabel <em>Label</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Image#getSrc <em>Src</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.web.WebPackage#getImage()
  * @model

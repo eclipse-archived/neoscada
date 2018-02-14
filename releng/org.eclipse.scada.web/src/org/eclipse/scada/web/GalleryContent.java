@@ -18,10 +18,10 @@ package org.eclipse.scada.web;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.GalleryContent#getGallery <em>Gallery</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.web.WebPackage#getGalleryContent()
  * @model

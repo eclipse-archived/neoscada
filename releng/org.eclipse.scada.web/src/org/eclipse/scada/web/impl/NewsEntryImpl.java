@@ -36,6 +36,7 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.NewsEntryImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.NewsEntryImpl#getTitle <em>Title</em>}</li>
@@ -43,7 +44,6 @@ import org.eclipse.scada.web.WebPackage;
  *   <li>{@link org.eclipse.scada.web.impl.NewsEntryImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.NewsEntryImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

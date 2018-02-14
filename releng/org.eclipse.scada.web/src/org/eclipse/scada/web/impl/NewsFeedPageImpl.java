@@ -19,8 +19,6 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>News Feed Page</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

@@ -26,13 +26,13 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.SocialInformationImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.SocialInformationImpl#getPlusUrl <em>Plus Url</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.SocialInformationImpl#getFacebookUrl <em>Facebook Url</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.SocialInformationImpl#getTwitterUrl <em>Twitter Url</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

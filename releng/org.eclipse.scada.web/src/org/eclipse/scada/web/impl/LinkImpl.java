@@ -28,11 +28,11 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.LinkImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.LinkImpl#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

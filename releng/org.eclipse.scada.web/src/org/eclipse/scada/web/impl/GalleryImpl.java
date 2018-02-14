@@ -30,11 +30,11 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.GalleryImpl#getImages <em>Images</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.GalleryImpl#getLabel <em>Label</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

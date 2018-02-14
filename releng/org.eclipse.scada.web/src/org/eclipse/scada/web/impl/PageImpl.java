@@ -27,12 +27,12 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.PageImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.PageImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.PageImpl#getSite <em>Site</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

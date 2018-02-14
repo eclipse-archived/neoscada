@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.FooterEntry#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.FooterEntry#getLink <em>Link</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.web.WebPackage#getFooterEntry()
  * @model

@@ -39,13 +39,13 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.ContentPageImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.ContentPageImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.ContentPageImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.ContentPageImpl#getSite <em>Site</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

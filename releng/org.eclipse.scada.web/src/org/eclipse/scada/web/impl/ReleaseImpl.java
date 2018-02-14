@@ -32,6 +32,7 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#getBuildId <em>Build Id</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#getType <em>Type</em>}</li>
@@ -42,8 +43,8 @@ import org.eclipse.scada.web.WebPackage;
  *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#getUnqualifiedName <em>Unqualified Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#getAlternateMsiName <em>Alternate Msi Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#isJavadoc <em>Javadoc</em>}</li>
+ *   <li>{@link org.eclipse.scada.web.impl.ReleaseImpl#getBaseName <em>Base Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -207,6 +208,26 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 	 * @ordered
 	 */
 	protected boolean javadoc = JAVADOC_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBaseName() <em>Base Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBaseName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BASE_NAME_EDEFAULT = "org.eclipse.scada";
+
+	/**
+	 * The cached value of the '{@link #getBaseName() <em>Base Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBaseName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String baseName = BASE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -441,6 +462,27 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getBaseName() {
+		return baseName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBaseName(String newBaseName) {
+		String oldBaseName = baseName;
+		baseName = newBaseName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebPackage.RELEASE__BASE_NAME, oldBaseName, baseName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -506,6 +548,8 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 				return getAlternateMsiName();
 			case WebPackage.RELEASE__JAVADOC:
 				return isJavadoc();
+			case WebPackage.RELEASE__BASE_NAME:
+				return getBaseName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -544,6 +588,9 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 				return;
 			case WebPackage.RELEASE__JAVADOC:
 				setJavadoc((Boolean)newValue);
+				return;
+			case WebPackage.RELEASE__BASE_NAME:
+				setBaseName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -584,6 +631,9 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 			case WebPackage.RELEASE__JAVADOC:
 				setJavadoc(JAVADOC_EDEFAULT);
 				return;
+			case WebPackage.RELEASE__BASE_NAME:
+				setBaseName(BASE_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -614,6 +664,8 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 				return ALTERNATE_MSI_NAME_EDEFAULT == null ? alternateMsiName != null : !ALTERNATE_MSI_NAME_EDEFAULT.equals(alternateMsiName);
 			case WebPackage.RELEASE__JAVADOC:
 				return javadoc != JAVADOC_EDEFAULT;
+			case WebPackage.RELEASE__BASE_NAME:
+				return BASE_NAME_EDEFAULT == null ? baseName != null : !BASE_NAME_EDEFAULT.equals(baseName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -644,6 +696,8 @@ public class ReleaseImpl extends MinimalEObjectImpl.Container implements Release
 		result.append(alternateMsiName);
 		result.append(", javadoc: ");
 		result.append(javadoc);
+		result.append(", baseName: ");
+		result.append(baseName);
 		result.append(')');
 		return result.toString();
 	}

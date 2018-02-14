@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generateData" name="org.eclipse.scada.protocol.ngp.generator">
-    <property name="ECLIPSE_HOME" value="../../../../../Desktop/eclipse43"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../.."/>
+    <property name="ECLIPSE_HOME" value="../../../../../eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../ws"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.eclipse.scada.protocol.ngp.generator.libraryclasspath">
         <pathelement location="${ECLIPSE_WORKSPACE}/org.eclipse.scada.protocol.ngp.generator/bin"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.runtime_3.9.100.v20131218-1515.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/javax.annotation_1.1.0.v201209060031.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/javax.inject_1.0.0.v20091030.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.osgi_3.9.1.v20140110-1610.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.transforms.hook_1.0.401.v20130327-1442.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.weaving.hook_1.0.200.v20130327-1442.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.jobs_3.5.300.v20130429-1813.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.runtime.compatibility.registry_3.5.200.v20130514-1256/runtime_registry_compatibility.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.registry_3.5.301.v20130717-1549.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.preferences_3.5.100.v20130422-1538.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.contenttype_3.4.200.v20130326-1255.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.app_1.3.100.v20130327-1442.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.ecore_2.9.2.v20131212-0545.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.common_2.9.2.v20131212-0545.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.ecore.xmi_2.9.1.v20131212-0545.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl_3.3.0.v20140120-1508.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.common_3.7.2.201708211328.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.engine_3.7.2.201708211328.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.model_3.7.2.201708211328.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.ecore_2.13.0.v20170609-0707.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.common_2.13.0.v20170609-0707.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.ecore.xmi_2.13.0.v20170609-0707.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.profiler_3.7.2.201708211328.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl.ecore_3.6.200.v20170522-1736.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl_3.6.200.v20170522-1736.jar"/>
         <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl.common_1.1.0.v20130531-0544.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl.ecore_3.3.0.v20130520-1222.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.common_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.parser_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.model_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.profiler_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.engine_3.4.2.201401221203.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.codegen.ecore_2.9.1.v20140203-1126.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.codegen_2.9.0.v20140203-1126.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl.common_1.4.200.v20160613-1518.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.codegen.ecore_2.13.0.v20170609-0928.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.emf.codegen_2.12.0.v20170609-0928.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.acceleo.parser_3.7.2.201708211328.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.runtime_3.13.0.v20170207-1030.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/javax.inject_1.0.0.v20091030.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.osgi_3.12.50.v20170928-1321.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.transforms.hook_1.2.0.v20170105-1446.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.region_1.4.0.v20170117-1425.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.osgi.compatibility.state_1.1.0.v20170516-1513.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.weaving.hook_1.2.0.v20160929-1449.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.common_3.9.0.v20170207-1454.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.jobs_3.9.1.v20170714-0547.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.registry_3.7.0.v20170222-1344.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.preferences_3.7.0.v20170126-2132.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.core.contenttype_3.6.0.v20170207-1037.jar"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.app_1.3.400.v20150715-1528.jar"/>
     </path>
 
     <path id="org.eclipse.scada.protocol.ngp.generator.classpath">

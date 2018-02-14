@@ -31,12 +31,12 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.VersionImpl#getReleases <em>Releases</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.VersionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.VersionImpl#getState <em>State</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

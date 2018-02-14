@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.Author#getEmail <em>Email</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Author#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Author#getPlusLink <em>Plus Link</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.web.WebPackage#getAuthor()
  * @model

@@ -656,6 +656,15 @@ public class WebPackageImpl extends EPackageImpl implements WebPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRelease_BaseName() {
+		return (EAttribute)releaseEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReleaseSection() {
 		return releaseSectionEClass;
 	}
@@ -975,6 +984,7 @@ public class WebPackageImpl extends EPackageImpl implements WebPackage {
 		createEAttribute(releaseEClass, RELEASE__UNQUALIFIED_NAME);
 		createEAttribute(releaseEClass, RELEASE__ALTERNATE_MSI_NAME);
 		createEAttribute(releaseEClass, RELEASE__JAVADOC);
+		createEAttribute(releaseEClass, RELEASE__BASE_NAME);
 
 		releaseSectionEClass = createEClass(RELEASE_SECTION);
 		createEReference(releaseSectionEClass, RELEASE_SECTION__RELEASE);
@@ -1108,6 +1118,7 @@ public class WebPackageImpl extends EPackageImpl implements WebPackage {
 		initEAttribute(getRelease_UnqualifiedName(), ecorePackage.getEString(), "unqualifiedName", null, 1, 1, Release.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelease_AlternateMsiName(), ecorePackage.getEString(), "alternateMsiName", null, 0, 1, Release.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelease_Javadoc(), ecorePackage.getEBoolean(), "javadoc", "true", 1, 1, Release.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelease_BaseName(), ecorePackage.getEString(), "baseName", "org.eclipse.scada", 1, 1, Release.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(releaseSectionEClass, ReleaseSection.class, "ReleaseSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReleaseSection_Release(), this.getRelease(), null, "release", null, 0, 1, ReleaseSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

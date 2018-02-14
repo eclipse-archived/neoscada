@@ -37,6 +37,7 @@ import org.eclipse.scada.web.WebPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.SiteImpl#getPages <em>Pages</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.SiteImpl#getName <em>Name</em>}</li>
@@ -48,7 +49,6 @@ import org.eclipse.scada.web.WebPackage;
  *   <li>{@link org.eclipse.scada.web.impl.SiteImpl#getGalleries <em>Galleries</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.SiteImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

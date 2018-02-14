@@ -21,18 +21,18 @@
 
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/download-main.png')/]"/>
-	<a href="[dropsLink(release, 'org.eclipse.scada', '', false)/]">Download area</a>
+	<a href="[dropsLink(release, release.baseName, '', false)/]">Download area</a>
 <li>
 
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/box.png')/]"/>
-	<a href="[dropsLink(release, 'org.eclipse.scada', 'p2', false)/]">Composite P2 repository</a>
+	<a href="[dropsLink(release, release.baseName, 'p2', false)/]">Composite P2 repository</a>
 </li>
 
 [if (release.javadoc)]
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/javadoc.png')/]"/>
-	<a href="[dropsLink(release, 'org.eclipse.scada', 'javadoc', false)/]">Online Javadoc</a>
+	<a href="[dropsLink(release, release.baseName, 'javadoc', false)/]">Online Javadoc</a>
 </li>
 [/if]
 
@@ -41,7 +41,7 @@
 	<a href="javascript:void(0)" onclick="toggle('maven.[release.buildId/]');">Maven 2 repository</a>
 	<div class="mavenrepo" id="maven.[release.buildId/]"><pre>&lt;repository&gt;
 	&lt;id&gt;eclipse.scada&lt;/id&gt;
-	&lt;url&gt;[dropsLink(release, 'org.eclipse.scada', 'maven', false)/]&lt;/url&gt;
+	&lt;url&gt;[dropsLink(release, release.baseName, 'maven', false)/]&lt;/url&gt;
 &lt;/repository&gt;</pre>
 Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven">EclipseSCADA/GettingStarted/WithMaven</a>.
 	</div>
@@ -49,9 +49,9 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/box.png')/]"/>
-	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/yum?d', false)/]">YUM repository</a>
+	<a href="[dropsLink(release, release.baseName, 'repos/yum?d', false)/]">YUM repository</a>
 	–
-	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/apt?d', false)/]">Debian packages</a>
+	<a href="[dropsLink(release, release.baseName, 'repos/apt?d', false)/]">Debian packages</a>
 </li>
 
 <li>
@@ -77,8 +77,8 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 
 		<img class="download-type" src="[relative(base, 'images/icons/download-windows.png')/]"/>
 		Windows® MSI Installer –
-		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.msiVersion() + '_x86.msi', true)/]">32bit</a>,
-		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.msiVersion() + '_x64.msi', true)/]">64bit</a>
+		<a itemprop="downloadUrl" href="[dropsLink(release, release.baseName, 'msi/esac_' + release.msiVersion() + '_x86.msi', true)/]">32bit</a>,
+		<a itemprop="downloadUrl" href="[dropsLink(release, release.baseName, 'msi/esac_' + release.msiVersion() + '_x64.msi', true)/]">64bit</a>
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
@@ -107,7 +107,7 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 
 </ul>
 
-[socialBar(dropsLink(release, 'org.eclipse.scada', '', false), 'Eclipse NeoSCADA™ Release ' + release.name)/]
+[socialBar(dropsLink(release, release.baseName, '', false), 'Eclipse NeoSCADA™ Release ' + release.name)/]
 
 </section>
 [/template]

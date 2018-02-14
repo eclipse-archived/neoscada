@@ -19,13 +19,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.SocialInformation#getUrl <em>Url</em>}</li>
  *   <li>{@link org.eclipse.scada.web.SocialInformation#getPlusUrl <em>Plus Url</em>}</li>
  *   <li>{@link org.eclipse.scada.web.SocialInformation#getFacebookUrl <em>Facebook Url</em>}</li>
  *   <li>{@link org.eclipse.scada.web.SocialInformation#getTwitterUrl <em>Twitter Url</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.web.WebPackage#getSocialInformation()
  * @model

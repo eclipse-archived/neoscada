@@ -723,13 +723,22 @@ public interface WebPackage extends EPackage {
 	int RELEASE__JAVADOC = 8;
 
 	/**
+	 * The feature id for the '<em><b>Base Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE__BASE_NAME = 9;
+
+	/**
 	 * The number of structural features of the '<em>Release</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELEASE_FEATURE_COUNT = 9;
+	int RELEASE_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Release</em>' class.
@@ -1603,6 +1612,17 @@ public interface WebPackage extends EPackage {
 	EAttribute getRelease_Javadoc();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.scada.web.Release#getBaseName <em>Base Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Name</em>'.
+	 * @see org.eclipse.scada.web.Release#getBaseName()
+	 * @see #getRelease()
+	 * @generated
+	 */
+	EAttribute getRelease_BaseName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.scada.web.ReleaseSection <em>Release Section</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2277,6 +2297,14 @@ public interface WebPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RELEASE__JAVADOC = eINSTANCE.getRelease_Javadoc();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELEASE__BASE_NAME = eINSTANCE.getRelease_BaseName();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.scada.web.impl.ReleaseSectionImpl <em>Release Section</em>}' class.

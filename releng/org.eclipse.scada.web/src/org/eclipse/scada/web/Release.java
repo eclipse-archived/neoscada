@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.web.Release#getBuildId <em>Build Id</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#getType <em>Type</em>}</li>
@@ -30,8 +31,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.web.Release#getUnqualifiedName <em>Unqualified Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#getAlternateMsiName <em>Alternate Msi Name</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#isJavadoc <em>Javadoc</em>}</li>
+ *   <li>{@link org.eclipse.scada.web.Release#getBaseName <em>Base Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.web.WebPackage#getRelease()
  * @model
@@ -277,5 +278,32 @@ public interface Release extends EObject {
 	 * @generated
 	 */
 	void setJavadoc(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Base Name</b></em>' attribute.
+	 * The default value is <code>"org.eclipse.scada"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Base Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Base Name</em>' attribute.
+	 * @see #setBaseName(String)
+	 * @see org.eclipse.scada.web.WebPackage#getRelease_BaseName()
+	 * @model default="org.eclipse.scada" required="true"
+	 * @generated
+	 */
+	String getBaseName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.web.Release#getBaseName <em>Base Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Base Name</em>' attribute.
+	 * @see #getBaseName()
+	 * @generated
+	 */
+	void setBaseName(String value);
 
 } // Release
