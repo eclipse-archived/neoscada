@@ -30,6 +30,10 @@
 								<delete dir="${project.basedir}/../generated/src/main/resources/rpm"/>
 								<delete dir="${project.basedir}/../generated/src/main/resources/apt"/>
 								<delete dir="${project.basedir}/../generated/src/main/resources/yum"/>
+								<delete dir="${project.basedir}/../generated/src/main/resources/deb-all"/>
+								<delete dir="${project.basedir}/../generated/src/main/resources/rpm-all"/>
+								<delete dir="${project.basedir}/../generated/src/main/resources/apt-all"/>
+								<delete dir="${project.basedir}/../generated/src/main/resources/yum-all"/>
 							</target>
 						</configuration>
 						<goals>

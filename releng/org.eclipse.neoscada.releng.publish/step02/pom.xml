@@ -45,6 +45,28 @@
 							</architectures>
 						</configuration>
 					</execution>
+					<execution>
+						<id>step-02-apt-all</id>
+						<phase>package</phase>
+						<goals>
+							<goal>apt</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${tmp.target.path}/deb-all</sourceDirectory>
+							<outputDirectory>${tmp.target.path}/apt-all</outputDirectory>
+							<description>The Eclipse NeoSCADA repository</description>
+							<distributionName>default</distributionName>
+							<distributionLabel>The default distribution for this release</distributionLabel>
+							<componentLabel>The main component</componentLabel>
+							<origin>Eclipse NeoSCADA Project</origin>
+							<architectures>
+								<architecture>i386</architecture>
+								<architecture>amd64</architecture>
+								<architecture>armhf</architecture>
+								<architecture>armel</architecture>
+							</architectures>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 
@@ -62,6 +84,19 @@
 						<configuration>
 							<directories>${tmp.target.path}/rpm</directories>
 							<outputDirectory>${tmp.target.path}/yum</outputDirectory>
+							<skipDependencies>true</skipDependencies>
+							<skipSigning>true</skipSigning>
+						</configuration>
+					</execution>
+					<execution>
+						<id>step-02-yum-all</id>
+						<phase>package</phase>
+						<goals>
+							<goal>yum-repository</goal>
+						</goals>
+						<configuration>
+							<directories>${tmp.target.path}/rpm-all</directories>
+							<outputDirectory>${tmp.target.path}/yum-all</outputDirectory>
 							<skipDependencies>true</skipDependencies>
 							<skipSigning>true</skipSigning>
 						</configuration>

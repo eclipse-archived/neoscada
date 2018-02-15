@@ -73,7 +73,7 @@
 						</goals>
 						<configuration>
 							<name>neoscada.deploy.p2director</name>
-							<deb>${project.build.directory}/neoscada.deploy.p2director_${release.fullVersion}~${buildTimestamp}.deb</deb>
+							<deb>${project.build.directory}/neoscada.deploy.p2director_${release.fullVersion}~${buildTimestamp}_all.deb</deb>
 							<snapshotExpand>true</snapshotExpand>
 							<dataSet>
 								<data>

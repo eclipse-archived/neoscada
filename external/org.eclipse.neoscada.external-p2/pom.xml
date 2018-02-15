@@ -27,7 +27,7 @@
 						</goals>
 						<configuration>
 							<name>neoscada.external.p2</name>
-							<deb>${project.build.directory}/neoscada.external.p2_${release.fullVersion}~${buildTimestamp}.deb</deb>
+							<deb>${project.build.directory}/neoscada.external.p2_${release.fullVersion}~${buildTimestamp}_all.deb</deb>
 							<snapshotExpand>true</snapshotExpand>
 							<dataSet>
 								<data>

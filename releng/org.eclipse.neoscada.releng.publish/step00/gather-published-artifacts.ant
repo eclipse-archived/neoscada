@@ -48,13 +48,15 @@
 		<mkdir dir="${assemble.target.path}" />
 		<mkdir dir="${tmp.target.path}/deb" />
 		<mkdir dir="${tmp.target.path}/rpm" />
+		<mkdir dir="${tmp.target.path}/deb-all" />
+		<mkdir dir="${tmp.target.path}/rpm-all" />
 
-		<copy todir="${tmp.target.path}/deb" flatten="true">
+		<copy todir="${tmp.target.path}/deb-all" flatten="true">
 			<fileset dir="${publish.target.path}">
 				<include name="repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/**/*.deb" />
 			</fileset>
 		</copy>
-		<copy todir="${tmp.target.path}/rpm" flatten="true">
+		<copy todir="${tmp.target.path}/rpm-all" flatten="true">
 			<fileset dir="${publish.target.path}">
 				<include name="repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/**/*.rpm" />
 			</fileset>

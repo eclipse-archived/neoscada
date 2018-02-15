@@ -75,6 +75,18 @@
 					<include name="*.rpm"/>
 				</fileset>
 			</copy>
+			<mkdir dir="${tmp.target.path}/deb-all"/>
+			<copy todir="${tmp.target.path}/deb-all">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.deb"/>
+				</fileset>
+			</copy>
+			<mkdir dir="${tmp.target.path}/rpm-all"/>
+			<copy todir="${tmp.target.path}/rpm-all">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.rpm"/>
+				</fileset>
+			</copy>
 		</sequential>
 	</macrodef>
 
@@ -98,6 +110,18 @@
 			</copy>
 			<mkdir dir="${tmp.target.path}/rpm"/>
 			<copy todir="${tmp.target.path}/rpm">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.rpm"/>
+				</fileset>
+			</copy>
+			<mkdir dir="${tmp.target.path}/deb-all"/>
+			<copy todir="${tmp.target.path}/deb-all">
+				<fileset dir="@{project-dir}/target/">
+					<include name="*.deb"/>
+				</fileset>
+			</copy>
+			<mkdir dir="${tmp.target.path}/rpm-all"/>
+			<copy todir="${tmp.target.path}/rpm-all">
 				<fileset dir="@{project-dir}/target/">
 					<include name="*.rpm"/>
 				</fileset>

@@ -23,13 +23,27 @@
 
 		<mkdir dir="${assemble.target.path}/repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/apt" />
 		<copy todir="${assemble.target.path}/repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/apt">
-			<fileset dir="${tmp.target.path}/apt">
+			<fileset dir="${tmp.target.path}/apt-all">
 				<include name="**/*" />
 			</fileset>
 		</copy>
 
 		<mkdir dir="${assemble.target.path}/repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/yum" />
 		<copy todir="${assemble.target.path}/repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/yum">
+			<fileset dir="${tmp.target.path}/yum-all">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<mkdir dir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/repos/apt" />
+		<copy todir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/repos/apt">
+			<fileset dir="${tmp.target.path}/apt">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+
+		<mkdir dir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/repos/yum" />
+		<copy todir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/repos/yum">
 			<fileset dir="${tmp.target.path}/yum">
 				<include name="**/*" />
 			</fileset>
