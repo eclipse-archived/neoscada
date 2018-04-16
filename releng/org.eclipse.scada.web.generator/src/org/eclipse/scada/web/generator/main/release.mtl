@@ -66,8 +66,8 @@ Also see <a href="https://wiki.eclipse.org/EclipseSCADA/GettingStarted/WithMaven
 
 		<img class="download-type" src="[relative(base, 'images/icons/download-linux.png')/]"/>
 		Linux® –
-		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86.tar.gz', true)/]">32bit</a>,
-		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86_64.tar.gz', true)/]">64bit</a>
+		<a itemprop="downloadUrl" href="[dropsLink(release, release.baseName + '.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86.tar.gz', true)/]">32bit</a>,
+		<a itemprop="downloadUrl" href="[dropsLink(release, release.baseName + '.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86_64.tar.gz', true)/]">64bit</a>
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
