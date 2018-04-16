@@ -30,6 +30,7 @@
 		<copy-feature base-name="protocols" />
 		<copy-feature base-name="core" />
 		<copy-feature base-name="hmi" />
+		<copy-product base-name="hmi" product-name="org.eclipse.scada.hmi.adminclient.app-product" product="adminclient" />
 		<copy-feature base-name="ide" />
 		
 		<copy-packages project-dir="../../../deploy/org.eclipse.scada.deploy.p2director" feature-name="org.eclipse.neoscada.deploy" />
@@ -85,6 +86,25 @@
 			<copy todir="${tmp.target.path}/rpm-all">
 				<fileset dir="@{project-dir}/target/">
 					<include name="*.rpm"/>
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="copy-product">
+		<attribute name="base-name" />
+		<attribute name="feature-name" default="org.eclipse.neoscada.@{base-name}" />
+		<attribute name="feature-qualifier" default=".p2-incubation" />
+		<attribute name="target-dir" default="${assemble.target.path}/downloads" />
+		<attribute name="product" />
+		<attribute name="product-name" default="@{feature-name}.@{product}.app-product" />
+		<attribute name="product-dir" default="../../../@{base-name}/@{product-name}" />
+		<sequential>
+			<mkdir dir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/products/@{product}" />
+			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/products/@{product}">
+				<fileset dir="@{product-dir}/target/products">
+					<include name="*.zip"/>
+					<include name="*.tar.gz"/>
 				</fileset>
 			</copy>
 		</sequential>
