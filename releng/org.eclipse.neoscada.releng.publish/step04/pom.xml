@@ -18,15 +18,83 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>${project.basedir}/../generated/src/main/resources/buildinfo.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>step-04-combine</id>
+						<phase>package</phase>
+						<configuration>
+							<source>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.external/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.base/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.base/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.chart/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.protocols/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.core/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.hmi/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.ide/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+							</source>
+							<destination>${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}/p2</destination>
+							<name>Eclipse NeoSCADA P2 repository - ${release.fullVersion} - ${release.buildType}${alternateBuildTimestamp} - (${release.buildTypeLong})</name>
+						</configuration>
+						<goals>
+							<goal>mirror</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>step-04</id>
+						<id>step-04-zip</id>
 						<phase>package</phase>
 						<configuration>
 							<target name="run">
-								<ant antfile="publish.ant" />
+								<ant antfile="zip-repo.ant" />
 							</target>
 						</configuration>
 						<goals>

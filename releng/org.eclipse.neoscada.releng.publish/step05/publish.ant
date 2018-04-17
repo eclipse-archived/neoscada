@@ -21,7 +21,7 @@
          ================================= -->
 	<target name="run" description="description">
 
-		<copy todir="${publish.target.path}/">
+		<copy todir="${publish.target.path}/" verbose="true">
 			<fileset dir="${assemble.target.path}">
 				<include name="**/*" />
 			</fileset>
