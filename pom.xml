@@ -17,8 +17,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<tycho.version>1.0.0</tycho.version>
-		<tycho.extras.version>1.0.0</tycho.extras.version>
+		<tycho.version>1.1.0</tycho.version>
+		<tycho.extras.version>1.1.0</tycho.extras.version>
 		<tycho.scmUrl>scm:git:git://github.com/eclipse/neoscada.git</tycho.scmUrl>
 
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
@@ -84,6 +84,11 @@
 					<version>${tycho.extras.version}</version>
 				</plugin>
 				<plugin>
+					<groupId>org.eclipse.tycho.extras</groupId>
+					<artifactId>tycho-p2-extras-plugin</artifactId>
+					<version>${tycho.extras.version}</version>
+				</plugin>
+				<plugin>
 					<artifactId>jdeb</artifactId>
 					<groupId>org.vafer</groupId>
 					<version>1.5</version>
@@ -102,6 +107,11 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>1.7</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>properties-maven-plugin</artifactId>
+					<version>1.0.0</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>

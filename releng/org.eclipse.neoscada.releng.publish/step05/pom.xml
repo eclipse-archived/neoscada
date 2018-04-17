@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>/releng/org.eclipse.neoscada.releng.publish.step05</name>
+
+	<parent>
+		<groupId>org.eclipse.neoscada</groupId>
+		<artifactId>org.eclipse.neoscada-parent</artifactId>
+		<version>0.5.0-SNAPSHOT</version>
+		<relativePath>../../../</relativePath>
+	</parent>
+
+	<artifactId>org.eclipse.neoscada.releng.publish.step05</artifactId>
+	<packaging>pom</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>${project.basedir}/../generated/src/main/resources/buildinfo.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-p2-extras-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>step-05</id>
+						<phase>package</phase>
+						<configuration>
+							<source>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.external/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.base/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.base/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.chart/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.protocols/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.core/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.hmi/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+								<repository>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.ide/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
+							</source>
+							<destination>${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}/p2</destination>
+							<name>Eclipse NeoSCADA P2 repository - ${release.fullVersion} - ${release.buildType}${alternateBuildTimestamp} - (${release.buildTypeLong})</name>
+						</configuration>
+						<goals>
+							<goal>mirror</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>step-05</id>
+						<phase>package</phase>
+						<configuration>
+							<target name="run">
+								<ant antfile="zip-repo.ant" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

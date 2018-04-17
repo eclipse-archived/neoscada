@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     12.01.2018 12:59:54                                                        
+
+     project    
+     description
+                   
+     jrose                                                                
+     ====================================================================== -->
+<project name="artifact assembly" default="run">
+	<description>
+        assembles all build artifacts
+    </description>
+
+	<property file="${basedir}/../generated/src/main/resources/buildinfo.properties" prefix="imported" />
+	<property file="${basedir}/../generated/src/main/resources/publish.properties" />
+
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="run" description="description">
+		<zip destfile="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/p2/org.eclipse.neoscada.p2-${imported.release.fullVersion}-${imported.release.buildType}${imported.build.timestamp}.zip">
+			<fileset dir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/p2/">
+				<include name="features/**" />
+				<include name="plugins/**" />
+				<include name="artifacts.jar" />
+				<include name="content.jar" />
+			</fileset>
+		</zip>
+	</target>
+</project>

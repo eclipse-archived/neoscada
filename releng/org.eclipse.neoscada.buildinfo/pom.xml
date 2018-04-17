@@ -34,6 +34,7 @@
 									<entry key="release.micro" value="${release.micro}" />
 									<entry key="release.fullVersion" value="${release.major.minor}.${release.micro}" />
 									<entry key="build.timestamp" value="${buildTimestamp}" />
+									<entry key="alternateBuildTimestamp" value="${buildTimestamp}" />
 									<entry key="jgit.buildQualifier" value="${buildQualifier}" />
 									<entry key="jgit.unqualifiedVersion" value="${unqualifiedVersion}" />
 									<entry key="jgit.qualifiedVersion" value="${qualifiedVersion}" />

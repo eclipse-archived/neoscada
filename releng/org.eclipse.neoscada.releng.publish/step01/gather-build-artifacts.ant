@@ -48,6 +48,17 @@
                 <filter token="release" value="${imported.release.major.minor}" />
             </filterset>
         </copy>
+        <copy todir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/p2">
+            <fileset dir="p2">
+            </fileset>
+            <filterset>
+                <filter token="buildTypeLong" value="${imported.release.buildTypeLong}" />
+                <filter token="buildType" value="${imported.release.buildType}" />
+                <filter token="buildTimestamp" value="${imported.build.timestamp}" />
+            	<filter token="version" value="${imported.release.fullVersion}" />
+                <filter token="release" value="${imported.release.major.minor}" />
+            </filterset>
+        </copy>
 	</target>
 
 
