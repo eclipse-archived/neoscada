@@ -35,7 +35,19 @@
 		
 		<copy-packages project-dir="../../../deploy/org.eclipse.scada.deploy.p2director" feature-name="org.eclipse.neoscada.deploy" />
 		<copy-packages project-dir="../../../deploy/org.eclipse.scada.deploy.repack" feature-name="org.eclipse.neoscada.deploy" />
-		
+
+		<!-- create index.html -->
+        <copy todir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/">
+            <fileset dir="index">
+            </fileset>
+            <filterset>
+                <filter token="buildTypeLong" value="${imported.release.buildTypeLong}" />
+                <filter token="buildType" value="${imported.release.buildType}" />
+                <filter token="buildTimestamp" value="${imported.build.timestamp}" />
+            	<filter token="version" value="${imported.release.fullVersion}" />
+                <filter token="release" value="${imported.release.major.minor}" />
+            </filterset>
+        </copy>
 	</target>
 
 
