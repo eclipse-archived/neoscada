@@ -215,9 +215,9 @@
 			</activation>
 
 			<properties>
-				<tmp.target.path>${java.io.tmpdir}/neoscada/tmp</tmp.target.path>
-				<publish.target.path>${java.io.tmpdir}/neoscada/publish</publish.target.path>
-				<assemble.target.path>${java.io.tmpdir}/neoscada/assemble</assemble.target.path>
+				<tmp.target.path>${user.home}/.neoscada/b/tmp</tmp.target.path>
+				<publish.target.path>${user.home}/.neoscada/b/publish</publish.target.path>
+				<assemble.target.path>${user.home}/.neoscada/b/assemble</assemble.target.path>
 			</properties>
 
 		</profile>

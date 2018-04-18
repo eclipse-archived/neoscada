@@ -51,6 +51,18 @@
 		<mkdir dir="${tmp.target.path}/deb-all" />
 		<mkdir dir="${tmp.target.path}/rpm-all" />
 
+		<!-- before we do anything, we clean up the drops for nightly -->
+		<exec executable="${basedir}/cleanupdrops">
+			<arg value="-d" />
+			<arg value="${publish.target.path}/downloads" />
+			<arg value="-k" />
+			<arg value="3" />
+			<arg value="-r" />
+			<arg value="${imported.release.fullVersion}" />
+			<arg value="-v" />
+			<!-- arg value="-n" /-->
+		</exec>
+
 		<copy todir="${tmp.target.path}/deb-all" flatten="true">
 			<fileset dir="${publish.target.path}">
 				<include name="repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/**/*.deb" />

@@ -15,7 +15,7 @@ pipeline {
 			steps {
 				sh 'rm -rf ~/.m2/repository/org/eclipse/scada'
 				sh 'rm -rf ~/.m2/repository/org/eclipse/neoscada'
-				sh 'MAVEN_OPTS="-Xms1024m -Xmx3072m" mvn -X -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true clean install'
+				sh 'MAVEN_OPTS="-Xms1024m -Xmx3072m" mvn -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true clean install'
 			}
 		}
 		stage('Archive') {
