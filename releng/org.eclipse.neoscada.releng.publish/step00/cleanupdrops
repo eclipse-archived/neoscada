@@ -45,7 +45,12 @@ def cleanup_drop_dir(drop_dir, version, keep, prefixes):
     repo_by_prefix = {}
     for c in prefixes:
         repo_by_prefix[c] = []
-    for d in os.listdir(os.path.join(drop_dir, version)):
+    drop_dir_with_version = os.path.join(drop_dir, version)
+    if (os.path.exists(drop_dir_with_version)):
+        if options.verbose:
+            print "concrete drop dir '%s' does not exist, continue with next" % drop_dir_with_version
+        return
+    for d in os.listdir(drop_dir_with_version):
         for c in prefixes:
             artifact_path = os.path.join(drop_dir, version, d)
             if d.startswith(c) and os.path.isdir(artifact_path):
