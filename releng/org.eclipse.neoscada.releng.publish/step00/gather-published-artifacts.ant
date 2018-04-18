@@ -65,12 +65,12 @@
 
 		<copy todir="${tmp.target.path}/deb-all" flatten="true">
 			<fileset dir="${publish.target.path}">
-				<include name="repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/**/*.deb" />
+				<include name="downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/*/repos/apt/**/*.deb" />
 			</fileset>
 		</copy>
 		<copy todir="${tmp.target.path}/rpm-all" flatten="true">
 			<fileset dir="${publish.target.path}">
-				<include name="repos/${imported.release.buildTypeLong}/${imported.release.major.minor}/**/*.rpm" />
+				<include name="downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/*/repos/yum/**/*.rpm" />
 			</fileset>
 		</copy>
 
