@@ -48,7 +48,7 @@
 									<layout>p2</layout>
 								</repository>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.base/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.utils/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 								<repository>
