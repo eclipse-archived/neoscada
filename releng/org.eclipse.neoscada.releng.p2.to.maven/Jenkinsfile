@@ -28,7 +28,9 @@ pipeline {
 		}
 		stage('Deploy') {
 			steps {
-				sh 'echo "deploy"'
+				dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
+					sh 'cp org.eclipse.neoscada.releng.p2.to.maven.app-product/target/final/p2tom2-*.zip /home/data/httpd/download.eclipse.org/eclipsescada/releng/'
+				}
 			}
 		}
 	}
