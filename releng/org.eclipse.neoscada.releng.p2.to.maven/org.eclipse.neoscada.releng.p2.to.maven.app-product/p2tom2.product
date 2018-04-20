@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="P2 to Maven Converter" uid="p2tom2" id="org.eclipse.neoscada.releng.p2.to.maven.app-product" application="org.eclipse.neoscada.releng.p2.to.maven.app.application" version="0.5.0" useFeatures="true" includeLaunchers="false">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-consoleLog
+      </programArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+   <launcher name="p2tom2">
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+      <plugin id="javax.xml"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.p2.core"/>
+      <plugin id="org.eclipse.equinox.p2.metadata"/>
+      <plugin id="org.eclipse.equinox.p2.repository"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.neoscada.releng.p2.to.maven"/>
+      <plugin id="org.eclipse.osgi"/>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.neoscada.releng.p2.to.maven.app.feature"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <property name="gosh.args" value="--nointeractive" />
+      <property name="osgi.console.enable.builtin" value="false" />
+   </configurations>
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
+
+</product>

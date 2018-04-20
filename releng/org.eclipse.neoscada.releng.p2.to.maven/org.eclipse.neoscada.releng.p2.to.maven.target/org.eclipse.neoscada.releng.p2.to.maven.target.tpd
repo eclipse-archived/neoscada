@@ -1,0 +1,72 @@
+target "Eclipse NeoSCADA Target Platform"
+
+with source
+
+location "http://download.eclipse.org/releases/oxygen/" {
+	org.eclipse.equinox.sdk.feature.group
+	org.eclipse.equinox.p2.core.feature.feature.group
+	org.eclipse.equinox.p2.rcp.feature.feature.group
+	org.eclipse.platform.feature.group
+	org.eclipse.pde.feature.group
+	org.eclipse.jdt.feature.group
+
+	org.eclipse.ecf.core.feature.feature.group
+	org.eclipse.ecf.core.ssl.feature.feature.group
+	org.eclipse.ecf.filetransfer.ssl.feature.feature.group
+	org.eclipse.ecf.filetransfer.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group
+}
+
+location "http://download.eclipse.org/cbi/updates/license/" {
+	org.eclipse.license.feature.group [1.0.1,1.0.2)
+}
+
+
+location "http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository/" {
+
+/*
+ * We do have CQs for specific versions. So we need to fix them.
+ * On the other hand the qualifier is irrelevant to us. So what
+ * we actually want is "a.b.c.*" which is "[a.b.c,a.b.c+1)".
+ */
+
+	// FIXME: CQs for the current versions, cross check with manifest files
+	org.apache.commons.beanutils[1.8.0,1.8.1)
+	org.apache.commons.codec [1.9.0,2.0.0)
+	org.apache.commons.collections [3.2.2,3.2.3)
+
+	org.apache.commons.logging [1.1.1,2.0.0)
+	
+	org.apache.commons.dbcp[1.4.0,1.4.1)
+	org.apache.commons.pool[1.6.0,1.6.1)
+	org.apache.commons.httpclient[3.1.0,3.1.1)
+	org.apache.commons.io [2.2.0,2.5.0)
+		
+	com.google.guava [21.0.0,22.0.0)
+	
+	com.google.javascript [0.0.20160315,0.0.20160316)
+	
+	com.google.protobuf [2.4.0,2.4.1)
+
+	org.junit[4.12.0,4.12.1)
+	com.jcraft.jzlib[1.1.1,1.1.2)
+	
+	org.slf4j.api[1.7.2,1.7.3)
+	org.slf4j.ext[1.7.2,1.7.3)
+	
+	ch.qos.logback.classic[1.0.7,1.0.8)
+	ch.qos.logback.core[1.0.7,1.0.8)
+	ch.qos.logback.slf4j[1.0.7,1.0.8)
+	
+	javax.annotation [1.2.0,1.2.1)
+	javax.inject[1.0.0,1.0.1)
+	javax.ws.rs [2.0.1,2.1.0)
+	// FIXME: put the source in package drone for now, create bug in orbit 
+	// javax.ws.rs.source [2.0.1,2.1.0) 
+	javax.mail.glassfish[1.4.1,1.4.2)
+	javax.activation[1.1.0,1.1.1)
+	javax.xml [1.3.4,1.3.5)
+	
+	osgi.enterprise[4.2.0,4.2.1)
+}
