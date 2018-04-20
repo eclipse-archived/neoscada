@@ -14,7 +14,6 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.deploy.git</tycho.scmUrl>
 	</properties>
 
 	<repositories>

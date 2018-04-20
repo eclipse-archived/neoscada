@@ -135,6 +135,7 @@ location "http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repos
 	javax.mail.glassfish.source[1.4.1,1.4.2)
 	javax.activation[1.1.0,1.1.1)
 	javax.activation.source[1.1.0,1.1.1)
+	javax.xml [1.3.4,1.3.5)
 	
 	osgi.enterprise[4.2.0,4.2.1)
 	osgi.enterprise.source[4.2.0,4.2.1)

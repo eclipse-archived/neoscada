@@ -14,6 +14,12 @@
 		<name>Eclipse NeoSCADA Project</name>
 	</organization>
 
+	<scm>
+		<connection>scm:git:git://github.com/eclipse/neoscada.git</connection>
+		<developerConnection>scm:git:ssh://github.com:eclipse/neoscada.git</developerConnection>
+		<url>https://github.com/eclipse/neoscada/tree/newbuild</url>
+	</scm>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -30,6 +36,7 @@
 		<release.major.minor>0.5</release.major.minor>
 		<release.micro>0</release.micro>
 		<release.fullVersion>${release.major.minor}.${release.micro}</release.fullVersion>
+		<p2tom2.version>0.5.0</p2tom2.version>
 	</properties>
 
 	<modules>
@@ -44,6 +51,7 @@
 		<module>hmi</module>
 		<module>ide</module>
 		<module>deploy</module>
+
 		<module>releng/org.eclipse.neoscada.releng.publish</module>
 	</modules>
 
@@ -106,7 +114,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.7</version>
+					<version>1.8</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -218,6 +226,8 @@
 				<tmp.target.path>${user.home}/.neoscada/b/tmp</tmp.target.path>
 				<publish.target.path>${user.home}/.neoscada/b/publish</publish.target.path>
 				<assemble.target.path>${user.home}/.neoscada/b/assemble</assemble.target.path>
+				<local.proxy.host></local.proxy.host>
+				<local.proxy.port></local.proxy.port>
 			</properties>
 
 		</profile>
@@ -236,6 +246,8 @@
 				<tmp.target.path>${java.io.tmpdir}/neoscada/tmp</tmp.target.path>
 				<publish.target.path>${java.io.tmpdir}/neoscada/publish</publish.target.path>
 				<assemble.target.path>${java.io.tmpdir}/neoscada/assemble</assemble.target.path>
+				<local.proxy.host></local.proxy.host>
+				<local.proxy.port></local.proxy.port>
 			</properties>
 
 		</profile>
@@ -254,6 +266,8 @@
 				<tmp.target.path>${env.WORKSPACE}/b/tmp</tmp.target.path>
 				<publish.target.path>/home/data/httpd/download.eclipse.org/eclipsescada</publish.target.path>
 				<assemble.target.path>${env.WORKSPACE}/b/assemble</assemble.target.path>
+				<local.proxy.host>proxy.eclipse.org</local.proxy.host>
+				<local.proxy.port>9898</local.proxy.port>
 			</properties>
 
 		</profile>

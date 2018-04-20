@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<name>/releng/org.eclipse.neoscada.releng.publish.step05</name>
+	<name>/releng/org.eclipse.neoscada.releng.publish.step06</name>
 
 	<parent>
 		<groupId>org.eclipse.neoscada</groupId>
@@ -12,7 +12,7 @@
 		<relativePath>../../../</relativePath>
 	</parent>
 
-	<artifactId>org.eclipse.neoscada.releng.publish.step05</artifactId>
+	<artifactId>org.eclipse.neoscada.releng.publish.step06</artifactId>
 	<packaging>pom</packaging>
 
 	<build>
@@ -22,11 +22,11 @@
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>step-05</id>
+						<id>step-06</id>
 						<phase>package</phase>
 						<configuration>
 							<target name="run">
-								<ant antfile="p2-to-maven.ant" />
+								<ant antfile="publish.ant" />
 							</target>
 						</configuration>
 						<goals>

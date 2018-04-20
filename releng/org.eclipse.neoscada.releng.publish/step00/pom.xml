@@ -31,6 +31,9 @@
 									<entry key="tmp.target.path" value="${tmp.target.path}" />
 									<entry key="publish.target.path" value="${publish.target.path}" />
 									<entry key="assemble.target.path" value="${assemble.target.path}" />
+									<entry key="p2tom2.version" value="${p2tom2.version}" />
+									<entry key="local.proxy.host" value="${local.proxy.host}" />
+									<entry key="local.proxy.port" value="${local.proxy.port}" />
 								</propertyfile>
 							</target>
 						</configuration>

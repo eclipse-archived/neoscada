@@ -23,19 +23,12 @@
          ================================= -->
 	<target name="run" description="description">
 		<mkdir dir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/maven" />
-		<deltree dir="${tmp.target.path}/p2tom2"/>
 		<mkdir dir="${tmp.target.path}/p2tom2/tmp" />
 
 		<echo message="P2toM2: ${p2tom2.version}" />
 
-		<get src="file:///home/jrose/opensource/NEOSCADA-05/git/neoscada/releng/org.eclipse.neoscada.releng.p2.to.maven/org.eclipse.neoscada.releng.p2.to.maven.app-product/target/products/p2tom2-linux.gtk.x86_64.zip" dest="${tmp.target.path}/p2tom2.zip"/>
-		<mkdir dir="${tmp.target.path}/p2tom2"/>
+		<get src="https://hudson.eclipse.org/eclipsescada/job/neoscada-05-p2tom2/lastSuccessfulBuild/artifact/org.eclipse.neoscada.releng.p2.to.maven.app-product/target/final/p2tom2-${p2tom2.version}.zip" dest="${tmp.target.path}/p2tom2.zip" usetimestamp="true" />
 		<unzip src="${tmp.target.path}/p2tom2.zip" dest="${tmp.target.path}/p2tom2" />
-
-		<!--
-		<get src="http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/eclipsescada/releng/p2tom2-${p2tom2.version}.zip" dest="${tmp.target.path}/p2tom2.zip" usetimestamp="true" />
-		<unzip src="${tmp.target.path}/p2tom2.zip" dest="${tmp.target.path}" />
-		-->
 
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true" dir="${tmp.target.path}/p2tom2">
 			<classpath>
