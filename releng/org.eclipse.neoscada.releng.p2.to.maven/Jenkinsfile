@@ -12,16 +12,16 @@ pipeline {
 	
 	stages {
 		stage('Build') {
-			dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
-				steps {
+			steps {
+				dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
 					sh 'rm -rf ~/.m2/repository/org/eclipse/neoscada/org.eclipse.neoscada.releng.p2.to.maven*'
 					sh 'MAVEN_OPTS="-Xms1024m -Xmx3072m" mvn -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true clean install'
 				}
 			}
 		}
 		stage('Archive') {
-			dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
-				steps {
+			steps {
+				dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
 					archive '**/*-product/target/products/*.zip'
 				}
 			}
