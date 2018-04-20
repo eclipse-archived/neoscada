@@ -11,23 +11,25 @@ pipeline {
 	}
 	
 	stages {
-		dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
-			stage('Build') {
+		stage('Build') {
+			dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
 				steps {
 					sh 'rm -rf ~/.m2/repository/org/eclipse/neoscada/org.eclipse.neoscada.releng.p2.to.maven*'
 					sh 'MAVEN_OPTS="-Xms1024m -Xmx3072m" mvn -Dmaven.test.failure.ignore=true -Dmaven.test.skip=true clean install'
 				}
 			}
-			stage('Archive') {
+		}
+		stage('Archive') {
+			dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
 				steps {
 					archive '**/*-product/target/products/*.zip'
 				}
 			}
-			stage('Deploy') {
-				steps {
-					sh 'echo "deploy"'
-				}
+		}
+		stage('Deploy') {
+			steps {
+				sh 'echo "deploy"'
 			}
-	    }
+		}
 	}
 }
