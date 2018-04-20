@@ -56,7 +56,8 @@
 						<id>copy-with-version</id>
 						<phase>package</phase>
 						<configuration>
-							<target name="run">
+							<target>
+								<echo>creating directory ${project.basedir}/target/final</echo>
 								<mkdir dir="${project.basedir}/target/final" />
 								<copy file="${project.basedir}/target/products/p2tom2-linux.gtk.x86_64.zip" tofile="${project.basedir}/target/final/p2tom2-${project.version}.zip"/>
 							</target>
