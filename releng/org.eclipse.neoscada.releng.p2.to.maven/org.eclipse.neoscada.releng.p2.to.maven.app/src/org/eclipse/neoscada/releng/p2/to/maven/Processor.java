@@ -44,6 +44,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.jar.JarInputStream;
@@ -61,6 +64,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.equinox.internal.p2.metadata.IRequiredCapability;
 import org.eclipse.equinox.p2.core.IProvisioningAgent;
+import org.eclipse.equinox.p2.core.ProvisionException;
 import org.eclipse.equinox.p2.metadata.IArtifactKey;
 import org.eclipse.equinox.p2.metadata.IInstallableUnit;
 import org.eclipse.equinox.p2.metadata.IRequirement;
@@ -261,6 +265,33 @@ public class Processor implements AutoCloseable
 
     public void process ( final IProgressMonitor pm ) throws Exception
     {
+        ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor ();
+        try
+        {
+            try
+            {
+                scheduler.schedule ( new Runnable () {
+                    @Override
+                    public void run ()
+                    {
+                        System.out.println ( "... still alive ..." );
+                    }
+                }, 10, TimeUnit.SECONDS );
+                processInternal ( pm );
+            }
+            catch ( Exception e )
+            {
+                throw e;
+            }
+        }
+        finally
+        {
+            scheduler.shutdown ();
+        }
+    }
+
+    private void processInternal ( final IProgressMonitor pm ) throws ProvisionException, Exception
+    {
         this.output.mkdirs ();
 
         System.out.println ( "Loading metadata..." );
@@ -291,7 +322,6 @@ public class Processor implements AutoCloseable
         {
             writeMetaData ( entry.getKey (), entry.getValue () );
         }
-
     }
 
     private void writeUploadScript () throws Exception
