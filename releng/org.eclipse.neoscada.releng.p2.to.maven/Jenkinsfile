@@ -22,7 +22,7 @@ pipeline {
 		stage('Archive') {
 			steps {
 				dir ('releng/org.eclipse.neoscada.releng.p2.to.maven') {
-					archive '**/*-product/target/products/*.zip'
+					archive '**/*-product/target/final/*.zip'
 				}
 			}
 		}
