@@ -180,8 +180,8 @@ public class Processor implements AutoCloseable
         this.documentBuilder = this.documentBuilderFactor.newDocumentBuilder ();
         this.transformerFactory = TransformerFactory.newInstance ();
 
-        this.organizationName = properties.getProperty ( "pom.origanization.name", "Eclipse Foundation" );
-        this.organizationUrl = properties.getProperty ( "pom.origanization.url", "http://www.eclipse.org/" );
+        this.organizationName = properties.getProperty ( "pom.organization.name", "Eclipse Foundation" );
+        this.organizationUrl = properties.getProperty ( "pom.organization.url", "http://www.eclipse.org/" );
 
         this.licenseProvider = new LicenseProvider ( this.properties );
 
