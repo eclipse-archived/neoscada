@@ -133,7 +133,11 @@ public abstract class BaseTemplate extends OptionTemplateSection
     public IPluginReference[] getDependencies ( final String schemaVersion )
     {
         final List<IPluginReference> deps = new LinkedList<IPluginReference> ();
-        deps.addAll ( Arrays.asList ( super.getDependencies ( schemaVersion ) ) );
+        IPluginReference[] parentDeps = super.getDependencies ( schemaVersion );
+        if ( parentDeps != null )
+        {
+            deps.addAll ( Arrays.asList ( parentDeps ) );
+        }
 
         fillDependencies ( deps, schemaVersion );
 
@@ -169,9 +173,10 @@ public abstract class BaseTemplate extends OptionTemplateSection
 
     /**
      * Locates the page that this option is presented in and flags that the
-     * option is required and is currently not set. The flagging is done by
-     * setting the page incomplete and setting the error message that uses
-     * option's message label.
+     * option
+     * is required and is currently not set. The flagging is done by setting the
+     * page incomplete and setting the error message that uses option's message
+     * label.
      *
      * @param option
      *            the option that is required and currently not set

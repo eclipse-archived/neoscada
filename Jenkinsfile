@@ -20,11 +20,12 @@ pipeline {
 		}
 		stage('Archive') {
 			steps {
-				archive '**/*-p2/target/*p2-*.zip'
-				archive '**/*-product/target/products/*.tar.gz'
-				archive '**/*-product/target/products/*.zip'
-				archive '**/*-p2/target/*p2_*.deb'
-				archive '**/*-p2/target/*p2-*.rpm'
+				archiveArtifacts '**/*-p2/target/*p2-*.zip'
+				archiveArtifacts '**/*-product/target/products/*.tar.gz'
+				archiveArtifacts '**/*-product/target/products/*.zip'
+				archiveArtifacts '**/*-p2/target/*p2_*.deb'
+				archiveArtifacts '**/*-p2/target/*p2-*.rpm'
+				archiveArtifacts 'releng/org.eclipse.neoscada.releng.publish/generated/src/main/resources/buildinfo.properties'
 			}
 		}
 		stage('Deploy') {
