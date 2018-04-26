@@ -52,11 +52,11 @@ public class ConnectionLoginFactory implements LoginFactory
         for ( final LoginConnection loginConnection : loadConnections ( context.getId () ) )
         {
             CallbackHandler callbackHandler;
-            final ConnectionInformation ci = loginConnection.getConnectionInformation ();
+            final ConnectionInformation.Builder cib = new ConnectionInformation.Builder ( loginConnection.getConnectionInformation () );
             if ( !loginConnection.isUseCallbacks () || properties.containsKey ( OPTION_CREDENTIALS_AS_PROPERTIES ) )
             {
-                ci.setUser ( username );
-                ci.setPassword ( password );
+                cib.setUser ( username );
+                cib.setPassword ( password );
                 callbackHandler = null;
             }
             else
@@ -64,7 +64,7 @@ public class ConnectionLoginFactory implements LoginFactory
                 callbackHandler = new PropertiesCredentialsCallback ( username, password );
             }
 
-            final ConnectionService connectionService = ConnectionCreatorHelper.createConnection ( ci, loginConnection.getAutoReconnectDelay (), loginConnection.getMode () == Mode.LAZY );
+            final ConnectionService connectionService = ConnectionCreatorHelper.createConnection ( cib.build (), loginConnection.getAutoReconnectDelay (), loginConnection.getMode () == Mode.LAZY );
             if ( connectionService == null )
             {
                 // dispose already created first

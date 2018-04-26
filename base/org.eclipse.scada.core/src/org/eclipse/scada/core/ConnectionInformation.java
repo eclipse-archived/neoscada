@@ -14,7 +14,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,9 +24,10 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.eclipse.scada.utils.str.StringHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Joiner;
 
 public class ConnectionInformation implements Cloneable
 {
@@ -41,6 +44,8 @@ public class ConnectionInformation implements Cloneable
 
     private static final String URI_ENCODING = "utf-8";
 
+    private static final int MAX_PORT_NUM = 65536;
+
     private String interfaceName;
 
     private String driver;
@@ -52,6 +57,10 @@ public class ConnectionInformation implements Cloneable
     private List<String> subtargets = new LinkedList<String> ();
 
     private Map<String, String> properties = new HashMap<String, String> ();
+
+    private ConnectionInformation ()
+    {
+    }
 
     public static ConnectionInformation fromURI ( final String uri )
     {
@@ -78,6 +87,10 @@ public class ConnectionInformation implements Cloneable
             if ( subUri.getPort () >= 0 )
             {
                 ci.secondaryTarget = subUri.getPort ();
+            }
+            else
+            {
+                return null;
             }
 
             if ( subUri.getPath () != null )
@@ -147,44 +160,6 @@ public class ConnectionInformation implements Cloneable
         {
             logger.warn ( "Failed to decode URI", e );
             return null;
-        }
-    }
-
-    /**
-     * Set the user name
-     * 
-     * @param user
-     *            the user name to set, can be <code>null</code> in order to
-     *            reset the password
-     */
-    public void setUser ( final String user )
-    {
-        if ( user != null )
-        {
-            this.properties.put ( PROP_USER, user );
-        }
-        else
-        {
-            this.properties.remove ( PROP_USER );
-        }
-    }
-
-    /**
-     * Set the password
-     * 
-     * @param password
-     *            the password to set, can be <code>null</code> in order to
-     *            reset the password
-     */
-    public void setPassword ( final String password )
-    {
-        if ( password != null )
-        {
-            this.properties.put ( PROP_PASSWORD, password );
-        }
-        else
-        {
-            this.properties.remove ( PROP_PASSWORD );
         }
     }
 
@@ -284,7 +259,7 @@ public class ConnectionInformation implements Cloneable
             return null;
         }
 
-        return "/" + StringHelper.join ( this.subtargets, "/" );
+        return "/" + Joiner.on ( '/' ).join ( this.subtargets );
     }
 
     @Override
@@ -306,19 +281,9 @@ public class ConnectionInformation implements Cloneable
         return this.driver;
     }
 
-    public void setDriver ( final String driver )
-    {
-        this.driver = driver;
-    }
-
     public String getInterface ()
     {
         return this.interfaceName;
-    }
-
-    public void setInterface ( final String interface1 )
-    {
-        this.interfaceName = interface1;
     }
 
     public Integer getSecondaryTarget ()
@@ -326,19 +291,9 @@ public class ConnectionInformation implements Cloneable
         return this.secondaryTarget;
     }
 
-    public void setSecondaryTarget ( final Integer secondaryTarget )
-    {
-        this.secondaryTarget = secondaryTarget;
-    }
-
     public List<String> getSubtargets ()
     {
-        return this.subtargets;
-    }
-
-    public void setSubtargets ( final List<String> subtargets )
-    {
-        this.subtargets = subtargets;
+        return Collections.unmodifiableList ( this.subtargets );
     }
 
     public String getTarget ()
@@ -346,24 +301,14 @@ public class ConnectionInformation implements Cloneable
         return this.target;
     }
 
-    public void setTarget ( final String target )
-    {
-        this.target = target;
-    }
-
     public Map<String, String> getProperties ()
     {
-        return this.properties;
-    }
-
-    public void setProperties ( final Map<String, String> properties )
-    {
-        this.properties = properties;
+        return Collections.unmodifiableMap ( this.properties );
     }
 
     public boolean isValid ()
     {
-        return this.driver != null && this.interfaceName != null && this.properties != null && this.subtargets != null && this.target != null;
+        return this.driver != null && this.interfaceName != null && this.properties != null && this.subtargets != null && this.target != null && this.secondaryTarget != null && this.secondaryTarget >= 0 && this.secondaryTarget <= MAX_PORT_NUM;
     }
 
     @Override
@@ -500,7 +445,7 @@ public class ConnectionInformation implements Cloneable
         final String password = connectionInformation.getPassword ();
         if ( password != null )
         {
-            connectionInformation.setPassword ( mask );
+            connectionInformation.properties.put ( PROP_PASSWORD, mask );
         }
         return connectionInformation.toString ();
     }
@@ -514,5 +459,136 @@ public class ConnectionInformation implements Cloneable
     public String toMaskedString ()
     {
         return toMaskedString ( "***" );
+    }
+
+    public static class Builder
+    {
+        private ConnectionInformation connectionInformation;
+
+        public Builder ()
+        {
+            this.connectionInformation = new ConnectionInformation ();
+        }
+
+        public Builder ( ConnectionInformation connectionInformation )
+        {
+            this.connectionInformation = connectionInformation.clone ();
+        }
+
+        public ConnectionInformation build ()
+        {
+            if ( !this.connectionInformation.isValid () )
+            {
+                return null;
+            }
+            return this.connectionInformation.clone ();
+        }
+
+        public Builder setInterface ( final String interfaceName )
+        {
+            this.connectionInformation.interfaceName = interfaceName;
+            return this;
+        }
+
+        public Builder setDriver ( final String driver )
+        {
+            this.connectionInformation.driver = driver;
+            return this;
+        }
+
+        public Builder setTarget ( final String target )
+        {
+            this.connectionInformation.target = target;
+            return this;
+        }
+
+        public Builder setSecondaryTarget ( final Integer secondaryTarget )
+        {
+            this.connectionInformation.secondaryTarget = secondaryTarget;
+            if ( secondaryTarget == null || secondaryTarget <= 0 || secondaryTarget > MAX_PORT_NUM )
+            {
+                throw new IllegalArgumentException ( "secondaryTarget (port) must be in valid range" );
+            }
+            return this;
+        }
+
+        public Builder setSubTarget ( final List<String> subtargets )
+        {
+            this.connectionInformation.subtargets = new ArrayList<String> ( subtargets );
+            return this;
+        }
+
+        public Builder setSubTarget ( final String path )
+        {
+            this.connectionInformation.subtargets = Arrays.asList ( path.split ( "\\/" ) );
+            return this;
+        }
+
+        public Builder addSubTarget ( final String pathElement )
+        {
+            this.connectionInformation.subtargets.add ( pathElement );
+            return this;
+        }
+
+        public Builder setProperties ( final Map<String, String> properties )
+        {
+            this.connectionInformation.properties = new HashMap<String, String> ( properties );
+            return this;
+        }
+
+        public Builder setProperty ( final String key, final String value )
+        {
+            this.connectionInformation.properties.put ( key, value );
+            return this;
+        }
+
+        public Builder removeProperty ( final String key )
+        {
+            this.connectionInformation.properties.remove ( key );
+            return this;
+        }
+
+        /**
+         * Set the user name
+         * 
+         * @param user
+         *            the user name to set, can be <code>null</code> in order to
+         *            reset the password
+         * @return
+         */
+        public Builder setUser ( final String user )
+        {
+            if ( user != null )
+            {
+                this.connectionInformation.properties.put ( PROP_USER, user );
+            }
+            else
+            {
+                this.connectionInformation.properties.remove ( PROP_USER );
+            }
+            return this;
+        }
+
+        /**
+         * Set the password
+         * 
+         * @param password
+         *            the password to set, can be <code>null</code> in order to
+         *            reset the password
+         * @return
+         */
+        public Builder setPassword ( final String password )
+        {
+            if ( password != null )
+            {
+                this.connectionInformation.properties.put ( PROP_PASSWORD, password );
+            }
+            else
+            {
+                this.connectionInformation.properties.remove ( PROP_PASSWORD );
+            }
+            return this;
+        }
+
     }
 }

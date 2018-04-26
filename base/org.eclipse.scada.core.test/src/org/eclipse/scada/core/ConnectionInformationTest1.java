@@ -12,6 +12,7 @@ package org.eclipse.scada.core;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import org.eclipse.scada.core.ConnectionInformation;
 import org.junit.Assert;
@@ -30,210 +31,228 @@ public class ConnectionInformationTest1
     @Test
     public void test1 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
         expected.setTarget ( "localhost" );
         expected.setSecondaryTarget ( 1202 );
 
-        testParserEqual ( "da:net://localhost:1202", expected );
+        testParserEqual ( "da:net://localhost:1202", expected.build () );
     }
 
     @Test
     public void test2 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
-        expected.getProperties ().put ( "user", "user" );
-        expected.getProperties ().put ( "password", "password" );
+        expected.setProperty ( "user", "user" );
+        expected.setProperty ( "password", "password" );
         expected.setDriver ( "net" );
         expected.setTarget ( "localhost" );
         expected.setSecondaryTarget ( 1202 );
 
-        testParserEqual ( "da:net://user:password@localhost:1202", expected );
+        testParserEqual ( "da:net://user:password@localhost:1202", expected.build () );
     }
 
     @Test
     public void test3 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
         expected.setTarget ( "localhost" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getSubtargets ().add ( "sub1" );
-        expected.getSubtargets ().add ( "sub2" );
+        expected.addSubTarget ( "sub1" );
+        expected.addSubTarget ( "sub2" );
 
-        testParserEqual ( "da:net://localhost:1202/sub1/sub2", expected );
+        testParserEqual ( "da:net://localhost:1202/sub1/sub2", expected.build () );
     }
 
     @Test
     public void test4 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
         expected.setTarget ( "localhost" );
         expected.setSecondaryTarget ( 1202 );
 
-        testParserEqual ( "da:net://localhost:1202/", expected );
+        testParserEqual ( "da:net://localhost:1202/", expected.build () );
     }
 
     @Test
     public void test5 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
         expected.setTarget ( "localhost" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( "key", "value" );
+        expected.setProperty ( "key", "value" );
 
-        testParserEqual ( "da:net://localhost:1202?key=value", expected );
+        testParserEqual ( "da:net://localhost:1202?key=value", expected.build () );
     }
 
     @Test
     public void test6 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
         expected.setTarget ( "localhost" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( "key1", "value1" );
-        expected.getProperties ().put ( "key2", "value2" );
+        expected.setProperty ( "key1", "value1" );
+        expected.setProperty ( "key2", "value2" );
 
-        testParserEqual ( "da:net://localhost:1202?key1=value1&key2=value2", expected );
+        testParserEqual ( "da:net://localhost:1202?key1=value1&key2=value2", expected.build () );
     }
 
     @Test
     public void test6a () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
         expected.setTarget ( "localhost" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( "key1", "value1" );
-        expected.getProperties ().put ( "key2", "value2" );
+        expected.setProperty ( "key1", "value1" );
+        expected.setProperty ( "key2", "value2" );
 
-        testParserEqual ( "da:net://localhost:1202?key2=value2&key1=value1", expected );
+        testParserEqual ( "da:net://localhost:1202?key2=value2&key1=value1", expected.build () );
     }
 
     @Test
     public void test6b () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
         expected.setTarget ( "localhost" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( "key1", "value1" );
-        expected.getProperties ().put ( "key2", "value2" );
+        expected.setProperty ( "key1", "value1" );
+        expected.setProperty ( "key2", "value2" );
 
-        testParserEqual ( "da:net://localhost:1202?key2=value3&key1=value1&key2=value2", expected );
+        testParserEqual ( "da:net://localhost:1202?key2=value3&key1=value1&key2=value2", expected.build () );
     }
 
     @Test
     public void test7 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
-        expected.getProperties ().put ( "user", "user" );
-        expected.getProperties ().put ( "password", "password" );
+        expected.setProperty ( "user", "user" );
+        expected.setProperty ( "password", "password" );
         expected.setTarget ( "localhost" );
-        expected.getSubtargets ().add ( "sub1" );
-        expected.getSubtargets ().add ( "sub2" );
+        expected.addSubTarget ( "sub1" );
+        expected.addSubTarget ( "sub2" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( "key1", "value1" );
-        expected.getProperties ().put ( "key2", "value2" );
+        expected.setProperty ( "key1", "value1" );
+        expected.setProperty ( "key2", "value2" );
 
-        testParserEqual ( "da:net://user:password@localhost:1202/sub1/sub2?key1=value1&key2=value2", expected );
+        testParserEqual ( "da:net://user:password@localhost:1202/sub1/sub2?key1=value1&key2=value2", expected.build () );
     }
 
     @Test
     public void test8 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
-        expected.getProperties ().put ( "user", ":" );
-        expected.getProperties ().put ( "password", ":" );
+        expected.setProperty ( "user", ":" );
+        expected.setProperty ( "password", ":" );
         expected.setTarget ( "localhost" );
-        expected.getSubtargets ().add ( ":" );
-        expected.getSubtargets ().add ( ":" );
+        expected.addSubTarget ( ":" );
+        expected.addSubTarget ( ":" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( ":", ":" );
+        expected.setProperty ( ":", ":" );
 
-        testParserEqual ( "da:net://%3A:%3A@localhost:1202/%3A/%3A?%3A=%3A", expected );
+        testParserEqual ( "da:net://%3A:%3A@localhost:1202/%3A/%3A?%3A=%3A", expected.build () );
     }
 
     @Test
     public void test9 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
-        expected.getProperties ().put ( "user", "&" );
-        expected.getProperties ().put ( "password", "&" );
+        expected.setProperty ( "user", "&" );
+        expected.setProperty ( "password", "&" );
         expected.setTarget ( "localhost" );
-        expected.getSubtargets ().add ( "&" );
-        expected.getSubtargets ().add ( "&" );
+        expected.addSubTarget ( "&" );
+        expected.addSubTarget ( "&" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( "&", "&" );
+        expected.setProperty ( "&", "&" );
 
-        testParserEqual ( "da:net://%26:%26@localhost:1202/%26/%26?%26=%26", expected );
+        testParserEqual ( "da:net://%26:%26@localhost:1202/%26/%26?%26=%26", expected.build () );
     }
 
     @Test
     public void test10 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
-        expected.getProperties ().put ( "user", "%" );
-        expected.getProperties ().put ( "password", "%" );
+        expected.setProperty ( "user", "%" );
+        expected.setProperty ( "password", "%" );
         expected.setTarget ( "localhost" );
-        expected.getSubtargets ().add ( "%" );
-        expected.getSubtargets ().add ( "%" );
+        expected.addSubTarget ( "%" );
+        expected.addSubTarget ( "%" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( "%", "%" );
+        expected.setProperty ( "%", "%" );
 
-        testParserEqual ( "da:net://%25:%25@localhost:1202/%25/%25?%25=%25", expected );
+        testParserEqual ( "da:net://%25:%25@localhost:1202/%25/%25?%25=%25", expected.build () );
     }
 
     @Test
     public void test11 () throws Throwable
     {
-        final ConnectionInformation expected = new ConnectionInformation ();
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
         expected.setInterface ( "da" );
         expected.setDriver ( "net" );
-        expected.getProperties ().put ( "user", "%" );
-        expected.getProperties ().put ( "password", "%" );
+        expected.setProperty ( "user", "%" );
+        expected.setProperty ( "password", "%" );
         expected.setTarget ( "localhost" );
-        expected.getSubtargets ().add ( "%" );
-        expected.getSubtargets ().add ( "%" );
+        expected.addSubTarget ( "%" );
+        expected.addSubTarget ( "%" );
         expected.setSecondaryTarget ( 1202 );
-        expected.getProperties ().put ( "%", "%" );
+        expected.setProperty ( "%", "%" );
 
-        testParserEqual ( "da:net://%25:%25@localhost:1202/%25/%25?%25=%25", expected );
+        testParserEqual ( "da:net://%25:%25@localhost:1202/%25/%25?%25=%25", expected.build () );
     }
 
     @Test
     public void test12 () throws Throwable
     {
-        final ConnectionInformation o = new ConnectionInformation ();
-        o.setInterface ( "da" );
-        o.setDriver ( "net" );
-        o.getProperties ().put ( "user", "user" );
-        o.getProperties ().put ( "password", "password" );
-        o.setTarget ( "localhost" );
-        o.setSecondaryTarget ( 1202 );
-        o.getSubtargets ().add ( "sub1" );
-        o.getSubtargets ().add ( "sub2" );
-        o.getProperties ().put ( "key", "value" );
-        Assert.assertEquals ( "da:net://user:password@localhost:1202/sub1/sub2?key=value", o.toString () );
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
+        expected.setInterface ( "da" );
+        expected.setDriver ( "net" );
+        expected.setProperty ( "user", "user" );
+        expected.setProperty ( "password", "password" );
+        expected.setTarget ( "localhost" );
+        expected.setSecondaryTarget ( 1202 );
+        expected.addSubTarget ( "sub1" );
+        expected.addSubTarget ( "sub2" );
+        expected.setProperty ( "key", "value" );
+        Assert.assertEquals ( "da:net://user:password@localhost:1202/sub1/sub2?key=value", expected.build ().toString () );
+    }
+
+    @Test
+    public void test13a () throws Throwable
+    {
+        final ConnectionInformation o = ConnectionInformation.fromURI ( "da:ngp://localhost" );
+        assertNull ( o );
+    }
+
+    @Test
+    public void test13b () throws Throwable
+    {
+        final ConnectionInformation.Builder expected = new ConnectionInformation.Builder ();
+        expected.setInterface ( "da" );
+        expected.setDriver ( "net" );
+        expected.setTarget ( "localhost" );
+
+        assertNull ( expected.build () );
     }
 
     @Test
