@@ -82,9 +82,9 @@ public class NetworkHelper
 
     private static ConnectionInformation cloneFill ( final InetAddress inetAddress, final ConnectionInformation connectionInformation )
     {
-        final ConnectionInformation info = connectionInformation.clone ();
-        info.setTarget ( inetAddress.getHostAddress () );
-        return info;
+        final ConnectionInformation.Builder cib = new ConnectionInformation.Builder ( connectionInformation );
+        cib.setTarget ( inetAddress.getHostAddress () );
+        return cib.build ();
     }
 
 }
