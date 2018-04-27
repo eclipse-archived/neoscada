@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelDuplexHandler;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -34,6 +35,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.util.concurrent.Future;
 
 public class Server implements AutoCloseable
 {
@@ -155,5 +157,21 @@ public class Server implements AutoCloseable
 
         this.bossGroup.shutdownGracefully ();
         this.workerGroup.shutdownGracefully ();
+    }
+
+    public void closeAndWait () throws Exception
+    {
+        ChannelFuture channelFuture = this.channel.close ();
+        channelFuture.get ();
+
+        for ( final ServerModule module : this.modules )
+        {
+            module.dispose ();
+        }
+
+        Future<?> bossGroupFuture = this.bossGroup.shutdownGracefully ();
+        bossGroupFuture.get ();
+        Future<?> workerGroupFuture = this.workerGroup.shutdownGracefully ();
+        workerGroupFuture.get ();
     }
 }

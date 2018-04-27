@@ -93,6 +93,8 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
                 return createIEC60870Driver ();
             case IEC60870Package.IEC60870_DEVICE:
                 return createIEC60870Device ();
+            case IEC60870Package.ITEM_TYPE:
+                return createItemType ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -110,6 +112,8 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
         {
             case IEC60870Package.DATA_TYPE:
                 return createDataTypeFromString ( eDataType, initialValue );
+            case IEC60870Package.IEC_TYPE:
+                return createIECTypeFromString ( eDataType, initialValue );
             case IEC60870Package.ADDRESS:
                 return createAddressFromString ( eDataType, initialValue );
             default:
@@ -129,6 +133,8 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
         {
             case IEC60870Package.DATA_TYPE:
                 return convertDataTypeToString ( eDataType, instanceValue );
+            case IEC60870Package.IEC_TYPE:
+                return convertIECTypeToString ( eDataType, instanceValue );
             case IEC60870Package.ADDRESS:
                 return convertAddressToString ( eDataType, instanceValue );
             default:
@@ -262,6 +268,17 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
      * <!-- end-user-doc -->
      * @generated
      */
+    public ItemType createItemType ()
+    {
+        ItemTypeImpl itemType = new ItemTypeImpl ();
+        return itemType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public DataType createDataTypeFromString ( EDataType eDataType, String initialValue )
     {
         DataType result = DataType.get ( initialValue );
@@ -276,6 +293,29 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
      * @generated
      */
     public String convertDataTypeToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public IECType createIECTypeFromString ( EDataType eDataType, String initialValue )
+    {
+        IECType result = IECType.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertIECTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }

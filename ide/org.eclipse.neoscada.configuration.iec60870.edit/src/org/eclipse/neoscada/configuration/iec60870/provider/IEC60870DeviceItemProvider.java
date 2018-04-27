@@ -72,8 +72,8 @@ public class IEC60870DeviceItemProvider extends DeviceItemProvider
     protected void addPortPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_IEC60870Device_port_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_IEC60870Device_port_feature", "_UI_IEC60870Device_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.IEC60870_DEVICE__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_IEC60870Device_port_feature", "_UI_IEC60870Device_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.IEC60870_DEVICE__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -92,6 +92,7 @@ public class IEC60870DeviceItemProvider extends DeviceItemProvider
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( IEC60870Package.Literals.IEC60870_DEVICE__DATA_MODULE_OPTIONS );
             childrenFeatures.add ( IEC60870Package.Literals.IEC60870_DEVICE__PROTOCOL_OPTIONS );
+            childrenFeatures.add ( IEC60870Package.Literals.IEC60870_DEVICE__ITEM_TYPES );
         }
         return childrenFeatures;
     }
@@ -133,7 +134,7 @@ public class IEC60870DeviceItemProvider extends DeviceItemProvider
     {
         String label = ( (IEC60870Device)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_IEC60870Device_type" ) : //$NON-NLS-1$
-        getString ( "_UI_IEC60870Device_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_IEC60870Device_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     @Override
@@ -161,6 +162,7 @@ public class IEC60870DeviceItemProvider extends DeviceItemProvider
                 return;
             case IEC60870Package.IEC60870_DEVICE__DATA_MODULE_OPTIONS:
             case IEC60870Package.IEC60870_DEVICE__PROTOCOL_OPTIONS:
+            case IEC60870Package.IEC60870_DEVICE__ITEM_TYPES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -182,6 +184,8 @@ public class IEC60870DeviceItemProvider extends DeviceItemProvider
         newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.IEC60870_DEVICE__DATA_MODULE_OPTIONS, IEC60870Factory.eINSTANCE.createClientDataModuleOptions () ) );
 
         newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.IEC60870_DEVICE__PROTOCOL_OPTIONS, IEC60870Factory.eINSTANCE.createProtocolOptions () ) );
+
+        newChildDescriptors.add ( createChildParameter ( IEC60870Package.Literals.IEC60870_DEVICE__ITEM_TYPES, IEC60870Factory.eINSTANCE.createItemType () ) );
     }
 
 }

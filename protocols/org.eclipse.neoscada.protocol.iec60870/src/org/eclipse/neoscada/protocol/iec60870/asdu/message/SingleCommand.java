@@ -10,30 +10,22 @@
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.asdu.message;
 
+import io.netty.buffer.ByteBuf;
+
 import org.eclipse.neoscada.protocol.iec60870.ProtocolOptions;
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDU;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Cause;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CommandValue;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationStructure;
 
-import io.netty.buffer.ByteBuf;
-
 @ASDU ( id = 45, name = "C_SC_NA_1", informationStructure = InformationStructure.SINGLE )
-public class SingleCommand extends AbstractInformationObjectMessage implements MirrorableMessage<SingleCommand>
+public class SingleCommand extends AbstractSingleCommand implements ValueCommandMessage
 {
-    private final boolean state;
-
-    private final byte type;
-
-    private final boolean execute;
-
     public SingleCommand ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final boolean state, final byte type, final boolean execute )
     {
-        super ( header, informationObjectAddress );
-        this.state = state;
-        this.type = type;
-        this.execute = execute;
+        super ( header, informationObjectAddress, state ? CommandValue.TRUE () : CommandValue.FALSE (), false, type, execute );
     }
 
     public SingleCommand ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final boolean state )
@@ -41,45 +33,10 @@ public class SingleCommand extends AbstractInformationObjectMessage implements M
         this ( header, informationObjectAddress, state, (byte)0, true );
     }
 
-    public byte getType ()
-    {
-        return this.type;
-    }
-
-    public boolean isState ()
-    {
-        return this.state;
-    }
-
-    public boolean getState ()
-    {
-        return this.state;
-    }
-
-    public boolean isExecute ()
-    {
-        return this.execute;
-    }
-
     @Override
     public SingleCommand mirror ( final Cause cause, final boolean positive )
     {
-        return new SingleCommand ( this.header.clone ( cause, positive ), this.informationObjectAddress, this.state, this.type, this.execute );
-    }
-
-    @Override
-    public void encode ( final ProtocolOptions options, final ByteBuf out )
-    {
-        EncodeHelper.encodeHeader ( this, options, null, this.header, out );
-        byte b = 0;
-
-        b |= this.state ? 0b00000001 : 0;
-        b |= this.type << 2 & 0b011111100;
-        b |= this.execute ? 0 : 0b100000000;
-
-        this.informationObjectAddress.encode ( options, out );
-
-        out.writeByte ( b );
+        return new SingleCommand ( this.header.clone ( cause, positive ), this.informationObjectAddress, isState (), getType (), isExecute () );
     }
 
     public static SingleCommand parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )

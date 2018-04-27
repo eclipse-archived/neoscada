@@ -62,6 +62,8 @@ public class MessageChannel extends ChannelDuplexHandler
 
     private final List<MessageSource> sources = new LinkedList<> ();
 
+    private Runnable startTimers;
+
     private static class WriteEvent
     {
         private final ByteBuf msg;
@@ -112,8 +114,14 @@ public class MessageChannel extends ChannelDuplexHandler
             }
         } );
 
-        this.timer1.start ( this.options.getTimeout1 () );
-        this.timer3.start ( this.options.getTimeout3 () );
+        startTimers = new Runnable () {
+            @Override
+            public void run ()
+            {
+                MessageChannel.this.timer1.start ( MessageChannel.this.options.getTimeout1 () );
+                MessageChannel.this.timer3.start ( MessageChannel.this.options.getTimeout3 () );
+            }
+        };
 
         super.channelActive ( ctx );
     }
@@ -483,5 +491,13 @@ public class MessageChannel extends ChannelDuplexHandler
     public synchronized void addSource ( final MessageSource messageSource )
     {
         this.sources.add ( messageSource );
+    }
+
+    public void startTimers ()
+    {
+        if ( startTimers != null )
+        {
+            startTimers.run ();
+        }
     }
 }

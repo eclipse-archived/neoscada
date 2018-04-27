@@ -30,6 +30,10 @@ public class MessageRegistrator
         manager.registerClass ( MeasuredValueScaledSingle.class );
         manager.registerClass ( MeasuredValueScaledTimeSingle.class );
 
+        manager.registerClass ( MeasuredValueNormalizedSequence.class );
+        manager.registerClass ( MeasuredValueNormalizedSingle.class );
+        manager.registerClass ( MeasuredValueNormalizedTimeSingle.class );
+
         manager.registerClass ( MeasuredValueShortFloatingPointSequence.class );
         manager.registerClass ( MeasuredValueShortFloatingPointSingle.class );
         manager.registerClass ( MeasuredValueShortFloatingPointTimeSingle.class );
@@ -37,7 +41,13 @@ public class MessageRegistrator
         manager.registerClass ( SingleCommand.class );
         manager.registerClass ( DoubleCommand.class );
         manager.registerClass ( SetPointCommandShortFloatingPoint.class );
+        manager.registerClass ( SetPointCommandNormalizedValue.class );
         manager.registerClass ( SetPointCommandScaledValue.class );
+
+        manager.registerClass ( SingleCommandTime.class );
+        manager.registerClass ( SetPointCommandShortFloatingPointTime.class );
+        manager.registerClass ( SetPointCommandNormalizedValueTime.class );
+        manager.registerClass ( SetPointCommandScaledValueTime.class );
 
         manager.registerClass ( EndOfInitialization.class );
     }

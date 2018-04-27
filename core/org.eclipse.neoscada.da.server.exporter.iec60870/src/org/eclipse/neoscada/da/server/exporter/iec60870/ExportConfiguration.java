@@ -29,6 +29,8 @@ public class ExportConfiguration
 
     private Long spontaneousBufferWindow;
 
+    private Long cyclicPeriod;
+
     private ProtocolOptions protocolOptions;
 
     private DataModuleOptions dataModuleOptions;
@@ -101,6 +103,16 @@ public class ExportConfiguration
         return this.spontaneousBufferWindow;
     }
 
+    public void setCyclicPeriod ( Long cyclicPeriod )
+    {
+        this.cyclicPeriod = cyclicPeriod;
+    }
+    
+    public Long getCyclicPeriod ()
+    {
+        return cyclicPeriod;
+    }
+
     /**
      * Parse the configuration from the CA properties <br/>
      * <code>
@@ -118,6 +130,7 @@ public class ExportConfiguration
 
         result.setPort ( (short)cfg.getInteger ( "port", 2404 /* IEC 60870-5-104 default */ ) ); //$NON-NLS-1$
         result.setSpontaneousBufferWindow ( cfg.getLong ( "spontaneousBufferWindow" ) ); //$NON-NLS-1$
+        result.setCyclicPeriod ( cfg.getLong ( "cyclicPeriod" ) ); //$NON-NLS-1$
 
         final ProtocolOptions.Builder optionsBuilder = Configurations.parseProtocolOptions ( cfg );
 

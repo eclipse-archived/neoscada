@@ -28,6 +28,7 @@ import org.eclipse.neoscada.configuration.iec60870.IEC60870Package;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.ClientDataModuleOptionsImpl#isIgnoreBackgroundScan <em>Ignore Background Scan</em>}</li>
+ *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.ClientDataModuleOptionsImpl#isDelayStart <em>Delay Start</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +54,26 @@ public class ClientDataModuleOptionsImpl extends MinimalEObjectImpl.Container im
      * @ordered
      */
     protected boolean ignoreBackgroundScan = IGNORE_BACKGROUND_SCAN_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isDelayStart() <em>Delay Start</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDelayStart()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean DELAY_START_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isDelayStart() <em>Delay Start</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isDelayStart()
+     * @generated
+     * @ordered
+     */
+    protected boolean delayStart = DELAY_START_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -105,6 +126,29 @@ public class ClientDataModuleOptionsImpl extends MinimalEObjectImpl.Container im
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isDelayStart ()
+    {
+        return delayStart;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDelayStart ( boolean newDelayStart )
+    {
+        boolean oldDelayStart = delayStart;
+        delayStart = newDelayStart;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__DELAY_START, oldDelayStart, delayStart ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -112,6 +156,8 @@ public class ClientDataModuleOptionsImpl extends MinimalEObjectImpl.Container im
         {
             case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN:
                 return isIgnoreBackgroundScan ();
+            case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__DELAY_START:
+                return isDelayStart ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -128,6 +174,9 @@ public class ClientDataModuleOptionsImpl extends MinimalEObjectImpl.Container im
         {
             case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN:
                 setIgnoreBackgroundScan ( (Boolean)newValue );
+                return;
+            case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__DELAY_START:
+                setDelayStart ( (Boolean)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -146,6 +195,9 @@ public class ClientDataModuleOptionsImpl extends MinimalEObjectImpl.Container im
             case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN:
                 setIgnoreBackgroundScan ( IGNORE_BACKGROUND_SCAN_EDEFAULT );
                 return;
+            case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__DELAY_START:
+                setDelayStart ( DELAY_START_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -162,6 +214,8 @@ public class ClientDataModuleOptionsImpl extends MinimalEObjectImpl.Container im
         {
             case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN:
                 return ignoreBackgroundScan != IGNORE_BACKGROUND_SCAN_EDEFAULT;
+            case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__DELAY_START:
+                return delayStart != DELAY_START_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -180,6 +234,8 @@ public class ClientDataModuleOptionsImpl extends MinimalEObjectImpl.Container im
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (ignoreBackgroundScan: " ); //$NON-NLS-1$
         result.append ( ignoreBackgroundScan );
+        result.append ( ", delayStart: " ); //$NON-NLS-1$
+        result.append ( delayStart );
         result.append ( ')' );
         return result.toString ();
     }

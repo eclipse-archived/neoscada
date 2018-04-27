@@ -313,4 +313,19 @@ public class AutoConnectClient implements AutoCloseable
             createClient ( AutoConnectClient.this.address );
         }
     }
+
+    public void requestStartData ()
+    {
+        if ( this.client != null )
+        {
+            try
+            {
+                this.client.requestStartData ();
+            }
+            catch ( Exception e )
+            {
+                logger.warn ( "Failed to send StartDT", e );
+            }
+        }
+    }
 }

@@ -18,6 +18,9 @@ import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformatio
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.InterrogationCommand;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedSequence;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedSingle;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedTimeSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledSequence;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledTimeSingle;
@@ -165,6 +168,18 @@ public class DataModuleHandler extends AbstractModuleHandler implements DataModu
         {
             handleDataMessage ( (MeasuredValueScaledSequence)msg );
         }
+        else if ( msg instanceof MeasuredValueNormalizedTimeSingle )
+        {
+            handleDataMessage ( (MeasuredValueNormalizedTimeSingle)msg );
+        }
+        else if ( msg instanceof MeasuredValueNormalizedSingle )
+        {
+            handleDataMessage ( (MeasuredValueNormalizedSingle)msg );
+        }
+        else if ( msg instanceof MeasuredValueNormalizedSequence )
+        {
+            handleDataMessage ( (MeasuredValueNormalizedSequence)msg );
+        }
         else
         {
             super.channelRead ( ctx, msg );
@@ -254,9 +269,24 @@ public class DataModuleHandler extends AbstractModuleHandler implements DataModu
         this.dataHandler.process ( msg );
     }
 
+
     protected void handleDataMessage ( final MeasuredValueScaledTimeSingle msg )
     {
         this.dataHandler.process ( msg );
     }
 
+    protected void handleDataMessage ( final MeasuredValueNormalizedSequence msg )
+    {
+        this.dataHandler.process ( msg );
+    }
+
+    protected void handleDataMessage ( final MeasuredValueNormalizedSingle msg )
+    {
+        this.dataHandler.process ( msg );
+    }
+
+    protected void handleDataMessage ( final MeasuredValueNormalizedTimeSingle msg )
+    {
+        this.dataHandler.process ( msg );
+    }
 }

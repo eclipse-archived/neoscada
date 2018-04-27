@@ -16,6 +16,7 @@ import static java.util.Collections.singletonList;
 import java.util.List;
 
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
 import org.slf4j.Logger;
@@ -25,11 +26,11 @@ public class InstantChangeModel implements ChangeModel
 {
     public interface Context
     {
-        public void notifyChangeBoolean ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Boolean>> values );
+        public void notifyChangeBoolean ( final CauseOfTransmission cause, ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Boolean>> values );
 
-        public void notifyChangeFloat ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Float>> values );
+        public void notifyChangeFloat ( final CauseOfTransmission cause, ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Float>> values );
 
-        public void notifyChangeShort ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Short>> values );
+        public void notifyChangeShort ( final CauseOfTransmission cause, ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Short>> values );
     }
 
     private final static Logger logger = LoggerFactory.getLogger ( InstantChangeModel.class );
@@ -50,7 +51,7 @@ public class InstantChangeModel implements ChangeModel
 
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void notifyChange ( final ASDUAddress asduAddress, final InformationObjectAddress informationObjectAddress, final Value<?> iecValue )
+    public void notifyChange ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress informationObjectAddress, final Value<?> iecValue )
     {
         final Object rawValue = iecValue.getValue ();
 
@@ -58,15 +59,15 @@ public class InstantChangeModel implements ChangeModel
 
         if ( rawValue instanceof Boolean )
         {
-            this.context.notifyChangeBoolean ( asduAddress, informationObjectAddress, singletonList ( (Value<Boolean>)iecValue ) );
+            this.context.notifyChangeBoolean ( cause, asduAddress, informationObjectAddress, singletonList ( (Value<Boolean>)iecValue ) );
         }
         else if ( rawValue instanceof Float )
         {
-            this.context.notifyChangeFloat ( asduAddress, informationObjectAddress, singletonList ( (Value<Float>)iecValue ) );
+            this.context.notifyChangeFloat ( cause, asduAddress, informationObjectAddress, singletonList ( (Value<Float>)iecValue ) );
         }
         else if ( rawValue instanceof Short )
         {
-            this.context.notifyChangeShort ( asduAddress, informationObjectAddress, singletonList ( (Value<Short>)iecValue ) );
+            this.context.notifyChangeShort ( cause, asduAddress, informationObjectAddress, singletonList ( (Value<Short>)iecValue ) );
         }
     }
 

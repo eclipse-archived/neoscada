@@ -11,6 +11,7 @@
  */
 package org.eclipse.neoscada.configuration.iec60870;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.infrastructure.Device;
 
 /**
@@ -25,11 +26,12 @@ import org.eclipse.scada.configuration.infrastructure.Device;
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.IEC60870Device#getDataModuleOptions <em>Data Module Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.IEC60870Device#getProtocolOptions <em>Protocol Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.IEC60870Device#getPort <em>Port</em>}</li>
+ *   <li>{@link org.eclipse.neoscada.configuration.iec60870.IEC60870Device#getItemTypes <em>Item Types</em>}</li>
  * </ul>
  *
  * @see org.eclipse.neoscada.configuration.iec60870.IEC60870Package#getIEC60870Device()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='portCheck'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL portCheck='port > 0 and port < 65535'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL portCheck='port &gt; 0 and port &lt; 65535'"
  * @generated
  */
 public interface IEC60870Device extends Device
@@ -114,5 +116,21 @@ public interface IEC60870Device extends Device
      * @generated
      */
     void setPort ( int value );
+
+    /**
+     * Returns the value of the '<em><b>Item Types</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.neoscada.configuration.iec60870.ItemType}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Item Types</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Item Types</em>' containment reference list.
+     * @see org.eclipse.neoscada.configuration.iec60870.IEC60870Package#getIEC60870Device_ItemTypes()
+     * @model containment="true"
+     * @generated
+     */
+    EList<ItemType> getItemTypes ();
 
 } // IEC60870Device

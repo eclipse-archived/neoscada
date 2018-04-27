@@ -69,8 +69,8 @@ public class IEC60870DriverItemProvider extends AbstractEquinoxDriverItemProvide
     protected void addDevicesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_IEC60870Driver_devices_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_IEC60870Driver_devices_feature", "_UI_IEC60870Driver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.IEC60870_DRIVER__DEVICES, true, false, false, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_IEC60870Driver_devices_feature", "_UI_IEC60870Driver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.IEC60870_DRIVER__DEVICES, true, false, false, null, null, null ) );
     }
 
     /**
@@ -97,7 +97,7 @@ public class IEC60870DriverItemProvider extends AbstractEquinoxDriverItemProvide
     {
         String label = ( (IEC60870Driver)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_IEC60870Driver_type" ) : //$NON-NLS-1$
-        getString ( "_UI_IEC60870Driver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_IEC60870Driver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

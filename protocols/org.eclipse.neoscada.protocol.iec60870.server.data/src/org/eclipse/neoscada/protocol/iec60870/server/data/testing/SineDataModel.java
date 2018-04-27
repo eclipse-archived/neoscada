@@ -21,8 +21,10 @@ import java.util.function.Consumer;
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CommandValue;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.QualityInformation;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.StandardCause;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
 import org.eclipse.neoscada.protocol.iec60870.io.MirrorCommand;
 import org.eclipse.neoscada.protocol.iec60870.server.data.AbstractBaseDataModel;
@@ -89,7 +91,7 @@ public class SineDataModel extends AbstractBaseDataModel
         {
             this.values.set ( i, Value.ok ( (float)Math.sin ( Math.toRadians ( tix / 1000.0 ) ) * i ) );
         }
-        notifyChangeFloat ( ASDU_ADDRESS, this.startAddress, this.values );
+        notifyChangeFloat ( CauseOfTransmission.SPONTANEOUS, ASDU_ADDRESS, this.startAddress, this.values );
     }
 
     @Override
@@ -116,7 +118,7 @@ public class SineDataModel extends AbstractBaseDataModel
     }
 
     @Override
-    public ListenableFuture<Void> readAll ( final ASDUAddress asduAddress, final Runnable prepare, final DataListener listener )
+    public ListenableFuture<Void> readAll ( CauseOfTransmission cause, final ASDUAddress asduAddress, final Runnable prepare, final DataListener listener )
     {
         if ( asduAddress.getAddress () != 1 )
         {
@@ -139,7 +141,7 @@ public class SineDataModel extends AbstractBaseDataModel
     {
         logger.debug ( "performReadAll" );
 
-        listener.dataChangeFloat ( ASDU_ADDRESS, this.startAddress, new ArrayList<> ( this.values ) );
+        listener.dataChangeFloat ( CauseOfTransmission.SPONTANEOUS, ASDU_ADDRESS, this.startAddress, new ArrayList<> ( this.values ) );
 
         logger.debug ( "performReadAll - done" );
         return null;
@@ -217,19 +219,7 @@ public class SineDataModel extends AbstractBaseDataModel
     }
 
     @Override
-    public void writeCommand ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final boolean state, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        performWrite ( mirrorCommand, execute );
-    }
-
-    @Override
-    public void writeFloatValue ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final float value, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        performWrite ( mirrorCommand, execute );
-    }
-
-    @Override
-    public void writeScaledValue ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final short value, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
+    public void writeValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, CommandValue<?> value, byte type, MirrorCommand mirrorCommand, boolean execute )
     {
         performWrite ( mirrorCommand, execute );
     }

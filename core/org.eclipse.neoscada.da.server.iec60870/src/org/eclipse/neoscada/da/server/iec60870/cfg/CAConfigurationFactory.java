@@ -14,9 +14,12 @@ import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.neoscada.core.common.iec60870.Configurations;
+import org.eclipse.neoscada.da.server.iec60870.CommandMessage;
 import org.eclipse.neoscada.da.server.iec60870.ConnectionConfiguration;
+import org.eclipse.neoscada.da.server.iec60870.QualifiedCommandMessage;
 import org.eclipse.neoscada.protocol.iec60870.ProtocolOptions.Builder;
 import org.eclipse.neoscada.protocol.iec60870.client.data.DataModuleOptions;
 import org.eclipse.scada.ca.ConfigurationAdministrator;
@@ -83,7 +86,32 @@ public class CAConfigurationFactory implements ConfigurationFactory, org.eclipse
         final Builder builder = Configurations.parseProtocolOptions ( cfg.getPrefixedHelper ( "protocol." ) );
         final DataModuleOptions dataModuleOptions = parseDataModuleOptions ( cfg.getPrefixedHelper ( "dataModule." ) );
 
-        return new ConnectionConfiguration ( host, port, builder.build (), dataModuleOptions );
+        final Map<String, QualifiedCommandMessage> itemTypes = new HashMap<> ();
+        for ( final Entry<String, String> entry : cfg.getPrefixed ( "itemType." ).entrySet () )
+        {
+            try
+            {
+                final QualifiedCommandMessage qcm;
+                if ( entry.getValue ().contains ( "#" ) )
+                {
+                    String[] parts = entry.getValue ().split ( "#" );
+                    final CommandMessage cm = CommandMessage.valueOf ( parts[0] );
+                    qcm = new QualifiedCommandMessage ( cm, Byte.parseByte ( parts[1] ) );
+                }
+                else
+                {
+                    final CommandMessage cm = CommandMessage.valueOf ( entry.getValue () );
+                    qcm = new QualifiedCommandMessage ( cm );
+                }
+                itemTypes.put ( entry.getKey (), qcm );
+            }
+            catch ( Exception e )
+            {
+                logger.warn ( "type {} (of key '{}') is not a valid IEC type; will be ignored", entry.getValue (), entry.getKey () );
+            }
+        }
+
+        return new ConnectionConfiguration ( host, port, builder.build (), dataModuleOptions, itemTypes );
     }
 
     private DataModuleOptions parseDataModuleOptions ( final ConfigurationDataHelper cfg )

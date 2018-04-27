@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.neoscada.configuration.iec60870.*;
 import org.eclipse.neoscada.configuration.iec60870.ClientDataModuleOptions;
 import org.eclipse.neoscada.configuration.iec60870.ClientDevice;
 import org.eclipse.neoscada.configuration.iec60870.DataModuleOptions;
@@ -166,6 +167,12 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
         public Adapter caseIEC60870Device ( IEC60870Device object )
         {
             return createIEC60870DeviceAdapter ();
+        }
+
+        @Override
+        public Adapter caseItemType ( ItemType object )
+        {
+            return createItemTypeAdapter ();
         }
 
         @Override
@@ -450,6 +457,21 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createIEC60870DeviceAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.neoscada.configuration.iec60870.ItemType <em>Item Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.neoscada.configuration.iec60870.ItemType
+     * @generated
+     */
+    public Adapter createItemTypeAdapter ()
     {
         return null;
     }

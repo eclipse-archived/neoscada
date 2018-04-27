@@ -19,6 +19,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationEntry;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
@@ -74,51 +75,51 @@ public abstract class AbstractBaseDataModel implements DataModel
         return this.executor.submit ( () -> null );
     }
 
-    protected synchronized void notifyChangeBoolean ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
+    protected synchronized void notifyChangeBoolean ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( () -> sub.notifyChangeBoolean ( asduAddress, startAddress, values ) );
+            this.executor.execute ( () -> sub.notifyChangeBoolean ( cause, asduAddress, startAddress, values ) );
         }
     }
 
-    protected synchronized void notifyChangeBoolean ( final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
+    protected synchronized void notifyChangeBoolean ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( () -> sub.notifyChangeBoolean ( asduAddress, values ) );
+            this.executor.execute ( () -> sub.notifyChangeBoolean ( cause, asduAddress, values ) );
         }
     }
 
-    protected synchronized void notifyChangeFloat ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
+    protected synchronized void notifyChangeFloat ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( () -> sub.notifyChangeFloat ( asduAddress, startAddress, values ) );
+            this.executor.execute ( () -> sub.notifyChangeFloat ( cause, asduAddress, startAddress, values ) );
         }
     }
 
-    protected synchronized void notifyChangeFloat ( final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
+    protected synchronized void notifyChangeFloat ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( () -> sub.notifyChangeFloat ( asduAddress, values ) );
+            this.executor.execute ( () -> sub.notifyChangeFloat ( cause, asduAddress, values ) );
         }
     }
 
-    protected synchronized void notifyChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+    protected synchronized void notifyChangeShort ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( () -> sub.notifyChangeShort ( asduAddress, startAddress, values ) );
+            this.executor.execute ( () -> sub.notifyChangeShort ( cause, asduAddress, startAddress, values ) );
         }
     }
 
-    protected synchronized void notifyChangeShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+    protected synchronized void notifyChangeShort ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
     {
         for ( final DefaultSubscription sub : this.subscriptions )
         {
-            this.executor.execute ( () -> sub.notifyChangeShort ( asduAddress, values ) );
+            this.executor.execute ( () -> sub.notifyChangeShort ( cause, asduAddress, values ) );
         }
     }
 

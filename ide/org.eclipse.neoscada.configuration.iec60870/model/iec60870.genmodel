@@ -15,6 +15,16 @@
       <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//DataType/FLOAT"/>
       <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//DataType/BOOLEAN"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iec60870.ecore#//IECType">
+      <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//IECType/C_SC_NA_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//IECType/C_SC_TA_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//IECType/C_SE_NA_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//IECType/C_SE_TA_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//IECType/C_SE_NB_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//IECType/C_SE_TB_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//IECType/C_SE_NC_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec60870.ecore#//IECType/C_SE_TC_1"/>
+    </genEnums>
     <genDataTypes ecoreDataType="iec60870.ecore#//Address"/>
     <genClasses ecoreClass="iec60870.ecore#//Exporter">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//Exporter/devices"/>
@@ -80,6 +90,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//IEC60870Device/dataModuleOptions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//IEC60870Device/protocolOptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//IEC60870Device/port"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//ClientDevice/types"/>
+    </genClasses>
+    <genClasses ecoreClass="iec60870.ecore#//ItemType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ItemType/item"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ItemType/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

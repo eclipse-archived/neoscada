@@ -185,13 +185,22 @@ public interface IEC60870Package extends EPackage
     int DEVICE__SPONTANEOUS_BUFFER_WINDOW = 6;
 
     /**
+     * The feature id for the '<em><b>Cyclic Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVICE__CYCLIC_PERIOD = 7;
+
+    /**
      * The number of structural features of the '<em>Device</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEVICE_FEATURE_COUNT = 7;
+    int DEVICE_FEATURE_COUNT = 8;
 
     /**
      * The number of operations of the '<em>Device</em>' class.
@@ -340,13 +349,22 @@ public interface IEC60870Package extends EPackage
     int EXPORTER_ITEM_INTERCEPTOR__SPONTANEOUS_BUFFER_WINDOW = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Cyclic Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR__CYCLIC_PERIOD = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>Exporter Item Interceptor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXPORTER_ITEM_INTERCEPTOR_FEATURE_COUNT = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 6;
+    int EXPORTER_ITEM_INTERCEPTOR_FEATURE_COUNT = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 7;
 
     /**
      * The number of operations of the '<em>Exporter Item Interceptor</em>' class.
@@ -586,13 +604,22 @@ public interface IEC60870Package extends EPackage
     int CLIENT_DEVICE__ID = 3;
 
     /**
+     * The feature id for the '<em><b>Item Types</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DEVICE__ITEM_TYPES = 4;
+
+    /**
      * The number of structural features of the '<em>Client Device</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLIENT_DEVICE_FEATURE_COUNT = 4;
+    int CLIENT_DEVICE_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Client Device</em>' class.
@@ -741,13 +768,22 @@ public interface IEC60870Package extends EPackage
     int CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN = 0;
 
     /**
+     * The feature id for the '<em><b>Delay Start</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DATA_MODULE_OPTIONS__DELAY_START = 1;
+
+    /**
      * The number of structural features of the '<em>Client Data Module Options</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CLIENT_DATA_MODULE_OPTIONS_FEATURE_COUNT = 1;
+    int CLIENT_DATA_MODULE_OPTIONS_FEATURE_COUNT = 2;
 
     /**
      * The number of operations of the '<em>Client Data Module Options</em>' class.
@@ -950,13 +986,22 @@ public interface IEC60870Package extends EPackage
     int IEC60870_DEVICE__PORT = InfrastructurePackage.DEVICE_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Item Types</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE__ITEM_TYPES = InfrastructurePackage.DEVICE_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Device</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int IEC60870_DEVICE_FEATURE_COUNT = InfrastructurePackage.DEVICE_FEATURE_COUNT + 3;
+    int IEC60870_DEVICE_FEATURE_COUNT = InfrastructurePackage.DEVICE_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Device</em>' class.
@@ -968,6 +1013,52 @@ public interface IEC60870Package extends EPackage
     int IEC60870_DEVICE_OPERATION_COUNT = InfrastructurePackage.DEVICE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.neoscada.configuration.iec60870.impl.ItemTypeImpl <em>Item Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.neoscada.configuration.iec60870.impl.ItemTypeImpl
+     * @see org.eclipse.neoscada.configuration.iec60870.impl.IEC60870PackageImpl#getItemType()
+     * @generated
+     */
+    int ITEM_TYPE = 11;
+
+    /**
+     * The feature id for the '<em><b>Item</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_TYPE__ITEM = 0;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_TYPE__TYPE = 1;
+
+    /**
+     * The number of structural features of the '<em>Item Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_TYPE_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Item Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_TYPE_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.neoscada.configuration.iec60870.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -975,7 +1066,17 @@ public interface IEC60870Package extends EPackage
      * @see org.eclipse.neoscada.configuration.iec60870.impl.IEC60870PackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 11;
+    int DATA_TYPE = 12;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.neoscada.configuration.iec60870.IECType <em>IEC Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.neoscada.configuration.iec60870.IECType
+     * @see org.eclipse.neoscada.configuration.iec60870.impl.IEC60870PackageImpl#getIECType()
+     * @generated
+     */
+    int IEC_TYPE = 13;
 
     /**
      * The meta object id for the '<em>Address</em>' data type.
@@ -985,7 +1086,7 @@ public interface IEC60870Package extends EPackage
      * @see org.eclipse.neoscada.configuration.iec60870.impl.IEC60870PackageImpl#getAddress()
      * @generated
      */
-    int ADDRESS = 12;
+    int ADDRESS = 14;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.neoscada.configuration.iec60870.Exporter <em>Exporter</em>}'.
@@ -1094,6 +1195,17 @@ public interface IEC60870Package extends EPackage
      * @generated
      */
     EAttribute getDevice_SpontaneousBufferWindow ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.neoscada.configuration.iec60870.Device#getCyclicPeriod <em>Cyclic Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Cyclic Period</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.Device#getCyclicPeriod()
+     * @see #getDevice()
+     * @generated
+     */
+    EAttribute getDevice_CyclicPeriod ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.neoscada.configuration.iec60870.Item <em>Item</em>}'.
@@ -1213,6 +1325,17 @@ public interface IEC60870Package extends EPackage
      * @generated
      */
     EAttribute getExporterItemInterceptor_SpontaneousBufferWindow ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.neoscada.configuration.iec60870.ExporterItemInterceptor#getCyclicPeriod <em>Cyclic Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Cyclic Period</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.ExporterItemInterceptor#getCyclicPeriod()
+     * @see #getExporterItemInterceptor()
+     * @generated
+     */
+    EAttribute getExporterItemInterceptor_CyclicPeriod ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.neoscada.configuration.iec60870.ProtocolOptions <em>Protocol Options</em>}'.
@@ -1443,6 +1566,17 @@ public interface IEC60870Package extends EPackage
     EAttribute getClientDevice_Id ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.neoscada.configuration.iec60870.ClientDevice#getItemTypes <em>Item Types</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Item Types</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.ClientDevice#getItemTypes()
+     * @see #getClientDevice()
+     * @generated
+     */
+    EReference getClientDevice_ItemTypes ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.neoscada.configuration.iec60870.DriverApplication <em>Driver Application</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1483,6 +1617,17 @@ public interface IEC60870Package extends EPackage
      * @generated
      */
     EAttribute getClientDataModuleOptions_IgnoreBackgroundScan ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.neoscada.configuration.iec60870.ClientDataModuleOptions#isDelayStart <em>Delay Start</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Delay Start</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.ClientDataModuleOptions#isDelayStart()
+     * @see #getClientDataModuleOptions()
+     * @generated
+     */
+    EAttribute getClientDataModuleOptions_DelayStart ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.neoscada.configuration.iec60870.IEC60870Driver <em>Driver</em>}'.
@@ -1549,6 +1694,49 @@ public interface IEC60870Package extends EPackage
     EAttribute getIEC60870Device_Port ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.neoscada.configuration.iec60870.IEC60870Device#getItemTypes <em>Item Types</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Item Types</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.IEC60870Device#getItemTypes()
+     * @see #getIEC60870Device()
+     * @generated
+     */
+    EReference getIEC60870Device_ItemTypes ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.neoscada.configuration.iec60870.ItemType <em>Item Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Item Type</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.ItemType
+     * @generated
+     */
+    EClass getItemType ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.neoscada.configuration.iec60870.ItemType#getItem <em>Item</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Item</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.ItemType#getItem()
+     * @see #getItemType()
+     * @generated
+     */
+    EAttribute getItemType_Item ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.neoscada.configuration.iec60870.ItemType#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.ItemType#getType()
+     * @see #getItemType()
+     * @generated
+     */
+    EAttribute getItemType_Type ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.neoscada.configuration.iec60870.DataType <em>Data Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1557,6 +1745,16 @@ public interface IEC60870Package extends EPackage
      * @generated
      */
     EEnum getDataType ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.neoscada.configuration.iec60870.IECType <em>IEC Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>IEC Type</em>'.
+     * @see org.eclipse.neoscada.configuration.iec60870.IECType
+     * @generated
+     */
+    EEnum getIECType ();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.neoscada.configuration.iec60870.AddressInformation <em>Address</em>}'.
@@ -1678,6 +1876,14 @@ public interface IEC60870Package extends EPackage
         EAttribute DEVICE__SPONTANEOUS_BUFFER_WINDOW = eINSTANCE.getDevice_SpontaneousBufferWindow ();
 
         /**
+         * The meta object literal for the '<em><b>Cyclic Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DEVICE__CYCLIC_PERIOD = eINSTANCE.getDevice_CyclicPeriod ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.neoscada.configuration.iec60870.impl.ItemImpl <em>Item</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1768,6 +1974,14 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EAttribute EXPORTER_ITEM_INTERCEPTOR__SPONTANEOUS_BUFFER_WINDOW = eINSTANCE.getExporterItemInterceptor_SpontaneousBufferWindow ();
+
+        /**
+         * The meta object literal for the '<em><b>Cyclic Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXPORTER_ITEM_INTERCEPTOR__CYCLIC_PERIOD = eINSTANCE.getExporterItemInterceptor_CyclicPeriod ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.neoscada.configuration.iec60870.impl.ProtocolOptionsImpl <em>Protocol Options</em>}' class.
@@ -1944,6 +2158,14 @@ public interface IEC60870Package extends EPackage
         EAttribute CLIENT_DEVICE__ID = eINSTANCE.getClientDevice_Id ();
 
         /**
+         * The meta object literal for the '<em><b>Item Types</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CLIENT_DEVICE__ITEM_TYPES = eINSTANCE.getClientDevice_ItemTypes ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.neoscada.configuration.iec60870.impl.DriverApplicationImpl <em>Driver Application</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1978,6 +2200,14 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EAttribute CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN = eINSTANCE.getClientDataModuleOptions_IgnoreBackgroundScan ();
+
+        /**
+         * The meta object literal for the '<em><b>Delay Start</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CLIENT_DATA_MODULE_OPTIONS__DELAY_START = eINSTANCE.getClientDataModuleOptions_DelayStart ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.neoscada.configuration.iec60870.impl.IEC60870DriverImpl <em>Driver</em>}' class.
@@ -2032,6 +2262,40 @@ public interface IEC60870Package extends EPackage
         EAttribute IEC60870_DEVICE__PORT = eINSTANCE.getIEC60870Device_Port ();
 
         /**
+         * The meta object literal for the '<em><b>Item Types</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference IEC60870_DEVICE__ITEM_TYPES = eINSTANCE.getIEC60870Device_ItemTypes ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.neoscada.configuration.iec60870.impl.ItemTypeImpl <em>Item Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.neoscada.configuration.iec60870.impl.ItemTypeImpl
+         * @see org.eclipse.neoscada.configuration.iec60870.impl.IEC60870PackageImpl#getItemType()
+         * @generated
+         */
+        EClass ITEM_TYPE = eINSTANCE.getItemType ();
+
+        /**
+         * The meta object literal for the '<em><b>Item</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM_TYPE__ITEM = eINSTANCE.getItemType_Item ();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM_TYPE__TYPE = eINSTANCE.getItemType_Type ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.neoscada.configuration.iec60870.DataType <em>Data Type</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -2040,6 +2304,16 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EEnum DATA_TYPE = eINSTANCE.getDataType ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.neoscada.configuration.iec60870.IECType <em>IEC Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.neoscada.configuration.iec60870.IECType
+         * @see org.eclipse.neoscada.configuration.iec60870.impl.IEC60870PackageImpl#getIECType()
+         * @generated
+         */
+        EEnum IEC_TYPE = eINSTANCE.getIECType ();
 
         /**
          * The meta object literal for the '<em>Address</em>' data type.

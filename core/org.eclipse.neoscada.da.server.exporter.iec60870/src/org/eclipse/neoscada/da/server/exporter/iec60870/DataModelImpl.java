@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.QualityInformation;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
 import org.eclipse.neoscada.protocol.iec60870.server.data.DataListener;
@@ -124,7 +125,7 @@ public class DataModelImpl extends ChangeDataModel
 
     private final Properties hiveProperties;
 
-    public DataModelImpl ( final HiveSource hiveSource, final Set<MappingEntry> entries, final Properties hiveProperties, final InformationBean info, final Long flushDelay, final boolean supportBackgroundScan )
+    public DataModelImpl ( final HiveSource hiveSource, final Set<MappingEntry> entries, final Properties hiveProperties, final InformationBean info, final Long flushDelay, final boolean supportBackgroundScan, final Long period )
     {
         super ( "org.eclipse.neoscada.da.server.exporter.iec60870.DataModel" );
 
@@ -168,21 +169,9 @@ public class DataModelImpl extends ChangeDataModel
         return new WriteModel () {
 
             @Override
-            public Action prepareCommand ( final Request<Boolean> request )
+            public Action prepareWriteValue ( final Request<?> request )
             {
-                return DataModelImpl.this.prepareCommand ( request );
-            }
-
-            @Override
-            public Action prepareSetpointFloat ( final Request<Float> request )
-            {
-                return DataModelImpl.this.prepareSetpointFloat ( request );
-            }
-
-            @Override
-            public Action prepareSetpointScaled ( final Request<Short> request )
-            {
-                return DataModelImpl.this.prepareSetpointScaled ( request );
+                return DataModelImpl.this.prepareWriteValue ( request );
             }
         };
     }
@@ -220,7 +209,7 @@ public class DataModelImpl extends ChangeDataModel
         final Value<?> iecValue = convert ( entry, value );
         logger.trace ( "Converted to: {}", iecValue );
 
-        notifyDataChange ( entry.getAsduAddress (), entry.getAddress (), iecValue, notify );
+        notifyDataChange ( CauseOfTransmission.SPONTANEOUS, entry.getAsduAddress (), entry.getAddress (), iecValue, notify );
     }
 
     private static Value<?> convert ( final MappingEntry entry, final DataItemValue value )
@@ -350,17 +339,7 @@ public class DataModelImpl extends ChangeDataModel
         return super.stop ();
     }
 
-    protected Action prepareCommand ( final WriteModel.Request<Boolean> request )
-    {
-        return prepareWrite ( request, Variant.valueOf ( request.getValue () ) );
-    }
-
-    protected Action prepareSetpointFloat ( final WriteModel.Request<Float> request )
-    {
-        return prepareWrite ( request, Variant.valueOf ( request.getValue () ) );
-    }
-
-    protected Action prepareSetpointScaled ( final WriteModel.Request<Short> request )
+    protected Action prepareWriteValue ( final WriteModel.Request<?> request )
     {
         return prepareWrite ( request, Variant.valueOf ( request.getValue () ) );
     }

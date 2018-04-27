@@ -20,6 +20,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationEntry;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
@@ -31,11 +32,11 @@ public class BufferingChangeModel implements ChangeModel
 {
     public static interface Context
     {
-        public void notifyBoolean ( ASDUAddress key, List<InformationEntry<Boolean>> booleans );
+        public void notifyBoolean ( CauseOfTransmission cause, ASDUAddress key, List<InformationEntry<Boolean>> booleans );
 
-        public void notifyFloat ( ASDUAddress key, List<InformationEntry<Float>> floats );
+        public void notifyFloat ( CauseOfTransmission cause, ASDUAddress key, List<InformationEntry<Float>> floats );
 
-        public void notifyShort ( ASDUAddress key, List<InformationEntry<Short>> shorts );
+        public void notifyShort ( CauseOfTransmission cause, ASDUAddress key, List<InformationEntry<Short>> shorts );
     }
 
     private final Context context;
@@ -64,7 +65,7 @@ public class BufferingChangeModel implements ChangeModel
     }
 
     @Override
-    public synchronized void notifyChange ( final ASDUAddress asduAddress, final InformationObjectAddress informationObjectAddress, final Value<?> value )
+    public synchronized void notifyChange ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress informationObjectAddress, final Value<?> value )
     {
         Map<InformationObjectAddress, Value<?>> asduCache = this.cache.get ( asduAddress );
         if ( asduCache == null )
@@ -91,7 +92,7 @@ public class BufferingChangeModel implements ChangeModel
                 @Override
                 public void run ()
                 {
-                    performFlush ( cache );
+                    performFlush ( cache, cause );
                 }
             } );
         }
@@ -102,7 +103,7 @@ public class BufferingChangeModel implements ChangeModel
 
         // trigger flush
 
-        triggerFlush ();
+        triggerFlush ( cause );
     }
 
     /**
@@ -111,7 +112,7 @@ public class BufferingChangeModel implements ChangeModel
      * If a flush is already pending, then nothing will happen
      * </p>
      */
-    private synchronized void triggerFlush ()
+    private synchronized void triggerFlush ( final CauseOfTransmission cause )
     {
         if ( this.future != null )
         {
@@ -125,7 +126,7 @@ public class BufferingChangeModel implements ChangeModel
             @Override
             public void run ()
             {
-                flush ();
+                flush ( cause );
             }
         }, this.flushDelay, TimeUnit.MILLISECONDS );
     }
@@ -133,7 +134,7 @@ public class BufferingChangeModel implements ChangeModel
     /**
      * Flush the current buffer
      */
-    private void flush ()
+    private void flush ( final CauseOfTransmission cause )
     {
         Map<ASDUAddress, Map<InformationObjectAddress, Value<?>>> cache;
         synchronized ( this )
@@ -153,11 +154,11 @@ public class BufferingChangeModel implements ChangeModel
 
         // flush outside the lock
 
-        performFlush ( cache );
+        performFlush ( cache, cause );
     }
 
     @SuppressWarnings ( "unchecked" )
-    private void performFlush ( final Map<ASDUAddress, Map<InformationObjectAddress, Value<?>>> cache )
+    private void performFlush ( final Map<ASDUAddress, Map<InformationObjectAddress, Value<?>>> cache, final CauseOfTransmission cause )
     {
         for ( final Map.Entry<ASDUAddress, Map<InformationObjectAddress, Value<?>>> entry : cache.entrySet () )
         {
@@ -188,15 +189,15 @@ public class BufferingChangeModel implements ChangeModel
 
             if ( booleans != null )
             {
-                this.context.notifyBoolean ( entry.getKey (), booleans );
+                this.context.notifyBoolean ( cause, entry.getKey (), booleans );
             }
             if ( floats != null )
             {
-                this.context.notifyFloat ( entry.getKey (), floats );
+                this.context.notifyFloat ( cause, entry.getKey (), floats );
             }
             if ( shorts != null )
             {
-                this.context.notifyShort ( entry.getKey (), shorts );
+                this.context.notifyShort ( cause, entry.getKey (), shorts );
             }
         }
     }

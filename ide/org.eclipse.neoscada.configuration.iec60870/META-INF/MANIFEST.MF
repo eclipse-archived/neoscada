@@ -34,25 +34,15 @@ Export-Package: org.eclipse.neoscada.configuration.iec60870;version="0.5.0",
    org.eclipse.emf.ecore.util,
    org.eclipse.scada.configuration.infrastructure"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;
-  visibility:=reexport,
- org.eclipse.emf.ecore.xmi;
-  visibility:=reexport,
- org.eclipse.scada.configuration.component;
-  visibility:=reexport,
- org.eclipse.scada.configuration.globalization;
-  visibility:=reexport,
- org.eclipse.scada.configuration.infrastructure;
-  visibility:=reexport,
- org.eclipse.scada.configuration.item;
-  visibility:=reexport,
- org.eclipse.scada.configuration.script;
-  visibility:=reexport,
- org.eclipse.scada.configuration.security;
-  visibility:=reexport,
- org.eclipse.scada.configuration.world;
-  visibility:=reexport,
- org.eclipse.scada.da.server.exec;
-  visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.scada.configuration.component;visibility:=reexport,
+ org.eclipse.scada.configuration.globalization;visibility:=reexport,
+ org.eclipse.scada.configuration.infrastructure;visibility:=reexport,
+ org.eclipse.scada.configuration.item;visibility:=reexport,
+ org.eclipse.scada.configuration.script;visibility:=reexport,
+ org.eclipse.scada.configuration.security;visibility:=reexport,
+ org.eclipse.scada.configuration.world;visibility:=reexport,
+ org.eclipse.scada.da.server.exec;visibility:=reexport
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy

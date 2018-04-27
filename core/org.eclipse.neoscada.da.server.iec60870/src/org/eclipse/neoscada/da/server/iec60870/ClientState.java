@@ -57,4 +57,9 @@ public class ClientState extends AbstractPropertyChange
     {
         this.connection.reconnect ();
     }
+
+    public void setStart ( final Variant dummyValue )
+    {
+        this.connection.requestStartData ();
+    }
 }

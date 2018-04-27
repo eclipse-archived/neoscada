@@ -24,6 +24,8 @@ public class DataModule implements ClientModule
 
     private final DataModuleOptions options;
 
+    private Runnable startTimers;
+
     public DataModule ( final DataHandler dataHandler, final DataModuleOptions options )
     {
         this.dataHandler = dataHandler;
@@ -40,6 +42,13 @@ public class DataModule implements ClientModule
     public void initializeChannel ( final SocketChannel channel, final MessageChannel messageChannel )
     {
         channel.pipeline ().addLast ( new DataModuleHandler ( this.dataHandler, this.options ) );
+        startTimers = new Runnable () {
+            @Override
+            public void run ()
+            {
+                messageChannel.startTimers ();
+            }
+        };
     }
 
     @Override
@@ -47,4 +56,13 @@ public class DataModule implements ClientModule
     {
     }
 
+    @Override
+    public void requestStartData ()
+    {
+        if ( this.dataHandler != null && this.startTimers != null )
+        {
+            this.startTimers.run ();
+            this.dataHandler.requestStartData ();
+        }
+    }
 }

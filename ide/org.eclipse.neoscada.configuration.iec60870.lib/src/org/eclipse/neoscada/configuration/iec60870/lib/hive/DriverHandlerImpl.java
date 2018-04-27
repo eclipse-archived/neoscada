@@ -37,6 +37,7 @@ public class DriverHandlerImpl extends AbstractEquinoxDriverHandler<IEC60870Driv
             clientDevice.setDataModuleOptions ( EcoreUtil.copy ( device.getDataModuleOptions () ) );
             clientDevice.setProtocolOptions ( EcoreUtil.copy ( device.getProtocolOptions () ) );
             clientDevice.setId ( device.getName () );
+            clientDevice.getItemTypes ().addAll ( EcoreUtil.copyAll ( device.getItemTypes () ) );
 
             final Endpoint ep = Endpoints.registerEndpoint ( nodes.get ( device.getNode () ), device.getPort (), null, "IEC 60870-5-104 Device Endpoint" );
             clientDevice.setEndpoint ( ep );

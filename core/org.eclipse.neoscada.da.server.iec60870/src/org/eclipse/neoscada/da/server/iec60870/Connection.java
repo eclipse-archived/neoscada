@@ -134,6 +134,8 @@ public class Connection
 
     private final DataModuleOptions dataModuleOptions;
 
+    private final Map<String, QualifiedCommandMessage> itemTypes;
+
     public Connection ( final String id, final Hive hive, final Executor executor, final ConnectionConfiguration configuration )
     {
         this.hive = hive;
@@ -143,10 +145,11 @@ public class Connection
         this.executor = executor;
 
         this.dataModuleOptions = configuration.getDataModuleOptions ();
-        this.handler = new DataProcessor ( executor, this.dataListener );
+        this.handler = new DataProcessor ( executor, this.dataListener, configuration.getDataModuleOptions ().isDelayStart () );
         final DataModule dataModule = new DataModule ( this.handler, this.dataModuleOptions );
 
         this.protocolOptions = configuration.getProtocolOptions ();
+        this.itemTypes = configuration.getItemTypes ();
 
         this.folder = new FolderCommon ();
         hive.getRootFolder ().add ( id, this.folder, null );
@@ -276,7 +279,7 @@ public class Connection
 
         final DataItemInformation di = new DataItemInformationBase ( id, EnumSet.of ( IODirection.INPUT, IODirection.OUTPUT ) );
 
-        final DataItemInputOutputChained item = new DataItemInputOutputChained ( di, this.executor) {
+        final DataItemInputOutputChained item = new DataItemInputOutputChained ( di, this.executor ) {
 
             @Override
             protected NotifyFuture<WriteResult> startWriteCalculatedValue ( final Variant value, final OperationParameters operationParameters )
@@ -331,31 +334,43 @@ public class Connection
         {
             csa = (byte)0;
         }
+        final QualifiedCommandMessage cm = this.itemTypes.get ( makeLocalId ( commonAddress, objectAddress ) );
 
         final ASDUHeader header = new ASDUHeader ( new CauseOfTransmission ( StandardCause.ACTIVATED, csa ), commonAddress );
 
-        try
+        if ( cm != null )
         {
-            switch ( value.getType () )
-            {
-                case BOOLEAN:
-                    return new SingleCommand ( header, objectAddress, value.asBoolean () );
-
-                case STRING:
-                case DOUBLE:
-                    return new SetPointCommandShortFloatingPoint ( header, objectAddress, (float)value.asDouble () );
-
-                case INT32:
-                case INT64:
-                    return new SetPointCommandScaledValue ( header, objectAddress, (short)value.asInteger () );
-
-                default:
-                    return null;
-            }
+            return cm.getCommandMessage ().createMessage ( header, objectAddress, value, System.currentTimeMillis (), cm.getQualifierOfCommand () );
         }
-        catch ( final NotConvertableException | NullValueException e )
+        else if ( value.isString () && value.asString ( "" ).startsWith ( "C_S" ) )
         {
-            // should never happen
+            return CommandMessage.createMessage ( header, objectAddress, value.asString ( "" ) );
+        }
+        else
+        {
+            try
+            {
+                switch ( value.getType () )
+                {
+                    case BOOLEAN:
+                        return new SingleCommand ( header, objectAddress, value.asBoolean () );
+
+                    case STRING:
+                    case DOUBLE:
+                        return new SetPointCommandShortFloatingPoint ( header, objectAddress, (float)value.asDouble () );
+
+                    case INT32:
+                    case INT64:
+                        return new SetPointCommandScaledValue ( header, objectAddress, (short)value.asInteger () );
+
+                    default:
+                        return null;
+                }
+            }
+            catch ( final NotConvertableException | NullValueException e )
+            {
+                // should never happen
+            }
         }
         return null;
     }
@@ -492,5 +507,13 @@ public class Connection
     public void reconnect ()
     {
         this.client.reconnect ();
+    }
+
+    public void requestStartData ()
+    {
+        if ( this.dataModuleOptions.isDelayStart () )
+        {
+            this.client.requestStartData ();
+        }
     }
 }

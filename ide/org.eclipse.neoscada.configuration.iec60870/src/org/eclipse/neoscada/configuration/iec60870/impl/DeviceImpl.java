@@ -45,6 +45,7 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.DeviceImpl#getDataModuleOptions <em>Data Module Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.DeviceImpl#getHiveProperties <em>Hive Properties</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.DeviceImpl#getSpontaneousBufferWindow <em>Spontaneous Buffer Window</em>}</li>
+ *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.DeviceImpl#getCyclicPeriod <em>Cyclic Period</em>}</li>
  * </ul>
  *
  * @generated
@@ -140,6 +141,26 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
      * @ordered
      */
     protected Long spontaneousBufferWindow = SPONTANEOUS_BUFFER_WINDOW_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getCyclicPeriod() <em>Cyclic Period</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCyclicPeriod()
+     * @generated
+     * @ordered
+     */
+    protected static final Long CYCLIC_PERIOD_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getCyclicPeriod() <em>Cyclic Period</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCyclicPeriod()
+     * @generated
+     * @ordered
+     */
+    protected Long cyclicPeriod = CYCLIC_PERIOD_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -400,6 +421,29 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
      * <!-- end-user-doc -->
      * @generated
      */
+    public Long getCyclicPeriod ()
+    {
+        return cyclicPeriod;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setCyclicPeriod ( Long newCyclicPeriod )
+    {
+        Long oldCyclicPeriod = cyclicPeriod;
+        cyclicPeriod = newCyclicPeriod;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.DEVICE__CYCLIC_PERIOD, oldCyclicPeriod, cyclicPeriod ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -443,6 +487,8 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
                 return getHiveProperties ();
             case IEC60870Package.DEVICE__SPONTANEOUS_BUFFER_WINDOW:
                 return getSpontaneousBufferWindow ();
+            case IEC60870Package.DEVICE__CYCLIC_PERIOD:
+                return getCyclicPeriod ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -481,6 +527,9 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
             case IEC60870Package.DEVICE__SPONTANEOUS_BUFFER_WINDOW:
                 setSpontaneousBufferWindow ( (Long)newValue );
                 return;
+            case IEC60870Package.DEVICE__CYCLIC_PERIOD:
+                setCyclicPeriod ( (Long)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -516,6 +565,9 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
             case IEC60870Package.DEVICE__SPONTANEOUS_BUFFER_WINDOW:
                 setSpontaneousBufferWindow ( SPONTANEOUS_BUFFER_WINDOW_EDEFAULT );
                 return;
+            case IEC60870Package.DEVICE__CYCLIC_PERIOD:
+                setCyclicPeriod ( CYCLIC_PERIOD_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -544,6 +596,8 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
                 return hiveProperties != null && !hiveProperties.isEmpty ();
             case IEC60870Package.DEVICE__SPONTANEOUS_BUFFER_WINDOW:
                 return SPONTANEOUS_BUFFER_WINDOW_EDEFAULT == null ? spontaneousBufferWindow != null : !SPONTANEOUS_BUFFER_WINDOW_EDEFAULT.equals ( spontaneousBufferWindow );
+            case IEC60870Package.DEVICE__CYCLIC_PERIOD:
+                return CYCLIC_PERIOD_EDEFAULT == null ? cyclicPeriod != null : !CYCLIC_PERIOD_EDEFAULT.equals ( cyclicPeriod );
         }
         return super.eIsSet ( featureID );
     }
@@ -564,6 +618,8 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
         result.append ( id );
         result.append ( ", spontaneousBufferWindow: " ); //$NON-NLS-1$
         result.append ( spontaneousBufferWindow );
+        result.append ( ", cyclicPeriod: " ); //$NON-NLS-1$
+        result.append ( cyclicPeriod );
         result.append ( ')' );
         return result.toString ();
     }

@@ -14,6 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationEntry;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
@@ -29,19 +30,27 @@ public class MockDataListener implements DataListener
 
     public static class Event
     {
+        private final CauseOfTransmission cause;
+
         private final ASDUAddress asduAddress;
 
         private final InformationObjectAddress address;
 
         private final Value<?> value;
 
-        public Event ( final ASDUAddress asduAddress, final InformationObjectAddress address, final Value<?> value )
+        public Event ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress address, final Value<?> value )
         {
+            this.cause = cause;
             this.asduAddress = asduAddress;
             this.address = address;
             this.value = value;
         }
 
+        public CauseOfTransmission getCause ()
+        {
+            return this.cause;
+        }
+        
         public ASDUAddress getAsduAddress ()
         {
             return this.asduAddress;
@@ -62,6 +71,7 @@ public class MockDataListener implements DataListener
         {
             final int prime = 31;
             int result = 1;
+            result = prime * result + ( this.cause == null ? 0 : this.cause.hashCode () );
             result = prime * result + ( this.address == null ? 0 : this.address.hashCode () );
             result = prime * result + ( this.asduAddress == null ? 0 : this.asduAddress.hashCode () );
             result = prime * result + ( this.value == null ? 0 : this.value.hashCode () );
@@ -84,6 +94,17 @@ public class MockDataListener implements DataListener
                 return false;
             }
             final Event other = (Event)obj;
+            if ( this.cause == null )
+            {
+                if ( other.cause != null )
+                {
+                    return false;
+                }
+            }
+            else if ( !this.cause.equals ( other.cause ) )
+            {
+                return false;
+            }
             if ( this.address == null )
             {
                 if ( other.address != null )
@@ -123,7 +144,7 @@ public class MockDataListener implements DataListener
         @Override
         public String toString ()
         {
-            return String.format ( "[Event - ASDU: %s, IOA: %s, value: %s", this.asduAddress, this.address, this.value );
+            return String.format ( "[Event - ASDU: %s, IOA: %s, cause: %s, value: %s", this.asduAddress, this.address, this.cause, this.value );
         }
     }
 
@@ -134,58 +155,58 @@ public class MockDataListener implements DataListener
         return this.events;
     }
 
-    private <T> void sequentialChange ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<T>> values )
+    private <T> void sequentialChange ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<T>> values )
     {
         int i = 0;
         for ( final Value<?> value : values )
         {
-            this.events.add ( new Event ( asduAddress, startAddress.increment ( i ), value ) );
+            this.events.add ( new Event ( cause, asduAddress, startAddress.increment ( i ), value ) );
             i++;
         }
     }
 
-    private <T> void change ( final ASDUAddress asduAddress, final List<InformationEntry<T>> values )
+    private <T> void change ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<T>> values )
     {
         for ( final InformationEntry<?> entry : values )
         {
-            this.events.add ( new Event ( asduAddress, entry.getAddress (), entry.getValue () ) );
+            this.events.add ( new Event ( cause, asduAddress, entry.getAddress (), entry.getValue () ) );
         }
     }
 
     @Override
-    public void dataChangeBoolean ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
+    public void dataChangeBoolean ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
     {
-        sequentialChange ( asduAddress, startAddress, values );
+        sequentialChange ( cause, asduAddress, startAddress, values );
     }
 
     @Override
-    public void dataChangeBoolean ( final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
+    public void dataChangeBoolean ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
     {
-        change ( asduAddress, values );
+        change ( cause, asduAddress, values );
     }
 
     @Override
-    public void dataChangeFloat ( final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
+    public void dataChangeFloat ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
     {
-        change ( asduAddress, values );
+        change ( cause, asduAddress, values );
     }
 
     @Override
-    public void dataChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+    public void dataChangeShort ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
     {
-        sequentialChange ( asduAddress, startAddress, values );
+        sequentialChange ( cause, asduAddress, startAddress, values );
     }
 
     @Override
-    public void dataChangeShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+    public void dataChangeShort ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
     {
-        change ( asduAddress, values );
+        change ( cause, asduAddress, values );
     }
 
     @Override
-    public void dataChangeFloat ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
+    public void dataChangeFloat (final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
     {
-        sequentialChange ( asduAddress, startAddress, values );
+        sequentialChange ( cause, asduAddress, startAddress, values );
     }
 
     public void assertEvents ( final Event... events )

@@ -71,6 +71,7 @@ public class ExporterItemInterceptorItemProvider extends ItemProviderAdapter imp
             addMasterOnPropertyDescriptor ( object );
             addPortPropertyDescriptor ( object );
             addSpontaneousBufferWindowPropertyDescriptor ( object );
+            addCyclicPeriodPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -84,9 +85,9 @@ public class ExporterItemInterceptorItemProvider extends ItemProviderAdapter imp
     protected void addMasterOnPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_MasterAssigned_masterOn_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterAssigned_masterOn_feature", "_UI_MasterAssigned_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, true, false, true, null, getString ( "_UI_corePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_MasterAssigned_masterOn_feature", "_UI_MasterAssigned_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                ComponentPackage.Literals.MASTER_ASSIGNED__MASTER_ON, true, false, true, null, getString ( "_UI_corePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -98,9 +99,9 @@ public class ExporterItemInterceptorItemProvider extends ItemProviderAdapter imp
     protected void addPortPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExporterItemInterceptor_port_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ExporterItemInterceptor_port_feature", "_UI_ExporterItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExporterItemInterceptor_port_feature", "_UI_ExporterItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -112,9 +113,22 @@ public class ExporterItemInterceptorItemProvider extends ItemProviderAdapter imp
     protected void addSpontaneousBufferWindowPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExporterItemInterceptor_spontaneousBufferWindow_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ExporterItemInterceptor_spontaneousBufferWindow_feature", "_UI_ExporterItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SPONTANEOUS_BUFFER_WINDOW, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExporterItemInterceptor_spontaneousBufferWindow_feature", "_UI_ExporterItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SPONTANEOUS_BUFFER_WINDOW, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Cyclic Period feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addCyclicPeriodPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExporterItemInterceptor_cyclicPeriod_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExporterItemInterceptor_cyclicPeriod_feature", "_UI_ExporterItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__CYCLIC_PERIOD, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -195,6 +209,7 @@ public class ExporterItemInterceptorItemProvider extends ItemProviderAdapter imp
         {
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PORT:
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__SPONTANEOUS_BUFFER_WINDOW:
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__CYCLIC_PERIOD:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PROPERTIES:
@@ -252,7 +267,7 @@ public class ExporterItemInterceptorItemProvider extends ItemProviderAdapter imp
         if ( qualify )
         {
             return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
-            new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
         }
         return super.getCreateChildText ( owner, feature, child, selection );
     }

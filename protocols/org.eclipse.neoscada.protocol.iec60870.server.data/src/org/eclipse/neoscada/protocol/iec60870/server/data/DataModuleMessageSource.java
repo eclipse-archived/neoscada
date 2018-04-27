@@ -552,7 +552,7 @@ public class DataModuleMessageSource implements MessageSource
         currentInterrogation.qualifierOfInterrogation = request.qualifierOfInterrogation;
         currentInterrogation.expectedCauseOfTransmission = new CauseOfTransmission ( convert ( request.qualifierOfInterrogation ), request.sourceAddress );
 
-        final ListenableFuture<Void> future = this.model.readAll ( request.asduAddress, new Runnable () {
+        final ListenableFuture<Void> future = this.model.readAll ( currentInterrogation.expectedCauseOfTransmission, request.asduAddress, new Runnable () {
             @Override
             public void run ()
             {
@@ -576,7 +576,7 @@ public class DataModuleMessageSource implements MessageSource
                 }
                 logger.debug ( "Flushed" );
             }
-        }, new DataListenerImpl ( this, currentInterrogation.expectedCauseOfTransmission ) );
+        }, new DataListenerImpl ( this ) );
 
         if ( future == null )
         {

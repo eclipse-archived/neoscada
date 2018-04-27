@@ -258,4 +258,12 @@ public class Client implements AutoCloseable
     {
         this.channel.writeAndFlush ( command );
     }
+
+    public void requestStartData ()
+    {
+        for ( final ClientModule module : this.modules )
+        {
+            module.requestStartData();
+        }
+    }
 }

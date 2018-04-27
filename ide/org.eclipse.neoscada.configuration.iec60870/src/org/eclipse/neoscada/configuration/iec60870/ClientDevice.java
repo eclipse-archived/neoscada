@@ -11,6 +11,7 @@
  */
 package org.eclipse.neoscada.configuration.iec60870;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.world.Endpoint;
 
@@ -27,6 +28,7 @@ import org.eclipse.scada.configuration.world.Endpoint;
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.ClientDevice#getProtocolOptions <em>Protocol Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.ClientDevice#getDataModuleOptions <em>Data Module Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.ClientDevice#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.neoscada.configuration.iec60870.ClientDevice#getItemTypes <em>Item Types</em>}</li>
  * </ul>
  *
  * @see org.eclipse.neoscada.configuration.iec60870.IEC60870Package#getClientDevice()
@@ -140,5 +142,21 @@ public interface ClientDevice extends EObject
      * @generated
      */
     void setId ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Item Types</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.neoscada.configuration.iec60870.ItemType}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Item Types</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Item Types</em>' containment reference list.
+     * @see org.eclipse.neoscada.configuration.iec60870.IEC60870Package#getClientDevice_ItemTypes()
+     * @model containment="true"
+     * @generated
+     */
+    EList<ItemType> getItemTypes ();
 
 } // ClientDevice

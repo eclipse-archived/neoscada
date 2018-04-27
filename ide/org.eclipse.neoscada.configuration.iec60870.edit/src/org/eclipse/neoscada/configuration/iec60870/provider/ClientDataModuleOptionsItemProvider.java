@@ -64,6 +64,7 @@ public class ClientDataModuleOptionsItemProvider extends ItemProviderAdapter imp
             super.getPropertyDescriptors ( object );
 
             addIgnoreBackgroundScanPropertyDescriptor ( object );
+            addDelayStartPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -77,8 +78,21 @@ public class ClientDataModuleOptionsItemProvider extends ItemProviderAdapter imp
     protected void addIgnoreBackgroundScanPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ClientDataModuleOptions_ignoreBackgroundScan_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ClientDataModuleOptions_ignoreBackgroundScan_feature", "_UI_ClientDataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ClientDataModuleOptions_ignoreBackgroundScan_feature", "_UI_ClientDataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Delay Start feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDelayStartPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ClientDataModuleOptions_delayStart_feature" ), //$NON-NLS-1$
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ClientDataModuleOptions_delayStart_feature", "_UI_ClientDataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.CLIENT_DATA_MODULE_OPTIONS__DELAY_START, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -121,6 +135,7 @@ public class ClientDataModuleOptionsItemProvider extends ItemProviderAdapter imp
         switch ( notification.getFeatureID ( ClientDataModuleOptions.class ) )
         {
             case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN:
+            case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS__DELAY_START:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

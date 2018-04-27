@@ -94,6 +94,7 @@ public class ExporterInterceptorHandler extends AbstractItemInterceptorHandler
         device.setEndpoint ( ep );
 
         device.setSpontaneousBufferWindow ( interceptor.getSpontaneousBufferWindow () );
+        device.setCyclicPeriod ( interceptor.getCyclicPeriod () );
 
         device.setDataModuleOptions ( EcoreUtil.copy ( interceptor.getDataModuleOptions () ) );
         device.setProtocolOptions ( EcoreUtil.copy ( interceptor.getProtocolOptions () ) );

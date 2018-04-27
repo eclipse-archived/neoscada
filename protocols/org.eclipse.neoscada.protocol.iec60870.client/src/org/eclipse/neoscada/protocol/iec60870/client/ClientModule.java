@@ -16,4 +16,6 @@ import org.eclipse.neoscada.protocol.iec60870.io.Module;
 public interface ClientModule extends Module
 {
     public void initializeClient ( Client client, MessageManager manager );
+
+    public void requestStartData ();
 }

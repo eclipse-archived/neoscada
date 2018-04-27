@@ -389,6 +389,31 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.neoscada.configuration.iec60870.ItemType} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ItemTypeItemProvider itemTypeItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.neoscada.configuration.iec60870.ItemType}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createItemTypeAdapter ()
+    {
+        if ( itemTypeItemProvider == null )
+        {
+            itemTypeItemProvider = new ItemTypeItemProvider ( this );
+        }
+
+        return itemTypeItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -559,6 +584,8 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
             iec60870DriverItemProvider.dispose ();
         if ( iec60870DeviceItemProvider != null )
             iec60870DeviceItemProvider.dispose ();
+        if ( itemTypeItemProvider != null )
+            itemTypeItemProvider.dispose ();
     }
 
     /**

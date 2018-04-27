@@ -10,30 +10,22 @@
  *******************************************************************************/
 package org.eclipse.neoscada.protocol.iec60870.asdu.message;
 
+import io.netty.buffer.ByteBuf;
+
 import org.eclipse.neoscada.protocol.iec60870.ProtocolOptions;
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDU;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Cause;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CommandValue;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationStructure;
 
-import io.netty.buffer.ByteBuf;
-
 @ASDU ( id = 50, name = "C_SE_NC_1", informationStructure = InformationStructure.SINGLE )
-public class SetPointCommandShortFloatingPoint extends AbstractInformationObjectMessage implements MirrorableMessage<SetPointCommandShortFloatingPoint>
+public class SetPointCommandShortFloatingPoint extends AbstractSetPointCommandShortFloatingPoint implements ValueCommandMessage
 {
-    private final byte type;
-
-    private final boolean execute;
-
-    private final float value;
-
     public SetPointCommandShortFloatingPoint ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final float value, final byte type, final boolean execute )
     {
-        super ( header, informationObjectAddress );
-        this.value = value;
-        this.type = type;
-        this.execute = execute;
+        super ( header, informationObjectAddress, new CommandValue<Float> ( value, System.currentTimeMillis () ), false, type, execute );
     }
 
     public SetPointCommandShortFloatingPoint ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final float value )
@@ -41,42 +33,10 @@ public class SetPointCommandShortFloatingPoint extends AbstractInformationObject
         this ( header, informationObjectAddress, value, (byte)0, true );
     }
 
-    public byte getType ()
-    {
-        return this.type;
-    }
-
-    public float getValue ()
-    {
-        return this.value;
-    }
-
-    public boolean isExecute ()
-    {
-        return this.execute;
-    }
-
     @Override
     public SetPointCommandShortFloatingPoint mirror ( final Cause cause, final boolean positive )
     {
-        return new SetPointCommandShortFloatingPoint ( this.header.clone ( cause, positive ), this.informationObjectAddress, this.value, this.type, this.execute );
-    }
-
-    @Override
-    public void encode ( final ProtocolOptions options, final ByteBuf out )
-    {
-        EncodeHelper.encodeHeader ( this, options, null, this.header, out );
-
-        this.informationObjectAddress.encode ( options, out );
-
-        out.writeFloat ( this.value );
-
-        byte b = 0;
-
-        b |= this.type & 0b011111111;
-        b |= this.execute ? 0 : 0b100000000;
-
-        out.writeByte ( b );
+        return new SetPointCommandShortFloatingPoint ( this.header.clone ( cause, positive ), this.informationObjectAddress, this.getValue ().getValue (), this.getType (), this.isExecute () );
     }
 
     public static SetPointCommandShortFloatingPoint parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )

@@ -95,7 +95,7 @@ public class IecExport
 
         if ( this.configuration != null )
         {
-            final DataModelImpl dataModel = new DataModelImpl ( this.hiveSource, this.configuration.getEntries (), this.configuration.getHiveProperties (), this.info, this.configuration.getSpontaneousBufferWindow (), true );
+            final DataModelImpl dataModel = new DataModelImpl ( this.hiveSource, this.configuration.getEntries (), this.configuration.getHiveProperties (), this.info, this.configuration.getSpontaneousBufferWindow (), true, this.configuration.getCyclicPeriod ());
             this.dataModule = new DataModule ( this.configuration.getDataModuleOptions (), dataModel );
             this.info.setItems ( this.configuration.getEntries ().size () );
 

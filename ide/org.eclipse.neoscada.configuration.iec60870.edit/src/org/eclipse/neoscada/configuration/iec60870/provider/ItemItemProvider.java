@@ -80,8 +80,8 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
     protected void addSourcePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_source_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_Item_source_feature", "_UI_Item_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.ITEM__SOURCE, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Item_source_feature", "_UI_Item_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.ITEM__SOURCE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -93,8 +93,8 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
     protected void addAddressPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_address_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_Item_address_feature", "_UI_Item_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.ITEM__ADDRESS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Item_address_feature", "_UI_Item_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.ITEM__ADDRESS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -106,8 +106,8 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
     protected void addTypePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Item_type_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_Item_type_feature", "_UI_Item_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.ITEM__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_Item_type_feature", "_UI_Item_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.ITEM__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -134,7 +134,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
         AddressInformation labelValue = ( (Item)object ).getAddress ();
         String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ? getString ( "_UI_Item_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Item_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_Item_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

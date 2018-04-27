@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see org.eclipse.neoscada.configuration.iec60870.IEC60870Package#getProtocolOptions()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='asduAddressSizeCheck\ncauseOfTransmissionSizeCheck'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL asduAddressSizeCheck='asduAddressSize>=1 and asduAddressSize <=2' causeOfTransmissionSizeCheck='causeOfTransmissionSize>=1 and causeOfTransmissionSize<=2' informationObjectAddressSizeCheck='informationObjectAddressSize>=1 and informationObjectAddressSize<=3'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL asduAddressSizeCheck='asduAddressSize&gt;=1 and asduAddressSize &lt;=2' causeOfTransmissionSizeCheck='causeOfTransmissionSize&gt;=1 and causeOfTransmissionSize&lt;=2' informationObjectAddressSizeCheck='informationObjectAddressSize&gt;=1 and informationObjectAddressSize&lt;=3'"
  * @generated
  */
 public interface ProtocolOptions extends EObject

@@ -19,7 +19,11 @@ import org.eclipse.neoscada.protocol.iec60870.ProtocolOptions;
 
 public class TypeHelper
 {
-    static void encodeTimestamp ( final ProtocolOptions options, final ByteBuf out, final long timestamp )
+    public static final double MIN_NORMALIZED_VALUE = -1;
+
+    public static final double MAX_NORMALIZED_VALUE = 1 - Math.pow ( 2, -15 );
+
+    public static void encodeTimestamp ( final ProtocolOptions options, final ByteBuf out, final long timestamp )
     {
         final Calendar c = new GregorianCalendar ( options.getTimeZone () );
         c.setTimeInMillis ( timestamp );
@@ -49,7 +53,7 @@ public class TypeHelper
         out.writeByte ( year );
     }
 
-    static long parseTimestamp ( final ProtocolOptions options, final ByteBuf data )
+    public static long parseTimestamp ( final ProtocolOptions options, final ByteBuf data )
     {
         final int ms = data.readUnsignedShort ();
 
@@ -223,5 +227,57 @@ public class TypeHelper
         final long timestamp = withTimestamp ? parseTimestamp ( options, data ) : System.currentTimeMillis ();
 
         return new Value<Short> ( value, timestamp, qualityInformation, overflow );
+    }
+
+    /**
+     * Encode Double as normalized value with quality descriptor
+     */
+    public static void encodeNormalizedValue ( final ProtocolOptions options, final ByteBuf out, final Value<Double> value, final boolean withTimestamp )
+    {
+        final boolean isOverflow;
+        final short normalizedValue;
+        if ( value.getValue () < MIN_NORMALIZED_VALUE )
+        {
+            normalizedValue = Short.MIN_VALUE;
+            isOverflow = true;
+        }
+        else if ( value.getValue () > MAX_NORMALIZED_VALUE )
+        {
+            normalizedValue = Short.MAX_VALUE;
+            isOverflow = true;
+        }
+        else
+        {
+            normalizedValue = (short) ( value.getValue () * 32768 );
+            isOverflow = false;
+        }
+
+        final byte qds = (byte) ( ( value.isOverflow () || isOverflow ) ? 0b00000001 : 0b00000000 );
+        final byte siq = value.getQualityInformation ().apply ( qds );
+
+        out.writeShort ( normalizedValue );
+        out.writeByte ( siq );
+
+        if ( withTimestamp )
+        {
+            encodeTimestamp ( options, out, value.getTimestamp () );
+        }
+    }
+
+    /**
+     * Parse Double as normalized value with quality descriptor
+     */
+    public static Value<Double> parseNormalizedValue ( final ProtocolOptions options, final ByteBuf data, final boolean withTimestamp )
+    {
+        final short value = data.readShort ();
+
+        final byte qds = data.readByte ();
+
+        final QualityInformation qualityInformation = QualityInformation.parse ( qds );
+        final boolean overflow = ( qds & 0b00000001 ) > 0;
+
+        final long timestamp = withTimestamp ? parseTimestamp ( options, data ) : System.currentTimeMillis ();
+
+        return new Value<Double> ( (double) ( value / 32768.0 ), timestamp, qualityInformation, overflow );
     }
 }

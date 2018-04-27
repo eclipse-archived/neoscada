@@ -18,12 +18,22 @@ public class DataModuleOptions
 {
     private final boolean ignoreBackgroundScan;
 
+    private final boolean delayStart;
+
     private final Byte causeSourceAddress;
 
     private DataModuleOptions ( final boolean ignoreBackgroundScan, final Byte causeSourceAddress )
     {
         this.ignoreBackgroundScan = ignoreBackgroundScan;
         this.causeSourceAddress = causeSourceAddress;
+        this.delayStart = false;
+    }
+
+    private DataModuleOptions ( final boolean ignoreBackgroundScan, final Byte causeSourceAddress, final boolean delayStart )
+    {
+        this.ignoreBackgroundScan = ignoreBackgroundScan;
+        this.causeSourceAddress = causeSourceAddress;
+        this.delayStart = delayStart;
     }
 
     public boolean isIgnoreBackgroundScan ()
@@ -36,6 +46,11 @@ public class DataModuleOptions
         return this.causeSourceAddress;
     }
 
+    public boolean isDelayStart ()
+    {
+        return delayStart;
+    }
+
     public static class Builder extends AbstractPropertyChange implements Serializable
     {
         private static final long serialVersionUID = 1L;
@@ -44,7 +59,11 @@ public class DataModuleOptions
 
         public static final String PROP_CAUSE_SOURCE_ADDRESS = "causeSourceAddress";
 
+        public static final String PROP_DELAY_START = "delayStart";
+
         private boolean ignoreBackgroundScan;
+
+        private boolean delayStart;
 
         private Byte causeSourceAddress;
 
@@ -56,6 +75,7 @@ public class DataModuleOptions
         {
             this.causeSourceAddress = options.getCauseSourceAddress ();
             this.ignoreBackgroundScan = options.isIgnoreBackgroundScan ();
+            this.delayStart = options.isDelayStart ();
         }
 
         public void setCauseSourceAddress ( final Byte causeSourceAddress )
@@ -78,9 +98,19 @@ public class DataModuleOptions
             return this.ignoreBackgroundScan;
         }
 
+        public void setDelayStart ( final boolean delayStart )
+        {
+            firePropertyChange ( PROP_DELAY_START, this.delayStart, this.delayStart = delayStart );
+        }
+
+        public boolean isDelayStart ()
+        {
+            return this.delayStart;
+        }
+
         public DataModuleOptions build ()
         {
-            return new DataModuleOptions ( this.ignoreBackgroundScan, this.causeSourceAddress );
+            return new DataModuleOptions ( this.ignoreBackgroundScan, this.causeSourceAddress, this.delayStart );
         }
     }
 }

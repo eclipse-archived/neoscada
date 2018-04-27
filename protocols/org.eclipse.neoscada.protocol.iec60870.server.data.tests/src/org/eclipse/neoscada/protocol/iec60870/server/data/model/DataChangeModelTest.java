@@ -23,6 +23,7 @@ import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueShortFlo
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.SinglePointInformationSequence;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CommandValue;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.StandardCause;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
@@ -96,7 +97,7 @@ public class DataChangeModelTest
         this.model.start ();
 
         final MockMirrorCommand mirrorCommand = new MockMirrorCommand ();
-        this.model.writeCommand ( new ASDUHeader ( CauseOfTransmission.REQUEST, ASDUAddress.valueOf ( 1 ) ), InformationObjectAddress.valueOf ( 1 ), true, (byte)0, mirrorCommand, true );
+        this.model.writeValue ( new ASDUHeader ( CauseOfTransmission.REQUEST, ASDUAddress.valueOf ( 1 ) ), InformationObjectAddress.valueOf ( 1 ), CommandValue.TRUE (), (byte)0, mirrorCommand, true );
 
         this.model.stop ().await ();
 
@@ -107,13 +108,14 @@ public class DataChangeModelTest
         Assert.assertEquals ( 1, mirrorCommand.getTermination () );
     }
 
+    // FIXME: clarify what exactly this test is testing (fails)
     @Test
     public void testWriteCommandNotOk () throws Exception
     {
         this.model.start ();
 
         final MockMirrorCommand mirrorCommand = new MockMirrorCommand ();
-        this.model.writeFloatValue ( new ASDUHeader ( CauseOfTransmission.REQUEST, ASDUAddress.valueOf ( 1 ) ), InformationObjectAddress.valueOf ( 1 ), 1.2f, (byte)0, mirrorCommand, true );
+        this.model.writeValue ( new ASDUHeader ( CauseOfTransmission.REQUEST, ASDUAddress.valueOf ( 1 ) ), InformationObjectAddress.valueOf ( 1 ), new CommandValue<Float> ( 1.2f, System.currentTimeMillis () ), (byte)0, mirrorCommand, true );
 
         this.model.stop ().await ();
 
@@ -132,14 +134,14 @@ public class DataChangeModelTest
         final MockDataListener dataListener = new MockDataListener ();
         this.model.subscribe ( dataListener );
 
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-4" ), MockDataListener.TRUE, true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-4" ), MockDataListener.TRUE, true );
 
         this.model.stop ().await ();
 
         // assert notifies
 
         dataListener.assertEvents ( //
-                new Event ( ASDUAddress.fromArray ( new int[] { 0, 1 } ), InformationObjectAddress.fromArray ( new int[] { 2, 3, 4 } ), MockDataListener.TRUE ) //
+                new Event ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromArray ( new int[] { 0, 1 } ), InformationObjectAddress.fromArray ( new int[] { 2, 3, 4 } ), MockDataListener.TRUE ) //
         );
     }
 
@@ -151,8 +153,8 @@ public class DataChangeModelTest
         final MockDataListener dataListener = new MockDataListener ();
         this.model.subscribe ( dataListener );
 
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-4" ), MockDataListener.TRUE, true );
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-5" ), MockDataListener.FALSE, true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-4" ), MockDataListener.TRUE, true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-5" ), MockDataListener.FALSE, true );
 
         Thread.sleep ( 2 * WAIT );
 
@@ -161,8 +163,8 @@ public class DataChangeModelTest
         // assert notifies
 
         dataListener.assertEvents ( //
-                new Event ( ASDUAddress.fromArray ( new int[] { 0, 1 } ), InformationObjectAddress.fromArray ( new int[] { 2, 3, 4 } ), MockDataListener.TRUE ), //
-                new Event ( ASDUAddress.fromArray ( new int[] { 0, 1 } ), InformationObjectAddress.fromArray ( new int[] { 2, 3, 5 } ), MockDataListener.FALSE ) //
+                new Event ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromArray ( new int[] { 0, 1 } ), InformationObjectAddress.fromArray ( new int[] { 2, 3, 4 } ), MockDataListener.TRUE ), //
+                new Event ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromArray ( new int[] { 0, 1 } ), InformationObjectAddress.fromArray ( new int[] { 2, 3, 5 } ), MockDataListener.FALSE ) //
         );
     }
 
@@ -183,8 +185,8 @@ public class DataChangeModelTest
         final MockDataListener dataListener = new MockDataListener ();
         this.model.subscribe ( dataListener );
 
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-4" ), MockDataListener.TRUE, true );
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-2" ), InformationObjectAddress.fromString ( "2-3-4" ), Value.ok ( 1.0f ), true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-4" ), MockDataListener.TRUE, true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-2" ), InformationObjectAddress.fromString ( "2-3-4" ), Value.ok ( 1.0f ), true );
 
         final BackgroundIterator iter = this.model.createBackgroundIterator ();
 
@@ -208,9 +210,9 @@ public class DataChangeModelTest
         final MockDataListener dataListener = new MockDataListener ();
         this.model.subscribe ( dataListener );
 
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-4" ), MockDataListener.TRUE, true );
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-5" ), MockDataListener.FALSE, true );
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-2" ), InformationObjectAddress.fromString ( "2-3-4" ), Value.ok ( 1.0f ), true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-4" ), MockDataListener.TRUE, true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-1" ), InformationObjectAddress.fromString ( "2-3-5" ), MockDataListener.FALSE, true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-2" ), InformationObjectAddress.fromString ( "2-3-4" ), Value.ok ( 1.0f ), true );
 
         final BackgroundIterator iter = this.model.createBackgroundIterator ();
 
@@ -218,7 +220,7 @@ public class DataChangeModelTest
 
         // background iterator should reset now
 
-        this.model.notifyDataChange ( ASDUAddress.fromString ( "0-3" ), InformationObjectAddress.fromString ( "2-3-6" ), MockDataListener.TRUE, true );
+        this.model.notifyDataChange ( CauseOfTransmission.SPONTANEOUS, ASDUAddress.fromString ( "0-3" ), InformationObjectAddress.fromString ( "2-3-6" ), MockDataListener.TRUE, true );
 
         assertNextBackgroundMessage ( iter, 2 );
 

@@ -76,11 +76,7 @@ public interface WriteModel
         public CompletionStage<Void> execute ();
     }
 
-    public Action prepareCommand ( Request<Boolean> request );
-
-    public Action prepareSetpointFloat ( Request<Float> request );
-
-    public Action prepareSetpointScaled ( Request<Short> request );
+    public Action prepareWriteValue ( Request<?> request );
 
     public default Runnable dispose ()
     {

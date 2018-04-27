@@ -23,6 +23,10 @@ public class CauseOfTransmission
 
     public static final CauseOfTransmission BACKGROUND = new CauseOfTransmission ( StandardCause.BACKGROUND );
 
+    public static final CauseOfTransmission SPONTANEOUS = new CauseOfTransmission ( StandardCause.SPONTANEOUS );
+
+    public static final CauseOfTransmission PERIODIC = new CauseOfTransmission ( StandardCause.PERIODIC );
+
     private static final int CAUSE_MASK = 0b00111111;
 
     private static final int ACK_BIT = 0b0100000000;

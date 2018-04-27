@@ -131,6 +131,15 @@ public interface IEC60870Factory extends EFactory
     IEC60870Device createIEC60870Device ();
 
     /**
+     * Returns a new object of class '<em>Item Type</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Item Type</em>'.
+     * @generated
+     */
+    ItemType createItemType ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

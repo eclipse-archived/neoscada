@@ -11,14 +11,19 @@
  */
 package org.eclipse.neoscada.configuration.iec60870.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.neoscada.configuration.iec60870.ClientDataModuleOptions;
 import org.eclipse.neoscada.configuration.iec60870.IEC60870Device;
 import org.eclipse.neoscada.configuration.iec60870.IEC60870Package;
+import org.eclipse.neoscada.configuration.iec60870.ItemType;
 import org.eclipse.neoscada.configuration.iec60870.ProtocolOptions;
 import org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl;
 
@@ -33,6 +38,7 @@ import org.eclipse.scada.configuration.infrastructure.impl.DeviceImpl;
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.IEC60870DeviceImpl#getDataModuleOptions <em>Data Module Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.IEC60870DeviceImpl#getProtocolOptions <em>Protocol Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.IEC60870DeviceImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.IEC60870DeviceImpl#getItemTypes <em>Item Types</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +84,16 @@ public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
      * @ordered
      */
     protected int port = PORT_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getItemTypes() <em>Item Types</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getItemTypes()
+     * @generated
+     * @ordered
+     */
+    protected EList<ItemType> itemTypes;
 
     /**
      * <!-- begin-user-doc -->
@@ -238,6 +254,20 @@ public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<ItemType> getItemTypes ()
+    {
+        if ( itemTypes == null )
+        {
+            itemTypes = new EObjectContainmentEList<ItemType> ( ItemType.class, this, IEC60870Package.IEC60870_DEVICE__ITEM_TYPES );
+        }
+        return itemTypes;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -247,6 +277,8 @@ public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
                 return basicSetDataModuleOptions ( null, msgs );
             case IEC60870Package.IEC60870_DEVICE__PROTOCOL_OPTIONS:
                 return basicSetProtocolOptions ( null, msgs );
+            case IEC60870Package.IEC60870_DEVICE__ITEM_TYPES:
+                return ( (InternalEList<?>)getItemTypes () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -267,6 +299,8 @@ public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
                 return getProtocolOptions ();
             case IEC60870Package.IEC60870_DEVICE__PORT:
                 return getPort ();
+            case IEC60870Package.IEC60870_DEVICE__ITEM_TYPES:
+                return getItemTypes ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -276,6 +310,7 @@ public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
@@ -289,6 +324,10 @@ public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
                 return;
             case IEC60870Package.IEC60870_DEVICE__PORT:
                 setPort ( (Integer)newValue );
+                return;
+            case IEC60870Package.IEC60870_DEVICE__ITEM_TYPES:
+                getItemTypes ().clear ();
+                getItemTypes ().addAll ( (Collection<? extends ItemType>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -313,6 +352,9 @@ public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
             case IEC60870Package.IEC60870_DEVICE__PORT:
                 setPort ( PORT_EDEFAULT );
                 return;
+            case IEC60870Package.IEC60870_DEVICE__ITEM_TYPES:
+                getItemTypes ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -333,6 +375,8 @@ public class IEC60870DeviceImpl extends DeviceImpl implements IEC60870Device
                 return protocolOptions != null;
             case IEC60870Package.IEC60870_DEVICE__PORT:
                 return port != PORT_EDEFAULT;
+            case IEC60870Package.IEC60870_DEVICE__ITEM_TYPES:
+                return itemTypes != null && !itemTypes.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

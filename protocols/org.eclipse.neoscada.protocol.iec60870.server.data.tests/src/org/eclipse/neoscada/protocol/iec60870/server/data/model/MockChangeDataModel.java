@@ -17,19 +17,7 @@ public final class MockChangeDataModel extends ChangeDataModel
     private final class MockWriteModel implements WriteModel
     {
         @Override
-        public Action prepareCommand ( final Request<Boolean> request )
-        {
-            return () -> CompletableFuture.completedFuture ( null );
-        }
-
-        @Override
-        public Action prepareSetpointFloat ( final Request<Float> request )
-        {
-            return null;
-        }
-
-        @Override
-        public Action prepareSetpointScaled ( final Request<Short> request )
+        public Action prepareWriteValue ( Request<?> request )
         {
             return () -> CompletableFuture.completedFuture ( null );
         }

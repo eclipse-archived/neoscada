@@ -17,6 +17,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.neoscada.configuration.iec60870.ClientDevice;
 import org.eclipse.neoscada.configuration.iec60870.DriverApplication;
+import org.eclipse.neoscada.configuration.iec60870.ItemType;
 import org.eclipse.neoscada.configuration.iec60870.lib.Configurations;
 import org.eclipse.scada.configuration.world.lib.oscar.EquinoxApplicationProcessor;
 import org.eclipse.scada.configuration.world.lib.oscar.OscarContext;
@@ -51,6 +52,11 @@ public class DriverProcessor extends EquinoxApplicationProcessor
 
         Configurations.encode ( data, "protocol", device.getProtocolOptions () ); //$NON-NLS-1$
         Configurations.encode ( data, "dataModule", device.getDataModuleOptions () ); //$NON-NLS-1$
+
+        for ( ItemType itemType : device.getItemTypes () )
+        {
+            data.put ( "itemType." + itemType.getItem (), itemType.getType ().getName () );
+        }
 
         ctx.addData ( "org.eclipse.neoscada.da.server.iec60870.connection", id, data ); //$NON-NLS-1$
     }

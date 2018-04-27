@@ -13,6 +13,9 @@ package org.eclipse.neoscada.protocol.iec60870.client.data;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedSequence;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedSingle;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedTimeSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledSequence;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledTimeSingle;
@@ -30,6 +33,8 @@ public interface DataHandler
     public void activated ( DataModuleContext dataModuleContext, ChannelHandlerContext ctx );
 
     public void started ();
+
+    public void requestStartData ();
 
     public void disconnected ();
 
@@ -57,4 +62,9 @@ public interface DataHandler
 
     public void process ( MeasuredValueScaledSingle msg );
 
+    public void process ( MeasuredValueNormalizedTimeSingle msg );
+
+    public void process ( MeasuredValueNormalizedSequence msg );
+
+    public void process ( MeasuredValueNormalizedSingle msg );
 }

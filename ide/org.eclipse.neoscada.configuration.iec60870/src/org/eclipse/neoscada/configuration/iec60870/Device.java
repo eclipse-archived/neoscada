@@ -32,6 +32,7 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.Device#getDataModuleOptions <em>Data Module Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.Device#getHiveProperties <em>Hive Properties</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.Device#getSpontaneousBufferWindow <em>Spontaneous Buffer Window</em>}</li>
+ *   <li>{@link org.eclipse.neoscada.configuration.iec60870.Device#getCyclicPeriod <em>Cyclic Period</em>}</li>
  * </ul>
  *
  * @see org.eclipse.neoscada.configuration.iec60870.IEC60870Package#getDevice()
@@ -204,5 +205,30 @@ public interface Device extends EObject
      * @generated
      */
     void setSpontaneousBufferWindow ( Long value );
+
+    /**
+     * Returns the value of the '<em><b>Cyclic Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Number of milliseconds used to buffer spontaneous events
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Cyclic Period</em>' attribute.
+     * @see #setCyclicPeriod(Long)
+     * @see org.eclipse.neoscada.configuration.iec60870.IEC60870Package#getDevice_CyclicPeriod()
+     * @model
+     * @generated
+     */
+    Long getCyclicPeriod ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.neoscada.configuration.iec60870.Device#getCyclicPeriod <em>Cyclic Period</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Cyclic Period</em>' attribute.
+     * @see #getCyclicPeriod()
+     * @generated
+     */
+    void setCyclicPeriod ( Long value );
 
 } // Device

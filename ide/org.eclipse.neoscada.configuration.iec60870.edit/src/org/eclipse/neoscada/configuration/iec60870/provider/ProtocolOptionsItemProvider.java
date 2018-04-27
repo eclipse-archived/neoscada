@@ -91,9 +91,9 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
     protected void addTimeout1PropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_timeout1_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout1_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.PROTOCOL_OPTIONS__TIMEOUT1, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout1_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.PROTOCOL_OPTIONS__TIMEOUT1, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -105,9 +105,9 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
     protected void addTimeout2PropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_timeout2_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout2_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.PROTOCOL_OPTIONS__TIMEOUT2, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout2_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.PROTOCOL_OPTIONS__TIMEOUT2, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -119,9 +119,9 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
     protected void addTimeout3PropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_timeout3_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout3_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.PROTOCOL_OPTIONS__TIMEOUT3, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout3_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.PROTOCOL_OPTIONS__TIMEOUT3, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -133,7 +133,7 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
      */
     protected void addAsduAddressSizePropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_asduAddressSize_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_asduAddressSize_feature", "_UI_ProtocolOptions_type" ), IEC60870Package.Literals.PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_parametersPropertyCategory" ), null) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_asduAddressSize_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_asduAddressSize_feature", "_UI_ProtocolOptions_type" ), IEC60870Package.Literals.PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_parametersPropertyCategory" ), null ) {
 
             @Override
             public Collection<?> getChoiceOfValues ( final Object object )
@@ -154,7 +154,7 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
      */
     protected void addInformationObjectAddressSizePropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_informationObjectAddressSize_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_informationObjectAddressSize_feature", "_UI_ProtocolOptions_type" ), IEC60870Package.Literals.PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_parametersPropertyCategory" ), null) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_informationObjectAddressSize_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_informationObjectAddressSize_feature", "_UI_ProtocolOptions_type" ), IEC60870Package.Literals.PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_parametersPropertyCategory" ), null ) {
             @Override
             public Collection<?> getChoiceOfValues ( final Object object )
             {
@@ -173,7 +173,7 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
      */
     protected void addCauseOfTransmissionSizePropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_causeOfTransmissionSize_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_causeOfTransmissionSize_feature", "_UI_ProtocolOptions_type" ), IEC60870Package.Literals.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_parametersPropertyCategory" ), null) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_causeOfTransmissionSize_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_causeOfTransmissionSize_feature", "_UI_ProtocolOptions_type" ), IEC60870Package.Literals.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_parametersPropertyCategory" ), null ) {
             @Override
             public Collection<?> getChoiceOfValues ( final Object object )
             {
@@ -191,9 +191,9 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
     protected void addWPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_w_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_w_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.PROTOCOL_OPTIONS__W, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_w_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.PROTOCOL_OPTIONS__W, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -205,9 +205,9 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
     protected void addKPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_k_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_k_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.PROTOCOL_OPTIONS__K, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_k_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.PROTOCOL_OPTIONS__K, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, getString ( "_UI_communicationPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -219,7 +219,7 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
      */
     protected void addTargetTimeZonePropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_targetTimeZone_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_targetTimeZone_feature", "_UI_ProtocolOptions_type" ), IEC60870Package.Literals.PROTOCOL_OPTIONS__TARGET_TIME_ZONE, true, false, true, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_timePropertyCategory" ), null) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor2 ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_targetTimeZone_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_targetTimeZone_feature", "_UI_ProtocolOptions_type" ), IEC60870Package.Literals.PROTOCOL_OPTIONS__TARGET_TIME_ZONE, true, false, true, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_timePropertyCategory" ), null ) {
 
             @Override
             public CellEditor createPropertyEditor ( final Composite composite, final Object object )
@@ -238,9 +238,9 @@ public class ProtocolOptionsItemProvider extends ItemProviderAdapter implements 
     protected void addIgnoreDaylightSavingTimePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProtocolOptions_ignoreDaylightSavingTime_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_ignoreDaylightSavingTime_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        IEC60870Package.Literals.PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_timePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_ignoreDaylightSavingTime_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                IEC60870Package.Literals.PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_timePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**

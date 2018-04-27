@@ -14,21 +14,22 @@ package org.eclipse.neoscada.protocol.iec60870.server.data;
 import java.util.List;
 
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationEntry;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
 
 public interface DataListener
 {
-    public void dataChangeBoolean ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Boolean>> values );
+    public void dataChangeBoolean ( CauseOfTransmission cause, ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Boolean>> values );
 
-    public void dataChangeBoolean ( ASDUAddress asduAddress, List<InformationEntry<Boolean>> values );
+    public void dataChangeBoolean ( CauseOfTransmission cause, ASDUAddress asduAddress, List<InformationEntry<Boolean>> values );
 
-    public void dataChangeFloat ( ASDUAddress asduAddress, List<InformationEntry<Float>> values );
+    public void dataChangeFloat ( CauseOfTransmission cause, ASDUAddress asduAddress, List<InformationEntry<Float>> values );
 
-    public void dataChangeFloat ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Float>> values );
+    public void dataChangeFloat ( CauseOfTransmission cause, ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Float>> values );
 
-    public void dataChangeShort ( ASDUAddress asduAddress, List<InformationEntry<Short>> values );
+    public void dataChangeShort ( CauseOfTransmission cause, ASDUAddress asduAddress, List<InformationEntry<Short>> values );
 
-    public void dataChangeShort ( ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Short>> values );
+    public void dataChangeShort ( CauseOfTransmission cause, ASDUAddress asduAddress, InformationObjectAddress startAddress, List<Value<Short>> values );
 }

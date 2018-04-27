@@ -24,6 +24,8 @@ import java.util.function.Consumer;
 
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CommandValue;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationEntry;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
@@ -144,21 +146,21 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
         return new InstantChangeModel ( new InstantChangeModel.Context () {
 
             @Override
-            public void notifyChangeBoolean ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
+            public void notifyChangeBoolean ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
             {
-                ChangeDataModel.this.notifyChangeBoolean ( asduAddress, startAddress, values );
+                ChangeDataModel.this.notifyChangeBoolean ( cause, asduAddress, startAddress, values );
             }
 
             @Override
-            public void notifyChangeFloat ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
+            public void notifyChangeFloat ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
             {
-                ChangeDataModel.this.notifyChangeFloat ( asduAddress, startAddress, values );
+                ChangeDataModel.this.notifyChangeFloat ( cause, asduAddress, startAddress, values );
             }
 
             @Override
-            public void notifyChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+            public void notifyChangeShort ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
             {
-                ChangeDataModel.this.notifyChangeShort ( asduAddress, startAddress, values );
+                ChangeDataModel.this.notifyChangeShort ( cause, asduAddress, startAddress, values );
             }
 
         } );
@@ -169,21 +171,21 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
         return new BufferingChangeModel ( new BufferingChangeModel.Context () {
 
             @Override
-            public void notifyBoolean ( final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
+            public void notifyBoolean ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
             {
-                ChangeDataModel.this.notifyChangeBoolean ( asduAddress, values );
+                ChangeDataModel.this.notifyChangeBoolean ( cause, asduAddress, values );
             }
 
             @Override
-            public void notifyFloat ( final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
+            public void notifyFloat ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
             {
-                ChangeDataModel.this.notifyChangeFloat ( asduAddress, values );
+                ChangeDataModel.this.notifyChangeFloat ( cause, asduAddress, values );
             }
 
             @Override
-            public void notifyShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+            public void notifyShort ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
             {
-                ChangeDataModel.this.notifyChangeShort ( asduAddress, values );
+                ChangeDataModel.this.notifyChangeShort ( cause, asduAddress, values );
             }
         }, this.executor, flushDelay );
     }
@@ -194,7 +196,7 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
         return this.backgroundModel.createBackgroundIterator ().orElse ( null );
     }
 
-    protected synchronized void notifyDataChange ( final ASDUAddress asduAddress, final InformationObjectAddress informationObjectAddress, final Value<?> value, final boolean notify )
+    protected synchronized void notifyDataChange ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress informationObjectAddress, final Value<?> value, final boolean notify )
     {
         logger.trace ( "Notify data change - ASDU: {}, IOA: {}, value: {}", asduAddress, informationObjectAddress, value );
 
@@ -207,25 +209,13 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
 
         unit.put ( informationObjectAddress.getAddress (), value );
 
-        this.changeModel.notifyChange ( asduAddress, informationObjectAddress, value );
+        this.changeModel.notifyChange ( cause, asduAddress, informationObjectAddress, value );
     }
 
     @Override
-    public void writeCommand ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final boolean state, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
+    public void writeValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, CommandValue<?> value, byte type, MirrorCommand mirrorCommand, boolean execute )
     {
-        scheduleCommand ( new WriteModel.Request<> ( header, informationObjectAddress, state, type, execute ), mirrorCommand, WriteModel::prepareCommand );
-    }
-
-    @Override
-    public void writeFloatValue ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final float value, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        scheduleCommand ( new WriteModel.Request<> ( header, informationObjectAddress, value, type, execute ), mirrorCommand, WriteModel::prepareSetpointFloat );
-    }
-
-    @Override
-    public void writeScaledValue ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress, final short value, final byte type, final MirrorCommand mirrorCommand, final boolean execute )
-    {
-        scheduleCommand ( new WriteModel.Request<> ( header, informationObjectAddress, value, type, execute ), mirrorCommand, WriteModel::prepareSetpointScaled );
+        scheduleCommand ( new WriteModel.Request<> ( header, informationObjectAddress, value, type, execute ), mirrorCommand, WriteModel::prepareWriteValue );
     }
 
     private synchronized <T> void scheduleCommand ( final Request<T> request, final MirrorCommand mirrorCommand, final BiFunction<WriteModel, Request<T>, Action> func )
@@ -268,7 +258,7 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
     }
 
     @Override
-    public synchronized ListenableFuture<Void> readAll ( final ASDUAddress asduAddress, final Runnable prepare, final DataListener listener )
+    public synchronized ListenableFuture<Void> readAll (  final CauseOfTransmission cause, final ASDUAddress asduAddress, final Runnable prepare, final DataListener listener )
     {
         final Map<Integer, Value<?>> map = this.cache.get ( asduAddress.getAddress () );
         if ( map == null )
@@ -280,30 +270,34 @@ public abstract class ChangeDataModel extends AbstractBaseDataModel
 
         this.executor.submit ( prepare );
 
-        return this.executor.submit ( () -> performReadAll ( asduAddress, listener, map2 ), null );
+        return this.executor.submit ( () -> performReadAll ( cause, asduAddress, listener, map2 ), null );
     }
 
-    protected synchronized void performReadAll ( final ASDUAddress asduAddress, final DataListener listener, final Map<Integer, Value<?>> map )
+    protected synchronized void performReadAll ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final DataListener listener, final Map<Integer, Value<?>> map )
     {
         for ( final Map.Entry<Integer, Value<?>> entry : map.entrySet () )
         {
-            fireListener ( asduAddress, listener, entry );
+            fireListener ( cause, asduAddress, listener, entry );
         }
     }
 
     @SuppressWarnings ( "unchecked" )
-    private static void fireListener ( final ASDUAddress asduAddress, final DataListener listener, final Map.Entry<Integer, Value<?>> entry )
+    private static void fireListener ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final DataListener listener, final Map.Entry<Integer, Value<?>> entry )
     {
         final Value<?> ve = entry.getValue ();
         final Object v = ve.getValue ();
 
         if ( v instanceof Boolean )
         {
-            listener.dataChangeBoolean ( asduAddress, InformationObjectAddress.valueOf ( entry.getKey () ), Collections.singletonList ( (Value<Boolean>)ve ) );
+            listener.dataChangeBoolean ( cause, asduAddress, InformationObjectAddress.valueOf ( entry.getKey () ), Collections.singletonList ( (Value<Boolean>)ve ) );
         }
         else if ( v instanceof Float )
         {
-            listener.dataChangeFloat ( asduAddress, InformationObjectAddress.valueOf ( entry.getKey () ), Collections.singletonList ( (Value<Float>)ve ) );
+            listener.dataChangeFloat ( cause, asduAddress, InformationObjectAddress.valueOf ( entry.getKey () ), Collections.singletonList ( (Value<Float>)ve ) );
+        }
+        else if ( v instanceof Short )
+        {
+            listener.dataChangeShort ( cause, asduAddress, InformationObjectAddress.valueOf ( entry.getKey () ), Collections.singletonList ( (Value<Short>)ve ) );
         }
         // FIXME: scaled values
     }

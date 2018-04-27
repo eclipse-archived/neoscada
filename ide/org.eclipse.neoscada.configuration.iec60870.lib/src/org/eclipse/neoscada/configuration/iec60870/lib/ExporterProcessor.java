@@ -108,6 +108,10 @@ public class ExporterProcessor implements OscarProcessor
         {
             data.put ( "spontaneousBufferWindow", device.getSpontaneousBufferWindow ().toString () ); //$NON-NLS-1$
         }
+        if ( device.getCyclicPeriod () != null && device.getCyclicPeriod () > 0 )
+        {
+            data.put ( "cyclicPeriod", device.getCyclicPeriod ().toString () ); //$NON-NLS-1$
+        }
 
         Configurations.encode ( data, null, device.getProtocolOptions () );
         Configurations.encode ( data, null, device.getDataModuleOptions () );

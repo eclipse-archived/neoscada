@@ -22,50 +22,47 @@ import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
 
 public class DataListenerImpl implements DataListener
 {
-    private final CauseOfTransmission cause;
-
     private final DataModuleMessageSource source;
 
-    public DataListenerImpl ( final DataModuleMessageSource source, final CauseOfTransmission cause )
+    public DataListenerImpl ( final DataModuleMessageSource source )
     {
         this.source = source;
-        this.cause = cause;
     }
 
     @Override
-    public void dataChangeBoolean ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
+    public void dataChangeBoolean ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Boolean>> values )
     {
-        this.source.sendBooleanValues ( new ASDUHeader ( this.cause, asduAddress ), startAddress, values );
+        this.source.sendBooleanValues ( new ASDUHeader ( cause, asduAddress ), startAddress, values );
     }
 
     @Override
-    public void dataChangeBoolean ( final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
+    public void dataChangeBoolean ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Boolean>> values )
     {
-        this.source.sendBooleanValues ( new ASDUHeader ( this.cause, asduAddress ), values );
+        this.source.sendBooleanValues ( new ASDUHeader ( cause, asduAddress ), values );
     }
 
     @Override
-    public void dataChangeFloat ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
+    public void dataChangeFloat ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Float>> values )
     {
-        this.source.sendFloatValues ( new ASDUHeader ( this.cause, asduAddress ), startAddress, values );
+        this.source.sendFloatValues ( new ASDUHeader ( cause, asduAddress ), startAddress, values );
     }
 
     @Override
-    public void dataChangeFloat ( final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
+    public void dataChangeFloat ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Float>> values )
     {
-        this.source.sendFloatValues ( new ASDUHeader ( this.cause, asduAddress ), values );
+        this.source.sendFloatValues ( new ASDUHeader ( cause, asduAddress ), values );
     }
 
     @Override
-    public void dataChangeShort ( final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
+    public void dataChangeShort ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final InformationObjectAddress startAddress, final List<Value<Short>> values )
     {
-        this.source.sendShortValues ( new ASDUHeader ( this.cause, asduAddress ), startAddress, values );
+        this.source.sendShortValues ( new ASDUHeader ( cause, asduAddress ), startAddress, values );
     }
 
     @Override
-    public void dataChangeShort ( final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
+    public void dataChangeShort ( final CauseOfTransmission cause, final ASDUAddress asduAddress, final List<InformationEntry<Short>> values )
     {
-        this.source.sendShortValues ( new ASDUHeader ( this.cause, asduAddress ), values );
+        this.source.sendShortValues ( new ASDUHeader ( cause, asduAddress ), values );
     }
 
 }

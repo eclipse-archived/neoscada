@@ -13,7 +13,11 @@ package org.eclipse.neoscada.protocol.iec60870.client.data;
 
 import java.util.concurrent.Executor;
 
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedSequence;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedSingle;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedTimeSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationEntry;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.QualifierOfInterrogation;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
@@ -26,17 +30,55 @@ public class DataProcessor extends AbstractDataProcessor
 
     private final Executor executor;
 
+    private boolean delayStart;
+
+    private Runnable requestStartDataRunner;
+
+    private Runnable interrogationRunner;
+
     public DataProcessor ( final Executor executor, final DataListener listener )
     {
         this.executor = executor;
         this.listener = listener;
+        this.delayStart = false;
+    }
+
+    public DataProcessor ( final Executor executor, final DataListener dataListener, final boolean delayStart )
+    {
+        this.executor = executor;
+        this.listener = dataListener;
+        this.delayStart = delayStart;
     }
 
     @Override
     public void activated ( final DataModuleContext dataModuleContext, final ChannelHandlerContext ctx )
     {
-        dataModuleContext.requestStartData ();
-        dataModuleContext.startInterrogation ( ASDUAddress.BROADCAST, QualifierOfInterrogation.GLOBAL );
+        // wrap both in closures, so we don't have to store it in a local field
+        this.requestStartDataRunner = new Runnable () {
+            @Override
+            public void run ()
+            {
+                dataModuleContext.requestStartData ();
+            }
+        };
+        this.interrogationRunner = new Runnable () {
+            @Override
+            public void run ()
+            {
+                dataModuleContext.startInterrogation ( ASDUAddress.BROADCAST, QualifierOfInterrogation.GLOBAL );
+            }
+        };
+        if ( !delayStart )
+        {
+            try
+            {
+                this.requestStartDataRunner.run ();
+            }
+            finally
+            {
+                this.requestStartDataRunner = null;
+            }
+        }
     }
 
     @Override
@@ -49,11 +91,25 @@ public class DataProcessor extends AbstractDataProcessor
                 DataProcessor.this.listener.started ();
             };
         } );
+        if ( this.interrogationRunner != null )
+        {
+            try
+            {
+                this.interrogationRunner.run ();
+            }
+            finally
+            {
+                this.interrogationRunner = null;
+            }
+        }
     }
 
     @Override
     public void disconnected ()
     {
+        this.requestStartDataRunner = null;
+        this.interrogationRunner = null;
+
         this.executor.execute ( new Runnable () {
             @Override
             public void run ()
@@ -76,4 +132,49 @@ public class DataProcessor extends AbstractDataProcessor
         } );
     }
 
+    @Override
+    public void process ( final MeasuredValueNormalizedTimeSingle msg )
+    {
+        for ( final InformationEntry<Double> entry : msg.getEntries () )
+        {
+            fireEntry ( msg.getHeader ().getAsduAddress (), entry.getAddress (), entry.getValue () );
+        }
+    }
+
+    @Override
+    public void process ( final MeasuredValueNormalizedSingle msg )
+    {
+        for ( final InformationEntry<Double> entry : msg.getEntries () )
+        {
+            fireEntry ( msg.getHeader ().getAsduAddress (), entry.getAddress (), entry.getValue () );
+        }
+    }
+
+    @Override
+    public void process ( final MeasuredValueNormalizedSequence msg )
+    {
+        int i = msg.getStartAddress ().getAddress ();
+
+        for ( final Value<Double> value : msg.getValues () )
+        {
+            fireEntry ( msg.getHeader ().getAsduAddress (), InformationObjectAddress.valueOf ( i ), value );
+            i++;
+        }
+    }
+
+    @Override
+    public void requestStartData ()
+    {
+        if ( this.requestStartDataRunner != null )
+        {
+            try
+            {
+                this.requestStartDataRunner.run ();
+            }
+            finally
+            {
+                this.requestStartDataRunner = null;
+            }
+        }
+    }
 }

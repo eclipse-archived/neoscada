@@ -36,6 +36,11 @@
         <details key="documentation" value="Number of milliseconds used to buffer spontaneous events"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cyclicPeriod" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELongObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of milliseconds used to buffer spontaneous events"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -64,6 +69,11 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="spontaneousBufferWindow"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELongObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of milliseconds used to buffer spontaneous events"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cyclicPeriod" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ELongObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Number of milliseconds used to buffer spontaneous events"/>
       </eAnnotations>
@@ -185,6 +195,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//ClientDataModuleOptions"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemTypes" upperBound="-1"
+        eType="#//ItemType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DriverApplication" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/EquinoxApplication">
     <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
@@ -195,6 +207,12 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false">
       <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
         <details key="name" value="ignoreBackgroundScan"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delayStart" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="delayStart"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -215,5 +233,21 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="2404"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemTypes" upperBound="-1"
+        eType="#//ItemType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="item" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IECType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IECType">
+    <eLiterals name="C_SC_NA_1" value="45" literal="C_SC_NA_1"/>
+    <eLiterals name="C_SC_TA_1" value="58" literal="C_SC_TA_1"/>
+    <eLiterals name="C_SE_NA_1" value="48" literal="C_SE_NA_1"/>
+    <eLiterals name="C_SE_TA_1" value="61" literal="C_SE_TA_1"/>
+    <eLiterals name="C_SE_NB_1" value="49" literal="C_SE_NB_1"/>
+    <eLiterals name="C_SE_TB_1" value="62" literal="C_SE_TB_1"/>
+    <eLiterals name="C_SE_NC_1" value="50" literal="C_SE_NC_1"/>
+    <eLiterals name="C_SE_TC_1" value="63" literal="C_SE_TC_1"/>
   </eClassifiers>
 </ecore:EPackage>

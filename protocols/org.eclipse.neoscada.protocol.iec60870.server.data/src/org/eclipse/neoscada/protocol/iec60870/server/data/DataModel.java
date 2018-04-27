@@ -16,6 +16,8 @@ import java.util.function.Function;
 
 import org.eclipse.neoscada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.ASDUAddress;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CauseOfTransmission;
+import org.eclipse.neoscada.protocol.iec60870.asdu.types.CommandValue;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.neoscada.protocol.iec60870.asdu.types.Value;
 import org.eclipse.neoscada.protocol.iec60870.io.MirrorCommand;
@@ -76,7 +78,7 @@ public interface DataModel
      * @return the future which indicates the end of the transmission. This can
      *         be <code>null</code> if the ASDU address was unknown.
      */
-    public ListenableFuture<Void> readAll ( ASDUAddress asduAddress, Runnable prepare, DataListener listener );
+    public ListenableFuture<Void> readAll ( CauseOfTransmission cause, ASDUAddress asduAddress, Runnable prepare, DataListener listener );
 
     /**
      * Create a new background iterator <br/>
@@ -121,11 +123,7 @@ public interface DataModel
         forAllAsdu ( (Consumer<ASDUAddress>)function::apply, ifNoneFound );
     }
 
-    public void writeCommand ( ASDUHeader header, InformationObjectAddress informationObjectAddress, boolean state, byte type, MirrorCommand mirrorCommand, boolean execute );
-
-    public void writeFloatValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, float value, byte type, MirrorCommand mirrorCommand, boolean execute );
-
-    public void writeScaledValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, short value, byte type, MirrorCommand mirrorCommand, boolean execute );
+    public void writeValue ( ASDUHeader header, InformationObjectAddress informationObjectAddress, CommandValue<?> value, byte type, MirrorCommand mirrorCommand, boolean execute );
 
     public void start ();
 

@@ -11,15 +11,20 @@
  */
 package org.eclipse.neoscada.configuration.iec60870.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.neoscada.configuration.iec60870.ClientDataModuleOptions;
 import org.eclipse.neoscada.configuration.iec60870.ClientDevice;
 import org.eclipse.neoscada.configuration.iec60870.IEC60870Package;
+import org.eclipse.neoscada.configuration.iec60870.ItemType;
 import org.eclipse.neoscada.configuration.iec60870.ProtocolOptions;
 import org.eclipse.scada.configuration.world.Endpoint;
 
@@ -35,6 +40,7 @@ import org.eclipse.scada.configuration.world.Endpoint;
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.ClientDeviceImpl#getProtocolOptions <em>Protocol Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.ClientDeviceImpl#getDataModuleOptions <em>Data Module Options</em>}</li>
  *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.ClientDeviceImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.neoscada.configuration.iec60870.impl.ClientDeviceImpl#getItemTypes <em>Item Types</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +96,16 @@ public class ClientDeviceImpl extends MinimalEObjectImpl.Container implements Cl
      * @ordered
      */
     protected String id = ID_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getItemTypes() <em>Item Types</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getItemTypes()
+     * @generated
+     * @ordered
+     */
+    protected EList<ItemType> itemTypes;
 
     /**
      * <!-- begin-user-doc -->
@@ -295,6 +311,20 @@ public class ClientDeviceImpl extends MinimalEObjectImpl.Container implements Cl
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<ItemType> getItemTypes ()
+    {
+        if ( itemTypes == null )
+        {
+            itemTypes = new EObjectContainmentEList<ItemType> ( ItemType.class, this, IEC60870Package.CLIENT_DEVICE__ITEM_TYPES );
+        }
+        return itemTypes;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -304,6 +334,8 @@ public class ClientDeviceImpl extends MinimalEObjectImpl.Container implements Cl
                 return basicSetProtocolOptions ( null, msgs );
             case IEC60870Package.CLIENT_DEVICE__DATA_MODULE_OPTIONS:
                 return basicSetDataModuleOptions ( null, msgs );
+            case IEC60870Package.CLIENT_DEVICE__ITEM_TYPES:
+                return ( (InternalEList<?>)getItemTypes () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -328,6 +360,8 @@ public class ClientDeviceImpl extends MinimalEObjectImpl.Container implements Cl
                 return getDataModuleOptions ();
             case IEC60870Package.CLIENT_DEVICE__ID:
                 return getId ();
+            case IEC60870Package.CLIENT_DEVICE__ITEM_TYPES:
+                return getItemTypes ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -337,6 +371,7 @@ public class ClientDeviceImpl extends MinimalEObjectImpl.Container implements Cl
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
@@ -353,6 +388,10 @@ public class ClientDeviceImpl extends MinimalEObjectImpl.Container implements Cl
                 return;
             case IEC60870Package.CLIENT_DEVICE__ID:
                 setId ( (String)newValue );
+                return;
+            case IEC60870Package.CLIENT_DEVICE__ITEM_TYPES:
+                getItemTypes ().clear ();
+                getItemTypes ().addAll ( (Collection<? extends ItemType>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -380,6 +419,9 @@ public class ClientDeviceImpl extends MinimalEObjectImpl.Container implements Cl
             case IEC60870Package.CLIENT_DEVICE__ID:
                 setId ( ID_EDEFAULT );
                 return;
+            case IEC60870Package.CLIENT_DEVICE__ITEM_TYPES:
+                getItemTypes ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -402,6 +444,8 @@ public class ClientDeviceImpl extends MinimalEObjectImpl.Container implements Cl
                 return dataModuleOptions != null;
             case IEC60870Package.CLIENT_DEVICE__ID:
                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+            case IEC60870Package.CLIENT_DEVICE__ITEM_TYPES:
+                return itemTypes != null && !itemTypes.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
