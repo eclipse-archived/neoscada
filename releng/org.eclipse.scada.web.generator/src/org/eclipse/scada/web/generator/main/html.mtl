@@ -100,11 +100,6 @@
     </div>
 <div id="sidebar-right-lower">
 	<div id="sidebar-social">
-[startSocialBar()/]
-[socialRssFeed(fileName)/]
-[socialPlus('https://plus.google.com/115299777840108730794')/]
-[socialFacebook('https://www.facebook.com/eclipse.scada')/]
-[endSocialBar()/]
 	</div>
     <div id="sidebar-releases">
 [sidebarReleases(site, fileName)/]

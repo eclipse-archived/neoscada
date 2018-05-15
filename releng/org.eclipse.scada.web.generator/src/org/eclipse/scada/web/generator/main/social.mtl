@@ -12,40 +12,12 @@
 [/template]
 
 [template public socialPlus(url : String)]
-<div
-	class="g-plusone"
-	data-size="medium"
-[if url<>null]
-	data-href="[url/]"
-[/if]
-	>
-</div>
 [/template]
 
 [template public socialTwitter (url : String, title:String)]
-<a
-	href="https://twitter.com/share"
-	class="twitter-share-button"
-[if url<>null]
-	data-url="[url/]"
-[/if]
-[if title<>null]
-	data-text="[title.encodeHtml()/]"
-[/if]
-	data-related="eclipsescada"
->Tweet</a>
 [/template]
 
 [template public socialFacebook(url : String)]
-<div
-	class="fb-like"
-[if url<>null]
-	data-href="[url/]"
-[/if]
-	data-layout="button_count"
-	data-action="like"
-	data-show-faces="true">
-</div>
 [/template]
 
 [template public socialRssFeed(base:String)]
