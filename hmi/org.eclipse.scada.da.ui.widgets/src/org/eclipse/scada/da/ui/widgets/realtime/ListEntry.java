@@ -221,6 +221,10 @@ public class ListEntry extends Observable implements IAdaptable, IPropertySource
     {
         logger.trace ( "Request adapter to : {}", adapter );
 
+        if ( adapter == DataItemValue.class && this.value != null )
+        {
+            return this.value;
+        }
         if ( adapter == Item.class && this.item != null )
         {
             return new Item ( this.item );

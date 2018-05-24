@@ -16,9 +16,10 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.scada.core.NotConvertableException;
 import org.eclipse.scada.core.NullValueException;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.ui.common.ValueType;
 import org.eclipse.scada.da.ui.connection.data.Item;
-import org.eclipse.scada.da.ui.connection.data.ItemSelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -52,6 +53,8 @@ class WriteOperationWizardValuePage extends WizardPage implements IWizardPage
     private Variant value;
 
     private Item item;
+
+    private ValueType preselectedType = ValueType.STRING;
 
     protected WriteOperationWizardValuePage ()
     {
@@ -92,6 +95,10 @@ class WriteOperationWizardValuePage extends WizardPage implements IWizardPage
         label.setLayoutData ( new GridData ( SWT.BEGINNING, SWT.BEGINNING, false, false ) );
 
         this.valueText = new Text ( container, SWT.BORDER | SWT.MULTI );
+        if ( value != null )
+        {
+            this.valueText.setText ( value.asString ( "" ) );
+        }
         gd = new GridData ( SWT.FILL, SWT.FILL, true, true );
         this.valueText.setLayoutData ( gd );
         this.valueText.addModifyListener ( new ModifyListener () {
@@ -114,7 +121,7 @@ class WriteOperationWizardValuePage extends WizardPage implements IWizardPage
                 dialogChanged ();
             }
         } );
-        this.valueTypeSelect.select ( ValueType.STRING.ordinal () );
+        this.valueTypeSelect.select ( preselectedType.ordinal () );
         this.valueTypeSelect.setLayoutData ( new GridData ( SWT.BEGINNING, SWT.BEGINNING, false, false ) );
 
         // row 3
@@ -127,6 +134,9 @@ class WriteOperationWizardValuePage extends WizardPage implements IWizardPage
         this.convertedValue.setLayoutData ( gd );
         this.defaultValueColor = this.convertedValue.getForeground ();
 
+        this.valueText.forceFocus ();
+        this.valueText.selectAll ();
+        
         setControl ( container );
         updateSelection ();
         dialogChanged ();
@@ -236,6 +246,12 @@ class WriteOperationWizardValuePage extends WizardPage implements IWizardPage
 
     public void setSelection ( final IStructuredSelection selection )
     {
-        this.item = ItemSelectionHelper.getFirstFromSelection ( selection );
+        this.item = SelectionHelper.first ( selection, Item.class );
+        final DataItemValue value = SelectionHelper.first ( selection, DataItemValue.class );
+        if ( value != null && !Variant.valueOf ( value.getValue () ).equals ( Variant.NULL ) )
+        {
+            this.preselectedType = ValueType.fromVariantType ( value.getValue ().getType () );
+            this.value = value.getValue ();
+        }
     }
 }
