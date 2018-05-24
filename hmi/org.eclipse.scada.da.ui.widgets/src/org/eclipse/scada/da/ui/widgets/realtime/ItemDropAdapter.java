@@ -78,7 +78,7 @@ public class ItemDropAdapter extends ViewerDropAdapter
                 else if ( uri.getFragment () != null )
                 {
                     final String[] stoks = tok.split ( "#", 2 );
-                    final Item item = new Item ( stoks[0], decodeItemId ( uri.getFragment () ), Type.URI );
+                    final Item item = new Item ( stoks[0], decodeItemId ( stoks[1] ), Type.URI );
                     dropItem ( item, viewer );
                 }
 
