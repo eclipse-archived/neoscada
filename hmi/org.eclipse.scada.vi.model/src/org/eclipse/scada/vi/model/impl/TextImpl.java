@@ -27,6 +27,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.TextImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.TextImpl#getLabelAlignment <em>Label Alignment</em>}</li>
@@ -39,7 +40,6 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.TextImpl#isFontItalic <em>Font Italic</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.TextImpl#getAlpha <em>Alpha</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

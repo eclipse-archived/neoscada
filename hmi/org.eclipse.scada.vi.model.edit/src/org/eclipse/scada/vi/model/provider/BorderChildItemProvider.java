@@ -95,7 +95,7 @@ public class BorderChildItemProvider extends ChildItemProvider
     {
         String label = ( (BorderChild)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_BorderChild_type" ) : //$NON-NLS-1$
-        getString ( "_UI_BorderChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_BorderChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

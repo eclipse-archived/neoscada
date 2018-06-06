@@ -17,11 +17,11 @@ package org.eclipse.scada.vi.model;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.Image#getUri <em>Uri</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Image#getImageAlignment <em>Image Alignment</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getImage()
  * @model

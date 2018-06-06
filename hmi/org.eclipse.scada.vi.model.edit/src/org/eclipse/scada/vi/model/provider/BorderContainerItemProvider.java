@@ -167,7 +167,7 @@ public class BorderContainerItemProvider extends ItemProviderAdapter implements 
     {
         String label = ( (BorderContainer)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_BorderContainer_type" ) : //$NON-NLS-1$
-        getString ( "_UI_BorderContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_BorderContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

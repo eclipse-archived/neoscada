@@ -29,11 +29,11 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.ChildImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.ChildImpl#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -25,6 +25,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.ShapeImpl#getLineWidth <em>Line Width</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.ShapeImpl#getAntialias <em>Antialias</em>}</li>
@@ -32,7 +33,6 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.ShapeImpl#isFill <em>Fill</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.ShapeImpl#isOutline <em>Outline</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

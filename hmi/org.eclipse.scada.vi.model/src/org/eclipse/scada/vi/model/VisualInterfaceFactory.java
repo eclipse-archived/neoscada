@@ -238,6 +238,15 @@ public interface VisualInterfaceFactory extends EFactory
     RoundedRectangle createRoundedRectangle ();
 
     /**
+     * Returns a new object of class '<em>Time Trigger</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Time Trigger</em>'.
+     * @generated
+     */
+    TimeTrigger createTimeTrigger ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

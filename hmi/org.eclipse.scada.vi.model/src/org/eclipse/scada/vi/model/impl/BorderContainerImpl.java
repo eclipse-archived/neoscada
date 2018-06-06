@@ -36,13 +36,13 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.BorderContainerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.BorderContainerImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.BorderContainerImpl#getVerticalSpacing <em>Vertical Spacing</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.BorderContainerImpl#getHorizontalSpacing <em>Horizontal Spacing</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

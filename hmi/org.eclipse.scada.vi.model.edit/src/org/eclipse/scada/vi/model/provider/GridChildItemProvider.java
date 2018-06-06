@@ -200,7 +200,7 @@ public class GridChildItemProvider extends ChildItemProvider
     {
         String label = ( (GridChild)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_GridChild_type" ) : //$NON-NLS-1$
-        getString ( "_UI_GridChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_GridChild_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

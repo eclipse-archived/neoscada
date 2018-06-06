@@ -21,8 +21,6 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Cursor</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */

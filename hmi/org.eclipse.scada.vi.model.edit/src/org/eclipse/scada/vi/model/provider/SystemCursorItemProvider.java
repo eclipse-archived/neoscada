@@ -96,7 +96,7 @@ public class SystemCursorItemProvider extends CursorItemProvider
         SystemCursorType labelValue = ( (SystemCursor)object ).getType ();
         String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ? getString ( "_UI_SystemCursor_type" ) : //$NON-NLS-1$
-        getString ( "_UI_SystemCursor_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_SystemCursor_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -28,10 +28,10 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.FigureContainerImpl#getContent <em>Content</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -123,6 +123,8 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
                 return createPolygon ();
             case VisualInterfacePackage.ROUNDED_RECTANGLE:
                 return createRoundedRectangle ();
+            case VisualInterfacePackage.TIME_TRIGGER:
+                return createTimeTrigger ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -436,6 +438,17 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         RoundedRectangleImpl roundedRectangle = new RoundedRectangleImpl ();
         return roundedRectangle;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TimeTrigger createTimeTrigger ()
+    {
+        TimeTriggerImpl timeTrigger = new TimeTriggerImpl ();
+        return timeTrigger;
     }
 
     /**

@@ -139,7 +139,7 @@ public class StackContainerItemProvider extends ItemProviderAdapter implements I
     {
         String label = ( (StackContainer)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_StackContainer_type" ) : //$NON-NLS-1$
-        getString ( "_UI_StackContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_StackContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

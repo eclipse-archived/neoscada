@@ -17,6 +17,7 @@ package org.eclipse.scada.vi.model;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.Text#getText <em>Text</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Text#getLabelAlignment <em>Label Alignment</em>}</li>
@@ -29,7 +30,6 @@ package org.eclipse.scada.vi.model;
  *   <li>{@link org.eclipse.scada.vi.model.Text#isFontItalic <em>Font Italic</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Text#getAlpha <em>Alpha</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getText()
  * @model

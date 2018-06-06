@@ -36,6 +36,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.GridContainerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.GridContainerImpl#getColumns <em>Columns</em>}</li>
@@ -46,7 +47,6 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.GridContainerImpl#getMarginWidth <em>Margin Width</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.GridContainerImpl#getMarginHeight <em>Margin Height</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

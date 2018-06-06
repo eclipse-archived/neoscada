@@ -36,11 +36,11 @@ import org.eclipse.scada.vi.model.XYContainer;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.XYContainerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.XYContainerImpl#getChildren <em>Children</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

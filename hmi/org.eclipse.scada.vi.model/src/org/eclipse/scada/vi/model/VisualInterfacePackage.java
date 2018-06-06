@@ -184,13 +184,22 @@ public interface VisualInterfacePackage extends EPackage
     int SYMBOL__BACKGROUND_IMAGE = 10;
 
     /**
+     * The feature id for the '<em><b>Time Triggers</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYMBOL__TIME_TRIGGERS = 11;
+
+    /**
      * The number of structural features of the '<em>Symbol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYMBOL_FEATURE_COUNT = 11;
+    int SYMBOL_FEATURE_COUNT = 12;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.Primitive <em>Primitive</em>}' class.
@@ -3245,6 +3254,43 @@ public interface VisualInterfacePackage extends EPackage
     int ROUNDED_RECTANGLE_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.vi.model.impl.TimeTriggerImpl <em>Time Trigger</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.vi.model.impl.TimeTriggerImpl
+     * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getTimeTrigger()
+     * @generated
+     */
+    int TIME_TRIGGER = 29;
+
+    /**
+     * The feature id for the '<em><b>Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIME_TRIGGER__PERIOD = 0;
+
+    /**
+     * The feature id for the '<em><b>On Trigger</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIME_TRIGGER__ON_TRIGGER = 1;
+
+    /**
+     * The number of structural features of the '<em>Time Trigger</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIME_TRIGGER_FEATURE_COUNT = 2;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3252,7 +3298,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 29;
+    int ALIGNMENT = 30;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.Orientation <em>Orientation</em>}' enum.
@@ -3262,7 +3308,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 30;
+    int ORIENTATION = 31;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.SystemCursorType <em>System Cursor Type</em>}' enum.
@@ -3272,7 +3318,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 31;
+    int SYSTEM_CURSOR_TYPE = 32;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.GridAlignment <em>Grid Alignment</em>}' enum.
@@ -3282,7 +3328,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getGridAlignment()
      * @generated
      */
-    int GRID_ALIGNMENT = 32;
+    int GRID_ALIGNMENT = 33;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.model.Symbol <em>Symbol</em>}'.
@@ -3414,6 +3460,17 @@ public interface VisualInterfacePackage extends EPackage
      * @generated
      */
     EAttribute getSymbol_BackgroundImage ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.vi.model.Symbol#getTimeTriggers <em>Time Triggers</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Time Triggers</em>'.
+     * @see org.eclipse.scada.vi.model.Symbol#getTimeTriggers()
+     * @see #getSymbol()
+     * @generated
+     */
+    EReference getSymbol_TimeTriggers ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.model.Primitive <em>Primitive</em>}'.
@@ -4545,6 +4602,38 @@ public interface VisualInterfacePackage extends EPackage
     EReference getRoundedRectangle_Corner ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.vi.model.TimeTrigger <em>Time Trigger</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Time Trigger</em>'.
+     * @see org.eclipse.scada.vi.model.TimeTrigger
+     * @generated
+     */
+    EClass getTimeTrigger ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.model.TimeTrigger#getPeriod <em>Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Period</em>'.
+     * @see org.eclipse.scada.vi.model.TimeTrigger#getPeriod()
+     * @see #getTimeTrigger()
+     * @generated
+     */
+    EAttribute getTimeTrigger_Period ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.model.TimeTrigger#getOnTrigger <em>On Trigger</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Trigger</em>'.
+     * @see org.eclipse.scada.vi.model.TimeTrigger#getOnTrigger()
+     * @see #getTimeTrigger()
+     * @generated
+     */
+    EAttribute getTimeTrigger_OnTrigger ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.vi.model.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4704,6 +4793,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute SYMBOL__BACKGROUND_IMAGE = eINSTANCE.getSymbol_BackgroundImage ();
+
+        /**
+         * The meta object literal for the '<em><b>Time Triggers</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYMBOL__TIME_TRIGGERS = eINSTANCE.getSymbol_TimeTriggers ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.model.Primitive <em>Primitive</em>}' class.
@@ -5600,6 +5697,32 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference ROUNDED_RECTANGLE__CORNER = eINSTANCE.getRoundedRectangle_Corner ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.vi.model.impl.TimeTriggerImpl <em>Time Trigger</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.vi.model.impl.TimeTriggerImpl
+         * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getTimeTrigger()
+         * @generated
+         */
+        EClass TIME_TRIGGER = eINSTANCE.getTimeTrigger ();
+
+        /**
+         * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TIME_TRIGGER__PERIOD = eINSTANCE.getTimeTrigger_Period ();
+
+        /**
+         * The meta object literal for the '<em><b>On Trigger</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TIME_TRIGGER__ON_TRIGGER = eINSTANCE.getTimeTrigger_OnTrigger ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.model.Alignment <em>Alignment</em>}' enum.

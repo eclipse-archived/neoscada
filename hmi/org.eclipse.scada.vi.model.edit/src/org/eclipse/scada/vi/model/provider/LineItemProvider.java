@@ -113,7 +113,7 @@ public class LineItemProvider extends ShapeItemProvider
     {
         String label = ( (Line)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_Line_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Line_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_Line_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

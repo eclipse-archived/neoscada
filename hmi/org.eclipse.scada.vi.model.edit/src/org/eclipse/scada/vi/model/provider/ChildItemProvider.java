@@ -139,7 +139,7 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
     {
         String label = ( (Child)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_Child_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Child_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_Child_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

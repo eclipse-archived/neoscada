@@ -16,9 +16,7 @@ Export-Package: org.eclipse.scada.vi.model.provider;version="0.5.0";
    org.eclipse.emf.common.notify,
    org.eclipse.emf.edit.domain"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.edit;
-  visibility:=reexport,
- org.eclipse.scada.vi.model;
-  visibility:=reexport
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.scada.vi.model;visibility:=reexport
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy

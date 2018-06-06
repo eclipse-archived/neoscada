@@ -28,11 +28,11 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.ConnectionImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.ConnectionImpl#getEnd <em>End</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -26,11 +26,11 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.DimensionImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.DimensionImpl#getHeight <em>Height</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

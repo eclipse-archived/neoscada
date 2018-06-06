@@ -55,20 +55,15 @@ public class VisualInterfaceExample
 
         // Register the appropriate resource factory to handle the content type.
         //
-        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put
-                ( VisualInterfacePackage.eCONTENT_TYPE,
-                        new XMIResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put ( VisualInterfacePackage.eCONTENT_TYPE, new XMIResourceFactoryImpl () );
 
         // Register the appropriate content handler for all file extensions and any element from the package's namespace.
         //
-        resourceSet.getURIConverter ().getContentHandlers ().add
-                ( new RootXMLContentHandlerImpl ( VisualInterfacePackage.eCONTENT_TYPE, null, null, VisualInterfacePackage.eNS_URI, null ) );
+        resourceSet.getURIConverter ().getContentHandlers ().add ( new RootXMLContentHandlerImpl ( VisualInterfacePackage.eCONTENT_TYPE, null, null, VisualInterfacePackage.eNS_URI, null ) );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put
-                ( VisualInterfacePackage.eNS_URI,
-                        VisualInterfacePackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put ( VisualInterfacePackage.eNS_URI, VisualInterfacePackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

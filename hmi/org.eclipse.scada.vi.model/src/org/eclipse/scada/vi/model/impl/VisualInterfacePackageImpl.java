@@ -50,6 +50,7 @@ import org.eclipse.scada.vi.model.SymbolReference;
 import org.eclipse.scada.vi.model.SystemCursor;
 import org.eclipse.scada.vi.model.SystemCursorType;
 import org.eclipse.scada.vi.model.Text;
+import org.eclipse.scada.vi.model.TimeTrigger;
 import org.eclipse.scada.vi.model.VisualInterfaceFactory;
 import org.eclipse.scada.vi.model.VisualInterfacePackage;
 import org.eclipse.scada.vi.model.XYChild;
@@ -265,6 +266,13 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass roundedRectangleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass timeTriggerEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -487,6 +495,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     public EAttribute getSymbol_BackgroundImage ()
     {
         return (EAttribute)symbolEClass.getEStructuralFeatures ().get ( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getSymbol_TimeTriggers ()
+    {
+        return (EReference)symbolEClass.getEStructuralFeatures ().get ( 11 );
     }
 
     /**
@@ -1644,6 +1662,36 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getTimeTrigger ()
+    {
+        return timeTriggerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimeTrigger_Period ()
+    {
+        return (EAttribute)timeTriggerEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimeTrigger_OnTrigger ()
+    {
+        return (EAttribute)timeTriggerEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getAlignment ()
     {
@@ -1727,6 +1775,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         createEReference ( symbolEClass, SYMBOL__DESIGN_SIZE );
         createEReference ( symbolEClass, SYMBOL__CONNECTIONS );
         createEAttribute ( symbolEClass, SYMBOL__BACKGROUND_IMAGE );
+        createEReference ( symbolEClass, SYMBOL__TIME_TRIGGERS );
 
         primitiveEClass = createEClass ( PRIMITIVE );
         createEAttribute ( primitiveEClass, PRIMITIVE__NAME );
@@ -1861,6 +1910,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         roundedRectangleEClass = createEClass ( ROUNDED_RECTANGLE );
         createEReference ( roundedRectangleEClass, ROUNDED_RECTANGLE__CORNER );
 
+        timeTriggerEClass = createEClass ( TIME_TRIGGER );
+        createEAttribute ( timeTriggerEClass, TIME_TRIGGER__PERIOD );
+        createEAttribute ( timeTriggerEClass, TIME_TRIGGER__ON_TRIGGER );
+
         // Create enums
         alignmentEEnum = createEEnum ( ALIGNMENT );
         orientationEEnum = createEEnum ( ORIENTATION );
@@ -1933,6 +1986,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEReference ( getSymbol_DesignSize (), this.getDimension (), null, "designSize", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getSymbol_Connections (), this.getConnection (), null, "connections", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSymbol_BackgroundImage (), ecorePackage.getEString (), "backgroundImage", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSymbol_TimeTriggers (), this.getTimeTrigger (), null, "timeTriggers", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( primitiveEClass, Primitive.class, "Primitive", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getPrimitive_Name (), ecorePackage.getEString (), "name", null, 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -2068,6 +2122,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         initEClass ( roundedRectangleEClass, RoundedRectangle.class, "RoundedRectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getRoundedRectangle_Corner (), this.getDimension (), null, "corner", null, 0, 1, RoundedRectangle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
+        initEClass ( timeTriggerEClass, TimeTrigger.class, "TimeTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getTimeTrigger_Period (), ecorePackage.getELong (), "period", null, 1, 1, TimeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getTimeTrigger_OnTrigger (), ecorePackage.getEString (), "onTrigger", null, 1, 1, TimeTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
         // Initialize enums and add enum literals
         initEEnum ( alignmentEEnum, Alignment.class, "Alignment" ); //$NON-NLS-1$
         addEEnumLiteral ( alignmentEEnum, Alignment.LEFT );
@@ -2110,7 +2168,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     {
         String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
         addAnnotation ( getChild_Element (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "element" //$NON-NLS-1$ //$NON-NLS-2$
+                "name", "element" //$NON-NLS-1$ //$NON-NLS-2$
         } );
         addAnnotation ( getXYChild_Position (), source, new String[] { "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
         } );

@@ -26,6 +26,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.GridChildImpl#getHorizontalAlignment <em>Horizontal Alignment</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.GridChildImpl#getVerticalAlignment <em>Vertical Alignment</em>}</li>
@@ -36,7 +37,6 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.GridChildImpl#getWidthHint <em>Width Hint</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.GridChildImpl#getHeightHint <em>Height Hint</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

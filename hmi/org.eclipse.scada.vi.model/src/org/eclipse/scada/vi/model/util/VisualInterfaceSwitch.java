@@ -60,7 +60,7 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @parameter ePackage the package in question.
+     * @param ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
@@ -393,6 +393,14 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
                     result = caseFigure ( roundedRectangle );
                 if ( result == null )
                     result = casePrimitive ( roundedRectangle );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case VisualInterfacePackage.TIME_TRIGGER:
+            {
+                TimeTrigger timeTrigger = (TimeTrigger)theEObject;
+                T result = caseTimeTrigger ( timeTrigger );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -862,6 +870,22 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseRoundedRectangle ( RoundedRectangle object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Time Trigger</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Time Trigger</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTimeTrigger ( TimeTrigger object )
     {
         return null;
     }

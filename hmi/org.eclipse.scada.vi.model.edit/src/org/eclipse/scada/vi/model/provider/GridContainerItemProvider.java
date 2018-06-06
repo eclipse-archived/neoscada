@@ -229,7 +229,7 @@ public class GridContainerItemProvider extends ItemProviderAdapter implements IE
     {
         String label = ( (GridContainer)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_GridContainer_type" ) : //$NON-NLS-1$
-        getString ( "_UI_GridContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_GridContainer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -18,6 +18,7 @@ package org.eclipse.scada.vi.model;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.Figure#getForegroundColor <em>Foreground Color</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Figure#getBackgroundColor <em>Background Color</em>}</li>
@@ -35,7 +36,6 @@ package org.eclipse.scada.vi.model;
  *   <li>{@link org.eclipse.scada.vi.model.Figure#getOnMouseHover <em>On Mouse Hover</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Figure#getOnMouseDrag <em>On Mouse Drag</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getFigure()
  * @model abstract="true"

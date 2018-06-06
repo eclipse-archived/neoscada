@@ -143,7 +143,7 @@ public class ShapeItemProvider extends FigureItemProvider
     {
         String label = ( (Shape)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_Shape_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Shape_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_Shape_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

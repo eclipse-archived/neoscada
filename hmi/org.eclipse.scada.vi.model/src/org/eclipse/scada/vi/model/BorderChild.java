@@ -17,10 +17,10 @@ package org.eclipse.scada.vi.model;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.BorderChild#getAlignment <em>Alignment</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getBorderChild()
  * @model

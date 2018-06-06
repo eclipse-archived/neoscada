@@ -34,6 +34,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolReferenceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolReferenceImpl#getUri <em>Uri</em>}</li>
@@ -41,7 +42,6 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolReferenceImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolReferenceImpl#getOnCreateProperties <em>On Create Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

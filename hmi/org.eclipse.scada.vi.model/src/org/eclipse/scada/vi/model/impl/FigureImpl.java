@@ -28,6 +28,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.FigureImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.FigureImpl#getForegroundColor <em>Foreground Color</em>}</li>
@@ -46,7 +47,6 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.FigureImpl#getOnMouseHover <em>On Mouse Hover</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.FigureImpl#getOnMouseDrag <em>On Mouse Drag</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

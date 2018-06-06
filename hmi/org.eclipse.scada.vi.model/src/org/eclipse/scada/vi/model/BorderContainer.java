@@ -19,12 +19,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.BorderContainer#getChildren <em>Children</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.BorderContainer#getVerticalSpacing <em>Vertical Spacing</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.BorderContainer#getHorizontalSpacing <em>Horizontal Spacing</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getBorderContainer()
  * @model

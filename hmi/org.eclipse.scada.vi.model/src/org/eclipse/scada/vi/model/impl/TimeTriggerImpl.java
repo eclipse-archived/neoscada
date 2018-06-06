@@ -1,12 +1,12 @@
 /**
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - initial API and implementation
  */
 package org.eclipse.scada.vi.model.impl;
 
@@ -15,73 +15,73 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.scada.vi.model.Alignment;
-import org.eclipse.scada.vi.model.Image;
+import org.eclipse.scada.vi.model.TimeTrigger;
 import org.eclipse.scada.vi.model.VisualInterfacePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Image</b></em>'.
+ * An implementation of the model object '<em><b>Time Trigger</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.scada.vi.model.impl.ImageImpl#getUri <em>Uri</em>}</li>
- *   <li>{@link org.eclipse.scada.vi.model.impl.ImageImpl#getImageAlignment <em>Image Alignment</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.impl.TimeTriggerImpl#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.impl.TimeTriggerImpl#getOnTrigger <em>On Trigger</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ImageImpl extends FigureImpl implements Image
+public class TimeTriggerImpl extends EObjectImpl implements TimeTrigger
 {
     /**
-     * The default value of the '{@link #getUri() <em>Uri</em>}' attribute.
+     * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getUri()
+     * @see #getPeriod()
      * @generated
      * @ordered
      */
-    protected static final String URI_EDEFAULT = null;
+    protected static final long PERIOD_EDEFAULT = 0L;
 
     /**
-     * The cached value of the '{@link #getUri() <em>Uri</em>}' attribute.
+     * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getUri()
+     * @see #getPeriod()
      * @generated
      * @ordered
      */
-    protected String uri = URI_EDEFAULT;
+    protected long period = PERIOD_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getImageAlignment() <em>Image Alignment</em>}' attribute.
+     * The default value of the '{@link #getOnTrigger() <em>On Trigger</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getImageAlignment()
+     * @see #getOnTrigger()
      * @generated
      * @ordered
      */
-    protected static final Alignment IMAGE_ALIGNMENT_EDEFAULT = Alignment.CENTER;
+    protected static final String ON_TRIGGER_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getImageAlignment() <em>Image Alignment</em>}' attribute.
+     * The cached value of the '{@link #getOnTrigger() <em>On Trigger</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getImageAlignment()
+     * @see #getOnTrigger()
      * @generated
      * @ordered
      */
-    protected Alignment imageAlignment = IMAGE_ALIGNMENT_EDEFAULT;
+    protected String onTrigger = ON_TRIGGER_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ImageImpl ()
+    protected TimeTriggerImpl ()
     {
         super ();
     }
@@ -94,7 +94,7 @@ public class ImageImpl extends FigureImpl implements Image
     @Override
     protected EClass eStaticClass ()
     {
-        return VisualInterfacePackage.Literals.IMAGE;
+        return VisualInterfacePackage.Literals.TIME_TRIGGER;
     }
 
     /**
@@ -102,9 +102,9 @@ public class ImageImpl extends FigureImpl implements Image
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getUri ()
+    public long getPeriod ()
     {
-        return uri;
+        return period;
     }
 
     /**
@@ -112,12 +112,12 @@ public class ImageImpl extends FigureImpl implements Image
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setUri ( String newUri )
+    public void setPeriod ( long newPeriod )
     {
-        String oldUri = uri;
-        uri = newUri;
+        long oldPeriod = period;
+        period = newPeriod;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.IMAGE__URI, oldUri, uri ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TIME_TRIGGER__PERIOD, oldPeriod, period ) );
     }
 
     /**
@@ -125,9 +125,9 @@ public class ImageImpl extends FigureImpl implements Image
      * <!-- end-user-doc -->
      * @generated
      */
-    public Alignment getImageAlignment ()
+    public String getOnTrigger ()
     {
-        return imageAlignment;
+        return onTrigger;
     }
 
     /**
@@ -135,12 +135,12 @@ public class ImageImpl extends FigureImpl implements Image
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setImageAlignment ( Alignment newImageAlignment )
+    public void setOnTrigger ( String newOnTrigger )
     {
-        Alignment oldImageAlignment = imageAlignment;
-        imageAlignment = newImageAlignment == null ? IMAGE_ALIGNMENT_EDEFAULT : newImageAlignment;
+        String oldOnTrigger = onTrigger;
+        onTrigger = newOnTrigger;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.IMAGE__IMAGE_ALIGNMENT, oldImageAlignment, imageAlignment ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, VisualInterfacePackage.TIME_TRIGGER__ON_TRIGGER, oldOnTrigger, onTrigger ) );
     }
 
     /**
@@ -153,10 +153,10 @@ public class ImageImpl extends FigureImpl implements Image
     {
         switch ( featureID )
         {
-            case VisualInterfacePackage.IMAGE__URI:
-                return getUri ();
-            case VisualInterfacePackage.IMAGE__IMAGE_ALIGNMENT:
-                return getImageAlignment ();
+            case VisualInterfacePackage.TIME_TRIGGER__PERIOD:
+                return getPeriod ();
+            case VisualInterfacePackage.TIME_TRIGGER__ON_TRIGGER:
+                return getOnTrigger ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -171,11 +171,11 @@ public class ImageImpl extends FigureImpl implements Image
     {
         switch ( featureID )
         {
-            case VisualInterfacePackage.IMAGE__URI:
-                setUri ( (String)newValue );
+            case VisualInterfacePackage.TIME_TRIGGER__PERIOD:
+                setPeriod ( (Long)newValue );
                 return;
-            case VisualInterfacePackage.IMAGE__IMAGE_ALIGNMENT:
-                setImageAlignment ( (Alignment)newValue );
+            case VisualInterfacePackage.TIME_TRIGGER__ON_TRIGGER:
+                setOnTrigger ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -191,11 +191,11 @@ public class ImageImpl extends FigureImpl implements Image
     {
         switch ( featureID )
         {
-            case VisualInterfacePackage.IMAGE__URI:
-                setUri ( URI_EDEFAULT );
+            case VisualInterfacePackage.TIME_TRIGGER__PERIOD:
+                setPeriod ( PERIOD_EDEFAULT );
                 return;
-            case VisualInterfacePackage.IMAGE__IMAGE_ALIGNMENT:
-                setImageAlignment ( IMAGE_ALIGNMENT_EDEFAULT );
+            case VisualInterfacePackage.TIME_TRIGGER__ON_TRIGGER:
+                setOnTrigger ( ON_TRIGGER_EDEFAULT );
                 return;
         }
         super.eUnset ( featureID );
@@ -211,10 +211,10 @@ public class ImageImpl extends FigureImpl implements Image
     {
         switch ( featureID )
         {
-            case VisualInterfacePackage.IMAGE__URI:
-                return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals ( uri );
-            case VisualInterfacePackage.IMAGE__IMAGE_ALIGNMENT:
-                return imageAlignment != IMAGE_ALIGNMENT_EDEFAULT;
+            case VisualInterfacePackage.TIME_TRIGGER__PERIOD:
+                return period != PERIOD_EDEFAULT;
+            case VisualInterfacePackage.TIME_TRIGGER__ON_TRIGGER:
+                return ON_TRIGGER_EDEFAULT == null ? onTrigger != null : !ON_TRIGGER_EDEFAULT.equals ( onTrigger );
         }
         return super.eIsSet ( featureID );
     }
@@ -231,12 +231,12 @@ public class ImageImpl extends FigureImpl implements Image
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (uri: " ); //$NON-NLS-1$
-        result.append ( uri );
-        result.append ( ", imageAlignment: " ); //$NON-NLS-1$
-        result.append ( imageAlignment );
+        result.append ( " (period: " ); //$NON-NLS-1$
+        result.append ( period );
+        result.append ( ", onTrigger: " ); //$NON-NLS-1$
+        result.append ( onTrigger );
         result.append ( ')' );
         return result.toString ();
     }
 
-} //ImageImpl
+} //TimeTriggerImpl

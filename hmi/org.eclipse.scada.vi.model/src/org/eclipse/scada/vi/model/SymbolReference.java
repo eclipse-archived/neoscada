@@ -19,13 +19,13 @@ import org.eclipse.emf.common.util.EMap;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.SymbolReference#getUri <em>Uri</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.SymbolReference#getZoom <em>Zoom</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.SymbolReference#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.SymbolReference#getOnCreateProperties <em>On Create Properties</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getSymbolReference()
  * @model
@@ -97,7 +97,7 @@ public interface SymbolReference extends Primitive
      * <!-- end-user-doc -->
      * @return the value of the '<em>Properties</em>' map.
      * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getSymbolReference_Properties()
-     * @model mapType="org.eclipse.scada.vi.model.StringToStringMap<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+     * @model mapType="org.eclipse.scada.vi.model.StringToStringMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;"
      * @generated
      */
     EMap<String, String> getProperties ();

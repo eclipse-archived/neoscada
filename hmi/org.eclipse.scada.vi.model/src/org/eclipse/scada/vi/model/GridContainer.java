@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.GridContainer#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.GridContainer#isEqualWidth <em>Equal Width</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.scada.vi.model.GridContainer#getMarginWidth <em>Margin Width</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.GridContainer#getMarginHeight <em>Margin Height</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getGridContainer()
  * @model

@@ -17,11 +17,11 @@ package org.eclipse.scada.vi.model;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.Arc#getStart <em>Start</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Arc#getLength <em>Length</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getArc()
  * @model

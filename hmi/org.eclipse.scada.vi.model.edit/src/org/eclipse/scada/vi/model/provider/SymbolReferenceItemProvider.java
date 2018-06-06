@@ -184,7 +184,7 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
     {
         String label = ( (SymbolReference)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_SymbolReference_type" ) : //$NON-NLS-1$
-        getString ( "_UI_SymbolReference_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_SymbolReference_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -113,7 +113,7 @@ public class RoundedRectangleItemProvider extends ShapeItemProvider
     {
         String label = ( (RoundedRectangle)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_RoundedRectangle_type" ) : //$NON-NLS-1$
-        getString ( "_UI_RoundedRectangle_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_RoundedRectangle_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

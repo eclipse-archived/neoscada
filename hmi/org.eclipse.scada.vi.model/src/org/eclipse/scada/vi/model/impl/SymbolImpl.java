@@ -35,6 +35,7 @@ import org.eclipse.scada.vi.model.Cursor;
 import org.eclipse.scada.vi.model.Dimension;
 import org.eclipse.scada.vi.model.Primitive;
 import org.eclipse.scada.vi.model.Symbol;
+import org.eclipse.scada.vi.model.TimeTrigger;
 import org.eclipse.scada.vi.model.VisualInterfacePackage;
 
 /**
@@ -43,6 +44,7 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getProperties <em>Properties</em>}</li>
@@ -55,8 +57,8 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getDesignSize <em>Design Size</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getConnections <em>Connections</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getBackgroundImage <em>Background Image</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.impl.SymbolImpl#getTimeTriggers <em>Time Triggers</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -221,6 +223,16 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * @ordered
      */
     protected String backgroundImage = BACKGROUND_IMAGE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getTimeTriggers() <em>Time Triggers</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTimeTriggers()
+     * @generated
+     * @ordered
+     */
+    protected EList<TimeTrigger> timeTriggers;
 
     /**
      * <!-- begin-user-doc -->
@@ -561,6 +573,20 @@ public class SymbolImpl extends EObjectImpl implements Symbol
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<TimeTrigger> getTimeTriggers ()
+    {
+        if ( timeTriggers == null )
+        {
+            timeTriggers = new EObjectContainmentEList<TimeTrigger> ( TimeTrigger.class, this, VisualInterfacePackage.SYMBOL__TIME_TRIGGERS );
+        }
+        return timeTriggers;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -576,6 +602,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return basicSetDesignSize ( null, msgs );
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
                 return ( (InternalEList<?>)getConnections () ).basicRemove ( otherEnd, msgs );
+            case VisualInterfacePackage.SYMBOL__TIME_TRIGGERS:
+                return ( (InternalEList<?>)getTimeTriggers () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -615,6 +643,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return getConnections ();
             case VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE:
                 return getBackgroundImage ();
+            case VisualInterfacePackage.SYMBOL__TIME_TRIGGERS:
+                return getTimeTriggers ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -665,6 +695,10 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE:
                 setBackgroundImage ( (String)newValue );
                 return;
+            case VisualInterfacePackage.SYMBOL__TIME_TRIGGERS:
+                getTimeTriggers ().clear ();
+                getTimeTriggers ().addAll ( (Collection<? extends TimeTrigger>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -712,6 +746,9 @@ public class SymbolImpl extends EObjectImpl implements Symbol
             case VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE:
                 setBackgroundImage ( BACKGROUND_IMAGE_EDEFAULT );
                 return;
+            case VisualInterfacePackage.SYMBOL__TIME_TRIGGERS:
+                getTimeTriggers ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -748,6 +785,8 @@ public class SymbolImpl extends EObjectImpl implements Symbol
                 return connections != null && !connections.isEmpty ();
             case VisualInterfacePackage.SYMBOL__BACKGROUND_IMAGE:
                 return BACKGROUND_IMAGE_EDEFAULT == null ? backgroundImage != null : !BACKGROUND_IMAGE_EDEFAULT.equals ( backgroundImage );
+            case VisualInterfacePackage.SYMBOL__TIME_TRIGGERS:
+                return timeTriggers != null && !timeTriggers.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

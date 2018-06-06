@@ -113,7 +113,7 @@ public class PolygonItemProvider extends ShapeItemProvider
     {
         String label = ( (Polygon)object ).getName ();
         return label == null || label.length () == 0 ? getString ( "_UI_Polygon_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Polygon_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_Polygon_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

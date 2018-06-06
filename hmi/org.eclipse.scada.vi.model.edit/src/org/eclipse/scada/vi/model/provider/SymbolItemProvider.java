@@ -158,6 +158,7 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
             childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__CURSORS );
             childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE );
             childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS );
+            childrenFeatures.add ( VisualInterfacePackage.Literals.SYMBOL__TIME_TRIGGERS );
         }
         return childrenFeatures;
     }
@@ -199,7 +200,7 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
     {
         String label = crop ( ( (Symbol)object ).getOnInit () );
         return label == null || label.length () == 0 ? getString ( "_UI_Symbol_type" ) : //$NON-NLS-1$
-        getString ( "_UI_Symbol_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_Symbol_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -229,6 +230,7 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
             case VisualInterfacePackage.SYMBOL__CURSORS:
             case VisualInterfacePackage.SYMBOL__DESIGN_SIZE:
             case VisualInterfacePackage.SYMBOL__CONNECTIONS:
+            case VisualInterfacePackage.SYMBOL__TIME_TRIGGERS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -284,6 +286,8 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__DESIGN_SIZE, VisualInterfaceFactory.eINSTANCE.createDimension () ) );
 
         newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__CONNECTIONS, VisualInterfaceFactory.eINSTANCE.createConnection () ) );
+
+        newChildDescriptors.add ( createChildParameter ( VisualInterfacePackage.Literals.SYMBOL__TIME_TRIGGERS, VisualInterfaceFactory.eINSTANCE.createTimeTrigger () ) );
     }
 
     /**

@@ -26,11 +26,11 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.PositionImpl#getX <em>X</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.PositionImpl#getY <em>Y</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

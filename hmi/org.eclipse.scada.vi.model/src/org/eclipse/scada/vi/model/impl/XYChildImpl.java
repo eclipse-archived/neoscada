@@ -29,11 +29,11 @@ import org.eclipse.scada.vi.model.XYChild;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.XYChildImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.impl.XYChildImpl#getDimension <em>Dimension</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

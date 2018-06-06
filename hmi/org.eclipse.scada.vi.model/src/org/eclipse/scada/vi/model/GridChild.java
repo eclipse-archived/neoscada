@@ -17,6 +17,7 @@ package org.eclipse.scada.vi.model;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.GridChild#getHorizontalAlignment <em>Horizontal Alignment</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.GridChild#getVerticalAlignment <em>Vertical Alignment</em>}</li>
@@ -27,7 +28,6 @@ package org.eclipse.scada.vi.model;
  *   <li>{@link org.eclipse.scada.vi.model.GridChild#getWidthHint <em>Width Hint</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.GridChild#getHeightHint <em>Height Hint</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getGridChild()
  * @model

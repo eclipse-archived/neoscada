@@ -17,6 +17,7 @@ package org.eclipse.scada.vi.model;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.Shape#getLineWidth <em>Line Width</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Shape#getAntialias <em>Antialias</em>}</li>
@@ -24,7 +25,6 @@ package org.eclipse.scada.vi.model;
  *   <li>{@link org.eclipse.scada.vi.model.Shape#isFill <em>Fill</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Shape#isOutline <em>Outline</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getShape()
  * @model abstract="true"

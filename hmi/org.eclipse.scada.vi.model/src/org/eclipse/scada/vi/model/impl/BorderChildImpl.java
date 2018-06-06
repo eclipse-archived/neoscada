@@ -26,10 +26,10 @@ import org.eclipse.scada.vi.model.VisualInterfacePackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.impl.BorderChildImpl#getAlignment <em>Alignment</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

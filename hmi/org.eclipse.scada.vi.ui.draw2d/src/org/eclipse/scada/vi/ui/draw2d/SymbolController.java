@@ -24,6 +24,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import javax.script.ScriptContext;
 import javax.script.SimpleScriptContext;
@@ -42,6 +45,7 @@ import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.data.SummaryListener;
 import org.eclipse.scada.vi.model.Primitive;
 import org.eclipse.scada.vi.model.Symbol;
+import org.eclipse.scada.vi.model.TimeTrigger;
 import org.eclipse.scada.vi.ui.draw2d.loader.SymbolLoader;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -119,6 +123,8 @@ public class SymbolController implements Listener
 
     private final ScriptManager scriptManager;
 
+    private ScheduledExecutorService timeTriggerExecutor;
+
     public SymbolController ( final Shell shell, final SymbolLoader symbolLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects, final FactoryContext factoryContext ) throws Exception
     {
         this ( shell, null, symbolLoader, properties, scriptObjects, factoryContext, new ScriptManager () );
@@ -163,6 +169,7 @@ public class SymbolController implements Listener
         else
         {
             this.properties = new Properties ();
+            this.timeTriggerExecutor = Executors.newSingleThreadScheduledExecutor ();
         }
 
         for ( final Map.Entry<String, String> entry : symbol.getProperties ().entrySet () )
@@ -199,6 +206,7 @@ public class SymbolController implements Listener
         this.scriptContext.setAttribute ( "data", this.symbolData, ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
         this.scriptContext.setAttribute ( "GSON", createJson (), ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
         this.scriptContext.setAttribute ( "styleGenerator", this.generator, ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
+        // this.scriptContext.setAttribute ( "TimedCountdownCallback", TimedCountdownCallback.class, ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
         this.scriptObjects = scriptObjects;
         addScriptObjects ( scriptObjects );
         if ( parentController != null )
@@ -218,6 +226,12 @@ public class SymbolController implements Listener
         this.onInit = this.scriptManager.parse ( symbol.getOnInit (), "onInit" ); //$NON-NLS-1$
         this.onDispose = this.scriptManager.parse ( symbol.getOnDispose (), "onDispose" ); //$NON-NLS-1$
         this.onUpdate = this.scriptManager.parse ( symbol.getOnUpdate (), "onUpdate" ); //$NON-NLS-1$
+        int i = 1;
+        for ( final TimeTrigger timeTrigger : symbol.getTimeTriggers () )
+        {
+            final ScriptExecutor timerScript = this.scriptManager.parse ( timeTrigger.getOnTrigger (), "onTimeTrigger" + ( i++ ) );
+            addTimeTrigger ( timeTrigger.getPeriod (), timerScript );
+        }
 
         p.start ( "add listener" );
         this.generator.addListener ( this.generatorListener );
@@ -331,6 +345,58 @@ public class SymbolController implements Listener
         }
     }
 
+    private void addTimeTrigger ( final long period, final ScriptExecutor script )
+    {
+        SymbolController root = this.getRootController ();
+        if ( root == null || root.timeTriggerExecutor == null )
+        {
+            return;
+        }
+        root.timeTriggerExecutor.scheduleAtFixedRate ( new Runnable () {
+            @Override
+            public void run ()
+            {
+                executeTimeTrigger ( script );
+            }
+        }, period, period, TimeUnit.MILLISECONDS );
+    }
+
+    protected void executeTimeTrigger ( final ScriptExecutor script )
+    {
+        logger.trace ( "Schedule time trigger: {}", this.nameHierarchy );
+        try
+        {
+            Display.getDefault ().asyncExec ( new Runnable () {
+                @Override
+                public void run ()
+                {
+                    handleTimeTrigger ( script );
+                };
+            } );
+        }
+        catch ( final Exception e )
+        {
+            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
+        }
+    }
+
+    protected void handleTimeTrigger ( final ScriptExecutor script )
+    {
+        logger.trace ( "Running time trigger: {}", this.nameHierarchy );
+        try
+        {
+            if ( script != null )
+            {
+                script.execute ( this.scriptContext );
+            }
+        }
+        catch ( final Exception e )
+        {
+            StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.LOG );
+            errorLog ( "Failed to run update", e );
+        }
+    }
+
     public void init () throws Exception
     {
         if ( this.onInit != null )
@@ -368,6 +434,17 @@ public class SymbolController implements Listener
 
     public void dispose ()
     {
+        if ( this.timeTriggerExecutor != null )
+        {
+            try
+            {
+                this.timeTriggerExecutor.shutdownNow ();
+            }
+            catch ( Exception e )
+            {
+                logger.warn ( "Shutdown of scheduler failed", e );
+            }
+        }
         // run onDispose ... when requested
         try
         {
@@ -518,6 +595,20 @@ public class SymbolController implements Listener
     public SummaryInformation getSummaryInformation ()
     {
         return new SummaryInformation ( this.nameHierarchy, this.registrationManager.getData (), collectChildrenData () );
+    }
+
+    private SymbolController getRootController ()
+    {
+        SymbolController result = this;
+        for ( ;; )
+        {
+            if ( result.parentController == null || result.parentController == result )
+            {
+                break;
+            }
+            result = result.parentController;
+        }
+        return result;
     }
 
     private Collection<SummaryInformation> collectChildrenData ()

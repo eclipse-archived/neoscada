@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.Symbol#getRoot <em>Root</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Symbol#getProperties <em>Properties</em>}</li>
@@ -34,8 +35,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.vi.model.Symbol#getDesignSize <em>Design Size</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Symbol#getConnections <em>Connections</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.Symbol#getBackgroundImage <em>Background Image</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.Symbol#getTimeTriggers <em>Time Triggers</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getSymbol()
  * @model
@@ -81,7 +82,7 @@ public interface Symbol extends EObject
      * <!-- end-user-doc -->
      * @return the value of the '<em>Properties</em>' map.
      * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getSymbol_Properties()
-     * @model mapType="org.eclipse.scada.vi.model.StringToStringMap<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString>"
+     * @model mapType="org.eclipse.scada.vi.model.StringToStringMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EString&gt;"
      * @generated
      */
     EMap<String, String> getProperties ();
@@ -298,5 +299,21 @@ public interface Symbol extends EObject
      * @generated
      */
     void setBackgroundImage ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Time Triggers</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.vi.model.TimeTrigger}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Time Triggers</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Time Triggers</em>' containment reference list.
+     * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getSymbol_TimeTriggers()
+     * @model containment="true"
+     * @generated
+     */
+    EList<TimeTrigger> getTimeTriggers ();
 
 } // Symbol

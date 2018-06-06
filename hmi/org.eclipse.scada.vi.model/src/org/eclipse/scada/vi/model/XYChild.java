@@ -17,11 +17,11 @@ package org.eclipse.scada.vi.model;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.XYChild#getPosition <em>Position</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.model.XYChild#getDimension <em>Dimension</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getXYChild()
  * @model
