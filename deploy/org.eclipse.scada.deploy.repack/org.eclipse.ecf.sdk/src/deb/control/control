@@ -3,7 +3,7 @@ Version: [[version]]
 Section: misc
 Priority: optional
 Architecture: all
-Depends: org.eclipse.scada.p2
+Depends: neoscada.common
 Conflicts: org.eclipse.ecf.sdk-3.6.1
 Replaces: org.eclipse.ecf.sdk-3.6.1
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>

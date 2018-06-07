@@ -3,7 +3,7 @@ Version: [[version]]
 Section: misc
 Priority: optional
 Architecture: all
-Depends: org.eclipse.scada, org.eclipse.scada.external.p2-incubation
+Depends: neoscada.common, neoscada.external.p2
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Description: Eclipse NeoSCADA P2 Repository - [[artifactId]]
 Distribution: development

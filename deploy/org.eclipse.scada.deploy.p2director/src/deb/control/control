@@ -3,7 +3,7 @@ Version: [[version]]
 Section: misc
 Priority: optional
 Architecture: all
-Depends: org.eclipse.scada
+Depends: neoscada.common
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Description: Eclipse NeoSCADA P2 Director
 Distribution: development

@@ -1,0 +1,124 @@
+#!/usr/bin/perl
+
+##################################################################################
+# Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#      TH4 SYSTEMS GmbH - initial API and implementation
+##################################################################################
+
+$VERSION = '0.01';
+
+use lib $ENV{ECLIPSE_SCADA_HOME} . "/bin";
+use strict;
+
+use EclipseSCADA::JavaApplication;
+use Getopt::Long;
+
+my $debug = 0;
+my $verbose = 0;
+my $user = undef;
+my $stop = undef;
+my $attach = undef;
+my $propertiesFile = undef;
+
+GetOptions(
+  "debug!"=>\$debug,
+  "verbose!"=>\$verbose,
+  "user=s"=>\$user,
+  "stop!"=>\$stop,
+  "attach!"=>\$attach,
+  "properties=s"=>\$propertiesFile,
+);
+ 
+die "ECLIPSE_SCADA_HOME is not set" unless $ENV{"ECLIPSE_SCADA_HOME"};
+
+my $app = EclipseSCADA::JavaApplication->new (
+  shift,
+  shift
+);
+
+$app->debug ( $debug );
+$app->verbose ( $verbose );
+$app->user ( $user );
+$app->stop ( $stop );
+$app->attach ( $attach );
+
+$app->classpath ( EclipseSCADA::Base->classpath () );
+$app->appendClasspath ( EclipseSCADA::Base::configurationRoot () . "/drivers/" . $app->instanceName() . "/cls" );
+
+sub trim($)
+{
+  my $string = shift;
+  $string =~ s/^\s+//;
+  $string =~ s/\s+$//;
+  return $string;
+}
+
+# load from common
+$propertiesFile = EclipseSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/application.properties";
+if ( open FILE, "<$propertiesFile" )
+{
+  while ( my $line = <FILE> )
+  {
+      if ( $line =~ /(.*?)=(.*)/ )
+      { 
+        $app->addProperty ( $1, $2 );
+      }
+  }
+  close FILE;
+}
+
+# load from local
+$propertiesFile = EclipseSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/application.local.properties";
+if ( open FILE, "<$propertiesFile" )
+{
+  while ( my $line = <FILE> )
+  {
+      if ( $line =~ /(.*?)=(.*)/ )
+      { 
+        $app->addProperty ( $1, $2 );
+      }
+  }
+  close FILE;
+}
+
+# replace default java args if available - common
+if ( open FILE, "<" . EclipseSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/jvm.args" )
+{
+  my @args;
+  while ( my $line = <FILE> )
+  {
+    push @args, trim($line);
+  }
+  $app->javaArgs ( @args );
+  close FILE;
+}
+
+# replace default java args if available - local
+if ( open FILE, "<" . EclipseSCADA::Base::configurationRoot() . "/drivers/" . $app->instanceName () . "/jvm.local.args" )
+{
+  my @args;
+  while ( my $line = <FILE> )
+  {
+    push @args, trim($line);
+  }
+  $app->javaArgs ( @args );
+  close FILE;
+}
+
+my $logFile;
+
+# check for a logback configuration script ( common first, then override )
+$logFile = EclipseSCADA::Base::configurationRoot () . "/log/logback.xml";
+-r $logFile && $app->logbackConfiguration ( $logFile );
+$logFile = EclipseSCADA::Base::configurationRoot () . "/drivers/" . $app->instanceName () . "/logback.xml";
+-r $logFile && $app->logbackConfiguration ( $logFile );
+
+$app->setArgs ( @ARGV ) if @ARGV;
+
+$app->execCall ();

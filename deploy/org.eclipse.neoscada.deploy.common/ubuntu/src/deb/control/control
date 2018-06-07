@@ -1,0 +1,9 @@
+Package: [[name]]
+Version: [[version]]
+Section: misc
+Priority: optional
+Architecture: all
+Depends: java8-runtime-headless | java8-runtime | java9-runtime-headless | java9-runtime | java10-runtime-headless | java10-runtime, python-minimal | python2.7 | python3, perl (>= 5.0), adduser
+Maintainer: Juergen Rose <juergen.rose@ibh-systems.com>
+Description: Eclipse NeoSCADA base package - [[artifactId]]
+Distribution: development

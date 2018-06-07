@@ -6,4 +6,4 @@ Architecture: all
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Description: Eclipse NeoSCADA P2 Repository - [[artifactId]]
 Distribution: development
-Depends: org.eclipse.scada, emf-xsd (>= 2.9.2~), equinox-sdk (>= 4.3.2~), gemini-dbaccess (>= 1.1.0~), org.eclipse.ecf.sdk (>= 3.6.1~), rap (>= 2.2.0~)
+Depends: neoscada.common, emf-xsd-Update (>= 2.13.0~), equinox-sdk (>= 4.7.2~), gemini-dbaccess (>= 1.1.0~)

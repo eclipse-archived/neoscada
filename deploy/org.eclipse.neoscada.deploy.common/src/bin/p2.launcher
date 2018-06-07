@@ -1,0 +1,165 @@
+#!/usr/bin/env python2.7
+# -*- mode: Python; tab-width: 4; indent-tabs-mode: nil -*-
+
+##################################################################################
+# Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#      TH4 SYSTEMS GmbH - initial API and implementation
+##################################################################################
+
+import sys
+import os
+import glob
+import string
+import codecs
+
+from os import pathsep
+from string import split
+from os.path import exists, join, abspath
+
+def searchPath(filename, pathToSearch):
+    """Given a search path, find file
+    """
+    print "search " + pathToSearch
+    for path in string.split(pathToSearch, pathsep):
+       if exists(join(path, filename)):
+           return abspath(join(path, filename))
+      
+    return None
+    
+def findJava():
+    """ Find a valid java installation
+    """
+    
+    """ start with the local jre, if provided
+    """
+    java = "jre/bin/java"
+    if ( exists(java)):
+        return java
+    
+    """ next try JAVA_HOME
+    """
+    if os.environ.get("JAVA_HOME",None):
+        java = os.environ.get("JAVA_HOME",None) + os.sep + "bin"  + os.sep + "java"
+        if os.path.exists(java):
+            return java
+    
+    """ next try JRE_HOME
+    """    
+    if os.environ.get("JRE_HOME",None):
+        java = os.environ.get("JRE_HOME",None) + os.sep + "bin"  + os.sep + "java"
+        if os.path.exists(java):
+            return java
+        
+    """ use java from the path
+    """
+    java = searchPath("java",os.environ.get("PATH"))
+    if java:
+        return java
+        
+    return None
+
+def appendSystemProperties ( args, props ):
+    for key,value in props.items():
+        args.append ( "-D" + key + "=" + value )
+
+def loadPropertiesFile(properties, fileName):
+    """Load properties from file"""
+    if os.path.exists ( fileName ):
+        f = codecs.open ( fileName, encoding="UTF-8" )
+        for line in f:
+            line = line.strip ()
+            if not line:
+                continue
+            key,value = line.split ( "=", 1 )
+            properties[key] = value
+        f.close ()
+
+def getProperties(profile=None):
+    properties = {
+        "eclipse.ignoreApp":"true",
+        "osgi.noShutdown":"true"
+    }
+
+    loadPropertiesFile ( properties, "launcher.properties" )
+
+    if profile:
+        loadPropertiesFile ( properties, "launcher.%s.properties" % ( profile ) )
+    
+    return properties
+
+def getProfileName ():
+    """Return the name of the selected profile or 'None'"""
+
+    name = None
+    if os.path.exists ( "activeProfile" ):
+        f = codecs.open ( "activeProfile", encoding="UTF-8" )
+        for line in f:
+            line = line.strip ()
+            if not line:
+                continue
+            name = line
+
+        f.close ()
+
+    return name
+
+def appendJVMArguments(args):
+    """load the 'launcher.args' file  if available"""
+    if os.path.exists("launcher.args"):
+        f = codecs.open ( "launcher.args", encoding="UTF-8" )
+        for line in f:
+            args.append ( line.strip () )
+        f.close ()
+
+def main(argv):
+    appdir = os.path.dirname  ( os.path.abspath ( sys.argv[0] ) )
+    os.chdir(appdir)
+    matches = glob.glob ( "plugins/org.eclipse.equinox.launcher_*.jar" );
+    if len(matches) == 0:
+        raise Exception ( "No launcher found" )
+    if len(matches) > 2:
+        sys.stderr.write ( "More than one launcher was detected: " + matches )
+        
+    launcher = matches[0]
+    
+    java = findJava ()
+    if not java:
+        raise Exception("Unable to find JVM")
+
+    commandName = os.environ.get("COMMAND_NAME","launcher")
+
+    # Start putting together
+    args = [commandName]
+
+    profileName = getProfileName ()
+
+    if profileName:
+        print "Using profile: " + profileName
+    
+    appendSystemProperties ( args, getProperties ( profileName ) )
+    appendJVMArguments ( args );
+    
+    args.append ( "-jar" )
+    args.append ( launcher )
+    args.append ( "org.eclipse.equinox.launcher.Main" )
+    
+    if len(argv) == 0:
+        args.append ( "-console" )
+    else:
+        args.extend ( argv )
+    
+    print "calling : " + str(args)
+    
+    os.execv ( java, args )
+    
+if __name__ == "__main__":
+    #try:
+        main(sys.argv[1:])
+    #except Exception, e:
+    #    sys.stderr.write ( "Error occurred: " + e.message + os.linesep )

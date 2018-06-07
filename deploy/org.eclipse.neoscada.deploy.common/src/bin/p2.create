@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+##################################################################################
+# Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# 
+# Contributors:
+#      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - add P2_ARCH support
+##################################################################################
+
+# check arguments
+
+if [ -z "$1" ]; then
+	echo "p2.create <targetDir>"
+	exit 2
+fi
+
+# load functions
+
+. p2.functions || exit 1
+
+PROFILE="SDKProfile"
+FLAVOR="tooling"
+TARGET="$1"
+ARG_UNITS="$2"
+
+# check if a launcher already exists
+if [ -e "$TARGET" ]; then
+ 	echo "$TARGET already exists"
+ 	exit 1
+fi
+
+UNITS="org.eclipse.equinox.launcher"
+UNITS="$UNITS,org.eclipse.osgi"
+UNITS="$UNITS,org.eclipse.equinox.common"
+UNITS="$UNITS,org.eclipse.update.configurator"
+UNITS="$UNITS,org.eclipse.equinox.ds"
+UNITS="$UNITS,org.eclipse.equinox.p2.console"
+UNITS="$UNITS,org.eclipse.equinox.simpleconfigurator"
+UNITS="$UNITS,org.eclipse.equinox.simpleconfigurator.manipulator"
+UNITS="$UNITS,org.eclipse.equinox.frameworkadmin"
+UNITS="$UNITS,org.eclipse.equinox.frameworkadmin.equinox"
+UNITS="$UNITS,org.eclipse.scada.utils.osgi.autostart"
+
+# add additional units
+if [ ! -z "$ARG_UNITS" ]; then
+	UNITS="$UNITS,$ARG_UNITS"
+fi
+
+if p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch "$P2_ARCH" -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"; then
+	ln -s "`dirname $0`/p2.launcher" "$TARGET/launcher"
+
+	mkdir "$TARGET/configuration"
+	FULL_TARGET="`readlink -f $TARGET`"
+# write config.ini
+cat <<__EOF__ > "$TARGET/configuration/config.ini"
+osgi.bundles=org.eclipse.equinox.common@1:start, org.eclipse.update.configurator@2:start, org.eclipse.scada.utils.osgi.autostart@3:start
+eclipse.ignoreApp=true
+osgi.noShutdown=true
+equinox.use.ds=true
+eclipse.p2.data.area=@config.dir/../p2/
+eclipse.p2.profile=SDKProfile
+org.eclipse.scada.utils.osgi.autostart.file=$FULL_TARGET/startLevels.properties
+org.eclipse.equinox.simpleconfigurator.configUrl=file\:org.eclipse.equinox.simpleconfigurator/bundles.info
+__EOF__
+	
+else
+	exit 3 # installation failed
+fi
