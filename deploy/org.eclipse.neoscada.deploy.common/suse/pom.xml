@@ -36,6 +36,16 @@
 							<attach>true</attach>
 							<skipSigning>true</skipSigning>
 							<group>Application/Misc</group>
+							
+							<prerequisites>
+								<prerequisite>jre ge 1.8.0</prerequisite>
+								<prerequisite>python2</prerequisite>
+								<prerequisite>perl</prerequisite>
+								<prerequisite>shadow</prerequisite>
+								<prerequisite>rsync</prerequisite>
+								<prerequisite>glibc</prerequisite>
+							</prerequisites>
+
 							<rulesets>
 								<ruleset>
 									<id>default-rule</id>
@@ -50,12 +60,76 @@
 											<when>
 												<type>file</type>
 											</when>
-											<mode>0755</mode>
+											<mode>0644</mode>
 										</rule>
 									</rules>
 								</ruleset>
 							</rulesets>
 							<entries>
+								<!-- create directories -->
+								<entry>
+									<name>/etc/eclipsescada</name>
+									<mode>0755</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/etc/eclipsescada/schema</name>
+									<mode>0755</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/etc/eclipsescada/jarcfg</name>
+									<mode>0755</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/usr/jar</name>
+									<mode>0755</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/usr/share/eclipsescada</name>
+									<mode>0755</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/usr/share/eclipsescada/profiles</name>
+									<mode>0755</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/usr/share/eclipsescada/p2</name>
+									<mode>0755</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/usr/share/eclipsescada/sql</name>
+									<mode>0755</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/var/log/eclipsescada</name>
+									<user>root</user>
+									<group>eclipsescada</group>
+									<mode>0775</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/usr/lib/perl5/site_perl/EclipseSCADA</name>
+									<user>root</user>
+									<group>eclipsescada</group>
+									<mode>0775</mode>
+									<directory>true</directory>
+								</entry>
+								<entry>
+									<name>/var/run/eclipsescada</name>
+									<user>root</user>
+									<group>eclipsescada</group>
+									<mode>0775</mode>
+									<directory>true</directory>
+								</entry>
+
+								<!-- collect files -->
 								<entry>
 									<name>/usr/bin</name>
 									<collect>
@@ -63,7 +137,39 @@
 									</collect>
 									<ruleset>default-rule</ruleset>
 								</entry>
+								<entry>
+									<name>/usr/share/eclipsescada/sql</name>
+									<collect>
+										<from>../src/share/sql</from>
+									</collect>
+									<ruleset>default-rule</ruleset>
+									<directory>false</directory>
+								</entry>
+								<entry>
+									<name>/usr/lib/perl5/site_perl/EclipseSCADA</name>
+									<collect>
+										<from>../src/perl/EclipseSCADA</from>
+									</collect>
+									<ruleset>default-rule</ruleset>
+									<directory>false</directory>
+								</entry>
+								<entry>
+									<name>/etc/profile.d/eclipsescada.sh</name>
+									<file>../src/default/eclipsescada.sh</file>
+									<configuration>true</configuration>
+								</entry>
+								<entry>
+									<name>/etc/default/eclipsescada</name>
+									<file>../src/default/eclipsescada</file>
+									<configuration>true</configuration>
+								</entry>
 							</entries>
+							<beforeInstallation>
+								<file>../src/rpm/beforeInstallation</file>
+							</beforeInstallation>
+							<afterRemoval>
+								<file>../src/rpm/afterRemoval</file>
+							</afterRemoval>
 						</configuration>
 					</execution>
 				</executions>

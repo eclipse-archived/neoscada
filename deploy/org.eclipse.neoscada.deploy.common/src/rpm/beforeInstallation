@@ -1,0 +1,18 @@
+USER=eclipsescada
+
+if ! getent passwd $USER >/dev/null; then
+	# create new user
+	useradd --system --user-group --home "/var/lib/$USER" --comment "Eclipse NeoSCADA User" "$USER"
+fi
+mkdir -p "/var/lib/$USER"
+chown -R "$USER:$USER" "/var/lib/$USER"
+
+if [ -d "/var/log/$USER" ]; then
+	chgrp "$USER" "/var/log/$USER"
+	chmod 0770 "/var/log/$USER"
+fi
+
+if [ -d "/var/run/$USER" ]; then
+	chgrp "$USER" "/var/run/$USER"
+	chmod 0775 "/var/run/$USER"
+fi

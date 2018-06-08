@@ -3,16 +3,16 @@ MAINTAINER juergen.rose@ibh-systems.com
 
 ADD install /root/neoscada-install/
 
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/neoscada.common.suse*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/org.eclipse.platform*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/emf-xsd-Update*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/equinox-sdk*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/gemini-dbaccess*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/neoscada.deploy.p2director*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/neoscada.external.p2*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/neoscada.utils.p2*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/neoscada.base.p2*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/neoscada.core.p2*.rpm
-RUN zypper --non-interactive --no-gpg-checks install /root/neoscada-install/neoscada.protocols.p2*.rpm
+RUN rpm -Uvh /root/neoscada-install/neoscada.common.suse*.rpm
+RUN rpm -Uvh /root/neoscada-install/org.eclipse.platform*.rpm
+RUN rpm -Uvh /root/neoscada-install/emf-xsd-Update*.rpm
+RUN rpm -Uvh /root/neoscada-install/equinox-sdk*.rpm
+RUN rpm -Uvh /root/neoscada-install/gemini-dbaccess*.rpm
+RUN rpm -Uvh /root/neoscada-install/neoscada.deploy.p2director*.rpm
+RUN rpm -Uvh /root/neoscada-install/neoscada.external.p2*.rpm
+RUN rpm -Uvh /root/neoscada-install/neoscada.utils.p2*.rpm
+RUN rpm -Uvh /root/neoscada-install/neoscada.base.p2*.rpm
+RUN rpm -Uvh /root/neoscada-install/neoscada.core.p2*.rpm
+RUN rpm -Uvh /root/neoscada-install/neoscada.protocols.p2*.rpm
 
 CMD rpm -qa | grep neoscada

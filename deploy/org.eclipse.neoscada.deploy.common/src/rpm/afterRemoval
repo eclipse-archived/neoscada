@@ -1,0 +1,10 @@
+USER=eclipsescada
+
+if [ "$1" -eq "0" ]; then
+	# zero means this we are the last and now are gone
+	# so perform a complete uninstall
+	if which userdel >/dev/null 2>&amp;1; then
+		userdel "$USER" > /dev/null || true
+	fi
+	groupdel "$USER" > /dev/null || true
+fi

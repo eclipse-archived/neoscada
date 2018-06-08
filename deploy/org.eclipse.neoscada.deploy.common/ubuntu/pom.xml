@@ -37,8 +37,17 @@
 								<data>
 									<type>template</type>
 									<paths>
+										<path>/etc/eclipsescada</path>
+										<path>/etc/eclipsescada/schema</path>
+										<path>/etc/eclipsescada/jarcfg</path>
+										<path>/usr/jar</path>
+										<path>/usr/share/eclipsescada</path>
 										<path>/usr/share/eclipsescada/profiles</path>
 										<path>/usr/share/eclipsescada/p2</path>
+										<path>/usr/share/eclipsescada/sql</path>
+										<path>/var/log/eclipsescada</path>
+										<path>/usr/share/perl5/EclipseSCADA</path>
+										<path>/var/run/eclipsescada</path>
 									</paths>
 								</data>
 								<data>
@@ -48,6 +57,44 @@
 										<type>perm</type>
 										<prefix>/usr/bin</prefix>
 										<filemode>0755</filemode>
+									</mapper>
+								</data>
+								<data>
+									<src>../src/share</src>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/eclipsescada</prefix>
+										<filemode>0644</filemode>
+									</mapper>
+								</data>
+								<data>
+									<src>../src/perl</src>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/perl5</prefix>
+										<filemode>0644</filemode>
+									</mapper>
+								</data>
+								<data>
+									<src>../src/default/eclipsescada.sh</src>
+									<type>file</type>
+									<conffile>true</conffile>
+									<mapper>
+										<type>perm</type>
+										<prefix>/etc/profile.d</prefix>
+										<filemode>0744</filemode>
+									</mapper>
+								</data>
+								<data>
+									<src>../src/default/eclipsescada</src>
+									<type>file</type>
+									<conffile>true</conffile>
+									<mapper>
+										<type>perm</type>
+										<prefix>/etc/default</prefix>
+										<filemode>0644</filemode>
 									</mapper>
 								</data>
 							</dataSet>
