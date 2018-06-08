@@ -17,6 +17,58 @@
 	</properties>
 
 	<build>
+		<plugins>
+			<plugin>
+				<groupId>de.dentrassi.maven</groupId>
+				<artifactId>rpm</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>rpm</goal>
+						</goals>
+						<configuration>
+							<packageName>neoscada.common</packageName>
+							<outputFileName>neoscada.common.suse-${release.fullVersion}-${buildTimestamp}-noarch.rpm</outputFileName>
+							<forceRelease>true</forceRelease>							
+							<release>${buildTimestamp}</release>
+							<version>${release.fullVersion}</version>
+							<attach>true</attach>
+							<skipSigning>true</skipSigning>
+							<group>Application/Misc</group>
+							<rulesets>
+								<ruleset>
+									<id>default-rule</id>
+									<rules>
+										<rule>
+											<when>
+												<type>directory</type>
+											</when>
+											<mode>0755</mode>
+										</rule>
+										<rule>
+											<when>
+												<type>file</type>
+											</when>
+											<mode>0755</mode>
+										</rule>
+									</rules>
+								</ruleset>
+							</rulesets>
+							<entries>
+								<entry>
+									<name>/usr/bin</name>
+									<collect>
+										<from>../src/bin</from>
+									</collect>
+									<ruleset>default-rule</ruleset>
+								</entry>
+							</entries>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>

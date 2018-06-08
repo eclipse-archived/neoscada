@@ -59,6 +59,11 @@
 							<attach>true</attach>
 							<skipSigning>true</skipSigning>
 							<group>Application/Misc</group>
+
+							<prerequisites>
+								<prerequisite>neoscada.common</prerequisite>
+							</prerequisites>
+
 							<rulesets>
 								<ruleset>
 									<id>default-rule</id>
