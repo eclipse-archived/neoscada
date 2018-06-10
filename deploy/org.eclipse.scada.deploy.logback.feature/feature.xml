@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.eclipse.scada.deploy.logback"
+      id="org.eclipse.neoscada.deploy.logback.feature"
       label="%featureName"
-      version="0.1.0.qualifier"
+      version="0.5.0.qualifier"
       provider-name="%providerName"
       license-feature="org.eclipse.license"
       license-feature-version="1.0.1.qualifier">

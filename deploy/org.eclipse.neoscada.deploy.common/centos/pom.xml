@@ -29,7 +29,7 @@
 							<goal>rpm</goal>
 						</goals>
 						<configuration>
-							<packageName>neoscada.common</packageName>
+							<packageName>neoscada.common.centos</packageName>
 							<outputFileName>neoscada.common.centos-${release.fullVersion}-${buildTimestamp}-noarch.rpm</outputFileName>
 							<forceRelease>true</forceRelease>
 							<release>${buildTimestamp}</release>
@@ -45,7 +45,13 @@
 								<prerequisite>shadow-utils</prerequisite>
 								<prerequisite>rsync</prerequisite>
 								<prerequisite>glibc-common</prerequisite>
+								<prerequisite>which</prerequisite>
 							</prerequisites>
+
+							<provides>
+								<provide>neoscada.common</provide>
+								<provide>neoscada.common.centos</provide>
+							</provides>
 
 							<rulesets>
 								<ruleset>
@@ -62,6 +68,23 @@
 												<type>file</type>
 											</when>
 											<mode>0644</mode>
+										</rule>
+									</rules>
+								</ruleset>
+								<ruleset>
+									<id>executable-rule</id>
+									<rules>
+										<rule>
+											<when>
+												<type>directory</type>
+											</when>
+											<mode>0755</mode>
+										</rule>
+										<rule>
+											<when>
+												<type>file</type>
+											</when>
+											<mode>0755</mode>
 										</rule>
 									</rules>
 								</ruleset>
@@ -136,7 +159,7 @@
 									<collect>
 										<from>../src/bin</from>
 									</collect>
-									<ruleset>default-rule</ruleset>
+									<ruleset>executable-rule</ruleset>
 								</entry>
 								<entry>
 									<name>/usr/share/eclipsescada/sql</name>
@@ -157,11 +180,13 @@
 								<entry>
 									<name>/etc/profile.d/eclipsescada.sh</name>
 									<file>../src/default/eclipsescada.sh</file>
+									<ruleset>executable-rule</ruleset>
 									<configuration>true</configuration>
 								</entry>
 								<entry>
 									<name>/etc/default/eclipsescada</name>
 									<file>../src/default/eclipsescada</file>
+									<ruleset>default-rule</ruleset>
 									<configuration>true</configuration>
 								</entry>
 							</entries>

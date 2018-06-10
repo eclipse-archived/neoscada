@@ -5,5 +5,5 @@ Priority: optional
 Architecture: all
 Depends: neoscada.common
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
-Description: Eclipse NeoSCADA P2 Director
+Description: Eclipse NeoSCADA P2 Director - [[artifactId]]
 Distribution: development

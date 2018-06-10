@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<component:ComponentWorld xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:component="http://eclipse.org/SCADA/Configuration/Component" xmlns:item="http://eclipse.org/SCADA/Configuration/Item" xmi:id="_GsJXgGulEeiPuqvWKzSDNw">
+  <infrastructure href="world.esim#_GsBbsGulEeiPuqvWKzSDNw"/>
+  <defaultCustomizationPipeline xsi:type="item:JavaScriptCustomizationPipeline" href="customization/default.icm_js#/"/>
+  <defaultArchiveSelector xsi:type="item:JavaScriptSelector" href="customization/archiveSelector.isel_js#/"/>
+</component:ComponentWorld>

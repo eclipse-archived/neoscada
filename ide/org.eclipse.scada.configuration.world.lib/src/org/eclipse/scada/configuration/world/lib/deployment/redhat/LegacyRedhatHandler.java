@@ -170,12 +170,16 @@ public class LegacyRedhatHandler extends CommonPackageHandler
     {
         final Set<String> dependencies = new HashSet<> ();
 
-        dependencies.add ( "org.eclipse.scada" );
+        dependencies.add ( "neoscada.common" );
         if ( needP2 () )
         {
-            dependencies.add ( "org.eclipse.scada.p2" ); //$NON-NLS-1$
+            dependencies.add ( "org.eclipse.platform" ); //$NON-NLS-1$
+            dependencies.add ( "emf-xsd-Update" ); //$NON-NLS-1$
+            dependencies.add ( "equinox-sdk" ); //$NON-NLS-1$
+            dependencies.add ( "gemini-dbaccess" ); //$NON-NLS-1$
+            dependencies.add ( "neoscada.deploy.p2director" ); //$NON-NLS-1$
         }
-        dependencies.add ( "org.eclipse.scada.deploy.p2-incubation" );
+        dependencies.add ( "neoscada.protocols.p2" );
         dependencies.addAll ( this.deploy.getAdditionalDependencies () );
         dependencies.addAll ( additional );
 

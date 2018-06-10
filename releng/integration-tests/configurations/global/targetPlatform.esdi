@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<deployment:P2Platform xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:deployment="http://eclipse.org/SCADA/Configuration/World/Deployment" name="Eclipse Kepler (4.3)">
+  <repositories>http://download.eclipse.org/releases/kepler</repositories>
+  <repositories>http://download.eclipse.org/eclipsescada/updates/release/0.2.0/</repositories>
+</deployment:P2Platform>

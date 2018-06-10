@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<recipe:Definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:recipe="http://eclipse.org/SCADA/Configuration/Recipe" name="Production" id="production">
+  <task name="Load Models">
+    <execute name="bundle-class://org.eclipse.scada.configuration.utils/org.eclipse.scada.configuration.utils.LoadModel#load">
+      <inputValue xsi:type="recipe:StringInputValue" name="uri" value="world.escm"/>
+      <output localName="model" contextName="componentModel"/>
+    </execute>
+  </task>
+  <task name="Store Models" order="2147483647">
+    <execute name="bundle-class://org.eclipse.scada.configuration.utils/org.eclipse.scada.configuration.utils.StoreModel#store">
+      <mapInput localName="model" contextName="worldModel"/>
+      <inputValue xsi:type="recipe:StringInputValue" name="uri" value="result.eswm"/>
+    </execute>
+    <execute name="bundle-class://org.eclipse.scada.configuration.utils/org.eclipse.scada.configuration.utils.StoreModel#store">
+      <mapInput localName="model" contextName="globalizationModel"/>
+      <inputValue xsi:type="recipe:StringInputValue" name="uri" value="result.globalize"/>
+    </execute>
+  </task>
+  <import href="platform:/plugin/org.eclipse.scada.configuration.generator.component/default.recipe#default"/>
+  <profiles name="No deployment actions">
+    <properties key="skipRunDeployment" value="true"/>
+  </profiles>
+</recipe:Definition>

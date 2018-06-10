@@ -16,6 +16,11 @@
 
     <modules>
     	<module>org.eclipse.neoscada.deploy.common</module>
+    	<module>org.eclipse.scada.deploy.console.feature</module>
+    	<module>org.eclipse.scada.deploy.logback.feature</module>
+    	<module>org.eclipse.scada.deploy.feature</module>
+    	<module>org.eclipse.scada.deploy.sdk.feature</module>
+    	<module>org.eclipse.scada.deploy-p2</module>
     	<module>org.eclipse.scada.deploy.p2director</module>
     	<module>org.eclipse.scada.deploy.repack</module>
 	</modules>

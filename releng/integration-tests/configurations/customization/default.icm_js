@@ -1,0 +1,41 @@
+var DefaultFeatures = Packages.org.eclipse.scada.configuration.lib.DefaultFeatures; 
+
+if ((request.isAnalog() || request.isStringType()) && request.hasTag("input")) {
+	request.getLocalTags().add("V");
+
+	/*
+	 * if ( request.isComponentClass ( "LoadAverage" ) ) { request.addFeature (
+	 * DefaultFeatures.MIN(0) ); request.addFeature ( DefaultFeatures.HH(null) );
+	 * request.addFeature ( DefaultFeatures.H(null) ); }
+	 */
+
+} else if (request.isDigital() && request.hasTag("input")) {
+	request.getLocalTags().add("M");
+} else if (request.isDigital() && request.hasTag("command")) {
+	request.getLocalTags().add("C");
+} else if ((request.isAnalog() || request.isStringType()) && request.hasTag("output")) {
+	request.getLocalTags().add("S");
+} else if (request.hasTag("summary")) {
+	request.getLocalTags().removeLast();
+	request.getLocalTags().add("SUM");
+	request.getLocalTags().add("V");
+} else {
+	request.getLocalTags().add("X");
+}
+
+if (!request.isComponentClass("org.eclipse.scada.configuration.component.GlobalizeComponent")) {
+
+	// Always add a manual override for inputs
+
+	if (request.hasTag("input")) {
+		request.addFeature(DefaultFeatures.MANUAL_OVERRIDE(null));
+	}
+
+	if (request.hasTag("command")) {
+		request.addFeature(DefaultFeatures.BLOCK());
+	}
+}
+
+// Always add the Attributes Summary
+
+request.addFeature(DefaultFeatures.ASUM(request.getGlobalizationLevel()));

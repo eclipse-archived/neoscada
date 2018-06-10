@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ASCII"?>
+<infrastructure:World xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:deployment="http://eclipse.org/SCADA/Configuration/World/Deployment" xmlns:infrastructure="http://eclipse.org/SCADA/Configuration/Infrastructure" xmlns:world="http://eclipse.org/SCADA/Configuration/World" xmi:id="_GsBbsGulEeiPuqvWKzSDNw">
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_GsBbsWulEeiPuqvWKzSDNw" hostName="rpmbased">
+    <deployment xsi:type="deployment:RedhatDeploymentMechanism" xmi:id="_cKuCUGzsEeiumrov-Zimig" startupMechanism="SYSTEMD" multiUserScreen="true">
+      <changes xmi:id="_kkmeYGzsEeiumrov-Zimig" date="2018-06-10T22:26:34.025+0200" description="initial version" version="0.1.0">
+        <author href="global/deployment.information.esdi#_KtxkcWumEeiPuqvWKzSDNw"/>
+      </changes>
+      <maintainer href="global/deployment.information.esdi#_KtxkcWumEeiPuqvWKzSDNw"/>
+    </deployment>
+    <masters xmi:id="_GsBbtGulEeiPuqvWKzSDNw" name="master" instanceNumber="1"/>
+  </nodes>
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_B-6W4GumEeiPuqvWKzSDNw" hostName="ubuntu">
+    <deployment xsi:type="deployment:DebianDeploymentMechanism" xmi:id="_D9oGUGumEeiPuqvWKzSDNw" startupMechanism="SYSTEMD" multiUserScreen="true">
+      <changes xmi:id="_R_3SAGumEeiPuqvWKzSDNw" date="2018-06-09T07:30:52.946+0200" description="initial version" version="0.1.0">
+        <author href="global/deployment.information.esdi#_KtxkcWumEeiPuqvWKzSDNw"/>
+      </changes>
+      <maintainer href="global/deployment.information.esdi#_KtxkcWumEeiPuqvWKzSDNw"/>
+    </deployment>
+    <masters xmi:id="_B-6W4WumEeiPuqvWKzSDNw" name="master" instanceNumber="1"/>
+  </nodes>
+  <options xmi:id="_GsBbu2ulEeiPuqvWKzSDNw">
+    <monitorPools xmi:id="_GsD38GulEeiPuqvWKzSDNw" name="monitors.unsafe" filter="(status=UNSAFE)"/>
+    <monitorPools xmi:id="_GsD38WulEeiPuqvWKzSDNw" name="monitors.inactive" filter="(status=INACTIVE)"/>
+    <monitorPools xmi:id="_GsD38mulEeiPuqvWKzSDNw" name="monitors.not_ok" filter="(|(status=NOT_OK)(status=NOT_OK_NOT_AKN)(status=NOT_OK_AKN))"/>
+    <monitorPools xmi:id="_GsD382ulEeiPuqvWKzSDNw" name="monitors.ack_required" filter="(|(status=NOT_AKN)(status=NOT_OK_NOT_AKN))"/>
+    <monitorPools xmi:id="_GsD39GulEeiPuqvWKzSDNw" name="monitors.init" filter="(status=INIT)"/>
+    <monitorPools xmi:id="_GsD39WulEeiPuqvWKzSDNw" name="monitors.all" filter="(status=*)"/>
+    <eventPools xmi:id="_GsD39mulEeiPuqvWKzSDNw" name="events.all" filter="(eventType=*)" size="10000"/>
+    <defaultUserService xsi:type="infrastructure:SystemPropertyUserService" xmi:id="_GsD392ulEeiPuqvWKzSDNw">
+      <users xmi:id="_GsD3-GulEeiPuqvWKzSDNw" name="admin" password="admin12">
+        <roles>ADMIN</roles>
+      </users>
+      <users xmi:id="_GsD3-WulEeiPuqvWKzSDNw" name="interconnect" password="interconnect12">
+        <roles>INTERCONNECT</roles>
+      </users>
+    </defaultUserService>
+  </options>
+  <defaultSecurityConfiguration href="global/global.security#/"/>
+  <defaultMasterHandlerPriorities href="platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultPriorities.eswm#_sLVwoN_iEeKP_IG4d7_Nqg"/>
+  <defaultCredentials xsi:type="world:UsernamePasswordCredentials" xmi:id="_GsD3-mulEeiPuqvWKzSDNw" username="interconnect" password="interconnect12"/>
+  <defaultMasterCustomizationProfile href="global/master.customization.profile.xml#/"/>
+  <defaultValueArchiveCustomizationProfile href="global/hdserver.customization.profile.xml#/"/>
+  <defaultDriverPassword xmi:id="_GsD3-2ulEeiPuqvWKzSDNw" password="driver12"/>
+  <configurations xmi:id="_GsD3_GulEeiPuqvWKzSDNw"/>
+</infrastructure:World>

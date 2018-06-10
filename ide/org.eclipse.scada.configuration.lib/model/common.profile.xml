@@ -3,10 +3,10 @@
 includes="fragments/ca.file.profile.xml#/ fragments/equinox.profile.xml#/ fragments/logback.profile.xml#/ fragments/console.profile.xml#/ fragments/sec.profile.xml#/"
 name="Common Equinox Application Setup">
   	
-  <feature>org.eclipse.scada.external.feature.group</feature>
-  <feature>org.eclipse.scada.utils.feature.group</feature>
-  <feature>org.eclipse.scada.base.feature.group</feature>
-  <feature>org.eclipse.scada.protocols.feature.group</feature>
+  <feature>org.eclipse.neoscada.external.feature.feature.group</feature>
+  <feature>org.eclipse.neoscada.utils.feature.feature.group</feature>
+  <feature>org.eclipse.neoscada.base.feature.feature.group</feature>
+  <feature>org.eclipse.neoscada.protocols.feature.feature.group</feature>
   
   <feature>org.eclipse.equinox.server.core.feature.group</feature>
   <feature>org.eclipse.equinox.server.jetty.feature.group</feature>

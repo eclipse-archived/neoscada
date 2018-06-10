@@ -32,33 +32,38 @@
 		<copy-feature base-name="hmi" />
 		<copy-product base-name="hmi" product-name="org.eclipse.scada.hmi.adminclient.app-product" product="adminclient" />
 		<copy-feature base-name="ide" />
-		
+		<copy-feature base-name="deploy" />
+
 		<copy-packages project-dir="../../../deploy/org.eclipse.scada.deploy.p2director" feature-name="org.eclipse.neoscada.deploy" />
 		<copy-packages project-dir="../../../deploy/org.eclipse.scada.deploy.repack" feature-name="org.eclipse.neoscada.deploy" />
 
+		<copy-packages project-dir="../../../deploy/org.eclipse.neoscada.deploy.common/centos" feature-name="org.eclipse.neoscada.deploy" />
+		<copy-packages project-dir="../../../deploy/org.eclipse.neoscada.deploy.common/suse" feature-name="org.eclipse.neoscada.deploy" />
+		<copy-packages project-dir="../../../deploy/org.eclipse.neoscada.deploy.common/ubuntu" feature-name="org.eclipse.neoscada.deploy" />
+
 		<!-- create index.html -->
-        <copy todir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/">
-            <fileset dir="index">
-            </fileset>
-            <filterset>
-                <filter token="buildTypeLong" value="${imported.release.buildTypeLong}" />
-                <filter token="buildType" value="${imported.release.buildType}" />
-                <filter token="buildTimestamp" value="${imported.build.timestamp}" />
-            	<filter token="version" value="${imported.release.fullVersion}" />
-                <filter token="release" value="${imported.release.major.minor}" />
-            </filterset>
-        </copy>
-        <copy todir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/p2">
-            <fileset dir="p2">
-            </fileset>
-            <filterset>
-                <filter token="buildTypeLong" value="${imported.release.buildTypeLong}" />
-                <filter token="buildType" value="${imported.release.buildType}" />
-                <filter token="buildTimestamp" value="${imported.build.timestamp}" />
-            	<filter token="version" value="${imported.release.fullVersion}" />
-                <filter token="release" value="${imported.release.major.minor}" />
-            </filterset>
-        </copy>
+		<copy todir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/">
+			<fileset dir="index">
+			</fileset>
+			<filterset>
+				<filter token="buildTypeLong" value="${imported.release.buildTypeLong}" />
+				<filter token="buildType" value="${imported.release.buildType}" />
+				<filter token="buildTimestamp" value="${imported.build.timestamp}" />
+				<filter token="version" value="${imported.release.fullVersion}" />
+				<filter token="release" value="${imported.release.major.minor}" />
+			</filterset>
+		</copy>
+		<copy todir="${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/p2">
+			<fileset dir="p2">
+			</fileset>
+			<filterset>
+				<filter token="buildTypeLong" value="${imported.release.buildTypeLong}" />
+				<filter token="buildType" value="${imported.release.buildType}" />
+				<filter token="buildTimestamp" value="${imported.build.timestamp}" />
+				<filter token="version" value="${imported.release.fullVersion}" />
+				<filter token="release" value="${imported.release.major.minor}" />
+			</filterset>
+		</copy>
 	</target>
 
 
@@ -73,42 +78,42 @@
 			<mkdir dir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/packages" />
 			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}">
 				<fileset dir="@{project-dir}/target/repository">
-					<include name="**/*"/>
+					<include name="**/*" />
 				</fileset>
 			</copy>
 			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/pack">
 				<fileset dir="@{project-dir}/target/">
-					<include name="@{feature-name}@{feature-qualifier}-${imported.pom.version}.zip"/>
+					<include name="@{feature-name}@{feature-qualifier}-${imported.pom.version}.zip" />
 				</fileset>
 			</copy>
 			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/packages">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.deb"/>
-					<include name="*.rpm"/>
+					<include name="*.deb" />
+					<include name="*.rpm" />
 				</fileset>
 			</copy>
-			<mkdir dir="${tmp.target.path}/deb"/>
+			<mkdir dir="${tmp.target.path}/deb" />
 			<copy todir="${tmp.target.path}/deb">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.deb"/>
+					<include name="*.deb" />
 				</fileset>
 			</copy>
-			<mkdir dir="${tmp.target.path}/rpm"/>
+			<mkdir dir="${tmp.target.path}/rpm" />
 			<copy todir="${tmp.target.path}/rpm">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.rpm"/>
+					<include name="*.rpm" />
 				</fileset>
 			</copy>
-			<mkdir dir="${tmp.target.path}/deb-all"/>
+			<mkdir dir="${tmp.target.path}/deb-all" />
 			<copy todir="${tmp.target.path}/deb-all">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.deb"/>
+					<include name="*.deb" />
 				</fileset>
 			</copy>
-			<mkdir dir="${tmp.target.path}/rpm-all"/>
+			<mkdir dir="${tmp.target.path}/rpm-all" />
 			<copy todir="${tmp.target.path}/rpm-all">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.rpm"/>
+					<include name="*.rpm" />
 				</fileset>
 			</copy>
 		</sequential>
@@ -126,8 +131,8 @@
 			<mkdir dir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/products/@{product}" />
 			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/products/@{product}">
 				<fileset dir="@{product-dir}/target/products">
-					<include name="*.zip"/>
-					<include name="*.tar.gz"/>
+					<include name="*.zip" />
+					<include name="*.tar.gz" />
 				</fileset>
 			</copy>
 		</sequential>
@@ -141,32 +146,32 @@
 			<mkdir dir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/packages" />
 			<copy todir="@{target-dir}/@{feature-name}/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/packages">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.deb"/>
-					<include name="*.rpm"/>
+					<include name="*.deb" />
+					<include name="*.rpm" />
 				</fileset>
 			</copy>
-			<mkdir dir="${tmp.target.path}/deb"/>
+			<mkdir dir="${tmp.target.path}/deb" />
 			<copy todir="${tmp.target.path}/deb">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.deb"/>
+					<include name="*.deb" />
 				</fileset>
 			</copy>
-			<mkdir dir="${tmp.target.path}/rpm"/>
+			<mkdir dir="${tmp.target.path}/rpm" />
 			<copy todir="${tmp.target.path}/rpm">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.rpm"/>
+					<include name="*.rpm" />
 				</fileset>
 			</copy>
-			<mkdir dir="${tmp.target.path}/deb-all"/>
+			<mkdir dir="${tmp.target.path}/deb-all" />
 			<copy todir="${tmp.target.path}/deb-all">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.deb"/>
+					<include name="*.deb" />
 				</fileset>
 			</copy>
-			<mkdir dir="${tmp.target.path}/rpm-all"/>
+			<mkdir dir="${tmp.target.path}/rpm-all" />
 			<copy todir="${tmp.target.path}/rpm-all">
 				<fileset dir="@{project-dir}/target/">
-					<include name="*.rpm"/>
+					<include name="*.rpm" />
 				</fileset>
 			</copy>
 		</sequential>

@@ -7,6 +7,6 @@
   <property key="org.eclipse.equinox.console.jaas.file">configuration/store</property>
   <property key="java.security.auth.login.config">configuration/org.eclipse.equinox.console.authentication.config</property>
 
-  <feature>org.eclipse.scada.deploy.console.feature.group</feature>
+  <feature>org.eclipse.neoscada.deploy.console.feature.feature.group</feature>
   
 </profile:profile>

@@ -50,8 +50,8 @@
   <property key="osgi.console.ssh">2501</property>
   <property key="org.eclipse.scada.ae.server.storage.jdbc.archiveDays">15</property>
   
-  <feature>org.eclipse.scada.core.protocols.feature.group</feature>
-  <feature>org.eclipse.scada.core.server.feature.group</feature>
-  <feature>org.eclipse.scada.core.client.feature.group</feature>
-  <feature>org.eclipse.scada.core.common.feature.group</feature>
+  <feature>org.eclipse.neoscada.protocols.feature.feature.group</feature>
+  <feature>org.eclipse.neoscada.core.server.feature.feature.group</feature>
+  <feature>org.eclipse.neoscada.core.client.feature.feature.group</feature>
+  <feature>org.eclipse.neoscada.core.common.feature.feature.group</feature>
 </profile:profile>

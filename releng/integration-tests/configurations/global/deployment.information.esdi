@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<deployment:DeploymentInformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:deployment="http://eclipse.org/SCADA/Configuration/World/Deployment" xmi:id="_KtxkcGumEeiPuqvWKzSDNw">
+  <authors xmi:id="_KtxkcWumEeiPuqvWKzSDNw" name="Juergen Rose" email="juergen.rose@ibh-systems.com"/>
+</deployment:DeploymentInformation>

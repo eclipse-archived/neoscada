@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -12,7 +13,7 @@
 
 	<artifactId>org.eclipse.neoscada.deploy.common-suse</artifactId>
 	<packaging>pom</packaging>
-	
+
 	<properties>
 	</properties>
 
@@ -28,15 +29,15 @@
 							<goal>rpm</goal>
 						</goals>
 						<configuration>
-							<packageName>neoscada.common</packageName>
+							<packageName>neoscada.common.suse</packageName>
 							<outputFileName>neoscada.common.suse-${release.fullVersion}-${buildTimestamp}-noarch.rpm</outputFileName>
-							<forceRelease>true</forceRelease>							
+							<forceRelease>true</forceRelease>
 							<release>${buildTimestamp}</release>
 							<version>${release.fullVersion}</version>
 							<attach>true</attach>
 							<skipSigning>true</skipSigning>
 							<group>Application/Misc</group>
-							
+
 							<prerequisites>
 								<prerequisite>jre ge 1.8.0</prerequisite>
 								<prerequisite>python2</prerequisite>
@@ -44,7 +45,13 @@
 								<prerequisite>shadow</prerequisite>
 								<prerequisite>rsync</prerequisite>
 								<prerequisite>glibc</prerequisite>
+								<prerequisite>which</prerequisite>
 							</prerequisites>
+
+							<provides>
+								<provide>neoscada.common</provide>
+								<provide>neoscada.common.suse</provide>
+							</provides>
 
 							<rulesets>
 								<ruleset>
@@ -61,6 +68,23 @@
 												<type>file</type>
 											</when>
 											<mode>0644</mode>
+										</rule>
+									</rules>
+								</ruleset>
+								<ruleset>
+									<id>executable-rule</id>
+									<rules>
+										<rule>
+											<when>
+												<type>directory</type>
+											</when>
+											<mode>0755</mode>
+										</rule>
+										<rule>
+											<when>
+												<type>file</type>
+											</when>
+											<mode>0755</mode>
 										</rule>
 									</rules>
 								</ruleset>
@@ -135,7 +159,7 @@
 									<collect>
 										<from>../src/bin</from>
 									</collect>
-									<ruleset>default-rule</ruleset>
+									<ruleset>executable-rule</ruleset>
 								</entry>
 								<entry>
 									<name>/usr/share/eclipsescada/sql</name>
@@ -156,11 +180,13 @@
 								<entry>
 									<name>/etc/profile.d/eclipsescada.sh</name>
 									<file>../src/default/eclipsescada.sh</file>
+									<ruleset>executable-rule</ruleset>
 									<configuration>true</configuration>
 								</entry>
 								<entry>
 									<name>/etc/default/eclipsescada</name>
 									<file>../src/default/eclipsescada</file>
+									<ruleset>default-rule</ruleset>
 									<configuration>true</configuration>
 								</entry>
 							</entries>

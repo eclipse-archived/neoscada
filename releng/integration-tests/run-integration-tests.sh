@@ -42,6 +42,7 @@ cp ../../utils/org.eclipse.scada.utils-p2/target/*.deb install/
 cp ../../base/org.eclipse.scada.base-p2/target/*.deb install/
 cp ../../core/org.eclipse.scada.core-p2/target/*.deb install/
 cp ../../protocols/org.eclipse.scada.protocols-p2/target/*.deb install/
+cp ../../deploy/org.eclipse.scada.deploy-p2/target/*.deb install/
 
 cp ../../deploy/org.eclipse.neoscada.deploy.common/centos/target/*.rpm install/
 cp ../../deploy/org.eclipse.neoscada.deploy.common/suse/target/*.rpm install/
@@ -51,19 +52,28 @@ cp ../../utils/org.eclipse.scada.utils-p2/target/*.rpm install/
 cp ../../base/org.eclipse.scada.base-p2/target/*.rpm install/
 cp ../../core/org.eclipse.scada.core-p2/target/*.rpm install/
 cp ../../protocols/org.eclipse.scada.protocols-p2/target/*.rpm install/
+cp ../../deploy/org.eclipse.scada.deploy-p2/target/*.rpm install/
 
 cp install/*.rpm centos7.3/neoscada/install
 cp install/*.rpm opensuse42.2/neoscada/install
 cp install/*.deb ubuntu1604.2/neoscada/install
 
+cp common/* centos7.3/neoscada/install
+cp common/* opensuse42.2/neoscada/install
+cp common/* ubuntu1604.2/neoscada/install
+
+cp configurations/results/rpmbased*.rpm centos7.3/neoscada/install
+cp configurations/results/rpmbased*.rpm opensuse42.2/neoscada/install
+cp configurations/results/ubuntu*.deb ubuntu1604.2/neoscada/install
+
 # ---------------------------------------------------------------
 # install and run integration tests
 # ---------------------------------------------------------------
-docker build -t neoscada:it-centos73-test1 ./centos7.3/neoscada
-docker run neoscada:it-centos73-test1
+#docker build -t neoscada:it-centos73-test1 ./centos7.3/neoscada
+#docker run neoscada:it-centos73-test1
 
 docker build -t neoscada:it-opensuse422-test1 ./opensuse42.2/neoscada 
 docker run neoscada:it-opensuse422-test1
 
-docker build -t neoscada:it-ubuntu16042-test1 ./ubuntu1604.2/neoscada 
-docker run neoscada:it-ubuntu16042-test1
+#docker build -t neoscada:it-ubuntu16042-test1 ./ubuntu1604.2/neoscada 
+#docker run neoscada:it-ubuntu16042-test1

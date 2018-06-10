@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<deployment:NodeMappings xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:deployment="http://eclipse.org/SCADA/Configuration/World/Deployment" fallbackMode="IGNORE">
+  <entries xsi:type="deployment:ExpressionNodeMappingEntry" pattern="node(\d+)" replacement="testnode$1"/>
+</deployment:NodeMappings>

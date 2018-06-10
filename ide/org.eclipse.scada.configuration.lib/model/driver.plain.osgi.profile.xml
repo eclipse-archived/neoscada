@@ -12,8 +12,8 @@
 
 	<start>org.eclipse.scada.sec.audit.log.slf4j</start>
 	
-	<feature>org.eclipse.scada.core.protocols.feature.group</feature>
-	<feature>org.eclipse.scada.core.server.feature.group</feature>
-	<feature>org.eclipse.scada.core.client.feature.group</feature>
-	<feature>org.eclipse.scada.core.common.feature.group</feature>
+	<feature>org.eclipse.neoscada.protocols.feature.feature.group</feature>
+	<feature>org.eclipse.neoscada.core.server.feature.feature.group</feature>
+	<feature>org.eclipse.neoscada.core.client.feature.feature.group</feature>
+	<feature>org.eclipse.neoscada.core.common.feature.feature.group</feature>
 </profile:profile>

@@ -218,7 +218,7 @@ public class DebianHandler extends CommonPackageHandler
     {
         final Set<String> result = new TreeSet<> ( dependencies );
 
-        result.add ( "org.eclipse.scada" ); //$NON-NLS-1$
+        result.add ( "neoscada.common" ); //$NON-NLS-1$
 
         return StringHelper.join ( result, ", " ); //$NON-NLS-1$
     }
@@ -229,10 +229,14 @@ public class DebianHandler extends CommonPackageHandler
 
         if ( needP2 () )
         {
-            result.add ( "org.eclipse.scada.p2" ); //$NON-NLS-1$
+            result.add ( "org.eclipse.platform" ); //$NON-NLS-1$
+            result.add ( "emf-xsd-Update" ); //$NON-NLS-1$
+            result.add ( "equinox-sdk" ); //$NON-NLS-1$
+            result.add ( "gemini-dbaccess" ); //$NON-NLS-1$
+            result.add ( "neoscada.deploy.p2director" ); //$NON-NLS-1$
         }
 
-        result.add ( "org.eclipse.scada.deploy.p2-incubation" ); //$NON-NLS-1$
+        result.add ( "neoscada.protocols.p2" ); //$NON-NLS-1$
         result.addAll ( this.deploy.getAdditionalDependencies () );
 
         final StartupHandler sh = getStartupHandler ();
