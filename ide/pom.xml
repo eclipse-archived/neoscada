@@ -124,6 +124,11 @@
 		<module>org.eclipse.neoscada.configuration.iec60870.lib</module>
 		<module>org.eclipse.neoscada.configuration.iec60870.tests</module>
 		
+		<module>org.eclipse.neoscada.configuration.iec62541</module>
+		<module>org.eclipse.neoscada.configuration.iec62541.edit</module>
+		<module>org.eclipse.neoscada.configuration.iec62541.lib</module>
+		<module>org.eclipse.neoscada.configuration.iec62541.tests</module>
+		
 		<module>org.eclipse.scada.configuration.setup.common</module>
 		<module>org.eclipse.scada.configuration.setup.common.edit</module>
 		<module>org.eclipse.scada.configuration.setup.common.lib</module>
@@ -144,6 +149,7 @@
 		
 		<!--  features -->
 		<module>org.eclipse.neoscada.configuration.iec60870.feature</module>
+		<module>org.eclipse.neoscada.configuration.iec62541.feature</module>
 		<module>org.eclipse.scada.configuration.arduino.feature</module>
 		<module>org.eclipse.scada.configuration.feature</module>
 		<module>org.eclipse.scada.ide.da.server.ui.feature</module>

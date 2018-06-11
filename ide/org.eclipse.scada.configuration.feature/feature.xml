@@ -27,6 +27,10 @@
          id="org.eclipse.neoscada.configuration.iec60870.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.neoscada.configuration.iec62541.feature"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.eclipse.license" version="1.0.1"/>
       <import plugin="org.eclipse.ui"/>
@@ -659,14 +663,6 @@
          version="0.0.0"
          unpack="false"/>
 
-<!-- FIXME: find out if tukani is still needed
-   <plugin
-         id="org.tukani.xz"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
--->
    <plugin
          id="bcprov"
          download-size="0"

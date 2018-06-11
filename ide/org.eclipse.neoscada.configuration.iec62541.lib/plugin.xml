@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+     <extension
+         point="org.eclipse.scada.configuration.world.lib.generator">
+      <nodeElementProcessor
+            factoryClass="org.eclipse.neoscada.configuration.iec62541.lib.DriverProcessorFactory"
+            forClass="org.eclipse.neoscada.configuration.iec62541.DriverApplication">
+      </nodeElementProcessor>
+   </extension>
+   
+  <extension
+        point="org.eclipse.core.runtime.adapters">
+   <factory
+         adaptableType="org.eclipse.neoscada.configuration.iec62541.IEC62541Driver"
+         class="org.eclipse.neoscada.configuration.iec62541.lib.DriverAdapterFactoryImpl">
+      <adapter
+            type="org.eclipse.scada.configuration.infrastructure.lib.DriverHandler">
+      </adapter>
+   </factory>
+        
+  </extension>
+</plugin>

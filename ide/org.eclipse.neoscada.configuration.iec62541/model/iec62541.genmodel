@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.neoscada.configuration.iec62541/src" creationSubmenus="true"
+    modelPluginID="org.eclipse.neoscada.configuration.iec62541" modelName="IEC62541" nonNLSMarkers="true"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    providerRootExtendsClass="" usedGenPackages="../../org.eclipse.scada.configuration.component/model/component.genmodel#//component ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>iec62541.ecore</foreignModel>
+  <genPackages prefix="IEC62541" basePackage="org.eclipse.neoscada.configuration" resource="XMI"
+      disposableProviderFactory="true" extensibleProviderFactory="true" childCreationExtenders="true"
+      ecorePackage="iec62541.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iec62541.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//DataType/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//DataType/BOOLEAN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="iec62541.ecore#//IECType">
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//IECType/C_SC_NA_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//IECType/C_SC_TA_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//IECType/C_SE_NA_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//IECType/C_SE_TA_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//IECType/C_SE_NB_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//IECType/C_SE_TB_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//IECType/C_SE_NC_1"/>
+      <genEnumLiterals ecoreEnumLiteral="iec62541.ecore#//IECType/C_SE_TC_1"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="iec62541.ecore#//Address"/>
+    <genClasses ecoreClass="iec62541.ecore#//Exporter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//Exporter/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//Device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//Device/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//Device/items"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iec62541.ecore#//Device/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//Device/protocolOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//Device/dataModuleOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//Device/hiveProperties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//Device/spontaneousBufferWindow"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//Item">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iec62541.ecore#//Item/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//Item/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//Item/type"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//ExporterItemInterceptor">
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference iec62541.ecore#//ExporterItemInterceptor/script"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//ExporterItemInterceptor/protocolOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//ExporterItemInterceptor/dataModuleOptions"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec62541.ecore#//ExporterItemInterceptor/port"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//ExporterItemInterceptor/hiveProperties"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec62541.ecore#//ExporterItemInterceptor/spontaneousBufferWindow"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//ProtocolOptions">
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/timeout1"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/timeout2"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/timeout3"/>
+      <genFeatures createChild="false" propertyCategory="parameters" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/asduAddressSize"/>
+      <genFeatures createChild="false" propertyCategory="parameters" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/informationObjectAddressSize"/>
+      <genFeatures createChild="false" propertyCategory="parameters" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/causeOfTransmissionSize"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/w"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/k"/>
+      <genFeatures createChild="false" propertyCategory="time" propertySortChoices="true"
+          ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/targetTimeZone"/>
+      <genFeatures createChild="false" propertyCategory="time" ecoreFeature="ecore:EAttribute iec62541.ecore#//ProtocolOptions/ignoreDaylightSavingTime"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//DataModuleOptions">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//DataModuleOptions/backgroundScanPeriod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//DataModuleOptions/spontaneousItemBuffer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//DataModuleOptions/timestampsForBoolean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//DataModuleOptions/timestampsForFloat"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//ClientDevice">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iec62541.ecore#//ClientDevice/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//ClientDevice/protocolOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//ClientDevice/dataModuleOptions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//ClientDevice/id"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//DriverApplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//DriverApplication/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//ClientDataModuleOptions">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//ClientDataModuleOptions/ignoreBackgroundScan"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//IEC62541Driver">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference iec62541.ecore#//IEC62541Driver/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//IEC62541Device">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//IEC62541Device/dataModuleOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//IEC62541Device/protocolOptions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//IEC62541Device/port"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec62541.ecore#//ClientDevice/types"/>
+    </genClasses>
+    <genClasses ecoreClass="iec62541.ecore#//ItemType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//ItemType/item"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec62541.ecore#//ItemType/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

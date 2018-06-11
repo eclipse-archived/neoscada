@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
+	xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
+	includes="platform:/plugin/org.eclipse.scada.configuration.lib/model/fragments/ca.file.profile.xml#/ platform:/plugin/org.eclipse.scada.configuration.lib/model/driver.plain.osgi.profile.xml#/"
+	name="IEC 62541 Driver">
+	<feature>org.eclipse.neoscada.da.server.iec62541</feature>
+	<start>org.eclipse.neoscada.da.server.iec62541</start>
+</profile:profile>
