@@ -38,6 +38,7 @@ import org.eclipse.milo.opcua.stack.core.types.structured.RelativePath;
 import org.eclipse.milo.opcua.stack.core.types.structured.RelativePathElement;
 import org.eclipse.milo.opcua.stack.core.types.structured.TranslateBrowsePathsToNodeIdsResponse;
 import org.eclipse.neoscada.da.server.iec62541.ItemManager;
+import org.eclipse.neoscada.da.server.iec62541.ItemManager.NodeInfo;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.server.OperationParameters;
 import org.eclipse.scada.da.core.WriteResult;

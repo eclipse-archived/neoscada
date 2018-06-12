@@ -152,7 +152,8 @@ public class OpcUaConnection implements SessionActivityListener, ServiceFaultLis
         logger.trace ( "handleCreateClient () - used endpoint = {}", usedEndpointDescription );
         final OpcUaClientConfigBuilder clientConfigBuilder = new OpcUaClientConfigBuilder ();
         clientConfigBuilder.setEndpoint ( usedEndpointDescription );
-        clientConfigBuilder.setSecureChannelReauthenticationEnabled ( false );
+        // FIXME: check why this was removed, if we need it at all
+        // clientConfigBuilder.setSecureChannelReauthenticationEnabled ( false );
         this.client = new OpcUaClient ( clientConfigBuilder.build () );
         this.client.addSessionActivityListener ( this );
         this.client.addFaultListener ( this );

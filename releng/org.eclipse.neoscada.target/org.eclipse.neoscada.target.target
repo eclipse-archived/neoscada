@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1524235273">
+<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1528802261">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.13.4.v20180322-2228"/>
@@ -55,9 +55,16 @@
       <unit id="org.eclipse.packagedrone.utils.security" version="1.0.1.20170407-0727"/>
       <unit id="org.eclipse.packagedrone.utils.rpm" version="0.14.1.20170407-0726"/>
       <unit id="org.eclipse.packagedrone.utils.deb" version="1.0.0.20170407-0726"/>
-      <unit id="bcpg" version="1.52.0"/>
-      <unit id="bcprov" version="1.52.0"/>
-      <repository location="http://thedrone.packagedrone.org/p2/neoscada-05-dependencies/"/>
+      <unit id="bcpg" version="1.59.0"/>
+      <unit id="bcprov" version="1.59.0"/>
+      <unit id="bcpkix" version="1.59.0"/>
+      <unit id="com.codepoetics.protonpack" version="1.15.0"/>
+      <unit id="org.eclipse.milo.bsd-parser-core" version="0.2.1"/>
+      <unit id="org.eclipse.milo.stack-core" version="0.2.1"/>
+      <unit id="org.eclipse.milo.stack-client" version="0.2.1"/>
+      <unit id="org.eclipse.milo.sdk-core" version="0.2.1"/>
+      <unit id="org.eclipse.milo.sdk-client" version="0.2.1"/>
+      <repository location="http://thedrone.packagedrone.org/p2/neoscada-05-dependencies"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>

@@ -42,8 +42,8 @@ location "http://download.eclipse.org/paho/" {
 	org.eclipse.paho.client.mqttv3
 }
 
-location "http://thedrone.packagedrone.org/p2/neoscada-05-dependencies/" {
-	// FIXME: we need CQs for the current version! Also Orbit?
+location "http://thedrone.packagedrone.org/p2/neoscada-05-dependencies" {
+	// FIXME: we need CQs for the current version! Also Orbit?	
 	io.netty.buffer [4.1.11,5.0.0)
 	io.netty.common [4.1.11,5.0.0)
 	io.netty.codec [4.1.11,5.0.0)
@@ -56,8 +56,15 @@ location "http://thedrone.packagedrone.org/p2/neoscada-05-dependencies/" {
 	org.eclipse.packagedrone.utils.security [1.0.1,1.1.0)
 	org.eclipse.packagedrone.utils.rpm [0.14.0,1.0.0)
 	org.eclipse.packagedrone.utils.deb [1.0.0,1.1.0)
-	bcpg [1.52.0,1.52.1)
-	bcprov [1.52.0,1.52.1)
+	bcpg [1.59.0,1.59.1)
+	bcprov [1.59.0,1.59.1)
+	bcpkix [1.59.0,1.59.1)
+	com.codepoetics.protonpack [1.15.0,2.0.0)
+	org.eclipse.milo.bsd-parser-core [0.2.1,0.3.0)
+	org.eclipse.milo.stack-core [0.2.1,0.3.0)
+	org.eclipse.milo.stack-client [0.2.1,0.3.0)
+	org.eclipse.milo.sdk-core [0.2.1,0.3.0)
+	org.eclipse.milo.sdk-client [0.2.1,0.3.0)
 } 
 
 location "http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository/" {
