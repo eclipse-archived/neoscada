@@ -1,29 +1,28 @@
 package org.eclipse.neoscada.da.server.iec62541;
 
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardWatchEventKinds;
-import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.net.URL;
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentSkipListMap;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
+import org.eclipse.scada.ca.ConfigurationAdministrator;
+import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.da.server.browser.common.FolderCommon;
 import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.common.ValidationStrategy;
-import org.eclipse.scada.da.server.common.impl.HiveCommon;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.eclipse.scada.da.server.common.osgi.AbstractOsgiHiveCommon;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class OpcUaHive extends HiveCommon
+public class OpcUaHive extends AbstractOsgiHiveCommon
 {
     private final static Logger logger = LoggerFactory.getLogger ( OpcUaHive.class );
 
@@ -31,22 +30,31 @@ public class OpcUaHive extends HiveCommon
 
     private FolderCommon rootFolder;
 
-    private final Path configDir;
+    private ServiceRegistration<org.eclipse.scada.ca.ConfigurationFactory> handle;
 
-    private ScheduledExecutorService executor;
+    private final ConcurrentMap<String, OpcUaConnection> servers = new ConcurrentSkipListMap<> ();
 
-    private WatchService watchService;
+    private final BundleContext context;
 
-    private final ConcurrentMap<String, OpcUaConnection> configuredConnections = new ConcurrentSkipListMap<> ();
+    private final ConfigurationFactory configurator;
 
-    public OpcUaHive ( final String configDir )
+    public OpcUaHive ()
     {
-        super ();
+        this ( FrameworkUtil.getBundle ( OpcUaHive.class ).getBundleContext () );
+    }
 
-        setValidatonStrategy ( ValidationStrategy.GRANT_ALL );
+    public OpcUaHive ( final BundleContext context )
+    {
+        super ( context );
 
-        this.configDir = Paths.get ( configDir );
-        setRootFolder ( this.rootFolder = new FolderCommon () );
+        this.context = context;
+
+        setValidationStrategy ( ValidationStrategy.GRANT_ALL );
+
+        this.rootFolder = new FolderCommon ();
+        setRootFolder ( this.rootFolder );
+
+        this.configurator = new ConfigurationFactory ( this );
     }
 
     @Override
@@ -59,90 +67,34 @@ public class OpcUaHive extends HiveCommon
     public void performStart () throws Exception
     {
         super.performStart ();
-        this.executor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( OpcUaHive.class.getName () ) );
-        this.watchService = FileSystems.getDefault ().newWatchService ();
-        this.configDir.register ( this.watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_MODIFY );
-        this.executor.submit ( new Runnable () {
-            @Override
-            public void run ()
-            {
-                reConfigureHive ();
-            }
-        } );
-        // every ten seconds check if config file has changed in the meantime
-        this.executor.scheduleAtFixedRate ( new Runnable () {
-            @Override
-            public void run ()
-            {
-                checkForConfigChange ();
-            }
-        }, 0, 10, TimeUnit.SECONDS );
+
+        final Dictionary<String, Object> properties = new Hashtable<> ( 2 );
+        properties.put ( ConfigurationAdministrator.FACTORY_ID, "org.eclipse.neoscada.da.server.iec62541.server" );
+        properties.put ( Constants.SERVICE_DESCRIPTION, "An IEC 62541 (OPC UA) DA server connection" );
+        this.handle = this.context.registerService ( org.eclipse.scada.ca.ConfigurationFactory.class, this.configurator, properties );
     }
 
-    protected void checkForConfigChange ()
+    @Override
+    protected void performStop () throws Exception
     {
-        boolean trigger = false;
-        if ( this.watchService != null )
-        {
-            final WatchKey wk = this.watchService.poll ();
-            if ( wk == null )
-            {
-                return;
-            }
-            // we only care if file has been touched at all
-            trigger = !wk.pollEvents ().isEmpty ();
-            wk.reset ();
-        }
-        if ( trigger )
-        {
-            this.executor.submit ( new Runnable () {
-                @Override
-                public void run ()
-                {
-                    reConfigureHive ();
-                }
-            } );
-        }
+        this.handle.unregister ();
+        super.performStop ();
     }
 
-    protected void reConfigureHive ()
+    OpcUaConnection addServer ( final String configurationId, final Map<String, String> parameters ) throws Exception
     {
-        logger.info ( "reconfigure hive" );
-        final SortedSet<ConnectionConfig> currentPlantConfigs = ConnectionConfig.readConnectionConfigs ( this.configDir.toFile () );
-        final SortedSet<ConnectionConfig> toDelete = new TreeSet<> ();
-        final SortedSet<ConnectionConfig> toCreate = new TreeSet<> ();
-        for ( final ConnectionConfig connectionConfig : currentPlantConfigs )
-        {
-            if ( !this.configuredConnections.containsValue ( connectionConfig ) )
-            {
-                toCreate.add ( connectionConfig );
-            }
-        }
-        for ( final OpcUaConnection connection : this.configuredConnections.values () )
-        {
-            if ( !currentPlantConfigs.contains ( connection.getConfiguration () ) )
-            {
-                toDelete.add ( connection.getConfiguration () );
-            }
-        }
-        for ( final ConnectionConfig connectionConfig : toDelete )
-        {
-            removeServer ( connectionConfig );
-        }
-        for ( final ConnectionConfig connectionConfig : toCreate )
-        {
-            addServer ( connectionConfig );
-        }
-    }
+        final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
 
-    private OpcUaConnection addServer ( final ConnectionConfig connectionConfig )
-    {
-        final OpcUaConnection service = new OpcUaConnection ( connectionConfig, this, this.rootFolder );
+        final URL url = new URL ( cfg.getStringNonEmptyChecked ( "url", "'url' must be set to a valid server URL" ) );
+
+        final ServerConfiguration config = new ServerConfiguration ( url );
+
+        final OpcUaConnection service = new OpcUaConnection ( configurationId, config, this, this.rootFolder );
 
         synchronized ( this )
         {
             // perform add
-            final OpcUaConnection oldService = this.configuredConnections.put ( connectionConfig.getName (), service );
+            final OpcUaConnection oldService = this.servers.put ( configurationId, service );
             if ( oldService != null )
             {
                 oldService.dispose ();
@@ -154,35 +106,18 @@ public class OpcUaHive extends HiveCommon
         return service;
     }
 
-    private void removeServer ( final ConnectionConfig connectionConfig )
+    void removeServer ( final String configurationId )
     {
         final OpcUaConnection server;
 
         synchronized ( this )
         {
-            server = this.configuredConnections.remove ( connectionConfig.getName () );
+            server = this.servers.remove ( configurationId );
         }
         if ( server != null )
         {
             server.dispose ();
         }
-    }
-
-    @Override
-    public void performStop () throws Exception
-    {
-        if ( this.watchService != null )
-        {
-            this.watchService.close ();
-        }
-        this.watchService = null;
-        if ( this.executor != null )
-        {
-            this.executor.shutdown ();
-        }
-        this.executor = null;
-
-        super.performStop ();
     }
 
     @Override
@@ -219,7 +154,7 @@ public class OpcUaHive extends HiveCommon
     {
         OpcUaConnection server = null;
 
-        server = this.configuredConnections.get ( connectionId );
+        server = this.servers.get ( connectionId );
 
         if ( server == null )
         {

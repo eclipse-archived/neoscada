@@ -54,8 +54,10 @@ public class OpcUaConnection implements SessionActivityListener, ServiceFaultLis
     private final ItemManager itemManager;
 
     private final Map<String, RemoteDataItem> items = new HashMap<> ();
+    
+    private final String id;
 
-    private final ConnectionConfig configuration;
+    private final ServerConfiguration configuration;
 
     private OpcUaClient client;
 
@@ -69,11 +71,12 @@ public class OpcUaConnection implements SessionActivityListener, ServiceFaultLis
 
     protected Supplier<UaSubscription> subscriptionSupplier;
 
-    public OpcUaConnection ( final ConnectionConfig connectionConfig, final OpcUaHive hive, final FolderCommon rootFolder )
+    public OpcUaConnection ( final String id, final ServerConfiguration configuration, final OpcUaHive hive, final FolderCommon rootFolder )
     {
         logger.trace ( "constructor called" );
-        this.configuration = connectionConfig;
-        this.executor = Executors.newSingleThreadScheduledExecutor ( new ThreadFactoryBuilder ().setNameFormat ( makeBeanName ( "UA/" + this.configuration.getUri () + "-%d" ) ).build () );
+        this.id = id;
+        this.configuration = configuration;
+        this.executor = Executors.newSingleThreadScheduledExecutor ( new ThreadFactoryBuilder ().setNameFormat ( makeBeanName ( "UA/" + this.configuration.getUrl () + "-%d" ) ).build () );
 
         this.hive = hive;
         this.rootFolder = rootFolder;
@@ -88,18 +91,18 @@ public class OpcUaConnection implements SessionActivityListener, ServiceFaultLis
 
     }
 
-    public ConnectionConfig getConfiguration ()
-    {
-        return this.configuration;
-    }
+//    public ConnectionConfig getConfiguration ()
+//    {
+//        return this.configuration;
+//    }
 
     public void start ()
     {
         logger.debug ( "start ()" );
         final Map<String, Variant> attributes = new HashMap<> ( 1 );
-        attributes.put ( "description", Variant.valueOf ( "Folder for connection: " + this.configuration.getUri () ) );
+        attributes.put ( "description", Variant.valueOf ( "Folder for connection: " + this.configuration.getUrl () ) );
 
-        this.rootFolder.add ( this.configuration.getName (), this.connectionFolder, attributes );
+        this.rootFolder.add ( this.id, this.connectionFolder, attributes );
 
         // create root factory
 
@@ -114,7 +117,7 @@ public class OpcUaConnection implements SessionActivityListener, ServiceFaultLis
     private void handleSelectEndpoint ()
     {
         logger.trace ( "handleSelectEndpoint ()" );
-        final CompletableFuture<EndpointDescription[]> promise = UaTcpStackClient.getEndpoints ( this.configuration.getUri ().toString () );
+        final CompletableFuture<EndpointDescription[]> promise = UaTcpStackClient.getEndpoints ( this.configuration.getUrl ().toString () );
         promise.whenCompleteAsync ( ( endpointDescriptions, t ) -> {
             if ( t != null )
             {
@@ -263,21 +266,21 @@ public class OpcUaConnection implements SessionActivityListener, ServiceFaultLis
     {
         if ( localId == null )
         {
-            return this.configuration.getName ();
+            return this.id;
         }
 
-        return this.configuration.getName () + "." + localId;
+        return this.id + "." + localId;
     }
 
     private String makeDataId ( final String remoteId )
     {
         if ( remoteId == null )
         {
-            return this.configuration.getName () + ".data" + DATA_DELIM;
+            return this.id + ".data" + DATA_DELIM;
         }
         else
         {
-            return this.configuration.getName () + ".data" + DATA_DELIM + remoteId;
+            return this.id + ".data" + DATA_DELIM + remoteId;
         }
     }
 

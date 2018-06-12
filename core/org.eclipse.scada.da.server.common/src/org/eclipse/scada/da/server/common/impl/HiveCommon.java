@@ -942,8 +942,21 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
      * started (e.g. in the constructor of the hive).
      *
      * @param validatonStrategy
+     * @deprecated use setValidationStrategy instead
      */
     protected void setValidatonStrategy ( final ValidationStrategy validatonStrategy )
+    {
+        this.validationStrategy = validatonStrategy;
+    }
+
+    /**
+     * Set the validation strategy <br/>
+     * <em>Note:</em> The validation strategy has to be set before the hive is
+     * started (e.g. in the constructor of the hive).
+     *
+     * @param validatonStrategy
+     */
+    protected void setValidationStrategy ( final ValidationStrategy validatonStrategy )
     {
         this.validationStrategy = validatonStrategy;
     }
