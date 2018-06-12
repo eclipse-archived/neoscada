@@ -34,6 +34,8 @@
 		<module>org.eclipse.scada.core.server.ngp</module>
 		<module>org.eclipse.scada.core.client.ngp</module>
 
+		<module>org.eclipse.neoscada.core.common.iec60870</module>
+
     	<!-- ca -->
 		<module>org.eclipse.scada.ca.data</module>
 		<module>org.eclipse.scada.ca</module>
@@ -130,6 +132,9 @@
 		<module>org.eclipse.scada.da.server.component.parser.factory.edit</module>
 		<module>org.eclipse.scada.da.server.component.linux</module>
 		<module>org.eclipse.scada.da.server.test</module>
+		<module>org.eclipse.neoscada.da.server.iec60870</module>
+		<module>org.eclipse.neoscada.da.server.exporter.iec60870</module>
+		<module>org.eclipse.neoscada.da.server.iec62541</module>
 
     	<!-- ae -->
 		<module>org.eclipse.scada.ae.data</module>
