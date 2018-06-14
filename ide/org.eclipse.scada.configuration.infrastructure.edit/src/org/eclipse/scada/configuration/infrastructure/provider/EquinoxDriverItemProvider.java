@@ -74,8 +74,8 @@ public class EquinoxDriverItemProvider extends AbstractFactoryDriverItemProvider
     protected void addInstanceNumberPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxBase_instanceNumber_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxBase_instanceNumber_feature", "_UI_EquinoxBase_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.EQUINOX_BASE__INSTANCE_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxBase_instanceNumber_feature", "_UI_EquinoxBase_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EQUINOX_BASE__INSTANCE_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -87,8 +87,8 @@ public class EquinoxDriverItemProvider extends AbstractFactoryDriverItemProvider
     protected void addSecurityConfigurationPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxBase_securityConfiguration_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxBase_securityConfiguration_feature", "_UI_EquinoxBase_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.EQUINOX_BASE__SECURITY_CONFIGURATION, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxBase_securityConfiguration_feature", "_UI_EquinoxBase_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EQUINOX_BASE__SECURITY_CONFIGURATION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -100,8 +100,8 @@ public class EquinoxDriverItemProvider extends AbstractFactoryDriverItemProvider
     protected void addConfigurationPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EquinoxBase_configuration_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxBase_configuration_feature", "_UI_EquinoxBase_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATION, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxBase_configuration_feature", "_UI_EquinoxBase_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EQUINOX_BASE__CONFIGURATION, true, false, true, null, null, null ) );
     }
 
     /**

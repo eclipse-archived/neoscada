@@ -249,7 +249,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValueArchiveSlave" eSuperTypes="#//EquinoxApplication">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storagePath" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="/var/lib/eclipsescada/hds.slave"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="/var/lib/neoscada/hds.slave"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageLayout" lowerBound="1"
         eType="#//SlaveStorageLayout" defaultValueLiteral="MULTI"/>
   </eClassifiers>

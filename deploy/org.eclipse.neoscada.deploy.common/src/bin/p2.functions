@@ -16,13 +16,13 @@
 P2_REPOS=""
 P2_ARCH="`uname -p`"
 
-for i in `ls "${P2_REPO_BASE:-/usr/share/eclipsescada/p2}/"*.zip 2>/dev/null`; do
+for i in `ls "${P2_REPO_BASE:-/usr/share/neoscada/p2}/"*.zip 2>/dev/null`; do
 	[ ! -z "$P2_REPOS" ] && P2_REPOS="$P2_REPOS,"
 	P2_REPOS="${P2_REPOS}jar:file:$i!/"
 	echo "Adding repository (ZIP): $i"
 done
 
-for i in `ls -d "${P2_REPO_BASE:-/usr/share/eclipsescada/p2}/"*/ 2>/dev/null`; do
+for i in `ls -d "${P2_REPO_BASE:-/usr/share/neoscada/p2}/"*/ 2>/dev/null`; do
 	[ ! -z "$P2_REPOS" ] && P2_REPOS="$P2_REPOS,"
 	P2_REPOS="${P2_REPOS}file:$i"
 	echo "Adding repository (folder): $i"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-USER=eclipsescada
+USER=neoscada
 
 set -e
 

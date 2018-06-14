@@ -77,7 +77,8 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IAction showPropertiesViewAction = new Action ( InfrastructureEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" )) {//$NON-NLS-1$
+    protected IAction showPropertiesViewAction = new Action ( InfrastructureEditorPlugin.INSTANCE.getString ( "_UI_ShowPropertiesView_menu_item" ) ) //$NON-NLS-1$
+    {
         @Override
         public void run ()
         {
@@ -99,7 +100,8 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
      * <!-- end-user-doc -->
      * @generated
      */
-    protected IAction refreshViewerAction = new Action ( InfrastructureEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" )) {//$NON-NLS-1$
+    protected IAction refreshViewerAction = new Action ( InfrastructureEditorPlugin.INSTANCE.getString ( "_UI_RefreshViewer_menu_item" ) ) //$NON-NLS-1$
+    {
         @Override
         public boolean isEnabled ()
         {
@@ -114,7 +116,7 @@ public class InfrastructureActionBarContributor extends EditingDomainActionBarCo
                 Viewer viewer = ( (IViewerProvider)activeEditorPart ).getViewer ();
                 if ( viewer != null )
                 {
-                    viewer.refresh ( );
+                    viewer.refresh ();
                 }
             }
         }

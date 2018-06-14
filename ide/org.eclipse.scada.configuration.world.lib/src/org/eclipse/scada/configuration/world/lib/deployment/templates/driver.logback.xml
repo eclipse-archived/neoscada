@@ -3,13 +3,13 @@
 <configuration scan="true" scanPeriod="30 seconds">
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
-    <file>/var/log/eclipsescada/driverExporter.$$driverName$$.log</file>
+    <file>/var/log/neoscada/driverExporter.$$driverName$$.log</file>
     <encoder>
       <pattern>%d [%t] %-5p %c - %m%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
       <maxIndex>4</maxIndex>
-      <FileNamePattern>/var/log/eclipsescada/driverExporter.$$driverName$$.log.%i</FileNamePattern>
+      <FileNamePattern>/var/log/neoscada/driverExporter.$$driverName$$.log.%i</FileNamePattern>
     </rollingPolicy>
     <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
       <MaxFileSize>10MB</MaxFileSize>

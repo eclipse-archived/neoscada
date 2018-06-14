@@ -74,8 +74,8 @@
 									<directoryIncluded>false</directoryIncluded>
 									<sources>
 										<source>
-											<location>${srcBase}/default/eclipsescada.common</location>
-											<destination>eclipsescada</destination>
+											<location>${srcBase}/default/neoscada.common</location>
+											<destination>neoscada</destination>
 										</source>
 									</sources>
 								</mapping>

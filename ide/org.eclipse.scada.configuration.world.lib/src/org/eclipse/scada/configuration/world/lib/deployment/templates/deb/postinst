@@ -1,7 +1,11 @@
 #!/bin/sh
 # postinst script
 
+USER=neoscada
+
 set -e
+
+
 
 multiuserScreen="$$multiuserScreen$$"
 
@@ -9,8 +13,8 @@ case "$1" in
     configure)
 $$create.apps$$
 
-	if [ ! -f ~eclipsescada/.screenrc ]; then
-		test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~eclipsescada/.screenrc
+	if [ ! -f ~$USER/.screenrc ]; then
+		test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~$USER/.screenrc
 	fi
     ;;
 

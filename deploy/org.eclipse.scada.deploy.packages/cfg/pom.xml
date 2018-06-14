@@ -40,8 +40,8 @@
 						<configuration>
 							<dataSet>
 								<data>
-									<src>${srcBase}/default/eclipsescada.common</src>
-									<dst>eclipsescada</dst>
+									<src>${srcBase}/default/neoscada.common</src>
+									<dst>neoscada</dst>
 									<type>file</type>
 									<mapper>
 										<type>perm</type>

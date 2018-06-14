@@ -92,17 +92,17 @@
 							<entries>
 								<!-- create directories -->
 								<entry>
-									<name>/etc/eclipsescada</name>
+									<name>/etc/neoscada</name>
 									<mode>0755</mode>
 									<directory>true</directory>
 								</entry>
 								<entry>
-									<name>/etc/eclipsescada/schema</name>
+									<name>/etc/neoscada/schema</name>
 									<mode>0755</mode>
 									<directory>true</directory>
 								</entry>
 								<entry>
-									<name>/etc/eclipsescada/jarcfg</name>
+									<name>/etc/neoscada/jarcfg</name>
 									<mode>0755</mode>
 									<directory>true</directory>
 								</entry>
@@ -112,27 +112,27 @@
 									<directory>true</directory>
 								</entry>
 								<entry>
-									<name>/usr/share/eclipsescada</name>
+									<name>/usr/share/neoscada</name>
 									<mode>0755</mode>
 									<directory>true</directory>
 								</entry>
 								<entry>
-									<name>/usr/share/eclipsescada/profiles</name>
+									<name>/usr/share/neoscada/profiles</name>
 									<mode>0755</mode>
 									<directory>true</directory>
 								</entry>
 								<entry>
-									<name>/usr/share/eclipsescada/p2</name>
+									<name>/usr/share/neoscada/p2</name>
 									<mode>0755</mode>
 									<directory>true</directory>
 								</entry>
 								<entry>
-									<name>/usr/share/eclipsescada/sql</name>
+									<name>/usr/share/neoscada/sql</name>
 									<mode>0755</mode>
 									<directory>true</directory>
 								</entry>
 								<entry>
-									<name>/var/log/eclipsescada</name>
+									<name>/var/log/neoscada</name>
 									<user>root</user>
 									<group>eclipsescada</group>
 									<mode>0775</mode>
@@ -146,7 +146,7 @@
 									<directory>true</directory>
 								</entry>
 								<entry>
-									<name>/var/run/eclipsescada</name>
+									<name>/var/run/neoscada</name>
 									<user>root</user>
 									<group>eclipsescada</group>
 									<mode>0775</mode>
@@ -162,7 +162,7 @@
 									<ruleset>executable-rule</ruleset>
 								</entry>
 								<entry>
-									<name>/usr/share/eclipsescada/sql</name>
+									<name>/usr/share/neoscada/sql</name>
 									<collect>
 										<from>../src/share/sql</from>
 									</collect>

@@ -43,7 +43,7 @@ public class ValueArchiveSlaveImpl extends EquinoxApplicationImpl implements Val
      * @generated
      * @ordered
      */
-    protected static final String STORAGE_PATH_EDEFAULT = "/var/lib/eclipsescada/hds.slave"; //$NON-NLS-1$
+    protected static final String STORAGE_PATH_EDEFAULT = "/var/lib/neoscada/hds.slave"; //$NON-NLS-1$
 
     /**
      * The cached value of the '{@link #getStoragePath() <em>Storage Path</em>}' attribute.

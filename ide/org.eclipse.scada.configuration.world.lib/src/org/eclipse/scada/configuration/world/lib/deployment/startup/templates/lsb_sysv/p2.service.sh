@@ -19,10 +19,12 @@
 # Description: Eclipse SCADA application instance @@appName@@
 ### END INIT INFO
 
+USER=neoscada
+
 set -e
 
 . /lib/lsb/init-functions
-. /etc/default/eclipsescada
+. /etc/default/$USER
 
 instanceName="@@appName@@"
 pidfile="/var/run/scada.app.@@appName@@.pid"
@@ -35,13 +37,13 @@ start (){
    elif [ $UID -ne 0 ]; then
       log_failure_msg "Must be started with root permissions"
       log_end_msg 2
-   elif [ ! -d ~eclipsescada/"$instanceName" ]; then
+   elif [ ! -d ~$USER/"$instanceName" ]; then
       log_failure_msg "Instance was not created. Use \"scada.create.@@appName@@\""
       log_end_msg 3
    else
       log_daemon_msg "Starting application instance: @@appName@@"
       set +e
-      start-stop-daemon --start --quiet --pidfile "$pidfile" --chuid eclipsescada --exec "$prog"
+      start-stop-daemon --start --quiet --pidfile "$pidfile" --chuid $USER --exec "$prog"
       set -e
       log_end_msg $?
    fi

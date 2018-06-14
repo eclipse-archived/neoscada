@@ -84,8 +84,8 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
     protected void addDefaultSecurityConfigurationPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_World_defaultSecurityConfiguration_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_World_defaultSecurityConfiguration_feature", "_UI_World_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.WORLD__DEFAULT_SECURITY_CONFIGURATION, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_World_defaultSecurityConfiguration_feature", "_UI_World_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.WORLD__DEFAULT_SECURITY_CONFIGURATION, true, false, true, null, null, null ) );
     }
 
     /**
@@ -97,8 +97,8 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
     protected void addDefaultMasterHandlerPrioritiesPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_World_defaultMasterHandlerPriorities_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_World_defaultMasterHandlerPriorities_feature", "_UI_World_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.WORLD__DEFAULT_MASTER_HANDLER_PRIORITIES, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_World_defaultMasterHandlerPriorities_feature", "_UI_World_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.WORLD__DEFAULT_MASTER_HANDLER_PRIORITIES, true, false, true, null, null, null ) );
     }
 
     /**
@@ -110,8 +110,8 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
     protected void addDefaultMasterCustomizationProfilePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_World_defaultMasterCustomizationProfile_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_World_defaultMasterCustomizationProfile_feature", "_UI_World_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.WORLD__DEFAULT_MASTER_CUSTOMIZATION_PROFILE, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_World_defaultMasterCustomizationProfile_feature", "_UI_World_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.WORLD__DEFAULT_MASTER_CUSTOMIZATION_PROFILE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -123,8 +123,8 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
     protected void addDefaultValueArchiveCustomizationProfilePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_World_defaultValueArchiveCustomizationProfile_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_World_defaultValueArchiveCustomizationProfile_feature", "_UI_World_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.WORLD__DEFAULT_VALUE_ARCHIVE_CUSTOMIZATION_PROFILE, true, false, true, null, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_World_defaultValueArchiveCustomizationProfile_feature", "_UI_World_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.WORLD__DEFAULT_VALUE_ARCHIVE_CUSTOMIZATION_PROFILE, true, false, true, null, null, null ) );
     }
 
     /**
@@ -303,7 +303,7 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
         if ( qualify )
         {
             return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
-            new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
         }
         return super.getCreateChildText ( owner, feature, child, selection );
     }

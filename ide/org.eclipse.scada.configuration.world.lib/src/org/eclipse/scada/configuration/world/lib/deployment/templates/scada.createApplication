@@ -78,7 +78,7 @@ fi
 
 shift $(($OPTIND -1))
 
-dir=~eclipsescada/"$application"
+dir=~neoscada/"$application"
 
 if [ -d "$dir" ]; then
 
@@ -89,7 +89,7 @@ if [ -d "$dir" ]; then
 		
 	elif [ -n "$BACKUP" ]; then
 	
-		pushd ~eclipsescada >/dev/null
+		pushd ~neoscada >/dev/null
 		
 		for i in `find . -maxdepth 1 -and -type d | sort -ur | egrep "${application}\.[0-9]+"`; do
 			idx=$(echo $i | sed -e s/\.\\/${application}\.// )
@@ -123,10 +123,10 @@ if [ -d "$dir" ]; then
 	fi
 fi
 
-pushd ~eclipsescada >/dev/null
+pushd ~neoscada >/dev/null
 
 if [ "$UID" == 0 ]; then
-	su -s /bin/bash -c "p2.fromTemplate \"$application\" \"$application\"" - eclipsescada
+	su -s /bin/bash -c "p2.fromTemplate \"$application\" \"$application\"" - neoscada
 	echo Start the instance using: start \"scada.app.$application\"
 else
 	p2.fromTemplate "$application" "$application"

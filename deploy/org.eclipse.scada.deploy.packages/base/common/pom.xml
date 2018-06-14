@@ -71,7 +71,7 @@
 											<filemode>0755</filemode>
 											<sources>
 												<source>
-													<location>${srcBase}/default/eclipsescada.sh</location>
+													<location>${srcBase}/default/neoscada.sh</location>
 												</source>
 											</sources>
 										</mapping>
@@ -80,31 +80,31 @@
 											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
-											<directory>/etc/eclipsescada</directory>
+											<directory>/etc/neoscada</directory>
 											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
-											<directory>/etc/eclipsescada/schema</directory>
+											<directory>/etc/neoscada/schema</directory>
 											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
-											<directory>/usr/share/eclipsescada</directory>
+											<directory>/usr/share/neoscada</directory>
 											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
-											<directory>/usr/share/eclipsescada/sql</directory>
+											<directory>/usr/share/neoscada/sql</directory>
 											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
-											<directory>/var/log/eclipsescada</directory>
+											<directory>/var/log/neoscada</directory>
 											<username>root</username>
-											<groupname>eclipsescada</groupname>
+											<groupname>neoscada</groupname>
 											<filemode>0775</filemode>
 										</mapping>
 										<mapping>
-											<directory>/var/run/eclipsescada</directory>
+											<directory>/var/run/neoscada</directory>
 											<username>root</username>
-											<groupname>eclipsescada</groupname>
+											<groupname>neoscada</groupname>
 											<filemode>0775</filemode>
 										</mapping>
 										<mapping>
@@ -126,7 +126,7 @@
 											</sources>
 										</mapping>
 										<mapping>
-											<directory>/usr/share/eclipsescada</directory>
+											<directory>/usr/share/neoscada</directory>
 											<directoryIncluded>false</directoryIncluded>
 											<username>root</username>
 											<groupname>root</groupname>
@@ -140,12 +140,12 @@
 									</mappings>
 									<preinstallScriptlet>
 										<script>
-if ! getent passwd "eclipsescada" &gt;/dev/null; then
+if ! getent passwd "neoscada" &gt;/dev/null; then
 	# create new user
-	useradd --system --user-group --home "/var/lib/eclipsescada" --comment "Eclipse NeoSCADA User" "eclipsescada"
+	useradd --system --user-group --home "/var/lib/neoscada" --comment "Eclipse NeoSCADA User" "neoscada"
 fi
-mkdir -p "/var/lib/eclipsescada"
-chown -R "eclipsescada:eclipsescada" "/var/lib/eclipsescada"
+mkdir -p "/var/lib/neoscada"
+chown -R "neoscada:neoscada" "/var/lib/neoscada"
 									</script>
 									</preinstallScriptlet>
 									<postremoveScriptlet>
@@ -154,9 +154,9 @@ if [ "$1" -eq "0" ]; then
 	# zero means this we are the last and now are gone
 	# so perform a complete uninstall
 	if which userdel &gt;/dev/null 2&gt;&amp;1; then
-		userdel "eclipsescada" &gt; /dev/null || true
+		userdel "neoscada" &gt; /dev/null || true
 	fi
-	groupdel "eclipsescada" &gt; /dev/null || true
+	groupdel "neoscada" &gt; /dev/null || true
 fi
 									</script>
 									</postremoveScriptlet>

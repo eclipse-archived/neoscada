@@ -5,7 +5,7 @@
 # description: Eclipse SCADA driver instance @@driverName@@
 #
 # processname: /usr/bin/jsvc
-# config: /etc/eclipsescada/drivers/@@driverName@@/
+# config: /etc/neoscada/drivers/@@driverName@@/
 # pidfile: /var/run/driver.@@driverName@@.pid
 
 ### BEGIN INIT INFO

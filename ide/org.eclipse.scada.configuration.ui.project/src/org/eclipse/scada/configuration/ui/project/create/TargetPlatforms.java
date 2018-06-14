@@ -15,15 +15,15 @@ import java.util.List;
 
 public enum TargetPlatforms implements TargetPlatformProfile
 {
-    KEPLER ( "Eclipse Kepler (4.3)" ) //$NON-NLS-1$
+    KEPLER ( "Eclipse Oxygen (4.7)" ) //$NON-NLS-1$
     {
         @Override
         public List<String> getRepositories ()
         {
             return Arrays.asList ( //
-                    "http://download.eclipse.org/releases/kepler", //$NON-NLS-1$
-                    "http://download.eclipse.org/eclipsescada/updates/release/0.2.0/" //$NON-NLS-1$
-                    );
+                    "http://download.eclipse.org/releases/oxygen", //$NON-NLS-1$
+                    "http://download.eclipse.org/eclipsescada/updates/release/0.5.0/" //$NON-NLS-1$
+            );
         }
     };
 

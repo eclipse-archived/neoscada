@@ -35,7 +35,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2/org.eclipse.neoscada.protocols</prefix>
+										<prefix>/usr/share/neoscada/p2/org.eclipse.neoscada.protocols</prefix>
 									</mapper>
 								</data>
 							</dataSet>
@@ -80,7 +80,7 @@
 							</rulesets>
 							<entries>
 								<entry>
-									<name>/usr/share/eclipsescada/p2/org.eclipse.neoscada.protocols</name>
+									<name>/usr/share/neoscada/p2/org.eclipse.neoscada.protocols</name>
 									<collect>
 										<from>target/repository</from>
 										<directories>true</directories>

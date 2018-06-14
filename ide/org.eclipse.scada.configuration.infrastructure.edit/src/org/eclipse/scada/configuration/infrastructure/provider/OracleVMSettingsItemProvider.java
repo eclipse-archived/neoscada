@@ -83,8 +83,8 @@ public class OracleVMSettingsItemProvider extends ItemProviderAdapter implements
     protected void addInitialHeapSizePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OracleVMSettings_initialHeapSize_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_OracleVMSettings_initialHeapSize_feature", "_UI_OracleVMSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.ORACLE_VM_SETTINGS__INITIAL_HEAP_SIZE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_OracleVMSettings_initialHeapSize_feature", "_UI_OracleVMSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.ORACLE_VM_SETTINGS__INITIAL_HEAP_SIZE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -96,8 +96,8 @@ public class OracleVMSettingsItemProvider extends ItemProviderAdapter implements
     protected void addMaximumHeapSizePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_OracleVMSettings_maximumHeapSize_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_OracleVMSettings_maximumHeapSize_feature", "_UI_OracleVMSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.ORACLE_VM_SETTINGS__MAXIMUM_HEAP_SIZE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_OracleVMSettings_maximumHeapSize_feature", "_UI_OracleVMSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.ORACLE_VM_SETTINGS__MAXIMUM_HEAP_SIZE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

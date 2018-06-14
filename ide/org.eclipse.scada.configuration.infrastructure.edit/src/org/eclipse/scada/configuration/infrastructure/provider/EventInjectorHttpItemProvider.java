@@ -78,7 +78,7 @@ public class EventInjectorHttpItemProvider extends ItemProviderAdapter implement
      */
     protected void addHttpServicePropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorHttp_httpService_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorHttp_httpService_feature", "_UI_EventInjectorHttp_type" ), InfrastructurePackage.Literals.EVENT_INJECTOR_HTTP__HTTP_SERVICE, true, false, true, null, null, null) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorHttp_httpService_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorHttp_httpService_feature", "_UI_EventInjectorHttp_type" ), InfrastructurePackage.Literals.EVENT_INJECTOR_HTTP__HTTP_SERVICE, true, false, true, null, null, null ) {
             @Override
             public java.util.Collection<?> getChoiceOfValues ( final Object object )
             {

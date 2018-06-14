@@ -64,7 +64,7 @@
 											<type>file</type>
 											<mapper>
 												<type>perm</type>
-												<prefix>/usr/share/eclipsescada/p2</prefix>
+												<prefix>/usr/share/neoscada/p2</prefix>
 											</mapper>
 										</data>
 									</dataSet>
@@ -113,7 +113,7 @@
 								<configuration>
 									<mappings>
 										<mapping>
-											<directory>/usr/share/eclipsescada/p2</directory>
+											<directory>/usr/share/neoscada/p2</directory>
 											<directoryIncluded>false</directoryIncluded>
 											<filemode>0644</filemode>
 											<username>root</username>

@@ -140,7 +140,7 @@ public class ValueArchiveServerItemProvider extends EquinoxApplicationItemProvid
         }
 
         return label == null || label.length () == 0 ? getString ( "_UI_ValueArchiveServer_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ValueArchiveServer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_ValueArchiveServer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

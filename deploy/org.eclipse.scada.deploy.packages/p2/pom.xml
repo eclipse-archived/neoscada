@@ -40,8 +40,8 @@
 								<data>
 									<type>template</type>
 									<paths>
-										<path>/usr/share/eclipsescada/profiles</path>
-										<path>/usr/share/eclipsescada/p2</path>
+										<path>/usr/share/neoscada/profiles</path>
+										<path>/usr/share/neoscada/p2</path>
 									</paths>
 								</data>
 								<data>
@@ -97,11 +97,11 @@
 								<configuration>
 									<mappings>
 										<mapping>
-											<directory>/usr/share/eclipsescada/profiles</directory>
+											<directory>/usr/share/neoscada/profiles</directory>
 											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
-											<directory>/usr/share/eclipsescada/p2</directory>
+											<directory>/usr/share/neoscada/p2</directory>
 											<filemode>0755</filemode>
 										</mapping>
 										<mapping>

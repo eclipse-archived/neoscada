@@ -19,12 +19,14 @@
 # Description: Eclipse SCADA application instance @@appName@@
 ### END INIT INFO
 
+USER=neoscada
+
 # source function library
 if [ -r /etc/init.d/functions ]; then
     . /etc/init.d/functions
     es_failure () { failure ; }
     es_success () { success ; }
-    es_start () { daemon --user=eclipsescada --pidfile="$pidfile" "$prog" ; }
+    es_start () { daemon --user=$USER --pidfile="$pidfile" "$prog" ; }
     es_stop () { killproc -p "$pidfile" "$prog" ; }
     es_check () { echo ; }
     es_exit () { exit $RETVAL ; }
@@ -34,13 +36,13 @@ if [ -r /etc/rc.status ]; then
     es_failure () { rc_failed "$?" ; }
     es_success () { true ; }
     es_check () { rc_status -v ; }
-    es_start () { startproc -u eclipsescada -p "$pidfile" "$prog" ; }
+    es_start () { startproc -u $USER -p "$pidfile" "$prog" ; }
     es_stop () { killproc -p "$pidfile" "$prog" ; }
     es_exit () { rc_exit ; }
     rc_reset
 fi
 
-. /etc/default/eclipsescada
+. /etc/default/$USER
 
 RETVAL=0
 instanceName="@@appName@@"
@@ -52,7 +54,7 @@ start (){
     if [ $UID -ne 0 ]; then
 		RETVAL=1
 		es_failure
-    elif [ ! -d ~eclipsescada/"$instanceName" ]; then
+    elif [ ! -d ~$USER/"$instanceName" ]; then
 		RETVAL=2
 		es_failure
     else

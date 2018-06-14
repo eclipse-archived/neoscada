@@ -24,7 +24,7 @@ if len(sys.argv) != 3:
     sys.stderr.write("p2.fromTemplate has to be called with parameters <profile> <target>!\n")
     sys.exit(-1)
     
-profilesDir = os.environ.get ( "PROFILES_DIR", "/usr/share/eclipsescada/profiles" )
+profilesDir = os.environ.get ( "PROFILES_DIR", "/usr/share/neoscada/profiles" )
 profileName = sys.argv[1]
 target = sys.argv[2]
 TARGET_DIR = os.path.abspath ( target ) # for the eval() calls

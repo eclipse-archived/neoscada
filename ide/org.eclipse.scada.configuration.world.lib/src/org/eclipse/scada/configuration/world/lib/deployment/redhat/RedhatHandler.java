@@ -46,6 +46,7 @@ import org.eclipse.scada.configuration.world.lib.deployment.FileInformation;
 import org.eclipse.scada.configuration.world.lib.deployment.FileOptions;
 import org.eclipse.scada.configuration.world.lib.deployment.ScriptMaker;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
+import org.eclipse.scada.configuration.world.lib.utils.Constants;
 
 public class RedhatHandler extends CommonPackageHandler
 {
@@ -132,7 +133,7 @@ public class RedhatHandler extends CommonPackageHandler
 
             final BuilderContext ctx = builder.newContext ();
 
-            for ( final Map.Entry<String, FileInformation> dir : new TreeMap<> ( context.getDirectories () ).entrySet () /*Sorted*/ )
+            for ( final Map.Entry<String, FileInformation> dir : new TreeMap<> ( context.getDirectories () ).entrySet () /* Sorted */ )
             {
                 ctx.addDirectory ( dir.getKey (), BuilderContext.simpleDirectoryProvider ().customize ( fi -> applyFileInformation ( fi, dir.getValue (), true ) ) );
             }
@@ -193,7 +194,7 @@ public class RedhatHandler extends CommonPackageHandler
     {
         if ( this.deploy.isMultiUserScreen () )
         {
-            return "test -f ~eclipsescada/.screenrc && echo \"multiuser on\nacladd root\" > ~eclipsescada/.screenrc";
+            return "test -f ~" + Constants.NEOSCADA_USER + "/.screenrc && echo \"multiuser on\nacladd root\" > ~" + Constants.NEOSCADA_USER + "/.screenrc";
         }
         else
         {

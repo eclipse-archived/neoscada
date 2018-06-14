@@ -82,8 +82,8 @@ public class EventInjectorSyslogItemProvider extends ItemProviderAdapter impleme
     protected void addBindAddressPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorSyslog_bindAddress_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_bindAddress_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_bindAddress_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EVENT_INJECTOR_SYSLOG__BIND_ADDRESS, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -95,8 +95,8 @@ public class EventInjectorSyslogItemProvider extends ItemProviderAdapter impleme
     protected void addPortPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_EventInjectorSyslog_port_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_port_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.EVENT_INJECTOR_SYSLOG__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjectorSyslog_port_feature", "_UI_EventInjectorSyslog_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EVENT_INJECTOR_SYSLOG__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**

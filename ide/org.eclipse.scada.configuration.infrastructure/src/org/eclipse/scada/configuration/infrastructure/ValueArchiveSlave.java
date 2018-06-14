@@ -33,7 +33,7 @@ public interface ValueArchiveSlave extends EquinoxApplication
 
     /**
      * Returns the value of the '<em><b>Storage Path</b></em>' attribute.
-     * The default value is <code>"/var/lib/eclipsescada/hds.slave"</code>.
+     * The default value is <code>"/var/lib/neoscada/hds.slave"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Storage Path</em>' attribute isn't clear,
@@ -43,7 +43,7 @@ public interface ValueArchiveSlave extends EquinoxApplication
      * @return the value of the '<em>Storage Path</em>' attribute.
      * @see #setStoragePath(String)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getValueArchiveSlave_StoragePath()
-     * @model default="/var/lib/eclipsescada/hds.slave" required="true"
+     * @model default="/var/lib/neoscada/hds.slave" required="true"
      * @generated
      */
     String getStoragePath ();

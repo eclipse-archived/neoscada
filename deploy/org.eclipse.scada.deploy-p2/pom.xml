@@ -33,7 +33,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2/org.eclipse.neoscada.deploy</prefix>
+										<prefix>/usr/share/neoscada/p2/org.eclipse.neoscada.deploy</prefix>
 									</mapper>
 								</data>
 							</dataSet>
@@ -83,7 +83,7 @@
 							</rulesets>
 							<entries>
 								<entry>
-									<name>/usr/share/eclipsescada/p2/org.eclipse.neoscada.deploy</name>
+									<name>/usr/share/neoscada/p2/org.eclipse.neoscada.deploy</name>
 									<collect>
 										<from>target/repository</from>
 										<directories>true</directories>

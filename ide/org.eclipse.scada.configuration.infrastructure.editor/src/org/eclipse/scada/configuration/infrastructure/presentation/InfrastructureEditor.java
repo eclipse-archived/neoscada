@@ -397,6 +397,8 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * @generated
      */
     protected EContentAdapter problemIndicationAdapter = new EContentAdapter () {
+        protected boolean dispatching;
+
         @Override
         public void notifyChanged ( Notification notification )
         {
@@ -418,16 +420,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
                         {
                             resourceToDiagnosticMap.remove ( resource );
                         }
-
-                        if ( updateProblemIndication )
-                        {
-                            getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
-                                public void run ()
-                                {
-                                    updateProblemIndication ();
-                                }
-                            } );
-                        }
+                        dispatchUpdateProblemIndication ();
                         break;
                     }
                 }
@@ -435,6 +428,21 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
             else
             {
                 super.notifyChanged ( notification );
+            }
+        }
+
+        protected void dispatchUpdateProblemIndication ()
+        {
+            if ( updateProblemIndication && !dispatching )
+            {
+                dispatching = true;
+                getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
+                    public void run ()
+                    {
+                        dispatching = false;
+                        updateProblemIndication ();
+                    }
+                } );
             }
         }
 
@@ -449,15 +457,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
         {
             basicUnsetTarget ( target );
             resourceToDiagnosticMap.remove ( target );
-            if ( updateProblemIndication )
-            {
-                getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
-                    public void run ()
-                    {
-                        updateProblemIndication ();
-                    }
-                } );
-            }
+            dispatchUpdateProblemIndication ();
         }
     };
 
@@ -663,7 +663,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
         if ( updateProblemIndication )
         {
             BasicDiagnostic diagnostic = new BasicDiagnostic ( Diagnostic.OK, "org.eclipse.scada.configuration.infrastructure.editor", //$NON-NLS-1$
-            0, null, new Object[] { editingDomain.getResourceSet () } );
+                    0, null, new Object[] { editingDomain.getResourceSet () } );
             for ( Diagnostic childDiagnostic : resourceToDiagnosticMap.values () )
             {
                 if ( childDiagnostic.getSeverity () != Diagnostic.OK )
@@ -726,7 +726,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
     protected boolean handleDirtyConflict ()
     {
         return MessageDialog.openQuestion ( getSite ().getShell (), getString ( "_UI_FileConflict_label" ), //$NON-NLS-1$
-        getString ( "_WARN_FileConflict" ) ); //$NON-NLS-1$
+                getString ( "_WARN_FileConflict" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -1076,16 +1076,16 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
         if ( hasErrors || !resource.getWarnings ().isEmpty () )
         {
             BasicDiagnostic basicDiagnostic = new BasicDiagnostic ( hasErrors ? Diagnostic.ERROR : Diagnostic.WARNING, "org.eclipse.scada.configuration.infrastructure.editor", //$NON-NLS-1$
-            0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
-            new Object[] { exception == null ? (Object)resource : exception } );
+                    0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
+                    new Object[] { exception == null ? (Object)resource : exception } );
             basicDiagnostic.merge ( EcoreUtil.computeDiagnostic ( resource, true ) );
             return basicDiagnostic;
         }
         else if ( exception != null )
         {
             return new BasicDiagnostic ( Diagnostic.ERROR, "org.eclipse.scada.configuration.infrastructure.editor", //$NON-NLS-1$
-            0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
-            new Object[] { exception } );
+                    0, getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
+                    new Object[] { exception } );
         }
         else
         {
@@ -1113,7 +1113,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
             // Create a page for the selection tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1133,6 +1133,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
 
                 selectionViewer = (TreeViewer)viewerPane.getViewer ();
                 selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                selectionViewer.setUseHashlookup ( true );
 
                 selectionViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new DecoratingColumLabelProvider.StyledLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, selectionViewer ), new DiagnosticDecorator.Styled ( editingDomain, selectionViewer, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () ) ) ) );
                 selectionViewer.setInput ( editingDomain.getResourceSet () );
@@ -1150,7 +1151,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
             // Create a page for the parent tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1181,7 +1182,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
             // This is the page for the list viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1208,7 +1209,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
             // This is the page for the tree viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1238,7 +1239,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
             // This is the page for the table viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1285,7 +1286,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
             // This is the page for the table tree viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this) {
+                ViewerPane viewerPane = new ViewerPane ( getSite ().getPage (), InfrastructureEditor.this ) {
                     @Override
                     public Viewer createViewer ( Composite composite )
                     {
@@ -1473,6 +1474,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
 
                     // Set up the tree viewer.
                     //
+                    contentOutlineViewer.setUseHashlookup ( true );
                     contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
                     contentOutlineViewer.setLabelProvider ( new DelegatingStyledCellLabelProvider ( new DecoratingColumLabelProvider.StyledLabelProvider ( new AdapterFactoryLabelProvider.StyledLabelProvider ( adapterFactory, contentOutlineViewer ), new DiagnosticDecorator.Styled ( editingDomain, contentOutlineViewer, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () ) ) ) );
                     contentOutlineViewer.setInput ( editingDomain.getResourceSet () );
@@ -1532,7 +1534,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      */
     public IPropertySheetPage getPropertySheetPage ()
     {
-        final PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage ( this.editingDomain, ExtendedPropertySheetPage.Decoration.MANUAL, InfrastructureEditorPlugin.getPlugin ().getDialogSettings ()) {
+        final PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage ( this.editingDomain, ExtendedPropertySheetPage.Decoration.MANUAL, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () ) {
             @Override
             public void setSelectionToViewer ( final List<?> selection )
             {
@@ -1637,8 +1639,10 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
                 // Save the resources to the file system.
                 //
                 boolean first = true;
-                for ( Resource resource : editingDomain.getResourceSet ().getResources () )
+                List<Resource> resources = editingDomain.getResourceSet ().getResources ();
+                for ( int i = 0; i < resources.size (); ++i )
                 {
+                    Resource resource = resources.get ( i );
                     if ( ( first || !resource.getContents ().isEmpty () || isPersisted ( resource ) ) && !editingDomain.isReadOnly ( resource ) )
                     {
                         try

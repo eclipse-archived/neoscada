@@ -2286,7 +2286,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEAttribute ( getRestExporterModule_ContextId (), ecorePackage.getEString (), "contextId", null, 1, 1, RestExporterModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( valueArchiveSlaveEClass, ValueArchiveSlave.class, "ValueArchiveSlave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getValueArchiveSlave_StoragePath (), ecorePackage.getEString (), "storagePath", "/var/lib/eclipsescada/hds.slave", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getValueArchiveSlave_StoragePath (), ecorePackage.getEString (), "storagePath", "/var/lib/neoscada/hds.slave", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getValueArchiveSlave_StorageLayout (), this.getSlaveStorageLayout (), "storageLayout", "MULTI", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( webAdminConsoleEClass, WebAdminConsole.class, "WebAdminConsole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

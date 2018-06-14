@@ -3639,7 +3639,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_tQpJ0CxZEeWtnpIuBKgJzw" name="storagePath : EString = /var/lib/eclipsescada/hds.slave" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_tQpJ0CxZEeWtnpIuBKgJzw" name="storagePath : EString = /var/lib/neoscada/hds.slave" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="infrastructure.ecore#//ValueArchiveSlave/storagePath"/>
           <semanticElements xmi:type="ecore:EAttribute" href="infrastructure.ecore#//ValueArchiveSlave/storagePath"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_tQpJ0SxZEeWtnpIuBKgJzw" labelAlignment="LEFT" description="_lWqV0SxZEeWtnpIuBKgJzw">

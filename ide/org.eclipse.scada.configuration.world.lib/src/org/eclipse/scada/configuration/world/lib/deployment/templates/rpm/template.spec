@@ -39,8 +39,8 @@ $$create.apps$$
 $$start.apps$$
 
 multiuserScreen="$$multiuserScreen$$"
-if [ ! -f ~eclipsescada/.screenrc ]; then
-   test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~eclipsescada/.screenrc
+if [ ! -f ~neoscada/.screenrc ]; then
+   test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~neoscada/.screenrc
 fi
 
 %postun

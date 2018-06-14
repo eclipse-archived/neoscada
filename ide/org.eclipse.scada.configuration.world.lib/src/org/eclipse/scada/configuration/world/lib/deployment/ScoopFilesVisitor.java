@@ -22,6 +22,7 @@ import java.util.Set;
 
 import org.eclipse.packagedrone.utils.deb.build.FileContentProvider;
 import org.eclipse.packagedrone.utils.deb.build.TextFileContentProvider;
+import org.eclipse.scada.configuration.world.lib.utils.Constants;
 
 public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
 {
@@ -134,7 +135,7 @@ public class ScoopFilesVisitor extends SimpleFileVisitor<Path>
         }
         else if ( conf )
         {
-            this.context.addFile ( new TextFileContentProvider ( file.toFile () ), name, new FileInformation ( 0644, "root", "eclipsescada", FileOptions.CONFIGURATION ) );
+            this.context.addFile ( new TextFileContentProvider ( file.toFile () ), name, new FileInformation ( 0644, "root", Constants.NEOSCADA_USER, FileOptions.CONFIGURATION ) );
         }
         else
         {

@@ -11,7 +11,7 @@ public class Application
     public static void main ( final String[] args ) throws Exception
     {
         //        // default configuration
-        //        String configDir = "/etc/eclipsescada/drivers/opcua";
+        //        String configDir = "/etc/neoscada/drivers/opcua";
         //        String exportUri = "da:ngp://0.0.0.0:2137";
         //
         //        // config file would be the first command line parameter

@@ -71,8 +71,8 @@ public class ExternalDriverItemProvider extends DriverItemProvider
     protected void addPortNumberPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalDriver_portNumber_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_portNumber_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.EXTERNAL_DRIVER__PORT_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_portNumber_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EXTERNAL_DRIVER__PORT_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -84,8 +84,8 @@ public class ExternalDriverItemProvider extends DriverItemProvider
     protected void addBindingPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ExternalDriver_binding_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_binding_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.EXTERNAL_DRIVER__BINDING, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_binding_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.EXTERNAL_DRIVER__BINDING, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -156,7 +156,7 @@ public class ExternalDriverItemProvider extends DriverItemProvider
     {
         final String label = String.format ( "%s @ %s", ( (ExternalDriver)object ).getName (), ( (ExternalDriver)object ).getNode ().getHostName () );
         return label == null || label.length () == 0 ? getString ( "_UI_ExternalDriver_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ExternalDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_ExternalDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

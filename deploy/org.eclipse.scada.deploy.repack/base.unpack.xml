@@ -68,7 +68,7 @@
 											<type>directory</type>
 											<mapper>
 												<type>perm</type>
-												<prefix>/usr/share/eclipsescada/p2/${project.artifactId}</prefix>
+												<prefix>/usr/share/neoscada/p2/${project.artifactId}</prefix>
 											</mapper>
 										</data>
 										<data>
@@ -78,7 +78,7 @@
 											<missingSrc>ignore</missingSrc>
 											<mapper>
 												<type>perm</type>
-												<prefix>/etc/eclipsescada/jarcfg</prefix>
+												<prefix>/etc/neoscada/jarcfg</prefix>
 											</mapper>
 										</data>
 									</dataSet>
@@ -148,7 +148,7 @@
 						<configuration>
 							<mappings>
 								<mapping>
-									<directory>/usr/share/eclipsescada/p2/${project.artifactId}</directory>
+									<directory>/usr/share/neoscada/p2/${project.artifactId}</directory>
 									<directoryIncluded>false</directoryIncluded>
 									<filemode>0755</filemode>
 									<username>root</username>
@@ -160,7 +160,7 @@
 									</sources>
 								</mapping>
 								<mapping>
-									<directory>/etc/eclipsescada/jarcfg</directory>
+									<directory>/etc/neoscada/jarcfg</directory>
 									<directoryIncluded>false</directoryIncluded>
 									<filemode>0644</filemode>
 									<username>root</username>
@@ -196,7 +196,7 @@
 						<configuration>
 							<mappings>
 								<mapping>
-									<directory>/usr/share/eclipsescada/p2/${project.artifactId}</directory>
+									<directory>/usr/share/neoscada/p2/${project.artifactId}</directory>
 									<filemode>0755</filemode>
 									<username>root</username>
 									<groupname>root</groupname>

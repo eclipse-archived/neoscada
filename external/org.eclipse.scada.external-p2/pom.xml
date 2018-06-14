@@ -34,7 +34,7 @@
 											<type>directory</type>
 											<mapper>
 												<type>perm</type>
-												<prefix>/usr/share/eclipsescada/p2/${project.groupId}</prefix>
+												<prefix>/usr/share/neoscada/p2/${project.groupId}</prefix>
 											</mapper>
 										</data>
 									</dataSet>
@@ -80,7 +80,7 @@
 							</requires>
 							<mappings>
 								<mapping>
-									<directory>/usr/share/eclipsescada/p2/${project.groupId}</directory>
+									<directory>/usr/share/neoscada/p2/${project.groupId}</directory>
 									<filemode>0755</filemode>
 									<username>root</username>
 									<groupname>root</groupname>

@@ -87,9 +87,9 @@ public class JMXSettingsItemProvider extends ItemProviderAdapter implements IEdi
     protected void addPortPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JMXSettings_port_feature" ), //$NON-NLS-1$
-        getString ( "_UI_JMXSettings_port_description" ), //$NON-NLS-1$
-        InfrastructurePackage.Literals.JMX_SETTINGS__PORT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_JMXSettings_port_description" ), //$NON-NLS-1$
+                InfrastructurePackage.Literals.JMX_SETTINGS__PORT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -101,9 +101,9 @@ public class JMXSettingsItemProvider extends ItemProviderAdapter implements IEdi
     protected void addInstancePortOffsetPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JMXSettings_instancePortOffset_feature" ), //$NON-NLS-1$
-        getString ( "_UI_JMXSettings_instancePortOffset_description" ), //$NON-NLS-1$
-        InfrastructurePackage.Literals.JMX_SETTINGS__INSTANCE_PORT_OFFSET, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_JMXSettings_instancePortOffset_description" ), //$NON-NLS-1$
+                InfrastructurePackage.Literals.JMX_SETTINGS__INSTANCE_PORT_OFFSET, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -115,9 +115,9 @@ public class JMXSettingsItemProvider extends ItemProviderAdapter implements IEdi
     protected void addLocalOnlyPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JMXSettings_localOnly_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JMXSettings_localOnly_feature", "_UI_JMXSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.JMX_SETTINGS__LOCAL_ONLY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JMXSettings_localOnly_feature", "_UI_JMXSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.JMX_SETTINGS__LOCAL_ONLY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -129,9 +129,9 @@ public class JMXSettingsItemProvider extends ItemProviderAdapter implements IEdi
     protected void addAuthenticatedPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JMXSettings_authenticated_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JMXSettings_authenticated_feature", "_UI_JMXSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.JMX_SETTINGS__AUTHENTICATED, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JMXSettings_authenticated_feature", "_UI_JMXSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.JMX_SETTINGS__AUTHENTICATED, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -143,9 +143,9 @@ public class JMXSettingsItemProvider extends ItemProviderAdapter implements IEdi
     protected void addSslPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JMXSettings_ssl_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_JMXSettings_ssl_feature", "_UI_JMXSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.JMX_SETTINGS__SSL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_JMXSettings_ssl_feature", "_UI_JMXSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.JMX_SETTINGS__SSL, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_OraclePropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**
@@ -157,9 +157,9 @@ public class JMXSettingsItemProvider extends ItemProviderAdapter implements IEdi
     protected void addAssignNodeHostnamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_JMXSettings_assignNodeHostname_feature" ), //$NON-NLS-1$
-        getString ( "_UI_JMXSettings_assignNodeHostname_description" ), //$NON-NLS-1$
-        InfrastructurePackage.Literals.JMX_SETTINGS__ASSIGN_NODE_HOSTNAME, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_CommonPropertyCategory" ), //$NON-NLS-1$
-        null ) );
+                getString ( "_UI_JMXSettings_assignNodeHostname_description" ), //$NON-NLS-1$
+                InfrastructurePackage.Literals.JMX_SETTINGS__ASSIGN_NODE_HOSTNAME, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, getString ( "_UI_CommonPropertyCategory" ), //$NON-NLS-1$
+                null ) );
     }
 
     /**

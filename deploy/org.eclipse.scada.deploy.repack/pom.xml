@@ -111,7 +111,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2/equinox-sdk</prefix>
+										<prefix>/usr/share/neoscada/p2/equinox-sdk</prefix>
 									</mapper>
 								</data>
 							</dataSet>
@@ -134,7 +134,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2/gemini-dbaccess</prefix>
+										<prefix>/usr/share/neoscada/p2/gemini-dbaccess</prefix>
 									</mapper>
 								</data>
 							</dataSet>
@@ -157,7 +157,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2/org.eclipse.platform</prefix>
+										<prefix>/usr/share/neoscada/p2/org.eclipse.platform</prefix>
 									</mapper>
 								</data>
 							</dataSet>
@@ -180,7 +180,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2/emf-xsd-Update</prefix>
+										<prefix>/usr/share/neoscada/p2/emf-xsd-Update</prefix>
 									</mapper>
 								</data>
 							</dataSet>
@@ -226,7 +226,7 @@
 							<version>${eclipse.version}</version>
 							<entries>
 								<entry>
-									<name>/usr/share/eclipsescada/p2/equinox-sdk</name>
+									<name>/usr/share/neoscada/p2/equinox-sdk</name>
 									<collect>
 										<from>${project.build.directory}/equinox-sdk</from>
 										<directories>true</directories>
@@ -248,7 +248,7 @@
 							<version>${gemini.version}</version>
 							<entries>
 								<entry>
-									<name>/usr/share/eclipsescada/p2/gemini-dbaccess</name>
+									<name>/usr/share/neoscada/p2/gemini-dbaccess</name>
 									<collect>
 										<from>${project.build.directory}/gemini-dbaccess</from>
 										<directories>true</directories>
@@ -270,7 +270,7 @@
 							<version>${eclipse.version}</version>
 							<entries>
 								<entry>
-									<name>/usr/share/eclipsescada/p2/org.eclipse.platform</name>
+									<name>/usr/share/neoscada/p2/org.eclipse.platform</name>
 									<collect>
 										<from>${project.build.directory}/org.eclipse.platform</from>
 										<directories>true</directories>
@@ -292,7 +292,7 @@
 							<version>${emf.version}</version>
 							<entries>
 								<entry>
-									<name>/usr/share/eclipsescada/p2/emf-xsd-Update</name>
+									<name>/usr/share/neoscada/p2/emf-xsd-Update</name>
 									<collect>
 										<from>${project.build.directory}/emf-xsd-Update</from>
 										<directories>true</directories>

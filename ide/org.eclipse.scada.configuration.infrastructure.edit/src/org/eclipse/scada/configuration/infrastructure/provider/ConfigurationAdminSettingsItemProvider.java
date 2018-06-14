@@ -83,8 +83,8 @@ public class ConfigurationAdminSettingsItemProvider extends ItemProviderAdapter 
     protected void addAutomaticMergePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ConfigurationAdminSettings_automaticMerge_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ConfigurationAdminSettings_automaticMerge_feature", "_UI_ConfigurationAdminSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.CONFIGURATION_ADMIN_SETTINGS__AUTOMATIC_MERGE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ConfigurationAdminSettings_automaticMerge_feature", "_UI_ConfigurationAdminSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.CONFIGURATION_ADMIN_SETTINGS__AUTOMATIC_MERGE, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -96,8 +96,8 @@ public class ConfigurationAdminSettingsItemProvider extends ItemProviderAdapter 
     protected void addSettleTimeoutPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ConfigurationAdminSettings_settleTimeout_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ConfigurationAdminSettings_settleTimeout_feature", "_UI_ConfigurationAdminSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.CONFIGURATION_ADMIN_SETTINGS__SETTLE_TIMEOUT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ConfigurationAdminSettings_settleTimeout_feature", "_UI_ConfigurationAdminSettings_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.CONFIGURATION_ADMIN_SETTINGS__SETTLE_TIMEOUT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**

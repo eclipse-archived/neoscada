@@ -1,4 +1,6 @@
 #!/bin/bash
 
-. /etc/default/eclipsescada
+USER=neoscada
+
+. /etc/default/$USER
 exec esDriverExporter "@@driverName@@" -attach

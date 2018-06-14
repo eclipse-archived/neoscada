@@ -72,8 +72,8 @@ public class ValueArchiveSlaveItemProvider extends EquinoxApplicationItemProvide
     protected void addStoragePathPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueArchiveSlave_storagePath_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ValueArchiveSlave_storagePath_feature", "_UI_ValueArchiveSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.VALUE_ARCHIVE_SLAVE__STORAGE_PATH, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ValueArchiveSlave_storagePath_feature", "_UI_ValueArchiveSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.VALUE_ARCHIVE_SLAVE__STORAGE_PATH, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -85,8 +85,8 @@ public class ValueArchiveSlaveItemProvider extends EquinoxApplicationItemProvide
     protected void addStorageLayoutPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ValueArchiveSlave_storageLayout_feature" ), //$NON-NLS-1$
-        getString ( "_UI_PropertyDescriptor_description", "_UI_ValueArchiveSlave_storageLayout_feature", "_UI_ValueArchiveSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        InfrastructurePackage.Literals.VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+                getString ( "_UI_PropertyDescriptor_description", "_UI_ValueArchiveSlave_storageLayout_feature", "_UI_ValueArchiveSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                InfrastructurePackage.Literals.VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
     }
 
     /**
@@ -135,7 +135,7 @@ public class ValueArchiveSlaveItemProvider extends EquinoxApplicationItemProvide
         }
 
         return label == null || label.length () == 0 ? getString ( "_UI_ValueArchiveSlave_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ValueArchiveSlave_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_ValueArchiveSlave_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -37,21 +37,21 @@
 								<data>
 									<type>template</type>
 									<paths>
-										<path>/etc/eclipsescada</path>
-										<path>/etc/eclipsescada/schema</path>
-										<path>/etc/eclipsescada/jarcfg</path>
+										<path>/etc/neoscada</path>
+										<path>/etc/neoscada/schema</path>
+										<path>/etc/neoscada/jarcfg</path>
 										<path>/usr/jar</path>
-										<path>/usr/share/eclipsescada</path>
-										<path>/usr/share/eclipsescada/profiles</path>
-										<path>/usr/share/eclipsescada/p2</path>
-										<path>/usr/share/eclipsescada/sql</path>
+										<path>/usr/share/neoscada</path>
+										<path>/usr/share/neoscada/profiles</path>
+										<path>/usr/share/neoscada/p2</path>
+										<path>/usr/share/neoscada/sql</path>
 										<path>/usr/share/perl5/EclipseSCADA</path>
 									</paths>
 								</data>
 								<data>
 									<type>template</type>
 									<paths>
-										<path>/var/log/eclipsescada</path>
+										<path>/var/log/neoscada</path>
 									</paths>
 									<mapper>
 										<group>eclipsescada</group>
@@ -61,7 +61,7 @@
 								<data>
 									<type>template</type>
 									<paths>
-										<path>/var/run/eclipsescada</path>
+										<path>/var/run/neoscada</path>
 									</paths>
 									<mapper>
 										<group>eclipsescada</group>
@@ -82,7 +82,7 @@
 									<type>directory</type>
 									<mapper>
 										<type>perm</type>
-										<prefix>/usr/share/eclipsescada</prefix>
+										<prefix>/usr/share/neoscada</prefix>
 										<filemode>0644</filemode>
 									</mapper>
 								</data>

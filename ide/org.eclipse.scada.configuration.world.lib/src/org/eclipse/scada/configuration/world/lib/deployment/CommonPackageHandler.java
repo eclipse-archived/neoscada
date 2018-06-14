@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.packagedrone.utils.deb.build.FileContentProvider;
+import org.eclipse.packagedrone.utils.deb.build.StaticContentProvider;
 import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
@@ -36,10 +38,9 @@ import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandl
 import org.eclipse.scada.configuration.world.lib.deployment.startup.SystemdHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.UpstartHandler;
 import org.eclipse.scada.configuration.world.lib.setup.SubModuleHandler;
+import org.eclipse.scada.configuration.world.lib.utils.Constants;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
-import org.eclipse.packagedrone.utils.deb.build.FileContentProvider;
-import org.eclipse.packagedrone.utils.deb.build.StaticContentProvider;
 import org.eclipse.scada.utils.str.StringHelper;
 
 public abstract class CommonPackageHandler extends CommonHandler
@@ -66,7 +67,7 @@ public abstract class CommonPackageHandler extends CommonHandler
             if ( !makeEquinoxList ().isEmpty () )
             {
                 final String data = StringHelper.join ( makeEquinoxList (), "\n" ) + "\n";
-                this.deploymentContext.addFile ( new StaticContentProvider ( data ), "/etc/eclipsescada/applications", new FileInformation ( 0644, null, null, FileOptions.CONFIGURATION ) );
+                this.deploymentContext.addFile ( new StaticContentProvider ( data ), "/etc/" + Constants.NEOSCADA_USER + "/applications", new FileInformation ( 0644, null, null, FileOptions.CONFIGURATION ) );
             }
         }
     }
@@ -98,7 +99,7 @@ public abstract class CommonPackageHandler extends CommonHandler
     protected void processDriver ( final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements, final String driverName, final File sourceDir ) throws IOException, Exception
     {
         final Path sourcePath = sourceDir.toPath ().toAbsolutePath ();
-        final String driverDir = "/etc/eclipsescada/drivers/" + driverName;
+        final String driverDir = "/etc/" + Constants.NEOSCADA_USER + "/drivers/" + driverName;
 
         java.nio.file.Files.walkFileTree ( sourceDir.toPath (), new ScoopFilesVisitor ( sourcePath, this.deploymentContext, driverDir ) );
 
@@ -136,7 +137,7 @@ public abstract class CommonPackageHandler extends CommonHandler
                 Files.copy ( source.toPath (), tempFile.toPath (), StandardCopyOption.REPLACE_EXISTING );
                 patchProfile ( name, tempFile );
 
-                this.deploymentContext.addFile ( new FileContentProvider ( tempFile ), "/usr/share/eclipsescada/profiles/" + name + ".profile.xml", new FileInformation ( 0640, "root", "eclipsescada" ) );
+                this.deploymentContext.addFile ( new FileContentProvider ( tempFile ), "/usr/share/" + Constants.NEOSCADA_USER + "/profiles/" + name + ".profile.xml", new FileInformation ( 0640, "root", Constants.NEOSCADA_USER ) );
             }
             finally
             {
@@ -144,10 +145,10 @@ public abstract class CommonPackageHandler extends CommonHandler
             }
         }
 
-        this.deploymentContext.addDirectory ( "/usr/share/eclipsescada/profiles/" + name, new FileInformation ( 0755 ) );
-        this.deploymentContext.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/app.logback.xml" ), replacements ), "/usr/share/eclipsescada/profiles/" + name + "/logback.xml", null );
+        this.deploymentContext.addDirectory ( "/usr/share/" + Constants.NEOSCADA_USER + "/profiles/" + name, new FileInformation ( 0755 ) );
+        this.deploymentContext.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/app.logback.xml" ), replacements ), "/usr/share/" + Constants.NEOSCADA_USER + "/profiles/" + name + "/logback.xml", null );
         this.deploymentContext.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/scada.createApplication" ), replacements ), "/usr/bin/scada.create." + name, new FileInformation ( 0755 ) );
-        this.deploymentContext.addFile ( new FileContentProvider ( new File ( sourceBase, name + "/data.json" ) ), "/usr/share/eclipsescada/ca.bootstrap/bootstrap." + name + ".json", new FileInformation ( 0640, "root", "eclipsescada" ) );
+        this.deploymentContext.addFile ( new FileContentProvider ( new File ( sourceBase, name + "/data.json" ) ), "/usr/share/" + Constants.NEOSCADA_USER + "/ca.bootstrap/bootstrap." + name + ".json", new FileInformation ( 0640, "root", Constants.NEOSCADA_USER ) );
 
         final StartupHandler sm = createStartupHandler ( getDefaultStartupMechanism () );
         if ( sm != null )
@@ -170,7 +171,7 @@ public abstract class CommonPackageHandler extends CommonHandler
         r.load ( null );
 
         final Profile profile = (Profile)EcoreUtil.getObjectByType ( r.getContents (), ProfilePackage.Literals.PROFILE );
-        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ca.file.provisionJsonUrl", "file:///usr/share/eclipsescada/ca.bootstrap/bootstrap." + appName + ".json" );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ca.file.provisionJsonUrl", "file:///usr/share/" + Constants.NEOSCADA_USER + "/ca.bootstrap/bootstrap." + appName + ".json" );
         r.save ( null );
     }
 

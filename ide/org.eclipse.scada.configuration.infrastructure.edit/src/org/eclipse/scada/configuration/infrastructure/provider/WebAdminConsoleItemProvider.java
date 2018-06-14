@@ -78,7 +78,7 @@ public class WebAdminConsoleItemProvider extends ItemProviderAdapter implements 
      */
     protected void addHttpServicePropertyDescriptor ( final Object object )
     {
-        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_WebAdminConsole_httpService_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_WebAdminConsole_httpService_feature", "_UI_WebAdminConsole_type" ), InfrastructurePackage.Literals.WEB_ADMIN_CONSOLE__HTTP_SERVICE, true, false, true, null, null, null) {
+        this.itemPropertyDescriptors.add ( new ItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_WebAdminConsole_httpService_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_WebAdminConsole_httpService_feature", "_UI_WebAdminConsole_type" ), InfrastructurePackage.Literals.WEB_ADMIN_CONSOLE__HTTP_SERVICE, true, false, true, null, null, null ) {
             @Override
             protected Collection<?> getComboBoxObjects ( final Object object )
             {

@@ -43,6 +43,7 @@ import org.eclipse.scada.configuration.world.lib.deployment.Contents;
 import org.eclipse.scada.configuration.world.lib.deployment.ScoopFilesVisitor;
 import org.eclipse.scada.configuration.world.lib.deployment.ScriptMaker;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
+import org.eclipse.scada.configuration.world.lib.utils.Constants;
 import org.eclipse.packagedrone.utils.deb.build.DebianPackageWriter;
 import org.eclipse.packagedrone.utils.deb.control.BinaryPackageControlFile;
 import org.eclipse.scada.utils.str.StringHelper;
@@ -51,7 +52,7 @@ import com.google.common.io.CharStreams;
 
 public class DebianHandler extends CommonPackageHandler
 {
-    private static final String CONTROL_SCRIPTS_DIR = "/usr/lib/eclipsescada/packagescripts";
+    private static final String CONTROL_SCRIPTS_DIR = "/usr/lib/" + Constants.NEOSCADA_USER +"/packagescripts";
 
     private static final String NL = "\n";
 

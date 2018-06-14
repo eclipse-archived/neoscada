@@ -78,7 +78,7 @@ sub classpath () {
 	return if ! -d $File::Find::name;
 	my $plugins = $File::Find::name . "/plugins";
 	push @repos, $plugins if -d $plugins;
-   }}, "/usr/share/eclipsescada/p2" );
+   }}, "/usr/share/neoscada/p2" );
 
    if ( @repos ) {
       find ( sub {
@@ -96,7 +96,7 @@ sub home () {
 
 sub configurationRoot () {
   return $ENV{'ECLIPSE_SCADA_CONFIGURATION_ROOT'} if $ENV{'ECLIPSE_SCADA_CONFIGURATION_ROOT'};
-  return "/etc/eclipsescada";
+  return "/etc/neoscada";
 }
 
 sub pidfileRoot () {
