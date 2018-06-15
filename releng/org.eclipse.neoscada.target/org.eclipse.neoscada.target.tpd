@@ -125,12 +125,12 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2018033001145
 	org.slf4j.ext [1.7.10,1.7.11)
 	org.slf4j.ext.source [1.7.10,1.7.11)
 	
-	ch.qos.logback.classic [1.1.2,1.1.3)
-	ch.qos.logback.classic.source [1.1.2,1.1.3)
-	ch.qos.logback.core [1.1.2,1.1.3)
-	ch.qos.logback.core.source [1.1.2,1.1.3)
-	ch.qos.logback.slf4j [1.1.2,1.1.3)
-	ch.qos.logback.slf4j.source [1.1.2,1.1.3)
+	ch.qos.logback.classic [1.0.7,1.0.8)
+	ch.qos.logback.classic.source [1.0.7,1.0.8)
+	ch.qos.logback.core [1.0.7,1.0.8)
+	ch.qos.logback.core.source [1.0.7,1.0.8)
+	ch.qos.logback.slf4j [1.0.7,1.0.8)
+	ch.qos.logback.slf4j.source [1.0.7,1.0.8)
 	
 	javax.annotation [1.2.0,1.2.1)
 	javax.annotation.source [1.2.0,1.2.1)
