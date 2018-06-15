@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
 <profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" includes="../../../plugin/org.eclipse.scada.configuration.lib/model/database.h2.profile.xml#/" name="Value Archive Server Customization Profile">
   <start>org.eclipse.scada.ca.file</start>
-  <property key="org.eclipse.scada.ca.file.root">${user.home}/.eclipse.scada/ca.hdserver</property>
+  <property key="org.eclipse.scada.ca.file.root">${user.home}/.neoscada/ca.hdserver</property>
 </profile:profile>

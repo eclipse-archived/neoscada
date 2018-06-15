@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "starting ..."
-pushd /var/lib/eclipsescada/master
+pushd /var/lib/neoscada/master
 pwd
-sudo -g eclipsescada -u eclipsescada /var/lib/eclipsescada/master/launcher
+sudo -g neoscada -u neoscada /var/lib/neoscada/master/launcher

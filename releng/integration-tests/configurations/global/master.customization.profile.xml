@@ -2,6 +2,6 @@
 <profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" includes="../../../plugin/org.eclipse.scada.configuration.lib/model/database.h2.profile.xml#/" name="Master Server Customization Profile">
   <start>org.eclipse.scada.ca.file</start>
   <start>org.eclipse.scada.ds.storage.file</start>
-  <property key="org.eclipse.scada.ca.file.root">${user.home}/.eclipse.scada/ca.master</property>
-  <property key="org.eclipse.scada.ds.storage.file.root">${user.home}/.eclipse.scada/ds.master</property>
+  <property key="org.eclipse.scada.ca.file.root">${user.home}/.neoscada/ca.master</property>
+  <property key="org.eclipse.scada.ds.storage.file.root">${user.home}/.neoscada/ds.master</property>
 </profile:profile>

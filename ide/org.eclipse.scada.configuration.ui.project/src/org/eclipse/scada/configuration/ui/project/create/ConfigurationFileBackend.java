@@ -15,7 +15,7 @@ public class ConfigurationFileBackend extends FileBackend
 
     public ConfigurationFileBackend ()
     {
-        super ( "org.eclipse.scada.ca.file", "org.eclipse.scada.ca.file.root", "${user.home}/.eclipse.scada/ca.%s" );
+        super ( "org.eclipse.scada.ca.file", "org.eclipse.scada.ca.file.root", "${user.home}/.neoscada/ca.%s" );
     }
 
 }
