@@ -1,4 +1,4 @@
-FROM neoscada:it-ubuntu16042-base
+FROM neoscada:it-ubuntu14045-base
 MAINTAINER juergen.rose@ibh-systems.com 
 
 ADD install /root/neoscada-install/
@@ -15,7 +15,7 @@ RUN dpkg -i /root/neoscada-install/neoscada.core.p2*.deb
 RUN dpkg -i /root/neoscada-install/neoscada.protocols.p2*.deb
 RUN dpkg -i /root/neoscada-install/neoscada.deploy.p2*.deb
 
-RUN dpkg -i /root/neoscada-install/ubuntu-systemd-configuration*.deb
+RUN dpkg -i /root/neoscada-install/ubuntu-upstart-configuration*.deb
 RUN scada.create.master
 
 CMD /bin/bash /root/neoscada-install/launch-master.sh

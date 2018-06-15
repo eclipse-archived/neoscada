@@ -9,7 +9,7 @@
     </deployment>
     <masters xmi:id="_GsBbtGulEeiPuqvWKzSDNw" name="master" instanceNumber="1"/>
   </nodes>
-  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_B-6W4GumEeiPuqvWKzSDNw" hostName="ubuntu">
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_B-6W4GumEeiPuqvWKzSDNw" hostName="ubuntu-systemd">
     <deployment xsi:type="deployment:DebianDeploymentMechanism" xmi:id="_D9oGUGumEeiPuqvWKzSDNw" startupMechanism="SYSTEMD" multiUserScreen="true">
       <changes xmi:id="_R_3SAGumEeiPuqvWKzSDNw" date="2018-06-09T07:30:52.946+0200" description="initial version" version="0.1.0">
         <author href="global/deployment.information.esdi#_KtxkcWumEeiPuqvWKzSDNw"/>
@@ -17,6 +17,15 @@
       <maintainer href="global/deployment.information.esdi#_KtxkcWumEeiPuqvWKzSDNw"/>
     </deployment>
     <masters xmi:id="_B-6W4WumEeiPuqvWKzSDNw" name="master" instanceNumber="1"/>
+  </nodes>
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_AhpwEHDHEeidEoMXvQeqxg" hostName="ubuntu-upstart">
+    <deployment xsi:type="deployment:DebianDeploymentMechanism" xmi:id="_AhpwEXDHEeidEoMXvQeqxg" startupMechanism="UPSTART" multiUserScreen="true">
+      <changes xmi:id="_AhpwEnDHEeidEoMXvQeqxg" date="2018-06-09T07:30:52.946+0200" description="initial version" version="0.1.0">
+        <author href="global/deployment.information.esdi#_KtxkcWumEeiPuqvWKzSDNw"/>
+      </changes>
+      <maintainer href="global/deployment.information.esdi#_KtxkcWumEeiPuqvWKzSDNw"/>
+    </deployment>
+    <masters xmi:id="_AhpwE3DHEeidEoMXvQeqxg" name="master" instanceNumber="1"/>
   </nodes>
   <options xmi:id="_GsBbu2ulEeiPuqvWKzSDNw">
     <monitorPools xmi:id="_GsD38GulEeiPuqvWKzSDNw" name="monitors.unsafe" filter="(status=UNSAFE)"/>
