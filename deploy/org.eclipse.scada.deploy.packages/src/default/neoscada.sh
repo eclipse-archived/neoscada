@@ -1,1 +1,1 @@
-export ECLIPSE_SCADA_HOME=/usr
+export NEOSCADA_HOME=/usr

@@ -90,17 +90,17 @@ sub classpath () {
 }
 
 sub home () {
-  Carp::croak ( "'ECLIPSE_SCADA_HOME' not set") unless $ENV{"ECLIPSE_SCADA_HOME"};
-  return $ENV{'ECLIPSE_SCADA_HOME'};
+  Carp::croak ( "'NEOSCADA_HOME' not set") unless $ENV{"NEOSCADA_HOME"};
+  return $ENV{'NEOSCADA_HOME'};
 }
 
 sub configurationRoot () {
-  return $ENV{'ECLIPSE_SCADA_CONFIGURATION_ROOT'} if $ENV{'ECLIPSE_SCADA_CONFIGURATION_ROOT'};
+  return $ENV{'NEOSCADA_CONFIGURATION_ROOT'} if $ENV{'NEOSCADA_CONFIGURATION_ROOT'};
   return "/etc/neoscada";
 }
 
 sub pidfileRoot () {
-  return $ENV{'ECLIPSE_SCADA_PIDFILE_ROOT'} if $ENV{'ECLIPSE_SCADA_PIDFILE_ROOT'};
+  return $ENV{'NEOSCADA_PIDFILE_ROOT'} if $ENV{'NEOSCADA_PIDFILE_ROOT'};
   return "/var/run";
 }
 

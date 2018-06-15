@@ -1,4 +1,4 @@
-USER=eclipsescada
+USER=neoscada
 
 if [ "$1" -eq "0" ]; then
 	# zero means this we are the last and now are gone
