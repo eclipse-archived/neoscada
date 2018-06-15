@@ -20,11 +20,11 @@ fi
 #docker build -t neoscada:it-ubuntu16042-base ./ubuntu1604.2/base 
 #docker run neoscada:it-ubuntu16042-base
 
-docker build -t neoscada:it-ubuntu18040-java9-base ./ubuntu1804.0-java9/base 
-docker run neoscada:it-ubuntu18040-java9-base
+#docker build -t neoscada:it-ubuntu18040-java9-base ./ubuntu1804.0-java9/base 
+#docker run neoscada:it-ubuntu18040-java9-base
 
-#docker build -t neoscada:it-ubuntu18040-java10-base ./ubuntu1804.0-java10/base 
-#docker run neoscada:it-ubuntu18040-java10-base
+docker build -t neoscada:it-ubuntu18040-java10-base ./ubuntu1804.0-java10/base 
+docker run neoscada:it-ubuntu18040-java10-base
 
 # ---------------------------------------------------------------
 # assemble installation files
@@ -105,5 +105,8 @@ cp configurations/results/ubuntu-systemd*.deb ubuntu1804.0-java10/neoscada/insta
 #docker build -t neoscada:it-ubuntu16042-test1 ./ubuntu1604.2/neoscada 
 #docker run neoscada:it-ubuntu16042-test1
 
-docker build -t neoscada:it-ubuntu18040-java9-test1 ./ubuntu1804.0-java9/neoscada 
-docker run neoscada:it-ubuntu18040-java9-test1
+#docker build -t neoscada:it-ubuntu18040-java9-test1 ./ubuntu1804.0-java9/neoscada 
+#docker run neoscada:it-ubuntu18040-java9-test1
+
+docker build -t neoscada:it-ubuntu18040-java10-test1 ./ubuntu1804.0-java10/neoscada 
+docker run neoscada:it-ubuntu18040-java10-test1

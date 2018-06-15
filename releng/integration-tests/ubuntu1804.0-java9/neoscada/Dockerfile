@@ -1,4 +1,4 @@
-FROM neoscada:it-ubuntu18040-java10-base
+FROM neoscada:it-ubuntu18040-java9-base
 MAINTAINER juergen.rose@ibh-systems.com 
 
 ADD install /root/neoscada-install/
