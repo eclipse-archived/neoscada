@@ -54,7 +54,7 @@
 										<path>/var/log/neoscada</path>
 									</paths>
 									<mapper>
-										<group>eclipsescada</group>
+										<group>neoscada</group>
 										<filemode>0770</filemode>
 									</mapper>
 								</data>
@@ -64,7 +64,7 @@
 										<path>/var/run/neoscada</path>
 									</paths>
 									<mapper>
-										<group>eclipsescada</group>
+										<group>neoscada</group>
 										<filemode>0775</filemode>
 									</mapper>
 								</data>

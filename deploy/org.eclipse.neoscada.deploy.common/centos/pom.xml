@@ -134,21 +134,21 @@
 								<entry>
 									<name>/var/log/neoscada</name>
 									<user>root</user>
-									<group>eclipsescada</group>
+									<group>neoscada</group>
 									<mode>0775</mode>
 									<directory>true</directory>
 								</entry>
 								<entry>
 									<name>/usr/share/perl5/EclipseSCADA</name>
 									<user>root</user>
-									<group>eclipsescada</group>
+									<group>neoscada</group>
 									<mode>0775</mode>
 									<directory>true</directory>
 								</entry>
 								<entry>
 									<name>/var/run/neoscada</name>
 									<user>root</user>
-									<group>eclipsescada</group>
+									<group>neoscada</group>
 									<mode>0775</mode>
 									<directory>true</directory>
 								</entry>
