@@ -96,7 +96,7 @@
 									</mapper>
 								</data>
 								<data>
-									<src>../src/default/eclipsescada.sh</src>
+									<src>../src/default/neoscada.sh</src>
 									<type>file</type>
 									<conffile>true</conffile>
 									<mapper>

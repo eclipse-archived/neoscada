@@ -178,13 +178,13 @@
 									<directory>false</directory>
 								</entry>
 								<entry>
-									<name>/etc/profile.d/eclipsescada.sh</name>
-									<file>../src/default/eclipsescada.sh</file>
+									<name>/etc/profile.d/neoscada.sh</name>
+									<file>../src/default/neoscada.sh</file>
 									<ruleset>executable-rule</ruleset>
 									<configuration>true</configuration>
 								</entry>
 								<entry>
-									<name>/etc/default/eclipsescada</name>
+									<name>/etc/default/neoscada</name>
 									<file>../src/default/eclipsescada</file>
 									<ruleset>default-rule</ruleset>
 									<configuration>true</configuration>
