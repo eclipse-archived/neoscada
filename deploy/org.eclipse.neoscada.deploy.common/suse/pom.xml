@@ -185,7 +185,7 @@
 								</entry>
 								<entry>
 									<name>/etc/default/neoscada</name>
-									<file>../src/default/eclipsescada</file>
+									<file>../src/default/neoscada</file>
 									<ruleset>default-rule</ruleset>
 									<configuration>true</configuration>
 								</entry>
