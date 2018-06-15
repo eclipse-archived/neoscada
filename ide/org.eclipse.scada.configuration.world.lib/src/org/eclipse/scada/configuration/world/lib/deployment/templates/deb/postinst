@@ -2,6 +2,7 @@
 # postinst script
 
 USER=neoscada
+NEOSCADA_HOME="/var/lib/$USER"
 
 set -e
 
@@ -13,8 +14,8 @@ case "$1" in
     configure)
 $$create.apps$$
 
-	if [ ! -f ~$USER/.screenrc ]; then
-		test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~$USER/.screenrc
+	if [ ! -f $NEOSCADA_HOME/.screenrc ]; then
+		test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~$NEOSCADA_HOME/.screenrc
 	fi
     ;;
 
