@@ -15,7 +15,7 @@ case "$1" in
 $$create.apps$$
 
 	if [ ! -f $NEOSCADA_HOME/.screenrc ]; then
-		test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > ~$NEOSCADA_HOME/.screenrc
+		test "$multiuserScreen" -eq "1" && echo "multiuser on\nacladd root" > $NEOSCADA_HOME/.screenrc
 	fi
     ;;
 
