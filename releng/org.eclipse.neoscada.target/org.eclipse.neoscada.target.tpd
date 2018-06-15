@@ -120,10 +120,10 @@ location "http://download.eclipse.org/tools/orbit/downloads/drops/R2018033001145
 	com.jcraft.jzlib[1.1.1,1.1.2)
 	com.jcraft.jzlib.source[1.1.1,1.1.2)
 	
-	org.slf4j.api [1.7.10,1.7.11)
-	org.slf4j.api.source [1.7.10,1.7.11)
-	org.slf4j.ext [1.7.10,1.7.11)
-	org.slf4j.ext.source [1.7.10,1.7.11)
+	org.slf4j.api [1.7.2,1.7.3)
+	org.slf4j.api.source [1.7.2,1.7.3)
+	org.slf4j.ext [1.7.2,1.7.3)
+	org.slf4j.ext.source [1.7.2,1.7.3)
 	
 	ch.qos.logback.classic [1.0.7,1.0.8)
 	ch.qos.logback.classic.source [1.0.7,1.0.8)
