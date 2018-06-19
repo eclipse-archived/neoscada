@@ -52,7 +52,8 @@
 		<mkdir dir="${tmp.target.path}/rpm-all" />
 
 		<!-- before we do anything, we clean up the drops for nightly -->
-		<exec executable="${basedir}/cleanupdrops">
+		<exec executable="python">
+			<arg value="${basedir}/cleanupdrops" />
 			<arg value="-d" />
 			<arg value="${publish.target.path}/downloads" />
 			<arg value="-k" />

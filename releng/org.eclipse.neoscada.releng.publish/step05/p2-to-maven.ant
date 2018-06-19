@@ -42,9 +42,9 @@
 			<arg value="-consoleLog" />
 
 			<!-- configuration -->
-			<arg value="file://${basedir}/p2tom2.properties" />
+			<arg value="${basedir.uri}/p2tom2.properties" />
 			<!-- source repo -->
-			<arg value="file://${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/p2" />
+			<arg value="${assemble.target.uri}/downloads/org.eclipse.neoscada/drops/${imported.release.fullVersion}/${imported.release.buildType}${imported.build.timestamp}/p2" />
 			<!-- validation repos -->
 			<arg value="http://download.eclipse.org/releases/oxygen" />
 

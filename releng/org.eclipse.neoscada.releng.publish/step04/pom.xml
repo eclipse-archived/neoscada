@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -35,6 +36,34 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>setproperty</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<scripts>
+								<script>
+									<![CDATA[
+									if (project.properties['assemble.target.path'].indexOf('\\') >= 0) {
+										project.properties['assemble.target.uri'] = 'file:///' +
+										project.properties['assemble.target.path'].replace('\\','/');
+									} else {
+										project.properties['assemble.target.uri'] = 'file://' +
+										project.properties['assemble.target.path'];
+									}
+									]]>
+								</script>
+							</scripts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.eclipse.tycho.extras</groupId>
 				<artifactId>tycho-p2-extras-plugin</artifactId>
 				<executions>
@@ -44,40 +73,42 @@
 						<configuration>
 							<source>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.external/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.external/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.utils/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.utils/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.base/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.base/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.chart/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.chart/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.protocols/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.protocols/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.core/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.core/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.hmi/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.hmi/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 								<repository>
-									<url>file://${assemble.target.path}/downloads/org.eclipse.neoscada.ide/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.ide/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
 							</source>
 							<destination>${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}/p2</destination>
-							<name>Eclipse NeoSCADA P2 repository - ${release.fullVersion} - ${release.buildType}${alternateBuildTimestamp} - (${release.buildTypeLong})</name>
+							<name>Eclipse NeoSCADA P2 repository - ${release.fullVersion} -
+								${release.buildType}${alternateBuildTimestamp} -
+								(${release.buildTypeLong})</name>
 						</configuration>
 						<goals>
 							<goal>mirror</goal>
