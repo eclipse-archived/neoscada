@@ -3,7 +3,9 @@
       id="org.eclipse.neoscada.external.feature"
       label="%featureName"
       version="0.5.0.qualifier"
-      provider-name="%providerName">
+      provider-name="%providerName"
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
 
    <description>
       %description
@@ -16,10 +18,10 @@
    <license url="%licenseURL">
       %license
    </license>
-
-   <includes
-         id="org.eclipse.license"
-         version="0.0.0"/>
+   
+   <requires>
+      <import feature="org.eclipse.license" version="1.0.1"/>
+   </requires>
 
    <plugin
          id="io.netty.buffer"
