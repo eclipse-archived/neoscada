@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1529073868">
+<target name="Eclipse NeoSCADA Target Platform" sequenceNumber="1530888074">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.13.4.v20180322-2228"/>
@@ -59,7 +59,7 @@
       <unit id="bcprov" version="1.59.0"/>
       <unit id="bcpkix" version="1.59.0"/>
       <unit id="com.codepoetics.protonpack" version="1.15.0"/>
-      <unit id="org.jooq.jool" version="0.9.13"/>
+      <unit id="org.jooq.jool" version="0.9.12"/>
       <unit id="org.eclipse.milo.bsd-parser-core" version="0.2.1.ibh"/>
       <unit id="org.eclipse.milo.stack-core" version="0.2.1.ibh"/>
       <unit id="org.eclipse.milo.stack-client" version="0.2.1.ibh"/>

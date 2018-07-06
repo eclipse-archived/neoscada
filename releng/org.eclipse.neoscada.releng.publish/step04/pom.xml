@@ -104,6 +104,10 @@
 									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.ide/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
 									<layout>p2</layout>
 								</repository>
+								<repository>
+									<url>${assemble.target.uri}/downloads/org.eclipse.neoscada.deploy/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}</url>
+									<layout>p2</layout>
+								</repository>
 							</source>
 							<destination>${assemble.target.path}/downloads/org.eclipse.neoscada/drops/${release.fullVersion}/${release.buildType}${alternateBuildTimestamp}/p2</destination>
 							<name>Eclipse NeoSCADA P2 repository - ${release.fullVersion} -
