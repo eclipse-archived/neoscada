@@ -34,7 +34,7 @@
 
    <includes
          id="org.eclipse.license"
-         version="1.0.1"/>
+         version="0.0.0"/>
 
    <requires>
       <import plugin="org.slf4j.api"/>
