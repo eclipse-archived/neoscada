@@ -32,10 +32,13 @@
          id="org.eclipse.neoscada.hds.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.license"
+         version="1.0.1"/>
+
    <requires>
       <import plugin="org.slf4j.api"/>
       <import plugin="org.eclipse.osgi"/>
-      <import feature="org.eclipse.license" version="1.0.1"/>
    </requires>
 
    <plugin
