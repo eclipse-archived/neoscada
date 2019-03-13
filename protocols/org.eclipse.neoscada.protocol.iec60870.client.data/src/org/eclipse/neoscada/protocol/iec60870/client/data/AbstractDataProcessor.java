@@ -15,6 +15,9 @@ import org.eclipse.neoscada.protocol.iec60870.asdu.message.AbstractMessage;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedSequence;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedSingle;
+import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueNormalizedTimeSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledSequence;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledSingle;
 import org.eclipse.neoscada.protocol.iec60870.asdu.message.MeasuredValueScaledTimeSingle;
@@ -36,7 +39,7 @@ public abstract class AbstractDataProcessor implements DataHandler
 
     /**
      * Test if this message should be ignored
-     * 
+     *
      * @param msg
      *            the message to check
      * @return {@code true} if the message should be ignore, {@code false}
@@ -227,4 +230,47 @@ public abstract class AbstractDataProcessor implements DataHandler
         }
     }
 
+    @Override
+    public void process( MeasuredValueNormalizedTimeSingle msg )
+    {
+        if ( checkIgnore ( msg ) )
+        {
+            return;
+        }
+
+        for ( final InformationEntry<Double> entry : msg.getEntries () )
+        {
+            fireEntry ( msg.getHeader ().getAsduAddress (), entry.getAddress (), entry.getValue () );
+        }
+    }
+
+    @Override
+    public void process( MeasuredValueNormalizedSingle msg ) {
+        if ( checkIgnore ( msg ) )
+        {
+            return;
+        }
+
+        for ( final InformationEntry<Double> entry : msg.getEntries () )
+        {
+            fireEntry ( msg.getHeader ().getAsduAddress (), entry.getAddress (), entry.getValue () );
+        }
+    }
+
+    @Override
+    public void process( MeasuredValueNormalizedSequence msg )
+    {
+        if ( checkIgnore ( msg ) )
+        {
+            return;
+        }
+
+        int i = msg.getStartAddress ().getAddress ();
+
+        for ( final Value<Double> value : msg.getValues () )
+        {
+            fireEntry ( msg.getHeader ().getAsduAddress (), InformationObjectAddress.valueOf ( i ), value );
+            i++;
+        }
+    }
 }
