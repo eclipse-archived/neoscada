@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ====================================================================== 
-     12.01.2018 12:59:54                                                        
-
-     project    
-     description
-                   
-     jrose                                                                
-     ====================================================================== -->
 <project name="artifact assembly" default="run">
 	<description>
         now try to create maven repo from p2 repo
@@ -15,6 +7,8 @@
 	<property file="${basedir}/../generated/src/main/resources/buildinfo.properties" prefix="imported" />
 	<property file="${basedir}/../generated/src/main/resources/publish.properties" />
 
+	<property name="p2tom2.download.url" value="http://download.eclipse.org/eclipsescada/releng/p2tom2-${p2tom2.version}.zip"/>
+	
 	<property environment="env" />
 	<property name="env.JAVA_ARGS" value="" />
 
@@ -27,7 +21,7 @@
 
 		<echo message="P2toM2: ${p2tom2.version}" />
 
-		<get src="https://hudson.eclipse.org/eclipsescada/job/neoscada-05-p2tom2/lastSuccessfulBuild/artifact/org.eclipse.neoscada.releng.p2.to.maven.app-product/target/final/p2tom2-${p2tom2.version}.zip" dest="${tmp.target.path}/p2tom2.zip" usetimestamp="true" />
+		<get src="${p2tom2.download.url}" dest="${tmp.target.path}/p2tom2.zip" usetimestamp="true" />
 		<unzip src="${tmp.target.path}/p2tom2.zip" dest="${tmp.target.path}/p2tom2" />
 
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true" dir="${tmp.target.path}/p2tom2">

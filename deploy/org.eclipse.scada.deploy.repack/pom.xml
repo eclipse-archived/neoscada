@@ -33,7 +33,7 @@
 							<goal>wget</goal>
 						</goals>
 						<configuration>
-							<url>http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/equinox/drops/R-Oxygen.2-201711300510/equinox-SDK-Oxygen.2.zip</url>
+							<url>https://archive.eclipse.org/equinox/drops/R-Oxygen.2-201711300510/equinox-SDK-Oxygen.2.zip</url>
 							<unpack>true</unpack>
 							<retries>3</retries>
 							<readTimeOut>5000</readTimeOut>
@@ -61,7 +61,7 @@
 							<goal>wget</goal>
 						</goals>
 						<configuration>
-							<url>http://ftp-stud.hs-esslingen.de/Mirrors/eclipse/eclipse/downloads/drops4/R-${eclipse.version}-201711300510/org.eclipse.platform-${eclipse.version}.zip</url>
+							<url>https://archive.eclipse.org/eclipse/downloads/drops4/R-${eclipse.version}-201711300510/org.eclipse.platform-${eclipse.version}.zip</url>
 							<unpack>true</unpack>
 							<outputDirectory>${project.build.directory}/org.eclipse.platform</outputDirectory>
 							<sha512>3ccc911c913990bb200d3f8e7d40da6c146611220ecb71cc2d7e564de718d8262ebaff68198eee388e0ea3e6c5e47a1101c09ef880ee5940271d7d8bd3977154</sha512>
